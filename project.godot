@@ -11,5 +11,16 @@ config_version=5
 [application]
 
 config/name="Dustership"
+run/main_scene="res://scenes/combat.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/window_width_override=1000
+window/size/window_height_override=600
+window/per_pixel_transparency/allowed=true
+
+[rendering]
+
+renderer/rendering_method="mobile"
