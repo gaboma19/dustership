@@ -1,42 +1,38 @@
 extends CharacterBody2D
 
 var direction = Vector2()
+const MOTION_SPEED = 30
 
-const TOP = Vector2(0, -1)
-const RIGHT = Vector2(1, 0)
-const DOWN = Vector2(0, 1)
-const LEFT = Vector2(-1, 0)
+@onready var animation_tree : AnimationTree = $AnimationTree
 
-var speed = 0
-const MAX_SPEED = 2000
-const FRICTION_FACTOR = 0.89
+func _ready():
+	animation_tree.active = true
+	
+func _process(_delta):
+	if (direction != Vector2.ZERO):
+		set_moving(true)
+		update_blend_position()
+	else:
+		set_moving(false)
+		
+func set_moving(value):
+	animation_tree.set("parameters/conditions/is_idle", not value)
+	animation_tree.set("parameters/conditions/is_moving", value)
+	
+func update_blend_position():
+	animation_tree["parameters/Idle/blend_position"] = direction
+	animation_tree["parameters/Walk/blend_position"] = direction
 
 func cartesian_to_isometric(cartesian):
 	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
 
-func _physics_process(delta):
-	# this can be simplified by grouping them in input map settings
-	var is_moving = Input.is_action_pressed("move_up") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_down") or Input.is_action_pressed("move_left")
+func _physics_process(delta):		
+	direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
 	
-	if is_moving:
-		speed = MAX_SPEED
-		
-		if Input.is_action_pressed("move_up"):
-			direction = TOP
-		elif Input.is_action_pressed("move_right"):
-			direction = RIGHT
-		elif Input.is_action_pressed("move_down"):
-			direction = DOWN
-		elif Input.is_action_pressed("move_left"):
-			direction = LEFT
-		pass
-	else:
-		speed = 0
-		
-	velocity = speed * direction * delta
-	velocity *= FRICTION_FACTOR
-	velocity = cartesian_to_isometric(velocity)
+	# direction = cartesian_to_isometric(direction)
+	direction.y /= 2
+	direction = direction.normalized()
+	
+	velocity = direction * MOTION_SPEED
 	
 	move_and_slide()
-	
-
