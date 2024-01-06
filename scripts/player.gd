@@ -1,38 +1,58 @@
 extends CharacterBody2D
 
-var direction = Vector2()
-const MOTION_SPEED = 30
+enum State { IDLE, FOLLOW }
 
-@onready var animation_tree : AnimationTree = $AnimationTree
+const ARRIVE_DISTANCE = 10.0
+
+@export var speed: float = 30.0
+
+var _state = State.IDLE
+var _direction = Vector2()
+
+@onready var _animation_tree : AnimationTree = $AnimationTree
+@onready var _tile_map = $"../TileMap"
+
+var _click_position = Vector2()
+var _path = PackedVector2Array()
+var _next_point = Vector2()
 
 func _ready():
-	animation_tree.active = true
+	_animation_tree.active = true
 	
 func _process(_delta):
-	if (direction != Vector2.ZERO):
-		set_moving(true)
-		update_blend_position()
+	if (_direction != Vector2.ZERO):
+		_set_moving(true)
+		_update_blend_position()
 	else:
-		set_moving(false)
+		_set_moving(false)
 		
-func set_moving(value):
-	animation_tree.set("parameters/conditions/is_idle", not value)
-	animation_tree.set("parameters/conditions/is_moving", value)
+func _set_moving(value):
+	_animation_tree.set("parameters/conditions/is_idle", not value)
+	_animation_tree.set("parameters/conditions/is_moving", value)
 	
-func update_blend_position():
-	animation_tree["parameters/Idle/blend_position"] = direction
-	animation_tree["parameters/Walk/blend_position"] = direction
+func _update_blend_position():
+	_animation_tree["parameters/Idle/blend_position"] = _direction
+	_animation_tree["parameters/Walk/blend_position"] = _direction
+	
+func _move_to(local_position):
+	_direction = position.direction_to(local_position)
+	velocity = _direction * speed
+	
+	var has_arrived = position.distance_to(local_position) < ARRIVE_DISTANCE
+	if not has_arrived:
+		move_and_slide()
+	return has_arrived
 
-func cartesian_to_isometric(cartesian):
-	return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
+#func _cartesian_to_isometric(cartesian):
+	#return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)
 
-func _physics_process(delta):		
-	direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
+func _physics_process(_delta):
+	_direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
 	
-	# direction = cartesian_to_isometric(direction)
-	direction.y /= 2
-	direction = direction.normalized()
+	#_direction = _cartesian_to_isometric(_direction)
+	_direction.y /= 2
+	_direction = _direction.normalized()
 	
-	velocity = direction * MOTION_SPEED
+	velocity = _direction * speed 
 	
 	move_and_slide()

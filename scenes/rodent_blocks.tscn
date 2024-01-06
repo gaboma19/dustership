@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://d1vbvvuy5g7wa" path="res://art/route1rodent/rodent_blocks.tres" id="1_1rb4a"]
 
-[node name="rodent_blocks" type="TileMap"]
+[node name="RodentBlocks" type="TileMap"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("1_1rb4a")
