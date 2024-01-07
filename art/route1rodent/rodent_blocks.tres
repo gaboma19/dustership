@@ -1,18 +1,12 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://d1vbvvuy5g7wa"]
+[gd_resource type="TileSet" load_steps=10 format=3 uid="uid://d1vbvvuy5g7wa"]
 
 [ext_resource type="Texture2D" uid="uid://c388563pktn3" path="res://art/route1rodent/isometric-sandbox-sheet.png" id="1_0r8d6"]
+[ext_resource type="Texture2D" uid="uid://c7pblhnyju5hi" path="res://art/route1rodent/isometric-sandbox-sheet-edited.png" id="2_45v3v"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_suumg"]
 vertices = PackedVector2Array(16, -16, 0, -8, -16, -16, 0, -24)
 polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 0, -8, 16, -16, 0, -24)])
-source_geometry_group_name = &"navigation_polygon_source_group"
-agent_radius = 0.0
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_fkx0f"]
-vertices = PackedVector2Array(16, 0, 0, 8, -16, 0, 0, -8)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
@@ -31,6 +25,7 @@ source_geometry_group_name = &"navigation_polygon_source_group"
 agent_radius = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gry2v"]
+resource_name = "obstacles"
 texture = ExtResource("1_0r8d6")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -77,12 +72,6 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
-1:1/0 = 0
-1:1/0/texture_origin = Vector2i(0, 8)
-1:1/0/y_sort_origin = -2
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fkx0f")
 2:1/0 = 0
 2:1/0/texture_origin = Vector2i(0, 8)
 2:1/0/y_sort_origin = -2
@@ -174,12 +163,6 @@ texture_region_size = Vector2i(32, 32)
 0:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:4/0/physics_layer_0/angular_velocity = 0.0
 0:4/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
-1:4/0 = 0
-1:4/0/texture_origin = Vector2i(0, 8)
-1:4/0/y_sort_origin = -2
-1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:4/0/physics_layer_0/angular_velocity = 0.0
-1:4/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fkx0f")
 2:4/0 = 0
 2:4/0/texture_origin = Vector2i(0, 8)
 2:4/0/y_sort_origin = -2
@@ -261,12 +244,6 @@ texture_region_size = Vector2i(32, 32)
 0:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:7/0/physics_layer_0/angular_velocity = 0.0
 0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -8, -16, 0, 0, 8, 16, 0)
-1:7/0 = 0
-1:7/0/texture_origin = Vector2i(0, 8)
-1:7/0/y_sort_origin = -2
-1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:7/0/physics_layer_0/angular_velocity = 0.0
-1:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_fkx0f")
 2:7/0 = 0
 2:7/0/texture_origin = Vector2i(0, 8)
 2:7/0/y_sort_origin = -2
@@ -326,6 +303,36 @@ texture_region_size = Vector2i(32, 32)
 3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:2/0/physics_layer_0/angular_velocity = 0.0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fu31g"]
+resource_name = "start_point"
+texture = ExtResource("2_45v3v")
+texture_region_size = Vector2i(32, 32)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8uee"]
+resource_name = "end_point"
+texture = ExtResource("2_45v3v")
+texture_region_size = Vector2i(32, 32)
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcbhg"]
+resource_name = "floor"
+texture = ExtResource("2_45v3v")
+texture_region_size = Vector2i(32, 32)
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+1:4/0 = 0
+1:4/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:4/0/physics_layer_0/angular_velocity = 0.0
+1:7/0 = 0
+1:7/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:7/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_shape = 1
 tile_layout = 5
@@ -333,3 +340,6 @@ tile_size = Vector2i(32, 16)
 physics_layer_0/collision_layer = 1
 navigation_layer_0/layers = 1
 sources/0 = SubResource("TileSetAtlasSource_gry2v")
+sources/1 = SubResource("TileSetAtlasSource_fu31g")
+sources/2 = SubResource("TileSetAtlasSource_v8uee")
+sources/3 = SubResource("TileSetAtlasSource_rcbhg")
