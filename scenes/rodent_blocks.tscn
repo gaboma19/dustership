@@ -11,6 +11,7 @@ format = 2
 layer_0/name = "floor"
 layer_0/y_sort_enabled = true
 layer_0/y_sort_origin = -16
+layer_0/tile_data = PackedInt32Array(65541, 0, 0, 131077, 0, 0, 131078, 0, 0, 196614, 0, 0, 131079, 0, 0, 65543, 0, 0, 65542, 0, 0, 6, 0, 0, 196615, 0, 0, 196616, 65536, 0, 131080, 65536, 0, 65544, 65536, 0)
 layer_1/name = "walls"
 layer_1/y_sort_enabled = true
 layer_1/y_sort_origin = 8

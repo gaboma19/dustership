@@ -21,6 +21,7 @@ window/size/viewport_width=1000
 window/size/viewport_height=600
 window/size/window_width_override=1000
 window/size/window_height_override=600
+window/stretch/mode="canvas_items"
 window/per_pixel_transparency/allowed=true
 
 [editor_plugins]
@@ -69,4 +70,5 @@ move_to={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
