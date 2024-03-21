@@ -1,11 +1,11 @@
 [gd_resource type="TileSet" load_steps=7 format=3 uid="uid://d1vbvvuy5g7wa"]
 
-[ext_resource type="Texture2D" uid="uid://c388563pktn3" path="res://art/route1rodent/isometric-sandbox-sheet.png" id="1_0r8d6"]
-[ext_resource type="Texture2D" uid="uid://c7pblhnyju5hi" path="res://art/route1rodent/isometric-sandbox-sheet-edited.png" id="2_45v3v"]
+[ext_resource type="Texture2D" uid="uid://c388563pktn3" path="res://assets/route1rodent/isometric-sandbox-sheet.png" id="1_sx2sb"]
+[ext_resource type="Texture2D" uid="uid://c7pblhnyju5hi" path="res://assets/route1rodent/isometric-sandbox-sheet-edited.png" id="2_qpu40"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gry2v"]
 resource_name = "obstacles"
-texture = ExtResource("1_0r8d6")
+texture = ExtResource("1_sx2sb")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 8)
@@ -275,7 +275,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fu31g"]
 resource_name = "start_point"
-texture = ExtResource("2_45v3v")
+texture = ExtResource("2_qpu40")
 texture_region_size = Vector2i(32, 32)
 6:0/0 = 0
 6:0/0/texture_origin = Vector2i(0, 8)
@@ -284,7 +284,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_v8uee"]
 resource_name = "end_point"
-texture = ExtResource("2_45v3v")
+texture = ExtResource("2_qpu40")
 texture_region_size = Vector2i(32, 32)
 7:0/0 = 0
 7:0/0/texture_origin = Vector2i(0, 8)
@@ -293,7 +293,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rcbhg"]
 resource_name = "floor"
-texture = ExtResource("2_45v3v")
+texture = ExtResource("2_qpu40")
 texture_region_size = Vector2i(32, 32)
 1:1/0 = 0
 1:1/0/texture_origin = Vector2i(0, 8)

@@ -16,10 +16,12 @@ var _click_position = Vector2()
 var _path : Array[Vector2i]
 var _next_point = Vector2i()
 
+
 func _ready():
 	_change_state(State.IDLE)
 	_animation_tree.active = true
-	
+
+
 func _process(_delta):
 	if _state == State.FOLLOW:
 		var arrived_to_next_point = _move_to(_next_point)
@@ -38,19 +40,23 @@ func _process(_delta):
 		_set_moving(true)
 		_update_blend_position()
 		
+		
 func _set_moving(value):
 	_animation_tree.set("parameters/conditions/is_idle", not value)
 	_animation_tree.set("parameters/conditions/is_moving", value)
 	
+	
 func _update_blend_position():
 	_animation_tree["parameters/Idle/blend_position"] = _direction
 	_animation_tree["parameters/Walk/blend_position"] = _direction
+	
 	
 func _unhandled_input(event):
 	_click_position = get_global_mouse_position()
 	if _tile_map.is_point_walkable(_click_position):
 		if event.is_action_pressed(&"move_to"):
 			_change_state(State.FOLLOW)
+	
 	
 func _move_to(local_position):
 	_direction = position.direction_to(local_position)
@@ -60,6 +66,7 @@ func _move_to(local_position):
 	if not has_arrived:
 		move_and_slide()
 	return has_arrived
+	
 	
 func _change_state(new_state):
 	if new_state == State.IDLE:
@@ -73,6 +80,7 @@ func _change_state(new_state):
 		# We don't want the character to move back to it in this example.
 		_next_point = _tile_map.map_to_local(_path[1])
 	_state = new_state
+
 
 func _physics_process(_delta):
 	_direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")

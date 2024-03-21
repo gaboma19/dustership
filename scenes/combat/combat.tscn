@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c07831odmeqpn"]
 
-[ext_resource type="PackedScene" uid="uid://bg764t7c7buqn" path="res://scenes/player.tscn" id="2_4dec4"]
-[ext_resource type="PackedScene" uid="uid://b7qlpio0l5g3f" path="res://scenes/rodent_blocks.tscn" id="3_qdqo6"]
+[ext_resource type="PackedScene" uid="uid://bg764t7c7buqn" path="res://scenes/objects/pathfinding_character_body.tscn" id="2_4dec4"]
+[ext_resource type="PackedScene" uid="uid://b7qlpio0l5g3f" path="res://scenes/combat/pathfinding_tilemap.tscn" id="3_qdqo6"]
 
 [node name="Combat" type="Node2D"]
 y_sort_enabled = true

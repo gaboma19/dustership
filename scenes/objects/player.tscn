@@ -1,7 +1,8 @@
-[gd_scene load_steps=27 format=3 uid="uid://bg764t7c7buqn"]
+[gd_scene load_steps=28 format=3 uid="uid://8mj6n5arl8rg"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_1rubt"]
-[ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://art/gabriel/gabriel.png" id="2_7oby8"]
+[ext_resource type="Script" path="res://scenes/objects/player.gd" id="1_1rubt"]
+[ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://assets/gabriel/gabriel.png" id="2_7oby8"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_rdnns"]
 
 [sub_resource type="Animation" id="Animation_owhys"]
 length = 10.1
@@ -601,6 +602,8 @@ size = Vector2(8, 4)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1rubt")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_rdnns")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

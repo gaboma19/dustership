@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ggvy8hstsf8l"]
 
-[ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://art/philo/philo.png" id="1_7fay8"]
+[ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0

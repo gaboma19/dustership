@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bthhk0yjb1d7l"
+path="res://.godot/imported/sword.aseprite-afc5d1549849ca6d74d6607fc8f61fa4.res"
+
+[deps]
+
+source_file="res://assets/sword/sword.aseprite"
+dest_files=["res://.godot/imported/sword.aseprite-afc5d1549849ca6d74d6607fc8f61fa4.res"]
+
+[params]
+
