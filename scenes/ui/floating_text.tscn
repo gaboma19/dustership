@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://wdbfgdse41i6"]
+
+[ext_resource type="Script" path="res://scenes/ui/floating_text.gd" id="1_msghc"]
+
+[node name="FloatingText" type="Node2D"]
+script = ExtResource("1_msghc")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(100, 32)
+offset_left = -50.0
+offset_top = -16.0
+offset_right = 50.0
+offset_bottom = 16.0
+text = "700"
+horizontal_alignment = 1
+vertical_alignment = 1
