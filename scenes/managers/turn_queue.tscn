@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://byevirwmywwqe"]
 
 [ext_resource type="Script" path="res://scenes/managers/turn_queue.gd" id="1_l0opn"]
-[ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/objects/philo.tscn" id="2_x0o10"]
+[ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/objects/philo/philo.tscn" id="2_x0o10"]
 
 [node name="TurnQueue" type="Node2D"]
 script = ExtResource("1_l0opn")

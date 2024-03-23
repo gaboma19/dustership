@@ -1,6 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=17 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
+[ext_resource type="Script" path="res://scenes/objects/philo/philo.gd" id="1_wrftd"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_2owtl"]
+[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="2_t7y50"]
+[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component.tscn" id="2_xgd4y"]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -136,10 +140,68 @@ _data = {
 "move": SubResource("Animation_x2s4k")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m16u5"]
-size = Vector2(16, 8)
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndv6a"]
+animation = &"idle"
 
-[node name="Philo" type="CharacterBody2D"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a5dsa"]
+animation = &"move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfhk8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_250h3"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f4na"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n1f06"]
+states/Start/position = Vector2(186, 94)
+states/idle/node = SubResource("AnimationNodeAnimation_ndv6a")
+states/idle/position = Vector2(375, 94)
+states/move/node = SubResource("AnimationNodeAnimation_a5dsa")
+states/move/position = Vector2(593, 94)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tfhk8"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_250h3"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_1f4na")]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eoy7n"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m16u5"]
+size = Vector2(8, 8)
+
+[node name="Philo" type="CharacterBody2D" groups=["enemy"]]
+script = ExtResource("1_wrftd")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_t7y50")]
+max_health = 20.0
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_2owtl")]
+max_speed = 4
+acceleration = 4.0
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x6ig7")
+}
+tree_root = SubResource("AnimationNodeStateMachine_n1f06")
+anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_idle = false
+parameters/conditions/is_moving = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_x6ig7")
+}
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
+health_component = NodePath("../HealthComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -4)
+rotation = 1.57079
+shape = SubResource("CircleShape2D_eoy7n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -147,6 +209,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
+frame = 6
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -159,12 +222,6 @@ metadata/_aseprite_wizard_config_ = {
 "player": "AnimationPlayer",
 "source": "res://art/philo/philo.aseprite"
 }
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_x6ig7")
-}
-autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

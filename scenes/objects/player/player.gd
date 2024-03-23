@@ -1,7 +1,12 @@
 extends CharacterBody2D
+class_name Player
 
 @onready var animation_tree = $AnimationTree
 @onready var velocity_component = $VelocityComponent
+@onready var ability_spawn_component = $AbilitySpawnComponent
+
+
+var movement_vector: Vector2 = Vector2.ZERO
 
 
 func _ready():
@@ -9,7 +14,7 @@ func _ready():
 	
 	
 func _process(_delta):
-	var movement_vector = get_movement_vector()
+	movement_vector = get_movement_vector()
 	
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		set_moving(true)
@@ -37,3 +42,4 @@ func set_moving(value):
 func update_blend_position(direction: Vector2):
 	animation_tree["parameters/Idle/blend_position"] = direction
 	animation_tree["parameters/Walk/blend_position"] = direction
+	ability_spawn_component.update_blend_position(direction)
