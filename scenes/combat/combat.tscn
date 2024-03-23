@@ -25,5 +25,38 @@ y_sort_enabled = true
 [node name="Philo" parent="Entities" instance=ExtResource("3_6kt3p")]
 position = Vector2(40, 53)
 
+[node name="Philo2" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(76, 28)
+
+[node name="Philo3" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(84, -36)
+
+[node name="Philo4" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(-40, -104)
+
+[node name="Philo5" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(48, -132)
+
+[node name="Philo6" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(284, -28)
+
+[node name="Philo7" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(244, 16)
+
+[node name="Philo8" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(132, 84)
+
+[node name="Philo9" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(20, 132)
+
+[node name="Philo10" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(-64, 120)
+
+[node name="Philo11" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(-216, -16)
+
+[node name="Philo12" parent="Entities" instance=ExtResource("3_6kt3p")]
+position = Vector2(-240, 8)
+
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
-y_sort_enabled = true
+z_index = 1
