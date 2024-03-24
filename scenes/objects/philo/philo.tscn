@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=21 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/objects/philo/philo.gd" id="1_wrftd"]
@@ -174,7 +174,11 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m16u5"]
 size = Vector2(8, 8)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rr5x"]
+radius = 60.0
+
 [node name="Philo" type="CharacterBody2D" groups=["enemy"]]
+motion_mode = 1
 script = ExtResource("1_wrftd")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_t7y50")]
@@ -199,6 +203,7 @@ libraries = {
 }
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
+visible = false
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
@@ -206,13 +211,28 @@ position = Vector2(0, -4)
 rotation = 1.57079
 shape = SubResource("CircleShape2D_eoy7n")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_m16u5")
+
+[node name="AggroArea2D" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea2D"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_1rr5x")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 6
+frame = 7
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -226,12 +246,8 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://art/philo/philo.aseprite"
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_m16u5")
-
 [node name="StateMachine" parent="." instance=ExtResource("6_mnpyb")]
+initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("7_bsmhr")

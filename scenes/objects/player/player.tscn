@@ -607,6 +607,8 @@ graph_offset = Vector2(-65, -50)
 size = Vector2(8, 4)
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 2
+motion_mode = 1
 script = ExtResource("1_1rubt")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_rdnns")]
