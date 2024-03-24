@@ -1,10 +1,13 @@
-[gd_scene load_steps=17 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=20 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/objects/philo/philo.gd" id="1_wrftd"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_2owtl"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component.tscn" id="2_xgd4y"]
+[ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
+[ext_resource type="Script" path="res://scenes/objects/philo/idle.gd" id="7_bsmhr"]
+[ext_resource type="Script" path="res://scenes/objects/philo/aggro.gd" id="8_m7fi4"]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -227,3 +230,11 @@ metadata/_aseprite_wizard_config_ = {
 visible = false
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_m16u5")
+
+[node name="StateMachine" parent="." instance=ExtResource("6_mnpyb")]
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("7_bsmhr")
+
+[node name="Aggro" type="Node" parent="StateMachine"]
+script = ExtResource("8_m7fi4")
