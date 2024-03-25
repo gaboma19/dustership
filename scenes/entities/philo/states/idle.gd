@@ -1,6 +1,6 @@
 extends EnemyState
 
-@onready var aggro_area_2d = %AggroArea2D
+@onready var aggro_area_2d: Area2D = %AggroArea2D
 
 
 func enter(_msg := {}) -> void:

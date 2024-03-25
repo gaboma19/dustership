@@ -1,13 +1,21 @@
-[gd_scene load_steps=21 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=25 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
-[ext_resource type="Script" path="res://scenes/objects/philo/philo.gd" id="1_wrftd"]
+[ext_resource type="Script" path="res://scenes/entities/philo/philo.gd" id="1_wrftd"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_2owtl"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component.tscn" id="2_xgd4y"]
+[ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component.tscn" id="4_2drbo"]
+[ext_resource type="Shader" path="res://scenes/components/hit_flash_component_material.gdshader" id="5_imsff"]
+[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
-[ext_resource type="Script" path="res://scenes/objects/philo/idle.gd" id="7_bsmhr"]
-[ext_resource type="Script" path="res://scenes/objects/philo/aggro.gd" id="8_m7fi4"]
+[ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
+[ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
+resource_local_to_scene = true
+shader = ExtResource("5_imsff")
+shader_parameter/lerp_percent = null
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -188,6 +196,15 @@ max_health = 20.0
 max_speed = 4
 acceleration = 4.0
 
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
+hit_flash_material = SubResource("ShaderMaterial_8i80p")
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_x6ig7")
@@ -204,10 +221,10 @@ libraries = {
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
 visible = false
+position = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -4)
 rotation = 1.57079
 shape = SubResource("CircleShape2D_eoy7n")
 
@@ -219,11 +236,11 @@ shape = SubResource("RectangleShape2D_m16u5")
 [node name="AggroArea2D" type="Area2D" parent="."]
 unique_name_in_owner = true
 visible = false
+position = Vector2(0, -6)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea2D"]
-position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_1rr5x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -232,7 +249,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 7
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

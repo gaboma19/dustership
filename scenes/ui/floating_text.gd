@@ -7,7 +7,7 @@ func start(text: String):
 	var tween = create_tween()
 	tween.set_parallel()
 	
-	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 16), 0.3)\
+	tween.tween_property(self, "global_position", global_position + (Vector2.UP * 8), 0.3)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
 	tween.chain()
 	

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c07831odmeqpn"]
 
-[ext_resource type="PackedScene" uid="uid://8mj6n5arl8rg" path="res://scenes/objects/player/player.tscn" id="2_q03xn"]
-[ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/objects/philo/philo.tscn" id="3_0rarn"]
+[ext_resource type="PackedScene" uid="uid://8mj6n5arl8rg" path="res://scenes/entities/player/player.tscn" id="2_q03xn"]
+[ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="3_0rarn"]
 [ext_resource type="PackedScene" uid="uid://b7qlpio0l5g3f" path="res://scenes/combat/pathfinding_tilemap.tscn" id="3_qdqo6"]
 
 [node name="Combat" type="Node2D"]
@@ -25,16 +25,16 @@ y_sort_enabled = true
 position = Vector2(-112, -72)
 
 [node name="Philo" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(72, -8)
+position = Vector2(80, -8)
 
 [node name="Philo2" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(20, 24)
+position = Vector2(16, 24)
 
 [node name="Philo3" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(-204, -28)
+position = Vector2(-208, -24)
 
 [node name="Philo4" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(-268, 8)
+position = Vector2(-272, 8)
 
 [node name="Philo5" parent="Entities" instance=ExtResource("3_0rarn")]
 position = Vector2(0, 144)
@@ -43,7 +43,7 @@ position = Vector2(0, 144)
 position = Vector2(16, -100)
 
 [node name="Philo7" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(248, 20)
+position = Vector2(256, 16)
 
 [node name="Philo8" parent="Entities" instance=ExtResource("3_0rarn")]
 position = Vector2(160, 64)
@@ -67,10 +67,10 @@ position = Vector2(360, 312)
 position = Vector2(332, 320)
 
 [node name="Philo15" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(264, 124)
+position = Vector2(272, 120)
 
 [node name="Philo16" parent="Entities" instance=ExtResource("3_0rarn")]
-position = Vector2(192, 156)
+position = Vector2(192, 160)
 
 [node name="Philo17" parent="Entities" instance=ExtResource("3_0rarn")]
 position = Vector2(208, 236)
