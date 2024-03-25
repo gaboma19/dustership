@@ -1,13 +1,14 @@
-extends CharacterBody2D
+extends Enemy
 
 @onready var velocity_component = $VelocityComponent
 @onready var animation_tree = $AnimationTree
 
 
-func _process(_delta):
-	velocity_component.accelerate_to_player()
-	velocity_component.move(self)
+func _ready():
+	player = get_tree().get_first_node_in_group("player")
 	
+
+func _process(_delta):
 	if velocity.is_zero_approx():
 		set_moving(false)
 	else:

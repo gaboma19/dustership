@@ -1,13 +1,7 @@
-[gd_scene load_steps=31 format=3 uid="uid://8mj6n5arl8rg"]
+[gd_scene load_steps=27 format=3 uid="uid://bg764t7c7buqn"]
 
-[ext_resource type="Script" path="res://scenes/objects/player/player.gd" id="1_1rubt"]
+[ext_resource type="Script" path="res://scenes/entities/pathfinding_character_body/pathfinding_character_body.gd" id="1_1rubt"]
 [ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://assets/gabriel/gabriel.png" id="2_7oby8"]
-[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_rdnns"]
-[ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="3_k1pfd"]
-[ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component.tscn" id="5_lbmhv"]
-
-[sub_resource type="Animation" id="Animation_ek2j0"]
-length = 0.001
 
 [sub_resource type="Animation" id="Animation_owhys"]
 length = 10.1
@@ -523,7 +517,6 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs3ls"]
 _data = {
-"RESET": SubResource("Animation_ek2j0"),
 "idle down": SubResource("Animation_owhys"),
 "idle left": SubResource("Animation_5eoq8"),
 "idle right": SubResource("Animation_toaro"),
@@ -606,18 +599,8 @@ graph_offset = Vector2(-65, -50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlucn"]
 size = Vector2(8, 4)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="PathfindingCharacterBody" type="CharacterBody2D"]
 script = ExtResource("1_1rubt")
-
-[node name="VelocityComponent" parent="." instance=ExtResource("2_rdnns")]
-max_speed = 60
-acceleration = 10.0
-
-[node name="AbilitySpawnComponent" parent="." instance=ExtResource("5_lbmhv")]
-
-[node name="Abilities" type="Node" parent="."]
-
-[node name="SwordAbilityController" parent="Abilities" instance=ExtResource("3_k1pfd")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -650,9 +633,9 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_dps2l")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_idle = true
+parameters/conditions/is_idle = false
 parameters/conditions/is_moving = false
-parameters/Idle/blend_position = Vector2(0, 1)
+parameters/Idle/blend_position = Vector2(-0.00342464, 1.09214)
 parameters/Walk/blend_position = Vector2(0.00342464, 0.817143)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
