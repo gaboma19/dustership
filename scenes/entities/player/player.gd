@@ -4,13 +4,14 @@ class_name Player
 @onready var animation_tree = $AnimationTree
 @onready var velocity_component = $VelocityComponent
 @onready var ability_spawn_component = $AbilitySpawnComponent
+@onready var health_component = $HealthComponent
 
 
 var movement_vector: Vector2 = Vector2.ZERO
 
 
 func _ready():
-	pass
+	health_component.health_changed.connect(on_health_changed)
 	
 	
 func _process(_delta):
@@ -43,3 +44,8 @@ func update_blend_position(direction: Vector2):
 	animation_tree["parameters/Idle/blend_position"] = direction
 	animation_tree["parameters/Walk/blend_position"] = direction
 	ability_spawn_component.update_blend_position(direction)
+	
+	
+func on_health_changed():
+	# GameEvents.emit_player_damaged(current_health, max_health)
+	pass
