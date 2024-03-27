@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=28 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/philo/philo.gd" id="1_wrftd"]
@@ -11,6 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
+[ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
+[ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="12_8o55k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
 resource_local_to_scene = true
@@ -179,18 +181,21 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 [sub_resource type="CircleShape2D" id="CircleShape2D_eoy7n"]
 radius = 7.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m16u5"]
-size = Vector2(8, 8)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rr5x"]
 radius = 60.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1dm3v"]
+radius = 13.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
+radius = 5.0
+height = 14.0
 
 [node name="Philo" type="CharacterBody2D" groups=["enemy"]]
 motion_mode = 1
 script = ExtResource("1_wrftd")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_t7y50")]
-max_health = 20.0
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_2owtl")]
 max_speed = 4
@@ -228,20 +233,25 @@ health_component = NodePath("../HealthComponent")
 rotation = 1.57079
 shape = SubResource("CircleShape2D_eoy7n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -4)
-shape = SubResource("RectangleShape2D_m16u5")
-
-[node name="AggroArea2D" type="Area2D" parent="."]
+[node name="AggroArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_1rr5x")
+
+[node name="AttackRangeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRangeArea"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_1dm3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -249,7 +259,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 1
+frame = 14
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -263,11 +273,29 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://art/philo/philo.aseprite"
 }
 
+[node name="PhiloAttack" parent="." instance=ExtResource("9_2trgo")]
+unique_name_in_owner = true
+damage = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+rotation = 1.57079
+shape = SubResource("CapsuleShape2D_e5krw")
+
 [node name="StateMachine" parent="." instance=ExtResource("6_mnpyb")]
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
 script = ExtResource("7_bsmhr")
+aggro_area = NodePath("../../AggroArea")
+attack_range_area = NodePath("../../AttackRangeArea")
 
-[node name="Aggro" type="Node" parent="StateMachine"]
+[node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
 script = ExtResource("8_m7fi4")
+aggro_area = NodePath("../../AggroArea")
+attack_range_area = NodePath("../../AttackRangeArea")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
+script = ExtResource("12_8o55k")
+enemy_attack = NodePath("../../PhiloAttack")

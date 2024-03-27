@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqv4tkbv46lmn"]
 
-[ext_resource type="Script" path="res://scenes/ability/sword_ability/sword_ability.gd" id="1_6dnqo"]
-[ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://scenes/ability/sword_ability/sword.png" id="1_m5in3"]
-[ext_resource type="Animation" uid="uid://t68rw01o0iy0" path="res://scenes/ability/sword_ability/attack.res" id="2_hr8w8"]
+[ext_resource type="Script" path="res://scenes/abilities/sword_ability/sword_ability.gd" id="1_6dnqo"]
+[ext_resource type="Animation" uid="uid://t68rw01o0iy0" path="res://scenes/abilities/sword_ability/attack.res" id="2_hr8w8"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component.tscn" id="3_dfk4t"]
+[ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://assets/sword/sword.png" id="4_acwl7"]
 
 [sub_resource type="Animation" id="Animation_g550m"]
 length = 0.001
@@ -57,7 +57,7 @@ disabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("1_m5in3")
+texture = ExtResource("4_acwl7")
 offset = Vector2(0, -12)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,

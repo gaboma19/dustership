@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b61du28ox3e38"]
+
+[ext_resource type="PackedScene" uid="uid://crbfqt62kncy7" path="res://scenes/ui/health_bar/heart_panel.tscn" id="1_d80qb"]
+[ext_resource type="Script" path="res://scenes/ui/health_bar/health_bar.gd" id="1_ppetb"]
+
+[node name="HealthBar" type="CanvasLayer"]
+script = ExtResource("1_ppetb")
+heart_panel_scene = ExtResource("1_d80qb")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="HeartContainer" type="HBoxContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+mouse_filter = 2
+theme_override_constants/separation = 49
+
+[node name="HeartPanel" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+layout_mode = 2
+
+[node name="HeartPanel2" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+layout_mode = 2
+
+[node name="HeartPanel3" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+layout_mode = 2

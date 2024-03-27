@@ -27,6 +27,15 @@ func accelerate_in_direction(direction: Vector2):
 
 func decelerate():
 	accelerate_in_direction(Vector2.ZERO)
+	
+	
+func stop():
+	if not owner is CharacterBody2D:
+		return
+	
+	owner.velocity = Vector2.ZERO
+	owner.move_and_slide()
+	velocity = owner.velocity
 
 
 func move(character_body: CharacterBody2D):

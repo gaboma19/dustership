@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bn6fdymfq15tm"
+path="res://.godot/imported/heart.aseprite-79f8654ed1a5f0ef301f506922bb2ffb.res"
+
+[deps]
+
+source_file="res://assets/heart/heart.aseprite"
+dest_files=["res://.godot/imported/heart.aseprite-79f8654ed1a5f0ef301f506922bb2ffb.res"]
+
+[params]
+

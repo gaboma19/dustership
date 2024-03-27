@@ -1,16 +1,23 @@
 extends CharacterBody2D
 class_name Player
 
-@onready var animation_tree = $AnimationTree
-@onready var velocity_component = $VelocityComponent
 @onready var ability_spawn_component = $AbilitySpawnComponent
+@onready var animation_tree = $AnimationTree
+@onready var damage_interval_timer = $PlayerHurtboxComponent/DamageIntervalTimer
+@onready var health_component = $HealthComponent
+@onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
+@onready var velocity_component = $VelocityComponent
 
+@export var health_bar: CanvasLayer
 
 var movement_vector: Vector2 = Vector2.ZERO
 
 
 func _ready():
-	pass
+	health_component.health_changed.connect(on_health_changed)
+	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
+	update_player_variables()
+	health_bar.set_hearts()
 	
 	
 func _process(_delta):
@@ -24,6 +31,13 @@ func _process(_delta):
 		
 	velocity_component.accelerate_in_direction(movement_vector)
 	velocity_component.move(self)
+	
+	
+func damage_player(damage: int):
+	if not damage_interval_timer.is_stopped():
+		return
+	health_component.damage(damage)
+	damage_interval_timer.start()
 	
 	
 func get_movement_vector():
@@ -43,3 +57,24 @@ func update_blend_position(direction: Vector2):
 	animation_tree["parameters/Idle/blend_position"] = direction
 	animation_tree["parameters/Walk/blend_position"] = direction
 	ability_spawn_component.update_blend_position(direction)
+	
+	
+func update_player_variables():
+	PlayerVariables.current_health = health_component.current_health
+	PlayerVariables.max_health = health_component.max_health
+	
+	
+func on_health_changed():
+	update_player_variables()
+	GameEvents.emit_player_damaged()
+	
+	
+func on_hurtbox_area_entered(other_area: Area2D):
+	if not other_area is HitboxComponent:
+		return
+		
+	if health_component == null:
+		return
+		
+	var hitbox_component = other_area as HitboxComponent
+	damage_player(hitbox_component.damage)
