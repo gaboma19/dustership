@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://8mj6n5arl8rg"]
+[gd_scene load_steps=33 format=3 uid="uid://8mj6n5arl8rg"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_1rubt"]
 [ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://assets/gabriel/gabriel.png" id="2_7oby8"]
@@ -6,6 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="3_k1pfd"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="4_bveuy"]
 [ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component.tscn" id="5_lbmhv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhy7w"]
+radius = 4.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_ek2j0"]
 length = 0.001
@@ -619,7 +623,7 @@ acceleration = 10.0
 [node name="AbilitySpawnComponent" parent="." instance=ExtResource("5_lbmhv")]
 
 [node name="HealthComponent" parent="." instance=ExtResource("4_bveuy")]
-max_health = 4.0
+max_health = 3
 
 [node name="Abilities" type="Node" parent="."]
 
@@ -645,6 +649,18 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://art/gabriel/gabriel.aseprite"
 }
 
+[node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="DamageIntervalTimer" type="Timer" parent="PlayerHurtboxComponent"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
+position = Vector2(0, -6)
+shape = SubResource("CapsuleShape2D_rhy7w")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_vs3ls")
@@ -662,6 +678,7 @@ parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Walk/blend_position = Vector2(0.00342464, 0.817143)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")
 

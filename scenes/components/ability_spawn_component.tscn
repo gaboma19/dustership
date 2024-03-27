@@ -1,7 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdh07l2o7mvp5"]
 
 [ext_resource type="Script" path="res://scenes/components/ability_spawn_component.gd" id="1_5w38a"]
-[ext_resource type="Texture2D" uid="uid://bqeadrg0ueqtb" path="res://icon.svg" id="1_nfwwg"]
 
 [sub_resource type="Animation" id="Animation_qaegi"]
 length = 0.001
@@ -172,6 +171,8 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_6phxm"]
+
 [node name="AbilitySpawnComponent" type="Node2D"]
 position = Vector2(0, -12)
 script = ExtResource("1_5w38a")
@@ -191,5 +192,4 @@ parameters/blend_position = Vector2(0, 1)
 
 [node name="DebugSprite" type="Sprite2D" parent="."]
 visible = false
-scale = Vector2(0.03, 0.03)
-texture = ExtResource("1_nfwwg")
+texture = SubResource("PlaceholderTexture2D_6phxm")

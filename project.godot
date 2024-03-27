@@ -13,7 +13,12 @@ config_version=5
 config/name="Dustership"
 run/main_scene="res://scenes/combat/combat.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+
+[autoload]
+
+PlayerVariables="*res://scenes/autoload/player_variables.tscn"
+GameEvents="*res://scenes/autoload/game_events.tscn"
 
 [display]
 
@@ -77,7 +82,8 @@ attack={
 
 2d_physics/layer_1="Terrain"
 2d_physics/layer_2="Player"
-2d_physics/layer_3="Enemy"
+2d_physics/layer_3="PlayerAttacks"
+2d_physics/layer_4="EnemyAttacks"
 
 [rendering]
 

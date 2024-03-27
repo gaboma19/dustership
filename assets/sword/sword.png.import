@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do1smmanvhlef"
-path="res://.godot/imported/philo-16.png-3c0c99c1eba2fdbceaab763a020674ae.ctex"
+uid="uid://d3l3ohivsx6bv"
+path="res://.godot/imported/sword.png-ae80fc98d7e4bdf3cfca654645fb716a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/philo/philo-16.png"
-dest_files=["res://.godot/imported/philo-16.png-3c0c99c1eba2fdbceaab763a020674ae.ctex"]
+source_file="res://assets/sword/sword.png"
+dest_files=["res://.godot/imported/sword.png-ae80fc98d7e4bdf3cfca654645fb716a.ctex"]
 
 [params]
 

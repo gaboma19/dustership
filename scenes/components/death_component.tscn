@@ -1,7 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqp027bkxbbdq"]
 
 [ext_resource type="Script" path="res://scenes/components/death_component.gd" id="1_sm3xe"]
-[ext_resource type="Texture2D" uid="uid://do1smmanvhlef" path="res://assets/philo/philo-16.png" id="2_eaf46"]
 
 [sub_resource type="Animation" id="Animation_0vwux"]
 length = 0.001
@@ -71,6 +70,9 @@ angular_velocity_max = 1440.0
 gravity = Vector3(0, 800, 0)
 scale_curve = SubResource("CurveTexture_aidrr")
 
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5tcvf"]
+size = Vector2(16, 16)
+
 [node name="DeathComponent" type="Node2D"]
 script = ExtResource("1_sm3xe")
 
@@ -83,7 +85,7 @@ libraries = {
 emitting = false
 amount = 1
 process_material = SubResource("ParticleProcessMaterial_pt6m8")
-texture = ExtResource("2_eaf46")
+texture = SubResource("PlaceholderTexture2D_5tcvf")
 lifetime = 0.5
 one_shot = true
 fixed_fps = 0

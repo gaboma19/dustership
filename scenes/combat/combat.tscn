@@ -24,8 +24,9 @@ layer_2/tile_data = PackedInt32Array(-131054, 262144, 6, -131053, 262144, 6, -19
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="Player" parent="Entities" instance=ExtResource("2_q03xn")]
+[node name="Player" parent="Entities" node_paths=PackedStringArray("health_bar") instance=ExtResource("2_q03xn")]
 position = Vector2(-112, -72)
+health_bar = NodePath("../../HealthBar")
 
 [node name="Philo" parent="Entities" instance=ExtResource("3_0rarn")]
 position = Vector2(80, -8)
