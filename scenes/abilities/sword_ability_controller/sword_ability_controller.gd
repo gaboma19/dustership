@@ -4,8 +4,8 @@ extends Node
 @export var damage: int = 5
 @onready var timer = $Timer
 
-const ATTACK = preload("res://scenes/ability/sword_ability/attack.res")
-var attack_time: float = ATTACK.length
+var attack_animation = preload("res://scenes/abilities/sword_ability/attack.res")
+var attack_time: float = attack_animation.length
 var player: Player
 var sword_instance: SwordAbility
 

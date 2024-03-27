@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
-[ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/ability/philo_attack/philo_attack.tscn" id="9_cgkay"]
+[ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="12_8o55k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
@@ -259,7 +259,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 11
+frame = 14
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -273,9 +273,9 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://art/philo/philo.aseprite"
 }
 
-[node name="PhiloAttack" parent="." instance=ExtResource("9_cgkay")]
+[node name="PhiloAttack" parent="." instance=ExtResource("9_2trgo")]
 unique_name_in_owner = true
-visible = false
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

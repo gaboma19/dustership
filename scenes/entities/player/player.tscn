@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_1rubt"]
 [ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://assets/gabriel/gabriel.png" id="2_7oby8"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_rdnns"]
-[ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/ability/sword_ability_controller/sword_ability_controller.tscn" id="3_k1pfd"]
+[ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="3_k1pfd"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="4_bveuy"]
 [ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component.tscn" id="5_lbmhv"]
 
@@ -650,6 +650,7 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 8
 
@@ -681,7 +682,3 @@ parameters/Walk/blend_position = Vector2(0.00342464, 0.817143)
 visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(3, 3)
-position_smoothing_enabled = true
