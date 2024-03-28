@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var heart_panel_scene: PackedScene
+@export var empty_heart_panel_scene: PackedScene
 
 @onready var heart_container: HBoxContainer = %HeartContainer
 
@@ -23,7 +24,8 @@ func set_hearts():
 		heart_container.add_child(heart_container_instance)
 		
 	for j in PlayerVariables.max_health - PlayerVariables.current_health:
-		pass
+		var empty_heart_container_instance = empty_heart_panel_scene.instantiate()
+		heart_container.add_child(empty_heart_container_instance)
 	
 	
 func on_player_damaged():

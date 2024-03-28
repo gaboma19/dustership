@@ -1,0 +1,8 @@
+[gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://vruy23h2oe6v"]
+
+[ext_resource type="FontFile" uid="uid://c1fndwv2tyfbk" path="res://assets/pixellari/Pixellari.ttf" id="1_bnpip"]
+
+[resource]
+base_font = ExtResource("1_bnpip")
+spacing_top = 2
+spacing_bottom = -2

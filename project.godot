@@ -17,8 +17,8 @@ config/icon="res://icon.png"
 
 [autoload]
 
-PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 GameEvents="*res://scenes/autoload/game_events.tscn"
+PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 
 [display]
 
@@ -83,6 +83,7 @@ attack={
 2d_physics/layer_2="Player"
 2d_physics/layer_3="PlayerAttacks"
 2d_physics/layer_4="EnemyAttacks"
+2d_physics/layer_5="PlayerPickup"
 
 [rendering]
 

@@ -1,6 +1,6 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dvxsu1p51t4yo"]
 
-[ext_resource type="FontFile" uid="uid://c1fndwv2tyfbk" path="res://assets/pixellari/Pixellari.ttf" id="1_i63ck"]
+[ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/pixellari.tres" id="1_38iv3"]
 
 [resource]
-default_font = ExtResource("1_i63ck")
+default_font = ExtResource("1_38iv3")

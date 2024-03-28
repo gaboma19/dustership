@@ -18,5 +18,5 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": false,
 "op_exp": false,
 "player": "",
-"source": "res://assets/heart/heart.aseprite"
+"source": "res://assets/heart/empty_heart.aseprite"
 }

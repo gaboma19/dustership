@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bsec8q58uicxm"
+path="res://.godot/imported/steel.aseprite-a2d5e92fd088b5c582d0f87738dc879a.res"
+
+[deps]
+
+source_file="res://assets/steel/steel.aseprite"
+dest_files=["res://.godot/imported/steel.aseprite-a2d5e92fd088b5c582d0f87738dc879a.res"]
+
+[params]
+

@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 @onready var player: Player = %Player
 
