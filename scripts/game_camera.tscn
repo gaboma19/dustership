@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://v8ktvgppf1kf"]
+
+[ext_resource type="Script" path="res://scripts/game_camera.gd" id="1_vxem8"]
+
+[node name="GameCamera" type="Camera2D"]
+z_index = 1
+zoom = Vector2(3, 3)
+position_smoothing_enabled = true
+script = ExtResource("1_vxem8")

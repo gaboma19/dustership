@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dugt00o1maerc"
-path="res://.godot/imported/vinik24_tiles_2.png-8b41d695d54c001dbe9729aa9440145c.ctex"
+uid="uid://cpbh37ms8kqip"
+path="res://.godot/imported/screen_transition.png-8cc3d004115d162e29e8f61583860294.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vinik24_tiles/vinik24_tiles_2.png"
-dest_files=["res://.godot/imported/vinik24_tiles_2.png-8b41d695d54c001dbe9729aa9440145c.ctex"]
+source_file="res://assets/ui/screen_transition.png"
+dest_files=["res://.godot/imported/screen_transition.png-8cc3d004115d162e29e8f61583860294.ctex"]
 
 [params]
 

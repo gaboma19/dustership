@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Dustership"
-run/main_scene="res://scenes/combat/combat.tscn"
+run/main_scene="res://scenes/levels/echelon/echelon_level_1.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
@@ -19,6 +19,9 @@ config/icon="res://icon.png"
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
+HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
+SteelCounter="*res://scenes/ui/steel_counter.tscn"
+ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 
 [display]
 

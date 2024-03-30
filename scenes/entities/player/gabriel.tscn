@@ -614,7 +614,7 @@ graph_offset = Vector2(-65, -50)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlucn"]
 size = Vector2(8, 4)
 
-[node name="Player" type="CharacterBody2D" groups=["player"]]
+[node name="Gabriel" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 motion_mode = 1
 script = ExtResource("1_1rubt")

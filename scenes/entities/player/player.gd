@@ -8,7 +8,6 @@ class_name Player
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
 @onready var velocity_component = $VelocityComponent
 
-@export var health_bar: CanvasLayer
 
 var movement_vector: Vector2 = Vector2.ZERO
 
@@ -17,7 +16,7 @@ func _ready():
 	health_component.health_changed.connect(on_health_changed)
 	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
 	update_player_variables()
-	health_bar.set_hearts()
+	HealthBar.set_hearts()
 	
 	
 func _process(_delta):

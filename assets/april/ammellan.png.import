@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm6iygbef1g5v"
-path="res://.godot/imported/vinik24_tiles_3.png-bebc7141e04ca7d7e14c09bf19fc461c.ctex"
+uid="uid://sy8d6jld4e5i"
+path="res://.godot/imported/ammellan.png-236906900374d1204b4ddcf210855621.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/vinik24_tiles/vinik24_tiles_3.png"
-dest_files=["res://.godot/imported/vinik24_tiles_3.png-bebc7141e04ca7d7e14c09bf19fc461c.ctex"]
+source_file="res://assets/april/ammellan.png"
+dest_files=["res://.godot/imported/ammellan.png-236906900374d1204b4ddcf210855621.ctex"]
 
 [params]
 
