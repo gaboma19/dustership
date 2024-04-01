@@ -8,6 +8,19 @@ extends Node2D
 
 func _ready():
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
+	$AnimationPlayer.queue("spin")
+	tween_bounce()
+	
+	
+func tween_bounce():
+	var direction: Vector2
+	if randf() > 0.5: 
+		direction = Vector2.RIGHT 
+	else: 
+		direction = Vector2.LEFT
+
+	var tween = create_tween()
+	tween.tween_property(self, "position", direction * 16, 1).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):
