@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7qlpio0l5g3f"]
 
 [ext_resource type="TileSet" uid="uid://d1vbvvuy5g7wa" path="res://assets/route1rodent/rodent_blocks.tres" id="1_1rb4a"]
-[ext_resource type="Script" path="res://scenes/combat/pathfinding_tilemap.gd" id="2_af1l6"]
+[ext_resource type="Script" path="res://scenes/tilemaps/pathfinding_tilemap.gd" id="2_af1l6"]
 
-[node name="PathfindingTileMap" type="TileMap"]
+[node name="Route1rodentTileMap" type="TileMap"]
 y_sort_enabled = true
 texture_filter = 1
 tile_set = ExtResource("1_1rb4a")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://2mp88w1j85op"
+path="res://.godot/imported/vinik24_tiles.aseprite-a1b901076f28e42ebbb823ee52de8e52.res"
+
+[deps]
+
+source_file="res://assets/vinik24_tiles/vinik24_tiles.aseprite"
+dest_files=["res://.godot/imported/vinik24_tiles.aseprite-a1b901076f28e42ebbb823ee52de8e52.res"]
+
+[params]
+
