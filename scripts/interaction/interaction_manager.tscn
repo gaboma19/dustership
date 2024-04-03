@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7w4f070pqcut"]
+
+[ext_resource type="Script" path="res://scripts/interaction/interaction_manager.gd" id="1_3ccy3"]
+[ext_resource type="PackedScene" uid="uid://bmkq25q4ex41c" path="res://scenes/ui/interact_texture_rect.tscn" id="2_16dsb"]
+
+[node name="InteractionManager" type="Node2D"]
+z_index = 1
+script = ExtResource("1_3ccy3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -63.5
+offset_top = -16.0
+offset_right = 63.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="InteractTextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer" instance=ExtResource("2_16dsb")]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "Interact"
+horizontal_alignment = 1
+vertical_alignment = 2
