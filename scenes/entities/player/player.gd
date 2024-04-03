@@ -8,7 +8,6 @@ class_name Player
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
 @onready var velocity_component = $VelocityComponent
 
-@export var inventory: Inventory
 
 var movement_vector: Vector2 = Vector2.ZERO
 

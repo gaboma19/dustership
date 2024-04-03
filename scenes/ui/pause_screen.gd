@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var panel_container = %PanelContainer
-@onready var inventory: Inventory = preload("res://scripts/inventory/player_inventory.tres")
 @onready var inventory_slots: Array = %InventoryGrid.get_children()
 
 var is_closing
@@ -13,9 +12,9 @@ func _ready():
 	animate_open()
 	
 	
-func set_inventory_grid():	
-	for i in range(inventory.items.size()):
-		inventory_slots[i].set_item(inventory.items[i])
+func set_inventory_grid():
+	for i in range(Inventory.items.size() - 1):
+		inventory_slots[i].set_item(Inventory.items[i])
 
 
 func animate_open():

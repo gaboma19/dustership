@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://2aaiewbv6ie8"]
+[gd_scene load_steps=6 format=3 uid="uid://2aaiewbv6ie8"]
 
 [ext_resource type="Script" path="res://scenes/entities/key/key.gd" id="1_wyr7b"]
 [ext_resource type="Texture2D" uid="uid://dbwvlxukdj8vg" path="res://assets/key/key.png" id="2_535is"]
+[ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://scripts/inventory/items/key.tres" id="2_k2jdi"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scripts/interaction/interaction_area.tscn" id="3_eke1n"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tpb4j"]
@@ -9,6 +10,7 @@ radius = 16.0
 
 [node name="Key" type="Node2D"]
 script = ExtResource("1_wyr7b")
+inventory_item = ExtResource("2_k2jdi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1

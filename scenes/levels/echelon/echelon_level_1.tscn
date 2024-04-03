@@ -53,7 +53,10 @@ position = Vector2(400, 360)
 position = Vector2(576, 224)
 
 [node name="Key" parent="Entities" instance=ExtResource("7_lsw45")]
-position = Vector2(720, 472)
+position = Vector2(64, 32)
+
+[node name="Key2" parent="Entities" instance=ExtResource("7_lsw45")]
+position = Vector2(32, 48)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

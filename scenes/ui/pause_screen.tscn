@@ -84,7 +84,7 @@ theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 4
 
-[node name="InventorySlot" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer/InventoryGrid" instance=ExtResource("2_cntb6")]
+[node name="InventorySlot1" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer/InventoryGrid" instance=ExtResource("2_cntb6")]
 layout_mode = 2
 
 [node name="InventorySlot2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer/InventoryGrid" instance=ExtResource("2_cntb6")]

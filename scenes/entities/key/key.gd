@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var interaction_area = $InteractionArea
+@export var inventory_item: InventoryItem
 
 
 func _ready():
@@ -8,4 +9,5 @@ func _ready():
 	
 	
 func on_interact():
-	print("on_interact")
+	Inventory.add_item(inventory_item)
+	queue_free()

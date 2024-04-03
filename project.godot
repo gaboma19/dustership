@@ -19,6 +19,7 @@ config/icon="res://icon.png"
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
+Inventory="*res://scenes/autoload/inventory.tscn"
 HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
 SteelCounter="*res://scenes/ui/steel_counter.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
