@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d13u4o183lyu4"]
+[gd_scene load_steps=9 format=3 uid="uid://d13u4o183lyu4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_b26j0"]
 [ext_resource type="PackedScene" uid="uid://bertbqadela6v" path="res://scenes/ui/end_screen.tscn" id="2_hpb3r"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="4_lakag"]
 [ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="5_el1q6"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="6_mekev"]
+[ext_resource type="PackedScene" uid="uid://2aaiewbv6ie8" path="res://scenes/entities/key/key.tscn" id="7_0thsu"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="7_yhhj5"]
 
 [node name="EchelonLevel2" type="Node2D"]
@@ -61,6 +62,8 @@ position = Vector2(-80, 136)
 
 [node name="Philo11" parent="Entities" instance=ExtResource("6_mekev")]
 position = Vector2(128, 48)
+
+[node name="Key" parent="Entities" instance=ExtResource("7_0thsu")]
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmkq25q4ex41c"]
+
+[ext_resource type="Texture2D" uid="uid://txamoj4ivcgv" path="res://assets/ui/interact_prompt/tile_0042.png" id="1_tsco7"]
+[ext_resource type="Script" path="res://scenes/ui/interact_texture_rect.gd" id="2_rk7ha"]
+
+[node name="InteractTextureRect" type="TextureRect"]
+texture = ExtResource("1_tsco7")
+expand_mode = 2
+script = ExtResource("2_rk7ha")
