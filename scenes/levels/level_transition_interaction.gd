@@ -1,7 +1,9 @@
 extends Node2D
 
+@export var path: String
+@export var new_player_position: Vector2
+
 @onready var interaction_area = $InteractionArea
-@export var inventory_item: InventoryItem
 
 
 func _ready():
@@ -9,5 +11,4 @@ func _ready():
 
 
 func on_interact():
-	Inventory.add_item(inventory_item)
-	queue_free()
+	ScreenTransition.transition_to_level(path, new_player_position)

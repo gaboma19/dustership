@@ -1,0 +1,68 @@
+[gd_scene load_steps=7 format=3 uid="uid://bhv3w3uk3b73e"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qfi3h"]
+[ext_resource type="Texture2D" uid="uid://corxxm72cbgvw" path="res://assets/backgrounds/aprils_apartment.png" id="1_roq2h"]
+[ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment_bathroom.png" id="2_3wdpf"]
+[ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="3_uosp1"]
+[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="5_28nei"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="6_ih2uo"]
+
+[node name="EchelonLevel0" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_qfi3h")
+is_camera_static = true
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_roq2h")
+offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/backgrounds/aprils_apartment.aseprite"
+}
+
+[node name="Midground" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-60, 93)
+texture = ExtResource("2_3wdpf")
+offset = Vector2(-10, -30)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+visible = false
+build_mode = 1
+polygon = PackedVector2Array(-92, 88, -79, 95, -64, 87, -57, 91, -72, 99, -24, 123, -9, 115, 8, 123, 40, 107, 24, 99, 104, 59, 61, 38, 45, 47, 32, 41, 3, 57, -18, 57, -18, 72, -36, 81, -58, 70)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="Player" parent="Entities" instance=ExtResource("3_uosp1")]
+unique_name_in_owner = true
+y_sort_enabled = true
+position = Vector2(16, 72)
+
+[node name="Chest" parent="Entities" instance=ExtResource("5_28nei")]
+position = Vector2(71, 55)
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
+z_index = 1
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("6_ih2uo")]
+path = "res://scenes/levels/echelon/echelon_level_1.tscn"
+new_player_position = Vector2(-112, 0)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+polygon = PackedVector2Array(-8, 115, 8, 124, 40, 108, 24, 99)

@@ -1,7 +1,7 @@
-extends Node2D
+extends StaticBody2D
 
 @onready var interaction_area = $InteractionArea
-@export var inventory_item: InventoryItem
+@onready var animated_sprite_2d = $AnimatedSprite2D
 
 
 func _ready():
@@ -9,5 +9,5 @@ func _ready():
 
 
 func on_interact():
-	Inventory.add_item(inventory_item)
-	queue_free()
+	animated_sprite_2d.play()
+	interaction_area.monitoring = false

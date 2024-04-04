@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pblhnyju5hi"
-path="res://.godot/imported/isometric-sandbox-sheet-edited.png-9c72cf996999936bc443d9d67e61e35d.ctex"
+uid="uid://corxxm72cbgvw"
+path="res://.godot/imported/aprils_apartment.png-d970f77928d25fbc564e88b869fda8bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/route1rodent/isometric-sandbox-sheet-edited.png"
-dest_files=["res://.godot/imported/isometric-sandbox-sheet-edited.png-9c72cf996999936bc443d9d67e61e35d.ctex"]
+source_file="res://assets/backgrounds/aprils_apartment.png"
+dest_files=["res://.godot/imported/aprils_apartment.png-d970f77928d25fbc564e88b869fda8bc.ctex"]
 
 [params]
 

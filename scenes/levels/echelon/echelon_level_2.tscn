@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://d13u4o183lyu4"]
+[gd_scene load_steps=8 format=3 uid="uid://d13u4o183lyu4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_b26j0"]
-[ext_resource type="PackedScene" uid="uid://bertbqadela6v" path="res://scenes/ui/end_screen.tscn" id="2_hpb3r"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scripts/game_camera.tscn" id="3_yeu56"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="4_lakag"]
 [ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="5_el1q6"]
@@ -12,7 +11,6 @@
 [node name="EchelonLevel2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_b26j0")
-end_screen_scene = ExtResource("2_hpb3r")
 
 [node name="GameCamera" parent="." instance=ExtResource("3_yeu56")]
 position = Vector2(-48, -80)
