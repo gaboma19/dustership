@@ -2,13 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/philo/philo.gd" id="1_wrftd"]
-[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_2owtl"]
-[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="2_t7y50"]
-[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component.tscn" id="2_xgd4y"]
-[ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component.tscn" id="4_2drbo"]
-[ext_resource type="Shader" path="res://scenes/components/hit_flash_component_material.gdshader" id="5_imsff"]
-[ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component.tscn" id="6_6lyqc"]
-[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component.tscn" id="6_m3bhp"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_2owtl"]
+[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_t7y50"]
+[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_xgd4y"]
+[ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_2drbo"]
+[ext_resource type="Shader" path="res://scenes/components/hit_flash_component/hit_flash_component_material.gdshader" id="5_imsff"]
+[ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="6_6lyqc"]
+[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
@@ -183,10 +183,10 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rr5x"]
-radius = 60.0
+radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dm3v"]
-radius = 13.0
+radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
 radius = 5.0
@@ -199,8 +199,8 @@ script = ExtResource("1_wrftd")
 [node name="HealthComponent" parent="." instance=ExtResource("2_t7y50")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_2owtl")]
-max_speed = 4
-acceleration = 4.0
+max_speed = 8
+acceleration = 8.0
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
 health_component = NodePath("../HealthComponent")
@@ -264,7 +264,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 5
+frame = 6
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

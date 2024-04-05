@@ -15,7 +15,10 @@ func add_item(item: InventoryItem):
 		items[index] = item
 
 
-func remove_item(item: InventoryItem):
+func use_item(item: InventoryItem) -> bool:
 	var index = items.find(item)
 	if index != -1:
 		items[index] = null
+		return true
+	else:
+		return false

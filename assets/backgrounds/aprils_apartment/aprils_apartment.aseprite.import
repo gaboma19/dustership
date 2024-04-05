@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bs6u4ekkwpm62"
+path="res://.godot/imported/aprils_apartment.aseprite-aa31aa8a7da8011bbdcca4184fedb3c2.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/aprils_apartment/aprils_apartment.aseprite"
+dest_files=["res://.godot/imported/aprils_apartment.aseprite-aa31aa8a7da8011bbdcca4184fedb3c2.res"]
+
+[params]
+
