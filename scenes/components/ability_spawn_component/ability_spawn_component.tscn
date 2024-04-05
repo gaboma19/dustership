@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://bdh07l2o7mvp5"]
 
-[ext_resource type="Script" path="res://scenes/components/ability_spawn_component.gd" id="1_5w38a"]
+[ext_resource type="Script" path="res://scenes/components/ability_spawn_component/ability_spawn_component.gd" id="1_5w38a"]
 
 [sub_resource type="Animation" id="Animation_qaegi"]
 length = 0.001

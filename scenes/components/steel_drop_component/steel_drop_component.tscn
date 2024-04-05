@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dd20ju6l4rhiy"]
 
-[ext_resource type="Script" path="res://scenes/components/steel_drop_component.gd" id="1_rw68y"]
+[ext_resource type="Script" path="res://scenes/components/steel_drop_component/steel_drop_component.gd" id="1_rw68y"]
 
 [node name="SteelDropComponent" type="Node"]
 script = ExtResource("1_rw68y")

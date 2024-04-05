@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.gd" id="1_cafif"]
 [ext_resource type="Texture2D" uid="uid://qb6disks5xi0" path="res://assets/philo/philo_attack.png" id="2_kuw1e"]
-[ext_resource type="Script" path="res://scenes/components/hitbox_component.gd" id="3_mrl5l"]
+[ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="3_mrl5l"]
 
 [sub_resource type="Animation" id="Animation_k5ebq"]
 length = 0.001

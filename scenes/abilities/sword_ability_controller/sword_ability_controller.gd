@@ -20,7 +20,7 @@ func _process(_delta):
 		update_sword_position(player.ability_spawn_component.global_position)
 
 
-func _unhandled_input(event):
+func _input(event):
 	if event.is_action_pressed("attack"):
 		attack()
 		get_tree().root.set_input_as_handled()

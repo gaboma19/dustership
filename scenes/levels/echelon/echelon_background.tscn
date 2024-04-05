@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dl1i1ytfm3yq8"]
+
+[ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_2lki5"]
+[ext_resource type="Texture2D" uid="uid://cttyxcdbb3i6i" path="res://assets/backgrounds/echelon_parallax/Layer 2.png" id="2_asilx"]
+
+[node name="EchelonBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(1000, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture_filter = 1
+texture = ExtResource("1_2lki5")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Layer 1",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/backgrounds/echelon_parallax.aseprite"
+}
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.1, 1.1)
+motion_mirroring = Vector2(1000, 600)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+texture_filter = 1
+texture = ExtResource("2_asilx")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Layer 2",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/backgrounds/echelon_parallax.aseprite"
+}

@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://c07831odmeqpn"]
+[gd_scene load_steps=10 format=3 uid="uid://c07831odmeqpn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
-[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scripts/game_camera.tscn" id="3_8drjm"]
+[ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background.tscn" id="2_eqcm2"]
+[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="6_s6q66"]
 [ext_resource type="PackedScene" uid="uid://t4655rf1h8l6" path="res://scenes/entities/doodads/aprils_apartment_exterior.tscn" id="7_jynwh"]
 [ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="7_u1034"]
@@ -12,6 +13,8 @@
 [node name="EchelonLevel1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wi3wv")
+
+[node name="EchelonBackground" parent="." instance=ExtResource("2_eqcm2")]
 
 [node name="GameCamera" parent="." instance=ExtResource("3_8drjm")]
 position = Vector2(-112, 0)

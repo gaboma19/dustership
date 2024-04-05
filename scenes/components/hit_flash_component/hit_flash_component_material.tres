@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://canw1c76xopdl"]
 
-[ext_resource type="Shader" path="res://scenes/components/hit_flash_component_material.gdshader" id="1_tuawj"]
+[ext_resource type="Shader" path="res://scenes/components/hit_flash_component/hit_flash_component_material.gdshader" id="1_tuawj"]
 
 [resource]
 resource_local_to_scene = true

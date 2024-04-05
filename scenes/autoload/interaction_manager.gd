@@ -1,4 +1,4 @@
-extends Node2D
+extends Node
 
 @onready var player = get_tree().get_first_node_in_group("player")
 @onready var label = %Label
@@ -32,9 +32,10 @@ func _sort_by_distance_to_player(area1, area2):
 	return area1_to_player < area2_to_player
 
 
-func _input(event):
-	if event.is_action_pressed("interact") && can_interact:
-		if active_areas.size() > 0:
+func _unhandled_input(event):
+	if event.is_action_pressed("interact"):
+		get_tree().root.set_input_as_handled()
+		if can_interact && active_areas.size() > 0:
 			can_interact = false
 			label.hide()
 			

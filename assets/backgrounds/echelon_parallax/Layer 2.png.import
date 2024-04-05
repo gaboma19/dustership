@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://corxxm72cbgvw"
-path="res://.godot/imported/aprils_apartment.png-d970f77928d25fbc564e88b869fda8bc.ctex"
+uid="uid://cttyxcdbb3i6i"
+path="res://.godot/imported/Layer 2.png-1797f55721a3a2f158a654e5812058f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/aprils_apartment.png"
-dest_files=["res://.godot/imported/aprils_apartment.png-d970f77928d25fbc564e88b869fda8bc.ctex"]
+source_file="res://assets/backgrounds/echelon_parallax/Layer 2.png"
+dest_files=["res://.godot/imported/Layer 2.png-1797f55721a3a2f158a654e5812058f6.ctex"]
 
 [params]
 

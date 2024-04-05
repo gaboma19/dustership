@@ -1,9 +1,9 @@
 [gd_scene load_steps=34 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_ngiex"]
-[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component.tscn" id="2_dawcl"]
-[ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component.tscn" id="3_nlnxg"]
-[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component.tscn" id="4_gkhlh"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_dawcl"]
+[ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component/ability_spawn_component.tscn" id="3_nlnxg"]
+[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="4_gkhlh"]
 [ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="5_vm4dp"]
 [ext_resource type="Texture2D" uid="uid://sy8d6jld4e5i" path="res://assets/april/ammellan.png" id="6_xevbc"]
 

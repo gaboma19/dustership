@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b25kyh5wad48t"
-path="res://.godot/imported/aprils_apartment_bathroom.png-a89747920c438ebd59ac858aad12de57.ctex"
+uid="uid://0xq7wh8e2xb8"
+path="res://.godot/imported/left door.png-acb917bcadb065cd643a074bb55d905f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/aprils_apartment_bathroom.png"
-dest_files=["res://.godot/imported/aprils_apartment_bathroom.png-a89747920c438ebd59ac858aad12de57.ctex"]
+source_file="res://assets/echelon_door/left door.png"
+dest_files=["res://.godot/imported/left door.png-acb917bcadb065cd643a074bb55d905f.ctex"]
 
 [params]
 

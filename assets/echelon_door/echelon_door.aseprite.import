@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c8de0ukiydxtb"
+path="res://.godot/imported/echelon_door.aseprite-44fb37a8b37e444fd4113de5acf00b15.res"
+
+[deps]
+
+source_file="res://assets/echelon_door/echelon_door.aseprite"
+dest_files=["res://.godot/imported/echelon_door.aseprite-44fb37a8b37e444fd4113de5acf00b15.res"]
+
+[params]
+
