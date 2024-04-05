@@ -183,10 +183,10 @@ transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rr5x"]
-radius = 60.0
+radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dm3v"]
-radius = 13.0
+radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
 radius = 5.0
@@ -199,8 +199,8 @@ script = ExtResource("1_wrftd")
 [node name="HealthComponent" parent="." instance=ExtResource("2_t7y50")]
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_2owtl")]
-max_speed = 4
-acceleration = 4.0
+max_speed = 8
+acceleration = 8.0
 
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
 health_component = NodePath("../HealthComponent")
@@ -264,7 +264,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 5
+frame = 6
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

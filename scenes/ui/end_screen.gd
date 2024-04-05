@@ -29,7 +29,7 @@ func set_defeat():
 	
 func on_continue_button_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://scenes/combat/combat.tscn")
+	ScreenTransition.transition_to_level("res://scenes/levels/echelon/echelon_level_0.tscn", Vector2(16, 72))
 	
 	
 func on_quit_button_pressed():
