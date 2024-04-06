@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d13u4o183lyu4"]
+[gd_scene load_steps=12 format=3 uid="uid://d13u4o183lyu4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_b26j0"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="3_rmwer"]
@@ -8,7 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="6_mekev"]
 [ext_resource type="PackedScene" uid="uid://2aaiewbv6ie8" path="res://scenes/entities/key/key.tscn" id="7_0thsu"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="7_yhhj5"]
+[ext_resource type="PackedScene" uid="uid://bdgmk7thjffe0" path="res://scenes/entities/cube/cube.tscn" id="8_al8n4"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background.tscn" id="8_u38qy"]
+[ext_resource type="PackedScene" uid="uid://dnbgplt548dxq" path="res://scenes/entities/cube/shadow_sprite.tscn" id="9_apvv6"]
 
 [node name="EchelonLevel2" type="Node2D"]
 y_sort_enabled = true
@@ -68,6 +70,13 @@ position = Vector2(128, 48)
 
 [node name="Key" parent="Entities" instance=ExtResource("7_0thsu")]
 position = Vector2(368, 240)
+
+[node name="Cube" parent="Entities" node_paths=PackedStringArray("shadow") instance=ExtResource("8_al8n4")]
+position = Vector2(-19, -8)
+shadow = NodePath("../Shadow")
+
+[node name="Shadow" parent="Entities" instance=ExtResource("9_apvv6")]
+position = Vector2(-19, -3)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

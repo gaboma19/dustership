@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cxcp7cke274ol"
+path="res://.godot/imported/pause_screen.aseprite-f71ab9f69dbce6bf880102cf32fc594c.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/pause_screen.aseprite"
+dest_files=["res://.godot/imported/pause_screen.aseprite-f71ab9f69dbce6bf880102cf32fc594c.res"]
+
+[params]
+

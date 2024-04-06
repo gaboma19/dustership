@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bbqw3nltxw4ao"
+path="res://.godot/imported/hover_button.aseprite-54f0fc8b594ff9d9574e7fad9715549d.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/hover_button.aseprite"
+dest_files=["res://.godot/imported/hover_button.aseprite-54f0fc8b594ff9d9574e7fad9715549d.res"]
+
+[params]
+

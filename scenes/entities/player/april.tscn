@@ -617,6 +617,7 @@ size = Vector2(8, 4)
 
 [node name="April" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
+collision_mask = 33
 motion_mode = 1
 script = ExtResource("1_ngiex")
 
@@ -686,7 +687,7 @@ tree_root = SubResource("AnimationNodeStateMachine_dps2l")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
-parameters/Idle/blend_position = Vector2(0.0155339, 0.513333)
+parameters/Idle/blend_position = Vector2(0.00104499, 1.1)
 parameters/Walk/blend_position = Vector2(0.0213592, 0.627917)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

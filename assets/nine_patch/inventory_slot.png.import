@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cex50q6sobbsl"
-path="res://.godot/imported/ButtonSlice.png-9d64e8069f6e13fb9b846f234391b7a6.ctex"
+uid="uid://b4lsbkcpitpq0"
+path="res://.godot/imported/inventory_slot.png-54b356b25e5f5b6264c4a77620e9316b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/nine_patch/ButtonSlice.png"
-dest_files=["res://.godot/imported/ButtonSlice.png-9d64e8069f6e13fb9b846f234391b7a6.ctex"]
+source_file="res://assets/nine_patch/inventory_slot.png"
+dest_files=["res://.godot/imported/inventory_slot.png-54b356b25e5f5b6264c4a77620e9316b.ctex"]
 
 [params]
 
