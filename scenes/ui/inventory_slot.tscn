@@ -1,9 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcbfsu1axq5ix"]
+[gd_scene load_steps=4 format=3 uid="uid://bcbfsu1axq5ix"]
 
 [ext_resource type="Script" path="res://scenes/ui/inventory_slot.gd" id="1_iw87m"]
+[ext_resource type="Texture2D" uid="uid://b4lsbkcpitpq0" path="res://assets/nine_patch/inventory_slot.png" id="1_yhat2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gbthy"]
+texture = ExtResource("1_yhat2")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [node name="InventorySlot" type="PanelContainer"]
 custom_minimum_size = Vector2(48, 48)
+theme_override_styles/panel = SubResource("StyleBoxTexture_gbthy")
 script = ExtResource("1_iw87m")
 
 [node name="TextureRect" type="TextureRect" parent="."]

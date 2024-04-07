@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cbq1amxx127id"
+path="res://.godot/imported/cube_shadow.aseprite-393918d6b7033e9d53276a26135eeb67.res"
+
+[deps]
+
+source_file="res://assets/cube/cube_shadow.aseprite"
+dest_files=["res://.godot/imported/cube_shadow.aseprite-393918d6b7033e9d53276a26135eeb67.res"]
+
+[params]
+

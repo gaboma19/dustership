@@ -1,0 +1,45 @@
+[gd_scene load_steps=6 format=3 uid="uid://ciyba36r6f1l1"]
+
+[ext_resource type="Script" path="res://scenes/entities/cube/cube_fainted.gd" id="1_cxxg8"]
+[ext_resource type="Texture2D" uid="uid://dj3hm6creotvo" path="res://assets/cube/cube_fainted.png" id="2_lwek4"]
+[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_ciwda"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8anu"]
+size = Vector2(9, 9)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_didqj"]
+
+[node name="CubeFainted" type="StaticBody2D"]
+script = ExtResource("1_cxxg8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_lwek4")
+offset = Vector2(0, -5)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/cube/cube_fainted.aseprite"
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0.5, -4.5)
+shape = SubResource("RectangleShape2D_a8anu")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("3_ciwda")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -4)
+shape = SubResource("CircleShape2D_didqj")

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b01pwb8c6gj2o"
+path="res://.godot/imported/cube_fainted.aseprite-eafaaa5c675b3e8a3ab2c38ee12bbc38.res"
+
+[deps]
+
+source_file="res://assets/cube/cube_fainted.aseprite"
+dest_files=["res://.godot/imported/cube_fainted.aseprite-eafaaa5c675b3e8a3ab2c38ee12bbc38.res"]
+
+[params]
+

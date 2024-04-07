@@ -1,15 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dl1i1ytfm3yq8"]
+[gd_scene load_steps=4 format=3 uid="uid://dl1i1ytfm3yq8"]
 
 [ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_2lki5"]
 [ext_resource type="Texture2D" uid="uid://cttyxcdbb3i6i" path="res://assets/backgrounds/echelon_parallax/Layer 2.png" id="2_asilx"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_background/clouds.gd" id="2_tyhj0"]
 
 [node name="EchelonBackground" type="ParallaxBackground"]
 
-[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+[node name="Purple" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(0.9, 0.9)
 motion_mirroring = Vector2(1000, 600)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+[node name="Sprite2D" type="Sprite2D" parent="Purple"]
 texture_filter = 1
 texture = ExtResource("1_2lki5")
 metadata/_aseprite_wizard_config_ = {
@@ -25,11 +26,12 @@ metadata/_aseprite_wizard_config_ = {
 "source": "res://assets/backgrounds/echelon_parallax.aseprite"
 }
 
-[node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
+[node name="Clouds" type="ParallaxLayer" parent="."]
 motion_scale = Vector2(1.1, 1.1)
 motion_mirroring = Vector2(1000, 600)
+script = ExtResource("2_tyhj0")
 
-[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer3"]
+[node name="Sprite2D" type="Sprite2D" parent="Clouds"]
 texture_filter = 1
 texture = ExtResource("2_asilx")
 metadata/_aseprite_wizard_config_ = {

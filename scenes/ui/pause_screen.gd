@@ -18,6 +18,8 @@ func set_inventory_grid():
 
 
 func animate_open():
+	$AnimationPlayer.play("default")
+	
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)
@@ -35,6 +37,8 @@ func close():
 	if is_closing:
 		return
 	is_closing = true
+	
+	$AnimationPlayer.play_backwards("default")
 	
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0)

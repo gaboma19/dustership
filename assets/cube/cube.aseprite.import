@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dai4jcevd5tq2"
+path="res://.godot/imported/cube.aseprite-aedb8d8b97ccb734e4881b7bbbe253a2.res"
+
+[deps]
+
+source_file="res://assets/cube/cube.aseprite"
+dest_files=["res://.godot/imported/cube.aseprite-aedb8d8b97ccb734e4881b7bbbe253a2.res"]
+
+[params]
+

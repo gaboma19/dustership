@@ -193,6 +193,7 @@ radius = 5.0
 height = 14.0
 
 [node name="Philo" type="CharacterBody2D" groups=["enemy"]]
+collision_mask = 33
 motion_mode = 1
 script = ExtResource("1_wrftd")
 
@@ -264,7 +265,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 6
+frame = 10
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

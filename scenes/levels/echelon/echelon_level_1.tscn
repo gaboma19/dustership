@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c07831odmeqpn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
-[ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background.tscn" id="2_eqcm2"]
+[ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_eqcm2"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="6_s6q66"]
 [ext_resource type="PackedScene" uid="uid://t4655rf1h8l6" path="res://scenes/entities/doodads/aprils_apartment_exterior.tscn" id="7_jynwh"]

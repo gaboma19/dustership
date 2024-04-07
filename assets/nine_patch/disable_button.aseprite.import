@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dcyfa2la5uo0t"
+path="res://.godot/imported/disable_button.aseprite-1089cb07cf9d8a0bfbf00e841236bddb.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/disable_button.aseprite"
+dest_files=["res://.godot/imported/disable_button.aseprite-1089cb07cf9d8a0bfbf00e841236bddb.res"]
+
+[params]
+

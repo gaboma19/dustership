@@ -24,6 +24,7 @@ HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
 SteelCounter="*res://scenes/ui/steel_counter.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 InteractionManager="*res://scenes/autoload/interaction_manager.tscn"
+DialogueManager="*res://scenes/autoload/dialogue_manager.gd"
 
 [display]
 
@@ -96,11 +97,12 @@ pause={
 
 [layer_names]
 
-2d_physics/layer_1="Terrain"
+2d_physics/layer_1="Walls"
 2d_physics/layer_2="Player"
 2d_physics/layer_3="PlayerAttacks"
 2d_physics/layer_4="EnemyAttacks"
 2d_physics/layer_5="PlayerPickup"
+2d_physics/layer_6="Floor"
 
 [rendering]
 
