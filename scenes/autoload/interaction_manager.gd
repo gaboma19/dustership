@@ -18,7 +18,7 @@ func unregister_area(area: InteractionArea):
 
 
 func _process(_delta):
-	if active_areas.size() > 0 && can_interact:
+	if active_areas.size() > 0 && can_interact && !DialogueManager.is_dialogue_active:
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		label.text = active_areas[0].action_name
 		label.show()

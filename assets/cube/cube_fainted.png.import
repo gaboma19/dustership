@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wgvkfebydk2y"
-path="res://.godot/imported/shadow.png-12c222c6e996b8acc61af965dd53cad6.ctex"
+uid="uid://dj3hm6creotvo"
+path="res://.godot/imported/cube_fainted.png-4096b361b67ab70462b0b82eccb07317.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cube/shadow.png"
-dest_files=["res://.godot/imported/shadow.png-12c222c6e996b8acc61af965dd53cad6.ctex"]
+source_file="res://assets/cube/cube_fainted.png"
+dest_files=["res://.godot/imported/cube_fainted.png-4096b361b67ab70462b0b82eccb07317.ctex"]
 
 [params]
 

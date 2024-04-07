@@ -45,6 +45,7 @@ func _unhandled_input(event):
 		is_dialogue_active &&
 		can_advance_line
 	):
+		get_tree().root.set_input_as_handled()
 		text_box.queue_free()
 		
 		current_line_index += 1

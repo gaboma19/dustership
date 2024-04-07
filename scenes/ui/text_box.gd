@@ -44,7 +44,7 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 	
 	var tween = get_tree().create_tween()
 	tween.tween_property(
-		self, "scale", Vector2.ONE, 0.15
+		self, "scale", Vector2(0.5, 0.5), 0.15
 	).set_trans(Tween.TRANS_BACK)
 	
 	_display_letter()

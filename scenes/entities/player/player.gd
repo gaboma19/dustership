@@ -7,10 +7,7 @@ class_name Player
 @onready var health_component = $HealthComponent
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
 @onready var velocity_component = $VelocityComponent
-# @onready var speech_sound = preload("")
-
-# const lines: Array[String] = ["foo", "bar"]
-
+@onready var speech_sound = preload("res://assets/sfx/speech_sound.wav")
 
 var movement_vector: Vector2 = Vector2.ZERO
 
@@ -38,9 +35,8 @@ func _process(_delta):
 	velocity_component.move(self)
 	
 	
-func speak():
-	pass
-	# DialogueManager.start_dialogue(global_position, lines, speech_sound)
+func speak(lines: Array[String]):
+	DialogueManager.start_dialogue(global_position, lines, speech_sound)
 	
 	
 func damage_player(damage: int):

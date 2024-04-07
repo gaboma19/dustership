@@ -1,13 +1,13 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnbgplt548dxq"]
 
-[ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/shadow.png" id="1_fnlja"]
+[ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="1_lcqcb"]
 
 [node name="ShadowSprite" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.501961)
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, 2)
-texture = ExtResource("1_fnlja")
+texture = ExtResource("1_lcqcb")
 offset = Vector2(0, -1.5)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
