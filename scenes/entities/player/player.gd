@@ -6,8 +6,9 @@ class_name Player
 @onready var damage_interval_timer = $PlayerHurtboxComponent/DamageIntervalTimer
 #@onready var health_component = $HealthComponent
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
-@onready var velocity_component = $VelocityComponent
 @onready var speech_sound = preload("res://assets/sfx/speech_sound.wav")
+@onready var state_machine = %StateMachine
+@onready var velocity_component = $VelocityComponent
 
 var movement_vector: Vector2 = Vector2.ZERO
 
@@ -17,6 +18,7 @@ func _ready():
 	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
 	#update_player_variables()
 	#HealthBar.set_hearts()
+	PartyManager.add_member(self)
 	
 	
 func _process(_delta):
