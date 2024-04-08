@@ -1,16 +1,17 @@
 extends Node2D
 
-@onready var player: Player = %Player
 @onready var game_camera = $GameCamera
 
 @export var is_camera_static: bool = false
 
 var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
 var pause_screen_scene = preload("res://scenes/ui/pause_screen.tscn")
+var player: Player
 
 
 func _ready():
-	player.health_component.died.connect(on_player_died)
+	player = get_tree().get_first_node_in_group("player")
+	PlayerVariables.died.connect(on_player_died)
 
 
 func _unhandled_input(event):

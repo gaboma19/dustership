@@ -18,13 +18,14 @@ config/icon="res://icon.png"
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
+HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 Inventory="*res://scenes/autoload/inventory.tscn"
-HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
 SteelCounter="*res://scenes/ui/steel_counter.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 InteractionManager="*res://scenes/autoload/interaction_manager.tscn"
 DialogueManager="*res://scenes/autoload/dialogue_manager.gd"
+PartyManager="*res://scenes/autoload/party_manager.gd"
 
 [display]
 
@@ -91,7 +92,19 @@ interact={
 pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
-, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":3,"pressure":0.0,"pressed":false,"script":null)
+]
+}
+switch_character={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"echo":false,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":4,"axis_value":1.0,"script":null)
+, Object(InputEventJoypadMotion,"resource_local_to_scene":false,"resource_name":"","device":-1,"axis":5,"axis_value":1.0,"script":null)
+]
+}
+toggle_follow={
+"deadzone": 0.5,
+"events": [Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194306,"key_label":0,"unicode":0,"echo":false,"script":null)
 ]
 }
 
