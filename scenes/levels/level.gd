@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var player: Player = %Player
 @onready var game_camera = $GameCamera
 
 @export var is_camera_static: bool = false
@@ -10,7 +9,7 @@ var pause_screen_scene = preload("res://scenes/ui/pause_screen.tscn")
 
 
 func _ready():
-	player.health_component.died.connect(on_player_died)
+	PlayerVariables.died.connect(on_player_died)
 
 
 func _unhandled_input(event):
@@ -26,6 +25,6 @@ func on_player_died():
 
 
 func set_player_position(player_position: Vector2):
-	player.global_position = player_position
+	PartyManager.instantiate_party(player_position)
 	if not is_camera_static:
 		game_camera.global_position = player_position

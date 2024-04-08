@@ -24,7 +24,7 @@ func tween_bounce():
 
 
 func tween_collect(percent: float, start_position: Vector2):
-	var player = get_tree().get_first_node_in_group("player")
+	var player = PartyManager.get_active_member()
 	if player == null:
 		return
 		

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qfi3h"]
 [ext_resource type="Texture2D" uid="uid://corxxm72cbgvw" path="res://assets/backgrounds/aprils_apartment/aprils_apartment.png" id="1_roq2h"]
 [ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_bathroom.png" id="2_3wdpf"]
-[ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="3_uosp1"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/levels/game_start.tscn" id="2_p1c6l"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="5_28nei"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="6_ih2uo"]
 
@@ -11,6 +11,8 @@
 y_sort_enabled = true
 script = ExtResource("1_qfi3h")
 is_camera_static = true
+
+[node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -48,11 +50,6 @@ zoom = Vector2(4, 4)
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
-
-[node name="Player" parent="Entities" instance=ExtResource("3_uosp1")]
-unique_name_in_owner = true
-y_sort_enabled = true
-position = Vector2(16, 72)
 
 [node name="Chest" parent="Entities" instance=ExtResource("5_28nei")]
 position = Vector2(71, 55)

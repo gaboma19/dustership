@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnbgplt548dxq"]
+[gd_scene load_steps=3 format=3 uid="uid://dnbgplt548dxq"]
 
 [ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="1_lcqcb"]
+[ext_resource type="Script" path="res://scenes/entities/cube/shadow_sprite.gd" id="2_oc4cw"]
 
 [node name="ShadowSprite" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.501961)
@@ -9,6 +10,7 @@ texture_filter = 1
 position = Vector2(0, 2)
 texture = ExtResource("1_lcqcb")
 offset = Vector2(0, -1.5)
+script = ExtResource("2_oc4cw")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,

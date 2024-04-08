@@ -12,7 +12,7 @@ func accelerate_to_player():
 	if owner_node2d == null:
 		return
 		
-	var player = get_tree().get_first_node_in_group("player") as Node2D
+	var player = PartyManager.get_active_member()
 	if player == null:
 		return
 	

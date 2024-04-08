@@ -25,7 +25,7 @@ func _ready():
 	
 	
 func on_interact():
-	var player = get_tree().get_first_node_in_group("player") as Player
+	var player = PartyManager.get_active_member() as Player
 	if not interacted:
 		player.speak(lines)
 		interacted = true

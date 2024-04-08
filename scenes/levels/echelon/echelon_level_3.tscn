@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://ciu4ycsb3e57c"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_h1x7x"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/levels/game_start.tscn" id="2_31n7q"]
+[ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_b7tb1"]
+[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_i45ol"]
+[ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="4_72wa6"]
+[ext_resource type="PackedScene" uid="uid://bdgmk7thjffe0" path="res://scenes/entities/player/cube.tscn" id="6_dq0fk"]
+[ext_resource type="PackedScene" uid="uid://dnbgplt548dxq" path="res://scenes/entities/cube/shadow_sprite.tscn" id="7_k4e8a"]
+
+[node name="EchelonLevel3" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_h1x7x")
+
+[node name="GameStart" parent="." instance=ExtResource("2_31n7q")]
+enabled = true
+
+[node name="EchelonBackground" parent="." instance=ExtResource("2_b7tb1")]
+
+[node name="TileMap" parent="." instance=ExtResource("4_72wa6")]
+position = Vector2(96, 144)
+layer_0/tile_data = PackedInt32Array(-262157, 2, 4, -196621, 2, 4, -131085, 2, 4, -65549, 2, 4, -262156, 2, 4, -196620, 2, 4, -131084, 2, 4, -65548, 2, 4, -262155, 2, 4, -196619, 2, 4, -131083, 2, 4, -65547, 2, 4, -262154, 2, 4, -196618, 2, 4, -131082, 2, 4, -65546, 2, 4, -262153, 2, 4, -196617, 2, 4, -131081, 2, 4, -65545, 2, 4, -262152, 2, 4, -196616, 2, 4, -131080, 2, 4, -65544, 2, 4, -262151, 2, 4, -196615, 2, 4, -131079, 2, 4, -65543, 2, 4, -262150, 2, 4, -196614, 2, 4, -131078, 2, 4, -65542, 2, 4, -262149, 2, 4, -196613, 2, 4, -131077, 2, 4, -65541, 2, 4, -262148, 2, 4, -196612, 2, 4, -131076, 2, 4, -65540, 2, 4, -262147, 2, 4, -196611, 2, 4, -131075, 2, 4, -65539, 2, 4, -3, 2, 4, -262146, 2, 4, -196610, 2, 4, -131074, 2, 4, -65538, 2, 4, -2, 2, 4, -13, 2, 4, 65523, 2, 4, 131059, 2, 4, 196595, 2, 4, -12, 2, 4, 65524, 2, 4, 131060, 2, 4, 196596, 2, 4, -11, 2, 4, 65525, 2, 4, 131061, 2, 4, 196597, 2, 4, -10, 2, 4, 65526, 2, 4, 131062, 2, 4, 196598, 2, 4, -9, 2, 4, 65527, 2, 4, 131063, 2, 4, 196599, 2, 4, -8, 2, 4, 65528, 2, 4, 131064, 2, 4, 196600, 2, 4, -7, 2, 4, 65529, 2, 4, 131065, 2, 4, 196601, 2, 4, -6, 2, 4, 65530, 2, 4, 131066, 2, 4, 196602, 2, 4, -5, 2, 4, 65531, 2, 4, 131067, 2, 4, 196603, 2, 4, -4, 2, 4, 65532, 2, 4, 131068, 2, 4, 196604, 2, 4, 65533, 2, 4, 131069, 2, 4, 196605, 2, 4, 65534, 2, 4, 131070, 2, 4, 196606, 2, 4, -524301, 2, 4, -458765, 2, 4, -393229, 2, 4, -327693, 2, 4, -524300, 2, 4, -458764, 2, 4, -393228, 2, 4, -327692, 2, 4, -524299, 2, 4, -458763, 2, 4, -393227, 2, 4, -327691, 2, 4, -524298, 2, 4, -458762, 2, 4, -393226, 2, 4, -327690, 2, 4, -524297, 2, 4, -458761, 2, 4, -393225, 2, 4, -327689, 2, 4, -524296, 2, 4, -458760, 2, 4, -393224, 2, 4, -327688, 2, 4, -524295, 2, 4, -458759, 2, 4, -393223, 2, 4, -327687, 2, 4, -524294, 2, 4, -458758, 2, 4, -393222, 2, 4, -327686, 2, 4, -524293, 2, 4, -458757, 2, 4, -393221, 2, 4, -327685, 2, 4, -524292, 2, 4, -458756, 2, 4, -393220, 2, 4, -327684, 2, 4, -524291, 2, 4, -458755, 2, 4, -393219, 2, 4, -327683, 2, 4, -524290, 2, 4, -458754, 2, 4, -393218, 2, 4, -327682, 2, 4)
+
+[node name="GameCamera" parent="." instance=ExtResource("3_i45ol")]
+position = Vector2(-48, -80)
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="Cube" parent="Entities" instance=ExtResource("6_dq0fk")]
+position = Vector2(64, 56)
+
+[node name="ShadowSprite" parent="Entities" node_paths=PackedStringArray("flying_entity") instance=ExtResource("7_k4e8a")]
+position = Vector2(64, 61)
+flying_entity = NodePath("../Cube")
+y_offset = 5.0
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
+z_index = 1

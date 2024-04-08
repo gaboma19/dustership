@@ -1,11 +1,14 @@
-[gd_scene load_steps=34 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=37 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_ngiex"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_dawcl"]
 [ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component/ability_spawn_component.tscn" id="3_nlnxg"]
-[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="4_gkhlh"]
 [ext_resource type="PackedScene" uid="uid://dddqbw827wnsn" path="res://scenes/abilities/sword_ability_controller/sword_ability_controller.tscn" id="5_vm4dp"]
 [ext_resource type="Texture2D" uid="uid://sy8d6jld4e5i" path="res://assets/april/ammellan.png" id="6_xevbc"]
+[ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="7_gra1j"]
+[ext_resource type="Script" path="res://scenes/entities/player/states/follow.gd" id="8_k4ad0"]
+[ext_resource type="Script" path="res://scenes/entities/player/states/active.gd" id="9_fw6je"]
+[ext_resource type="Script" path="res://scenes/entities/player/states/hold.gd" id="10_55nkc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
 radius = 32.0
@@ -607,9 +610,9 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dps2l"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_0y31l")
 states/Idle/position = Vector2(379, 100)
-states/Walk/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
-states/Walk/position = Vector2(599, 100)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3")]
+states/Move/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
+states/Move/position = Vector2(599, 100)
+transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3")]
 graph_offset = Vector2(-65, -50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlucn"]
@@ -626,15 +629,14 @@ max_speed = 60
 acceleration = 10.0
 
 [node name="AbilitySpawnComponent" parent="." instance=ExtResource("3_nlnxg")]
-
-[node name="HealthComponent" parent="." instance=ExtResource("4_gkhlh")]
-max_health = 3
+unique_name_in_owner = true
 
 [node name="Abilities" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="Abilities" instance=ExtResource("5_vm4dp")]
 
 [node name="PickupArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 16
 collision_mask = 0
@@ -688,9 +690,23 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
 parameters/Idle/blend_position = Vector2(0.00104499, 1.1)
-parameters/Walk/blend_position = Vector2(0.0213592, 0.627917)
+parameters/Move/blend_position = Vector2(0.0930233, -0.350862)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")
+
+[node name="StateMachine" parent="." instance=ExtResource("7_gra1j")]
+unique_name_in_owner = true
+initial_state = NodePath("Active")
+
+[node name="Follow" type="Node" parent="StateMachine"]
+script = ExtResource("8_k4ad0")
+
+[node name="Active" type="Node" parent="StateMachine"]
+script = ExtResource("9_fw6je")
+
+[node name="Hold" type="Node" parent="StateMachine"]
+script = ExtResource("10_55nkc")
