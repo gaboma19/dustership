@@ -18,5 +18,4 @@ func on_body_entered(_body: Node2D):
 	
 	
 func on_body_exited(_body: Node2D):
-	print("exited")
 	InteractionManager.unregister_area(self)
