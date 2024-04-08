@@ -4,10 +4,6 @@ extends Enemy
 @onready var animation_tree = $AnimationTree
 
 
-func _ready():
-	player = get_tree().get_first_node_in_group("player")
-	
-
 func _process(_delta):
 	if velocity.is_zero_approx():
 		set_moving(false)

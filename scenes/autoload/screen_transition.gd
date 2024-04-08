@@ -22,7 +22,7 @@ func transition_to_scene(scene_path: String):
 	transition_in()
 	
 	
-func transition_to_level(scene_path: String, player_position: Vector2):
+func transition_to_level(scene_path: String, player_position: Vector2):	
 	transition_out()
 	await get_tree().create_timer(0.4).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()

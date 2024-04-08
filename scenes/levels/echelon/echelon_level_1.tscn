@@ -1,11 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://c07831odmeqpn"]
+[gd_scene load_steps=9 format=3 uid="uid://c07831odmeqpn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_eqcm2"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="6_s6q66"]
 [ext_resource type="PackedScene" uid="uid://t4655rf1h8l6" path="res://scenes/entities/doodads/aprils_apartment_exterior.tscn" id="7_jynwh"]
-[ext_resource type="PackedScene" uid="uid://dsqd5wjpj1yo6" path="res://scenes/entities/player/april.tscn" id="7_u1034"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="7_xv1qq"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="8_itgs4"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/levels/level_transition_interaction.tscn" id="8_l06in"]
@@ -28,10 +27,6 @@ layer_1/tile_data = PackedInt32Array(524294, 655363, 11, 524295, 655363, 10, 524
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
-
-[node name="Player" parent="Entities" instance=ExtResource("7_u1034")]
-unique_name_in_owner = true
-position = Vector2(-112, 0)
 
 [node name="Philo" parent="Entities" instance=ExtResource("8_itgs4")]
 position = Vector2(496, 72)

@@ -610,9 +610,9 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dps2l"]
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_0y31l")
 states/Idle/position = Vector2(379, 100)
-states/Walk/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
-states/Walk/position = Vector2(599, 100)
-transitions = ["Idle", "Walk", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Walk", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3")]
+states/Move/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
+states/Move/position = Vector2(599, 100)
+transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3")]
 graph_offset = Vector2(-65, -50)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qlucn"]
@@ -629,12 +629,14 @@ max_speed = 60
 acceleration = 10.0
 
 [node name="AbilitySpawnComponent" parent="." instance=ExtResource("3_nlnxg")]
+unique_name_in_owner = true
 
 [node name="Abilities" type="Node" parent="."]
 
 [node name="SwordAbilityController" parent="Abilities" instance=ExtResource("5_vm4dp")]
 
 [node name="PickupArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 16
 collision_mask = 0
@@ -688,9 +690,10 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
 parameters/Idle/blend_position = Vector2(0.00104499, 1.1)
-parameters/Walk/blend_position = Vector2(0.0213592, 0.627917)
+parameters/Move/blend_position = Vector2(0.0930233, -0.350862)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")

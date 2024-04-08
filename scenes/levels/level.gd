@@ -6,11 +6,9 @@ extends Node2D
 
 var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
 var pause_screen_scene = preload("res://scenes/ui/pause_screen.tscn")
-var player: Player
 
 
 func _ready():
-	player = get_tree().get_first_node_in_group("player")
 	PlayerVariables.died.connect(on_player_died)
 
 
@@ -27,6 +25,6 @@ func on_player_died():
 
 
 func set_player_position(player_position: Vector2):
-	player.global_position = player_position
+	PartyManager.instantiate_party(player_position)
 	if not is_camera_static:
 		game_camera.global_position = player_position

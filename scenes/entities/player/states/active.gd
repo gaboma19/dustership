@@ -2,12 +2,14 @@
 extends PlayerState
 
 @onready var pickup_area = %PickupArea
+@onready var collision_shape_2d = %CollisionShape2D
 
 var movement_vector: Vector2 = Vector2.ZERO
 
 
 func enter(_msg := {}) -> void:
 	pickup_area.monitoring = true
+	collision_shape_2d.disabled = false
 
 
 func update(_delta: float) -> void:
@@ -28,6 +30,7 @@ func update(_delta: float) -> void:
 
 func exit() -> void:
 	pickup_area.monitoring = false
+	collision_shape_2d.disabled = true
 
 
 func get_movement_vector():

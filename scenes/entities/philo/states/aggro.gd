@@ -17,8 +17,6 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
-	if enemy.player == null:
-		return
 	enemy.velocity_component.accelerate_to_player()
 	enemy.velocity_component.move(enemy)
 	

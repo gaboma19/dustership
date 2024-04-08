@@ -29,7 +29,6 @@ func animate_open():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
-		print(event)
 		close()
 		get_tree().root.set_input_as_handled()
 		

@@ -3,21 +3,19 @@ extends Node
 @export var sword_ability: PackedScene
 @export var damage: int = 5
 @onready var timer = $Timer
+@onready var ability_spawn_component = %AbilitySpawnComponent
 
 var attack_animation = preload("res://scenes/abilities/sword_ability/attack.res")
 var attack_time: float = attack_animation.length
-var player: Player
 var sword_instance: SwordAbility
 
 
 func _ready():
-	player = get_tree().get_first_node_in_group("player") as Player
 	timer.wait_time = attack_time
 
 
 func _process(_delta):
-	if player != null:
-		update_sword_position(player.ability_spawn_component.global_position)
+	update_sword_position(ability_spawn_component.global_position)
 
 
 func _input(event):
@@ -35,8 +33,8 @@ func attack():
 	var foreground_node = get_tree().get_first_node_in_group("foreground")
 	
 	foreground_node.add_child(sword_instance)
-	sword_instance.global_position = player.ability_spawn_component.global_position
-	sword_instance.rotation = player.ability_spawn_component.rotation
+	sword_instance.global_position = ability_spawn_component.global_position
+	sword_instance.rotation = ability_spawn_component.rotation
 	sword_instance.hitbox_component.damage = damage
 
 
