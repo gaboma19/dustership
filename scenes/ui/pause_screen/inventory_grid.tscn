@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bhybpvycs41re"]
+
+[ext_resource type="PackedScene" uid="uid://bcbfsu1axq5ix" path="res://scenes/ui/pause_screen/inventory_slot.tscn" id="1_qf6j6"]
+
+[node name="InventoryGrid" type="GridContainer"]
+size_flags_horizontal = 4
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
+columns = 4
+
+[node name="InventorySlot1" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+theme_type_variation = &"PanelContainerLight"
+
+[node name="InventorySlot2" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot3" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot4" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot5" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot6" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot7" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot8" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot9" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot10" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot11" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2
+
+[node name="InventorySlot12" parent="." instance=ExtResource("1_qf6j6")]
+layout_mode = 2

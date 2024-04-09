@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://cbe8bpb07410p"]
+
+[node name="Map" type="PanelContainer"]
+theme_type_variation = &"PanelContainerLight"
