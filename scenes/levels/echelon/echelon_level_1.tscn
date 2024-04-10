@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c07831odmeqpn"]
+[gd_scene load_steps=10 format=3 uid="uid://c07831odmeqpn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_eqcm2"]
@@ -8,10 +8,15 @@
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="7_xv1qq"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="8_itgs4"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/levels/level_transition_interaction.tscn" id="8_l06in"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/levels/game_start.tscn" id="9_nakwi"]
 
 [node name="EchelonLevel1" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_wi3wv")
+map_pin_cell = Vector2i(8, -1)
+
+[node name="GameStart" parent="." instance=ExtResource("9_nakwi")]
+position = Vector2(0, 0)
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_eqcm2")]
 

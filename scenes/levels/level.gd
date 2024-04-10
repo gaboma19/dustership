@@ -1,11 +1,12 @@
 extends Node2D
 
-@onready var game_camera = $GameCamera
-
 @export var is_camera_static: bool = false
+@export var map_pin_cell: Vector2i
 
 var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
-var pause_screen_scene = preload("res://scenes/ui/pause_screen.tscn")
+var pause_screen_scene = preload("res://scenes/ui/pause_screen/pause_screen.tscn")
+
+@onready var game_camera = $GameCamera
 
 
 func _ready():
@@ -14,8 +15,10 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
-		add_child(pause_screen_scene.instantiate())
 		get_tree().root.set_input_as_handled()
+		var pause_screen = pause_screen_scene.instantiate()
+		add_child(pause_screen)
+		pause_screen.map_pin_cell = map_pin_cell
 
 
 func on_player_died():

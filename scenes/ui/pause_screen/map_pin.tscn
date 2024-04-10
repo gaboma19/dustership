@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cgrmhd7uxfrb6"]
+
+[ext_resource type="Texture2D" uid="uid://01icdtvm7d03" path="res://assets/map/map_pin.png" id="1_x6xe8"]
+
+[node name="MapPin" type="Sprite2D"]
+texture = ExtResource("1_x6xe8")
+centered = false
+offset = Vector2(-8, -16)

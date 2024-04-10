@@ -5,6 +5,7 @@ signal died
 var current_health: int
 var max_health: int = 3
 var steel: int = 0
+var pause_menu_screen: int = 0
 
 
 func _ready():

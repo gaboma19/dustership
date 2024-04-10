@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bs328dbhcuy52"
+path="res://.godot/imported/transparent_panel.aseprite-8358d74ce61c4019ffd30b30d496ed64.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/transparent_panel.aseprite"
+dest_files=["res://.godot/imported/transparent_panel.aseprite-8358d74ce61c4019ffd30b30d496ed64.res"]
+
+[params]
+

@@ -1,10 +1,12 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=15 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
 [ext_resource type="Texture2D" uid="uid://87i431evp216" path="res://assets/nine_patch/pause_screen.png" id="1_jbmej"]
 [ext_resource type="Texture2D" uid="uid://cvbcvyordp2mt" path="res://assets/nine_patch/disable_button.png" id="1_ywon2"]
 [ext_resource type="Texture2D" uid="uid://ca2i68v3x06bl" path="res://assets/nine_patch/button.png" id="2_mjf8k"]
+[ext_resource type="Texture2D" uid="uid://b4lsbkcpitpq0" path="res://assets/nine_patch/inventory_slot.png" id="5_ybjwd"]
+[ext_resource type="Texture2D" uid="uid://yms1koqi4f3s" path="res://assets/nine_patch/transparent_panel.png" id="6_p6t45"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jv8l"]
 texture = ExtResource("1_ywon2")
@@ -42,6 +44,20 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 24, 24)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxma3"]
+texture = ExtResource("5_ybjwd")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b61o2"]
+texture = ExtResource("6_p6t45")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [resource]
 default_font = ExtResource("1_38iv3")
 Button/styles/disabled = SubResource("StyleBoxTexture_2jv8l")
@@ -49,3 +65,7 @@ Button/styles/hover = SubResource("StyleBoxTexture_c81hl")
 Button/styles/normal = SubResource("StyleBoxTexture_sqv11")
 Button/styles/pressed = SubResource("StyleBoxTexture_q3316")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_51dbo")
+PanelContainerLight/base_type = &"PanelContainer"
+PanelContainerLight/styles/panel = SubResource("StyleBoxTexture_oxma3")
+PanelContainerTransparent/base_type = &"PanelContainer"
+PanelContainerTransparent/styles/panel = SubResource("StyleBoxTexture_b61o2")

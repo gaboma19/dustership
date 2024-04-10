@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://cbe8bpb07410p"]
+
+[ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_7a6ng"]
+[ext_resource type="Script" path="res://scenes/ui/pause_screen/map.gd" id="1_wh1ui"]
+[ext_resource type="Texture2D" uid="uid://ck4l415mu1e0s" path="res://assets/ui/tile_0185.png" id="2_2vit1"]
+[ext_resource type="PackedScene" uid="uid://c0ahkq6kqspw4" path="res://scenes/levels/echelon/echelon_map_tiles.tscn" id="4_jw6vm"]
+
+[node name="Map" type="PanelContainer"]
+clip_contents = true
+offset_right = 432.0
+offset_bottom = 270.0
+theme_type_variation = &"PanelContainerTransparent"
+script = ExtResource("1_wh1ui")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("2_2vit1")
+
+[node name="Background" type="Sprite2D" parent="."]
+show_behind_parent = true
+texture_filter = 1
+scale = Vector2(3, 3)
+texture = ExtResource("1_7a6ng")
+region_rect = Rect2(432, 269.105, 0, 0)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/map/map.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": false
+}
+
+[node name="EchelonMapTiles" parent="." instance=ExtResource("4_jw6vm")]
