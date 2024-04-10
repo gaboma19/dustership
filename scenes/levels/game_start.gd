@@ -1,13 +1,14 @@
 extends Node
 
 @export var position: Vector2 = Vector2(32, 56)
-@export var enabled: bool = false
+@export var enabled: bool = PlayerVariables.enable_game_start
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/player/april.tscn")
 
 
 func _ready():
 	if enabled:
+		PlayerVariables.enable_game_start = false
 		initialize_april()
 
 

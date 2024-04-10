@@ -28,6 +28,9 @@ func on_player_died():
 
 
 func set_player_position(player_position: Vector2):
+	if PlayerVariables.enable_game_start:
+		return
+	
 	PartyManager.instantiate_party(player_position)
 	if not is_camera_static:
 		game_camera.global_position = player_position

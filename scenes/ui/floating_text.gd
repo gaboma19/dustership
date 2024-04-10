@@ -2,6 +2,9 @@ extends Node2D
 
 
 func start(text: String):
+	if not is_inside_tree():
+		return
+	
 	$Label.text = text
 	
 	var tween = create_tween()

@@ -6,6 +6,7 @@ var current_health: int
 var max_health: int = 3
 var steel: int = 0
 var pause_menu_screen: int = 0
+var enable_game_start: bool = true
 
 
 func _ready():
@@ -24,7 +25,12 @@ func damage(damage_amount: float):
 func check_death():
 	if current_health == 0:
 		died.emit()
-		owner.queue_free()
+
+
+func restart_game():
+	current_health = max_health
+	HealthBar.set_hearts()
+	enable_game_start = true
 
 
 func on_steel_collected(value: int):

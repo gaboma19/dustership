@@ -24,7 +24,9 @@ func update(_delta: float) -> void:
 func floating_text_start(text: String):
 	if is_inside_tree():
 		var floating_text = floating_text_scene.instantiate() as Node2D
-		get_tree().get_first_node_in_group("foreground").add_child(floating_text)
+		var foreground_layer = get_tree().get_first_node_in_group("foreground")
+		if foreground_layer != null:
+			foreground_layer.add_child(floating_text)
 		floating_text.global_position = enemy.global_position + (Vector2.UP * 16)
 		floating_text.start(text)
 
