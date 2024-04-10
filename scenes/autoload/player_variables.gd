@@ -29,8 +29,10 @@ func check_death():
 
 func restart_game():
 	current_health = max_health
-	HealthBar.set_hearts()
+	steel = 0
 	enable_game_start = true
+	HealthBar.set_hearts()
+	SteelCounter.set_counter()
 
 
 func on_steel_collected(value: int):
