@@ -24,7 +24,7 @@ func _unhandled_input(event):
 		else:
 			selected_screen += 1
 		set_menu_container()
-	elif event.is_action_pressed("pause"):
+	elif event.is_action_pressed("pause") or event.is_action_pressed("toggle_hold"):
 		get_tree().root.set_input_as_handled()
 		close()
 

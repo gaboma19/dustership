@@ -17,8 +17,9 @@ func _unhandled_input(event):
 	if event.is_action_pressed("pause"):
 		get_tree().root.set_input_as_handled()
 		var pause_screen = pause_screen_scene.instantiate()
-		add_child(pause_screen)
 		pause_screen.map_pin_cell = map_pin_cell
+		add_child(pause_screen)
+		
 
 
 func on_player_died():

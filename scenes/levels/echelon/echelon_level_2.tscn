@@ -18,6 +18,7 @@ map_pin_cell = Vector2i(14, 1)
 
 [node name="GameStart" parent="." instance=ExtResource("2_sad77")]
 position = Vector2(-48, -80)
+enabled = true
 
 [node name="EchelonBackground" parent="." instance=ExtResource("8_u38qy")]
 
