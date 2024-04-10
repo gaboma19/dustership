@@ -1,11 +1,12 @@
 extends CanvasLayer
 
 enum Screens { INVENTORY, MAP, OPTIONS }
-var selected_screen: int = 0
+var selected_screen: int = PlayerVariables.pause_menu_screen
 var is_closing
+var map_pin_cell: Vector2i
 
 @onready var panel_container = %PanelContainer
-@onready var inventory_grid_scene = preload("res://scenes/ui/pause_screen/inventory_grid.tscn")
+@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory_container.tscn")
 @onready var map_scene = preload("res://scenes/ui/pause_screen/map.tscn")
 
 
@@ -16,7 +17,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("switch_character"):
+	if event.is_action_pressed("switch_character"):
 		get_tree().root.set_input_as_handled()
 		if selected_screen == Screens.size() - 1:
 			selected_screen = 0
@@ -44,10 +45,10 @@ func set_menu_container():
 func set_inventory_grid():
 	%Label.text = "Inventory"
 	
-	var inventory_grid = inventory_grid_scene.instantiate()
-	%MenuContainer.add_child(inventory_grid)
+	var inventory_container = inventory_container_scene.instantiate()
+	%MenuContainer.add_child(inventory_container)
 	
-	var inventory_slots: Array = inventory_grid.get_children()
+	var inventory_slots: Array = inventory_container.get_slots()
 	for i in range(Inventory.items.size() - 1):
 		inventory_slots[i].set_item(Inventory.items[i])
 
@@ -57,10 +58,11 @@ func set_map():
 	
 	var map = map_scene.instantiate()
 	%MenuContainer.add_child(map)
+	map.draw_pin(map_pin_cell)
 
 
 func set_options():
-	pass
+	%Label.text = "Options"
 
 
 func animate_open():
@@ -77,6 +79,8 @@ func close():
 	if is_closing:
 		return
 	is_closing = true
+	
+	PlayerVariables.pause_menu_screen = selected_screen
 	
 	$AnimationPlayer.play_backwards("default")
 	

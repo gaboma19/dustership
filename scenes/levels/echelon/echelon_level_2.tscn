@@ -1,6 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://d13u4o183lyu4"]
+[gd_scene load_steps=11 format=3 uid="uid://d13u4o183lyu4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_b26j0"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/levels/game_start.tscn" id="2_sad77"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="3_rmwer"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_yeu56"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="4_lakag"]
@@ -13,6 +14,10 @@
 [node name="EchelonLevel2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_b26j0")
+map_pin_cell = Vector2i(14, 1)
+
+[node name="GameStart" parent="." instance=ExtResource("2_sad77")]
+position = Vector2(-48, -80)
 
 [node name="EchelonBackground" parent="." instance=ExtResource("8_u38qy")]
 

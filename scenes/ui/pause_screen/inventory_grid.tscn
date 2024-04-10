@@ -3,7 +3,10 @@
 [ext_resource type="PackedScene" uid="uid://bcbfsu1axq5ix" path="res://scenes/ui/pause_screen/inventory_slot.tscn" id="1_qf6j6"]
 
 [node name="InventoryGrid" type="GridContainer"]
-size_flags_horizontal = 4
+offset_right = 240.0
+offset_bottom = 176.0
+size_flags_horizontal = 0
+size_flags_vertical = 4
 theme_override_constants/h_separation = 16
 theme_override_constants/v_separation = 16
 columns = 4

@@ -34,8 +34,6 @@ func exit() -> void:
 
 
 func get_movement_vector():
-	var direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")	
-	direction.y /= 2
-	direction = direction.normalized()
+	var direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
 	
 	return direction
