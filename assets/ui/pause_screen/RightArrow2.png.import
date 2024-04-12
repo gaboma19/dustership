@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct44o5nxyriny"
-path="res://.godot/imported/tile_0653.png-036ee4eb7a66f45c971c24b290280db8.ctex"
+uid="uid://bofb38hi2k1gj"
+path="res://.godot/imported/RightArrow2.png-61d70ec3351d234034e4533c2c3e529f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/tile_0653.png"
-dest_files=["res://.godot/imported/tile_0653.png-036ee4eb7a66f45c971c24b290280db8.ctex"]
+source_file="res://assets/ui/pause_screen/RightArrow2.png"
+dest_files=["res://.godot/imported/RightArrow2.png-61d70ec3351d234034e4533c2c3e529f.ctex"]
 
 [params]
 

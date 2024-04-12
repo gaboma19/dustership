@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cw5a36j4axbw5"
-path="res://.godot/imported/tile_0654.png-e447c32df60472e0b3409a0de3195fe0.ctex"
+uid="uid://dw5ilbqvufmp6"
+path="res://.godot/imported/LeftArrow2.png-03498c0336a24f06c9ababb446abbc44.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/tile_0654.png"
-dest_files=["res://.godot/imported/tile_0654.png-e447c32df60472e0b3409a0de3195fe0.ctex"]
+source_file="res://assets/ui/pause_screen/LeftArrow2.png"
+dest_files=["res://.godot/imported/LeftArrow2.png-03498c0336a24f06c9ababb446abbc44.ctex"]
 
 [params]
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dkk2htinw7hk6"]
 
-[ext_resource type="PackedScene" uid="uid://bhybpvycs41re" path="res://scenes/ui/pause_screen/inventory_grid.tscn" id="1_5u2cg"]
-[ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory_container.gd" id="1_1853p"]
+[ext_resource type="PackedScene" uid="uid://bhybpvycs41re" path="res://scenes/ui/pause_screen/inventory/inventory_grid.tscn" id="1_5u2cg"]
+[ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/inventory_container.gd" id="1_1853p"]
 [ext_resource type="Texture2D" uid="uid://sy8d6jld4e5i" path="res://assets/april/ammellan.png" id="2_h8xr0"]
 [ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://assets/sword/sword.png" id="3_lp6qn"]
 

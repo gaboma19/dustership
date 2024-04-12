@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bofb38hi2k1gj"
-path="res://.godot/imported/RightArrow2.png-c0de291c15df203334cccdc0ee581920.ctex"
+uid="uid://cpbh37ms8kqip"
+path="res://.godot/imported/screen_transition.png-0991fafeb8869db3da9d94f198600828.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/RightArrow2.png"
-dest_files=["res://.godot/imported/RightArrow2.png-c0de291c15df203334cccdc0ee581920.ctex"]
+source_file="res://assets/ui/screen_transition/screen_transition.png"
+dest_files=["res://.godot/imported/screen_transition.png-0991fafeb8869db3da9d94f198600828.ctex"]
 
 [params]
 

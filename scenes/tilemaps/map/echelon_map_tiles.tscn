@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c0ahkq6kqspw4"]
 
 [ext_resource type="TileSet" uid="uid://bxlbylfhcdr5b" path="res://assets/map/map_tiles.tres" id="1_08fcg"]
-[ext_resource type="Script" path="res://scenes/tilemaps/map_tiles.gd" id="2_4tyo1"]
+[ext_resource type="Script" path="res://scenes/tilemaps/map/map_tiles.gd" id="2_4tyo1"]
 
 [node name="EchelonMapTiles" type="TileMap"]
 show_behind_parent = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://wdbfgdse41i6"]
 
-[ext_resource type="Script" path="res://scenes/ui/floating_text.gd" id="1_msghc"]
+[ext_resource type="Script" path="res://scenes/ui/floating_text/floating_text.gd" id="1_msghc"]
 
 [node name="FloatingText" type="Node2D"]
 scale = Vector2(0.5, 0.5)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq2c31lypfsj1"]
 
-[ext_resource type="Script" path="res://scenes/ui/steel_counter.gd" id="1_6m4tb"]
+[ext_resource type="Script" path="res://scenes/ui/steel_counter/steel_counter.gd" id="1_6m4tb"]
 [ext_resource type="Texture2D" uid="uid://y66uvuelkisa" path="res://assets/steel/steel_icon.png" id="1_t6wmf"]
 
 [node name="SteelCounter" type="CanvasLayer"]

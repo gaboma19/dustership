@@ -5,10 +5,10 @@
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="6_s6q66"]
 [ext_resource type="PackedScene" uid="uid://t4655rf1h8l6" path="res://scenes/entities/doodads/aprils_apartment_exterior.tscn" id="7_jynwh"]
-[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/levels/level_transition_area.tscn" id="7_xv1qq"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="7_xv1qq"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="8_itgs4"]
-[ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/levels/level_transition_interaction.tscn" id="8_l06in"]
-[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/levels/game_start.tscn" id="9_nakwi"]
+[ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="8_l06in"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="9_nakwi"]
 
 [node name="EchelonLevel1" type="Node2D"]
 y_sort_enabled = true
@@ -65,7 +65,7 @@ z_index = 1
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("7_xv1qq")]
 path = "res://scenes/levels/echelon/echelon_level_2.tscn"
-new_player_position = Vector2(-48, -80)
+new_player_position = Vector2(-128, -120)
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 polygon = PackedVector2Array(768, 568, 864, 520, 960, 568, 864, 616)

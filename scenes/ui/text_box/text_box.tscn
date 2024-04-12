@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jfsmpeufsesf"]
 
 [ext_resource type="Texture2D" uid="uid://g7w5xbeiu8j" path="res://assets/nine_patch/dialogue_box.png" id="1_18es5"]
-[ext_resource type="Script" path="res://scenes/ui/text_box.gd" id="1_erxaw"]
+[ext_resource type="Script" path="res://scenes/ui/text_box/text_box.gd" id="1_erxaw"]
 [ext_resource type="Texture2D" uid="uid://mgxevkds8o8b" path="res://assets/nine_patch/dialogue_box_tail.png" id="3_p3h3q"]
 [ext_resource type="Texture2D" uid="uid://txamoj4ivcgv" path="res://assets/ui/interact_prompt/tile_0042.png" id="4_ji176"]
 

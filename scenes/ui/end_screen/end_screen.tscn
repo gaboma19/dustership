@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bertbqadela6v"]
 
-[ext_resource type="Script" path="res://scenes/ui/end_screen.gd" id="1_j8sci"]
+[ext_resource type="Script" path="res://scenes/ui/end_screen/end_screen.gd" id="1_j8sci"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -109,4 +109,5 @@ text = "Continue"
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ContinueButton")
+disabled = true
 text = "Quit to Menu"

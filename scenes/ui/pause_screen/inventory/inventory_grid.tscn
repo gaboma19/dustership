@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bhybpvycs41re"]
 
-[ext_resource type="PackedScene" uid="uid://bcbfsu1axq5ix" path="res://scenes/ui/pause_screen/inventory_slot.tscn" id="1_qf6j6"]
+[ext_resource type="PackedScene" uid="uid://bcbfsu1axq5ix" path="res://scenes/ui/pause_screen/inventory/inventory_slot.tscn" id="1_qf6j6"]
 
 [node name="InventoryGrid" type="GridContainer"]
 offset_right = 240.0
