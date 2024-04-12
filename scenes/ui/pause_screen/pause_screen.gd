@@ -6,8 +6,8 @@ var is_closing
 var map_pin_cell: Vector2i
 
 @onready var panel_container = %PanelContainer
-@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory_container.tscn")
-@onready var map_scene = preload("res://scenes/ui/pause_screen/map.tscn")
+@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory/inventory_container.tscn")
+@onready var map_scene = preload("res://scenes/ui/pause_screen/map/map.tscn")
 
 
 func _ready():

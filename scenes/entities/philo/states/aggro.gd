@@ -4,7 +4,7 @@ extends EnemyState
 @export var aggro_area: Area2D
 @export var attack_range_area: Area2D
 
-var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
+var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
 
 
 func enter(_msg := {}) -> void:

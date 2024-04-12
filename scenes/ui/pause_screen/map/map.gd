@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var map_tiles: TileMap = $EchelonMapTiles
-@onready var map_pin_scene = preload("res://scenes/ui/pause_screen/map_pin.tscn")
+@onready var map_pin_scene = preload("res://scenes/ui/pause_screen/map/map_pin.tscn")
 
 
 func _process(_delta):

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bl7suko51ux4b"]
+
+[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.gd" id="1_kny5v"]
+
+[node name="RasterAttack" type="Node2D"]
+script = ExtResource("1_kny5v")

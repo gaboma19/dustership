@@ -3,7 +3,7 @@ extends Node2D
 @export var is_camera_static: bool = false
 @export var map_pin_cell: Vector2i
 
-var end_screen_scene = preload("res://scenes/ui/end_screen.tscn")
+var end_screen_scene = preload("res://scenes/ui/end_screen/end_screen.tscn")
 var pause_screen_scene = preload("res://scenes/ui/pause_screen/pause_screen.tscn")
 
 @onready var game_camera = $GameCamera
