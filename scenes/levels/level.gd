@@ -19,7 +19,6 @@ func _unhandled_input(event):
 		var pause_screen = pause_screen_scene.instantiate()
 		pause_screen.map_pin_cell = map_pin_cell
 		add_child(pause_screen)
-		
 
 
 func on_player_died():

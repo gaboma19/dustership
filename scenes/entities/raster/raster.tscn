@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=41 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="8_8tof0"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="9_bh5ej"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="10_10x4m"]
+[ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="11_xayrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xycha"]
@@ -20,36 +21,52 @@ shader = ExtResource("4_v67x3")
 shader_parameter/lerp_percent = null
 
 [sub_resource type="Animation" id="Animation_8rxwo"]
-length = 0.7
-loop_mode = 1
+length = 1.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/path = NodePath("Sprite2D:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 1.1, 1.2, 1.3),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 19, 20, 21, 22, 23, 24]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"set_attacking"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("RasterAttack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"instantiate_projectile_array"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_nwph4"]
-length = 0.6
+length = 2.4
 loop_mode = 1
+step = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -69,15 +86,16 @@ tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 0, 2, 3, 2]
 }
 
 [sub_resource type="Animation" id="Animation_mqbv0"]
-length = 0.6
+length = 2.4
 loop_mode = 1
+step = 0.4
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -97,7 +115,7 @@ tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [4, 5, 4, 6, 7, 4]
@@ -168,6 +186,9 @@ _data = {
 "walk_right": SubResource("Animation_wqvuq")
 }
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dqqrn"]
+animation = &"attack"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_43gvp"]
 animation = &"idle_left"
 
@@ -205,12 +226,33 @@ advance_condition = &"is_moving"
 advance_mode = 2
 advance_condition = &"is_idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rbcra"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4jnbs"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jg4d2"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xy4cv"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_moving"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_ld2h5"]
+states/attack/node = SubResource("AnimationNodeAnimation_dqqrn")
+states/attack/position = Vector2(544, 244)
 states/idle/node = SubResource("AnimationNodeBlendSpace1D_pqah6")
 states/idle/position = Vector2(413, 100)
 states/walk/node = SubResource("AnimationNodeBlendSpace1D_s2pkq")
 states/walk/position = Vector2(675, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kcf73"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l3sic"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kkyqt")]
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_kcf73"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_l3sic"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_kkyqt"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_rbcra"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_4jnbs"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_jg4d2"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_xy4cv")]
+graph_offset = Vector2(84, 62)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28tq7"]
 radius = 8.0
@@ -225,7 +267,8 @@ radius = 100.0
 radius = 9.0
 
 [node name="Raster" type="CharacterBody2D"]
-collision_mask = 33
+collision_layer = 0
+collision_mask = 32
 script = ExtResource("1_20mlh")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_x05dx")]
@@ -254,10 +297,11 @@ libraries = {
 }
 tree_root = SubResource("AnimationNodeStateMachine_ld2h5")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_attacking = false
 parameters/conditions/is_idle = false
 parameters/conditions/is_moving = false
-parameters/idle/blend_position = -0.388557
-parameters/walk/blend_position = -0.463706
+parameters/idle/blend_position = 0.0
+parameters/walk/blend_position = 0.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -267,7 +311,7 @@ libraries = {
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_vxjo0")]
 visible = false
 position = Vector2(0, -6)
-health_component = NodePath("")
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 position = Vector2(0, -2)
@@ -300,6 +344,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -319,6 +364,8 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
+[node name="RasterAttack" parent="." instance=ExtResource("10_ihupy")]
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -8)
@@ -334,8 +381,9 @@ attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
 script = ExtResource("10_10x4m")
-aggro_area = NodePath("")
-attack_range_area = NodePath("")
+aggro_area = NodePath("../../AggroArea")
+attack_range_area = NodePath("../../AttackRangeArea")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("11_xayrl")
+enemy_attack = NodePath("../../RasterAttack")

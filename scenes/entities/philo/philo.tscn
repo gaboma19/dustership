@@ -233,7 +233,7 @@ libraries = {
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
 visible = false
 position = Vector2(0, -6)
-health_component = NodePath("")
+health_component = NodePath("../HealthComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 rotation = 1.57079
@@ -265,7 +265,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 3
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -299,8 +299,8 @@ attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
 script = ExtResource("8_m7fi4")
-aggro_area = NodePath("")
-attack_range_area = NodePath("")
+aggro_area = NodePath("../../AggroArea")
+attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("12_8o55k")

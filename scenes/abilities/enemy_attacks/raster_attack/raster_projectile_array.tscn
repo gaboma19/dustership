@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnr7y85tx70aj"]
+
+[ext_resource type="PackedScene" uid="uid://5mtvexaio8a6" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile.tscn" id="1_5vxg4"]
+
+[node name="RasterProjectileArray" type="Node2D"]
+
+[node name="RasterProjectile" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(-1, -18)
+rotation = -0.00513802
+
+[node name="RasterProjectile2" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(-7, -16)
+rotation = -0.785398
+scale = Vector2(1, 1)
+
+[node name="RasterProjectile3" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(-9, -10)
+rotation = -1.5708
+
+[node name="RasterProjectile4" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(-7, -3)
+rotation = -2.35604
+
+[node name="RasterProjectile5" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(-1, -1.90735e-06)
+rotation = 3.14159
+
+[node name="RasterProjectile6" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(7, -3)
+rotation = 2.35619
+
+[node name="RasterProjectile7" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(8, -10)
+rotation = 1.5708
+
+[node name="RasterProjectile8" parent="." instance=ExtResource("1_5vxg4")]
+position = Vector2(7, -16)
+rotation = 0.785398

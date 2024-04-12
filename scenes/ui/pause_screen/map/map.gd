@@ -25,6 +25,8 @@ func draw_pin(cell: Vector2i):
 	map_tiles.add_child(map_pin)
 	map_pin.position = pin_position
 
+	map_tiles.position = (map_pin.position * -3) + (size / 2)
+
 
 func set_map_tiles(map_tile_scene: PackedScene):
 	var map = map_tile_scene.instantiate()

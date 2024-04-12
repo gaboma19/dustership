@@ -14,6 +14,7 @@ is_camera_static = true
 map_pin_cell = Vector2i(4, 0)
 
 [node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]
+position = Vector2(32, 56)
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1

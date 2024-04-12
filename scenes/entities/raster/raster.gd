@@ -14,3 +14,7 @@ func _process(_delta):
 func set_moving(value):
 	animation_tree.set("parameters/conditions/is_idle", not value)
 	animation_tree.set("parameters/conditions/is_moving", value)
+
+
+func set_attacking(value):
+	animation_tree.set("parameters/conditions/is_attacking", value)

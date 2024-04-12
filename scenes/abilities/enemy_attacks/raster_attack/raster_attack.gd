@@ -1,16 +1,21 @@
 extends EnemyAttack
 
-@onready var hitbox_component: HitboxComponent = $HitboxComponent
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var projectile_array_scene = preload("res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile_array.tscn")
 
 @export var damage: int = 1
 
 
 func _ready():
 	cooldown_timer = $CooldownTimer
-	hitbox_component.damage = damage
 
 
 func attack():
-	animation_player.play("default")
+	owner.set_attacking(true)
 	cooldown_timer.start()
+
+
+func instantiate_projectile_array():
+	var projectile_array = projectile_array_scene.instantiate()
+	var entities_layer = get_tree().get_first_node_in_group("entities")
+	entities_layer.add_child(projectile_array)
+	projectile_array.global_position = owner.global_position

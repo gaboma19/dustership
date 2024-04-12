@@ -646,7 +646,7 @@ shape = SubResource("CircleShape2D_iq7hs")
 
 [node name="PlayerHurtboxComponent" type="Area2D" parent="."]
 visible = false
-collision_layer = 0
+collision_layer = 64
 collision_mask = 8
 
 [node name="DamageIntervalTimer" type="Timer" parent="PlayerHurtboxComponent"]
@@ -694,7 +694,6 @@ parameters/Move/blend_position = Vector2(0.0930233, -0.350862)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")
 

@@ -12,8 +12,6 @@ func enter(_msg := {}) -> void:
 		aggro_area.body_exited.connect(on_body_exited)
 	if not attack_range_area.body_entered.is_connected(on_attack_range_body_entered):
 		attack_range_area.body_entered.connect(on_attack_range_body_entered)
-		
-	floating_text_start("!")
 
 
 func update(_delta: float) -> void:
