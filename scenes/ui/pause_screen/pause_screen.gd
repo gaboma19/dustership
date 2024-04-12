@@ -6,8 +6,8 @@ var is_closing
 var map_pin_cell: Vector2i
 
 @onready var panel_container = %PanelContainer
-@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory_container.tscn")
-@onready var map_scene = preload("res://scenes/ui/pause_screen/map.tscn")
+@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory/inventory_container.tscn")
+@onready var map_scene = preload("res://scenes/ui/pause_screen/map/map.tscn")
 
 
 func _ready():
@@ -24,7 +24,7 @@ func _unhandled_input(event):
 		else:
 			selected_screen += 1
 		set_menu_container()
-	elif event.is_action_pressed("pause"):
+	elif event.is_action_pressed("pause") or event.is_action_pressed("toggle_hold"):
 		get_tree().root.set_input_as_handled()
 		close()
 

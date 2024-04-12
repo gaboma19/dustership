@@ -6,7 +6,7 @@ const KEY: InventoryItem = preload("res://resources/inventory_item/items/key.tre
 @onready var left_animation_player: AnimationPlayer = $EchelonDoorLeft.get_node("AnimationPlayer")
 @onready var right_animation_player: AnimationPlayer = $EchelonDoorRight.get_node("AnimationPlayer")
 
-var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
+var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
 
 func _ready():
 	interaction_area.interact = Callable(self, "on_interact")

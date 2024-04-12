@@ -19,7 +19,9 @@ func _process(_delta):
 
 
 func _input(event):
-	if event.is_action_pressed("attack") && %StateMachine.state.name == "Active":
+	if event.is_action_pressed("attack") \
+	&& %StateMachine.state.name == "Active" \
+	&& !DialogueManager.is_dialogue_active:
 		attack()
 		get_tree().root.set_input_as_handled()
 

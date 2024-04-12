@@ -21,7 +21,7 @@ GameEvents="*res://scenes/autoload/game_events.tscn"
 HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 Inventory="*res://scenes/autoload/inventory.tscn"
-SteelCounter="*res://scenes/ui/steel_counter.tscn"
+SteelCounter="*res://scenes/ui/steel_counter/steel_counter.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 InteractionManager="*res://scenes/autoload/interaction_manager.tscn"
 DialogueManager="*res://scenes/autoload/dialogue_manager.gd"
@@ -92,6 +92,7 @@ interact={
 pause={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+, Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":6,"pressure":0.0,"pressed":true,"script":null)
 ]
 }
 switch_character={
@@ -116,6 +117,7 @@ toggle_hold={
 2d_physics/layer_4="EnemyAttacks"
 2d_physics/layer_5="PlayerPickup"
 2d_physics/layer_6="Floor"
+2d_physics/layer_7="PlayerHurtbox"
 
 [rendering]
 

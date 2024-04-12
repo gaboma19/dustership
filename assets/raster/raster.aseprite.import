@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b02vy35mcpgcq"
+path="res://.godot/imported/raster.aseprite-2b24f0247db07ed310d3b8aaddae2d13.res"
+
+[deps]
+
+source_file="res://assets/raster/raster.aseprite"
+dest_files=["res://.godot/imported/raster.aseprite-2b24f0247db07ed310d3b8aaddae2d13.res"]
+
+[params]
+

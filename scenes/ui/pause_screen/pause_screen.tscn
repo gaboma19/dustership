@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://xqqnvyt8o0jd"]
+[gd_scene load_steps=12 format=3 uid="uid://xqqnvyt8o0jd"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/pause_screen.gd" id="1_ldjwh"]
-[ext_resource type="Texture2D" uid="uid://dw5ilbqvufmp6" path="res://assets/ui/LeftArrow2.png" id="2_cwclh"]
-[ext_resource type="Texture2D" uid="uid://bofb38hi2k1gj" path="res://assets/ui/RightArrow2.png" id="3_qenui"]
-[ext_resource type="PackedScene" uid="uid://dkk2htinw7hk6" path="res://scenes/ui/pause_screen/inventory_container.tscn" id="4_om18l"]
+[ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_om4p2"]
+[ext_resource type="Texture2D" uid="uid://dw5ilbqvufmp6" path="res://assets/ui/pause_screen/LeftArrow2.png" id="3_flgws"]
+[ext_resource type="Texture2D" uid="uid://bofb38hi2k1gj" path="res://assets/ui/pause_screen/RightArrow2.png" id="4_kjenf"]
+[ext_resource type="Texture2D" uid="uid://cw5a36j4axbw5" path="res://assets/ui/pause_screen/tile_0654.png" id="5_s4m15"]
+[ext_resource type="PackedScene" uid="uid://dkk2htinw7hk6" path="res://scenes/ui/pause_screen/inventory/inventory_container.tscn" id="6_id28i"]
+[ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="7_5m5n6"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -90,15 +93,20 @@ theme_override_constants/separation = 32
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
+[node name="LB" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_om4p2")
+expand_mode = 2
+
 [node name="LeftButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture_normal = ExtResource("2_cwclh")
-texture_pressed = ExtResource("2_cwclh")
-texture_hover = ExtResource("2_cwclh")
-texture_disabled = ExtResource("2_cwclh")
-texture_focused = ExtResource("2_cwclh")
+texture_normal = ExtResource("3_flgws")
+texture_pressed = ExtResource("3_flgws")
+texture_hover = ExtResource("3_flgws")
+texture_disabled = ExtResource("3_flgws")
+texture_focused = ExtResource("3_flgws")
 stretch_mode = 3
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
@@ -114,12 +122,17 @@ horizontal_alignment = 1
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture_normal = ExtResource("3_qenui")
-texture_pressed = ExtResource("3_qenui")
-texture_hover = ExtResource("3_qenui")
-texture_disabled = ExtResource("3_qenui")
-texture_focused = ExtResource("3_qenui")
+texture_normal = ExtResource("4_kjenf")
+texture_pressed = ExtResource("4_kjenf")
+texture_hover = ExtResource("4_kjenf")
+texture_disabled = ExtResource("4_kjenf")
+texture_focused = ExtResource("4_kjenf")
 stretch_mode = 3
+
+[node name="RB" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("5_s4m15")
+expand_mode = 2
 
 [node name="MenuContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -127,5 +140,11 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4fevp")
 
-[node name="InventoryContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("4_om18l")]
+[node name="InventoryContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("6_id28i")]
 layout_mode = 2
+
+[node name="B" type="TextureRect" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("7_5m5n6")

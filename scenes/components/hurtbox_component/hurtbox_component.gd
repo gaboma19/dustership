@@ -5,7 +5,7 @@ signal hit
 
 @export var health_component: HealthComponent
 
-var floating_text_scene = preload("res://scenes/ui/floating_text.tscn")
+var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
 
 
 func _ready():
