@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://d3s7kue7336n1"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jyh8u"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_lyeva"]
+[ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="3_wh3uv"]
+[ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="4_jekii"]
+[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_kq1cn"]
+
+[node name="EchelonLevel4" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_jyh8u")
+map_pin_cell = Vector2i(15, -6)
+
+[node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
+
+[node name="EchelonBackground" parent="." instance=ExtResource("3_wh3uv")]
+
+[node name="TileMap" parent="." instance=ExtResource("4_jekii")]
+
+[node name="GameCamera" parent="." instance=ExtResource("5_kq1cn")]
+position = Vector2(-32, 0)
+custom_limit_left = -192
+custom_limit_right = 784
+custom_limit_top = -400
+custom_limit_bottom = 104
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
+z_index = 1
