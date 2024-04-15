@@ -54,6 +54,8 @@ script = ExtResource("1_k6pn8")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_geq05")
 animation = &"left"
+frame = 1
+frame_progress = 1.0
 offset = Vector2(0, -12)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

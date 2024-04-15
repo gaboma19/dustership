@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cdiekyujx8705"
+path="res://.godot/imported/pop_up.aseprite-2af6b6f974130383f7c6e7b3b1706ac6.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/pop_up.aseprite"
+dest_files=["res://.godot/imported/pop_up.aseprite-2af6b6f974130383f7c6e7b3b1706ac6.res"]
+
+[params]
+
