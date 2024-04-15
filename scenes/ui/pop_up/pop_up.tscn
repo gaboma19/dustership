@@ -43,6 +43,7 @@ _data = {
 }
 
 [node name="PopUp" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_q1fqf")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

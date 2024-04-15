@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_x0wc4"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/philo/philo.tscn" id="7_ujmgh"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="8_qjrk0"]
-[ext_resource type="Texture2D" uid="uid://bkgkft3s1jb5m" path="res://assets/doodads/Layer 2.png" id="9_38q4t"]
+[ext_resource type="PackedScene" uid="uid://db8v0kug6b0ho" path="res://scenes/entities/doodads/alleyway_exterior.tscn" id="9_b5r7j"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="11_iyukd"]
 
 [node name="EchelonLevel3" type="Node2D"]
@@ -31,47 +31,32 @@ layer_1/tile_data = PackedInt32Array(-851975, 1310723, 10, -786439, 1310723, 10,
 position = Vector2(-32, 0)
 custom_limit_left = -192
 custom_limit_right = 784
-custom_limit_top = -400
+custom_limit_top = -675
 custom_limit_bottom = 104
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="Raster3" parent="Entities" instance=ExtResource("6_wvx13")]
-position = Vector2(217, -176)
-
 [node name="Raster4" parent="Entities" instance=ExtResource("6_wvx13")]
 position = Vector2(289, -194)
 
 [node name="Raster5" parent="Entities" instance=ExtResource("6_wvx13")]
-position = Vector2(320, -40)
+position = Vector2(320, -28)
 
 [node name="Raster7" parent="Entities" instance=ExtResource("6_wvx13")]
-position = Vector2(400, -8)
-
-[node name="Raster9" parent="Entities" instance=ExtResource("6_wvx13")]
-position = Vector2(337, 9)
+position = Vector2(449, 21)
 
 [node name="Raster8" parent="Entities" instance=ExtResource("6_wvx13")]
-position = Vector2(208, -120)
-
-[node name="Philo" parent="Entities" instance=ExtResource("7_ujmgh")]
-position = Vector2(328, -25)
+position = Vector2(192, -126)
 
 [node name="Philo14" parent="Entities" instance=ExtResource("7_ujmgh")]
 position = Vector2(441, -45)
 
 [node name="Philo2" parent="Entities" instance=ExtResource("7_ujmgh")]
-position = Vector2(121, -113)
-
-[node name="Philo3" parent="Entities" instance=ExtResource("7_ujmgh")]
-position = Vector2(400, -176)
+position = Vector2(159, -109)
 
 [node name="Philo4" parent="Entities" instance=ExtResource("7_ujmgh")]
-position = Vector2(368, -168)
-
-[node name="Philo5" parent="Entities" instance=ExtResource("7_ujmgh")]
-position = Vector2(400, -160)
+position = Vector2(368, -158)
 
 [node name="Philo6" parent="Entities" instance=ExtResource("7_ujmgh")]
 position = Vector2(320, -336)
@@ -100,32 +85,8 @@ position = Vector2(624, -176)
 [node name="Chest" parent="Entities" instance=ExtResource("8_qjrk0")]
 position = Vector2(466, 12)
 
-[node name="AlleywayExterior" type="StaticBody2D" parent="Entities"]
-
-[node name="Sprite2D" type="Sprite2D" parent="Entities/AlleywayExterior"]
-texture_filter = 1
-position = Vector2(56, -621)
-texture = ExtResource("9_38q4t")
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"output_section": true
-}
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 1,
-"keep_anim_length": false,
-"layer": "Layer 2",
-"o_ex_p": "",
-"o_folder": "res://assets/doodads",
-"o_name": "",
-"only_visible": false,
-"player": "",
-"slice": "",
-"source": "res://assets/doodads/alleyway_exterior.aseprite"
-}
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Entities/AlleywayExterior"]
-visible = false
-polygon = PackedVector2Array(64, -440, 192, -504, 48, -576, -80, -512)
+[node name="AlleywayExterior" parent="Entities" instance=ExtResource("9_b5r7j")]
+position = Vector2(64, -440)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

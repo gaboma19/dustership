@@ -16,6 +16,14 @@ func _ready():
 	HealthBar.set_hearts()
 
 
+func heal(heal_amount: int):
+	if current_health == max_health:
+		return
+	
+	current_health += heal_amount
+	GameEvents.emit_player_healed()
+
+
 func damage(damage_amount: float):
 	current_health = max(current_health - damage_amount, 0)
 	GameEvents.emit_player_damaged()

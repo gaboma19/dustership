@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkgkft3s1jb5m"
-path="res://.godot/imported/Layer 2.png-d330f8ab0c8d4d81f64657a2a0a237b4.ctex"
+uid="uid://cp17gsge2p1u7"
+path="res://.godot/imported/heart_pickup.png-4ff4aafe196e60973b13e82e31e478ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/doodads/Layer 2.png"
-dest_files=["res://.godot/imported/Layer 2.png-d330f8ab0c8d4d81f64657a2a0a237b4.ctex"]
+source_file="res://assets/heart/heart_pickup.png"
+dest_files=["res://.godot/imported/heart_pickup.png-4ff4aafe196e60973b13e82e31e478ab.ctex"]
 
 [params]
 

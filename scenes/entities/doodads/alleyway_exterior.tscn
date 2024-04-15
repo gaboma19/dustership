@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=3 uid="uid://db8v0kug6b0ho"]
+
+[ext_resource type="Texture2D" uid="uid://bkgkft3s1jb5m" path="res://assets/doodads/alleyway_exterior.png" id="1_q574j"]
+
+[node name="AlleywayExterior" type="StaticBody2D"]
+y_sort_enabled = true
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-8, -181)
+texture = ExtResource("1_q574j")
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Layer 2",
+"o_ex_p": "",
+"o_folder": "res://assets/doodads",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/doodads/alleyway_exterior.aseprite"
+}
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+position = Vector2(-64, 441)
+polygon = PackedVector2Array(64, -440, 192, -504, 48, -576, -80, -512)

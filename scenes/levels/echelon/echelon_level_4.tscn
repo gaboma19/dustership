@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d3s7kue7336n1"]
+[gd_scene load_steps=10 format=3 uid="uid://d3s7kue7336n1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jyh8u"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_lyeva"]
@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_kq1cn"]
 [ext_resource type="Texture2D" uid="uid://cxqowxc8qgy6e" path="res://assets/backgrounds/echelon_alleyway/shadow.png" id="6_1vluk"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="6_cpiyy"]
+[ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://resources/inventory_item/items/key.tres" id="7_1sf3k"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_ls2hr"]
 
 [node name="EchelonLevel4" type="Node2D"]
 y_sort_enabled = true
@@ -16,7 +18,7 @@ map_pin_cell = Vector2i(5, -10)
 
 [node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
 position = Vector2(73, 127)
-enabled = true
+enabled = false
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -62,6 +64,8 @@ y_sort_enabled = true
 
 [node name="Chest" parent="Entities" instance=ExtResource("6_cpiyy")]
 position = Vector2(-55, 64)
+scale = Vector2(-1, 1)
+inventory_item = ExtResource("7_1sf3k")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 2
@@ -69,3 +73,10 @@ z_index = 2
 [node name="Shadow" type="Sprite2D" parent="Foreground"]
 position = Vector2(-36.5, 75)
 texture = ExtResource("6_1vluk")
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("9_ls2hr")]
+path = "res://scenes/levels/echelon/echelon_level_3.tscn"
+new_player_position = Vector2(128, -448)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+polygon = PackedVector2Array(61, 150, 125, 118, 125, 150)

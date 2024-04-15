@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=30 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/philo/philo.gd" id="1_wrftd"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
+[ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="12_8o55k"]
@@ -212,6 +213,10 @@ hit_flash_material = SubResource("ShaderMaterial_8i80p")
 drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
+[node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_grd2l")]
+drop_percent = 0.05
+health_component = NodePath("../HealthComponent")
+
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
@@ -265,7 +270,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 7
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

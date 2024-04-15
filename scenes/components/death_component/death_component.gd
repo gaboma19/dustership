@@ -8,12 +8,15 @@ func _ready():
 	health_component.died.connect(on_died)
 
 
-func get_texture_from_atlas():	
+func get_texture_from_atlas():
 	@warning_ignore("integer_division")
 	var sprite_dimensions = Vector2(
 		sprite.texture.get_width() / sprite.hframes,
 		sprite.texture.get_height() / sprite.vframes)
-	var region = Rect2(sprite.frame_coords, sprite_dimensions)
+	var region_coords = Vector2(
+		sprite.frame_coords.x * sprite_dimensions.x,
+		sprite.frame_coords.y * sprite_dimensions.y)
+	var region = Rect2(region_coords, sprite_dimensions)
 	
 	var atlas = AtlasTexture.new()
 	atlas.atlas = sprite.texture
@@ -21,7 +24,7 @@ func get_texture_from_atlas():
 	
 	return atlas
 
-	
+
 func on_died():
 	if owner == null || not owner is Node2D:
 		return
