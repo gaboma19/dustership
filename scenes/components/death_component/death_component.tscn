@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://bqp027bkxbbdq"]
+[gd_scene load_steps=7 format=3 uid="uid://bqp027bkxbbdq"]
 
 [ext_resource type="Script" path="res://scenes/components/death_component/death_component.gd" id="1_sm3xe"]
+[ext_resource type="Material" uid="uid://c3y1oga6g15pc" path="res://resources/materials/death_component_material.tres" id="2_h4ab1"]
 
 [sub_resource type="Animation" id="Animation_0vwux"]
 length = 0.001
@@ -52,24 +53,6 @@ _data = {
 "default": SubResource("Animation_jbi63")
 }
 
-[sub_resource type="Curve" id="Curve_6j87l"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CurveTexture" id="CurveTexture_aidrr"]
-curve = SubResource("Curve_6j87l")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pt6m8"]
-particle_flag_disable_z = true
-direction = Vector3(0, -1, 0)
-spread = 30.0
-initial_velocity_min = 175.0
-initial_velocity_max = 200.0
-angular_velocity_min = -1440.0
-angular_velocity_max = 1440.0
-gravity = Vector3(0, 800, 0)
-scale_curve = SubResource("CurveTexture_aidrr")
-
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5tcvf"]
 size = Vector2(16, 16)
 
@@ -84,7 +67,7 @@ libraries = {
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 1
-process_material = SubResource("ParticleProcessMaterial_pt6m8")
+process_material = ExtResource("2_h4ab1")
 texture = SubResource("PlaceholderTexture2D_5tcvf")
 lifetime = 0.5
 one_shot = true

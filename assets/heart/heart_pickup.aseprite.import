@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://hn75h5vl78mx"
+path="res://.godot/imported/heart_pickup.aseprite-08139691d5542c19a285f70c8f13dcb7.res"
+
+[deps]
+
+source_file="res://assets/heart/heart_pickup.aseprite"
+dest_files=["res://.godot/imported/heart_pickup.aseprite-08139691d5542c19a285f70c8f13dcb7.res"]
+
+[params]
+

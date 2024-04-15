@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=3 uid="uid://d3s7kue7336n1"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jyh8u"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_lyeva"]
+[ext_resource type="Texture2D" uid="uid://rwearr1xo7eo" path="res://assets/backgrounds/echelon_alleyway/echelon_alleyway.png" id="3_eef0u"]
+[ext_resource type="Texture2D" uid="uid://kblalnciu7pd" path="res://assets/backgrounds/echelon_alleyway/fire_escape.png" id="4_8nlxa"]
+[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_kq1cn"]
+[ext_resource type="Texture2D" uid="uid://cxqowxc8qgy6e" path="res://assets/backgrounds/echelon_alleyway/shadow.png" id="6_1vluk"]
+[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="6_cpiyy"]
+[ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://resources/inventory_item/items/key.tres" id="7_1sf3k"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_ls2hr"]
+
+[node name="EchelonLevel4" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_jyh8u")
+is_camera_static = true
+map_pin_cell = Vector2i(5, -10)
+
+[node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
+position = Vector2(73, 127)
+enabled = false
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_eef0u")
+offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/echelon_alleyway",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/echelon_alleyway/echelon_alleyway.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": false,
+"output_section": true,
+"slice_section": false
+}
+
+[node name="FireEscape" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(31, 41.5)
+texture = ExtResource("4_8nlxa")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+build_mode = 1
+polygon = PackedVector2Array(125, 150, 125, 104, 62, 104, 19, 83, 19, 48, -50, 48, -85, 66, -46, 90, -46, 101, -70, 113, -104, 113, -104, 150)
+
+[node name="GameCamera" parent="." instance=ExtResource("5_kq1cn")]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+script = null
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="Chest" parent="Entities" instance=ExtResource("6_cpiyy")]
+position = Vector2(-55, 64)
+scale = Vector2(-1, 1)
+inventory_item = ExtResource("7_1sf3k")
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
+z_index = 2
+
+[node name="Shadow" type="Sprite2D" parent="Foreground"]
+position = Vector2(-36.5, 75)
+texture = ExtResource("6_1vluk")
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("9_ls2hr")]
+path = "res://scenes/levels/echelon/echelon_level_3.tscn"
+new_player_position = Vector2(128, -448)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+polygon = PackedVector2Array(61, 150, 125, 118, 125, 150)

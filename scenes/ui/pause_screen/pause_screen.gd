@@ -3,6 +3,7 @@ extends CanvasLayer
 enum Screens { INVENTORY, MAP, OPTIONS }
 var selected_screen: int = PlayerVariables.pause_menu_screen
 var is_closing
+var is_opening
 var map_pin_cell: Vector2i
 
 @onready var panel_container = %PanelContainer
@@ -24,7 +25,9 @@ func _unhandled_input(event):
 		else:
 			selected_screen += 1
 		set_menu_container()
-	elif event.is_action_pressed("pause") or event.is_action_pressed("toggle_hold"):
+	elif !is_opening and (
+		event.is_action_pressed("pause") or event.is_action_pressed("toggle_hold")
+		):
 		get_tree().root.set_input_as_handled()
 		close()
 
@@ -73,6 +76,10 @@ func animate_open():
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0.3)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	
+	is_opening = true
+	await get_tree().create_timer(0.4).timeout
+	is_opening = false
 
 
 func close():

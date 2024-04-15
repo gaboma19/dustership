@@ -42,4 +42,3 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="EchelonMapTiles" parent="." instance=ExtResource("4_jw6vm")]
-position = Vector2(-120, -56)

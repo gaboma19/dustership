@@ -145,12 +145,12 @@ libraries = {
 autoplay = "bounce"
 
 [node name="CollectionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 16
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+position = Vector2(0, -4.5)
 shape = SubResource("CircleShape2D_1k4bw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -159,6 +159,7 @@ texture = ExtResource("2_0qc3i")
 offset = Vector2(0, -4.5)
 hframes = 3
 vframes = 2
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

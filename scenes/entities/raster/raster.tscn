@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=42 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="5_iyhcl"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_16nnk"]
 [ext_resource type="Texture2D" uid="uid://bion6e1sb28nf" path="res://assets/raster/raster.png" id="7_0rfid"]
+[ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_cfhkn"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_vxjo0"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="8_8tof0"]
 [ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="9_bh5ej"]
@@ -287,6 +288,9 @@ hit_flash_material = SubResource("ShaderMaterial_xycha")
 drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
+[node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_cfhkn")]
+health_component = NodePath("../HealthComponent")
+
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_16nnk")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
@@ -344,7 +348,6 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

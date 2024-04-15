@@ -8,9 +8,10 @@ extends CanvasLayer
 
 func _ready():
 	GameEvents.player_damaged.connect(on_player_damaged)
+	GameEvents.player_healed.connect(on_player_healed)
 	clear_hearts()
-		
-		
+
+
 func clear_hearts():
 	for heart in heart_container.get_children():
 		heart.queue_free()
@@ -29,4 +30,8 @@ func set_hearts():
 	
 	
 func on_player_damaged():
+	set_hearts()
+
+
+func on_player_healed():
 	set_hearts()
