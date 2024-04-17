@@ -2,7 +2,7 @@ extends Node2D
 
 @export var enabled: bool = PlayerVariables.enable_game_start
 
-@onready var april_scene: PackedScene = preload("res://scenes/entities/player/april.tscn")
+@onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
 
 
 func _ready():

@@ -1,13 +1,12 @@
-[gd_scene load_steps=51 format=3 uid="uid://bdgmk7thjffe0"]
+[gd_scene load_steps=50 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
-[ext_resource type="Script" path="res://scenes/entities/player/player.gd" id="1_7sqa6"]
-[ext_resource type="PackedScene" uid="uid://bdh07l2o7mvp5" path="res://scenes/components/ability_spawn_component/ability_spawn_component.tscn" id="3_0vbcx"]
+[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
 [ext_resource type="Texture2D" uid="uid://unj1kunay570" path="res://assets/cube/cube.png" id="3_lstn8"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="5_lwk8v"]
-[ext_resource type="Script" path="res://scenes/entities/player/states/follow.gd" id="6_l7h03"]
-[ext_resource type="Script" path="res://scenes/entities/player/states/active.gd" id="7_uuqah"]
-[ext_resource type="Script" path="res://scenes/entities/player/states/hold.gd" id="8_0uk7y"]
+[ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="6_l7h03"]
+[ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="7_uuqah"]
+[ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="8_0uk7y"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mpgi"]
 radius = 32.0
@@ -1177,9 +1176,6 @@ character_name = 1
 [node name="VelocityComponent" parent="." instance=ExtResource("1_5e7pt")]
 max_speed = 60
 acceleration = 10.0
-
-[node name="AbilitySpawnComponent" parent="." instance=ExtResource("3_0vbcx")]
-unique_name_in_owner = true
 
 [node name="Abilities" type="Node" parent="."]
 

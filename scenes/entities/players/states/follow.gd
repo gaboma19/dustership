@@ -1,10 +1,15 @@
 # follow.gd
 extends PlayerState
 
+@onready var pickup_area = %PickupArea
+@onready var collision_shape_2d = %CollisionShape2D
+
 var active_player: Player
 
 
 func enter(_msg := {}) -> void:
+	pickup_area.monitoring = false
+	collision_shape_2d.disabled = true
 	active_player = PartyManager.get_active_member()
 
 

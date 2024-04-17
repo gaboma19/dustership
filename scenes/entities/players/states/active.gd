@@ -3,6 +3,7 @@ extends PlayerState
 
 @onready var pickup_area = %PickupArea
 @onready var collision_shape_2d = %CollisionShape2D
+@onready var attack_timer = %AttackTimer
 
 var movement_vector: Vector2 = Vector2.ZERO
 
@@ -28,9 +29,13 @@ func update(_delta: float) -> void:
 	player.velocity_component.move(player)
 
 
-func exit() -> void:
-	pickup_area.monitoring = false
-	collision_shape_2d.disabled = true
+func _input(event):
+	if DialogueManager.is_dialogue_active:
+		return
+	
+	if event.is_action_pressed("attack") && attack_timer.is_stopped():
+		state_machine.transition_to("Attack")
+		# get_tree().root.set_input_as_handled()
 
 
 func get_movement_vector():

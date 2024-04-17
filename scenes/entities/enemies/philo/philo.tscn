@@ -1,7 +1,7 @@
 [gd_scene load_steps=30 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
-[ext_resource type="Script" path="res://scenes/entities/philo/philo.gd" id="1_wrftd"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_2owtl"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_xgd4y"]
@@ -10,11 +10,11 @@
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="6_6lyqc"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="7_bsmhr"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="8_m7fi4"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="12_8o55k"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
 resource_local_to_scene = true
@@ -214,7 +214,7 @@ drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_grd2l")]
-drop_percent = 0.05
+drop_percent = 0.2
 health_component = NodePath("../HealthComponent")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
@@ -270,7 +270,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 11
+frame = 9
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
