@@ -1,6 +1,6 @@
 [gd_scene load_steps=42 format=3 uid="uid://3xehsl854ugm"]
 
-[ext_resource type="Script" path="res://scenes/entities/raster/raster.gd" id="1_20mlh"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_vs8li"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_uqeap"]
@@ -11,10 +11,10 @@
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_cfhkn"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_vxjo0"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="8_8tof0"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/idle.gd" id="9_bh5ej"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/aggro.gd" id="10_10x4m"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="9_bh5ej"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="10_10x4m"]
 [ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
-[ext_resource type="Script" path="res://scenes/entities/philo/states/attack.gd" id="11_xayrl"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xycha"]
 resource_local_to_scene = true

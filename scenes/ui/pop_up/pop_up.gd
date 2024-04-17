@@ -13,7 +13,6 @@ func _ready():
 
 func _unhandled_input(event):
 	if event.is_action_pressed("interact") and !is_opening:
-		print(event)
 		get_tree().root.set_input_as_handled()
 		close()
 

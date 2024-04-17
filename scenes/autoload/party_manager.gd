@@ -5,8 +5,8 @@ var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
 var is_holding: bool = false
 
-@onready var april_scene: PackedScene = preload("res://scenes/entities/player/april.tscn")
-@onready var cube_scene: PackedScene = preload("res://scenes/entities/player/cube.tscn")
+@onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
+@onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube.tscn")
 @onready var scene_dictionary = {
 	Constants.CharacterNames.APRIL: april_scene,
 	Constants.CharacterNames.CUBE: cube_scene
