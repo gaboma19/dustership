@@ -84,6 +84,7 @@ position = Vector2(624, -176)
 
 [node name="Chest" parent="Entities" instance=ExtResource("8_qjrk0")]
 position = Vector2(466, 12)
+chest_id = "echelon3_chest0"
 
 [node name="AlleywayExterior" parent="Entities" instance=ExtResource("9_b5r7j")]
 position = Vector2(64, -440)

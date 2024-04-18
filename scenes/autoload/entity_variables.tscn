@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://chpc2fyjyt4li"]
+
+[ext_resource type="Script" path="res://scenes/autoload/entity_variables.gd" id="1_ly33n"]
+
+[node name="EntityVariables" type="Node"]
+script = ExtResource("1_ly33n")

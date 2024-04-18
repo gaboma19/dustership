@@ -35,7 +35,6 @@ func _input(event):
 	
 	if event.is_action_pressed("attack") && attack_timer.is_stopped():
 		state_machine.transition_to("Attack")
-		# get_tree().root.set_input_as_handled()
 
 
 func get_movement_vector():

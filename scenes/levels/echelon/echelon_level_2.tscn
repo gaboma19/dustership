@@ -88,6 +88,7 @@ position = Vector2(224, -72)
 
 [node name="Chest" parent="Entities" instance=ExtResource("8_mlpqd")]
 position = Vector2(80, -80)
+chest_id = "echelon2_chest0"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
