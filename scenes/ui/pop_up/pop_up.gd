@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal closed
+
 var is_closing: bool
 var is_opening: bool
 
@@ -50,5 +52,10 @@ func close():
 	
 	await tween.finished
 	
+	closed.emit()
 	get_tree().paused = false
 	queue_free()
+
+
+func set_sword_instructions():
+	%SwordInstructions.visible = true

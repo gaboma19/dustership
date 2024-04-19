@@ -62,6 +62,14 @@ func hit_flash():
 	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
 
 
+func can_attack():
+	match character_name:
+		Constants.CharacterNames.APRIL:
+			return PlayerVariables.has_sword
+		Constants.CharacterNames.CUBE:
+			return PlayerVariables.has_gun
+
+
 func on_hurtbox_area_entered(other_area: Area2D):
 	if not other_area is HitboxComponent:
 		return

@@ -1,6 +1,6 @@
 extends Node
 
-@onready var text_box_scene = preload("res://scenes/ui/text_box/text_box.tscn")
+signal finished_dialogue
 
 var dialogue_lines: Array[String] = []
 var current_line_index = 0
@@ -12,6 +12,8 @@ var sfx: AudioStream
 
 var is_dialogue_active = false
 var can_advance_line = false
+
+@onready var text_box_scene = preload("res://scenes/ui/text_box/text_box.tscn")
 
 
 func start_dialogue(position: Vector2, lines: Array[String], speech_sfx: AudioStream):
@@ -52,6 +54,7 @@ func _unhandled_input(event):
 		if current_line_index >= dialogue_lines.size():
 			is_dialogue_active = false
 			current_line_index = 0
+			finished_dialogue.emit()
 			return
 		
 		_show_text_box()

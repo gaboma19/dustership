@@ -35,7 +35,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="EquipmentPanel/MarginContainer/VBoxContainer/HBoxContainer/Container"]
+[node name="AprilSprite" type="Sprite2D" parent="EquipmentPanel/MarginContainer/VBoxContainer/HBoxContainer/Container"]
 scale = Vector2(3, 3)
 texture = ExtResource("2_h8xr0")
 centered = false
@@ -46,7 +46,8 @@ vframes = 5
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="EquipmentPanel/MarginContainer/VBoxContainer/HBoxContainer/Container2"]
+[node name="SwordSprite" type="Sprite2D" parent="EquipmentPanel/MarginContainer/VBoxContainer/HBoxContainer/Container2"]
+unique_name_in_owner = true
 scale = Vector2(3, 3)
 texture = ExtResource("3_lp6qn")
 centered = false

@@ -33,9 +33,13 @@ func on_interact():
 	if inventory_item == null:
 		return
 	
-	Inventory.add_item(inventory_item)
-	
 	await get_tree().create_timer(0.4).timeout
 	var pop_up = pop_up_scene.instantiate()
 	get_tree().root.add_child(pop_up)
 	pop_up.set_pop_up(inventory_item)
+	
+	if inventory_item.name == "sword":
+		PlayerVariables.has_sword = true
+		pop_up.set_sword_instructions()
+	
+	Inventory.add_item(inventory_item)
