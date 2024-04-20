@@ -1,18 +1,15 @@
 extends StaticBody2D
 
 const LINES: Array[String] = [
-	"This is a combat droid.",
-	"I recognize the model.",
-	"What is it doing in this place?",
-	"Looks pretty badly hurt.",
-	"I know how to fix it but...",
-	"it's missing a few pieces.",
+	"This is a combat droid. I recognize the model.",
+	"Looks pretty busted.",
+	"It's missing a few pieces.",
 	"I should have a look around."
 ]
 
 const INTERACTED_LINES: Array[String] = [
 	"It's a broken combat Cube.",
-	"I need to find this guy's missing parts."
+	"Maybe I can find this guy's missing parts."
 ]
 
 const CONVERSATION_ID: String = "cube_fainted"

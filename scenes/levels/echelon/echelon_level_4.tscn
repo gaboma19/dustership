@@ -18,7 +18,7 @@ map_pin_cell = Vector2i(5, -10)
 
 [node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
 position = Vector2(73, 127)
-enabled = false
+enabled = true
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1

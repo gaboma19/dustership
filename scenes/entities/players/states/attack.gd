@@ -14,7 +14,7 @@ func enter(_msg := {}) -> void:
 	attack_timer.start()
 	
 	await get_tree().create_timer(0.2).timeout
-	player.move_and_collide(nudge_direction * 4)
+	player.move_and_collide(nudge_direction * 5)
 	
 	await attack_timer.timeout
 	transition_to_active()

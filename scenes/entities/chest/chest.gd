@@ -1,8 +1,11 @@
 extends StaticBody2D
 
+signal opened
+
 @export var inventory_item: InventoryItem
 
 @export var chest_id: String
+@export var pop_up_text: String
 
 @onready var interaction_area = $InteractionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
@@ -36,10 +39,16 @@ func on_interact():
 	await get_tree().create_timer(0.4).timeout
 	var pop_up = pop_up_scene.instantiate()
 	get_tree().root.add_child(pop_up)
-	pop_up.set_pop_up(inventory_item)
+	
+	if pop_up_text.is_empty():
+		pop_up.set_pop_up(inventory_item)
+	else:
+		pop_up.set_pop_up(inventory_item, pop_up_text)
 	
 	if inventory_item.name == "sword":
 		PlayerVariables.has_sword = true
 		pop_up.set_sword_instructions()
+		return
 	
 	Inventory.add_item(inventory_item)
+	opened.emit()

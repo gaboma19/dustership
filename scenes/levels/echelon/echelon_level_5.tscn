@@ -1,0 +1,124 @@
+[gd_scene load_steps=14 format=3 uid="uid://ba6jprjolkx5b"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_eilwh"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="1_lmlqw"]
+[ext_resource type="Texture2D" uid="uid://cg24rq4idietp" path="res://assets/backgrounds/tavern/tavern.png" id="1_ugjor"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_cutscene.gd" id="2_e65xy"]
+[ext_resource type="Texture2D" uid="uid://dp5s6nnjxomr" path="res://assets/backgrounds/tavern/bar.png" id="2_o4auw"]
+[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="4_8l4ih"]
+[ext_resource type="Texture2D" uid="uid://cj1ohr88d7wqy" path="res://assets/backgrounds/tavern/overhang.png" id="5_jyr2x"]
+[ext_resource type="Texture2D" uid="uid://b32f0cyyh825" path="res://assets/backgrounds/tavern/light_tavern.png" id="6_8r5s3"]
+[ext_resource type="Resource" uid="uid://7uev1bl8n42g" path="res://resources/inventory_item/items/identity_core.tres" id="8_4lxn4"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="8_y6pck"]
+
+[sub_resource type="Animation" id="Animation_kf57q"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_y8ie4"]
+resource_name = "default"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.3, 1.8, 2.9, 4.2, 5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.313726), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2y4"]
+_data = {
+"RESET": SubResource("Animation_kf57q"),
+"default": SubResource("Animation_y8ie4")
+}
+
+[node name="EchelonLevel5" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_eilwh")
+is_camera_static = true
+
+[node name="Cutscene" type="Node" parent="."]
+script = ExtResource("2_e65xy")
+
+[node name="GameStart" parent="." instance=ExtResource("1_lmlqw")]
+position = Vector2(-38, 116)
+enabled = true
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture = ExtResource("1_ugjor")
+offset = Vector2(0, 75)
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+visible = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+build_mode = 1
+polygon = PackedVector2Array(-63, 35, -39, 47, -7, 31, 2, 36, 20, 28, 114, 76, -14, 139, -30, 131, -46, 140, -78, 123, -62, 115, -125, 83, -125, 67)
+
+[node name="Bar" type="Sprite2D" parent="."]
+position = Vector2(-47, 87)
+texture = ExtResource("2_o4auw")
+offset = Vector2(-0.5, -21)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Bar"]
+visible = false
+position = Vector2(47, -87)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bar/StaticBody2D"]
+polygon = PackedVector2Array(-96, 69, -93, 79, -64, 95, -32, 95, -32, 87, -11, 87, 8, 77, 8.05824, 66.5149, -11, 57, -34, 69, -55, 69, -83, 56, -96, 62)
+
+[node name="Overhang" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-93.5, 28)
+texture = ExtResource("5_jyr2x")
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = 1
+
+[node name="TavernLight" type="Sprite2D" parent="Foreground"]
+texture = ExtResource("6_8r5s3")
+offset = Vector2(0, 75)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Foreground/TavernLight"]
+libraries = {
+"": SubResource("AnimationLibrary_nt2y4")
+}
+autoplay = "default"
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="Chest" parent="Entities" instance=ExtResource("4_8l4ih")]
+unique_name_in_owner = true
+position = Vector2(-53, 52)
+inventory_item = ExtResource("8_4lxn4")
+chest_id = "echelon5_chest0"
+pop_up_text = "Found an identity core!"
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("8_y6pck")]
+path = "res://scenes/levels/echelon/echelon_level_3.tscn"
+new_player_position = Vector2(874, 93)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+polygon = PackedVector2Array(-62, 115, -30, 131, -46, 139, -78, 123)

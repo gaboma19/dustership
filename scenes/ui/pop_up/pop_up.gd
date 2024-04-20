@@ -19,9 +19,11 @@ func _unhandled_input(event):
 		close()
 
 
-func set_pop_up(item: InventoryItem):
+func set_pop_up(
+		item: InventoryItem,
+		label_text: String = "Found a " + item.name + "!"):
 	%TextureRect.texture = item.texture
-	%Label.text = "Found a " + item.name + "!"
+	%Label.text = label_text
 
 
 func animate_open():
