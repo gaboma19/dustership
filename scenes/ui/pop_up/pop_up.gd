@@ -60,4 +60,4 @@ func close():
 
 
 func set_sword_instructions():
-	%SwordInstructions.visible = true
+	%Tutorial.visible = true

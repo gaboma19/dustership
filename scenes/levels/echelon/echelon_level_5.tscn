@@ -53,6 +53,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_eilwh")
 is_camera_static = true
+map_pin_cell = Vector2i(25, -8)
 
 [node name="Cutscene" type="Node" parent="."]
 script = ExtResource("2_e65xy")
