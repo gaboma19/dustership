@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal closed
+
 var is_closing: bool
 var is_opening: bool
 
@@ -17,9 +19,11 @@ func _unhandled_input(event):
 		close()
 
 
-func set_pop_up(item: InventoryItem):
+func set_pop_up(
+		item: InventoryItem,
+		label_text: String = "Found a " + item.name + "!"):
 	%TextureRect.texture = item.texture
-	%Label.text = "Found a " + item.name + "!"
+	%Label.text = label_text
 
 
 func animate_open():
@@ -50,5 +54,10 @@ func close():
 	
 	await tween.finished
 	
+	closed.emit()
 	get_tree().paused = false
 	queue_free()
+
+
+func set_sword_instructions():
+	%SwordInstructions.visible = true

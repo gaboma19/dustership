@@ -1,24 +1,19 @@
-extends StaticBody2D
+extends Node2D
 
+const CONVERSATION_ID = "shower"
 const LINES: Array[String] = [
-	"This is a combat droid. I recognize the model.",
-	"Looks pretty busted.",
-	"It's missing a few pieces.",
-	"I should have a look around."
+	"Could really use a shower.",
+	"What happened last night?",
+	"I can't remember a thing..."
 ]
 
 const INTERACTED_LINES: Array[String] = [
-	"It's a broken combat Cube.",
-	"Maybe I can find this guy's missing parts."
+	"No water."
 ]
-
-const CONVERSATION_ID: String = "cube_fainted"
-
-@onready var interaction_area = $InteractionArea
 
 
 func _ready():
-	interaction_area.interact = Callable(self, "on_interact")
+	$InteractionArea.interact = Callable(self, "on_interact")
 	
 	if not EntityVariables.conversations.has(CONVERSATION_ID):
 		EntityVariables.conversations[CONVERSATION_ID] = { "interacted": false }
@@ -26,6 +21,7 @@ func _ready():
 
 func on_interact():
 	var player = PartyManager.get_active_member() as Player
+	player.update_blend_position(Vector2.UP)
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
 		player.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true

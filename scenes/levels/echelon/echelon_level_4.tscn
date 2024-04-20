@@ -66,6 +66,7 @@ y_sort_enabled = true
 position = Vector2(-55, 64)
 scale = Vector2(-1, 1)
 inventory_item = ExtResource("7_1sf3k")
+chest_id = "echelon4_chest0"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 2

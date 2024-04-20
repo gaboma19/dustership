@@ -3,15 +3,19 @@ extends PlayerState
 
 @onready var attack_timer: Timer = %AttackTimer
 
-var movement_vector := Vector2.ZERO
-
 
 func enter(_msg := {}) -> void:
+	var nudge_direction = player.velocity_component.velocity.normalized()
+	
 	player.velocity_component.stop()
 	player.set_moving(false)
 	player.set_attacking(true)
 	
 	attack_timer.start()
+	
+	await get_tree().create_timer(0.2).timeout
+	player.move_and_collide(nudge_direction * 5)
+	
 	await attack_timer.timeout
 	transition_to_active()
 

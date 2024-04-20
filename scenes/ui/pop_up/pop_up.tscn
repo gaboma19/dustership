@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bs5ftsbs1wbh1"]
+[gd_scene load_steps=9 format=3 uid="uid://bs5ftsbs1wbh1"]
 
 [ext_resource type="Texture2D" uid="uid://dbwvlxukdj8vg" path="res://assets/key/key.png" id="1_8qp5k"]
 [ext_resource type="Script" path="res://scenes/ui/pop_up/pop_up.gd" id="1_q1fqf"]
 [ext_resource type="Texture2D" uid="uid://txamoj4ivcgv" path="res://assets/ui/interact_prompt/tile_0042.png" id="3_h5djb"]
+[ext_resource type="Texture2D" uid="uid://mgnj5j3a24w2" path="res://assets/ui/interact_prompt/tile_0044.png" id="3_mow7q"]
+[ext_resource type="Texture2D" uid="uid://db0pij2q403v" path="res://assets/ui/interact_prompt/tile_0077.png" id="4_0agdx"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -101,6 +103,32 @@ stretch_mode = 5
 unique_name_in_owner = true
 layout_mode = 2
 text = "Found a key!"
+horizontal_alignment = 1
+
+[node name="SwordInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="Press" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordInstructions"]
+layout_mode = 2
+text = "Press"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordInstructions"]
+layout_mode = 2
+texture = ExtResource("3_mow7q")
+
+[node name="or" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordInstructions"]
+layout_mode = 2
+text = "or"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordInstructions"]
+layout_mode = 2
+texture = ExtResource("4_0agdx")
+
+[node name="to attack" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordInstructions"]
+layout_mode = 2
+text = "to attack."
 
 [node name="NextIndicator" type="TextureRect" parent="MarginContainer/PanelContainer"]
 layout_mode = 2

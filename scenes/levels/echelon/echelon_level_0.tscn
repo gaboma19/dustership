@@ -1,11 +1,72 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhv3w3uk3b73e"]
+[gd_scene load_steps=18 format=3 uid="uid://bhv3w3uk3b73e"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qfi3h"]
 [ext_resource type="Texture2D" uid="uid://corxxm72cbgvw" path="res://assets/backgrounds/aprils_apartment/aprils_apartment.png" id="1_roq2h"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_cutscene.gd" id="2_1racx"]
 [ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_bathroom.png" id="2_3wdpf"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_p1c6l"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="5_28nei"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_ih2uo"]
+[ext_resource type="PackedScene" uid="uid://cwhn0720eueg0" path="res://scenes/entities/doodads/aprils_apartment_light_ray.tscn" id="6_yly58"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_shower.gd" id="8_ha054"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_computer.gd" id="9_74cea"]
+[ext_resource type="Resource" uid="uid://cydryfrgm0mep" path="res://resources/inventory_item/items/sword.tres" id="10_twkl8"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_xe4gx"]
+[ext_resource type="Script" path="res://scenes/level_transitions/level_transition_area_level0.gd" id="13_7sqa6"]
+
+[sub_resource type="Animation" id="Animation_whnei"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l8j1m"]
+resource_name = "default"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 6),
+"transitions": PackedFloat32Array(4, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Cutscene")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"april_intro_conversation"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_828qv"]
+_data = {
+"RESET": SubResource("Animation_whnei"),
+"default": SubResource("Animation_l8j1m")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sxbpc"]
+radius = 16.0
 
 [node name="EchelonLevel0" type="Node2D"]
 y_sort_enabled = true
@@ -15,6 +76,15 @@ map_pin_cell = Vector2i(4, 0)
 
 [node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]
 position = Vector2(32, 56)
+
+[node name="Cutscene" type="Node" parent="."]
+script = ExtResource("2_1racx")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_828qv")
+}
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -50,16 +120,49 @@ polygon = PackedVector2Array(-92, 88, -79, 95, -64, 87, -57, 91, -72, 99, -24, 1
 offset = Vector2(0, 75)
 zoom = Vector2(4, 4)
 
+[node name="Computer" type="Node2D" parent="."]
+position = Vector2(0, 40)
+script = ExtResource("9_74cea")
+
+[node name="InteractionArea" parent="Computer" instance=ExtResource("10_xe4gx")]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Computer/InteractionArea"]
+shape = SubResource("CircleShape2D_sxbpc")
+
+[node name="Shower" type="Node2D" parent="."]
+position = Vector2(-48, 64)
+script = ExtResource("8_ha054")
+
+[node name="InteractionArea" parent="Shower" instance=ExtResource("10_xe4gx")]
+position = Vector2(0, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Shower/InteractionArea"]
+shape = SubResource("CircleShape2D_sxbpc")
+
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
 [node name="Chest" parent="Entities" instance=ExtResource("5_28nei")]
 position = Vector2(71, 55)
+inventory_item = ExtResource("10_twkl8")
+chest_id = "echelon0_chest0"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
 
+[node name="ColorRect" type="ColorRect" parent="Foreground"]
+modulate = Color(1, 1, 1, 0)
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 150.0
+color = Color(0, 0, 0, 1)
+
+[node name="Light" parent="Foreground" instance=ExtResource("6_yly58")]
+
 [node name="LevelTransitionArea" parent="." instance=ExtResource("6_ih2uo")]
+visible = false
+script = ExtResource("13_7sqa6")
 path = "res://scenes/levels/echelon/echelon_level_1.tscn"
 new_player_position = Vector2(-112, 0)
 

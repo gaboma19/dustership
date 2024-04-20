@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b0qloftu1oitd"
+path="res://.godot/imported/tavern.aseprite-6895db616632fb8b8f432ce911062ebe.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/tavern/tavern.aseprite"
+dest_files=["res://.godot/imported/tavern.aseprite-6895db616632fb8b8f432ce911062ebe.res"]
+
+[params]
+

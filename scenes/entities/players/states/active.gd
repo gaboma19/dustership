@@ -33,9 +33,10 @@ func _input(event):
 	if DialogueManager.is_dialogue_active:
 		return
 	
-	if event.is_action_pressed("attack") && attack_timer.is_stopped():
+	if event.is_action_pressed("attack") \
+	&& attack_timer.is_stopped() \
+	&& player.can_attack():
 		state_machine.transition_to("Attack")
-		# get_tree().root.set_input_as_handled()
 
 
 func get_movement_vector():

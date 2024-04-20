@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://ybu3bew6102p"]
+
+[ext_resource type="Texture2D" uid="uid://csj3n6cehtp4g" path="res://assets/doodads/tavern_exterior.png" id="1_v5tds"]
+
+[node name="TavernExterior" type="StaticBody2D"]
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -93)
+texture = ExtResource("1_v5tds")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
+polygon = PackedVector2Array(0, 0, 128, -64, 0, -128, -128, -64)
