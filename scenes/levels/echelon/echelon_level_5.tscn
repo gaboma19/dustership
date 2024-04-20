@@ -59,7 +59,6 @@ script = ExtResource("2_e65xy")
 
 [node name="GameStart" parent="." instance=ExtResource("1_lmlqw")]
 position = Vector2(-38, 116)
-enabled = true
 
 [node name="GameCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 75)
