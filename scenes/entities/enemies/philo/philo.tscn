@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=31 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -15,11 +15,37 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
 resource_local_to_scene = true
 shader = ExtResource("5_imsff")
 shader_parameter/lerp_percent = null
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndv6a"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a5dsa"]
+animation = &"move"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfhk8"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_250h3"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f4na"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n1f06"]
+states/Start/position = Vector2(186, 94)
+states/idle/node = SubResource("AnimationNodeAnimation_ndv6a")
+states/idle/position = Vector2(375, 94)
+states/move/node = SubResource("AnimationNodeAnimation_a5dsa")
+states/move/position = Vector2(593, 94)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tfhk8"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_250h3"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_1f4na")]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -155,31 +181,6 @@ _data = {
 "move": SubResource("Animation_x2s4k")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndv6a"]
-animation = &"idle"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a5dsa"]
-animation = &"move"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfhk8"]
-advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_250h3"]
-advance_mode = 2
-advance_condition = &"is_moving"
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f4na"]
-advance_mode = 2
-advance_condition = &"is_idle"
-
-[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n1f06"]
-states/Start/position = Vector2(186, 94)
-states/idle/node = SubResource("AnimationNodeAnimation_ndv6a")
-states/idle/position = Vector2(375, 94)
-states/move/node = SubResource("AnimationNodeAnimation_a5dsa")
-states/move/position = Vector2(593, 94)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tfhk8"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_250h3"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_1f4na")]
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_eoy7n"]
 radius = 7.0
 
@@ -194,6 +195,7 @@ radius = 5.0
 height = 14.0
 
 [node name="Philo" type="CharacterBody2D" groups=["enemy"]]
+collision_layer = 0
 collision_mask = 33
 motion_mode = 1
 script = ExtResource("1_wrftd")
@@ -214,7 +216,7 @@ drop_percent = 1.0
 health_component = NodePath("../HealthComponent")
 
 [node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_grd2l")]
-drop_percent = 0.2
+drop_percent = 0.25
 health_component = NodePath("../HealthComponent")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
@@ -222,9 +224,6 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_x6ig7")
-}
 tree_root = SubResource("AnimationNodeStateMachine_n1f06")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = false
@@ -236,6 +235,7 @@ libraries = {
 }
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
@@ -265,12 +265,13 @@ position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_1dm3v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 9
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -310,3 +311,6 @@ attack_range_area = NodePath("../../AttackRangeArea")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("12_8o55k")
 enemy_attack = NodePath("../../PhiloAttack")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource("16_gwxir")

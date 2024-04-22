@@ -45,6 +45,8 @@ func remove_member_scene(node: Player):
 
 
 func get_active_member() -> Player:
+	if active_member_index == -1:
+		return
 	return members[active_member_index]
 
 

@@ -2,6 +2,8 @@ extends StaticBody2D
 
 signal opened
 
+const TEXTURE = preload("res://assets/chest/chest.png")
+
 @export var inventory_item: InventoryItem
 
 @export var chest_id: String
@@ -10,6 +12,8 @@ signal opened
 @onready var interaction_area = $InteractionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var pop_up_scene = preload("res://scenes/ui/pop_up/pop_up.tscn")
+@onready var spawn_material: ShaderMaterial = preload(
+	"res://resources/materials/spawn_material.tres")
 
 
 func _ready():
@@ -25,6 +29,22 @@ func set_opened(value: bool):
 	if value:
 		animated_sprite_2d.set_frame(1)
 		interaction_area.monitoring = false
+
+
+func spawn():
+	var sprite = $AnimatedSprite2D
+	sprite.material = spawn_material
+	(sprite.material as ShaderMaterial).set_shader_parameter(
+		"dissolve_texture", TEXTURE)
+	sprite.scale = Vector2(3, 3)
+	
+	var tween = create_tween()
+	tween.set_parallel()
+	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 0, 0)
+	tween.chain()
+	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 1.0, 1.6)
+	tween.tween_property(sprite, "scale", Vector2.ONE, 1.6)
+	tween.chain()
 
 
 func on_interact():
