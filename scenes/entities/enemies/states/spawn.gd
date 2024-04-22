@@ -10,7 +10,9 @@ extends EnemyState
 func enter(_msg := {}) -> void:
 	sprite.material = spawn_material
 	(sprite.material as ShaderMaterial).set_shader_parameter(
-		"shader_parameter/dissolve_texture", sprite.texture)
+		"dissolve_texture", sprite.texture)
+	# inconsistent behavior when using "shader_parameter/parameter_name" or "parameter_name" as the argument to set_shader_parameter(). ref: https://www.reddit.com/r/godot/comments/17eanmn/why_cant_i_set_a_shader_parameter_in_code_godot_4/
+	
 	sprite.scale = Vector2(3, 3)
 	hurtbox_component.monitoring = false
 	

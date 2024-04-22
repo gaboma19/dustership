@@ -22,6 +22,9 @@ func _process(delta):
 
 func acquire_target():
 	var player = PartyManager.get_active_member()
+	if player == null:
+		target_position = global_position
+		return
 	target_position = player.global_position
 
 

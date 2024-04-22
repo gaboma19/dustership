@@ -16,6 +16,7 @@ script = ExtResource("1_wi3wv")
 map_pin_cell = Vector2i(8, -1)
 
 [node name="GameStart" parent="." instance=ExtResource("9_nakwi")]
+position = Vector2(-112, 0)
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_eqcm2")]
 

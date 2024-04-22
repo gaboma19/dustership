@@ -35,7 +35,7 @@ func spawn():
 	var sprite = $AnimatedSprite2D
 	sprite.material = spawn_material
 	(sprite.material as ShaderMaterial).set_shader_parameter(
-		"shader_parameter/dissolve_texture", TEXTURE)
+		"dissolve_texture", TEXTURE)
 	sprite.scale = Vector2(3, 3)
 	
 	var tween = create_tween()

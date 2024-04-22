@@ -23,8 +23,6 @@ func _ready():
 	$PhiloTimer.timeout.connect(on_philo_timer_timeout)
 	$RasterTimer.timeout.connect(on_raster_timer_timeout)
 	%BossDoor.triggered.connect(on_boss_door_triggered)
-	
-	PlayerVariables.has_sword = true
 
 
 func spawn_philo_group():
@@ -88,11 +86,11 @@ func set_raster_spawn_points():
 func end_boss():
 	%BossDoor.open()
 	var chest = chest_scene.instantiate()
-	entities_layer.add_child(chest)
-	chest.global_position = $ChestSpawn.global_position
 	chest.inventory_item = IDENTITY_CORE
 	chest.chest_id = "echelon6_chest0"
 	chest.pop_up_text = "Found an identity core!"
+	entities_layer.add_child(chest)
+	chest.global_position = $ChestSpawn.global_position
 	chest.spawn()
 
 

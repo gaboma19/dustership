@@ -29,7 +29,6 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 
 func restart_game(level_file_path: String):
 	PlayerVariables.restart_game()
-	#var scene_path = "res://scenes/levels/echelon/echelon_level_0.tscn"
 	
 	transition_out()
 	
