@@ -35,25 +35,43 @@ layer_2/tile_data = PackedInt32Array(655359, 655363, 11, 720895, 262147, 8, 5242
 y_sort_enabled = true
 
 [node name="Philo" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(448, 112)
+position = Vector2(384, 112)
 
 [node name="Philo2" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(448, 48)
+position = Vector2(432, 24)
 
 [node name="Philo3" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(480, 80)
+position = Vector2(432, 72)
+
+[node name="Philo12" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(320, 168)
+
+[node name="Philo13" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(272, 152)
+
+[node name="Philo14" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(320, 136)
 
 [node name="Philo4" parent="Entities" instance=ExtResource("8_itgs4")]
 position = Vector2(32, 176)
 
 [node name="Philo5" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(464, 296)
+position = Vector2(416, 208)
 
 [node name="Philo6" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(400, 344)
+position = Vector2(368, 328)
 
 [node name="Philo7" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(464, 344)
+position = Vector2(448, 224)
+
+[node name="Philo17" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(448, 200)
+
+[node name="Philo15" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(432, 328)
+
+[node name="Philo16" parent="Entities" instance=ExtResource("8_itgs4")]
+position = Vector2(464, 304)
 
 [node name="Philo9" parent="Entities" instance=ExtResource("8_itgs4")]
 position = Vector2(656, 408)
@@ -65,7 +83,7 @@ position = Vector2(640, 432)
 position = Vector2(608, 448)
 
 [node name="Philo8" parent="Entities" instance=ExtResource("8_itgs4")]
-position = Vector2(192, -8)
+position = Vector2(288, 40)
 
 [node name="AprilsApartmentExterior" parent="Entities" instance=ExtResource("7_jynwh")]
 position = Vector2(-176, 0)

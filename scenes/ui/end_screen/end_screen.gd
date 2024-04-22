@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 var is_closing: bool
+var level_file_path: String
 
 @onready var panel_container = %PanelContainer
 @onready var title_label = %TitleLabel
@@ -51,7 +52,7 @@ func set_defeat():
 
 func on_continue_button_pressed():
 	close()
-	ScreenTransition.restart_game()
+	ScreenTransition.restart_game(level_file_path)
 	get_tree().paused = false
 
 

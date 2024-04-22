@@ -9,9 +9,13 @@ var hit_flash_tween: Tween
 
 func _ready():
 	health_component.health_changed.connect(on_health_changed)
+	set_sprite_material()
+
+
+func set_sprite_material():
 	sprite.material = hit_flash_material
-	
-	
+
+
 func on_health_changed():
 	# restart tween if it is already active
 	if hit_flash_tween != null && hit_flash_tween.is_valid():

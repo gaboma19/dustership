@@ -10,6 +10,13 @@ var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.t
 func enter(_msg := {}) -> void:
 	aggro_area.body_entered.connect(on_aggro_body_entered)
 	attack_range_area.body_entered.connect(on_attack_range_body_entered)
+	
+	var player = PartyManager.get_active_member()
+	if player != null:
+		if aggro_area.overlaps_body(player):
+			on_aggro_body_entered(player)
+		if attack_range_area.overlaps_body(player):
+			on_attack_range_body_entered(player)
 
 
 func update(_delta: float) -> void:

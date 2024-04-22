@@ -7,6 +7,6 @@ extends PlayerState
 
 func enter(_msg := {}) -> void:
 	pickup_area.monitoring = false
-	collision_shape_2d.disabled = true
+	collision_shape_2d.set_deferred("disabled", true)
 	player.velocity_component.stop()
 	player.set_moving(false)

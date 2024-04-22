@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=43 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="10_10x4m"]
 [ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xycha"]
 resource_local_to_scene = true
@@ -310,6 +311,7 @@ libraries = {
 }
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_vxjo0")]
+unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
@@ -340,11 +342,13 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_fa6c1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -387,3 +391,6 @@ attack_range_area = NodePath("../../AttackRangeArea")
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("11_xayrl")
 enemy_attack = NodePath("../../RasterAttack")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource("17_p6gyy")
