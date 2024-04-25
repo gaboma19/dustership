@@ -14,6 +14,9 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
+	if active_player == player:
+		active_player = PartyManager.get_active_member()
+	
 	var distance = player.global_position.distance_to(active_player.global_position)
 	if distance > 16:
 		player.velocity_component.accelerate_to_player()

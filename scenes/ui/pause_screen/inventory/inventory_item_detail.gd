@@ -44,7 +44,6 @@ func close():
 	
 	await tween.finished
 	
-	get_tree().paused = false
 	GameEvents.emit_inventory_item_detail_closed()
 	queue_free()
 

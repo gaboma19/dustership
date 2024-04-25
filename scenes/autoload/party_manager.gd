@@ -44,18 +44,29 @@ func remove_member_scene(node: Player):
 	member_scenes.erase(scene_dictionary[node.character_name])
 
 
+func has_member(member_name: Constants.CharacterNames) -> bool:
+	return member_scenes.has(scene_dictionary[member_name])
+
+
 func get_active_member() -> Player:
 	if active_member_index == -1:
 		return
 	return members[active_member_index]
 
 
-func instantiate_party(position: Vector2):
+func instantiate_party(position: Vector2, active_member_name: Constants.CharacterNames):
+	is_holding = false
 	var entities_layer = get_tree().get_first_node_in_group("entities")
-	for scene in member_scenes:
-		var party_member = scene.instantiate()
+	for n in member_scenes.size():
+		var party_member = member_scenes[n].instantiate()
 		entities_layer.add_child(party_member)
 		party_member.global_position = position
+		
+		if party_member.character_name == active_member_name:
+			party_member.state_machine.transition_to("Active")
+			active_member_index = n
+		else:
+			party_member.state_machine.transition_to("Follow")
 
 
 func switch_character():

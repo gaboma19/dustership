@@ -26,6 +26,7 @@ func regrab_focus():
 	if PopUp.visible:
 		return
 	inventory_slots[0].grab_focus()
+	get_tree().paused = true
 
 
 func on_item_used():

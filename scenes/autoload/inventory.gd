@@ -30,8 +30,17 @@ func use_item(item: InventoryItem) -> bool:
 
 
 func use_item_by_name(item_name: String) -> bool:
-	var filtered_items = items.filter(func(item): return item.name == item_name)
+	var match_name = func(item):
+		if item == null: 
+			return false
+		if item.name == item_name:
+			return true
+	
+	var filtered_items = items.filter(match_name)
 	if filtered_items.is_empty():
 		return false
 	else:
-		return filtered_items[0]
+		var index = items.find(filtered_items[0])
+		items[index] = null
+		item_used.emit()
+		return true

@@ -28,10 +28,11 @@ func on_player_died():
 	end_screen_instance.set_defeat()
 
 
-func set_player_position(player_position: Vector2):
+func set_player_position(
+	player_position: Vector2, active_member_name: Constants.CharacterNames):
 	if PlayerVariables.enable_game_start:
 		return
 	
-	PartyManager.instantiate_party(player_position)
+	PartyManager.instantiate_party(player_position, active_member_name)
 	if not is_camera_static:
 		game_camera.global_position = player_position

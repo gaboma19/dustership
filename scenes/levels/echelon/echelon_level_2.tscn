@@ -14,6 +14,7 @@
 [node name="EchelonLevel2" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_b26j0")
+is_camera_static = null
 map_pin_cell = Vector2i(14, 1)
 
 [node name="GameStart" parent="." instance=ExtResource("2_sad77")]
