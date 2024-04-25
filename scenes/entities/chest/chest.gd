@@ -5,13 +5,10 @@ signal opened
 const TEXTURE = preload("res://assets/chest/chest.png")
 
 @export var inventory_item: InventoryItem
-
 @export var chest_id: String
-@export var pop_up_text: String
 
 @onready var interaction_area = $InteractionArea
 @onready var animated_sprite_2d = $AnimatedSprite2D
-@onready var pop_up_scene = preload("res://scenes/ui/pop_up/pop_up.tscn")
 @onready var spawn_material: ShaderMaterial = preload(
 	"res://resources/materials/spawn_material.tres")
 
@@ -57,17 +54,12 @@ func on_interact():
 		return
 	
 	await get_tree().create_timer(0.4).timeout
-	var pop_up = pop_up_scene.instantiate()
-	get_tree().root.add_child(pop_up)
 	
-	if pop_up_text.is_empty():
-		pop_up.set_pop_up(inventory_item)
-	else:
-		pop_up.set_pop_up(inventory_item, pop_up_text)
+	PopUp.open_pop_up(inventory_item)
 	
 	if inventory_item.name == "sword":
 		PlayerVariables.has_sword = true
-		pop_up.set_sword_instructions()
+		PopUp.set_sword_instructions()
 		return
 	
 	Inventory.add_item(inventory_item)

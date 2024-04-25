@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bdgmk7thjffe0"]
+[gd_scene load_steps=55 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
@@ -1058,6 +1058,11 @@ _data = {
 "move_w": SubResource("Animation_5q8t3")
 }
 
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_3eb42"]
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qbjqy"]
 animation = &"idle_s"
 
@@ -1157,12 +1162,31 @@ advance_condition = &"is_moving"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1mxg"]
 advance_condition = &"is_idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jg5kb"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6e577"]
+advance_mode = 0
+advance_condition = &"is_attacking"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cfiqh"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ykn00"]
+advance_mode = 0
+advance_condition = &"is_attacking"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_tvktk"]
+states/Attack/node = SubResource("AnimationNodeBlendSpace2D_3eb42")
+states/Attack/position = Vector2(493, 232)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_xk341")
 states/Idle/position = Vector2(377, 98)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_1om58")
 states/Move/position = Vector2(610, 97)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8c2st"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_7w54k"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_d1mxg")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8c2st"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_7w54k"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_d1mxg"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_jg5kb"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_6e577"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_cfiqh"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_ykn00")]
+graph_offset = Vector2(42, 36)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_votkt"]
 radius = 5.0
@@ -1207,7 +1231,7 @@ texture = ExtResource("3_lstn8")
 offset = Vector2(0, -5)
 hframes = 5
 vframes = 5
-frame = 2
+frame = 9
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -1227,13 +1251,12 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_e211m")
-}
 tree_root = SubResource("AnimationNodeStateMachine_tvktk")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_attacking = false
 parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
+parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 0)
 parameters/Move/blend_position = Vector2(0, 0)
 
@@ -1241,6 +1264,10 @@ parameters/Move/blend_position = Vector2(0, 0)
 unique_name_in_owner = true
 visible = false
 shape = SubResource("CircleShape2D_votkt")
+
+[node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
 
 [node name="StateMachine" parent="." instance=ExtResource("5_lwk8v")]
 unique_name_in_owner = true

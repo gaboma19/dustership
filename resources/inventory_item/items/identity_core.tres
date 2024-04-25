@@ -7,3 +7,4 @@
 script = ExtResource("1_lmdq2")
 name = "identity_core"
 texture = ExtResource("2_u5cqj")
+description = "An identity core for a combat droid. It's branded by GungHo Groundworks -- a large weapons manufacturer."

@@ -65,7 +65,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.501961)
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="." groups=["top_margin_container"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,16 +98,13 @@ layout_mode = 2
 texture = ExtResource("2_om4p2")
 expand_mode = 2
 
-[node name="LeftButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture_normal = ExtResource("3_flgws")
-texture_pressed = ExtResource("3_flgws")
-texture_hover = ExtResource("3_flgws")
-texture_disabled = ExtResource("3_flgws")
-texture_focused = ExtResource("3_flgws")
-stretch_mode = 3
+focus_neighbor_right = NodePath("../RightButton")
+icon = ExtResource("3_flgws")
+flat = true
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
@@ -118,16 +115,13 @@ theme_override_font_sizes/font_size = 32
 text = "Title"
 horizontal_alignment = 1
 
-[node name="RightButton" type="TextureButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RightButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-texture_normal = ExtResource("4_kjenf")
-texture_pressed = ExtResource("4_kjenf")
-texture_hover = ExtResource("4_kjenf")
-texture_disabled = ExtResource("4_kjenf")
-texture_focused = ExtResource("4_kjenf")
-stretch_mode = 3
+focus_neighbor_left = NodePath("../LeftButton")
+icon = ExtResource("4_kjenf")
+flat = true
 
 [node name="RB" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -142,6 +136,7 @@ theme_override_styles/panel = SubResource("StyleBoxEmpty_4fevp")
 
 [node name="InventoryContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("6_id28i")]
 layout_mode = 2
+script = null
 
 [node name="B" type="TextureRect" parent="MarginContainer/PanelContainer"]
 layout_mode = 2

@@ -13,7 +13,6 @@ columns = 4
 
 [node name="InventorySlot1" parent="." instance=ExtResource("1_qf6j6")]
 layout_mode = 2
-theme_type_variation = &"PanelContainerLight"
 
 [node name="InventorySlot2" parent="." instance=ExtResource("1_qf6j6")]
 layout_mode = 2

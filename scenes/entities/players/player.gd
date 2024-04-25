@@ -17,6 +17,9 @@ var hit_flash_tween: Tween
 func _ready():
 	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
 	PartyManager.add_member(self)
+	
+	if character_name == Constants.CharacterNames.CUBE:
+		instantiate_shadow()
 
 
 func _exit_tree():
@@ -68,6 +71,16 @@ func can_attack():
 			return PlayerVariables.has_sword
 		Constants.CharacterNames.CUBE:
 			return PlayerVariables.has_gun
+
+
+func instantiate_shadow():
+	var entities_layer = get_tree().get_first_node_in_group("entities")
+	const SHADOW_SPRITE_SCENE = preload("res://scenes/entities/cube/shadow_sprite.tscn")
+	var shadow_sprite = SHADOW_SPRITE_SCENE.instantiate()
+	shadow_sprite.flying_entity = self
+	shadow_sprite.y_offset = 5
+	entities_layer.add_child(shadow_sprite)
+	shadow_sprite.global_position = Vector2(global_position.x, global_position.y + 5)
 
 
 func on_hurtbox_area_entered(other_area: Area2D):

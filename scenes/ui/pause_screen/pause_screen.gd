@@ -25,9 +25,15 @@ func _unhandled_input(event):
 		else:
 			selected_screen += 1
 		set_menu_container()
-	elif !is_opening and (
-		event.is_action_pressed("pause") or event.is_action_pressed("toggle_hold")
-		):
+	elif (
+		!is_opening
+		and
+		!PopUp.visible
+		and (
+			event.is_action_pressed("pause")
+			or event.is_action_pressed("toggle_hold")
+		)
+	):
 		get_tree().root.set_input_as_handled()
 		close()
 
@@ -51,9 +57,7 @@ func set_inventory_grid():
 	var inventory_container = inventory_container_scene.instantiate()
 	%MenuContainer.add_child(inventory_container)
 	
-	var inventory_slots: Array = inventory_container.get_slots()
-	for i in range(Inventory.items.size() - 1):
-		inventory_slots[i].set_item(Inventory.items[i])
+	inventory_container.set_slots()
 
 
 func set_map():

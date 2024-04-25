@@ -12,7 +12,17 @@ const INTERACTED_LINES: Array[String] = [
 	"Maybe I can find this guy's missing parts."
 ]
 
+const HAS_IDENTITY_CORE_LINES: Array[String] = [
+	"Found your missing component, bud.",
+	"Gonna wake you up now. Sure hope you don't try to kill me."
+]
+
+const CUBE_LINES: Array[String] = [
+	"Hello, world!"
+]
+
 const CONVERSATION_ID: String = "cube_fainted"
+const CUBE_FIXED_CONVERSATION_ID: String = "cube_fixed"
 
 @onready var interaction_area = $InteractionArea
 
@@ -22,10 +32,34 @@ func _ready():
 	
 	if not EntityVariables.conversations.has(CONVERSATION_ID):
 		EntityVariables.conversations[CONVERSATION_ID] = { "interacted": false }
+	
+	if EntityVariables.conversations.has(CUBE_FIXED_CONVERSATION_ID):
+		if EntityVariables.conversations[CUBE_FIXED_CONVERSATION_ID].interacted:
+			queue_free()
+	else:
+		EntityVariables.conversations[CUBE_FIXED_CONVERSATION_ID] = { "interacted": false }
 
 
 func on_interact():
 	var player = PartyManager.get_active_member() as Player
+	
+	if Inventory.use_item_by_name("identity_core"):
+		EntityVariables.conversations[CUBE_FIXED_CONVERSATION_ID].interacted = true
+		
+		player.speak(HAS_IDENTITY_CORE_LINES)
+		await DialogueManager.finished_dialogue
+		
+		const CUBE_SCENE = preload("res://scenes/entities/players/cube.tscn")
+		var cube = CUBE_SCENE.instantiate()
+		var entities_layer = get_tree().get_first_node_in_group("entities")
+		entities_layer.add_child(cube)
+		cube.global_position = global_position
+		hide()
+		
+		cube.speak(CUBE_LINES)
+		queue_free()
+	
+	
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
 		player.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true

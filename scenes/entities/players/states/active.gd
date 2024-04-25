@@ -35,11 +35,13 @@ func _input(event):
 	
 	if event.is_action_pressed("attack") \
 	&& attack_timer.is_stopped() \
-	&& player.can_attack():
+	&& player.can_attack() \
+	&& player.state_machine.state == self:
 		state_machine.transition_to("Attack")
 
 
 func get_movement_vector():
-	var direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
+	var direction = Input.get_vector(
+		"move_left", "move_right", "move_up",  "move_down")
 	
 	return direction
