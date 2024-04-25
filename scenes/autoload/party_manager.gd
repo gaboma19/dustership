@@ -49,7 +49,7 @@ func has_member(member_name: Constants.CharacterNames) -> bool:
 
 
 func get_active_member() -> Player:
-	if active_member_index == -1:
+	if active_member_index == -1 or active_member_index > members.size() - 1:
 		return
 	return members[active_member_index]
 

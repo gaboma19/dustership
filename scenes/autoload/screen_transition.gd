@@ -13,7 +13,7 @@ func transition_out():
 	$AnimationPlayer.play("transition_out")
 
 
-func transition_to_level(scene_path: String, player_position: Vector2):	
+func transition_to_level(scene_path: String, player_position: Vector2):
 	var active_member_name = PartyManager.get_active_member().character_name
 	
 	transition_out()
@@ -30,6 +30,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 
 
 func restart_game(level_file_path: String):
+	var active_member_name = PartyManager.get_active_member().character_name
 	PlayerVariables.restart_game()
 	
 	transition_out()
@@ -39,5 +40,8 @@ func restart_game(level_file_path: String):
 	
 	await get_tree().process_frame
 	await get_tree().process_frame
+	
+	var level = get_tree().current_scene
+	level.set_player_at_game_start(active_member_name)
 	
 	transition_in()

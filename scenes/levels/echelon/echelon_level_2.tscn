@@ -11,11 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ciyba36r6f1l1" path="res://scenes/entities/cube/cube_fainted.tscn" id="9_ai1b7"]
 [ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/steel_card.tres" id="9_dnnyk"]
 
-[node name="EchelonLevel2" type="Node2D"]
+[node name="EchelonLevel2" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_b26j0")
 is_camera_static = null
 map_pin_cell = Vector2i(14, 1)
+game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("2_sad77")]
 position = Vector2(-128, -120)

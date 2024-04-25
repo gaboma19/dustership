@@ -2,6 +2,7 @@ extends Node2D
 
 @export var is_camera_static: bool = false
 @export var map_pin_cell: Vector2i
+@export var game_start: Node2D
 
 var end_screen_scene = preload("res://scenes/ui/end_screen/end_screen.tscn")
 var pause_screen_scene = preload("res://scenes/ui/pause_screen/pause_screen.tscn")
@@ -30,8 +31,14 @@ func on_player_died():
 
 func set_player_position(
 	player_position: Vector2, active_member_name: Constants.CharacterNames):
-	if PlayerVariables.enable_game_start:
-		return
+	
+	PartyManager.instantiate_party(player_position, active_member_name)
+	if not is_camera_static:
+		game_camera.global_position = player_position
+
+
+func set_player_at_game_start(active_member_name: Constants.CharacterNames):
+	var player_position = game_start.global_position
 	
 	PartyManager.instantiate_party(player_position, active_member_name)
 	if not is_camera_static:
