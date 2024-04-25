@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://c1mmr81amlp5c"]
+
+[ext_resource type="Script" path="res://resources/inventory_item/items/steel_card.gd" id="1_ufcc2"]
+[ext_resource type="Texture2D" uid="uid://1g5g3ssk5bg5" path="res://assets/steel_wallet/steel_wallet.png" id="2_q5ecf"]
+
+[resource]
+script = ExtResource("1_ufcc2")
+name = "steel_card"
+texture = ExtResource("2_q5ecf")
+is_usable = true
+description = "A chip card that contains some amount of steel. Use to add the card's steel to your wallet."
+pop_up_text = "Found a steel card!"

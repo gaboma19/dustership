@@ -7,3 +7,6 @@
 script = ExtResource("1_d3lcv")
 name = "key"
 texture = ExtResource("2_wmp26")
+is_usable = false
+description = "A key that opens a locked door nearby."
+pop_up_text = "Found a key!"

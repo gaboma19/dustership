@@ -1,7 +1,7 @@
 extends Node
 
-const IDENTITY_CORE = preload(
-	"res://resources/inventory_item/items/identity_core.tres")
+const IDENTITY_CORE_LEFT = preload(
+	"res://resources/inventory_item/items/identity_core_left.tres")
 
 var number_raster_groups: int = 0
 var number_dead_enemies: int = 0
@@ -86,9 +86,8 @@ func set_raster_spawn_points():
 func end_boss():
 	%BossDoor.open()
 	var chest = chest_scene.instantiate()
-	chest.inventory_item = IDENTITY_CORE
+	chest.inventory_item = IDENTITY_CORE_LEFT
 	chest.chest_id = "echelon6_chest0"
-	chest.pop_up_text = "Found an identity core!"
 	entities_layer.add_child(chest)
 	chest.global_position = $ChestSpawn.global_position
 	chest.spawn()

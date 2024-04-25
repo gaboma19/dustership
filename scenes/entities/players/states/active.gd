@@ -40,6 +40,7 @@ func _input(event):
 
 
 func get_movement_vector():
-	var direction = Input.get_vector("move_left", "move_right", "move_up",  "move_down")
+	var direction = Input.get_vector(
+		"move_left", "move_right", "move_up",  "move_down")
 	
 	return direction

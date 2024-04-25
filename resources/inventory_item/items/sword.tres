@@ -7,3 +7,6 @@
 script = ExtResource("1_djp2f")
 name = "sword"
 texture = ExtResource("2_kry0t")
+is_usable = false
+description = "April's sword, standard issue and the weapon of choise for Preservers. It is of advanced metallurgy and very sharp."
+pop_up_text = "Found a sword!"

@@ -9,19 +9,26 @@ var is_opening: bool
 
 
 func _ready():
-	get_tree().paused = true
-	animate_open()
+	%OKButton.pressed.connect(on_ok_button_pressed)
+	visible = false
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("interact") and !is_opening:
+	if not visible: 
+		return
+
+	if event.is_action_pressed("toggle_hold") and !is_opening:
 		get_tree().root.set_input_as_handled()
 		close()
 
 
-func set_pop_up(
+func open_pop_up(
 		item: InventoryItem,
-		label_text: String = "Found a " + item.name + "!"):
+		label_text: String = item.pop_up_text):
+	visible = true
+	get_tree().paused = true
+	animate_open()
+	
 	%TextureRect.texture = item.texture
 	%Label.text = label_text
 
@@ -38,6 +45,7 @@ func animate_open():
 	is_opening = true
 	await get_tree().create_timer(0.4).timeout
 	is_opening = false
+	%OKButton.grab_focus()
 
 
 func close():
@@ -54,10 +62,16 @@ func close():
 	
 	await tween.finished
 	
-	closed.emit()
+	is_closing = false
 	get_tree().paused = false
-	queue_free()
+	visible = false
+	%Tutorial.visible = false
+	closed.emit()
 
 
 func set_sword_instructions():
 	%Tutorial.visible = true
+
+
+func on_ok_button_pressed():
+	close()

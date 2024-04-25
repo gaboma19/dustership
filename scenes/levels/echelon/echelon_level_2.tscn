@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d13u4o183lyu4"]
+[gd_scene load_steps=11 format=3 uid="uid://d13u4o183lyu4"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_b26j0"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_sad77"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="8_mlpqd"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="8_u38qy"]
 [ext_resource type="PackedScene" uid="uid://ciyba36r6f1l1" path="res://scenes/entities/cube/cube_fainted.tscn" id="9_ai1b7"]
+[ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/steel_card.tres" id="9_dnnyk"]
 
 [node name="EchelonLevel2" type="Node2D"]
 y_sort_enabled = true
@@ -90,6 +91,7 @@ position = Vector2(224, -72)
 
 [node name="Chest" parent="Entities" instance=ExtResource("8_mlpqd")]
 position = Vector2(80, -80)
+inventory_item = ExtResource("9_dnnyk")
 chest_id = "echelon2_chest0"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]

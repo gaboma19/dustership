@@ -22,7 +22,7 @@ func heal(heal_amount: int):
 	if current_health == max_health:
 		return
 	
-	current_health += heal_amount
+	current_health = min(current_health + heal_amount, max_health)
 	GameEvents.emit_player_healed()
 
 

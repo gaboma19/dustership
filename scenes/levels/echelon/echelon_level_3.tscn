@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ciu4ycsb3e57c"]
+[gd_scene load_steps=15 format=3 uid="uid://ciu4ycsb3e57c"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_h1x7x"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_31n7q"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="7_ujmgh"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="8_qjrk0"]
 [ext_resource type="PackedScene" uid="uid://db8v0kug6b0ho" path="res://scenes/entities/doodads/alleyway_exterior.tscn" id="9_b5r7j"]
+[ext_resource type="Resource" uid="uid://34ccf2iojcia" path="res://resources/inventory_item/items/health_tonic.tres" id="9_qohvx"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="10_wv0wa"]
 [ext_resource type="PackedScene" uid="uid://ybu3bew6102p" path="res://scenes/entities/doodads/tavern_exterior.tscn" id="11_cx0oo"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="11_iyukd"]
@@ -89,6 +90,7 @@ position = Vector2(624, -176)
 
 [node name="Chest" parent="Entities" instance=ExtResource("8_qjrk0")]
 position = Vector2(466, 12)
+inventory_item = ExtResource("9_qohvx")
 chest_id = "echelon3_chest0"
 
 [node name="AlleywayExterior" parent="Entities" instance=ExtResource("9_b5r7j")]

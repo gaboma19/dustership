@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cn3el3ie6qumh"
+path="res://.godot/imported/steel_wallet.aseprite-ca924b5c2ab7ca1eae8ee812e3c3a7f3.res"
+
+[deps]
+
+source_file="res://assets/steel_wallet/steel_wallet.aseprite"
+dest_files=["res://.godot/imported/steel_wallet.aseprite-ca924b5c2ab7ca1eae8ee812e3c3a7f3.res"]
+
+[params]
+
