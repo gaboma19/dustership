@@ -23,7 +23,9 @@ func _unhandled_input(event):
 
 
 func add_member(node: Player):
-	members.append(node)
+	if not members.has(node):
+		members.append(node)
+	
 	if members.size() == 1:
 		active_member_index = 0
 		node.state_machine.transition_to("Active")

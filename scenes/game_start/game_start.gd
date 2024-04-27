@@ -9,7 +9,6 @@ func _ready():
 	if OS.has_feature("editor"):
 		enabled = true
 		PlayerVariables.has_sword = true
-		Inventory.add_item(preload("res://resources/inventory_item/items/identity_core.tres"))
 	
 	if enabled:
 		PlayerVariables.enable_game_start = false

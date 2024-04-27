@@ -83,6 +83,16 @@ func instantiate_shadow():
 	shadow_sprite.global_position = Vector2(global_position.x, global_position.y + 5)
 
 
+func set_flying(value: bool):
+	if character_name == Constants.CharacterNames.CUBE:
+		return
+	
+	if value:
+		set_collision_mask(0b1)
+	else:
+		set_collision_mask(0b100001)
+
+
 func on_hurtbox_area_entered(other_area: Area2D):
 	if not other_area is HitboxComponent:
 		return
