@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var animation_player: AnimationPlayer
+
 var is_at_destination: bool
 var player: Player
 
@@ -17,6 +19,10 @@ func _ready():
 func end_move():
 	collision_polygon_2d.set_deferred("disabled", true)
 	set_party_flying(false)
+	
+	var entities_layer = get_tree().get_first_node_in_group("entities")
+	for member in PartyManager.members:
+		member.reparent(entities_layer)
 
 
 func set_party_flying(value):
@@ -33,17 +39,15 @@ func on_activation_area_body_entered(body: Node2D):
 	set_party_flying(true)
 	
 	if is_at_destination:
-		$AnimationPlayer.play_backwards("move")
+		animation_player.play_backwards("move")
 		is_at_destination = false
 	else:
-		$AnimationPlayer.play("move")
+		animation_player.play("move")
 		is_at_destination = true
-	$AnimationPlayer.queue("call_end_move")
+	animation_player.queue("call_end_move")
 	
-	player = body
-	player.reparent(animatable_body_2d)
-	# add player back to party because reparent() calls player._exit_tree()
-	PartyManager.add_member(player)
+	for member in PartyManager.members:
+		member.reparent(animatable_body_2d)
 
 
 func on_offboarding_area_body_entered(_body: Node2D):

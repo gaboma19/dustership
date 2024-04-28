@@ -1,5 +1,7 @@
 extends Node
 
+signal character_switched(name: Constants.CharacterNames)
+
 var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
@@ -40,6 +42,11 @@ func remove_member(node: Player):
 	members.erase(node)
 	if members.size() == 0:
 		active_member_index = -1
+
+
+func clear_members():
+	members.clear()
+	active_member_index = -1
 
 
 func remove_member_scene(node: Player):
@@ -89,6 +96,8 @@ func switch_character():
 			members[i].state_machine.transition_to("Hold")
 		else:
 			members[i].state_machine.transition_to("Follow")
+	
+	character_switched.emit(next_active_member.character_name)
 
 
 func toggle_hold():

@@ -7,6 +7,7 @@ var movement_vector: Vector2 = Vector2.ZERO
 var hit_flash_tween: Tween
 
 @onready var animation_tree = $AnimationTree
+@onready var animation_state_machine = animation_tree.get("parameters/playback")
 @onready var damage_interval_timer = $PlayerHurtboxComponent/DamageIntervalTimer
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
 @onready var speech_sound = preload("res://assets/sfx/speech_sound.wav")
@@ -20,10 +21,6 @@ func _ready():
 	
 	if character_name == Constants.CharacterNames.CUBE:
 		instantiate_shadow()
-
-
-func _exit_tree():
-	PartyManager.remove_member(self)
 
 
 func speak(lines: Array[String]):
@@ -44,9 +41,9 @@ func set_moving(value):
 
 
 func set_attacking(value):
+	animation_tree.set("parameters/conditions/is_attacking", value)
 	animation_tree.set("parameters/conditions/is_idle", not value)
 	animation_tree.set("parameters/conditions/is_moving", not value)
-	animation_tree.set("parameters/conditions/is_attacking", value)
 
 
 func update_blend_position(direction: Vector2):
@@ -79,7 +76,7 @@ func instantiate_shadow():
 	var shadow_sprite = SHADOW_SPRITE_SCENE.instantiate()
 	shadow_sprite.flying_entity = self
 	shadow_sprite.y_offset = 5
-	entities_layer.add_child(shadow_sprite)
+	entities_layer.add_child.call_deferred(shadow_sprite)
 	shadow_sprite.global_position = Vector2(global_position.x, global_position.y + 5)
 
 
@@ -88,9 +85,9 @@ func set_flying(value: bool):
 		return
 	
 	if value:
-		set_collision_mask(0b1)
+		set_collision_mask(0b10000001)
 	else:
-		set_collision_mask(0b100001)
+		set_collision_mask(0b10100001)
 
 
 func on_hurtbox_area_entered(other_area: Area2D):

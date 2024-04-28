@@ -15,6 +15,10 @@ run/main_scene="res://scenes/levels/echelon/echelon_level_0.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.png"
 
+[audio]
+
+buses/default_bus_layout="res://resources/default_bus_layout.tres"
+
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"

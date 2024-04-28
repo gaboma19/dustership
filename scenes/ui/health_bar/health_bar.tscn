@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b61du28ox3e38"]
+[gd_scene load_steps=5 format=3 uid="uid://b61du28ox3e38"]
 
 [ext_resource type="PackedScene" uid="uid://crbfqt62kncy7" path="res://scenes/ui/health_bar/heart_panel.tscn" id="1_d80qb"]
 [ext_resource type="Script" path="res://scenes/ui/health_bar/health_bar.gd" id="1_ppetb"]
 [ext_resource type="PackedScene" uid="uid://c5ma31chcek2c" path="res://scenes/ui/health_bar/empty_heart_panel.tscn" id="3_1lr0a"]
+[ext_resource type="Texture2D" uid="uid://enlp5na8lllw" path="res://assets/april/april_portrait.png" id="4_8gogm"]
 
 [node name="HealthBar" type="CanvasLayer"]
 script = ExtResource("1_ppetb")
@@ -15,25 +16,36 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 32
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="HeartContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_constants/separation = 32
+
+[node name="PortraitTexture" type="TextureRect" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(96, 128)
+layout_mode = 2
+texture = ExtResource("4_8gogm")
+
+[node name="HeartContainer" type="HBoxContainer" parent="MarginContainer/HBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
-size_flags_horizontal = 0
 size_flags_vertical = 8
 mouse_filter = 2
 theme_override_constants/separation = 49
 
-[node name="HeartPanel" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+[node name="HeartPanel" parent="MarginContainer/HBoxContainer/HeartContainer" instance=ExtResource("1_d80qb")]
 layout_mode = 2
 
-[node name="HeartPanel2" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+[node name="HeartPanel2" parent="MarginContainer/HBoxContainer/HeartContainer" instance=ExtResource("1_d80qb")]
 layout_mode = 2
 
-[node name="HeartPanel3" parent="MarginContainer/HeartContainer" instance=ExtResource("1_d80qb")]
+[node name="HeartPanel3" parent="MarginContainer/HBoxContainer/HeartContainer" instance=ExtResource("1_d80qb")]
 layout_mode = 2

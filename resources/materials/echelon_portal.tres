@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bqei6sw1ju6fr"]
+
+[ext_resource type="Shader" path="res://resources/materials/echelon_portal.gdshader" id="1_e8qok"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_axrs6"]
+noise_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_8bk0b"]
+noise = SubResource("FastNoiseLite_axrs6")
+
+[resource]
+shader = ExtResource("1_e8qok")
+shader_parameter/amplitude = 2.0
+shader_parameter/frequency = 12.69
+shader_parameter/rippleRate = 9.2
+shader_parameter/waveAmplitude = 0.1
+shader_parameter/waveFrequency = 4.705
+shader_parameter/blendingAmount = 1.09
+shader_parameter/noise = SubResource("NoiseTexture2D_8bk0b")

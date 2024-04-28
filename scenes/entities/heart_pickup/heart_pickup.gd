@@ -45,8 +45,14 @@ func disable_collision():
 	collision_shape_2d.disabled = true
 
 
+func play_audio_delayed():
+	await get_tree().create_timer(0.4).timeout
+	%HeartPickupAudio.play_random()
+
+
 func on_collection_area_entered(_area: Area2D):
 	Callable(disable_collision).call_deferred()
+	play_audio_delayed()
 	
 	var tween = create_tween()
 	tween.set_parallel()

@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtkj83v570os4"]
+
+[ext_resource type="Material" uid="uid://bqei6sw1ju6fr" path="res://resources/materials/echelon_portal.tres" id="1_etgpw"]
+[ext_resource type="Texture2D" uid="uid://cg3bi3eoel7hc" path="res://assets/doodads/echelon_portal.png" id="2_ydfia"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o6f5v"]
+radius = 32.0
+height = 128.0
+
+[node name="EchelonPortal" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_etgpw")
+texture = ExtResource("2_ydfia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o6f5v")

@@ -15,6 +15,7 @@ func transition_out():
 
 func transition_to_level(scene_path: String, player_position: Vector2):
 	var active_member_name = PartyManager.get_active_member().character_name
+	PartyManager.clear_members()
 	
 	transition_out()
 	await get_tree().create_timer(0.4).timeout
@@ -32,6 +33,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 func restart_game(level_file_path: String):
 	var active_member_name = PartyManager.get_active_member().character_name
 	PlayerVariables.restart_game()
+	PartyManager.clear_members()
 	
 	transition_out()
 	

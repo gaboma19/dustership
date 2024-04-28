@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b4uqeq1xl5adt"]
+[gd_scene load_steps=9 format=3 uid="uid://b4uqeq1xl5adt"]
 
 [ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.gd" id="1_cafif"]
 [ext_resource type="Texture2D" uid="uid://qb6disks5xi0" path="res://assets/philo/philo_attack.png" id="2_kuw1e"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="3_mrl5l"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="4_gdcpd"]
+[ext_resource type="AudioStream" uid="uid://brie44in4ffdd" path="res://assets/sfx/philo_attack.wav" id="5_8k386"]
 
 [sub_resource type="Animation" id="Animation_k5ebq"]
 length = 0.001
@@ -126,7 +128,6 @@ _data = {
 
 [node name="PhiloAttack" type="Node2D"]
 script = ExtResource("1_cafif")
-damage = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -166,3 +167,7 @@ disabled = true
 [node name="CooldownTimer" type="Timer" parent="."]
 wait_time = 1.5
 one_shot = true
+
+[node name="AttackAudio" parent="." instance=ExtResource("4_gdcpd")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("5_8k386")])

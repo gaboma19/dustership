@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://b42vxidw5eb3m"]
+[gd_scene load_steps=10 format=3 uid="uid://b42vxidw5eb3m"]
 
 [ext_resource type="Script" path="res://scenes/entities/steel/steel.gd" id="1_djhec"]
 [ext_resource type="Texture2D" uid="uid://b314xfwo2enj5" path="res://assets/steel/steel.png" id="2_0qc3i"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_xgt0u"]
+[ext_resource type="AudioStream" uid="uid://bp8rcdnddnmkf" path="res://assets/sfx/steel_pickup.wav" id="4_ot78h"]
 
 [sub_resource type="Animation" id="Animation_evck6"]
 length = 0.001
@@ -171,3 +173,7 @@ metadata/_aseprite_wizard_config_ = {
 "player": "AnimationPlayer",
 "source": "res://assets/steel/steel.aseprite"
 }
+
+[node name="SteelPickupAudio" parent="." instance=ExtResource("3_xgt0u")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("4_ot78h")])

@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var is_camera_static: bool = false
+@export var is_camera_static = false
 @export var map_pin_cell: Vector2i
 @export var game_start: Node2D
 

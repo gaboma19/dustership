@@ -1,34 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://dqdu7laenedqk"]
+[gd_scene load_steps=6 format=3 uid="uid://dqdu7laenedqk"]
 
 [ext_resource type="Script" path="res://scenes/entities/moving_platform/moving_platform.gd" id="1_2mpkv"]
 [ext_resource type="Texture2D" uid="uid://lo4yewn6whba" path="res://assets/moving_platform/moving_platform.png" id="1_fge4u"]
 [ext_resource type="PackedScene" uid="uid://h3ca5f5ky04j" path="res://scenes/tilemaps/vinik24_tilemap.tscn" id="3_marux"]
-
-[sub_resource type="Animation" id="Animation_cranf"]
-resource_name = "move"
-
-[sub_resource type="Animation" id="Animation_joj7i"]
-resource_name = "call_end_move"
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MovingPlatform")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"end_move"
-}]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_supe6"]
-_data = {
-"call_end_move": SubResource("Animation_joj7i"),
-"move": SubResource("Animation_cranf")
-}
 
 [sub_resource type="Animation" id="Animation_mf3qq"]
 length = 1.2
@@ -65,14 +39,10 @@ _data = {
 [node name="MovingPlatform" type="Node2D"]
 script = ExtResource("1_2mpkv")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_supe6")
-}
-
 [node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
 y_sort_enabled = true
+collision_layer = 128
+collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
 z_index = -1
@@ -109,7 +79,6 @@ libraries = {
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D"]
 unique_name_in_owner = true
-visible = false
 build_mode = 1
 polygon = PackedVector2Array(0, -64, -64, -32, 0, 0, 64, -32)
 disabled = true
@@ -120,12 +89,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D/ActivationArea"]
-visible = false
 modulate = Color(0, 1, 0, 1)
-polygon = PackedVector2Array(16, -56, -48, -24, -16, -8, 48, -40)
+polygon = PackedVector2Array(0, -40, -16, -32, 0, -24, 16, -32)
 
 [node name="OffboardingArea" type="Area2D" parent="AnimatableBody2D"]
 unique_name_in_owner = true
+visible = false
 collision_layer = 0
 collision_mask = 2
 

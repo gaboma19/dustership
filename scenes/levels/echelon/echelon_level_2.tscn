@@ -14,7 +14,6 @@
 [node name="EchelonLevel2" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_b26j0")
-is_camera_static = null
 map_pin_cell = Vector2i(14, 1)
 game_start = NodePath("GameStart")
 

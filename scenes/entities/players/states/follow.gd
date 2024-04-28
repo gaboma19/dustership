@@ -3,6 +3,7 @@ extends PlayerState
 
 @onready var pickup_area = %PickupArea
 @onready var collision_shape_2d = %CollisionShape2D
+@onready var player_hurtbox_component = %PlayerHurtboxComponent
 
 var active_player: Player
 
@@ -10,12 +11,20 @@ var active_player: Player
 func enter(_msg := {}) -> void:
 	pickup_area.monitoring = false
 	collision_shape_2d.disabled = true
+	player_hurtbox_component.set_deferred("monitoring", false)
 	active_player = PartyManager.get_active_member()
+
+
+func exit():
+	player_hurtbox_component.set_deferred("monitoring", true)
 
 
 func update(_delta: float) -> void:
 	if active_player == player:
 		active_player = PartyManager.get_active_member()
+		
+	if active_player == null:
+		return
 	
 	var distance = player.global_position.distance_to(active_player.global_position)
 	if distance > 16:

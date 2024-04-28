@@ -29,12 +29,12 @@ func update(_delta: float) -> void:
 	player.velocity_component.move(player)
 
 
-func _input(event):
+func _unhandled_input(event):
 	if DialogueManager.is_dialogue_active:
 		return
 	
 	if event.is_action_pressed("attack") \
-	&& attack_timer.is_stopped() \
+	&& player.animation_state_machine.get_current_node() != "Attack" \
 	&& player.can_attack() \
 	&& player.state_machine.state == self:
 		state_machine.transition_to("Attack")

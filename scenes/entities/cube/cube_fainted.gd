@@ -9,16 +9,24 @@ const LINES: Array[String] = [
 
 const INTERACTED_LINES: Array[String] = [
 	"It's a broken combat Cube.",
-	"Maybe I can find this guy's missing parts."
+	"Maybe I can find its missing parts."
 ]
 
 const HAS_IDENTITY_CORE_LINES: Array[String] = [
-	"Found your missing component, bud.",
+	"Found your missing component, droid.",
 	"Gonna wake you up now. Sure hope you don't try to kill me."
 ]
 
 const CUBE_LINES: Array[String] = [
-	"Hello, world!"
+	"Hello, world!",
+	"The time is 12:00:00 Ammellan Mean Time.",
+	"DIRECTIVE! Dismantle the Echelon.",
+	"STATUS! Critical failure.",
+	"Ammellan military officer detected. Assuming squad formation."
+]
+
+const APRIL_RESPONSE_LINES: Array[String] = [
+	"Great."
 ]
 
 const CONVERSATION_ID: String = "cube_fainted"
@@ -57,7 +65,13 @@ func on_interact():
 		hide()
 		
 		cube.speak(CUBE_LINES)
+		await DialogueManager.finished_dialogue
+		player.speak(APRIL_RESPONSE_LINES)
+		await DialogueManager.finished_dialogue
+		
+		PopUp.open_party_instructions()
 		queue_free()
+		return
 	
 	
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
