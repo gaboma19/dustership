@@ -9,4 +9,4 @@ class_name InventoryItem
 
 
 func use():
-	print("Use " + name)
+	pass

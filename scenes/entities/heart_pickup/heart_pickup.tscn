@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cabul001epbig"]
+[gd_scene load_steps=10 format=3 uid="uid://cabul001epbig"]
 
 [ext_resource type="Script" path="res://scenes/entities/heart_pickup/heart_pickup.gd" id="1_cgn5c"]
 [ext_resource type="Texture2D" uid="uid://cp17gsge2p1u7" path="res://assets/heart/heart_pickup.png" id="1_t63fc"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_5fpk7"]
+[ext_resource type="AudioStream" uid="uid://dgm3ds1qtuy1g" path="res://assets/sfx/heart_pickup.wav" id="4_wgykr"]
 
 [sub_resource type="Animation" id="Animation_rs4ho"]
 length = 0.001
@@ -138,3 +140,7 @@ monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
 shape = SubResource("CircleShape2D_xdm6x")
+
+[node name="HeartPickupAudio" parent="." instance=ExtResource("3_5fpk7")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("4_wgykr")])

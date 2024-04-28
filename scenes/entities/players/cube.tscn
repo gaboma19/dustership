@@ -1,7 +1,8 @@
-[gd_scene load_steps=55 format=3 uid="uid://bdgmk7thjffe0"]
+[gd_scene load_steps=56 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
+[ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="3_hosl3"]
 [ext_resource type="Texture2D" uid="uid://unj1kunay570" path="res://assets/cube/cube.png" id="3_lstn8"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="5_lwk8v"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="6_l7h03"]
@@ -1121,16 +1122,16 @@ animation = &"move_w"
 animation = &"move_e"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gt5fk"]
-animation = &"move_se"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_836mb"]
-animation = &"move_ne"
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pg4xd"]
 animation = &"move_sw"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ore32"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_836mb"]
 animation = &"move_nw"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_pg4xd"]
+animation = &"move_se"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ore32"]
+animation = &"move_ne"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1om58"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_0omec")
@@ -1157,9 +1158,11 @@ blend_mode = 1
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7w54k"]
+advance_mode = 2
 advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_d1mxg"]
+advance_mode = 2
 advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_jg5kb"]
@@ -1213,6 +1216,7 @@ collision_mask = 0
 shape = SubResource("CircleShape2D_6mpgi")
 
 [node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 64
 collision_mask = 8
@@ -1227,11 +1231,12 @@ shape = SubResource("CircleShape2D_h0t8p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = ExtResource("3_hosl3")
 texture = ExtResource("3_lstn8")
 offset = Vector2(0, -5)
 hframes = 5
 vframes = 5
-frame = 9
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

@@ -4,12 +4,15 @@ extends CanvasLayer
 @export var empty_heart_panel_scene: PackedScene
 
 @onready var heart_container: HBoxContainer = %HeartContainer
+@onready var portrait_texture = %PortraitTexture
 
 
 func _ready():
 	GameEvents.player_damaged.connect(on_player_damaged)
 	GameEvents.player_healed.connect(on_player_healed)
+	PartyManager.character_switched.connect(on_character_switched)
 	clear_hearts()
+	set_portrait(Constants.CharacterNames.APRIL)
 
 
 func clear_hearts():
@@ -27,11 +30,23 @@ func set_hearts():
 	for j in PlayerVariables.max_health - PlayerVariables.current_health:
 		var empty_heart_container_instance = empty_heart_panel_scene.instantiate()
 		heart_container.add_child(empty_heart_container_instance)
-	
-	
+
+
+func set_portrait(character_name: Constants.CharacterNames):
+	match character_name:
+		Constants.CharacterNames.APRIL:
+			portrait_texture.texture = preload("res://assets/april/april_portrait.png")
+		Constants.CharacterNames.CUBE:
+			portrait_texture.texture = preload("res://assets/cube/cube_portrait.png")
+
+
 func on_player_damaged():
 	set_hearts()
 
 
 func on_player_healed():
 	set_hearts()
+
+
+func on_character_switched(character_name: Constants.CharacterNames):
+	set_portrait(character_name)

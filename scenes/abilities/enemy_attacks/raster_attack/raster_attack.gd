@@ -12,6 +12,7 @@ func _ready():
 func attack():
 	owner.set_attacking(true)
 	cooldown_timer.start()
+	%AttackAudio.play_random()
 
 
 func instantiate_projectile_array():

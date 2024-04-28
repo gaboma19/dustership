@@ -68,11 +68,12 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxbpc"]
 radius = 16.0
 
-[node name="EchelonLevel0" type="Node2D"]
+[node name="EchelonLevel0" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_qfi3h")
 is_camera_static = true
 map_pin_cell = Vector2i(4, 0)
+game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]
 position = Vector2(32, 56)

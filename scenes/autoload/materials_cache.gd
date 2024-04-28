@@ -3,13 +3,15 @@ extends CanvasLayer
 var death_component_material = preload("res://resources/materials/death_component_material.tres")
 var hit_flash_material = preload("res://scenes/components/hit_flash_component/hit_flash_component_material.tres")
 var spawn_material = preload("res://resources/materials/spawn_material.tres")
+var echelon_portal_material = preload("res://resources/materials/echelon_portal.tres")
 
 var particle_materials = [
 	death_component_material
 ]
 var shader_materials = [
 	hit_flash_material,
-	spawn_material
+	spawn_material,
+	echelon_portal_material
 ]
 
 var frames = 0

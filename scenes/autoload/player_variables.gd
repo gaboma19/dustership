@@ -40,7 +40,6 @@ func check_death():
 func restart_game():
 	current_health = max_health
 	steel = 0
-	enable_game_start = true
 	HealthBar.set_hearts()
 	SteelCounter.set_counter()
 

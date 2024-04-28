@@ -14,3 +14,4 @@ func _ready():
 func attack():
 	animation_player.play("default")
 	cooldown_timer.start()
+	%AttackAudio.play_random()

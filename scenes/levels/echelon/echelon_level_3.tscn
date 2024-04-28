@@ -15,11 +15,12 @@
 [ext_resource type="PackedScene" uid="uid://ybu3bew6102p" path="res://scenes/entities/doodads/tavern_exterior.tscn" id="11_cx0oo"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="11_iyukd"]
 
-[node name="EchelonLevel3" type="Node2D"]
+[node name="EchelonLevel3" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 position = Vector2(1, 1)
 script = ExtResource("1_h1x7x")
 map_pin_cell = Vector2i(15, -6)
+game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("2_31n7q")]
 position = Vector2(-112, 40)

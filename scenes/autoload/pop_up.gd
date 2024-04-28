@@ -65,12 +65,23 @@ func close():
 	is_closing = false
 	get_tree().paused = false
 	visible = false
-	%Tutorial.visible = false
+	%SwordTutorial.visible = false
+	%PartyTutorial.visible = false
 	closed.emit()
 
 
 func set_sword_instructions():
-	%Tutorial.visible = true
+	%SwordTutorial.visible = true
+
+
+func open_party_instructions():
+	visible = true
+	get_tree().paused = true
+	animate_open()
+	
+	%TextureRect.texture = preload("res://assets/cube/cube_texture.png")
+	%Label.text = "Cube joins the party!"
+	%PartyTutorial.visible = true
 
 
 func on_ok_button_pressed():
