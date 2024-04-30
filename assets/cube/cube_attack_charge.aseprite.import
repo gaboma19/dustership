@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dcxar5ya5algd"
+path="res://.godot/imported/cube_attack_charge.aseprite-78dc3589f7431f0d211c6c06ac8696fd.res"
+
+[deps]
+
+source_file="res://assets/cube/cube_attack_charge.aseprite"
+dest_files=["res://.godot/imported/cube_attack_charge.aseprite-78dc3589f7431f0d211c6c06ac8696fd.res"]
+
+[params]
+

@@ -338,6 +338,12 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
+[node name="CollisionPolygon2D" parent="Entities/MovingPlatform/AnimatableBody2D" index="1"]
+visible = false
+
+[node name="ActivationArea" parent="Entities/MovingPlatform/AnimatableBody2D" index="2"]
+visible = false
+
 [node name="CollisionPolygon2D" parent="Entities/MovingPlatform/AnimatableBody2D/ActivationArea" index="0"]
 polygon = PackedVector2Array(0, -42, -16, -32, 0, -23, 16, -32)
 
@@ -350,6 +356,12 @@ libraries = {
 position = Vector2(273, 452)
 animation_player = NodePath("AnimationPlayer")
 
+[node name="CollisionPolygon2D" parent="Entities/MovingPlatform2/AnimatableBody2D" index="1"]
+visible = false
+
+[node name="ActivationArea" parent="Entities/MovingPlatform2/AnimatableBody2D" index="2"]
+visible = false
+
 [node name="CollisionPolygon2D" parent="Entities/MovingPlatform2/AnimatableBody2D/ActivationArea" index="0"]
 polygon = PackedVector2Array(0, -42, -17, -32, 0, -23, 16, -32)
 
@@ -361,6 +373,12 @@ libraries = {
 [node name="MovingPlatform3" parent="Entities" node_paths=PackedStringArray("animation_player") instance=ExtResource("6_xaidc")]
 position = Vector2(514, 701)
 animation_player = NodePath("AnimationPlayer")
+
+[node name="CollisionPolygon2D" parent="Entities/MovingPlatform3/AnimatableBody2D" index="1"]
+visible = false
+
+[node name="ActivationArea" parent="Entities/MovingPlatform3/AnimatableBody2D" index="2"]
+visible = false
 
 [node name="CollisionPolygon2D" parent="Entities/MovingPlatform3/AnimatableBody2D/ActivationArea" index="0"]
 polygon = PackedVector2Array(0, -40, -17, -32, 0, -23, 17, -31)

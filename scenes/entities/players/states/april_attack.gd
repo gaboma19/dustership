@@ -1,4 +1,4 @@
-# attack.gd
+# april_attack.gd
 extends PlayerState
 
 var nudge_direction: Vector2

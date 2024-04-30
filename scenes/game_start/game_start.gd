@@ -10,6 +10,7 @@ func _ready():
 	if OS.has_feature("editor"):
 		enabled = true
 		PlayerVariables.has_sword = true
+		PlayerVariables.has_gun = true
 	
 	if enabled:
 		PlayerVariables.enable_game_start = false

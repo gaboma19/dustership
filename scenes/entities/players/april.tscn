@@ -11,7 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://cdiori6y6gq6j" path="res://assets/sfx/sword_swipe/sword_swipe_3.wav" id="7_6bfai"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/attack.gd" id="10_fhscj"]
+[ext_resource type="Script" path="res://scenes/entities/players/states/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
@@ -1144,6 +1144,7 @@ parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_qlucn")
 
