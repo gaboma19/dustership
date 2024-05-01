@@ -3,7 +3,6 @@ extends PlayerState
 
 @onready var pickup_area = %PickupArea
 @onready var collision_shape_2d = %CollisionShape2D
-@onready var attack_timer = %AttackTimer
 
 var movement_vector: Vector2 = Vector2.ZERO
 
@@ -35,6 +34,7 @@ func _unhandled_input(event):
 	
 	if event.is_action_pressed("attack") \
 	&& player.animation_state_machine.get_current_node() != "Attack" \
+	&& player.animation_state_machine.get_current_node() != "Charge" \
 	&& player.can_attack() \
 	&& player.state_machine.state == self:
 		state_machine.transition_to("Attack")

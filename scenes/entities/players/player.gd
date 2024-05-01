@@ -3,11 +3,11 @@ class_name Player
 
 @export var character_name: Constants.CharacterNames
 
-var movement_vector: Vector2 = Vector2.ZERO
+var blend_position: Vector2 = Vector2.DOWN
 var hit_flash_tween: Tween
 
-@onready var animation_tree = $AnimationTree
-@onready var animation_state_machine = animation_tree.get("parameters/playback")
+@onready var animation_tree: AnimationTree = $AnimationTree
+@onready var animation_state_machine: AnimationNodeStateMachinePlayback = animation_tree.get("parameters/playback")
 @onready var damage_interval_timer = $PlayerHurtboxComponent/DamageIntervalTimer
 @onready var player_hurtbox_component: Area2D = $PlayerHurtboxComponent
 @onready var speech_sound = preload("res://assets/sfx/speech_sound.wav")
@@ -50,6 +50,8 @@ func update_blend_position(direction: Vector2):
 	animation_tree["parameters/Idle/blend_position"] = direction
 	animation_tree["parameters/Move/blend_position"] = direction
 	animation_tree["parameters/Attack/blend_position"] = direction
+	
+	blend_position = direction
 
 
 func hit_flash():

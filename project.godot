@@ -42,6 +42,10 @@ window/size/window_width_override=1000
 window/size/window_height_override=600
 window/stretch/mode="viewport"
 
+[editor]
+
+movie_writer/movie_file="D:/workspace/avi/godot.avi"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
@@ -133,6 +137,8 @@ toggle_hold={
 2d_physics/layer_5="PlayerPickup"
 2d_physics/layer_6="Floor"
 2d_physics/layer_7="PlayerHurtbox"
+2d_physics/layer_8="MovingPlatform"
+2d_physics/layer_9="Enemy"
 
 [rendering]
 

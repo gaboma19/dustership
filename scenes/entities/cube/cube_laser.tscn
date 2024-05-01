@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5na4y02njogc"]
+
+[ext_resource type="Texture2D" uid="uid://ddte5at3mefdg" path="res://assets/cube/laser.png" id="1_uxvrx"]
+[ext_resource type="Script" path="res://scenes/entities/cube/cube_laser.gd" id="1_v2m0k"]
+
+[node name="CubeLaser" type="RayCast2D"]
+target_position = Vector2(16, 0)
+collision_mask = 257
+script = ExtResource("1_v2m0k")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 16, 0)
+texture = ExtResource("1_uxvrx")
+texture_mode = 1
