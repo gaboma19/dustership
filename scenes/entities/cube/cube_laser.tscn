@@ -1,7 +1,47 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5na4y02njogc"]
+[gd_scene load_steps=11 format=3 uid="uid://c5na4y02njogc"]
 
 [ext_resource type="Texture2D" uid="uid://ddte5at3mefdg" path="res://assets/cube/laser.png" id="1_uxvrx"]
 [ext_resource type="Script" path="res://scenes/entities/cube/cube_laser.gd" id="1_v2m0k"]
+[ext_resource type="Texture2D" uid="uid://d2ptymhg48svk" path="res://assets/cube/reticle.png" id="3_2khc0"]
+
+[sub_resource type="Curve" id="Curve_hxw8g"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.502742, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_0mj35"]
+curve = SubResource("Curve_hxw8g")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gjmoc"]
+particle_flag_disable_z = true
+initial_velocity_min = 20.0
+initial_velocity_max = 50.0
+gravity = Vector3(0, 0, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_0mj35")
+
+[sub_resource type="Gradient" id="Gradient_5y8s2"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_0kiko"]
+gradient = SubResource("Gradient_5y8s2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7k8vt"]
+particle_flag_disable_z = true
+initial_velocity_min = 100.0
+initial_velocity_max = 200.0
+gravity = Vector3(0, 0, 0)
+scale_curve = SubResource("CurveTexture_0mj35")
+color_ramp = SubResource("GradientTexture1D_0kiko")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_iusov"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+gravity = Vector3(0, 0, 0)
+tangential_accel_min = 25.0
+tangential_accel_max = 60.0
+attractor_interaction_enabled = false
+scale_max = 2.0
 
 [node name="CubeLaser" type="RayCast2D"]
 target_position = Vector2(16, 0)
@@ -9,6 +49,26 @@ collision_mask = 257
 script = ExtResource("1_v2m0k")
 
 [node name="Line2D" type="Line2D" parent="."]
-points = PackedVector2Array(0, 0, 16, 0)
+points = PackedVector2Array(0, 0, 39, 0)
+width = 5.0
 texture = ExtResource("1_uxvrx")
 texture_mode = 1
+
+[node name="CastParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_gjmoc")
+lifetime = 0.3
+
+[node name="CollisionParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+process_material = SubResource("ParticleProcessMaterial_7k8vt")
+texture = ExtResource("3_2khc0")
+lifetime = 0.3
+
+[node name="BeamParticles" type="GPUParticles2D" parent="."]
+z_index = 1
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_iusov")

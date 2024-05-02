@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cx55eqry4ep8t"
+path="res://.godot/imported/laser_explosion.aseprite-2912ebfd5dd01a2b04d27fe13c3d44ae.res"
+
+[deps]
+
+source_file="res://assets/cube/laser_explosion.aseprite"
+dest_files=["res://.godot/imported/laser_explosion.aseprite-2912ebfd5dd01a2b04d27fe13c3d44ae.res"]
+
+[params]
+

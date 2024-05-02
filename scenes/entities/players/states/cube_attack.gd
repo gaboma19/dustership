@@ -21,6 +21,9 @@ func enter(_msg := {}) -> void:
 func update(delta: float) -> void:
 	if Input.is_action_pressed("attack"):
 		aim_vector = get_aiming_vector()
+		
+		cube_laser.target_position = aim_vector * LASER_RANGE
+		
 		var aim_angle = aim_vector.angle()
 		
 		if aim_angle == 0:
@@ -47,8 +50,8 @@ func update(delta: float) -> void:
 
 
 func fire(charge_percent: float):
-	cube_laser.target_position = aim_vector * LASER_RANGE
-	await get_tree().create_timer(1.0).timeout
+	cube_laser.set_casting(true)
+	await get_tree().create_timer(0.2).timeout
 	reticle_sprite.hide()
 	transition_to_active()
 
@@ -82,6 +85,7 @@ func update_charge_blend_position(direction: Vector2):
 func transition_to_active():
 	player.set_attacking(false)
 	player.animation_state_machine.next()
+	cube_laser.set_casting(false)
 	cube_laser.target_position = Vector2.ZERO
 	reticle_sprite.hide()
 	state_machine.transition_to("Active")
