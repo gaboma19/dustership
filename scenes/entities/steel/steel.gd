@@ -36,7 +36,6 @@ func tween_collect(percent: float, start_position: Vector2):
 
 
 func collect():
-	print("why")
 	GameEvents.emit_steel_collected(steel_value)
 	queue_free()
 

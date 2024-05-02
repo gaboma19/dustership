@@ -1155,6 +1155,7 @@ one_shot = true
 
 [node name="SwordAudio" parent="." instance=ExtResource("6_pymer")]
 unique_name_in_owner = true
+volume_db = 15.0
 streams = Array[AudioStream]([ExtResource("7_6bfai"), ExtResource("10_l8nc2")])
 min_pitch = 0.7
 max_pitch = 1.3

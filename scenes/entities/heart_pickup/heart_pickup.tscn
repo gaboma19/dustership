@@ -143,4 +143,5 @@ shape = SubResource("CircleShape2D_xdm6x")
 
 [node name="HeartPickupAudio" parent="." instance=ExtResource("3_5fpk7")]
 unique_name_in_owner = true
+volume_db = 15.0
 streams = Array[AudioStream]([ExtResource("4_wgykr")])
