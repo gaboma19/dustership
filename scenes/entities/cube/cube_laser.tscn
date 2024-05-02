@@ -45,7 +45,8 @@ scale_max = 2.0
 
 [node name="CubeLaser" type="RayCast2D"]
 target_position = Vector2(16, 0)
-collision_mask = 257
+collision_mask = 769
+collide_with_areas = true
 script = ExtResource("1_v2m0k")
 
 [node name="Line2D" type="Line2D" parent="."]

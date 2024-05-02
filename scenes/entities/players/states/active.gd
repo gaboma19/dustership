@@ -8,7 +8,7 @@ var movement_vector: Vector2 = Vector2.ZERO
 
 
 func enter(_msg := {}) -> void:
-	pickup_area.monitoring = true
+	pickup_area.set_deferred("monitorable", true)
 	collision_shape_2d.disabled = false
 
 

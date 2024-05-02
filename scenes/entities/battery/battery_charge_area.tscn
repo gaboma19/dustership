@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://c13w6xlu3md2p"]
+
+[ext_resource type="Script" path="res://scenes/entities/battery/battery_charge_area.gd" id="1_v4y7o"]
+
+[node name="BatteryChargeArea" type="Area2D"]
+collision_layer = 512
+collision_mask = 0
+script = ExtResource("1_v4y7o")

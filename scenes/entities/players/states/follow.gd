@@ -2,15 +2,13 @@
 extends PlayerState
 
 @onready var pickup_area = %PickupArea
-@onready var collision_shape_2d = %CollisionShape2D
 @onready var player_hurtbox_component = %PlayerHurtboxComponent
 
 var active_player: Player
 
 
 func enter(_msg := {}) -> void:
-	pickup_area.monitoring = false
-	collision_shape_2d.disabled = true
+	pickup_area.set_deferred("monitorable", false)
 	player_hurtbox_component.set_deferred("monitoring", false)
 	active_player = PartyManager.get_active_member()
 

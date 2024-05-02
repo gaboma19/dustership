@@ -9,11 +9,14 @@ var player: Player
 @onready var animatable_body_2d = $AnimatableBody2D
 @onready var activation_area = %ActivationArea
 @onready var offboarding_area = %OffboardingArea
+@onready var battery_charge_component = $BatteryChargeComponent
+@onready var charge_sprite = %ChargeSprite
 
 
 func _ready():
 	activation_area.body_entered.connect(on_activation_area_body_entered)
 	offboarding_area.body_entered.connect(on_offboarding_area_body_entered)
+	battery_charge_component.charged.connect(on_charged)
 
 
 func end_move():
@@ -30,11 +33,15 @@ func set_party_flying(value):
 		(member as Player).set_flying(value)
 
 
-func on_activation_area_body_entered(body: Node2D):
+func on_activation_area_body_entered(_body: Node2D):
+	if battery_charge_component.is_charged == false:
+		return
+	
 	collision_polygon_2d.set_deferred("disabled", false)
 	activation_area.set_deferred("monitoring", false)
 	
 	$AnimatableBody2D/Sprite2D/AnimationPlayer.play("default")
+	
 	await get_tree().create_timer(0.4).timeout
 	set_party_flying(true)
 	
@@ -52,3 +59,7 @@ func on_activation_area_body_entered(body: Node2D):
 
 func on_offboarding_area_body_entered(_body: Node2D):
 	activation_area.set_deferred("monitoring", true)
+
+
+func on_charged():
+	charge_sprite.show()

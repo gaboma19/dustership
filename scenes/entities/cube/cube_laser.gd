@@ -36,6 +36,9 @@ func _physics_process(_delta):
 			var laser_explosion = LASER_EXPLOSION_SCENE.instantiate()
 			add_child(laser_explosion)
 			laser_explosion.position = cast_point
+		elif object is BatteryChargeArea:
+			var battery: Battery = object.get_parent()
+			battery.turn_on()
 	
 	$BeamParticles.position = cast_point * 0.5
 	$BeamParticles.process_material.emission_box_extents.x = cast_point.length() * 0.5

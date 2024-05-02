@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bu2pwy0c3b43p"]
+
+[ext_resource type="Script" path="res://scenes/components/battery_charge_component/battery_charge_component.gd" id="1_nghs6"]
+
+[node name="BatteryChargeComponent" type="Node"]
+script = ExtResource("1_nghs6")
