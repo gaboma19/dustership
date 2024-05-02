@@ -176,4 +176,5 @@ metadata/_aseprite_wizard_config_ = {
 
 [node name="SteelPickupAudio" parent="." instance=ExtResource("3_xgt0u")]
 unique_name_in_owner = true
+volume_db = 15.0
 streams = Array[AudioStream]([ExtResource("4_ot78h")])

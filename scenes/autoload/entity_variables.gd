@@ -14,3 +14,8 @@ var conversations: Dictionary = {}
 #	"opened": false
 # }
 var doors: Dictionary = {}
+
+#"battery_id": {
+#	"on": false
+#}
+var batteries: Dictionary = {}

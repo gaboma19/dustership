@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dlbx2xspk41xl"
+path="res://.godot/imported/battery.aseprite-43cec01575e0fc04720dfa1f616c7a86.res"
+
+[deps]
+
+source_file="res://assets/battery/battery.aseprite"
+dest_files=["res://.godot/imported/battery.aseprite-43cec01575e0fc04720dfa1f616c7a86.res"]
+
+[params]
+
