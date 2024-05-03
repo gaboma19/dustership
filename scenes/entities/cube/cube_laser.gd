@@ -13,10 +13,6 @@ func _ready():
 	target_position = Vector2.ZERO
 	
 	set_physics_process(false)
-	
-	#if OS.has_feature("editor"):
-		#target_position = Vector2(100, 0)
-		#set_casting(true)
 
 
 func _physics_process(_delta):
@@ -34,6 +30,10 @@ func _physics_process(_delta):
 		if object is Enemy and can_explode:
 			can_explode = false
 			var laser_explosion = LASER_EXPLOSION_SCENE.instantiate()
+			
+			if is_fully_charged:
+				laser_explosion.damage = 10
+			
 			add_child(laser_explosion)
 			laser_explosion.position = cast_point
 		elif object is BatteryChargeArea:
@@ -56,6 +56,7 @@ func set_casting(value: bool):
 	else:
 		$CollisionParticles.emitting = false
 		can_explode = true
+		is_fully_charged = false
 		disappear()
 
 

@@ -1,17 +1,26 @@
 extends CanvasLayer
 
-var death_component_material = preload("res://resources/materials/death_component_material.tres")
-var hit_flash_material = preload("res://scenes/components/hit_flash_component/hit_flash_component_material.tres")
-var spawn_material = preload("res://resources/materials/spawn_material.tres")
-var echelon_portal_material = preload("res://resources/materials/echelon_portal.tres")
+const DEATH_COMPONENT_MATERIAL = preload("res://resources/materials/death_component_material.tres")
+const CUBE_LASER_BEAM = preload("res://resources/materials/cube_laser_beam.tres")
+const CUBE_LASER_CAST = preload("res://resources/materials/cube_laser_cast.tres")
+const CUBE_LASER_COLLISION = preload("res://resources/materials/cube_laser_collision.tres")
+
+const HIT_FLASH_MATERIAL = preload("res://resources/materials/hit_flash_material.tres")
+const ECHELON_PORTAL = preload("res://resources/materials/echelon_portal.tres")
+const SPAWN_MATERIAL = preload("res://resources/materials/spawn_material.tres")
+const STUN = preload("res://resources/materials/stun.tres")
 
 var particle_materials = [
-	death_component_material
+	DEATH_COMPONENT_MATERIAL,
+	CUBE_LASER_BEAM,
+	CUBE_LASER_CAST,
+	CUBE_LASER_COLLISION
 ]
 var shader_materials = [
-	hit_flash_material,
-	spawn_material,
-	echelon_portal_material
+	HIT_FLASH_MATERIAL,
+	SPAWN_MATERIAL,
+	ECHELON_PORTAL,
+	STUN
 ]
 
 var frames = 0

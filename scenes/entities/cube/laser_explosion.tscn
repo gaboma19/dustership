@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsupxmu60unp"]
+[gd_scene load_steps=10 format=3 uid="uid://dsupxmu60unp"]
 
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="1_6dkap"]
 [ext_resource type="Script" path="res://scenes/entities/cube/laser_explosion.gd" id="1_c0f07"]
 [ext_resource type="Texture2D" uid="uid://bnei4qemmv2na" path="res://assets/cube/laser_explosion.png" id="2_andry"]
+[ext_resource type="PackedScene" uid="uid://drmf4vtr4nr1e" path="res://scenes/components/stunbox_component/stunbox_component.tscn" id="4_xa7j6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hhtg"]
 radius = 16.0
@@ -92,6 +93,9 @@ _data = {
 "default": SubResource("Animation_bfww6")
 }
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nu15"]
+radius = 16.0
+
 [node name="LaserExplosion" type="Node2D"]
 script = ExtResource("1_c0f07")
 
@@ -128,3 +132,8 @@ libraries = {
 "": SubResource("AnimationLibrary_mmjpm")
 }
 autoplay = "default"
+
+[node name="StunboxComponent" parent="." instance=ExtResource("4_xa7j6")]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunboxComponent"]
+shape = SubResource("CircleShape2D_3nu15")

@@ -1,6 +1,5 @@
 extends Enemy
 
-@onready var velocity_component = $VelocityComponent
 @onready var animation_tree = $AnimationTree
 
 
