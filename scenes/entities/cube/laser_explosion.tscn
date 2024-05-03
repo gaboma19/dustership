@@ -8,6 +8,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hhtg"]
 radius = 16.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_3nu15"]
+radius = 16.0
+
 [sub_resource type="Animation" id="Animation_17etm"]
 length = 0.001
 tracks/0/type = "value"
@@ -93,17 +96,19 @@ _data = {
 "default": SubResource("Animation_bfww6")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3nu15"]
-radius = 16.0
-
 [node name="LaserExplosion" type="Node2D"]
 script = ExtResource("1_c0f07")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("1_6dkap")]
 damage = 5
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+[node name="HitboxCollisionShape" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_4hhtg")
+
+[node name="StunboxComponent" parent="." instance=ExtResource("4_xa7j6")]
+
+[node name="StunboxCollisionShape" type="CollisionShape2D" parent="StunboxComponent"]
+shape = SubResource("CircleShape2D_3nu15")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -132,8 +137,3 @@ libraries = {
 "": SubResource("AnimationLibrary_mmjpm")
 }
 autoplay = "default"
-
-[node name="StunboxComponent" parent="." instance=ExtResource("4_xa7j6")]
-
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StunboxComponent"]
-shape = SubResource("CircleShape2D_3nu15")

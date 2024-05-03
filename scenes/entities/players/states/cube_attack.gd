@@ -50,9 +50,7 @@ func update(delta: float) -> void:
 
 
 func fire(charge_percent: float):
-	if charge_percent >= 1:
-		cube_laser.is_fully_charged = true
-	
+	cube_laser.charge_percent = charge_percent
 	cube_laser.set_casting(true)
 	
 	await get_tree().create_timer(0.2).timeout

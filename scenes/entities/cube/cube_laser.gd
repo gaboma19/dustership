@@ -2,7 +2,7 @@ extends RayCast2D
 
 const LASER_EXPLOSION_SCENE = preload("res://scenes/entities/cube/laser_explosion.tscn")
 var can_explode: bool = true
-var is_fully_charged: bool = false
+var charge_percent: float = 0
 
 @onready var line_2d = $Line2D
 
@@ -30,10 +30,7 @@ func _physics_process(_delta):
 		if object is Enemy and can_explode:
 			can_explode = false
 			var laser_explosion = LASER_EXPLOSION_SCENE.instantiate()
-			
-			if is_fully_charged:
-				laser_explosion.damage = 10
-			
+			laser_explosion.charge_percent = charge_percent
 			add_child(laser_explosion)
 			laser_explosion.position = cast_point
 		elif object is BatteryChargeArea:
@@ -56,7 +53,6 @@ func set_casting(value: bool):
 	else:
 		$CollisionParticles.emitting = false
 		can_explode = true
-		is_fully_charged = false
 		disappear()
 
 

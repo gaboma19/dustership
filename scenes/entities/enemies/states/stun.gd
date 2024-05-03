@@ -7,6 +7,9 @@ var previous_state: String
 
 
 func enter(msg := {}) -> void:
+	if msg.is_empty():
+		return
+	
 	previous_state = msg.previous_state
 	
 	enemy.velocity_component.stop()

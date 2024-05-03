@@ -66,6 +66,7 @@ _data = {
 }
 
 [node name="StunComponent" type="Sprite2D"]
+visible = false
 texture_filter = 1
 position = Vector2(9.53674e-07, 9.53674e-07)
 texture = ExtResource("1_0guu2")

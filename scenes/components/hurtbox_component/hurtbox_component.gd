@@ -34,16 +34,20 @@ func stun(stun_duration: float):
 		
 	stun_component.stun_duration = stun_duration
 	
-	(owner as Enemy).state_machine.transition_to("Stun")
+	var current_state = (owner as Enemy).state_machine.state.name
+	var msg = {
+		"previous_state": current_state
+	}
+	
+	owner.state_machine.transition_to("Stun", msg)
 
 
 func on_area_entered(other_area: Area2D):
-	if not other_area is HitboxComponent or StunboxComponent:
-		return
-		
 	if other_area is HitboxComponent:
 		var hitbox_component = other_area as HitboxComponent
 		hit(hitbox_component.damage)
 	elif other_area is StunboxComponent:
 		var stunbox_component = other_area as StunboxComponent
 		stun(stunbox_component.stun_duration)
+	else:
+		return
