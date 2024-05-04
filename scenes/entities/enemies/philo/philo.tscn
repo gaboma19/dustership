@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=35 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_xgd4y"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_2drbo"]
-[ext_resource type="Shader" path="res://scenes/components/hit_flash_component/hit_flash_component_material.gdshader" id="5_imsff"]
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="6_6lyqc"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
@@ -14,38 +13,56 @@
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
+[ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_iypjm"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i80p"]
-resource_local_to_scene = true
-shader = ExtResource("5_imsff")
-shader_parameter/lerp_percent = null
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndv6a"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jaut8"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a5dsa"]
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_jjd2w"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u31fd"]
+graph_offset = Vector2(339, 99)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_jaut8")
+nodes/Animation/position = Vector2(440, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_jjd2w")
+nodes/TimeScale/position = Vector2(620, 140)
+nodes/output/position = Vector2(800, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8o7i"]
 animation = &"move"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfhk8"]
-advance_mode = 2
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cd3st"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_250h3"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5rfvs"]
+graph_offset = Vector2(-257.244, 90.5436)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_a8o7i")
+nodes/Animation/position = Vector2(-40, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_cd3st")
+nodes/TimeScale/position = Vector2(140, 140)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6txsf"]
 advance_mode = 2
 advance_condition = &"is_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f4na"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vfidj"]
 advance_mode = 2
 advance_condition = &"is_idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_csf5w"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n1f06"]
-states/Start/position = Vector2(186, 94)
-states/idle/node = SubResource("AnimationNodeAnimation_ndv6a")
-states/idle/position = Vector2(375, 94)
-states/move/node = SubResource("AnimationNodeAnimation_a5dsa")
-states/move/position = Vector2(593, 94)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tfhk8"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_250h3"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_1f4na")]
+states/Start/position = Vector2(232, 100)
+states/idle/node = SubResource("AnimationNodeBlendTree_u31fd")
+states/idle/position = Vector2(381, 100)
+states/move/node = SubResource("AnimationNodeBlendTree_5rfvs")
+states/move/position = Vector2(630, 100)
+transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_6txsf"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_vfidj"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_csf5w")]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -209,7 +226,6 @@ acceleration = 8.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_8i80p")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_6lyqc")]
 drop_percent = 1.0
@@ -223,22 +239,30 @@ health_component = NodePath("../HealthComponent")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
+[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_iypjm")]
+unique_name_in_owner = true
+position = Vector2(0, -5)
+sprite = NodePath("../Sprite2D")
+
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_n1f06")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_idle = false
+parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
+parameters/idle/TimeScale/scale = 1.0
+parameters/move/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_x6ig7")
 }
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("2_xgd4y")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("2_xgd4y")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
+stun_component = NodePath("../StunComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 rotation = 1.57079
@@ -271,7 +295,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 1
+frame = 6
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -295,6 +319,7 @@ rotation = 1.57079
 shape = SubResource("CapsuleShape2D_e5krw")
 
 [node name="StateMachine" parent="." instance=ExtResource("6_mnpyb")]
+unique_name_in_owner = true
 initial_state = NodePath("Idle")
 
 [node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
@@ -313,3 +338,6 @@ enemy_attack = NodePath("../../PhiloAttack")
 
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource("16_gwxir")
+
+[node name="Stun" type="Node" parent="StateMachine"]
+script = ExtResource("17_m8kwi")

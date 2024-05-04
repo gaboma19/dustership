@@ -14,6 +14,14 @@ func _ready():
 
 func set_sprite_material():
 	sprite.material = hit_flash_material
+	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 0)
+
+
+func set_connected(value: bool):
+	if value:
+		health_component.health_changed.connect(on_health_changed)
+	else:
+		health_component.health_changed.disconnect(on_health_changed)
 
 
 func on_health_changed():

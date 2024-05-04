@@ -6,6 +6,7 @@ var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
 var is_holding: bool = false
+var is_switch_character_disabled: bool = false
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
 @onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube.tscn")
@@ -79,6 +80,9 @@ func instantiate_party(position: Vector2, active_member_name: Constants.Characte
 
 
 func switch_character():
+	if is_switch_character_disabled:
+		return
+	
 	var next_active_member_index = active_member_index + 1
 	if next_active_member_index > members.size() - 1:
 		next_active_member_index = 0
@@ -111,3 +115,18 @@ func toggle_hold():
 			members[i].state_machine.transition_to("Hold")
 		else:
 			members[i].state_machine.transition_to("Follow")
+
+
+func rubberband_party():
+	var new_position = get_active_member().global_position
+	
+	for i in range(members.size()):
+		if i == active_member_index:
+			continue
+		
+		if members[i].global_position.distance_to(new_position) > 16:
+			members[i].global_position = new_position
+
+
+func disable_switch_character(value):
+	is_switch_character_disabled = value

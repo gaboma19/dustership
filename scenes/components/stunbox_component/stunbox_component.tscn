@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://drmf4vtr4nr1e"]
+
+[ext_resource type="Script" path="res://scenes/components/stunbox_component/stunbox_component.gd" id="1_1e6ia"]
+
+[node name="StunboxComponent" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_1e6ia")

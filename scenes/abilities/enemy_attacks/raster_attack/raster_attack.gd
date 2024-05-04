@@ -10,7 +10,8 @@ func _ready():
 
 
 func attack():
-	owner.set_attacking(true)
+	owner.set_moving(false)
+	owner.animation_state_machine.travel("attack")
 	cooldown_timer.start()
 	%AttackAudio.play_random()
 

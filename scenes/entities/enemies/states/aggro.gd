@@ -30,7 +30,7 @@ func floating_text_start(text: String):
 
 
 func on_body_exited(_body: Node2D):
-	floating_text_start("?")
+	# floating_text_start("?")
 	
 	state_machine.transition_to("Idle")
 

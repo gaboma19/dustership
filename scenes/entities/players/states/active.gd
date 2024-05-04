@@ -28,7 +28,7 @@ func update(_delta: float) -> void:
 	player.velocity_component.move(player)
 
 
-func _unhandled_input(event):
+func handle_input(event):
 	if DialogueManager.is_dialogue_active:
 		return
 	

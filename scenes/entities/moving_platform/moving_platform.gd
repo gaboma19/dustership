@@ -55,6 +55,8 @@ func on_activation_area_body_entered(_body: Node2D):
 	
 	for member in PartyManager.members:
 		member.reparent(animatable_body_2d)
+		
+	PartyManager.rubberband_party()
 
 
 func on_offboarding_area_body_entered(_body: Node2D):

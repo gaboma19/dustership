@@ -7,6 +7,7 @@ var nudge_direction: Vector2
 
 
 func enter(_msg := {}) -> void:
+	PartyManager.disable_switch_character(true)
 	player.set_moving(false)
 	player.set_attacking(true)
 	nudge_direction = player.velocity_component.velocity.normalized()
@@ -24,5 +25,6 @@ func nudge():
 
 
 func transition_to_active():
+	PartyManager.disable_switch_character(false)
 	player.set_attacking(false)
 	state_machine.transition_to("Active")

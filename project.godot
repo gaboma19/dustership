@@ -33,6 +33,7 @@ PartyManager="*res://scenes/autoload/party_manager.gd"
 MaterialsCache="*res://scenes/autoload/materials_cache.gd"
 EntityVariables="*res://scenes/autoload/entity_variables.tscn"
 PopUp="*res://scenes/autoload/pop_up.tscn"
+HitStop="*res://scenes/autoload/hit_stop.gd"
 
 [display]
 

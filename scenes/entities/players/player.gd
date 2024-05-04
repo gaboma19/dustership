@@ -13,11 +13,14 @@ var hit_flash_tween: Tween
 @onready var speech_sound = preload("res://assets/sfx/speech_sound.wav")
 @onready var state_machine = %StateMachine
 @onready var velocity_component = $VelocityComponent
+@onready var sprite = $Sprite2D
 
 
 func _ready():
 	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
 	PartyManager.add_member(self)
+	
+	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 0)
 	
 	if character_name == Constants.CharacterNames.CUBE:
 		instantiate_shadow()
@@ -41,9 +44,9 @@ func set_moving(value):
 
 
 func set_attacking(value):
-	animation_tree.set("parameters/conditions/is_attacking", value)
 	animation_tree.set("parameters/conditions/is_idle", not value)
 	animation_tree.set("parameters/conditions/is_moving", not value)
+	animation_tree.set("parameters/conditions/is_attacking", value)
 
 
 func update_blend_position(direction: Vector2):
