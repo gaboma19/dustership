@@ -41,9 +41,9 @@ func set_moving(value):
 
 
 func set_attacking(value):
-	animation_tree.set("parameters/conditions/is_attacking", value)
 	animation_tree.set("parameters/conditions/is_idle", not value)
 	animation_tree.set("parameters/conditions/is_moving", not value)
+	animation_tree.set("parameters/conditions/is_attacking", value)
 
 
 func update_blend_position(direction: Vector2):

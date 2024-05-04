@@ -12,10 +12,13 @@ var aim_vector: Vector2
 
 
 func enter(_msg := {}) -> void:
+	player.velocity_component.stop()
 	player.set_moving(false)
 	player.set_attacking(true)
-	player.velocity_component.stop()
+	
 	charge_time = 0
+	
+	PartyManager.disable_switch_character(true)
 
 
 func update(delta: float) -> void:
@@ -86,8 +89,13 @@ func update_charge_blend_position(direction: Vector2):
 
 func transition_to_active():
 	player.set_attacking(false)
+	player.set_moving(false)
 	player.animation_state_machine.next()
+	
 	cube_laser.set_casting(false)
 	cube_laser.target_position = Vector2.ZERO
 	reticle_sprite.hide()
+	
+	PartyManager.disable_switch_character(false)
+	
 	state_machine.transition_to("Active")

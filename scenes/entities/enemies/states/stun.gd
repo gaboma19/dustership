@@ -16,8 +16,11 @@ func enter(msg := {}) -> void:
 	enemy.set_moving(false)
 	
 	stun_component.start()
+	enemy.set_stunned(true)
 	
 	await get_tree().create_timer(stun_component.stun_duration).timeout
+	
+	enemy.set_stunned(false)
 	state_machine.transition_to(previous_state)
 
 

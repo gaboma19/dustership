@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=37 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -24,30 +24,51 @@ resource_local_to_scene = true
 shader = ExtResource("5_imsff")
 shader_parameter/lerp_percent = null
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ndv6a"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jaut8"]
 animation = &"idle"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a5dsa"]
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_jjd2w"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_u31fd"]
+graph_offset = Vector2(58, 68)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_jaut8")
+nodes/Animation/position = Vector2(440, 140)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_jjd2w")
+nodes/TimeScale/position = Vector2(620, 140)
+nodes/output/position = Vector2(800, 160)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_a8o7i"]
 animation = &"move"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_tfhk8"]
-advance_mode = 2
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_cd3st"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_250h3"]
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_5rfvs"]
+graph_offset = Vector2(-298, 128)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_a8o7i")
+nodes/Animation/position = Vector2(18, 190)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_cd3st")
+nodes/TimeScale/position = Vector2(140, 160)
+node_connections = [&"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6txsf"]
 advance_mode = 2
 advance_condition = &"is_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1f4na"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vfidj"]
 advance_mode = 2
 advance_condition = &"is_idle"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_csf5w"]
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_n1f06"]
-states/Start/position = Vector2(186, 94)
-states/idle/node = SubResource("AnimationNodeAnimation_ndv6a")
-states/idle/position = Vector2(375, 94)
-states/move/node = SubResource("AnimationNodeAnimation_a5dsa")
-states/move/position = Vector2(593, 94)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_tfhk8"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_250h3"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_1f4na")]
+states/Start/position = Vector2(232, 100)
+states/idle/node = SubResource("AnimationNodeBlendTree_u31fd")
+states/idle/position = Vector2(381, 100)
+states/move/node = SubResource("AnimationNodeBlendTree_5rfvs")
+states/move/position = Vector2(630, 100)
+transitions = ["idle", "move", SubResource("AnimationNodeStateMachineTransition_6txsf"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_vfidj"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_csf5w")]
 
 [sub_resource type="Animation" id="Animation_qugig"]
 length = 2.0
@@ -235,6 +256,8 @@ tree_root = SubResource("AnimationNodeStateMachine_n1f06")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = false
 parameters/conditions/is_moving = false
+parameters/idle/TimeScale/scale = 1.0
+parameters/move/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -279,7 +302,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 5
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

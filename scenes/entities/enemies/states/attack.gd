@@ -15,8 +15,8 @@ func update(_delta: float):
 	if enemy_attack.cooldown_timer.is_stopped():
 		enemy_attack.attack()
 		enemy_attack.cooldown_timer.start()
-	
-	
+
+
 func exit():
 	attack_range_area.body_exited.disconnect(on_attack_range_body_exited)
 	
