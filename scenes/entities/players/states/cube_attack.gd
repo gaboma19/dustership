@@ -80,6 +80,10 @@ func get_aiming_vector() -> Vector2:
 		direction = Input.get_vector(
 			"move_left", "move_right", "move_up",  "move_down")
 	
+	if direction == Vector2.ZERO:
+		direction = player.blend_position
+	
+	direction = direction.normalized()
 	return direction
 
 

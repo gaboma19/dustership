@@ -58,7 +58,10 @@ func set_casting(value: bool):
 
 func appear():
 	var tween = create_tween()
-	tween.tween_property(line_2d, "width", 5, 0.2)
+	var max_width = 5
+	if charge_percent >= 1:
+		max_width = 10
+	tween.tween_property(line_2d, "width", max_width, 0.2)
 
 
 func disappear():

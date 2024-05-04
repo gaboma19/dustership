@@ -1,8 +1,8 @@
 [gd_scene load_steps=3 format=3 uid="uid://dmoxbd2k6knqn"]
 
 [ext_resource type="Script" path="res://scenes/components/hit_flash_component/hit_flash_component.gd" id="1_6j7d1"]
-[ext_resource type="Material" uid="uid://canw1c76xopdl" path="res://scenes/components/hit_flash_component/hit_flash_component_material.tres" id="2_ysc44"]
+[ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="2_rnjlf"]
 
 [node name="HitFlashComponent" type="Node"]
 script = ExtResource("1_6j7d1")
-hit_flash_material = ExtResource("2_ysc44")
+hit_flash_material = ExtResource("2_rnjlf")

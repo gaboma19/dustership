@@ -7,5 +7,5 @@ class_name Enemy
 @onready var animation_player = $AnimationPlayer
 
 
-func set_stunned(value: bool):
+func set_stunned(_value: bool):
 	pass
