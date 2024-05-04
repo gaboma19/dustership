@@ -111,3 +111,14 @@ func toggle_hold():
 			members[i].state_machine.transition_to("Hold")
 		else:
 			members[i].state_machine.transition_to("Follow")
+
+
+func rubberband_party():
+	var new_position = get_active_member().global_position
+	
+	for i in range(members.size()):
+		if i == active_member_index:
+			continue
+		
+		if members[i].global_position.distance_to(new_position) > 16:
+			members[i].global_position = new_position
