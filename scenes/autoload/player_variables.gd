@@ -8,7 +8,7 @@ var steel: int = 0
 var pause_menu_screen: int = 0
 var enable_game_start: bool = true
 var has_sword: bool = false
-var has_gun: bool = false
+var has_gun: bool = true
 
 
 func _ready():

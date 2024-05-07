@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_vs8li"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_uqeap"]
+[ext_resource type="Shader" path="res://resources/materials/hit_flash_component_material.gdshader" id="5_713g5"]
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="5_iyhcl"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_16nnk"]
 [ext_resource type="Texture2D" uid="uid://bion6e1sb28nf" path="res://assets/raster/raster.png" id="7_0rfid"]
@@ -18,23 +19,9 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
 
-[sub_resource type="Shader" id="Shader_w5t0a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tsda"]
 resource_local_to_scene = true
-code = "shader_type canvas_item;
-
-uniform float lerp_percent : hint_range(0.0, 1.0);
-
-void fragment() {
-	// Called for every pixel the material is visible on.
-	vec4 texture_color = texture(TEXTURE, UV);
-	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
-	COLOR = final_color;
-}
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_gce35"]
-resource_local_to_scene = true
-shader = SubResource("Shader_w5t0a")
+shader = ExtResource("5_713g5")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osgue"]
@@ -328,7 +315,7 @@ acceleration = 8.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_uqeap")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_gce35")
+hit_flash_material = SubResource("ShaderMaterial_0tsda")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_iyhcl")]
 drop_percent = 1.0
@@ -401,7 +388,6 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
