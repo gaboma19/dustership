@@ -14,7 +14,8 @@ func _ready():
 
 
 func set_sprite_material():
-	sprite.material = HIT_FLASH_MATERIAL
+	var material = HIT_FLASH_MATERIAL.duplicate()
+	sprite.material = material
 	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 0)
 
 

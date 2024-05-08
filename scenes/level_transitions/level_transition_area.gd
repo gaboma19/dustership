@@ -9,7 +9,8 @@ func _ready():
 	
 	
 func on_body_entered(body: Node2D):
-	if not body is Player:
+	var player = PartyManager.get_active_member()
+	if body != player:
 		return
 	
 	set_deferred("monitoring", false)
