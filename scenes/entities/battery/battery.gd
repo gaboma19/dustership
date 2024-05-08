@@ -23,4 +23,5 @@ func set_on(value):
 func turn_on():
 	EntityVariables.batteries[battery_id].on = true
 	$AnimationPlayer.play("on")
+	$AudioStreamPlayer2D.play()
 	battery_charge_component.set_charged(true)

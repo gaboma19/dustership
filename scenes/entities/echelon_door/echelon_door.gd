@@ -31,6 +31,7 @@ func on_interact():
 		EntityVariables.doors[door_id].opened = true
 		left_animation_player.play("open")
 		right_animation_player.play("open")
+		$AudioStreamPlayer2D.play()
 		interaction_area.monitoring = false
 	else:
 		var floating_text = floating_text_scene.instantiate() as Node2D

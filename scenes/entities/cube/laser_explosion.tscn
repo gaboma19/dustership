@@ -1,9 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://dsupxmu60unp"]
+[gd_scene load_steps=13 format=3 uid="uid://dsupxmu60unp"]
 
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="1_6dkap"]
 [ext_resource type="Script" path="res://scenes/entities/cube/laser_explosion.gd" id="1_c0f07"]
 [ext_resource type="Texture2D" uid="uid://bnei4qemmv2na" path="res://assets/cube/laser_explosion.png" id="2_andry"]
 [ext_resource type="PackedScene" uid="uid://drmf4vtr4nr1e" path="res://scenes/components/stunbox_component/stunbox_component.tscn" id="4_xa7j6"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="5_tguh7"]
+[ext_resource type="AudioStream" uid="uid://beld4wisbwsyt" path="res://assets/sfx/explosion2.wav" id="6_a8eeb"]
+[ext_resource type="AudioStream" uid="uid://b31okbafyp3o5" path="res://assets/sfx/explosion.wav" id="7_7fduh"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4hhtg"]
 radius = 16.0
@@ -137,3 +140,6 @@ libraries = {
 "": SubResource("AnimationLibrary_mmjpm")
 }
 autoplay = "default"
+
+[node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("5_tguh7")]
+streams = Array[AudioStream]([ExtResource("6_a8eeb"), ExtResource("7_7fduh")])

@@ -4,3 +4,6 @@
 
 [node name="Inventory" type="Node"]
 script = ExtResource("1_2sb0j")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+bus = &"sfx"

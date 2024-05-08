@@ -6,10 +6,11 @@
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_xgd4y"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_2drbo"]
-[ext_resource type="Shader" path="res://resources/materials/hit_flash_component_material.gdshader" id="5_3k3h1"]
+[ext_resource type="PackedScene" uid="uid://gc8nnfm3d76d" path="res://scenes/components/hit_sound_component/hit_sound_component.tscn" id="5_i6ofi"]
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="6_6lyqc"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
+[ext_resource type="AudioStream" uid="uid://divnxwsojvf1t" path="res://assets/sfx/philo_hit.wav" id="6_w8iiw"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
@@ -18,11 +19,6 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_jv658"]
-resource_local_to_scene = true
-shader = ExtResource("5_3k3h1")
-shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jaut8"]
 animation = &"idle"
@@ -232,7 +228,10 @@ acceleration = 8.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_jv658")
+
+[node name="HitSoundComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_i6ofi")]
+audio_stream = ExtResource("6_w8iiw")
+health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_6lyqc")]
 drop_percent = 1.0
@@ -302,7 +301,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 9
+frame = 8
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

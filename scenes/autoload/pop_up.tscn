@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs5ftsbs1wbh1"]
+[gd_scene load_steps=13 format=3 uid="uid://bs5ftsbs1wbh1"]
 
 [ext_resource type="Script" path="res://scenes/autoload/pop_up.gd" id="1_6sq5a"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_geuv0"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dce7rea21n7oj" path="res://assets/ui/interact_prompt/tile_0651.png" id="5_r08hp"]
 [ext_resource type="Texture2D" uid="uid://kf4ant46yqms" path="res://assets/ui/interact_prompt/tile_0289.png" id="6_tcwtl"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="7_mpr4j"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="9_dryly"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -219,7 +220,7 @@ texture = ExtResource("6_tcwtl")
 layout_mode = 2
 text = "to open the menu."
 
-[node name="OKButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="OKButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("9_dryly")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2

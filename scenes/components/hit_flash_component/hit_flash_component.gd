@@ -1,8 +1,9 @@
 extends Node
 
+const HIT_FLASH_MATERIAL = preload("res://resources/materials/hit_flash_material.tres")
+
 @export var health_component: Node
 @export var sprite: Sprite2D
-@export var hit_flash_material: ShaderMaterial
 
 var hit_flash_tween: Tween
 
@@ -13,7 +14,7 @@ func _ready():
 
 
 func set_sprite_material():
-	sprite.material = hit_flash_material
+	sprite.material = HIT_FLASH_MATERIAL
 	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 0)
 
 

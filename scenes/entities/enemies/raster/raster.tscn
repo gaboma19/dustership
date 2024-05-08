@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_vs8li"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_uqeap"]
-[ext_resource type="Shader" path="res://resources/materials/hit_flash_component_material.gdshader" id="5_713g5"]
+[ext_resource type="PackedScene" uid="uid://gc8nnfm3d76d" path="res://scenes/components/hit_sound_component/hit_sound_component.tscn" id="5_fic0c"]
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="5_iyhcl"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_16nnk"]
+[ext_resource type="AudioStream" uid="uid://b7xkr8dtup3tg" path="res://assets/sfx/raster_hit.wav" id="6_gxy1q"]
 [ext_resource type="Texture2D" uid="uid://bion6e1sb28nf" path="res://assets/raster/raster.png" id="7_0rfid"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_cfhkn"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_vxjo0"]
@@ -18,11 +19,6 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tsda"]
-resource_local_to_scene = true
-shader = ExtResource("5_713g5")
-shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osgue"]
 animation = &"attack"
@@ -38,39 +34,39 @@ nodes/TimeScale/position = Vector2(180, 100)
 nodes/output/position = Vector2(400, 100)
 node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n2jd1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_037jp"]
 animation = &"idle_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ic1xn"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sfnv3"]
 animation = &"idle_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_s0hwa"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_n2jd1")
+blend_point_0/node = SubResource("AnimationNodeAnimation_037jp")
 blend_point_0/pos = -1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_ic1xn")
+blend_point_1/node = SubResource("AnimationNodeAnimation_sfnv3")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_vx7gl"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_kst1s"]
-graph_offset = Vector2(-343.545, 98.0909)
+graph_offset = Vector2(-199, 81)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_s0hwa")
 nodes/BlendSpace1D/position = Vector2(-60, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_vx7gl")
 nodes/TimeScale/position = Vector2(141, 170)
 node_connections = [&"TimeScale", 0, &"BlendSpace1D", &"output", 0, &"TimeScale"]
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lr2fb"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_qf1b0"]
 animation = &"walk_left"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_t0gkf"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vha3l"]
 animation = &"walk_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_wm4bl"]
-blend_point_0/node = SubResource("AnimationNodeAnimation_lr2fb")
+blend_point_0/node = SubResource("AnimationNodeAnimation_qf1b0")
 blend_point_0/pos = -1.0
-blend_point_1/node = SubResource("AnimationNodeAnimation_t0gkf")
+blend_point_1/node = SubResource("AnimationNodeAnimation_vha3l")
 blend_point_1/pos = 1.0
 blend_mode = 1
 
@@ -120,7 +116,7 @@ states/idle/position = Vector2(396, 90)
 states/walk/node = SubResource("AnimationNodeBlendTree_7jgiu")
 states/walk/position = Vector2(705, 90)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_rcr3m"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2omp5"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_hsa4l"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_7ymbx"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_tunry"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_vjus5"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_vd7kd")]
-graph_offset = Vector2(81, -71)
+graph_offset = Vector2(-22, 47)
 
 [sub_resource type="Animation" id="Animation_8rxwo"]
 length = 1.4
@@ -315,7 +311,10 @@ acceleration = 8.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_uqeap")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_0tsda")
+
+[node name="HitSoundComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_fic0c")]
+audio_stream = ExtResource("6_gxy1q")
+health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_iyhcl")]
 drop_percent = 1.0
@@ -388,6 +387,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

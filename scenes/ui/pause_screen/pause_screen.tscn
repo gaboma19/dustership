@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://xqqnvyt8o0jd"]
+[gd_scene load_steps=13 format=3 uid="uid://xqqnvyt8o0jd"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/pause_screen.gd" id="1_ldjwh"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_om4p2"]
 [ext_resource type="Texture2D" uid="uid://dw5ilbqvufmp6" path="res://assets/ui/pause_screen/LeftArrow2.png" id="3_flgws"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_k4abv"]
 [ext_resource type="Texture2D" uid="uid://bofb38hi2k1gj" path="res://assets/ui/pause_screen/RightArrow2.png" id="4_kjenf"]
 [ext_resource type="Texture2D" uid="uid://cw5a36j4axbw5" path="res://assets/ui/pause_screen/tile_0654.png" id="5_s4m15"]
 [ext_resource type="PackedScene" uid="uid://dkk2htinw7hk6" path="res://scenes/ui/pause_screen/inventory/inventory_container.tscn" id="6_id28i"]
@@ -98,11 +99,9 @@ layout_mode = 2
 texture = ExtResource("2_om4p2")
 expand_mode = 2
 
-[node name="LeftButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="LeftButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_k4abv")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-focus_neighbor_right = NodePath("../RightButton")
 icon = ExtResource("3_flgws")
 flat = true
 
@@ -115,11 +114,9 @@ theme_override_font_sizes/font_size = 32
 text = "Title"
 horizontal_alignment = 1
 
-[node name="RightButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
+[node name="RightButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_k4abv")]
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
-focus_neighbor_left = NodePath("../LeftButton")
 icon = ExtResource("4_kjenf")
 flat = true
 
