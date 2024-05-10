@@ -1,26 +1,27 @@
-[gd_scene load_steps=48 format=3 uid="uid://xogyxc4yjmii"]
+[gd_scene load_steps=51 format=3 uid="uid://xogyxc4yjmii"]
 
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_24cqq"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_borqo"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_wtii1"]
+[ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_qmdoe"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="9_p3ffu"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="10_c5qg4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_aggro.gd" id="10_d7o8x"]
 [ext_resource type="Texture2D" uid="uid://67wshfayy4dh" path="res://assets/cactus_knight/portal_guardian.png" id="10_gevsb"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="10_haauw"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_attack.gd" id="11_8yssa"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_shoot.gd" id="12_ygdi2"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="13_uojri"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_62u6o"]
-radius = 8.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv5u1"]
+height = 42.0
 
 [sub_resource type="Animation" id="Animation_2j527"]
-length = 2.3
+length = 3.9
 loop_mode = 1
-step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -40,15 +41,28 @@ tracks/1/path = NodePath("../Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.4, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.4, 0.8, 1.2, 1.6, 2, 2.4, 2.7, 3, 3.3, 3.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [18, 19, 20, 21, 22, 23, 24, 21, 20, 18]
+"values": [18, 19, 18, 19, 18, 21, 23, 24, 21, 20, 18]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%StateMachine/Shoot")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"instantiate_projectile_array"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_xfrbq"]
 length = 1.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,10 +87,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [8, 8, 8, 9, 9, 9, 10, 10, 11, 11, 12, 12, 12]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%StateMachine/Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"instantiate_projectile_array_left"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_lnmff"]
 length = 1.5
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -100,6 +127,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [13, 13, 13, 14, 14, 14, 15, 15, 16, 16, 17, 17, 17]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("%StateMachine/Attack")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"instantiate_projectile_array_right"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_2w6t8"]
@@ -185,7 +226,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_24mt8"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_6slrg"]
-graph_offset = Vector2(-325, -106)
+graph_offset = Vector2(-181, 111)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_wwhwu")
 nodes/BlendSpace1D/position = Vector2(0, 180)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_24mt8")
@@ -251,13 +292,9 @@ advance_condition = &"is_idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8yvta"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_e07v2"]
-switch_mode = 2
-advance_mode = 2
 advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_a0mfa"]
-switch_mode = 2
-advance_mode = 2
 advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7fr4a"]
@@ -284,10 +321,14 @@ states/idle/position = Vector2(355, 100)
 states/move/node = SubResource("AnimationNodeBlendTree_kgq7c")
 states/move/position = Vector2(649, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q47jy"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_qred7"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_ia3m2"), "idle", "attack_360", SubResource("AnimationNodeStateMachineTransition_svprk"), "move", "attack_360", SubResource("AnimationNodeStateMachineTransition_8yvta"), "attack_360", "idle", SubResource("AnimationNodeStateMachineTransition_e07v2"), "attack_360", "move", SubResource("AnimationNodeStateMachineTransition_a0mfa"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7fr4a"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_q60ou"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_mux4w"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_q677i")]
-graph_offset = Vector2(161, -132)
+graph_offset = Vector2(11, -64)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdee1"]
+radius = 12.0
 height = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5o1rk"]
+radius = 64.0
 
 [node name="CactusKnight" type="CharacterBody2D"]
 collision_layer = 256
@@ -295,7 +336,8 @@ collision_mask = 289
 script = ExtResource("1_47wl3")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_24cqq")]
-max_health = 400
+unique_name_in_owner = true
+max_health = 200
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_borqo")]
 max_speed = 8
@@ -305,19 +347,16 @@ acceleration = 8.0
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
-[node name="StunComponent" parent="." instance=ExtResource("8_mreo4")]
-unique_name_in_owner = true
-position = Vector2(0, -8)
-
-[node name="HurtboxComponent" parent="." instance=ExtResource("9_p3ffu")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("9_p3ffu")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
+health_component = NodePath("../HealthComponent")
+stun_component = NodePath("../StunComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -2)
-rotation = 1.57079
-shape = SubResource("CircleShape2D_62u6o")
+position = Vector2(0, -13)
+shape = SubResource("CapsuleShape2D_nv5u1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationTree")
@@ -338,6 +377,25 @@ parameters/idle/TimeScale/scale = 1.0
 parameters/move/TimeScale/scale = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -20)
+shape = SubResource("CapsuleShape2D_fdee1")
+
+[node name="AttackRangeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRangeArea"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_5o1rk")
+
+[node name="HitboxComponent" parent="." instance=ExtResource("6_qmdoe")]
+collision_layer = 8
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_fdee1")
 
@@ -368,11 +426,29 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": true
 }
 
+[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_mreo4")]
+unique_name_in_owner = true
+modulate = Color(1, 1, 1, 0.501961)
+position = Vector2(0.499999, -20)
+scale = Vector2(2, 2)
+sprite = NodePath("../Sprite2D")
+
 [node name="ShootTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 16.0
+one_shot = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 4.0
+one_shot = true
 
 [node name="StateMachine" parent="." instance=ExtResource("10_c5qg4")]
 unique_name_in_owner = true
 initial_state = NodePath("Aggro")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource("10_haauw")
 
 [node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("9_el4iu")

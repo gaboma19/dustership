@@ -12,6 +12,10 @@ func _process(_delta):
 		set_moving(true)
 
 
+func update_blend_position(value: float):
+	animation_tree["parameters/attack/BlendSpace1D/blend_position"] = value
+
+
 func set_moving(value):
 	animation_tree.set("parameters/conditions/is_idle", not value)
 	animation_tree.set("parameters/conditions/is_moving", value)

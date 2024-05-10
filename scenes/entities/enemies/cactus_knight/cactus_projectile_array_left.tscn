@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5331hxes81rt"]
+
+[ext_resource type="PackedScene" uid="uid://bk41jg7ukkude" path="res://scenes/entities/enemies/cactus_knight/cactus_projectile.tscn" id="1_ukhnh"]
+
+[node name="CactusProjectileArrayLeft" type="Node2D"]
+
+[node name="CactusProjectile" parent="." instance=ExtResource("1_ukhnh")]
+position = Vector2(-20, 0)
+rotation = -2.35619
+
+[node name="CactusProjectile2" parent="." instance=ExtResource("1_ukhnh")]
+position = Vector2(-20, -8)
+rotation = -1.5708
+
+[node name="CactusProjectile3" parent="." instance=ExtResource("1_ukhnh")]
+position = Vector2(-20, -24)
+rotation = -1.5708
+
+[node name="CactusProjectile4" parent="." instance=ExtResource("1_ukhnh")]
+position = Vector2(-20, -32)
+rotation = -0.785398
