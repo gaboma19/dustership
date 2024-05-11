@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://gc8nnfm3d76d"]
+
+[ext_resource type="Script" path="res://scenes/components/hit_sound_component/hit_sound_component.gd" id="1_356vh"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="2_wd6ue"]
+
+[node name="HitSoundComponent" type="Node"]
+script = ExtResource("1_356vh")
+
+[node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("2_wd6ue")]

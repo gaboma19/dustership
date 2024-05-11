@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dqf80armfmggu"
-path="res://.godot/imported/ammellan.png-42f53e6f87a0e86a903b74279d238bf2.ctex"
+path="res://.godot/imported/april.png-e471151a0acadf134ad8167017c624f6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/entities/players/ammellan.png"
-dest_files=["res://.godot/imported/ammellan.png-42f53e6f87a0e86a903b74279d238bf2.ctex"]
+source_file="res://assets/april/april.png"
+dest_files=["res://.godot/imported/april.png-e471151a0acadf134ad8167017c624f6.ctex"]
 
 [params]
 

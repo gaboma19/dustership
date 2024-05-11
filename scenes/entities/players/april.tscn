@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_bqnmk"]
 [ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="4_owvm1"]
-[ext_resource type="Texture2D" uid="uid://dqf80armfmggu" path="res://scenes/entities/players/ammellan.png" id="5_up1g2"]
+[ext_resource type="Texture2D" uid="uid://dqf80armfmggu" path="res://assets/april/april.png" id="5_8kdh2"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_nb6t5"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="6_pymer"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_6a30f"]
@@ -1069,7 +1069,6 @@ shape = SubResource("CapsuleShape2D_rhy7w")
 
 [node name="HitboxComponentDown" parent="Hitboxes" instance=ExtResource("3_bqnmk")]
 visible = false
-monitoring = true
 damage = 10
 
 [node name="CollisionPolygon2DDown" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentDown"]
@@ -1103,7 +1102,7 @@ disabled = true
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 material = ExtResource("4_owvm1")
-texture = ExtResource("5_up1g2")
+texture = ExtResource("5_8kdh2")
 offset = Vector2(2, -6)
 hframes = 8
 vframes = 7

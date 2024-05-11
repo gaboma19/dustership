@@ -10,11 +10,13 @@ var active_player: Player
 func enter(_msg := {}) -> void:
 	pickup_area.set_deferred("monitorable", false)
 	player_hurtbox_component.set_deferred("monitoring", false)
+	player_hurtbox_component.set_deferred("monitorable", false)
 	active_player = PartyManager.get_active_member()
 
 
 func exit():
 	player_hurtbox_component.set_deferred("monitoring", true)
+	player_hurtbox_component.set_deferred("monitorable", true)
 
 
 func update(_delta: float) -> void:

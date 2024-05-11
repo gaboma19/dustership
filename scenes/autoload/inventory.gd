@@ -7,6 +7,9 @@ const SIZE: int = 12
 
 var items: Array[InventoryItem]
 
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+
 func _ready():
 	items.resize(SIZE)
 	items.fill(null)
@@ -23,6 +26,8 @@ func use_item(item: InventoryItem) -> bool:
 	var index = items.find(item)
 	if index != -1:
 		items[index] = null
+		if item.audio_stream != null:
+			play_audio_stream(item.audio_stream)
 		item_used.emit()
 		return true
 	else:
@@ -44,3 +49,8 @@ func use_item_by_name(item_name: String) -> bool:
 		items[index] = null
 		item_used.emit()
 		return true
+
+
+func play_audio_stream(audio_stream: AudioStream):
+	audio_stream_player.set_stream(audio_stream)
+	audio_stream_player.play()

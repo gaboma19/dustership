@@ -16,6 +16,7 @@ func _ready():
 	
 	get_tree().paused = true
 	animate_open()
+	$AudioStreamPlayer2D.play()
 	
 	continue_button.grab_focus()
 

@@ -16,19 +16,30 @@ func accelerate_to_player():
 	if player == null:
 		return
 	
-	var direction = owner_node2d.global_position.direction_to(player.global_position)
+	var direction = owner_node2d.global_position.direction_to(
+		player.global_position)
+	accelerate_in_direction(direction)
+
+
+func accelerate_to_point(point: Vector2):
+	var owner_node2d = owner as Node2D
+	if owner_node2d == null:
+		return
+	
+	var direction = owner_node2d.global_position.direction_to(point)
 	accelerate_in_direction(direction)
 
 
 func accelerate_in_direction(direction: Vector2):
 	var desired_velocity = direction * max_speed
-	velocity = velocity.lerp(desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
+	velocity = velocity.lerp(
+		desired_velocity, 1 - exp(-acceleration * get_process_delta_time()))
 
 
 func decelerate():
 	accelerate_in_direction(Vector2.ZERO)
-	
-	
+
+
 func stop():
 	if not owner is CharacterBody2D:
 		return
