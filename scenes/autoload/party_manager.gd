@@ -130,3 +130,19 @@ func rubberband_party():
 
 func disable_switch_character(value):
 	is_switch_character_disabled = value
+
+
+func get_april() -> Player:
+	for player in members:
+		if player.character_name == Constants.CharacterNames.APRIL:
+			return player
+	
+	return null
+
+
+func get_cube() -> Player:
+	for player in members:
+		if player.character_name == Constants.CharacterNames.CUBE:
+			return player
+	
+	return null

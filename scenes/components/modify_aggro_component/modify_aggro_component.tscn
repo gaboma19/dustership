@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://d4k3lhqnbbccm"]
+
+[node name="ModifyAggroComponent" type="Area2D"]
+collision_layer = 0
+collision_mask = 256

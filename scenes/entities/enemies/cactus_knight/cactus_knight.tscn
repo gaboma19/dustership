@@ -1,9 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://xogyxc4yjmii"]
+[gd_scene load_steps=53 format=3 uid="uid://xogyxc4yjmii"]
 
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_24cqq"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_borqo"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_wtii1"]
+[ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="5_eoek3"]
+[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_2hqpj"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_qmdoe"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
@@ -15,9 +17,6 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_attack.gd" id="11_8yssa"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_shoot.gd" id="12_ygdi2"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="13_uojri"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv5u1"]
-height = 42.0
 
 [sub_resource type="Animation" id="Animation_2j527"]
 length = 3.9
@@ -323,6 +322,10 @@ states/move/position = Vector2(649, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_q47jy"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_qred7"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_ia3m2"), "idle", "attack_360", SubResource("AnimationNodeStateMachineTransition_svprk"), "move", "attack_360", SubResource("AnimationNodeStateMachineTransition_8yvta"), "attack_360", "idle", SubResource("AnimationNodeStateMachineTransition_e07v2"), "attack_360", "move", SubResource("AnimationNodeStateMachineTransition_a0mfa"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_7fr4a"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_q60ou"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_mux4w"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_q677i")]
 graph_offset = Vector2(11, -64)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv5u1"]
+radius = 11.0
+height = 44.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fdee1"]
 radius = 12.0
 height = 42.0
@@ -334,29 +337,6 @@ radius = 64.0
 collision_layer = 256
 collision_mask = 289
 script = ExtResource("1_47wl3")
-
-[node name="HealthComponent" parent="." instance=ExtResource("1_24cqq")]
-unique_name_in_owner = true
-max_health = 200
-
-[node name="VelocityComponent" parent="." instance=ExtResource("2_borqo")]
-max_speed = 8
-acceleration = 8.0
-
-[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_wtii1")]
-health_component = NodePath("../HealthComponent")
-sprite = NodePath("../Sprite2D")
-
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("9_p3ffu")]
-unique_name_in_owner = true
-visible = false
-position = Vector2(0, -6)
-health_component = NodePath("../HealthComponent")
-stun_component = NodePath("../StunComponent")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
-position = Vector2(0, -13)
-shape = SubResource("CapsuleShape2D_nv5u1")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../AnimationTree")
@@ -376,6 +356,37 @@ parameters/attack_360/TimeScale/scale = 1.0
 parameters/idle/TimeScale/scale = 1.0
 parameters/move/TimeScale/scale = 1.0
 
+[node name="HealthComponent" parent="." instance=ExtResource("1_24cqq")]
+unique_name_in_owner = true
+max_health = 200
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_borqo")]
+max_speed = 8
+acceleration = 8.0
+
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("3_wtii1")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
+
+[node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_eoek3")]
+drop_percent = 1.0
+health_component = NodePath("../HealthComponent")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("9_p3ffu")]
+unique_name_in_owner = true
+visible = false
+position = Vector2(0, -6)
+health_component = NodePath("../HealthComponent")
+stun_component = NodePath("../StunComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -14)
+shape = SubResource("CapsuleShape2D_nv5u1")
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_2hqpj")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -20)
@@ -392,8 +403,10 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_5o1rk")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("6_qmdoe")]
+visible = false
 collision_layer = 8
 collision_mask = 64
+damage = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -20)
@@ -433,11 +446,6 @@ position = Vector2(0.499999, -20)
 scale = Vector2(2, 2)
 sprite = NodePath("../Sprite2D")
 
-[node name="ShootTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 16.0
-one_shot = true
-
 [node name="AttackCooldownTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 4.0
@@ -445,7 +453,7 @@ one_shot = true
 
 [node name="StateMachine" parent="." instance=ExtResource("10_c5qg4")]
 unique_name_in_owner = true
-initial_state = NodePath("Aggro")
+initial_state = NodePath("Spawn")
 
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource("10_haauw")

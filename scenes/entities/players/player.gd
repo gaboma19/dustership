@@ -85,8 +85,8 @@ func instantiate_shadow():
 
 
 func set_flying(value: bool):
-	if character_name == Constants.CharacterNames.CUBE:
-		return
+	#if character_name == Constants.CharacterNames.CUBE:
+		#return
 	
 	if value:
 		set_collision_mask(0b10000001)

@@ -5,17 +5,17 @@
 [node name="CactusProjectileArrayRight" type="Node2D"]
 
 [node name="CactusProjectile" parent="." instance=ExtResource("1_3lpk3")]
-position = Vector2(20, 0)
+position = Vector2(20, -4)
 rotation = -3.92699
 
 [node name="CactusProjectile2" parent="." instance=ExtResource("1_3lpk3")]
-position = Vector2(20, -8)
+position = Vector2(20, -12)
 rotation = 1.5708
 
 [node name="CactusProjectile3" parent="." instance=ExtResource("1_3lpk3")]
-position = Vector2(20, -24)
+position = Vector2(20, -20)
 rotation = 1.5708
 
 [node name="CactusProjectile4" parent="." instance=ExtResource("1_3lpk3")]
-position = Vector2(20, -32)
+position = Vector2(20, -28)
 rotation = 0.785398

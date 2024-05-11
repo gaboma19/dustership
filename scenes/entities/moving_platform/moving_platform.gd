@@ -1,5 +1,7 @@
 extends Node2D
 
+signal finished_moving
+
 @export var animation_player: AnimationPlayer
 
 var is_at_destination: bool
@@ -26,6 +28,8 @@ func end_move():
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for member in PartyManager.members:
 		member.reparent(entities_layer)
+	
+	finished_moving.emit()
 
 
 func set_party_flying(value):

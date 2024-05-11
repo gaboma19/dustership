@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=39 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_iypjm"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
+[ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="13_jhkio"]
+[ext_resource type="Script" path="res://scenes/components/aggro_area/aggro_area.gd" id="14_s4ryk"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
 
@@ -204,6 +206,7 @@ _data = {
 radius = 7.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rr5x"]
+resource_local_to_scene = true
 radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1dm3v"]
@@ -274,12 +277,10 @@ stun_component = NodePath("../StunComponent")
 rotation = 1.57079
 shape = SubResource("CircleShape2D_eoy7n")
 
-[node name="AggroArea" type="Area2D" parent="."]
+[node name="AggroArea" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("13_jhkio")]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, -6)
-collision_layer = 0
-collision_mask = 2
+script = ExtResource("14_s4ryk")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_1rr5x")
@@ -301,7 +302,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -6)
 hframes = 6
 vframes = 6
-frame = 5
+frame = 7
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -328,15 +329,11 @@ shape = SubResource("CapsuleShape2D_e5krw")
 unique_name_in_owner = true
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("7_bsmhr")
-aggro_area = NodePath("../../AggroArea")
-attack_range_area = NodePath("../../AttackRangeArea")
 
-[node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
+[node name="Aggro" type="Node" parent="StateMachine"]
 script = ExtResource("8_m7fi4")
-aggro_area = NodePath("../../AggroArea")
-attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("12_8o55k")

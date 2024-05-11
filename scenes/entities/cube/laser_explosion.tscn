@@ -1,9 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://dsupxmu60unp"]
+[gd_scene load_steps=15 format=3 uid="uid://dsupxmu60unp"]
 
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="1_6dkap"]
 [ext_resource type="Script" path="res://scenes/entities/cube/laser_explosion.gd" id="1_c0f07"]
 [ext_resource type="Texture2D" uid="uid://bnei4qemmv2na" path="res://assets/cube/laser_explosion.png" id="2_andry"]
+[ext_resource type="PackedScene" uid="uid://d4k3lhqnbbccm" path="res://scenes/components/modify_aggro_component/modify_aggro_component.tscn" id="4_or0vd"]
 [ext_resource type="PackedScene" uid="uid://drmf4vtr4nr1e" path="res://scenes/components/stunbox_component/stunbox_component.tscn" id="4_xa7j6"]
+[ext_resource type="Script" path="res://scenes/components/modify_aggro_component/modify_aggro_component.gd" id="5_p71br"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="5_tguh7"]
 [ext_resource type="AudioStream" uid="uid://beld4wisbwsyt" path="res://assets/sfx/explosion2.wav" id="6_a8eeb"]
 [ext_resource type="AudioStream" uid="uid://b31okbafyp3o5" path="res://assets/sfx/explosion.wav" id="7_7fduh"]
@@ -103,14 +105,22 @@ _data = {
 script = ExtResource("1_c0f07")
 
 [node name="HitboxComponent" parent="." instance=ExtResource("1_6dkap")]
+visible = false
 damage = 5
 
 [node name="HitboxCollisionShape" type="CollisionShape2D" parent="HitboxComponent"]
 shape = SubResource("CircleShape2D_4hhtg")
 
 [node name="StunboxComponent" parent="." instance=ExtResource("4_xa7j6")]
+visible = false
 
 [node name="StunboxCollisionShape" type="CollisionShape2D" parent="StunboxComponent"]
+shape = SubResource("CircleShape2D_3nu15")
+
+[node name="ModifyAggroComponent" parent="." instance=ExtResource("4_or0vd")]
+script = ExtResource("5_p71br")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ModifyAggroComponent"]
 shape = SubResource("CircleShape2D_3nu15")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
