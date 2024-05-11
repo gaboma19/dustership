@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=53 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
 [ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="12_iftpq"]
+[ext_resource type="Script" path="res://scenes/components/aggro_area/aggro_area.gd" id="13_m33cn"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
 
@@ -363,6 +364,7 @@ shape = SubResource("CircleShape2D_28tq7")
 
 [node name="AggroArea" parent="." instance=ExtResource("12_iftpq")]
 unique_name_in_owner = true
+script = ExtResource("13_m33cn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_xuw5h")
@@ -384,7 +386,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 2
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
