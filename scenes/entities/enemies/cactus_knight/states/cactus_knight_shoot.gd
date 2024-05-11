@@ -4,6 +4,7 @@ extends EnemyState
 const ANIMATION_LENGTH: float = 3.9
 const CACTUS_PROJECTILE_ARRAY_360 = preload(
 	"res://scenes/entities/enemies/cactus_knight/cactus_projectile_array_360.tscn")
+
 var boss_platform: Node2D
 var animation_state_machine: AnimationNodeStateMachinePlayback
 var is_shooting: bool = false
@@ -15,8 +16,8 @@ func enter(_msg := {}) -> void:
 	enemy.velocity_component.acceleration *= 4
 	
 	animation_state_machine = enemy.animation_state_machine
-	var entities_layer = get_tree().get_first_node_in_group("entities")
-	boss_platform = entities_layer.get_node("BossPlatform")
+	var events_node = get_tree().get_first_node_in_group("events")
+	boss_platform = events_node.get_node("BossPlatform")
 
 
 func update(_float) -> void:

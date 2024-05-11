@@ -195,12 +195,16 @@ position = Vector2(336, 952)
 position = Vector2(-80, -48)
 custom_limit_top = -80
 
-[node name="Events" type="Node" parent="."]
+[node name="Events" type="Node" parent="." node_paths=PackedStringArray("boss_moving_platform") groups=["events"]]
 script = ExtResource("5_er4xp")
+boss_moving_platform = NodePath("../Entities/MovingPlatform3")
 
-[node name="Area2D" type="Area2D" parent="Events"]
+[node name="BossPlatform" type="Node2D" parent="Events"]
+position = Vector2(480, 952)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Events/Area2D"]
+[node name="TrapArea" type="Area2D" parent="Events"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Events/TrapArea"]
 polygon = PackedVector2Array(434, 894, 367, 928, 400, 946, 465, 911)
 
 [node name="TileMap" parent="." instance=ExtResource("6_dty84")]
@@ -416,9 +420,6 @@ chargeable_entity = NodePath("../MovingPlatform3")
 
 [node name="CactusKnight" parent="Entities" instance=ExtResource("12_agtch")]
 position = Vector2(480, 896)
-
-[node name="BossPlatform" type="Node2D" parent="Entities"]
-position = Vector2(480, 952)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

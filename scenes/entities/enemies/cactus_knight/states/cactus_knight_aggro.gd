@@ -5,7 +5,6 @@ var is_three_quarters_health: bool = false
 var is_half_health: bool = false
 var is_quarter_health: bool = false
 
-
 @onready var shoot_timer = %ShootTimer
 @onready var attack_cooldown_timer = %AttackCooldownTimer
 @onready var health_component = %HealthComponent
