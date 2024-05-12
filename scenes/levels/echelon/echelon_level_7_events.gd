@@ -8,13 +8,13 @@ const APRIL_LINES: Array[String] = [
 ]
 const CUBE_LINES_2: Array[String] = [
 	"Hostile eliminated.", 
-	"Commander, I have granted you 200 experience points."
+	"Commander, I'm pleased to report that you've been granted 200 experience points."
 ]
 const APRIL_LINES_2: Array[String] = [
 	"You what."
 ]
 const CUBE_LINES_3: Array[String] = [
-	"You have accrued 780 experience points, Commander.",
+	"You have accrued 780 experience points thus far, Commander.",
 	"Based on your performance, you have been placed on the remedial combat training track."
 ]
 const APRIL_LINES_3: Array[String] = [
