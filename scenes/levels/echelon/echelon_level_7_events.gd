@@ -8,13 +8,13 @@ const APRIL_LINES: Array[String] = [
 ]
 const CUBE_LINES_2: Array[String] = [
 	"Hostile eliminated.", 
-	"Commander, I have granted you 200 experience points."
+	"Commander, I'm pleased to report that you've been granted 200 experience points."
 ]
 const APRIL_LINES_2: Array[String] = [
 	"You what."
 ]
 const CUBE_LINES_3: Array[String] = [
-	"You have accrued 780 experience points, Commander.",
+	"You have accrued 780 experience points thus far, Commander.",
 	"Based on your performance, you have been placed on the remedial combat training track."
 ]
 const APRIL_LINES_3: Array[String] = [
@@ -87,7 +87,7 @@ func on_body_entered_trap(player: Player):
 	player.state_machine.transition_to("Hold")
 	PartyManager.disable_switch_character(true)
 	
-	boss_moving_platform.animation_player.play_backwards("move")
+	boss_moving_platform.move_without_player()
 
 	cube = PartyManager.get_cube()
 	april = PartyManager.get_april()
@@ -117,7 +117,7 @@ func on_body_entered_trap(player: Player):
 
 
 func on_cactus_knight_died():
-	boss_moving_platform.animation_player.play("move")
+	boss_moving_platform.move_without_player()
 	boss_moving_platform.finished_moving.connect(on_moving_platform_finished_moving)
 	
 	cube.speak(CUBE_LINES_2)

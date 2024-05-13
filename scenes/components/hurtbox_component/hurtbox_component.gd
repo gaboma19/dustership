@@ -11,12 +11,7 @@ func _ready():
 	area_entered.connect(on_area_entered)
 
 
-func hit(damage: int):
-	if health_component == null:
-		return
-
-	health_component.damage(damage)
-		
+func emit_floating_text(damage: int):
 	var floating_text = floating_text_scene.instantiate() as Node2D
 	get_tree().get_first_node_in_group("foreground").add_child(floating_text)
 	
@@ -26,6 +21,17 @@ func hit(damage: int):
 	if round(damage) == damage:
 		format_string = "%0.0f"
 	floating_text.start(format_string % damage)
+
+
+func hit(damage: int):
+	if health_component == null:
+		return
+
+	health_component.damage(damage)
+	
+	emit_floating_text(damage)
+	
+	HitStop.slow_motion_short()
 
 
 func stun(stun_duration: float):

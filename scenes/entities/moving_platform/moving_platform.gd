@@ -37,7 +37,7 @@ func set_party_flying(value):
 		(member as Player).set_flying(value)
 
 
-func on_activation_area_body_entered(_body: Node2D):
+func move():
 	if battery_charge_component.is_charged == false:
 		return
 	
@@ -61,6 +61,23 @@ func on_activation_area_body_entered(_body: Node2D):
 		member.reparent(animatable_body_2d)
 		
 	PartyManager.rubberband_party()
+
+
+func move_without_player():
+	collision_polygon_2d.set_deferred("disabled", false)
+	activation_area.set_deferred("monitoring", false)
+	
+	if is_at_destination:
+		animation_player.play_backwards("move")
+		is_at_destination = false
+	else:
+		animation_player.play("move")
+		is_at_destination = true
+	animation_player.queue("call_end_move")
+
+
+func on_activation_area_body_entered(_body: Node2D):
+	move()
 
 
 func on_offboarding_area_body_entered(_body: Node2D):

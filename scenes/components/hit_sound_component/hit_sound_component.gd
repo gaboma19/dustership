@@ -7,7 +7,7 @@ extends Node
 
 
 func _ready():
-	audio_stream_player.set_stream(audio_stream)
+	audio_stream_player.streams.append(audio_stream)
 	health_component.health_changed.connect(on_health_changed)
 
 

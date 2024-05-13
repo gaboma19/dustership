@@ -15,7 +15,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if !is_opening and event.is_action_pressed("toggle_hold"):
+	if !is_opening and event.is_action_pressed("ui_cancel"):
 		get_tree().root.set_input_as_handled()
 		close()
 
@@ -24,8 +24,8 @@ func animate_open():
 	pivot_offset = size / 2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ZERO, 0)
-	tween.tween_property(self, "scale", Vector2.ONE, 0.3)\
-	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.3) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	is_opening = true
 	await get_tree().create_timer(0.4).timeout
@@ -40,7 +40,7 @@ func close():
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0)
 	tween.tween_property(self, "scale", Vector2.ZERO, 0.3) \
-	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	
 	await tween.finished
 	

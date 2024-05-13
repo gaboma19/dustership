@@ -21,10 +21,11 @@ func update(_delta: float) -> void:
 	if movement_vector.x != 0 || movement_vector.y != 0:
 		player.set_moving(true)
 		player.update_blend_position(movement_vector)
+		player.velocity_component.accelerate_in_direction(movement_vector)
 	else:
 		player.set_moving(false)
-		
-	player.velocity_component.accelerate_in_direction(movement_vector)
+		player.velocity_component.decelerate()
+	
 	player.velocity_component.move(player)
 
 
@@ -38,6 +39,11 @@ func handle_input(event):
 	&& player.can_attack() \
 	&& player.state_machine.state == self:
 		state_machine.transition_to("Attack")
+	
+	if event.is_action_pressed("dodge") \
+	&& player.character_name == Constants.CharacterNames.APRIL \
+	&& player.state_machine.state == self:
+		state_machine.transition_to("Dodge")
 
 
 func get_movement_vector():

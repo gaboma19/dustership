@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://6fbuh03eitpr"]
+[gd_scene load_steps=3 format=3 uid="uid://6fbuh03eitpr"]
 
 [ext_resource type="Script" path="res://scenes/ui/sound_button/sound_button.gd" id="1_44hfp"]
-[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="2_tun3v"]
 [ext_resource type="AudioStream" uid="uid://b1pwhoxo5x3w1" path="res://assets/sfx/blip_select.wav" id="3_o2s5q"]
 
 [node name="SoundButton" type="Button"]
@@ -9,5 +8,6 @@ offset_right = 16.0
 offset_bottom = 16.0
 script = ExtResource("1_44hfp")
 
-[node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("2_tun3v")]
-streams = Array[AudioStream]([ExtResource("3_o2s5q")])
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_o2s5q")
+bus = &"sfx"

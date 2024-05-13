@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=54 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="8_8tof0"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="9_bh5ej"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_x3y2r"]
+[ext_resource type="AudioStream" uid="uid://c84t2s2k5r8vt" path="res://assets/sfx/raster_die.wav" id="10_1dddl"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="10_10x4m"]
 [ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
@@ -328,6 +329,7 @@ health_component = NodePath("../HealthComponent")
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_16nnk")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
+audio_stream = ExtResource("10_1dddl")
 
 [node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_x3y2r")]
 unique_name_in_owner = true
@@ -386,7 +388,6 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
