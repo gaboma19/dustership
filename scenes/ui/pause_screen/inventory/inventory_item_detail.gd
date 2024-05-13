@@ -15,7 +15,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if !is_opening and event.is_action_pressed("toggle_hold"):
+	if !is_opening and event.is_action_pressed("ui_cancel"):
 		get_tree().root.set_input_as_handled()
 		close()
 

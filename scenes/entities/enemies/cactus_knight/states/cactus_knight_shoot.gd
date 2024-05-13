@@ -11,10 +11,7 @@ var animation_state_machine: AnimationNodeStateMachinePlayback
 var is_shooting: bool = false
 
 
-func enter(_msg := {}) -> void:
-	enemy.velocity_component.max_speed *= 4
-	enemy.velocity_component.acceleration *= 4
-	
+func enter(_msg := {}) -> void:	
 	animation_state_machine = enemy.animation_state_machine
 	
 	var events = get_tree().get_first_node_in_group("events")

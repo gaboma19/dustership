@@ -38,6 +38,11 @@ func handle_input(event):
 	&& player.can_attack() \
 	&& player.state_machine.state == self:
 		state_machine.transition_to("Attack")
+	
+	if event.is_action_pressed("dodge") \
+	&& player.character_name == Constants.CharacterNames.APRIL \
+	&& player.state_machine.state == self:
+		state_machine.transition_to("Dodge")
 
 
 func get_movement_vector():

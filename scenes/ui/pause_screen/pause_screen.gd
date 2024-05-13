@@ -31,7 +31,7 @@ func _unhandled_input(event):
 		!PopUp.visible
 		and (
 			event.is_action_pressed("pause")
-			or event.is_action_pressed("toggle_hold")
+			or event.is_action_pressed("ui_cancel")
 		)
 	):
 		get_tree().root.set_input_as_handled()
