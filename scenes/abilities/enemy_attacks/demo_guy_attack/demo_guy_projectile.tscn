@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7d8cs47hs82w"]
+
+[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/demo_guy_attack/demo_guy_projectile.gd" id="1_bttjx"]
+[ext_resource type="Texture2D" uid="uid://kmcgo5xiunps" path="res://assets/demo_guy/demo_beam.png" id="1_uoagy"]
+[ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="2_nu0tv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2xnei"]
+size = Vector2(2, 4)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_evucn"]
+size = Vector2(2, 4)
+
+[node name="DemoGuyProjectile" type="StaticBody2D"]
+collision_layer = 0
+script = ExtResource("1_bttjx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_uoagy")
+
+[node name="HitboxComponent" type="Area2D" parent="."]
+script = ExtResource("2_nu0tv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_2xnei")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_evucn")

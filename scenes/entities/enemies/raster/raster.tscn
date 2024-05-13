@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
 
-[sub_resource type="Shader" id="Shader_w5t0a"]
+[sub_resource type="Shader" id="Shader_yvbu8"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -34,7 +34,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gce35"]
 resource_local_to_scene = true
-shader = SubResource("Shader_w5t0a")
+shader = SubResource("Shader_yvbu8")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osgue"]
@@ -43,7 +43,7 @@ animation = &"attack"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_igynp"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wv6fo"]
-graph_offset = Vector2(-373.217, -3.14181)
+graph_offset = Vector2(-339.84, -28.8)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_osgue")
 nodes/Animation/position = Vector2(-40, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_igynp")
@@ -133,7 +133,7 @@ states/idle/position = Vector2(396, 90)
 states/walk/node = SubResource("AnimationNodeBlendTree_7jgiu")
 states/walk/position = Vector2(705, 90)
 transitions = ["idle", "walk", SubResource("AnimationNodeStateMachineTransition_rcr3m"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_2omp5"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_hsa4l"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_7ymbx"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_tunry"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_vjus5"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_vd7kd")]
-graph_offset = Vector2(81, -71)
+graph_offset = Vector2(111.12, -48.17)
 
 [sub_resource type="Animation" id="Animation_8rxwo"]
 length = 1.4
@@ -401,7 +401,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 1
+frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

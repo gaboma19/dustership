@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bm5ylsdt7kn3y"]
+[gd_scene load_steps=32 format=3 uid="uid://bm5ylsdt7kn3y"]
 
 [ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_7ud6l"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_a1jxn"]
@@ -14,7 +14,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_7auvh"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_eqb0h"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="9_f0u2e"]
-[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/demo_guy_attack/demo_guy_attack.gd" id="15_rgvmr"]
+[ext_resource type="PackedScene" uid="uid://dj12yftgbq1o2" path="res://scenes/abilities/enemy_attacks/demo_guy_attack/demo_guy_attack.tscn" id="15_fu416"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgdwf"]
 radius = 6.0
@@ -42,22 +42,60 @@ tracks/0/keys = {
 "values": [0, 1]
 }
 
+[sub_resource type="Animation" id="Animation_n7l0b"]
+resource_name = "attack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0, 1]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1lyas"]
 _data = {
-"Idle": SubResource("Animation_xtgq8")
+"Idle": SubResource("Animation_xtgq8"),
+"attack": SubResource("Animation_n7l0b")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3avbw"]
 animation = &"Idle"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3213f"]
+
+[sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_062ks"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hrrh3"]
+graph_offset = Vector2(-174.279, 60.9212)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_3213f")
+nodes/Animation/position = Vector2(-20, 150)
+nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_062ks")
+nodes/TimeScale/position = Vector2(130, 130)
+node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gn7b4"]
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xk3jf"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_icui5"]
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a1hfj"]
 states/Idle/node = SubResource("AnimationNodeAnimation_3avbw")
 states/Idle/position = Vector2(411.5, 14)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn7b4")]
-graph_offset = Vector2(-115.657, -46.53)
+states/attack/node = SubResource("AnimationNodeBlendTree_hrrh3")
+states/attack/position = Vector2(530.143, 143.225)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn7b4"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_xk3jf"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_icui5")]
+graph_offset = Vector2(-40.3569, -80.775)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y6g3t"]
 
@@ -116,6 +154,8 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_a1hfj")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_idle = false
+parameters/attack/TimeScale/scale = 1.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_8chjj")
@@ -164,5 +204,4 @@ shape = SubResource("CircleShape2D_4kxxm")
 
 [node name="StunComponent" parent="." instance=ExtResource("9_eqb0h")]
 
-[node name="DemoAttack" type="Node2D" parent="."]
-script = ExtResource("15_rgvmr")
+[node name="DemoGuyAttack" parent="." instance=ExtResource("15_fu416")]

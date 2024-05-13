@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="PackedDataContainer"
+uid="uid://p6yp8qwrwnkc"
+path="res://.godot/imported/demo_beam.aseprite-f1c8521809abde8a9265c707becfd6df.res"
+
+[deps]
+
+source_file="res://assets/demo_guy/demo_beam.aseprite"
+dest_files=["res://.godot/imported/demo_beam.aseprite-f1c8521809abde8a9265c707becfd6df.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
