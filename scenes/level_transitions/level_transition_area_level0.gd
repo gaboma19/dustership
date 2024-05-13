@@ -16,8 +16,6 @@ func on_body_entered(player: Node2D):
 	if not player is Player:
 		return
 	
-	set_deferred("monitoring", false)
-	
 	if PlayerVariables.has_sword:
 		ScreenTransition.transition_to_level(path, new_player_position)
 	else:
