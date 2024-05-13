@@ -19,12 +19,14 @@ position = Vector2(0, -8)
 texture = ExtResource("1_uoagy")
 
 [node name="HitboxComponent" type="Area2D" parent="."]
+visible = false
 script = ExtResource("2_nu0tv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_2xnei")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="ProjectileCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_evucn")

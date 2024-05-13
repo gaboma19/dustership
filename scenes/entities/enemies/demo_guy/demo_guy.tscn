@@ -97,7 +97,6 @@ animation = &"Idle"
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xk3jf"]
-advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_icui5"]
 switch_mode = 2
@@ -105,11 +104,11 @@ advance_mode = 2
 advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a1hfj"]
-states/Attack/node = SubResource("AnimationNodeBlendTree_hrrh3")
-states/Attack/position = Vector2(530.143, 143.225)
-states/Idle/node = SubResource("AnimationNodeAnimation_3avbw")
-states/Idle/position = Vector2(411.5, 14)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn7b4"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_xk3jf"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_icui5")]
+states/attack/node = SubResource("AnimationNodeBlendTree_hrrh3")
+states/attack/position = Vector2(530.143, 143.225)
+states/idle/node = SubResource("AnimationNodeAnimation_3avbw")
+states/idle/position = Vector2(411.5, 14)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_gn7b4"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_xk3jf"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_icui5")]
 graph_offset = Vector2(-40.3569, -80.775)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y6g3t"]
@@ -173,7 +172,7 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_a1hfj")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = false
-parameters/Attack/TimeScale/scale = 1.0
+parameters/attack/TimeScale/scale = 1.0
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
