@@ -87,7 +87,7 @@ func on_body_entered_trap(player: Player):
 	player.state_machine.transition_to("Hold")
 	PartyManager.disable_switch_character(true)
 	
-	boss_moving_platform.animation_player.play_backwards("move")
+	boss_moving_platform.move_without_player()
 
 	cube = PartyManager.get_cube()
 	april = PartyManager.get_april()
@@ -117,7 +117,7 @@ func on_body_entered_trap(player: Player):
 
 
 func on_cactus_knight_died():
-	boss_moving_platform.animation_player.play("move")
+	boss_moving_platform.move_without_player()
 	boss_moving_platform.finished_moving.connect(on_moving_platform_finished_moving)
 	
 	cube.speak(CUBE_LINES_2)

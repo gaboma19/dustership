@@ -233,7 +233,6 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="HitSoundComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_i6ofi")]
-audio_stream = ExtResource("6_w8iiw")
 health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_6lyqc")]
@@ -247,6 +246,7 @@ health_component = NodePath("../HealthComponent")
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
+audio_stream = ExtResource("6_w8iiw")
 
 [node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_iypjm")]
 unique_name_in_owner = true

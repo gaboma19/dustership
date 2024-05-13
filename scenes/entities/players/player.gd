@@ -34,6 +34,7 @@ func damage_player(damage: int):
 	if not damage_interval_timer.is_stopped():
 		return
 	hit_flash()
+	HitStop.short()
 	PlayerVariables.damage(damage)
 	damage_interval_timer.start()
 

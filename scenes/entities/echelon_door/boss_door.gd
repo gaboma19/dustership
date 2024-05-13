@@ -46,6 +46,7 @@ func on_body_entered_trap(player: Player):
 	EntityVariables.doors[door_id].opened = false
 	left_animation_player.play_backwards("open")
 	right_animation_player.play_backwards("open")
+	$DoorCloseAudioStreamPlayer.play()
 	await get_tree().create_timer(1.6).timeout
 	player.state_machine.transition_to("Active")
 	

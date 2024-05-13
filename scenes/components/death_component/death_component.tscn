@@ -75,5 +75,4 @@ one_shot = true
 fixed_fps = 0
 interpolate = false
 
-[node name="DeathAudio" parent="." instance=ExtResource("3_howyd")]
-unique_name_in_owner = true
+[node name="RandomAudioStreamPlayer2D" parent="." instance=ExtResource("3_howyd")]

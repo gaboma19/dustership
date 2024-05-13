@@ -1,6 +1,6 @@
 extends Button
 
-@onready var audio_stream_player = $RandomAudioStreamPlayer2D
+@onready var audio_stream_player = $AudioStreamPlayer
 
 
 func _ready():
@@ -8,4 +8,4 @@ func _ready():
 	
 	
 func on_pressed():
-	audio_stream_player.play_random()
+	audio_stream_player.play()

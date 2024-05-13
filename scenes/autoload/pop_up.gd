@@ -35,6 +35,7 @@ func open_pop_up(
 
 func animate_open():
 	$AnimationPlayer.play("default")
+	is_opening = true
 	
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
@@ -42,8 +43,7 @@ func animate_open():
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0.3)\
 	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
-	is_opening = true
-	await get_tree().create_timer(0.4).timeout
+	await tween.finished
 	is_opening = false
 	%OKButton.grab_focus()
 
@@ -55,6 +55,7 @@ func close():
 	
 	$AnimationPlayer.play_backwards("default")
 	
+	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0)
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0.3)\
