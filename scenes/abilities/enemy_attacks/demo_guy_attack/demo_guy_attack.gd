@@ -16,7 +16,7 @@ func attack():
 	# %AttackAudio.play_random()
 
 func instantiate_projectile():
-	var projectile = projectile_scene.instance()
+	var projectile = projectile_scene.instantiate()
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	entities_layer.add_child(projectile)
 	projectile.global_position = owner.global_position

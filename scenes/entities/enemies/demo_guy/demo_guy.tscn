@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://bm5ylsdt7kn3y"]
 
-[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_7ud6l"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/demo_guy/demo_guy.gd" id="1_uaxrj"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_a1jxn"]
 [ext_resource type="Script" path="res://scenes/components/health_component/health_component.gd" id="3_8xhwf"]
 [ext_resource type="Texture2D" uid="uid://d3j5k1r2v82na" path="res://assets/demo_guy/demo_guy_front.png" id="4_1aa3w"]
@@ -56,6 +56,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [0, 1]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DemoGuyAttack")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"instantiate_projectile"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1lyas"]
 _data = {
@@ -63,20 +77,21 @@ _data = {
 "attack": SubResource("Animation_n7l0b")
 }
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3avbw"]
-animation = &"Idle"
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3213f"]
+animation = &"attack"
 
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_062ks"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_hrrh3"]
-graph_offset = Vector2(-174.279, 60.9212)
+graph_offset = Vector2(-521.829, 101.465)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_3213f")
 nodes/Animation/position = Vector2(-20, 150)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_062ks")
 nodes/TimeScale/position = Vector2(130, 130)
 node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3avbw"]
+animation = &"Idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gn7b4"]
 advance_mode = 2
@@ -90,11 +105,11 @@ advance_mode = 2
 advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_a1hfj"]
+states/Attack/node = SubResource("AnimationNodeBlendTree_hrrh3")
+states/Attack/position = Vector2(530.143, 143.225)
 states/Idle/node = SubResource("AnimationNodeAnimation_3avbw")
 states/Idle/position = Vector2(411.5, 14)
-states/attack/node = SubResource("AnimationNodeBlendTree_hrrh3")
-states/attack/position = Vector2(530.143, 143.225)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn7b4"), "Idle", "attack", SubResource("AnimationNodeStateMachineTransition_xk3jf"), "attack", "Idle", SubResource("AnimationNodeStateMachineTransition_icui5")]
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_gn7b4"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_xk3jf"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_icui5")]
 graph_offset = Vector2(-40.3569, -80.775)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_y6g3t"]
@@ -108,7 +123,7 @@ radius = 125.0
 [node name="DemoGuy" type="CharacterBody2D"]
 collision_layer = 256
 collision_mask = 289
-script = ExtResource("1_7ud6l")
+script = ExtResource("1_uaxrj")
 metadata/_edit_group_ = true
 
 [node name="DemoGuyCollision" type="CollisionShape2D" parent="."]
@@ -122,7 +137,9 @@ script = ExtResource("2_a1jxn")
 [node name="HealthComponent" type="Node" parent="."]
 script = ExtResource("3_8xhwf")
 
-[node name="HitFlashComponent" parent="." instance=ExtResource("4_o6qgu")]
+[node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_o6qgu")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
 hit_flash_material = SubResource("ShaderMaterial_xfjqp")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_vcgq6")]
@@ -133,6 +150,7 @@ sprite = NodePath("../Sprite2D")
 texture = ExtResource("4_1aa3w")
 offset = Vector2(0, -8)
 hframes = 2
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -155,9 +173,10 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_a1hfj")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = false
-parameters/attack/TimeScale/scale = 1.0
+parameters/Attack/TimeScale/scale = 1.0
 
 [node name="StateMachine" type="Node" parent="."]
+unique_name_in_owner = true
 script = ExtResource("5_8chjj")
 initial_state = NodePath("Idle")
 
@@ -169,11 +188,14 @@ attack_range_area = NodePath("../../AttackRangeArea")
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("7_8ix4e")
 
-[node name="Aggro" type="Node" parent="StateMachine"]
+[node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
 script = ExtResource("8_7auvh")
+aggro_area = NodePath("../../AggroArea")
+attack_range_area = NodePath("../../AttackRangeArea")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("9_f0u2e")
+enemy_attack = NodePath("../../DemoGuyAttack")
 
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 visible = false
@@ -187,6 +209,7 @@ rotation = 1.5708
 shape = SubResource("CircleShape2D_y6g3t")
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 0
 collision_mask = 2
@@ -202,6 +225,8 @@ visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_4kxxm")
 
-[node name="StunComponent" parent="." instance=ExtResource("9_eqb0h")]
+[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_eqb0h")]
+unique_name_in_owner = true
+sprite = NodePath("../Sprite2D")
 
 [node name="DemoGuyAttack" parent="." instance=ExtResource("15_fu416")]
