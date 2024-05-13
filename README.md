@@ -1,5 +1,7 @@
 # Dustership
 
+[**Play Dustership on itch.io**](https://gutugutugames.itch.io/dustership)
+
 Dustership is a space western action role-playing game that takes place in the Gaucho Galaxy: where the ruins of long dead galactic empires are now the wild frontier for explorers of the current age.
 
 This is a work in progress. I am building this game in Godot, a free and open-source game engine. My goal with this demo is to build a fun real-time combat system, inspired by games like Hyper Light Drifter and Eastward, that will form the core of the game.
@@ -8,6 +10,4 @@ The story starts with April, a retired government officer for the Ammellan admin
 
 ### Links
 
-https://gutugutugames.itch.io/dustership
-
-Kanban board: https://trello.com/b/ix9ysXq2/dustership
+[Trello board](https://trello.com/b/ix9ysXq2/dustership)
