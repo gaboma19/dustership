@@ -29,7 +29,7 @@ animation = &"attack"
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_igynp"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wv6fo"]
-graph_offset = Vector2(-351.568, -94.5026)
+graph_offset = Vector2(-373.217, -3.14181)
 nodes/Animation/node = SubResource("AnimationNodeAnimation_osgue")
 nodes/Animation/position = Vector2(-40, 120)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_igynp")

@@ -22,11 +22,6 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xx7wx"]
-resource_local_to_scene = true
-shader = ExtResource("5_huyry")
-shader_parameter/lerp_percent = 0.0
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jaut8"]
 animation = &"idle"
 
@@ -236,7 +231,6 @@ acceleration = 8.0
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_2drbo")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_xx7wx")
 
 [node name="HitSoundComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_i6ofi")]
 health_component = NodePath("../HealthComponent")
@@ -289,7 +283,6 @@ script = ExtResource("14_s4ryk")
 collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
-visible = false
 shape = SubResource("CircleShape2D_1rr5x")
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
