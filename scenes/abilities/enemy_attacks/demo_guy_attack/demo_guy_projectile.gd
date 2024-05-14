@@ -21,5 +21,4 @@ func _process(delta):
 
 
 func on_body_or_area_entered(_body):
-	# queue_free()
-	pass
+		queue_free()
