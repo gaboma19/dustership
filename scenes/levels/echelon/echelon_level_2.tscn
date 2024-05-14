@@ -97,7 +97,7 @@ inventory_item = ExtResource("9_dnnyk")
 chest_id = "echelon2_chest0"
 
 [node name="DemoGuy" parent="Entities" instance=ExtResource("10_77s61")]
-position = Vector2(185, 124)
+position = Vector2(61, 31)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
