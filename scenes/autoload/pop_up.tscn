@@ -1,13 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://bs5ftsbs1wbh1"]
+[gd_scene load_steps=16 format=3 uid="uid://bs5ftsbs1wbh1"]
 
 [ext_resource type="Script" path="res://scenes/autoload/pop_up.gd" id="1_6sq5a"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_geuv0"]
 [ext_resource type="Texture2D" uid="uid://cw5a36j4axbw5" path="res://assets/ui/pause_screen/tile_0654.png" id="3_4nbcf"]
 [ext_resource type="Texture2D" uid="uid://mgnj5j3a24w2" path="res://assets/ui/interact_prompt/tile_0044.png" id="3_7d17u"]
 [ext_resource type="Texture2D" uid="uid://db0pij2q403v" path="res://assets/ui/interact_prompt/tile_0077.png" id="4_hlg28"]
+[ext_resource type="Texture2D" uid="uid://b720dgiqh001k" path="res://assets/ui/interact_prompt/tile_0050.png" id="4_yls8d"]
 [ext_resource type="Texture2D" uid="uid://dce7rea21n7oj" path="res://assets/ui/interact_prompt/tile_0651.png" id="5_r08hp"]
 [ext_resource type="Texture2D" uid="uid://kf4ant46yqms" path="res://assets/ui/interact_prompt/tile_0289.png" id="6_tcwtl"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="7_mpr4j"]
+[ext_resource type="Texture2D" uid="uid://ci7y4ilurlxds" path="res://assets/ui/interact_prompt/tile_0255.png" id="8_dav17"]
+[ext_resource type="Texture2D" uid="uid://8eil5pcs6clu" path="res://assets/ui/interact_prompt/tile_0256.png" id="9_4r0c4"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="9_dryly"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -156,7 +160,7 @@ text = "Press"
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
-texture = ExtResource("7_mpr4j")
+texture = ExtResource("4_yls8d")
 
 [node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
@@ -195,6 +199,38 @@ texture = ExtResource("4_hlg28")
 layout_mode = 2
 text = "to attack."
 
+[node name="DodgeInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+layout_mode = 2
+text = "Press"
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+layout_mode = 2
+texture = ExtResource("7_mpr4j")
+
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+layout_mode = 2
+text = "or"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("8_dav17")
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("9_4r0c4")
+
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+layout_mode = 2
+text = "to dodge."
+
 [node name="MenuInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -219,7 +255,7 @@ texture = ExtResource("6_tcwtl")
 layout_mode = 2
 text = "to open the menu."
 
-[node name="OKButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="OKButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("9_dryly")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2

@@ -10,9 +10,12 @@ var charge_percent: float
 
 @onready var hitbox_collision_shape = $HitboxComponent/HitboxCollisionShape
 @onready var stunbox_collision_shape = $StunboxComponent/StunboxCollisionShape
+@onready var audio_stream_player = $RandomAudioStreamPlayer2D
 
 
 func _ready():
+	audio_stream_player.play_random()
+	
 	var radius = min_radius + ((max_radius - min_radius) * charge_percent)
 	var stun_duration = min_stun_duration + (
 		(max_stun_duration - min_stun_duration) * charge_percent)

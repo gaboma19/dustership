@@ -5,6 +5,7 @@ var can_explode: bool = true
 var charge_percent: float = 0
 
 @onready var line_2d = $Line2D
+@onready var audio_stream_player = $RandomAudioStreamPlayer2D
 
 
 func _ready():
@@ -57,6 +58,8 @@ func set_casting(value: bool):
 
 
 func appear():
+	audio_stream_player.play_random()
+	
 	var tween = create_tween()
 	var max_width = 5
 	if charge_percent >= 1:

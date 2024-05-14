@@ -47,7 +47,9 @@ func spawn():
 func on_interact():
 	EntityVariables.chests[chest_id].opened = true
 	
+	$AudioStreamPlayer2D.play()
 	animated_sprite_2d.play()
+	
 	interaction_area.monitoring = false
 	
 	if inventory_item == null:
@@ -56,11 +58,11 @@ func on_interact():
 	await get_tree().create_timer(0.4).timeout
 	
 	PopUp.open_pop_up(inventory_item)
-	
 	if inventory_item.name == "sword":
 		PlayerVariables.has_sword = true
 		PopUp.set_sword_instructions()
 		return
 	
 	Inventory.add_item(inventory_item)
+	
 	opened.emit()

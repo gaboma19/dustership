@@ -1,10 +1,10 @@
 # idle.gd
 extends EnemyState
 
-@export var aggro_area: Area2D
-@export var attack_range_area: Area2D
-
 var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
+
+@onready var aggro_area = %AggroArea
+@onready var attack_range_area = %AttackRangeArea
 
 
 func enter(_msg := {}) -> void:
@@ -25,8 +25,10 @@ func update(_delta: float) -> void:
 
 
 func exit():
-	aggro_area.body_entered.disconnect(on_aggro_body_entered)
-	attack_range_area.body_entered.disconnect(on_attack_range_body_entered)
+	if aggro_area.body_entered.is_connected(on_aggro_body_entered):
+		aggro_area.body_entered.disconnect(on_aggro_body_entered)
+	if attack_range_area.body_entered.is_connected(on_attack_range_body_entered):
+		attack_range_area.body_entered.disconnect(on_attack_range_body_entered)
 
 
 func floating_text_start(text: String):

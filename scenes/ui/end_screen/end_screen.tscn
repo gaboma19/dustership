@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bertbqadela6v"]
+[gd_scene load_steps=7 format=3 uid="uid://bertbqadela6v"]
 
 [ext_resource type="Script" path="res://scenes/ui/end_screen/end_screen.gd" id="1_j8sci"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_2kgqt"]
+[ext_resource type="AudioStream" uid="uid://t45jnooeewj6" path="res://assets/sfx/364929__jofae__game-die.mp3" id="2_qw0d1"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -99,15 +101,17 @@ text = "Description text"
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="ContinueButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="ContinueButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_2kgqt")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_bottom = NodePath("../QuitButton")
 text = "Continue"
 
-[node name="QuitButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="QuitButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer" instance=ExtResource("2_2kgqt")]
 unique_name_in_owner = true
 layout_mode = 2
-focus_neighbor_top = NodePath("../ContinueButton")
 disabled = true
 text = "Quit to Menu"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qw0d1")
+bus = &"sfx"

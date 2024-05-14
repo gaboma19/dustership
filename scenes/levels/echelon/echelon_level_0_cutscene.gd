@@ -2,8 +2,7 @@ extends Node
 
 const CONVERSATION_ID = "intro_cutscene"
 const LINES: Array[String] = [
-	"Ugh... my head...",
-	"Wh...what time is it?"
+	"Ugh... my head..."
 ]
 const LINES2: Array[String] = [
 	"...What is that strange light?"

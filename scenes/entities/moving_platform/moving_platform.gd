@@ -1,5 +1,7 @@
 extends Node2D
 
+signal finished_moving
+
 @export var animation_player: AnimationPlayer
 
 var is_at_destination: bool
@@ -26,6 +28,8 @@ func end_move():
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for member in PartyManager.members:
 		member.reparent(entities_layer)
+	
+	finished_moving.emit()
 
 
 func set_party_flying(value):
@@ -33,7 +37,7 @@ func set_party_flying(value):
 		(member as Player).set_flying(value)
 
 
-func on_activation_area_body_entered(_body: Node2D):
+func move():
 	if battery_charge_component.is_charged == false:
 		return
 	
@@ -57,6 +61,23 @@ func on_activation_area_body_entered(_body: Node2D):
 		member.reparent(animatable_body_2d)
 		
 	PartyManager.rubberband_party()
+
+
+func move_without_player():
+	collision_polygon_2d.set_deferred("disabled", false)
+	activation_area.set_deferred("monitoring", false)
+	
+	if is_at_destination:
+		animation_player.play_backwards("move")
+		is_at_destination = false
+	else:
+		animation_player.play("move")
+		is_at_destination = true
+	animation_player.queue("call_end_move")
+
+
+func on_activation_area_body_entered(_body: Node2D):
+	move()
 
 
 func on_offboarding_area_body_entered(_body: Node2D):

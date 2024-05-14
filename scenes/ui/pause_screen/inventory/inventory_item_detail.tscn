@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://buf75eoejgh7v"]
+[gd_scene load_steps=5 format=3 uid="uid://buf75eoejgh7v"]
 
 [ext_resource type="Texture2D" uid="uid://dbwvlxukdj8vg" path="res://assets/key/key.png" id="1_fujf4"]
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/inventory_item_detail.gd" id="1_ltk4p"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="2_cdo8y"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_vwtxd"]
 
 [node name="InventoryItemDetail" type="PanelContainer"]
 process_mode = 3
@@ -53,7 +54,7 @@ layout_mode = 2
 theme_override_constants/separation = 8
 alignment = 1
 
-[node name="UseButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+[node name="UseButton" parent="MarginContainer/VBoxContainer/HBoxContainer2" instance=ExtResource("3_vwtxd")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
