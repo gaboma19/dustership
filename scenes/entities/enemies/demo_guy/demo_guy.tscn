@@ -146,11 +146,14 @@ hit_flash_material = SubResource("ShaderMaterial_xfjqp")
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
+[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_eqb0h")]
+unique_name_in_owner = true
+sprite = NodePath("../Sprite2D")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_1aa3w")
 offset = Vector2(0, -8)
 hframes = 4
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -204,6 +207,8 @@ enemy_attack = NodePath("../../DemoGuyAttack")
 [node name="HurtboxComponent" type="Area2D" parent="." node_paths=PackedStringArray("health_component")]
 visible = false
 position = Vector2(0, -10)
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("7_vu7f8")
 health_component = NodePath("../HealthComponent")
 
@@ -228,9 +233,5 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_4kxxm")
-
-[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("9_eqb0h")]
-unique_name_in_owner = true
-sprite = NodePath("../Sprite2D")
 
 [node name="DemoGuyAttack" parent="." instance=ExtResource("15_fu416")]

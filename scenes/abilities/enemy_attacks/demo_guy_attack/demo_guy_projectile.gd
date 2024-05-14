@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var speed: float = 1
+@export var speed: float = 200
 
 @onready var hitbox_component = $HitboxComponent
 

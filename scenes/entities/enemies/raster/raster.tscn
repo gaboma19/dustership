@@ -18,7 +18,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
 
-[sub_resource type="Shader" id="Shader_h0agu"]
+[sub_resource type="Shader" id="Shader_5jfjq"]
 resource_local_to_scene = true
 code = "shader_type canvas_item;
 
@@ -34,7 +34,7 @@ void fragment() {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gce35"]
 resource_local_to_scene = true
-shader = SubResource("Shader_h0agu")
+shader = SubResource("Shader_5jfjq")
 shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_osgue"]
@@ -400,6 +400,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
