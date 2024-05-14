@@ -50,6 +50,3 @@ shape = SubResource("RectangleShape2D_yrly0")
 visible = false
 position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_8gufy")
-
-[node name="Target" type="Node2D" parent="."]
-position = Vector2(0, -1)
