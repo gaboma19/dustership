@@ -1,7 +1,7 @@
 [remap]
 
 importer="aseprite_wizard.plugin.static-texture"
-type="PackedDataContainer"
+type="AtlasTexture"
 uid="uid://p6yp8qwrwnkc"
 path="res://.godot/imported/demo_beam.aseprite-f1c8521809abde8a9265c707becfd6df.res"
 

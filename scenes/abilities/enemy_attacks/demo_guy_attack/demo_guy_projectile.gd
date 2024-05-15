@@ -20,7 +20,7 @@ func _ready():
 	rotation = angle
 
 
-func _process(delta):
+func _physics_process(delta):
 	# global_position = global_position.move_toward(target, delta * speed)
 	global_position += direction * speed * delta
 

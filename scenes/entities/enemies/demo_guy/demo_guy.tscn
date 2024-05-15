@@ -32,7 +32,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [0, 1]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
@@ -146,8 +146,7 @@ sprite = NodePath("../Sprite2D")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("4_1aa3w")
 offset = Vector2(0, -8)
-hframes = 4
-frame = 1
+hframes = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -228,3 +227,4 @@ position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_4kxxm")
 
 [node name="DemoGuyAttack" parent="." instance=ExtResource("15_fu416")]
+position = Vector2(0, -8)
