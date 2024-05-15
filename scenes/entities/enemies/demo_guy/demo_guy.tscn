@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bm5ylsdt7kn3y"]
+[gd_scene load_steps=30 format=3 uid="uid://bm5ylsdt7kn3y"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/demo_guy/demo_guy.gd" id="1_uaxrj"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_a1jxn"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://d3j5k1r2v82na" path="res://assets/demo_guy/demo_guy_front.png" id="4_1aa3w"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_o6qgu"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_8chjj"]
-[ext_resource type="Shader" path="res://resources/materials/hit_flash_component_material.gdshader" id="5_f714p"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="6_grbrm"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_vcgq6"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="7_8ix4e"]
@@ -19,11 +18,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jgdwf"]
 radius = 6.0
 height = 18.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xfjqp"]
-resource_local_to_scene = true
-shader = ExtResource("5_f714p")
-shader_parameter/lerp_percent = 0.0
 
 [sub_resource type="Animation" id="Animation_n7l0b"]
 resource_name = "attack"
@@ -92,7 +86,7 @@ nodes/TimeScale/position = Vector2(130, 130)
 node_connections = [&"TimeScale", 0, &"Animation", &"output", 0, &"TimeScale"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3avbw"]
-animation = &"Idle"
+animation = &"idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gn7b4"]
 advance_mode = 2
@@ -140,7 +134,6 @@ script = ExtResource("3_8xhwf")
 [node name="HitFlashComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("4_o6qgu")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
-hit_flash_material = SubResource("ShaderMaterial_xfjqp")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_vcgq6")]
 health_component = NodePath("../HealthComponent")
@@ -154,6 +147,7 @@ sprite = NodePath("../Sprite2D")
 texture = ExtResource("4_1aa3w")
 offset = Vector2(0, -8)
 hframes = 4
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -187,18 +181,14 @@ unique_name_in_owner = true
 script = ExtResource("5_8chjj")
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("6_grbrm")
-aggro_area = NodePath("../../AggroArea")
-attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("7_8ix4e")
 
-[node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_area", "attack_range_area")]
+[node name="Aggro" type="Node" parent="StateMachine"]
 script = ExtResource("8_7auvh")
-aggro_area = NodePath("../../AggroArea")
-attack_range_area = NodePath("../../AttackRangeArea")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
 script = ExtResource("9_f0u2e")
@@ -228,6 +218,7 @@ position = Vector2(0, -10)
 shape = SubResource("CircleShape2D_j80ml")
 
 [node name="AggroArea" type="Area2D" parent="."]
+unique_name_in_owner = true
 visible = false
 collision_layer = 0
 collision_mask = 2
