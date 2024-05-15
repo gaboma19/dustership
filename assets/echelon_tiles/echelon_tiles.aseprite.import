@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://satqc382byps"
+path="res://.godot/imported/echelon_tiles.aseprite-80b2def81712fb184c7d7ffaa0aa1879.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/echelon_tiles.aseprite"
+dest_files=["res://.godot/imported/echelon_tiles.aseprite-80b2def81712fb184c7d7ffaa0aa1879.res"]
+
+[params]
+

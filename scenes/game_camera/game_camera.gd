@@ -12,7 +12,7 @@ var target_position = Vector2.ZERO
 
 func _ready():
 	make_current()
-	set_camera_limits()
+	#set_camera_limits()
 
 
 func _process(delta):
