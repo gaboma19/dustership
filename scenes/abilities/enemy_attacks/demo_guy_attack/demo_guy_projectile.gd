@@ -12,7 +12,10 @@ func _ready():
 	hitbox_component.area_entered.connect(on_body_or_area_entered)
 	var player = PartyManager.get_active_member()
 	target = player.global_position
-	direction = (target - global_position).normalized()
+	# The direction of the player
+	# direction = (target - global_position).normalized()
+	direction = global_position.direction_to(target)
+	# Calculating the angle of the projectile sprite, not the projectile itself
 	var angle = direction.angle() + PI / 2
 	rotation = angle
 
