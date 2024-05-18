@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://daie85hjvm34f"
+path="res://.godot/imported/tile_decorations.aseprite-d0a5fed9027b1db4bffbaae90a080060.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/tile_decorations.aseprite"
+dest_files=["res://.godot/imported/tile_decorations.aseprite-d0a5fed9027b1db4bffbaae90a080060.res"]
+
+[params]
+

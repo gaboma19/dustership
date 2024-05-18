@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://d0h3bbtl7622s"
+path="res://.godot/imported/wall_tiles.aseprite-5d07bd6a2b6251743fc51f92ea84b6a6.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/wall_tiles.aseprite"
+dest_files=["res://.godot/imported/wall_tiles.aseprite-5d07bd6a2b6251743fc51f92ea84b6a6.res"]
+
+[params]
+

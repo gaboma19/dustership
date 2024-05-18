@@ -9,6 +9,7 @@ const LINES: Array[String] = [
 
 
 func _ready():
+	set_deferred("monitoring", true)
 	body_entered.connect(on_body_entered)
 	
 	
@@ -17,6 +18,7 @@ func on_body_entered(player: Node2D):
 		return
 	
 	if PlayerVariables.has_sword:
+		set_deferred("monitoring", false)
 		ScreenTransition.transition_to_level(path, new_player_position)
 	else:
 		player.set_moving(false)

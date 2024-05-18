@@ -7,8 +7,7 @@ const KEY: InventoryItem = preload("res://resources/inventory_item/items/key.tre
 var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
 
 @onready var interaction_area = $InteractionArea
-@onready var left_animation_player: AnimationPlayer = $EchelonDoorLeft.get_node("AnimationPlayer")
-@onready var right_animation_player: AnimationPlayer = $EchelonDoorRight.get_node("AnimationPlayer")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready():
@@ -29,8 +28,7 @@ func on_interact():
 	var has_key = Inventory.use_item(KEY)
 	if has_key:
 		EntityVariables.doors[door_id].opened = true
-		left_animation_player.play("open")
-		right_animation_player.play("open")
+		animation_player.play("open")
 		$AudioStreamPlayer2D.play()
 		interaction_area.monitoring = false
 	else:

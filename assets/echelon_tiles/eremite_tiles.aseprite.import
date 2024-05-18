@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://brnr8ihsfcwfe"
+path="res://.godot/imported/eremite_tiles.aseprite-9e24d9f533b4f315845587ccf9bb03b8.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/eremite_tiles.aseprite"
+dest_files=["res://.godot/imported/eremite_tiles.aseprite-9e24d9f533b4f315845587ccf9bb03b8.res"]
+
+[params]
+

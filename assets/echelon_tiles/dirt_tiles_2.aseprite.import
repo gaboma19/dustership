@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c383574l062p8"
+path="res://.godot/imported/dirt_tiles_2.aseprite-3c38596c745ae0207e3ee3a3e34ae1e7.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/dirt_tiles_2.aseprite"
+dest_files=["res://.godot/imported/dirt_tiles_2.aseprite-3c38596c745ae0207e3ee3a3e34ae1e7.res"]
+
+[params]
+

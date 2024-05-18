@@ -157,6 +157,7 @@ modulate = Color(1, 1, 1, 0)
 offset_left = -125.0
 offset_right = 125.0
 offset_bottom = 150.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Light" parent="Foreground" instance=ExtResource("6_yly58")]

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bddyi7leil5s4"
+path="res://.godot/imported/ramp_tiles.aseprite-5603084da09771be3f633117fb92b4ae.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/ramp_tiles.aseprite"
+dest_files=["res://.godot/imported/ramp_tiles.aseprite-5603084da09771be3f633117fb92b4ae.res"]
+
+[params]
+

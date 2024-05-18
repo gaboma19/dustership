@@ -6,8 +6,7 @@ signal triggered
 @export var trap_area: Area2D
 
 @onready var interaction_area = $InteractionArea
-@onready var left_animation_player: AnimationPlayer = $EchelonDoorLeft.get_node("AnimationPlayer")
-@onready var right_animation_player: AnimationPlayer = $EchelonDoorRight.get_node("AnimationPlayer")
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 
 func _ready():
@@ -27,8 +26,7 @@ func set_opened(value: bool):
 
 func open():
 	EntityVariables.doors[door_id].opened = true
-	left_animation_player.play("open")
-	right_animation_player.play("open")
+	animation_player.play("open")
 	$AudioStreamPlayer2D.play()
 	interaction_area.monitoring = false
 
@@ -44,8 +42,7 @@ func on_body_entered_trap(player: Player):
 	player.update_blend_position(face_direction)
 	
 	EntityVariables.doors[door_id].opened = false
-	left_animation_player.play_backwards("open")
-	right_animation_player.play_backwards("open")
+	animation_player.play_backwards("open")
 	$DoorCloseAudioStreamPlayer.play()
 	await get_tree().create_timer(1.6).timeout
 	player.state_machine.transition_to("Active")
