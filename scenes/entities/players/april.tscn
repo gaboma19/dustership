@@ -1191,8 +1191,9 @@ states/Move/position = Vector2(599, 100)
 transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3")]
 graph_offset = Vector2(-102, -110)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlucn"]
-size = Vector2(8, 4)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
+radius = 2.0
+height = 8.0
 
 [node name="April" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
@@ -1309,9 +1310,9 @@ parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
 position = Vector2(0, -2)
-shape = SubResource("RectangleShape2D_qlucn")
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_pbin4")
 
 [node name="AttackTimer" type="Timer" parent="."]
 unique_name_in_owner = true

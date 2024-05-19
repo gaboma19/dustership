@@ -9,19 +9,24 @@ y_sort_enabled = true
 texture_filter = 1
 position = Vector2(25, -102)
 texture = ExtResource("1_vxbjm")
+offset = Vector2(20, 47)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
 "layer": "",
 "o_ex_p": "",
-"o_folder": "",
+"o_folder": "res://assets/doodads",
 "o_name": "",
-"only_visible": false,
-"op_exp": false,
+"only_visible": true,
 "player": "",
+"slice": "",
 "source": "res://assets/doodads/aprils_apartment_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
 }
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false
-polygon = PackedVector2Array(0, 0, 16, -8, 32, 0, 66, -16, 66, -32, 128, -64, 48, -104, -80, -40)
+polygon = PackedVector2Array(-48, -16, -16, -16, -16, 0, 16, 0, 16, -16, 128, -16, 128, -128, -48, -128)
