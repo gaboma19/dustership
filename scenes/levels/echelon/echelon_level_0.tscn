@@ -149,9 +149,6 @@ position = Vector2(71, 55)
 inventory_item = ExtResource("10_twkl8")
 chest_id = "echelon0_chest0"
 
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
-animation = &"chest_isometric"
-
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
 

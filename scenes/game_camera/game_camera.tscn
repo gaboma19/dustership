@@ -4,6 +4,6 @@
 
 [node name="GameCamera" type="Camera2D"]
 z_index = 1
-zoom = Vector2(3, 3)
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("1_vxem8")
