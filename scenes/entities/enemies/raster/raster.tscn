@@ -301,7 +301,7 @@ radius = 9.0
 
 [node name="Raster" type="CharacterBody2D"]
 collision_layer = 256
-collision_mask = 289
+collision_mask = 801
 script = ExtResource("1_20mlh")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_x05dx")]
@@ -388,7 +388,6 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

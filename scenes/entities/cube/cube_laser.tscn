@@ -11,7 +11,7 @@
 
 [node name="CubeLaser" type="RayCast2D"]
 target_position = Vector2(16, 0)
-collision_mask = 769
+collision_mask = 257
 collide_with_areas = true
 script = ExtResource("1_v2m0k")
 

@@ -1,48 +1,106 @@
-[gd_scene load_steps=11 format=3 uid="uid://buge8kcxqepq3"]
+[gd_scene load_steps=18 format=3 uid="uid://buge8kcxqepq3"]
 
 [ext_resource type="Script" path="res://scenes/entities/chest/chest.gd" id="1_k6pn8"]
 [ext_resource type="Texture2D" uid="uid://dpn13onbnv8xx" path="res://assets/chest/chest.png" id="1_xxa8k"]
+[ext_resource type="Texture2D" uid="uid://dipxxkm8lllar" path="res://assets/chest/chest_isometric.png" id="3_5k0ys"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="3_rh6qg"]
 [ext_resource type="AudioStream" uid="uid://cfoh7m7nly4j6" path="res://assets/sfx/switch7.ogg" id="4_lbkdn"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_b027x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt8qf"]
 atlas = ExtResource("1_xxa8k")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hapii"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_566ho"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jjap0"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_73lfg"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jsde4"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1o8dc"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn6mu"]
+atlas = ExtResource("1_xxa8k")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njf1h"]
+atlas = ExtResource("3_5k0ys")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pjsbd"]
-atlas = ExtResource("1_xxa8k")
+[sub_resource type="AtlasTexture" id="AtlasTexture_kmv5g"]
+atlas = ExtResource("3_5k0ys")
 region = Rect2(0, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jascj"]
-atlas = ExtResource("1_xxa8k")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vpnuw"]
-atlas = ExtResource("1_xxa8k")
-region = Rect2(32, 32, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_geq05"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_uu64q"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b027x")
+"texture": SubResource("AtlasTexture_wt8qf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pjsbd")
+"texture": SubResource("AtlasTexture_hapii")
 }],
 "loop": false,
-"name": &"left",
+"name": &"chest1",
 "speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jascj")
+"texture": SubResource("AtlasTexture_566ho")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vpnuw")
+"texture": SubResource("AtlasTexture_jjap0")
 }],
 "loop": false,
-"name": &"right",
+"name": &"chest2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_73lfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jsde4")
+}],
+"loop": false,
+"name": &"chest3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1o8dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn6mu")
+}],
+"loop": false,
+"name": &"chest4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_njf1h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kmv5g")
+}],
+"loop": false,
+"name": &"chest_isometric",
 "speed": 5.0
 }]
 
@@ -53,9 +111,9 @@ radius = 16.0
 script = ExtResource("1_k6pn8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_geq05")
-animation = &"left"
-offset = Vector2(0, -12)
+sprite_frames = SubResource("SpriteFrames_uu64q")
+animation = &"chest_isometric"
+offset = Vector2(0, -8)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

@@ -148,10 +148,11 @@ dodge={
 2d_physics/layer_3="PlayerAttacks"
 2d_physics/layer_4="EnemyAttacks"
 2d_physics/layer_5="PlayerPickup"
-2d_physics/layer_6="Floor"
+2d_physics/layer_6="Floor1"
 2d_physics/layer_7="PlayerHurtbox"
 2d_physics/layer_8="MovingPlatform"
 2d_physics/layer_9="Enemy"
+2d_physics/layer_10="Floor2"
 
 [rendering]
 

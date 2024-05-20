@@ -149,6 +149,9 @@ position = Vector2(71, 55)
 inventory_item = ExtResource("10_twkl8")
 chest_id = "echelon0_chest0"
 
+[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
+animation = &"chest_isometric"
+
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
 
@@ -166,7 +169,9 @@ color = Color(0, 0, 0, 1)
 visible = false
 script = ExtResource("13_7sqa6")
 path = "res://scenes/levels/echelon/echelon_level_1.tscn"
-new_player_position = Vector2(-112, 0)
+new_player_position = Vector2(0, 16)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 polygon = PackedVector2Array(-8, 115, 8, 124, 40, 108, 24, 99)
+
+[editable path="Entities/Chest"]

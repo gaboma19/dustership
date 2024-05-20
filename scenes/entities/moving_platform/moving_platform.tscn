@@ -137,7 +137,7 @@ autoplay = "default"
 unique_name_in_owner = true
 visible = false
 build_mode = 1
-polygon = PackedVector2Array(40, -64, -40, -64, -40, 16, 40, 16)
+polygon = PackedVector2Array(40, -88, -40, -88, -40, -8, 40, -8)
 disabled = true
 
 [node name="ActivationArea" type="Area2D" parent="AnimatableBody2D"]
