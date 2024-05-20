@@ -71,14 +71,14 @@ func apply_ramp_bias():
 	
 	if is_on_down_ramp:
 		if velocity.x > 0:
-			velocity.y += 7.0
+			velocity.y += 5.0
 		if velocity.x < 0:
-			velocity.y -= 7.0
+			velocity.y -= 5.0
 	elif is_on_down_ramp:
 		if velocity.x > 0:
-			velocity.y -= 7.0
+			velocity.y -= 5.0
 		if velocity.x < 0:
-			velocity.y += 7.0
+			velocity.y += 5.0
 
 
 func move(character_body: CharacterBody2D):

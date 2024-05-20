@@ -1,6 +1,6 @@
 extends Area2D
 
-@export_enum("One:1", "Two:2") var elevation: int
+@export_enum("One", "Two") var elevation: int
 
 
 func _ready():
@@ -14,7 +14,7 @@ func on_body_entered(body: Node2D):
 	var player = body as Player
 	
 	match elevation:
-		1:
+		0:
 			player.set_collision_mask_value(6, true)
-		2:
+		1:
 			player.set_collision_mask_value(6, false)
