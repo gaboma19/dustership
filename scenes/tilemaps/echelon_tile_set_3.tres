@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bt1klixdnawr5" path="res://assets/echelon_tiles/cliff_tiles.png" id="8_eeuff"]
 [ext_resource type="Texture2D" uid="uid://c7y2vlxn57g13" path="res://assets/echelon_tiles/dirt_tiles_2.png" id="9_t4kah"]
 [ext_resource type="Texture2D" uid="uid://nwd1h6jeex5m" path="res://assets/echelon_tiles/ramp_tiles.png" id="10_dvl2y"]
-[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_fie7g"]
+[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_wall_tiles.png" id="11_fie7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjo24"]
 resource_name = "pavement"

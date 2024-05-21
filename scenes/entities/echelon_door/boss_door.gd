@@ -21,7 +21,8 @@ func _ready():
 
 func set_opened(value: bool):
 	if value:
-		queue_free()
+		animation_player.play("set_open")
+		interaction_area.monitoring = false
 
 
 func open():

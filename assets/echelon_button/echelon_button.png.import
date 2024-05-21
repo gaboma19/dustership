@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0sis1nktacte"
-path="res://.godot/imported/Flattened.png-f40db08f9ab640df1f13d2df2fb93be1.ctex"
+uid="uid://1ywyha3n2a46"
+path="res://.godot/imported/echelon_button.png-aa4f28682003fc6d4910371908174723.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/echelon_door/Flattened.png"
-dest_files=["res://.godot/imported/Flattened.png-f40db08f9ab640df1f13d2df2fb93be1.ctex"]
+source_file="res://assets/echelon_button/echelon_button.png"
+dest_files=["res://.godot/imported/echelon_button.png-aa4f28682003fc6d4910371908174723.ctex"]
 
 [params]
 

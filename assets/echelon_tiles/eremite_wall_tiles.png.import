@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0sis1nktacte"
-path="res://.godot/imported/echelon_door.png-91b70a754011c5d17013fe13ce7c5367.ctex"
+uid="uid://kg80fk7b5ti8"
+path="res://.godot/imported/eremite_wall_tiles.png-d59179624a450108affe7e0a448e34bc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/echelon_door/echelon_door.png"
-dest_files=["res://.godot/imported/echelon_door.png-91b70a754011c5d17013fe13ce7c5367.ctex"]
+source_file="res://assets/echelon_tiles/eremite_wall_tiles.png"
+dest_files=["res://.godot/imported/eremite_wall_tiles.png-d59179624a450108affe7e0a448e34bc.ctex"]
 
 [params]
 

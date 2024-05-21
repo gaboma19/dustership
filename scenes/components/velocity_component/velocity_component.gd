@@ -74,7 +74,7 @@ func apply_ramp_bias():
 			velocity.y += 5.0
 		if velocity.x < 0:
 			velocity.y -= 5.0
-	elif is_on_down_ramp:
+	elif is_on_up_ramp:
 		if velocity.x > 0:
 			velocity.y -= 5.0
 		if velocity.x < 0:

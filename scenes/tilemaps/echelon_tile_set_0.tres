@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://bmigduin12qp5"]
+[gd_resource type="TileSet" load_steps=26 format=3 uid="uid://bmigduin12qp5"]
 
 [ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_bi0ka"]
 [ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_2yijc"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://bt1klixdnawr5" path="res://assets/echelon_tiles/cliff_tiles.png" id="8_mtiu2"]
 [ext_resource type="Texture2D" uid="uid://c7y2vlxn57g13" path="res://assets/echelon_tiles/dirt_tiles_2.png" id="9_0a3es"]
 [ext_resource type="Texture2D" uid="uid://nwd1h6jeex5m" path="res://assets/echelon_tiles/ramp_tiles.png" id="10_n6n0c"]
-[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_cavm1"]
+[ext_resource type="Texture2D" uid="uid://d0ps27d7pb1s5" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_cavm1"]
+[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_wall_tiles.png" id="12_k3wm3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjo24"]
 resource_name = "pavement"
@@ -2267,6 +2268,67 @@ texture_region_size = Vector2i(32, 32)
 7:3/0/physics_layer_1/angular_velocity = 0.0
 7:3/0/physics_layer_1/polygon_0/points = PackedVector2Array(8, -15, 48, 16, 8, 16)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k3n0e"]
+resource_name = "eremite_cliffs"
+texture = ExtResource("11_cavm1")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(1, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, 16)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_1/angular_velocity = 0.0
+1:0/size_in_atlas = Vector2i(1, 2)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, 16)
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_1/angular_velocity = 0.0
+2:0/size_in_atlas = Vector2i(1, 2)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, 16)
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_1/angular_velocity = 0.0
+3:0/size_in_atlas = Vector2i(1, 2)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, 16)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_1/angular_velocity = 0.0
+4:0/size_in_atlas = Vector2i(1, 2)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, 16)
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_1/angular_velocity = 0.0
+5:0/size_in_atlas = Vector2i(1, 2)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, 16)
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_1/angular_velocity = 0.0
+6:0/size_in_atlas = Vector2i(1, 2)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, 16)
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_1/angular_velocity = 0.0
+7:0/size_in_atlas = Vector2i(1, 2)
+7:0/0 = 0
+7:0/0/texture_origin = Vector2i(0, 16)
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_1/angular_velocity = 0.0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5pqc"]
 resource_name = "echelon"
 texture = ExtResource("5_kmb1v")
@@ -3986,7 +4048,7 @@ texture_region_size = Vector2i(32, 32)
 7:7/0/physics_layer_1/polygon_0/points = PackedVector2Array(-8, 4, -8, -4, -4, -8, 4, -8, 8, -4, 8, 4, 4, 8, -4, 8, -4, 10, 4, 10, 10, 4, 10, -4, 4, -10, -4, -10, -10, -4, -10, 4, -4, 10, -4, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyp1"]
-resource_name = "cliff"
+resource_name = "cliffs"
 texture = ExtResource("8_mtiu2")
 texture_region_size = Vector2i(32, 64)
 0:0/0 = 0
@@ -5938,7 +6000,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laaj1"]
 resource_name = "eremite_walls"
-texture = ExtResource("11_cavm1")
+texture = ExtResource("12_k3wm3")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
@@ -6022,3 +6084,4 @@ sources/8 = SubResource("TileSetAtlasSource_vfpso")
 sources/9 = SubResource("TileSetAtlasSource_laaj1")
 sources/10 = SubResource("TileSetAtlasSource_ejvon")
 sources/11 = SubResource("TileSetAtlasSource_r36hr")
+sources/12 = SubResource("TileSetAtlasSource_k3n0e")

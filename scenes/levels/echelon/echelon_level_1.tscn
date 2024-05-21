@@ -100,9 +100,6 @@ position = Vector2(-288, 656)
 inventory_item = ExtResource("11_3cngt")
 chest_id = "echelon1_chest0"
 
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
-animation = &"chest1"
-
 [node name="Philo" parent="Entities" instance=ExtResource("12_xtur6")]
 position = Vector2(384, 80)
 
@@ -228,6 +225,7 @@ path = "res://scenes/levels/echelon/echelon_level_0.tscn"
 new_player_position = Vector2(0, 104)
 
 [node name="ElevationTransitionArea" parent="." instance=ExtResource("10_i8o2h")]
+position = Vector2(160, 384)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea"]
 position = Vector2(-22, 15)
