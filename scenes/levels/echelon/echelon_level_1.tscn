@@ -86,7 +86,6 @@ layer_5/tile_data = PackedInt32Array(720898, 458763, 1, 786434, 458763, 3, 85196
 position = Vector2(0, 16)
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("3_8drjm")]
-zoom = Vector2(2, 2)
 tile_map = NodePath("../EchelonTileMap1")
 custom_limit_right = 896
 custom_limit_bottom = 584

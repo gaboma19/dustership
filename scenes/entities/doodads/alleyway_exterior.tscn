@@ -10,6 +10,7 @@ collision_mask = 0
 texture_filter = 1
 position = Vector2(-8, -181)
 texture = ExtResource("1_q574j")
+offset = Vector2(8, 74)
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
 "output_section": true

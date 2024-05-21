@@ -1,20 +1,20 @@
-[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://bmigduin12qp5"]
+[gd_resource type="TileSet" load_steps=24 format=3 uid="uid://dgyf6n7ejlsjj"]
 
-[ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_bi0ka"]
-[ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_2yijc"]
-[ext_resource type="Texture2D" uid="uid://cc2vtikfs51bv" path="res://assets/echelon_tiles/eremite_tiles.png" id="3_3hs5p"]
-[ext_resource type="Texture2D" uid="uid://bv48tj2gkcead" path="res://assets/echelon_tiles/eremite_stairs.png" id="4_hrfxm"]
-[ext_resource type="Texture2D" uid="uid://xapgih4x28ti" path="res://assets/echelon_tiles/echelon_tiles.png" id="5_kmb1v"]
-[ext_resource type="Texture2D" uid="uid://cywcvrg40u82c" path="res://assets/echelon_tiles/wall_tiles.png" id="6_pvpn3"]
-[ext_resource type="Texture2D" uid="uid://7hnepwm4xls0" path="res://assets/echelon_tiles/dirt_tiles.png" id="7_vgixm"]
-[ext_resource type="Texture2D" uid="uid://bt1klixdnawr5" path="res://assets/echelon_tiles/cliff_tiles.png" id="8_mtiu2"]
-[ext_resource type="Texture2D" uid="uid://c7y2vlxn57g13" path="res://assets/echelon_tiles/dirt_tiles_2.png" id="9_0a3es"]
-[ext_resource type="Texture2D" uid="uid://nwd1h6jeex5m" path="res://assets/echelon_tiles/ramp_tiles.png" id="10_n6n0c"]
-[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_cavm1"]
+[ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_5udb5"]
+[ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_l0f0v"]
+[ext_resource type="Texture2D" uid="uid://cc2vtikfs51bv" path="res://assets/echelon_tiles/eremite_tiles.png" id="3_ml310"]
+[ext_resource type="Texture2D" uid="uid://bv48tj2gkcead" path="res://assets/echelon_tiles/eremite_stairs.png" id="4_bpwl2"]
+[ext_resource type="Texture2D" uid="uid://xapgih4x28ti" path="res://assets/echelon_tiles/echelon_tiles.png" id="5_r5y45"]
+[ext_resource type="Texture2D" uid="uid://cywcvrg40u82c" path="res://assets/echelon_tiles/wall_tiles.png" id="6_c3l6f"]
+[ext_resource type="Texture2D" uid="uid://7hnepwm4xls0" path="res://assets/echelon_tiles/dirt_tiles.png" id="7_pgff4"]
+[ext_resource type="Texture2D" uid="uid://bt1klixdnawr5" path="res://assets/echelon_tiles/cliff_tiles.png" id="8_eeuff"]
+[ext_resource type="Texture2D" uid="uid://c7y2vlxn57g13" path="res://assets/echelon_tiles/dirt_tiles_2.png" id="9_t4kah"]
+[ext_resource type="Texture2D" uid="uid://nwd1h6jeex5m" path="res://assets/echelon_tiles/ramp_tiles.png" id="10_dvl2y"]
+[ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_fie7g"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjo24"]
 resource_name = "pavement"
-texture = ExtResource("1_bi0ka")
+texture = ExtResource("1_5udb5")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -728,7 +728,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vwpch"]
 resource_name = "rocks"
-texture = ExtResource("2_2yijc")
+texture = ExtResource("2_l0f0v")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1442,7 +1442,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejvon"]
 resource_name = "eremite"
-texture = ExtResource("3_3hs5p")
+texture = ExtResource("3_ml310")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -2154,7 +2154,7 @@ texture_region_size = Vector2i(32, 32)
 7:7/0/physics_layer_1/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r36hr"]
-texture = ExtResource("4_hrfxm")
+texture = ExtResource("4_bpwl2")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
@@ -2269,7 +2269,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p5pqc"]
 resource_name = "echelon"
-texture = ExtResource("5_kmb1v")
+texture = ExtResource("5_r5y45")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/modulate = Color(1, 1, 1, 0.501961)
@@ -3050,7 +3050,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kvrr0"]
 resource_name = "walls"
-texture = ExtResource("6_pvpn3")
+texture = ExtResource("6_c3l6f")
 texture_region_size = Vector2i(32, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
@@ -3170,7 +3170,7 @@ texture_region_size = Vector2i(32, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jkx04"]
 resource_name = "dirt"
-texture = ExtResource("7_vgixm")
+texture = ExtResource("7_pgff4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -3987,7 +3987,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyp1"]
 resource_name = "cliff"
-texture = ExtResource("8_mtiu2")
+texture = ExtResource("8_eeuff")
 texture_region_size = Vector2i(32, 64)
 0:0/0 = 0
 0:0/0/texture_origin = Vector2i(0, 16)
@@ -4046,7 +4046,7 @@ texture_region_size = Vector2i(32, 64)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3mgh6"]
 resource_name = "dirt_2"
-texture = ExtResource("9_0a3es")
+texture = ExtResource("9_t4kah")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -4929,7 +4929,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pidpr"]
 resource_name = "ramps"
-texture = ExtResource("10_n6n0c")
+texture = ExtResource("10_dvl2y")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
@@ -5058,7 +5058,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vfpso"]
 resource_name = "eremite_platform"
-texture = ExtResource("3_3hs5p")
+texture = ExtResource("3_ml310")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/y_sort_origin = 16
@@ -5938,7 +5938,7 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laaj1"]
 resource_name = "eremite_walls"
-texture = ExtResource("11_cavm1")
+texture = ExtResource("11_fie7g")
 texture_region_size = Vector2i(32, 32)
 0:0/size_in_atlas = Vector2i(1, 2)
 0:0/0 = 0
@@ -5993,7 +5993,7 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 physics_layer_0/collision_mask = 0
-physics_layer_1/collision_layer = 32
+physics_layer_1/collision_layer = 1024
 physics_layer_1/collision_mask = 0
 terrain_set_0/mode = 0
 terrain_set_0/terrain_0/name = "pavement"
