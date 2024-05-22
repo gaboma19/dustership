@@ -1,13 +1,14 @@
-[gd_scene load_steps=11 format=3 uid="uid://dqdu7laenedqk"]
+[gd_scene load_steps=14 format=3 uid="uid://dqdu7laenedqk"]
 
 [ext_resource type="Script" path="res://scenes/entities/moving_platform/moving_platform.gd" id="1_2mpkv"]
 [ext_resource type="PackedScene" uid="uid://bu2pwy0c3b43p" path="res://scenes/components/battery_charge_component/battery_charge_component.tscn" id="2_lf112"]
 [ext_resource type="Texture2D" uid="uid://c5rpljxep7myj" path="res://assets/moving_platform/moving_platform.png" id="3_wpq8r"]
 [ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tilemaps/echelon_decoration_tiles.tscn" id="4_g1bjr"]
 [ext_resource type="Texture2D" uid="uid://dlt0j5psgenry" path="res://assets/moving_platform/moving_platform_charged.png" id="5_qbc52"]
+[ext_resource type="Script" path="res://scenes/entities/moving_platform/nudge_position_area.gd" id="6_vc1tb"]
 
 [sub_resource type="Animation" id="Animation_mf3qq"]
-length = 1.4
+length = 2.7
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -27,10 +28,10 @@ tracks/1/path = NodePath(".:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bn6o5"]
@@ -55,7 +56,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_0sigv"]
 resource_name = "default"
-length = 4.0
+length = 6.0
 loop_mode = 1
 step = 2.0
 tracks/0/type = "value"
@@ -65,10 +66,10 @@ tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2, 4),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 2, 4, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 1)]
+"values": [Color(1, 1, 1, 0.501961), Color(1, 1, 1, 0.25098), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0.501961)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvr5o"]
@@ -76,6 +77,11 @@ _data = {
 "RESET": SubResource("Animation_wsfx0"),
 "default": SubResource("Animation_0sigv")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kdfx5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5q05p"]
+size = Vector2(80, 80)
 
 [node name="MovingPlatform" type="Node2D"]
 script = ExtResource("1_2mpkv")
@@ -118,6 +124,7 @@ libraries = {
 }
 
 [node name="EchelonDecorationTiles" parent="AnimatableBody2D/Sprite2D" instance=ExtResource("4_g1bjr")]
+visible = false
 position = Vector2(-40, -8)
 layer_0/tile_data = PackedInt32Array(-196606, 196608, 1, -327678, 196608, 1, -327680, 196608, 1, -196608, 196608, 1, -65536, 196608, 1, -65532, 196608, 1, -65534, 196608, 1, -196604, 196608, 1, -327676, 196608, 1)
 
@@ -125,7 +132,7 @@ layer_0/tile_data = PackedInt32Array(-196606, 196608, 1, -327678, 196608, 1, -32
 unique_name_in_owner = true
 visible = false
 texture = ExtResource("5_qbc52")
-offset = Vector2(0, -24)
+offset = Vector2(0, -48)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D/Sprite2D/ChargeSprite"]
 libraries = {
@@ -146,9 +153,9 @@ visible = false
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D/ActivationArea"]
-modulate = Color(0, 1, 0, 1)
-polygon = PackedVector2Array(0, -40, -16, -24, 0, -8, 16, -24)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/ActivationArea"]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_kdfx5")
 
 [node name="OffboardingArea" type="Area2D" parent="AnimatableBody2D"]
 unique_name_in_owner = true
@@ -157,8 +164,18 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AnimatableBody2D/OffboardingArea"]
-position = Vector2(16, -8)
-polygon = PackedVector2Array(40, -72, 40, -56, -72, -56, -72, -72)
+position = Vector2(16, -48)
+polygon = PackedVector2Array(56, -72, 56, -56, -88, -56, -88, -72)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="AnimatableBody2D/OffboardingArea"]
-polygon = PackedVector2Array(40, -64, 56, -64, 56, 32, -56, 32, -56, -64, -40, -64, -40, 16, 40, 16)
+polygon = PackedVector2Array(56, -104, 72, -104, 72, 32, -72, 32, -72, -104, -56, -104, -56, 16, 56, 16)
+
+[node name="NudgePositionArea" type="Area2D" parent="AnimatableBody2D"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_vc1tb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D/NudgePositionArea"]
+position = Vector2(0, -48)
+shape = SubResource("RectangleShape2D_5q05p")

@@ -115,6 +115,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="BatteryChargeArea" parent="." instance=ExtResource("3_8unh7")]
 visible = false
+collision_layer = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BatteryChargeArea"]
 position = Vector2(-0.5, -16.5)
