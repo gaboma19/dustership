@@ -13,7 +13,6 @@ var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.t
 func _ready():
 	interaction_area.interact = Callable(self, "on_interact")
 	
-	
 	if EntityVariables.doors.has(door_id):
 		set_opened(EntityVariables.doors[door_id].opened)
 	else:
