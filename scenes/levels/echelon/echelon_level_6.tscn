@@ -20,14 +20,14 @@ size = Vector2(288, 32)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yfaqk"]
 size = Vector2(58, 58)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rway"]
+size = Vector2(112, 20)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxkbw"]
 size = Vector2(112, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nwgys"]
 size = Vector2(20, 52)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6rway"]
-size = Vector2(112, 20)
 
 [node name="EchelonLevel6" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -134,19 +134,20 @@ new_player_position = Vector2(-912, 608)
 position = Vector2(64, 0)
 shape = SubResource("RectangleShape2D_yfaqk")
 
-[node name="ElevationTransitionArea" parent="." instance=ExtResource("13_0glc2")]
-elevation = 1
+[node name="ElevationTransitionArea1" parent="." instance=ExtResource("13_0glc2")]
+elevation = "One"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea1"]
+position = Vector2(-240, 138)
+shape = SubResource("RectangleShape2D_6rway")
+
+[node name="ElevationTransitionArea2" parent="." instance=ExtResource("13_0glc2")]
+elevation = "Two"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea2"]
 position = Vector2(-240, 77)
 shape = SubResource("RectangleShape2D_kxkbw")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea2"]
 position = Vector2(-55, 0)
 shape = SubResource("RectangleShape2D_nwgys")
-
-[node name="ElevationTransitionArea2" parent="." instance=ExtResource("13_0glc2")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea2"]
-position = Vector2(-240, 138)
-shape = SubResource("RectangleShape2D_6rway")

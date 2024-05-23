@@ -209,66 +209,67 @@ position = Vector2(432, 256)
 path = "res://scenes/levels/echelon/echelon_level_5.tscn"
 new_player_position = Vector2(-38, 116)
 
-[node name="ElevationTransitionArea" parent="." instance=ExtResource("16_15iss")]
+[node name="ElevationTransitionArea1" parent="." instance=ExtResource("16_15iss")]
+elevation = "One"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(128, 152)
 shape = SubResource("RectangleShape2D_2e5t3")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(336, 54)
 shape = SubResource("RectangleShape2D_0hbed")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(720.5, 120)
 shape = SubResource("RectangleShape2D_w5xrp")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(992, 24)
 shape = SubResource("RectangleShape2D_drjen")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(913, -109)
 shape = SubResource("RectangleShape2D_3ythc")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(785, -237)
 shape = SubResource("RectangleShape2D_rb2ee")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(752, -264)
 shape = SubResource("RectangleShape2D_wiufl")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(586, -193.5)
 shape = SubResource("RectangleShape2D_j1ksp")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(272.5, -104)
 shape = SubResource("RectangleShape2D_b6ak0")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(144, -86)
 shape = SubResource("RectangleShape2D_lu38k")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(-86, -353)
 shape = SubResource("RectangleShape2D_rm71a")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(246, -385.5)
 shape = SubResource("RectangleShape2D_2xi4n")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(458, -401.5)
 shape = SubResource("RectangleShape2D_gn2qa")
 
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(496, -394)
 shape = SubResource("RectangleShape2D_5by5q")
 
 [node name="ElevationTransitionArea2" parent="." instance=ExtResource("16_15iss")]
-elevation = 1
+elevation = "Two"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea2"]
 position = Vector2(128.5, 109)

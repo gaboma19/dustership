@@ -224,36 +224,37 @@ position = Vector2(0, -6)
 path = "res://scenes/levels/echelon/echelon_level_0.tscn"
 new_player_position = Vector2(0, 104)
 
-[node name="ElevationTransitionArea" parent="." instance=ExtResource("10_i8o2h")]
+[node name="ElevationTransitionArea1" parent="." instance=ExtResource("10_i8o2h")]
 position = Vector2(160, 384)
+elevation = "One"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(-22, 15)
 shape = SubResource("RectangleShape2D_02bl3")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(-256, 74)
 shape = SubResource("RectangleShape2D_uwhto")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(176, 311)
 shape = SubResource("RectangleShape2D_6hot1")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(400, 247)
 shape = SubResource("RectangleShape2D_vfxky")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(-248, 238.5)
 shape = SubResource("RectangleShape2D_on6it")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="ElevationTransitionArea"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="ElevationTransitionArea1"]
 position = Vector2(-368, 328)
 shape = SubResource("RectangleShape2D_pfbq5")
 
 [node name="ElevationTransitionArea2" parent="." instance=ExtResource("10_i8o2h")]
 position = Vector2(87, 353)
-elevation = 1
+elevation = "Two"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevationTransitionArea2"]
 position = Vector2(-10, 16)
