@@ -30,8 +30,6 @@ func hit(damage: int):
 	health_component.damage(damage)
 	
 	emit_floating_text(damage)
-	
-	HitStop.slow_motion_short()
 
 
 func stun(stun_duration: float):

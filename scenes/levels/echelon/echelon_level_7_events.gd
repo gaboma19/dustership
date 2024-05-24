@@ -91,10 +91,6 @@ func on_body_entered_trap(player: Player):
 	cube.speak(CUBE_LINES)
 	await DialogueManager.finished_dialogue
 	
-	var face_direction = april.global_position.direction_to(
-		boss_door_1.global_position)
-	april.update_blend_position(face_direction)
-	
 	boss_door_1.close()
 	boss_door_1.set_interactable(false)
 	boss_door_2.set_interactable(false)

@@ -116,9 +116,14 @@ position = Vector2(-53, 52)
 inventory_item = ExtResource("9_5wvs0")
 chest_id = "echelon5_chest0"
 
+[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
+animation = &"chest_isometric"
+
 [node name="LevelTransitionArea" parent="." instance=ExtResource("8_y6pck")]
 path = "res://scenes/levels/echelon/echelon_level_3.tscn"
-new_player_position = Vector2(874, 93)
+new_player_position = Vector2(432, 272)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 polygon = PackedVector2Array(-62, 115, -30, 131, -46, 139, -78, 123)
+
+[editable path="Entities/Chest"]

@@ -28,6 +28,7 @@ func set_opened(value: bool):
 func open():
 	animation_player.play("open")
 	interaction_area.monitoring = false
+	$AudioStreamPlayer2D.play()
 
 
 func on_interact():

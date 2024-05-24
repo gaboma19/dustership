@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://bey7edubynppe" path="res://scenes/tilemaps/echelon_tilemap.tscn" id="5_7u4al"]
 [ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tilemaps/echelon_decoration_tiles.tscn" id="6_6j5xs"]
-[ext_resource type="TileSet" uid="uid://bstngg7fa12di" path="res://scenes/tilemaps/echelon_tile_set_2.tres" id="6_mlkq7"]
-[ext_resource type="TileSet" uid="uid://bj7nf381gptk8" path="res://scenes/tilemaps/echelon_tile_set_1.tres" id="6_ysrik"]
+[ext_resource type="TileSet" uid="uid://cnre673f35nqk" path="res://scenes/tilemaps/echelon_tile_set_2.tres" id="6_mlkq7"]
+[ext_resource type="TileSet" uid="uid://cgqn4mfoqk5oa" path="res://scenes/tilemaps/echelon_tile_set_1.tres" id="6_ysrik"]
 [ext_resource type="PackedScene" uid="uid://t4655rf1h8l6" path="res://scenes/entities/doodads/aprils_apartment_exterior.tscn" id="7_jynwh"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="7_xv1qq"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="8_l06in"]
@@ -173,13 +173,13 @@ position = Vector2(-64, 528)
 position = Vector2(-64, 496)
 
 [node name="Philo25" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(-112, 560)
+position = Vector2(-272, 752)
 
 [node name="Philo26" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(-96, 544)
+position = Vector2(-256, 736)
 
 [node name="Philo27" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(-80, 560)
+position = Vector2(-240, 752)
 
 [node name="Philo28" parent="Entities" instance=ExtResource("12_xtur6")]
 position = Vector2(160, 800)
@@ -191,13 +191,13 @@ position = Vector2(176, 784)
 position = Vector2(208, 784)
 
 [node name="Philo31" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(176, 848)
+position = Vector2(496, 768)
 
 [node name="Philo32" parent="Entities" instance=ExtResource("12_xtur6")]
 position = Vector2(240, 832)
 
 [node name="Philo33" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(208, 880)
+position = Vector2(528, 800)
 
 [node name="Philo34" parent="Entities" instance=ExtResource("12_xtur6")]
 position = Vector2(192, 816)
@@ -206,7 +206,7 @@ position = Vector2(192, 816)
 position = Vector2(128, 816)
 
 [node name="Philo36" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(224, 848)
+position = Vector2(544, 768)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
