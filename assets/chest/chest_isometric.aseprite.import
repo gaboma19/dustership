@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://vjll8txacxmd"
+path="res://.godot/imported/chest_isometric.aseprite-138d12b836a9ab66e7ec043a484d39ee.res"
+
+[deps]
+
+source_file="res://assets/chest/chest_isometric.aseprite"
+dest_files=["res://.godot/imported/chest_isometric.aseprite-138d12b836a9ab66e7ec043a484d39ee.res"]
+
+[params]
+

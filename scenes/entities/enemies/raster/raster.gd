@@ -10,6 +10,12 @@ func _process(_delta):
 		set_moving(false)
 	else:
 		set_moving(true)
+		update_blend_position(velocity.x)
+
+
+func update_blend_position(direction: float):
+	animation_tree["parameters/walk/BlendSpace1D/blend_position"] = direction
+	animation_tree["parameters/idle/BlendSpace1D/blend_position"] = direction
 
 
 func set_moving(value):

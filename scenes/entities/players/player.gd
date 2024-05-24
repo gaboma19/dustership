@@ -89,7 +89,7 @@ func set_flying(value: bool):
 	if value:
 		set_collision_mask(0b10000001)
 	else:
-		set_collision_mask(0b10100001)
+		set_collision_mask(0b1010100001)
 
 
 func on_hurtbox_area_entered(other_area: Area2D):

@@ -76,7 +76,6 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_s8eef"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7jgiu"]
-graph_offset = Vector2(-138.523, 57.1755)
 nodes/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_wm4bl")
 nodes/BlendSpace1D/position = Vector2(120, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_s8eef")
@@ -301,7 +300,7 @@ radius = 9.0
 
 [node name="Raster" type="CharacterBody2D"]
 collision_layer = 256
-collision_mask = 289
+collision_mask = 801
 script = ExtResource("1_20mlh")
 
 [node name="HealthComponent" parent="." instance=ExtResource("1_x05dx")]
@@ -344,7 +343,7 @@ parameters/conditions/is_moving = false
 parameters/attack/TimeScale/scale = 1.0
 parameters/idle/BlendSpace1D/blend_position = 0
 parameters/idle/TimeScale/scale = 1.0
-parameters/walk/BlendSpace1D/blend_position = 0
+parameters/walk/BlendSpace1D/blend_position = 0.0
 parameters/walk/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -388,6 +387,7 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

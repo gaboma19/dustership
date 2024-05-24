@@ -614,6 +614,7 @@ size = Vector2(8, 4)
 
 [node name="Gabriel" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
+collision_mask = 673
 motion_mode = 1
 script = ExtResource("1_1rubt")
 
@@ -671,9 +672,6 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_vs3ls")
-}
 tree_root = SubResource("AnimationNodeStateMachine_dps2l")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true

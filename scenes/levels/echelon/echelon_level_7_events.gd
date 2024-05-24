@@ -31,7 +31,8 @@ const PHILO_SCENE = preload("res://scenes/entities/enemies/philo/philo.tscn")
 const CACTUS_KNIGHT_SCENE = preload(
 	"res://scenes/entities/enemies/cactus_knight/cactus_knight.tscn")
 
-@export var boss_moving_platform: Node2D
+@export var boss_door_1: Node2D
+@export var boss_door_2: Node2D
 
 var cube: Player
 var april: Player
@@ -41,7 +42,6 @@ var philo_spawn_points: Array[Node]
 @onready var boss_platform = $BossPlatform
 @onready var trap_area = $TrapArea
 @onready var entities_layer = get_tree().get_first_node_in_group("entities")
-@onready var invisible_wall = $InvisibleWall
 
 
 func _ready():
@@ -82,18 +82,18 @@ func spawn_philo():
 func on_body_entered_trap(player: Player):
 	trap_area.set_deferred("monitoring", false)
 	
-	invisible_wall.set_collision_layer_value(1, true)
-	
 	player.state_machine.transition_to("Hold")
 	PartyManager.disable_switch_character(true)
-	
-	boss_moving_platform.move_without_player()
 
 	cube = PartyManager.get_cube()
 	april = PartyManager.get_april()
 	
 	cube.speak(CUBE_LINES)
 	await DialogueManager.finished_dialogue
+	
+	boss_door_1.close()
+	boss_door_1.set_interactable(false)
+	boss_door_2.set_interactable(false)
 	
 	var cactus_knight = CACTUS_KNIGHT_SCENE.instantiate()
 	entities_layer.call_deferred("add_child", cactus_knight)
@@ -117,8 +117,8 @@ func on_body_entered_trap(player: Player):
 
 
 func on_cactus_knight_died():
-	boss_moving_platform.move_without_player()
-	boss_moving_platform.finished_moving.connect(on_moving_platform_finished_moving)
+	boss_door_1.open()
+	boss_door_2.set_interactable(true)
 	
 	cube.speak(CUBE_LINES_2)
 	await DialogueManager.finished_dialogue
@@ -131,7 +131,3 @@ func on_cactus_knight_died():
 	cube.speak(CUBE_LINES_4)
 	await DialogueManager.finished_dialogue
 	april.speak(APRIL_LINES_4)
-
-
-func on_moving_platform_finished_moving():
-	invisible_wall.set_collision_layer_value(1, false)

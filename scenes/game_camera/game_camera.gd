@@ -1,7 +1,6 @@
 extends Camera2D
 
-@onready var tile_map: TileMap = $"../TileMap"
-
+@export var tile_map: TileMap
 @export var custom_limit_left: int
 @export var custom_limit_right: int
 @export var custom_limit_top: int
@@ -12,7 +11,7 @@ var target_position = Vector2.ZERO
 
 func _ready():
 	make_current()
-	set_camera_limits()
+	#set_camera_limits()
 
 
 func _process(delta):
@@ -29,6 +28,9 @@ func acquire_target():
 
 
 func set_camera_limits():
+	if tile_map == null:
+		return
+	
 	var map_limits = tile_map.get_used_rect()
 
 	var local_left = tile_map.map_to_local(
