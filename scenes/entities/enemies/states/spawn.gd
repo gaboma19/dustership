@@ -13,12 +13,16 @@ func enter(_msg := {}) -> void:
 		"dissolve_texture", sprite.texture)
 	# inconsistent behavior when using "shader_parameter/parameter_name" or "parameter_name" as the argument to set_shader_parameter(). ref: https://www.reddit.com/r/godot/comments/17eanmn/why_cant_i_set_a_shader_parameter_in_code_godot_4/
 	
+	spawn()
+
+
+func spawn():
 	sprite.scale = Vector2(3, 3)
 	hurtbox_component.monitoring = false
 	
 	var tween = create_tween()
 	tween.set_parallel()
-	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 0, 0)
+	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 0.5, 0)
 	tween.chain()
 	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 1.0, 1.6)
 	tween.tween_property(sprite, "scale", Vector2.ONE, 1.6)
