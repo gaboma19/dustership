@@ -242,7 +242,7 @@ size = Vector2(32, 20)
 [node name="EchelonLevel7" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_puqqw")
-map_pin_cell = Vector2i(23, 6)
+map_pin_cell = Vector2i(46, -4)
 game_start = NodePath("GameStart")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_46e5u")]

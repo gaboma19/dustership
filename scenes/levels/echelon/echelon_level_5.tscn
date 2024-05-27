@@ -53,7 +53,7 @@ _data = {
 y_sort_enabled = true
 script = ExtResource("1_eilwh")
 is_camera_static = true
-map_pin_cell = Vector2i(25, -8)
+map_pin_cell = Vector2i(28, -19)
 game_start = NodePath("GameStart")
 
 [node name="Cutscene" type="Node" parent="."]

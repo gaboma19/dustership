@@ -72,7 +72,7 @@ radius = 16.0
 y_sort_enabled = true
 script = ExtResource("1_qfi3h")
 is_camera_static = true
-map_pin_cell = Vector2i(4, 0)
+map_pin_cell = Vector2i(2, 2)
 game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]

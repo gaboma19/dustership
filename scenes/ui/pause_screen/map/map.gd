@@ -7,10 +7,6 @@ extends PanelContainer
 func _process(_delta):
 	var movement_vector = get_movement_vector()
 	map_tiles.translate(movement_vector)
-	map_tiles.position.x = clamp(
-		map_tiles.position.x, map_tiles.map_x_minimum, map_tiles.map_x_maximum)
-	map_tiles.position.y = clamp(
-		map_tiles.position.y, map_tiles.map_y_minimum, map_tiles.map_y_maximum)
 
 
 func get_movement_vector() -> Vector2:

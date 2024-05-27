@@ -5,6 +5,6 @@
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_rkmaf")
-shader_parameter/speed = 1.0
-shader_parameter/tint = Color(1, 1, 1, 1)
-shader_parameter/span = 0.3
+shader_parameter/speed = 0.5
+shader_parameter/tint = Color(0.258824, 0.756863, 0.92549, 1)
+shader_parameter/span = 1.0

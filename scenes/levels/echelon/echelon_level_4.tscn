@@ -14,7 +14,7 @@
 y_sort_enabled = true
 script = ExtResource("1_jyh8u")
 is_camera_static = true
-map_pin_cell = Vector2i(5, -10)
+map_pin_cell = Vector2i(13, -19)
 game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
