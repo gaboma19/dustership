@@ -1,13 +1,14 @@
-[gd_scene load_steps=38 format=3 uid="uid://bfc18wt45wp1g"]
+[gd_scene load_steps=40 format=3 uid="uid://bfc18wt45wp1g"]
 
-[ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz.png" id="1_l2jjt"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz.gd" id="1_xftwm"]
-[ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_0h2fp"]
-[ext_resource type="Material" uid="uid://bj8p1movfwggt" path="res://resources/materials/hologram.tres" id="3_fddcy"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_bja37"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="6_jp7bl"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="7_hxayt"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_idle.gd" id="8_313ik"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_npc.gd" id="1_1oro5"]
+[ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_wcg1t"]
+[ext_resource type="Material" uid="uid://bj8p1movfwggt" path="res://resources/materials/hologram.tres" id="3_e3qcu"]
+[ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz.png" id="4_5nev1"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_xe8m4"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="6_pools"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="7_gxyos"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_idle.gd" id="8_wuqim"]
+[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="9_o7wr0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7bad"]
 animation = &"idle_down"
@@ -332,17 +333,20 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2ky"]
-size = Vector2(64, 64)
+size = Vector2(160, 40)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n454p"]
+radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uih34"]
 radius = 5.0
 height = 16.0
 
-[node name="TelitzDenz" type="CharacterBody2D"]
-script = ExtResource("1_xftwm")
+[node name="TelitzDenzNpc" type="CharacterBody2D"]
+script = ExtResource("1_1oro5")
 
 [node name="VelocityComponent" type="Node" parent="."]
-script = ExtResource("2_0h2fp")
+script = ExtResource("2_wcg1t")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_5n1xr")
@@ -360,17 +364,25 @@ libraries = {
 }
 
 [node name="AmbushRangeArea" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AmbushRangeArea"]
-visible = false
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_dr2ky")
 
+[node name="InteractionArea" type="Area2D" parent="."]
+visible = false
+script = ExtResource("9_o7wr0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_n454p")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-material = ExtResource("3_fddcy")
+material = ExtResource("3_e3qcu")
 position = Vector2(2, -7)
-texture = ExtResource("1_l2jjt")
+texture = ExtResource("4_5nev1")
 hframes = 6
 vframes = 5
 metadata/_aseprite_wizard_config_ = {
@@ -398,14 +410,15 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_uih34")
 
 [node name="StateMachine" type="Node" parent="."]
-script = ExtResource("5_bja37")
+script = ExtResource("5_xe8m4")
+initial_state = NodePath("Ambush")
 
 [node name="Ambush" type="Node" parent="StateMachine" node_paths=PackedStringArray("ambush_range_area")]
-script = ExtResource("6_jp7bl")
+script = ExtResource("6_pools")
 ambush_range_area = NodePath("../../AmbushRangeArea")
 
 [node name="Spawn" type="Node" parent="StateMachine"]
-script = ExtResource("7_hxayt")
+script = ExtResource("7_gxyos")
 
 [node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("8_313ik")
+script = ExtResource("8_wuqim")
