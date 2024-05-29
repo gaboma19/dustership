@@ -1,15 +1,21 @@
 extends CanvasLayer
 
-signal closed
+signal closed(msg)
 
 var is_closing: bool
 var is_opening: bool
 
 @onready var panel_container = %PanelContainer
+@onready var item_get_container = %ItemGetContainer
+@onready var decision_container = %DecisionContainer
+@onready var yes_button = %YesButton
+@onready var no_button = %NoButton
 
 
 func _ready():
 	%OKButton.pressed.connect(on_ok_button_pressed)
+	yes_button.pressed.connect(on_yes_button_pressed)
+	no_button.pressed.connect(on_no_button_pressed)
 	visible = false
 
 
@@ -26,8 +32,10 @@ func open_pop_up(
 		item: InventoryItem,
 		label_text: String = item.pop_up_text):
 	visible = true
+	item_get_container.show()
 	get_tree().paused = true
 	animate_open()
+	%OKButton.grab_focus()
 	
 	%TextureRect.texture = item.texture
 	%Label.text = label_text
@@ -45,7 +53,6 @@ func animate_open():
 	
 	await tween.finished
 	is_opening = false
-	%OKButton.grab_focus()
 
 
 func close():
@@ -68,7 +75,8 @@ func close():
 	visible = false
 	%SwordTutorial.visible = false
 	%PartyTutorial.visible = false
-	closed.emit()
+	item_get_container.hide()
+	decision_container.hide()
 
 
 func set_sword_instructions():
@@ -79,11 +87,31 @@ func open_party_instructions():
 	visible = true
 	get_tree().paused = true
 	animate_open()
+	%OKButton.grab_focus()
 	
 	%TextureRect.texture = preload("res://assets/cube/cube_texture.png")
 	%Label.text = "Cube joins the party!"
 	%PartyTutorial.visible = true
 
 
+func open_decision_container():
+	show()
+	decision_container.show()
+	get_tree().paused = true
+	animate_open()
+	yes_button.grab_focus()
+
+
 func on_ok_button_pressed():
 	close()
+	closed.emit()
+
+
+func on_yes_button_pressed():
+	close()
+	closed.emit("Yes")
+
+
+func on_no_button_pressed():
+	close()
+	closed.emit("No")

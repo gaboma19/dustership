@@ -90,21 +90,23 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+[node name="ItemGetContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 8
 
-[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_type_variation = &"PanelContainerLight"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PanelContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/HBoxContainer/PanelContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
@@ -112,155 +114,180 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/HBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Found a key!"
 horizontal_alignment = 1
 
-[node name="PartyTutorial" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="PartyTutorial" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "Press"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_geuv0")
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "or"
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_4nbcf")
 
-[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 text = "to switch the active party member."
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "Press"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 texture = ExtResource("4_yls8d")
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 text = "to toggle between Follow and Hold position."
 
-[node name="SwordTutorial" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="SwordTutorial" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer"]
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="SwordInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer"]
+[node name="SwordInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Press" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
+[node name="Press" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
 layout_mode = 2
 text = "Press"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
 layout_mode = 2
 texture = ExtResource("3_7d17u")
 
-[node name="or" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
+[node name="or" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
 layout_mode = 2
 text = "or"
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
 layout_mode = 2
 texture = ExtResource("4_hlg28")
 
-[node name="to attack" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
+[node name="to attack" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/SwordInstructions"]
 layout_mode = 2
 text = "to attack."
 
-[node name="DodgeInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer"]
+[node name="DodgeInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
 layout_mode = 2
 text = "Press"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
 layout_mode = 2
 texture = ExtResource("7_mpr4j")
 
-[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+[node name="Label2" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
 layout_mode = 2
 text = "or"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("8_dav17")
 
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("9_4r0c4")
 
-[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
+[node name="Label3" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/DodgeInstructions"]
 layout_mode = 2
 text = "to dodge."
 
-[node name="MenuInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer"]
+[node name="MenuInstructions" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 
-[node name="Press" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
+[node name="Press" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
 layout_mode = 2
 text = "Press"
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
 layout_mode = 2
 texture = ExtResource("5_r08hp")
 
-[node name="or" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
+[node name="or" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
 layout_mode = 2
 text = "or"
 
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
 layout_mode = 2
 texture = ExtResource("6_tcwtl")
 
-[node name="to attack" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
+[node name="to attack" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/SwordTutorial/VBoxContainer/MenuInstructions"]
 layout_mode = 2
 text = "to open the menu."
 
-[node name="OKButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" instance=ExtResource("9_dryly")]
+[node name="OKButton" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer" instance=ExtResource("9_dryly")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 text = "OK"
+
+[node name="DecisionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer"]
+layout_mode = 2
+text = "Will you help Telitz Denz?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="YesButton" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer/HBoxContainer" instance=ExtResource("9_dryly")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "Yes"
+
+[node name="NoButton" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer/HBoxContainer" instance=ExtResource("9_dryly")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+text = "No"
 
 [node name="NextIndicator" type="TextureRect" parent="MarginContainer/PanelContainer"]
 layout_mode = 2

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dl1i1ytfm3yq8"]
+[gd_scene load_steps=5 format=3 uid="uid://dl1i1ytfm3yq8"]
 
 [ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_2lki5"]
 [ext_resource type="Texture2D" uid="uid://cttyxcdbb3i6i" path="res://assets/backgrounds/echelon_parallax/Layer 2.png" id="2_asilx"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_background/clouds.gd" id="2_tyhj0"]
+[ext_resource type="Material" uid="uid://ccbiyesa1bsn4" path="res://resources/materials/echelon_background.tres" id="3_wrhpp"]
 
 [node name="EchelonBackground" type="ParallaxBackground"]
 
@@ -33,6 +34,7 @@ script = ExtResource("2_tyhj0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Clouds"]
 texture_filter = 1
+material = ExtResource("3_wrhpp")
 texture = ExtResource("2_asilx")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,

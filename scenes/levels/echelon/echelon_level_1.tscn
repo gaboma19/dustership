@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c07831odmeqpn"]
+[gd_scene load_steps=32 format=3 uid="uid://c07831odmeqpn"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_eqcm2"]
@@ -17,6 +17,18 @@
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="12_xtur6"]
 [ext_resource type="PackedScene" uid="uid://bh0460g3b4757" path="res://scenes/tilemaps/elevation_velocity_bias_area/elevation_velocity_bias_area.tscn" id="13_ihls5"]
 [ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/telitz_denz/telitz_denz_npc.tscn" id="13_uls1k"]
+[ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="14_txqau"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e5cyk"]
+resource_local_to_scene = true
+shader = ExtResource("14_txqau")
+shader_parameter/lines = 100
+shader_parameter/color1 = Color(0.258824, 0.756863, 0.92549, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/speed = 0.01
+shader_parameter/alpha = 1.0
+shader_parameter/noise_amount = 0.1
+shader_parameter/effect_factor = 0.4
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rdv5"]
 size = Vector2(160, 160)
@@ -87,6 +99,7 @@ layer_5/tile_data = PackedInt32Array(720898, 458763, 1, 786434, 458763, 3, 85196
 position = Vector2(0, 16)
 
 [node name="GameCamera" parent="." node_paths=PackedStringArray("tile_map") instance=ExtResource("3_8drjm")]
+position = Vector2(0, 16)
 tile_map = NodePath("../EchelonTileMap1")
 custom_limit_right = 896
 custom_limit_bottom = 584
@@ -102,31 +115,31 @@ inventory_item = ExtResource("11_3cngt")
 chest_id = "echelon1_chest0"
 
 [node name="Philo" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(384, 80)
+position = Vector2(528, 192)
 
 [node name="Philo2" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(400, 64)
+position = Vector2(544, 176)
 
 [node name="Philo3" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(416, 80)
+position = Vector2(560, 192)
 
 [node name="Philo4" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(432, 96)
+position = Vector2(576, 208)
 
 [node name="Philo5" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(448, 80)
+position = Vector2(592, 192)
 
 [node name="Philo6" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(464, 96)
+position = Vector2(608, 208)
 
 [node name="Philo7" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(400, 112)
+position = Vector2(544, 224)
 
 [node name="Philo8" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(416, 96)
+position = Vector2(560, 208)
 
 [node name="Philo9" parent="Entities" instance=ExtResource("12_xtur6")]
-position = Vector2(432, 112)
+position = Vector2(576, 224)
 
 [node name="Philo10" parent="Entities" instance=ExtResource("12_xtur6")]
 position = Vector2(368, 288)
@@ -210,10 +223,16 @@ position = Vector2(128, 816)
 position = Vector2(544, 768)
 
 [node name="TelitzDenzNpc" parent="Entities" instance=ExtResource("13_uls1k")]
-position = Vector2(560, 144)
+position = Vector2(464, 32)
+
+[node name="AmbushRangeArea" parent="Entities/TelitzDenzNpc" index="3"]
+visible = true
 
 [node name="CollisionShape2D" parent="Entities/TelitzDenzNpc/AmbushRangeArea" index="0"]
-position = Vector2(0, 4)
+position = Vector2(0, 32)
+
+[node name="Sprite2D" parent="Entities/TelitzDenzNpc" index="5"]
+material = SubResource("ShaderMaterial_e5cyk")
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

@@ -5,9 +5,9 @@
 [ext_resource type="Material" uid="uid://bj8p1movfwggt" path="res://resources/materials/hologram.tres" id="3_e3qcu"]
 [ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz.png" id="4_5nev1"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_xe8m4"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="6_pools"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="7_gxyos"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_idle.gd" id="8_wuqim"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_ambush.gd" id="7_g4mkc"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_spawn.gd" id="8_mfvb5"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene.gd" id="9_5ok04"]
 [ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="9_o7wr0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7bad"]
@@ -333,10 +333,10 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2ky"]
-size = Vector2(160, 40)
+size = Vector2(32, 128)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n454p"]
-radius = 16.0
+radius = 32.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uih34"]
 radius = 5.0
@@ -365,14 +365,18 @@ libraries = {
 
 [node name="AmbushRangeArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AmbushRangeArea"]
 position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_dr2ky")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("9_o7wr0")
+action_name = "Talk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 position = Vector2(0, -8)
@@ -414,11 +418,11 @@ script = ExtResource("5_xe8m4")
 initial_state = NodePath("Ambush")
 
 [node name="Ambush" type="Node" parent="StateMachine" node_paths=PackedStringArray("ambush_range_area")]
-script = ExtResource("6_pools")
+script = ExtResource("7_g4mkc")
 ambush_range_area = NodePath("../../AmbushRangeArea")
 
 [node name="Spawn" type="Node" parent="StateMachine"]
-script = ExtResource("7_gxyos")
+script = ExtResource("8_mfvb5")
 
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("8_wuqim")
+[node name="Scene" type="Node" parent="StateMachine"]
+script = ExtResource("9_5ok04")
