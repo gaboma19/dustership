@@ -12,6 +12,11 @@ func enter(_msg := {}) -> void:
 
 
 func on_body_entered(body: Node2D):
+	if not EntityVariables.conversations[telitz_denz.conversation_id].interacted:
+		EntityVariables.conversations[telitz_denz.conversation_id].interacted = true
+	else:
+		return
+	
 	var player = PartyManager.get_active_member()
 	if body != player:
 		return

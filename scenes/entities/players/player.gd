@@ -95,5 +95,8 @@ func on_hurtbox_area_entered(other_area: Area2D):
 	if not other_area is HitboxComponent:
 		return
 	
+	if DialogueManager.is_dialogue_active:
+		return
+	
 	var hitbox_component = other_area as HitboxComponent
 	damage_player(hitbox_component.damage)

@@ -11,6 +11,7 @@ func _ready():
 		enabled = true
 		PlayerVariables.has_sword = true
 		PlayerVariables.has_gun = true
+		#Inventory.add_item(preload("res://resources/inventory_item/items/identity_core.tres"))
 	
 	if enabled:
 		PlayerVariables.enable_game_start = false

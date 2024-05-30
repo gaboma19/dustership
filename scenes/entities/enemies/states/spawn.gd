@@ -36,4 +36,6 @@ func on_tween_callback():
 		hit_flash_component.set_sprite_material()
 	hurtbox_component.monitoring = true
 	
+	await get_tree().create_timer(0.6).timeout
+	
 	state_machine.transition_to("Idle")
