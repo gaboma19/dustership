@@ -33,8 +33,8 @@ func open_pop_up(
 		label_text: String = item.pop_up_text):
 	visible = true
 	item_get_container.show()
-	get_tree().paused = true
 	animate_open()
+	get_tree().paused = true
 	%OKButton.grab_focus()
 	
 	%TextureRect.texture = item.texture
@@ -48,8 +48,8 @@ func animate_open():
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0)
-	tween.tween_property(panel_container, "scale", Vector2.ONE, 0.3)\
-	.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(panel_container, "scale", Vector2.ONE, 0.3) \
+		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	await tween.finished
 	is_opening = false
@@ -65,8 +65,8 @@ func close():
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0)
-	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0.3)\
-	.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(panel_container, "scale", Vector2.ZERO, 0.3) \
+		.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK)
 	
 	await tween.finished
 	
@@ -85,14 +85,14 @@ func set_sword_instructions():
 
 func open_party_instructions():
 	visible = true
-	get_tree().paused = true
-	animate_open()
 	item_get_container.show()
+	%PartyTutorial.show()
+	animate_open()
 	%OKButton.grab_focus()
+	get_tree().paused = true
 	
 	%TextureRect.texture = preload("res://assets/cube/cube_texture.png")
 	%Label.text = "Cube joins the party!"
-	%PartyTutorial.visible = true
 
 
 func open_decision_container():
