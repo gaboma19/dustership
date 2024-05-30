@@ -21,5 +21,5 @@ func dash():
 	
 	var direction = owner.global_position.direction_to(player.global_position)
 	var tween = create_tween()
-	tween.tween_property(owner, "position", direction * 6, 0.1) \
+	tween.tween_property(owner, "position", direction * 10, 0.1) \
 		.set_ease(Tween.EASE_IN).as_relative()

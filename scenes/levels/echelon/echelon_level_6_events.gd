@@ -29,7 +29,7 @@ func spawn_philo_group():
 	var point = philo_spawn_points.pop_front()
 	if philo_spawn_points.is_empty():
 		set_philo_spawn_points()
-	for n in 4:
+	for n in 2:
 		number_spawned_enemies += 1
 		
 		var philo = philo_scene.instantiate()
@@ -52,7 +52,7 @@ func spawn_raster_group():
 	if number_raster_groups == 2:
 		$RasterTimer.wait_time *= 2
 	
-	if number_raster_groups == 4:
+	if number_raster_groups == 3:
 		$PhiloTimer.stop()
 		$RasterTimer.stop()
 		is_done_spawning = true
