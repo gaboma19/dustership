@@ -13,7 +13,8 @@ func enter(_msg := {}) -> void:
 	enemy.velocity_component.acceleration *= 4
 	
 	var player = PartyManager.get_active_member()
-	target_point = player.global_position
+	if player != null:
+		target_point = player.global_position
 	
 	enemy.animation_state_machine.travel("morph")
 

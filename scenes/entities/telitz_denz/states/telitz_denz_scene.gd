@@ -13,7 +13,7 @@ const APRIL_LINES_1: Array[String] = [
 
 const TELITZ_LINES_2: Array[String] = [
 	"I believe the contract you are referring to expired years ago.",
-	"Even so, there's no way to capture me from this place, April."
+	"Even so, there's no way to capture me from the Echelon, April."
 ]
 
 const APRIL_LINES_2: Array[String] = [
