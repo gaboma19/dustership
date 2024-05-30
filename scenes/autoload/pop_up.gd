@@ -87,6 +87,7 @@ func open_party_instructions():
 	visible = true
 	get_tree().paused = true
 	animate_open()
+	item_get_container.show()
 	%OKButton.grab_focus()
 	
 	%TextureRect.texture = preload("res://assets/cube/cube_texture.png")
