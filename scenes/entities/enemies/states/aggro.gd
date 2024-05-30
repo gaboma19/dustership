@@ -17,23 +17,15 @@ func enter(_msg := {}) -> void:
 func update(_delta: float) -> void:
 	enemy.velocity_component.accelerate_to_player()
 	enemy.velocity_component.move(enemy)
-	
-	
-func floating_text_start(text: String):
-	if is_inside_tree():
-		var floating_text = floating_text_scene.instantiate() as Node2D
-		var foreground_layer = get_tree().get_first_node_in_group("foreground")
-		if foreground_layer != null:
-			foreground_layer.add_child(floating_text)
-		floating_text.global_position = enemy.global_position + (Vector2.UP * 16)
-		floating_text.start(text)
 
 
 func on_body_exited(_body: Node2D):
-	# floating_text_start("?")
+	state_machine.transition_to("Chase")
+
+
+func on_attack_range_body_entered(body: Node2D):
+	var player = PartyManager.get_active_member()
+	if body != player:
+		return
 	
-	state_machine.transition_to("Idle")
-
-
-func on_attack_range_body_entered(_body: Node2D):
 	state_machine.transition_to("Attack")

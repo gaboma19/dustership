@@ -25,7 +25,6 @@ func update(_float) -> void:
 	var distance = enemy.global_position.distance_to(
 		boss_platform.global_position)
 	if distance > 1:
-		print(distance)
 		enemy.velocity_component.accelerate_to_point(
 			boss_platform.global_position)
 		enemy.velocity_component.move(enemy)

@@ -8,5 +8,5 @@ script = ExtResource("1_qt1de")
 name = "health_tonic"
 texture = ExtResource("2_ajdh1")
 is_usable = true
-description = "The latest in healing technology from the Everything Company. Restores 5 hit points on use."
+description = "A general purpose pharmaceutical from the Everything Company. Tastes pleasantly bittersweet. Restores 5 hit points on use."
 pop_up_text = "Found a health tonic!"

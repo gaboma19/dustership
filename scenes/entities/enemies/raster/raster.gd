@@ -23,10 +23,6 @@ func set_moving(value):
 	animation_tree.set("parameters/conditions/is_moving", value)
 
 
-func set_attacking(value):
-	animation_tree.set("parameters/conditions/is_attacking", value)
-
-
 func set_stunned(value: bool):
 	if value:
 		animation_tree.set("parameters/idle/TimeScale/scale", 0)

@@ -1681,6 +1681,27 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
+[node name="ReticleSprite2" type="Sprite2D" parent="AttackSpawn/ReticleSprite"]
+unique_name_in_owner = true
+texture_filter = 1
+texture = ExtResource("6_nta0a")
+offset = Vector2(86, 0)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/cube",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/cube/reticle.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"output_section": true
+}
+
 [node name="CubeLaser" parent="AttackSpawn" instance=ExtResource("7_kjrqo")]
 unique_name_in_owner = true
 

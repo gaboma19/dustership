@@ -1,6 +1,7 @@
 extends EnemyAttack
 
-@onready var projectile_array_scene = preload("res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile_array.tscn")
+@onready var projectile_array_scene = preload(
+	"res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile_array.tscn")
 
 @export var damage: int = 1
 

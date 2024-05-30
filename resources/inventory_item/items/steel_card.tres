@@ -9,6 +9,6 @@ script = ExtResource("1_ufcc2")
 name = "steel_card"
 texture = ExtResource("2_q5ecf")
 is_usable = true
-description = "A chip card that contains some amount of money, in a currency called \"steel\". Use to add steel to your wallet."
+description = "A chip card that contains some amount of money, convertible to units of Gauchan steel."
 pop_up_text = "Found a steel card!"
 audio_stream = ExtResource("1_h3b0w")

@@ -9,6 +9,7 @@ const HIT_FLASH_MATERIAL = preload("res://resources/materials/hit_flash_material
 const ECHELON_PORTAL = preload("res://resources/materials/echelon_portal.tres")
 const SPAWN_MATERIAL = preload("res://resources/materials/spawn_material.tres")
 const STUN = preload("res://resources/materials/stun.tres")
+const HOLOGRAM = preload("res://resources/materials/hologram.tres")
 
 var particle_materials = [
 	DEATH_COMPONENT_MATERIAL,
@@ -20,7 +21,8 @@ var shader_materials = [
 	HIT_FLASH_MATERIAL,
 	SPAWN_MATERIAL,
 	ECHELON_PORTAL,
-	STUN
+	STUN,
+	HOLOGRAM
 ]
 
 var frames = 0

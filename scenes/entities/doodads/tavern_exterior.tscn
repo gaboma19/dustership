@@ -1,5 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ybu3bew6102p"]
+[gd_scene load_steps=4 format=3 uid="uid://ybu3bew6102p"]
 
+[ext_resource type="Material" uid="uid://bj8p1movfwggt" path="res://resources/materials/hologram.tres" id="1_k6wcr"]
 [ext_resource type="Texture2D" uid="uid://csj3n6cehtp4g" path="res://assets/doodads/tavern_exterior.png" id="1_v5tds"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dh0h4"]
@@ -9,6 +10,7 @@ size = Vector2(224, 94)
 collision_mask = 0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_k6wcr")
 position = Vector2(0, -93)
 texture = ExtResource("1_v5tds")
 offset = Vector2(0, 26)

@@ -1,8 +1,10 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://1ppa3tvacten"]
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1ppa3tvacten"]
 
 [ext_resource type="Shader" path="res://resources/materials/spawn.gdshader" id="1_nfide"]
+[ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz.png" id="2_mdk0l"]
 
 [resource]
 resource_local_to_scene = true
 shader = ExtResource("1_nfide")
 shader_parameter/dissolve_value = 1.0
+shader_parameter/dissolve_texture = ExtResource("2_mdk0l")
