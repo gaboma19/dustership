@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=3 uid="uid://crn0k4nf1fvyl"]
+
+[ext_resource type="Script" path="res://scenes/entities/prickly_pear/prickly_pear.gd" id="1_hr0l3"]
+[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_36fo5"]
+[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_sta3n"]
+[ext_resource type="Texture2D" uid="uid://c0fdvisl6jlk" path="res://assets/prickly_pear/prickly_pear.png" id="3_r7mk1"]
+[ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="4_81el8"]
+[ext_resource type="Texture2D" uid="uid://dlx21fgr0tn4q" path="res://assets/prickly_pear/prickly_pear_needles.png" id="5_7trsr"]
+[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="7_1ee8u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fkcdh"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_li07f"]
+size = Vector2(16, 16)
+
+[node name="PricklyPear" type="StaticBody2D"]
+script = ExtResource("1_hr0l3")
+
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("2_36fo5")]
+visible = false
+health_component = NodePath("../HealthComponent")
+stun_component = NodePath("../StunComponent")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+shape = SubResource("RectangleShape2D_fkcdh")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_sta3n")]
+
+[node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_1ee8u")]
+health_component = NodePath("../HealthComponent")
+sprite = NodePath("../Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("3_r7mk1")
+hframes = 4
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Layer 2",
+"o_ex_p": "",
+"o_folder": "res://assets/prickly_pear",
+"o_name": "prickly_pear_needles",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/prickly_pear/prickly_pear.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
+
+[node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("4_81el8")]
+scale = Vector2(0.5, 0.5)
+sprite = NodePath("../Sprite2D")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_li07f")
+
+[node name="Needles" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Needles"]
+texture = ExtResource("5_7trsr")
+offset = Vector2(0, -8)
+hframes = 4
+vframes = 2

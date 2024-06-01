@@ -29,7 +29,7 @@ func hit(damage: int):
 
 	health_component.damage(damage)
 	
-	emit_floating_text(damage)
+	# emit_floating_text(damage)
 
 
 func stun(stun_duration: float):

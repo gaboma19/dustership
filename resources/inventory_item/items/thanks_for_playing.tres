@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cmuvhcff1q5xd"]
+
+[ext_resource type="Script" path="res://resources/inventory_item/inventory_item.gd" id="1_yn47m"]
+[ext_resource type="Texture2D" uid="uid://ba2qb40d0xy31" path="res://assets/gabriel/thanks_for_playing.png" id="2_nevik"]
+
+[resource]
+script = ExtResource("1_yn47m")
+name = "thanks_for_playing"
+texture = ExtResource("2_nevik")
+is_usable = false
+description = ""
+pop_up_text = "Thank you for playing the Dustership demo! Follow along with the game's development @gutugutugames on itch.io."
