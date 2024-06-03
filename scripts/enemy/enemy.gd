@@ -9,3 +9,7 @@ class_name Enemy
 
 func set_stunned(_value: bool):
 	pass
+
+
+func kill():
+	queue_free()

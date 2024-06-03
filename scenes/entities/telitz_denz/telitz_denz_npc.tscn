@@ -36,7 +36,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_oweqa"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_flyyl"]
-graph_offset = Vector2(-258, 72)
+graph_offset = Vector2(-197, 1)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_8j8m5")
 nodes/BlendSpace2D/position = Vector2(-40, 140)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_oweqa")
@@ -373,6 +373,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_dr2ky")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_o7wr0")

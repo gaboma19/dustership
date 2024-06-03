@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dujixgljuvw3k"]
+
+[ext_resource type="Script" path="res://scenes/tilemaps/obstacle_trap_area/obstacle_trap_area.gd" id="1_gp8j5"]
+
+[node name="ObstacleTrapArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_gp8j5")

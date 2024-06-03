@@ -1,6 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cp1sgx6p5qtyh"]
+[gd_scene load_steps=7 format=3 uid="uid://cp1sgx6p5qtyh"]
 
 [ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="1_snmd0"]
+[ext_resource type="PackedScene" uid="uid://crn0k4nf1fvyl" path="res://scenes/entities/prickly_pear/prickly_pear.tscn" id="2_un7dw"]
+[ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="3_sbjju"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekoqy"]
 resource_name = "decorations"
@@ -59,8 +61,14 @@ texture = ExtResource("1_snmd0")
 9:4/next_alternative_id = 2
 9:4/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sld0t"]
+resource_name = "obstacles"
+scenes/1/scene = ExtResource("2_un7dw")
+scenes/2/scene = ExtResource("3_sbjju")
+
 [sub_resource type="TileSet" id="TileSet_ixha2"]
 sources/0 = SubResource("TileSetAtlasSource_ekoqy")
+sources/1 = SubResource("TileSetScenesCollectionSource_sld0t")
 
 [node name="EchelonDecorationTiles" type="TileMap"]
 tile_set = SubResource("TileSet_ixha2")

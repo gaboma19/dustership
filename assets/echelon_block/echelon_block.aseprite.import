@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cbg4xedabrtb6"
+path="res://.godot/imported/echelon_block.aseprite-6df86c1f22e5374c2ebd43c42dec8b38.res"
+
+[deps]
+
+source_file="res://assets/echelon_block/echelon_block.aseprite"
+dest_files=["res://.godot/imported/echelon_block.aseprite-6df86c1f22e5374c2ebd43c42dec8b38.res"]
+
+[params]
+
