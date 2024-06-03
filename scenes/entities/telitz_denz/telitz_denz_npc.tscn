@@ -373,6 +373,7 @@ position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_dr2ky")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("9_o7wr0")
