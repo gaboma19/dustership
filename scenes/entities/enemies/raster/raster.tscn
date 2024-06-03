@@ -293,7 +293,7 @@ radius = 8.0
 radius = 125.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fa6c1"]
-radius = 100.0
+radius = 125.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_df87s"]
 radius = 9.0
@@ -363,9 +363,10 @@ position = Vector2(0, -2)
 rotation = 1.57079
 shape = SubResource("CircleShape2D_28tq7")
 
-[node name="AggroArea" parent="." instance=ExtResource("12_iftpq")]
+[node name="AggroArea" parent="." node_paths=PackedStringArray("collision_shape") instance=ExtResource("12_iftpq")]
 unique_name_in_owner = true
 script = ExtResource("13_m33cn")
+collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AggroArea"]
 shape = SubResource("CircleShape2D_xuw5h")
@@ -387,7 +388,6 @@ texture = ExtResource("7_0rfid")
 offset = Vector2(0, -9)
 hframes = 5
 vframes = 5
-frame = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

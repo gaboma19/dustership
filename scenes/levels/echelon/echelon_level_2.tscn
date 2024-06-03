@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://bsfd7ug030ad"]
+[gd_scene load_steps=46 format=3 uid="uid://bsfd7ug030ad"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_odhxy"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_cqqvq"]
@@ -18,6 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://doclhhyd3rpub" path="res://scenes/tilemaps/elevation_transition_area/elevation_transition_area.tscn" id="13_wc7bs"]
 [ext_resource type="PackedScene" uid="uid://bh0460g3b4757" path="res://scenes/tilemaps/elevation_velocity_bias_area/elevation_velocity_bias_area.tscn" id="14_dua1j"]
 [ext_resource type="PackedScene" uid="uid://jan8t6wjwwrs" path="res://scenes/entities/battery/battery.tscn" id="14_v6ijm"]
+[ext_resource type="PackedScene" uid="uid://dujixgljuvw3k" path="res://scenes/tilemaps/obstacle_trap_area/obstacle_trap_area.tscn" id="19_6wha2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2la2e"]
 size = Vector2(160, 154)
@@ -321,16 +322,16 @@ position = Vector2(272, 384)
 position = Vector2(288, 368)
 
 [node name="Philo57" parent="Entities" instance=ExtResource("12_1cs4y")]
-position = Vector2(-16, 688)
+position = Vector2(16, 816)
 
 [node name="Philo58" parent="Entities" instance=ExtResource("12_1cs4y")]
-position = Vector2(-32, 704)
+position = Vector2(0, 832)
 
 [node name="Philo59" parent="Entities" instance=ExtResource("12_1cs4y")]
-position = Vector2(-16, 720)
+position = Vector2(16, 848)
 
 [node name="Philo60" parent="Entities" instance=ExtResource("12_1cs4y")]
-position = Vector2(0, 704)
+position = Vector2(32, 832)
 
 [node name="Philo61" parent="Entities" instance=ExtResource("12_1cs4y")]
 position = Vector2(80, 832)
@@ -497,5 +498,7 @@ polygon = PackedVector2Array(379, 969, 392, 962, 392, 981, 379, 989)
 
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ElevationVelocityBiasArea2"]
 polygon = PackedVector2Array(411, 1033, 424, 1026, 424, 1045, 411, 1053)
+
+[node name="ObstacleTrapArea" parent="." instance=ExtResource("19_6wha2")]
 
 [editable path="Entities/Chest"]

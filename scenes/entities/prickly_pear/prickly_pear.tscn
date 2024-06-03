@@ -15,10 +15,12 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="PricklyPear" type="StaticBody2D"]
+collision_mask = 0
 script = ExtResource("1_hr0l3")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("2_36fo5")]
 visible = false
+collision_mask = 12
 health_component = NodePath("../HealthComponent")
 stun_component = NodePath("../StunComponent")
 
@@ -26,6 +28,7 @@ stun_component = NodePath("../StunComponent")
 shape = SubResource("RectangleShape2D_fkcdh")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_sta3n")]
+max_health = 1
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_1ee8u")]
 health_component = NodePath("../HealthComponent")

@@ -52,6 +52,7 @@ func set_defeat():
 
 
 func on_continue_button_pressed():
+	continue_button.pressed.disconnect(on_continue_button_pressed)
 	close()
 	ScreenTransition.restart_game(level_file_path)
 	get_tree().paused = false
