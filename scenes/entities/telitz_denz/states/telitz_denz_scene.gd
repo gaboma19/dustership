@@ -7,8 +7,7 @@ const TELITZ_LINES_1: Array[String] = [
 
 const APRIL_LINES_1: Array[String] = [
 	"You're Telitz Denz.",
-	"There's a bounty on your head. 40 million steel.",
-	"How do you know my name?"
+	"There's a bounty on your head. 40 million steel."
 ]
 
 const TELITZ_LINES_2: Array[String] = [
@@ -17,20 +16,17 @@ const TELITZ_LINES_2: Array[String] = [
 ]
 
 const APRIL_LINES_2: Array[String] = [
-	"This is the Echelon?",
-	"How is that possible?",
-	"And how do you know my name??"
+	"This is the Echelon? How is that possible?"
 ]
 
 const TELITZ_LINES_3: Array[String] = [
-	"Yes. The Echelon.",
+	"Yes... the Echelon is still alive and functioning.",
 	"The most perfect simulation of a universe ever created and ever will be created.",
 	"Perfect to the subatomic level."
 ]
 
 const APRIL_LINES_3: Array[String] = [
-	"I don't care. How do I get out of here?",
-	"And how do you know my name??"
+	"How do you know who I am?"
 ]
 
 const TELITZ_LINES_4: Array[String] = [
@@ -91,12 +87,14 @@ func enter(_msg := {}) -> void:
 	april.speak(APRIL_LINES_2)
 	await DialogueManager.finished_dialogue
 	
+	telitz_denz.update_blend_position(Vector2.UP)
 	telitz_denz.speak(TELITZ_LINES_3)
 	await DialogueManager.finished_dialogue
 	
 	april.speak(APRIL_LINES_3)
 	await DialogueManager.finished_dialogue
 	
+	telitz_denz.update_blend_position(Vector2.DOWN)
 	telitz_denz.speak(TELITZ_LINES_4)
 	await DialogueManager.finished_dialogue
 	
