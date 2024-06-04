@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://bfc18wt45wp1g"]
+[gd_scene load_steps=39 format=3 uid="uid://bfc18wt45wp1g"]
 
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_npc.gd" id="1_1oro5"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_wcg1t"]
@@ -83,7 +83,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_47amy"]
 advance_mode = 2
-advance_condition = &"is_walking"
+advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xpos2"]
 advance_mode = 2
@@ -332,9 +332,6 @@ _data = {
 "walk_up": SubResource("Animation_4cs1o")
 }
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_dr2ky"]
-size = Vector2(32, 128)
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_n454p"]
 radius = 32.0
 
@@ -352,7 +349,7 @@ script = ExtResource("2_wcg1t")
 tree_root = SubResource("AnimationNodeStateMachine_5n1xr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_idle = true
-parameters/conditions/is_walking = false
+parameters/conditions/is_moving = false
 parameters/idle/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/idle/TimeScale/scale = 1.0
 parameters/walk/BlendSpace2D/blend_position = Vector2(0, 0)
@@ -368,14 +365,11 @@ visible = false
 collision_layer = 0
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AmbushRangeArea"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_dr2ky")
-
 [node name="InteractionArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
 collision_mask = 2
+monitoring = false
 script = ExtResource("9_o7wr0")
 action_name = "Talk"
 
@@ -413,6 +407,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 visible = false
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_uih34")
+disabled = true
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("5_xe8m4")

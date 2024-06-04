@@ -1,6 +1,8 @@
 extends Node
 class_name VelocityComponent
 
+signal arrived
+
 @export var max_speed: int = 40
 @export var acceleration: float = 5
 
@@ -8,6 +10,20 @@ var velocity = Vector2.ZERO
 var is_on_up_ramp: bool = false
 var is_on_down_ramp: bool = false
 var is_decelerating: bool = false
+var is_moving_to_point: bool = false
+var point: Vector2
+
+
+func _process(delta):
+	if is_moving_to_point:
+		var distance = owner.global_position.distance_to(point)
+		if distance > 1:
+			accelerate_to_point(point)
+			move(owner)
+		else:
+			stop()
+			is_moving_to_point = false
+			arrived.emit()
 
 
 func accelerate_to_player():
@@ -79,6 +95,11 @@ func apply_ramp_bias():
 			velocity.y -= 5.0
 		if velocity.x < 0:
 			velocity.y += 5.0
+
+
+func accelerate_to_point_and_stop(target_point: Vector2):
+	is_moving_to_point = true
+	point = target_point
 
 
 func move(character_body: CharacterBody2D):

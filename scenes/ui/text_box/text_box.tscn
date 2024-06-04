@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://txamoj4ivcgv" path="res://assets/ui/interact_prompt/tile_0042.png" id="4_ji176"]
 
 [node name="TextBox" type="MarginContainer"]
+z_index = 3
 offset_right = 32.0
 offset_bottom = 32.0
 scale = Vector2(0.5, 0.5)
