@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://xogyxc4yjmii"]
+[gd_scene load_steps=54 format=3 uid="uid://xogyxc4yjmii"]
 
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_24cqq"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_qmdoe"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
+[ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="9_jrfpc"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="9_p3ffu"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="10_c5qg4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_aggro.gd" id="10_d7o8x"]
@@ -412,6 +413,12 @@ damage = 1
 position = Vector2(0, -20)
 shape = SubResource("CapsuleShape2D_fdee1")
 
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(0, 1.49012e-07)
+scale = Vector2(1.4375, 1.33333)
+texture = ExtResource("9_jrfpc")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
@@ -419,7 +426,6 @@ texture = ExtResource("10_gevsb")
 offset = Vector2(-2, -30)
 hframes = 5
 vframes = 5
-frame = 18
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cu6xdmqib1vqd"
+path="res://.godot/imported/shadow_tiles.aseprite-5b72258cf17d7a6cd11384846b8ef3ee.res"
+
+[deps]
+
+source_file="res://assets/echelon_tiles/shadow_tiles.aseprite"
+dest_files=["res://.godot/imported/shadow_tiles.aseprite-5b72258cf17d7a6cd11384846b8ef3ee.res"]
+
+[params]
+

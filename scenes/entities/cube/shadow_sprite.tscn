@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/entities/cube/shadow_sprite.gd" id="2_oc4cw"]
 
 [node name="ShadowSprite" type="Sprite2D"]
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(1, 1, 1, 0.25098)
 y_sort_enabled = true
 texture_filter = 1
 position = Vector2(0, 2)

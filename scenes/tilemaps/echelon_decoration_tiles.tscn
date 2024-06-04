@@ -71,5 +71,7 @@ sources/0 = SubResource("TileSetAtlasSource_ekoqy")
 sources/1 = SubResource("TileSetScenesCollectionSource_sld0t")
 
 [node name="EchelonDecorationTiles" type="TileMap"]
+y_sort_enabled = true
 tile_set = SubResource("TileSet_ixha2")
 format = 2
+layer_0/y_sort_enabled = true

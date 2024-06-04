@@ -15,6 +15,7 @@ size = Vector2(16, 16)
 size = Vector2(16, 16)
 
 [node name="PricklyPear" type="StaticBody2D"]
+y_sort_enabled = true
 collision_mask = 0
 script = ExtResource("1_hr0l3")
 
@@ -33,6 +34,33 @@ max_health = 1
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("7_1ee8u")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.12549)
+y_sort_enabled = true
+scale = Vector2(1, 1)
+skew = 0.785398
+texture = ExtResource("3_r7mk1")
+offset = Vector2(8, 5)
+hframes = 4
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "Layer 2",
+"o_ex_p": "",
+"o_folder": "res://assets/prickly_pear",
+"o_name": "prickly_pear_needles",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/prickly_pear/prickly_pear.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true,
+"slice_section": true
+}
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("3_r7mk1")

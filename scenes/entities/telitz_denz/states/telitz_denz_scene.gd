@@ -47,11 +47,11 @@ const TELITZ_LINES_5: Array[String] = [
 ]
 
 const APRIL_LINES_YES: Array[String] = [
-	"Sure. Yeah. It's not like I was busy living my life in the real world."
+	"Sure... yeah. I had a lot of time to kill in the real world, anyway."
 ]
 
 const APRIL_LINES_NO: Array[String] = [
-	"How about no. I don't do charity work, nor will I work for my kidnappers."
+	"How about no. Saving an ancient and forbidden virtual reality isn't really on my to-do list."
 ]
 
 const TELITZ_LINES_YES: Array[String] = [
