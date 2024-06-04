@@ -51,7 +51,7 @@ const APRIL_LINES_YES: Array[String] = [
 ]
 
 const APRIL_LINES_NO: Array[String] = [
-	"How about no. Saving an ancient and forbidden virtual reality isn't really on my to-do list."
+	"Saving an ancient and forbidden virtual reality isn't really on my to-do list."
 ]
 
 const TELITZ_LINES_YES: Array[String] = [

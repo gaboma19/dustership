@@ -113,6 +113,14 @@ radius = 16.0
 [node name="Chest" type="StaticBody2D"]
 script = ExtResource("1_k6pn8")
 
+[node name="ShadowSprite" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.25098)
+position = Vector2(2.38419e-07, 0)
+skew = 0.785398
+sprite_frames = SubResource("SpriteFrames_uu64q")
+animation = &"chest1"
+offset = Vector2(0, -8)
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_uu64q")
 animation = &"chest1"
@@ -124,6 +132,7 @@ position = Vector2(0, -6)
 shape = SubResource("RectangleShape2D_76y6m")
 
 [node name="InteractionArea" parent="." instance=ExtResource("3_rh6qg")]
+visible = false
 action_name = "Open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
