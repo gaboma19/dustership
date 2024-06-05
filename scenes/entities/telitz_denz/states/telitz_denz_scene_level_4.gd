@@ -10,7 +10,7 @@ const TELITZ_LINES_1: Array[String] = [
 ]
 
 const APRIL_LINES_2: Array[String] = [
-	"Hm, that's the year I resigned from the Preservers."
+	"Hm... that's the year I resigned from the Preservers."
 ]
 
 const APRIL_LINES_2_1: Array[String] = [
@@ -38,20 +38,19 @@ const APRIL_LINES_4: Array[String] = [
 ]
 
 const TELITZ_LINES_4: Array[String] = [
-	"Is this your car? It's an Evo-212.",
+	"Is this your car? It's an old Evo-212.",
 	"Very impressive."
 ]
 
 const APRIL_LINES_5: Array[String] = [
-	"Yeah and I ended up totaling this car the very next year.", 
-	"But this is back in the days when I had money.",
+	"Yeah, and I ended up totaling this car the very next year.", 
+	"But, this is back in the days when I had money.",
 	"Speaking of which, isn't it past time we discussed my payment for cleaning up this place?"
 ]
 
 const TELITZ_LINES_5: Array[String] = [
 	"I must be going. We shall speak again soon.",
 ]
-
 
 @onready var telitz_denz = owner as Npc
 
@@ -103,6 +102,7 @@ func enter(_msg := {}) -> void:
 		telitz_walk_point.global_position)
 	await telitz_denz.velocity_component.arrived
 	april.update_blend_position(Vector2.LEFT)
+	await get_tree().create_timer(1.0).timeout
 	telitz_denz.speak(TELITZ_LINES_4)
 	await DialogueManager.finished_dialogue
 	

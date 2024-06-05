@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://bfc18wt45wp1g"]
+[gd_scene load_steps=40 format=3 uid="uid://bfc18wt45wp1g"]
 
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_npc.gd" id="1_1oro5"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_wcg1t"]
@@ -7,8 +7,9 @@
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_xe8m4"]
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_ambush.gd" id="7_g4mkc"]
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_spawn.gd" id="8_mfvb5"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene.gd" id="9_5ok04"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene_level_1.gd" id="9_5ok04"]
 [ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="9_o7wr0"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_hide.gd" id="10_8pgwj"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h7bad"]
 animation = &"idle_down"
@@ -422,3 +423,6 @@ script = ExtResource("8_mfvb5")
 
 [node name="Scene" type="Node" parent="StateMachine"]
 script = ExtResource("9_5ok04")
+
+[node name="Hide" type="Node" parent="StateMachine"]
+script = ExtResource("10_8pgwj")

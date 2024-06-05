@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bsfd7ug030ad"]
+[gd_scene load_steps=50 format=3 uid="uid://bsfd7ug030ad"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_odhxy"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_cqqvq"]
@@ -19,7 +19,20 @@
 [ext_resource type="PackedScene" uid="uid://doclhhyd3rpub" path="res://scenes/tilemaps/elevation_transition_area/elevation_transition_area.tscn" id="13_wc7bs"]
 [ext_resource type="PackedScene" uid="uid://bh0460g3b4757" path="res://scenes/tilemaps/elevation_velocity_bias_area/elevation_velocity_bias_area.tscn" id="14_dua1j"]
 [ext_resource type="PackedScene" uid="uid://jan8t6wjwwrs" path="res://scenes/entities/battery/battery.tscn" id="14_v6ijm"]
-[ext_resource type="PackedScene" uid="uid://dujixgljuvw3k" path="res://scenes/tilemaps/obstacle_trap_area/obstacle_trap_area.tscn" id="19_6wha2"]
+[ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/telitz_denz/telitz_denz_npc.tscn" id="17_y6r4n"]
+[ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="18_g0311"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene_level_2.gd" id="19_r4m5g"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bpska"]
+resource_local_to_scene = true
+shader = ExtResource("18_g0311")
+shader_parameter/lines = 100
+shader_parameter/color1 = Color(0.258824, 0.756863, 0.92549, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/speed = 0.01
+shader_parameter/alpha = 1.0
+shader_parameter/noise_amount = 0.05
+shader_parameter/effect_factor = 0.15
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2la2e"]
 size = Vector2(160, 154)
@@ -105,6 +118,11 @@ script = ExtResource("1_odhxy")
 map_pin_cell = Vector2i(25, -4)
 game_start = NodePath("GameStart")
 
+[node name="Events" type="Node" parent="." groups=["events"]]
+
+[node name="TelitzWalkPoint" type="Node2D" parent="Events"]
+position = Vector2(16, 368)
+
 [node name="EchelonBackground" parent="." instance=ExtResource("3_37m5k")]
 
 [node name="EchelonTileMap1" parent="." instance=ExtResource("5_50gvc")]
@@ -142,6 +160,7 @@ layer_0/tile_data = PackedInt32Array(-983040, 524288, 3, -917504, 458752, 3, -72
 [node name="GameStart" parent="." instance=ExtResource("2_cqqvq")]
 
 [node name="GameCamera" parent="." instance=ExtResource("4_pg7im")]
+position = Vector2(16, 336)
 custom_limit_left = -304
 custom_limit_top = -192
 custom_limit_bottom = 456
@@ -149,8 +168,9 @@ custom_limit_bottom = 456
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="CubeFainted" parent="Entities" instance=ExtResource("6_e6exp")]
+[node name="CubeFainted" parent="Entities" node_paths=PackedStringArray("telitz_denz") instance=ExtResource("6_e6exp")]
 position = Vector2(16, 336)
+telitz_denz = NodePath("../TelitzDenzNpc")
 
 [node name="Chest" parent="Entities" instance=ExtResource("8_xs4nq")]
 position = Vector2(-400, 896)
@@ -361,6 +381,19 @@ position = Vector2(-48, 1012)
 battery_id = "echelon2_battery0"
 chargeable_entity = NodePath("../BatteryDoor")
 
+[node name="TelitzDenzNpc" parent="Entities" instance=ExtResource("17_y6r4n")]
+position = Vector2(16, 512)
+
+[node name="Sprite2D" parent="Entities/TelitzDenzNpc" index="5"]
+material = SubResource("ShaderMaterial_bpska")
+
+[node name="StateMachine" parent="Entities/TelitzDenzNpc" index="7"]
+initial_state = NodePath("Hide")
+
+[node name="Scene" parent="Entities/TelitzDenzNpc/StateMachine" index="2" node_paths=PackedStringArray("telitz_walk_point")]
+script = ExtResource("19_r4m5g")
+telitz_walk_point = NodePath("../../../../Events/TelitzWalkPoint")
+
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
 
@@ -510,6 +543,5 @@ polygon = PackedVector2Array(379, 969, 392, 962, 392, 981, 379, 989)
 [node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="ElevationVelocityBiasArea2"]
 polygon = PackedVector2Array(411, 1033, 424, 1026, 424, 1045, 411, 1053)
 
-[node name="ObstacleTrapArea" parent="." instance=ExtResource("19_6wha2")]
-
 [editable path="Entities/Chest"]
+[editable path="Entities/TelitzDenzNpc"]

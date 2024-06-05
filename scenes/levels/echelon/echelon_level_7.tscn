@@ -363,7 +363,7 @@ position = Vector2(-208, 32)
 inventory_item = ExtResource("11_7f2cm")
 chest_id = "echelon7_chest0"
 
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
+[node name="AnimatedSprite2D" parent="Entities/Chest" index="1"]
 animation = &"chest4"
 
 [node name="Chest2" parent="Entities" instance=ExtResource("10_40tex")]

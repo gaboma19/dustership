@@ -1,10 +1,12 @@
-[gd_scene load_steps=18 format=3 uid="uid://bhv3w3uk3b73e"]
+[gd_scene load_steps=21 format=3 uid="uid://bhv3w3uk3b73e"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qfi3h"]
 [ext_resource type="Texture2D" uid="uid://corxxm72cbgvw" path="res://assets/backgrounds/aprils_apartment/aprils_apartment.png" id="1_roq2h"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_cutscene.gd" id="2_1racx"]
 [ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_bathroom.png" id="2_3wdpf"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_he2gl"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_p1c6l"]
+[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_obt7y"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="5_28nei"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_ih2uo"]
 [ext_resource type="PackedScene" uid="uid://cwhn0720eueg0" path="res://scenes/entities/doodads/aprils_apartment_light_ray.tscn" id="6_yly58"]
@@ -13,6 +15,79 @@
 [ext_resource type="Resource" uid="uid://cydryfrgm0mep" path="res://resources/inventory_item/items/sword.tres" id="10_twkl8"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_xe4gx"]
 [ext_resource type="Script" path="res://scenes/level_transitions/level_transition_area_level0.gd" id="13_7sqa6"]
+
+[sub_resource type="Resource" id="Resource_guplp"]
+script = ExtResource("3_obt7y")
+reload = false
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 1.0
+FishEye = false
+FishEyeAspect = 1.0
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = 1.0
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = false
+VignetteIntensity = 0.4
+VignetteOpacity = 0.5
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.05
+GlitchNoiseQuality = 250.0
+GlitchIntenity = 0.0088
+GlitchOffset = 0.03
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = true
+GrainPower = 75
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(1, 1, 1, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.072
+SpeedLineSpeed = 20
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(256, 256)
+ScreenShake = false
+ScreenShakePower = 0.1
 
 [sub_resource type="Animation" id="Animation_whnei"]
 length = 0.001
@@ -75,6 +150,10 @@ is_camera_static = true
 map_pin_cell = Vector2i(2, 2)
 game_start = NodePath("GameStart")
 
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("2_he2gl")
+configuration = SubResource("Resource_guplp")
+
 [node name="GameStart" parent="." instance=ExtResource("2_p1c6l")]
 position = Vector2(32, 56)
 
@@ -127,6 +206,7 @@ script = ExtResource("9_74cea")
 
 [node name="InteractionArea" parent="Computer" instance=ExtResource("10_xe4gx")]
 position = Vector2(0, 8)
+action_name = "Inspect"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer/InteractionArea"]
 shape = SubResource("CircleShape2D_sxbpc")
@@ -137,6 +217,7 @@ script = ExtResource("8_ha054")
 
 [node name="InteractionArea" parent="Shower" instance=ExtResource("10_xe4gx")]
 position = Vector2(0, 8)
+action_name = "Inspect"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Shower/InteractionArea"]
 shape = SubResource("CircleShape2D_sxbpc")
@@ -149,7 +230,7 @@ position = Vector2(71, 55)
 inventory_item = ExtResource("10_twkl8")
 chest_id = "echelon0_chest0"
 
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
+[node name="AnimatedSprite2D" parent="Entities/Chest" index="1"]
 animation = &"chest_isometric"
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]

@@ -10,6 +10,7 @@ const ECHELON_PORTAL = preload("res://resources/materials/echelon_portal.tres")
 const SPAWN_MATERIAL = preload("res://resources/materials/spawn_material.tres")
 const STUN = preload("res://resources/materials/stun.tres")
 const HOLOGRAM = preload("res://resources/materials/hologram.tres")
+const GRAIN_POST_PROCESS_MATERIAL = preload("res://resources/materials/grain_post_process_material.tres")
 
 var particle_materials = [
 	DEATH_COMPONENT_MATERIAL,
@@ -22,7 +23,8 @@ var shader_materials = [
 	SPAWN_MATERIAL,
 	ECHELON_PORTAL,
 	STUN,
-	HOLOGRAM
+	HOLOGRAM,
+	GRAIN_POST_PROCESS_MATERIAL
 ]
 
 var frames = 0

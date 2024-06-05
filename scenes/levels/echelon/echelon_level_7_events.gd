@@ -11,7 +11,7 @@ const CUBE_LINES_2: Array[String] = [
 	"Commander, I'm pleased to report that you've been granted 200 experience points."
 ]
 const APRIL_LINES_2: Array[String] = [
-	"You what."
+	"You... what?"
 ]
 const CUBE_LINES_3: Array[String] = [
 	"You have accrued 780 experience points thus far, Commander.",
@@ -25,7 +25,7 @@ const CUBE_LINES_4: Array[String] = [
 	"If you'd like to know your current experience point total, just say \"Hey Cube, XP\"."
 ]
 const APRIL_LINES_4: Array[String] = [
-	"I won't."
+	"Uh huh."
 ]
 const PHILO_SCENE = preload("res://scenes/entities/enemies/philo/philo.tscn")
 const CACTUS_KNIGHT_SCENE = preload(

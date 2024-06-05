@@ -1,15 +1,95 @@
-[gd_scene load_steps=14 format=3 uid="uid://ba6jprjolkx5b"]
+[gd_scene load_steps=20 format=3 uid="uid://ba6jprjolkx5b"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_eilwh"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="1_lmlqw"]
 [ext_resource type="Texture2D" uid="uid://cg24rq4idietp" path="res://assets/backgrounds/tavern/tavern.png" id="1_ugjor"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_cutscene.gd" id="2_e65xy"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_cbj6o"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_events.gd" id="2_e65xy"]
 [ext_resource type="Texture2D" uid="uid://dp5s6nnjxomr" path="res://assets/backgrounds/tavern/bar.png" id="2_o4auw"]
+[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_kood4"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="4_8l4ih"]
 [ext_resource type="Texture2D" uid="uid://cj1ohr88d7wqy" path="res://assets/backgrounds/tavern/overhang.png" id="5_jyr2x"]
 [ext_resource type="Texture2D" uid="uid://b32f0cyyh825" path="res://assets/backgrounds/tavern/light_tavern.png" id="6_8r5s3"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_bar.gd" id="7_inlxi"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="8_y6pck"]
 [ext_resource type="Resource" uid="uid://blkguusvctco3" path="res://resources/inventory_item/items/identity_core_right.tres" id="9_5wvs0"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="9_vd5o6"]
+
+[sub_resource type="Resource" id="Resource_p0vcp"]
+script = ExtResource("3_kood4")
+reload = false
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 1.0
+FishEye = false
+FishEyeAspect = 1.0
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = 1.0
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = false
+VignetteIntensity = 0.4
+VignetteOpacity = 0.5
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.05
+GlitchNoiseQuality = 250.0
+GlitchIntenity = 0.0088
+GlitchOffset = 0.03
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = true
+GrainPower = 75
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(1, 1, 1, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.072
+SpeedLineSpeed = 20
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(256, 256)
+ScreenShake = false
+ScreenShakePower = 0.1
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6mvqy"]
+radius = 30.0666
 
 [sub_resource type="Animation" id="Animation_kf57q"]
 length = 0.001
@@ -56,8 +136,32 @@ is_camera_static = true
 map_pin_cell = Vector2i(28, -19)
 game_start = NodePath("GameStart")
 
-[node name="Cutscene" type="Node" parent="."]
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("2_cbj6o")
+configuration = SubResource("Resource_p0vcp")
+
+[node name="Events" type="Node" parent="." groups=["events"]]
 script = ExtResource("2_e65xy")
+
+[node name="SpawnPointsParent" type="Node" parent="Events"]
+
+[node name="SpawnPoint" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(27, 78)
+
+[node name="SpawnPoint2" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(18, 100)
+
+[node name="SpawnPoint3" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(-14, 110)
+
+[node name="SpawnPoint4" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(-91, 88)
+
+[node name="SpawnPoint5" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(4, 110)
+
+[node name="SpawnPoint6" type="Node2D" parent="Events/SpawnPointsParent"]
+position = Vector2(29, 91)
 
 [node name="GameStart" parent="." instance=ExtResource("1_lmlqw")]
 position = Vector2(-38, 116)
@@ -77,16 +181,26 @@ visible = false
 build_mode = 1
 polygon = PackedVector2Array(-63, 35, -39, 47, -7, 31, 2, 36, 20, 28, 114, 76, -14, 139, -30, 131, -46, 140, -78, 123, -62, 115, -125, 83, -125, 67)
 
-[node name="Bar" type="Sprite2D" parent="."]
+[node name="Bar" type="Node2D" parent="."]
+script = ExtResource("7_inlxi")
+
+[node name="InteractionArea" parent="Bar" instance=ExtResource("9_vd5o6")]
+action_name = "Inspect"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/InteractionArea"]
+position = Vector2(-37, 77)
+shape = SubResource("CircleShape2D_6mvqy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-47, 87)
 texture = ExtResource("2_o4auw")
 offset = Vector2(-0.5, -21)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Bar"]
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
 visible = false
 position = Vector2(47, -87)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Bar/StaticBody2D"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
 polygon = PackedVector2Array(-96, 69, -93, 79, -64, 95, -32, 95, -32, 87, -11, 87, 8, 77, 8.05824, 66.5149, -11, 57, -34, 69, -55, 69, -83, 56, -96, 62)
 
 [node name="Overhang" type="Sprite2D" parent="."]
@@ -116,7 +230,7 @@ position = Vector2(-53, 52)
 inventory_item = ExtResource("9_5wvs0")
 chest_id = "echelon5_chest0"
 
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="0"]
+[node name="AnimatedSprite2D" parent="Entities/Chest" index="1"]
 animation = &"chest_isometric"
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("8_y6pck")]

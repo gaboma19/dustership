@@ -1,8 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d3s7kue7336n1"]
+[gd_scene load_steps=17 format=3 uid="uid://d3s7kue7336n1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jyh8u"]
+[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_2t752"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_lyeva"]
 [ext_resource type="Texture2D" uid="uid://rwearr1xo7eo" path="res://assets/backgrounds/echelon_alleyway/echelon_alleyway.png" id="3_eef0u"]
+[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_isaea"]
 [ext_resource type="Texture2D" uid="uid://kblalnciu7pd" path="res://assets/backgrounds/echelon_alleyway/fire_escape.png" id="4_8nlxa"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_kq1cn"]
 [ext_resource type="Texture2D" uid="uid://cxqowxc8qgy6e" path="res://assets/backgrounds/echelon_alleyway/shadow.png" id="6_1vluk"]
@@ -11,7 +13,80 @@
 [ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/telitz_denz/telitz_denz_npc.tscn" id="8_jdh7e"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_ls2hr"]
 [ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="9_ysicg"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/telitz_denz_scene_level_4.gd" id="10_4y2gf"]
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene_level_4.gd" id="10_4y2gf"]
+
+[sub_resource type="Resource" id="Resource_tjonh"]
+script = ExtResource("3_isaea")
+reload = true
+ASCII = false
+ASCIISize = Vector2(4, 9)
+ChromaticAberration = false
+StrenghtCA = 1.0
+Blur = false
+L_O_D = 1.0
+FishEye = false
+FishEyeAspect = 1.0
+FishEyeDistortion = 1.0
+FishEyeRadius = 1.0
+FishEyeAlpha = 1.0
+FishEyeCrop = 1.0
+FishEyeCropColor = Color(0, 0, 0, 1)
+Vignette = false
+VignetteIntensity = 0.4
+VignetteOpacity = 0.5
+VignetteR_G_B = Color(0, 0, 0, 1)
+Glitch = false
+GlitchRange = 0.05
+GlitchNoiseQuality = 250.0
+GlitchIntenity = 0.0088
+GlitchOffset = 0.03
+GlitchColorOffset = 1.3
+Outline = false
+OutlineColor = Color(0, 0, 0, 1)
+OutlineThreshold = 0.0
+OutlineBlend = 0.01
+Grain = true
+GrainPower = 75
+CircularWaves = false
+CircularWavesAmplitude = 2.0
+CircularWavesFrequency = 12.69
+CircularWavesRippleRate = 9.2
+SpeedLines = false
+SpeedLinesColor = Color(1, 1, 1, 1)
+SpeedLinesCount = 2
+SpeedLineDensity = 0.072
+SpeedLineSpeed = 20
+ColorCorrection = false
+ColorCorrectionTint = Color(0, 0, 0, 1)
+ColorCorrectionBrightness = 0.0
+ColorCorrectionSaturation = 0.0
+Palette = false
+Pixelate = false
+PixelatePixelSize = 8
+CRT = false
+overlay = false
+scanlines_opacity = 0.4
+scanlines_width = 0.25
+grille_opacity = 0.3
+pixelate = true
+roll_speed = 8.0
+roll_size = 15.0
+roll_variation = 1.8
+distort_intensity = 0.05
+noise_opacity = 0.4
+noise_speed = 5.0
+static_noise_intensity = 0.06
+aberration = 0.03
+brightness = 1.4
+discolor = true
+warp_amount = 1.0
+clip_warp = false
+vignette_intensity = 0.4
+vignette_opacity = 0.5
+AnalogMonitor = false
+AnalogMonitorResolution = Vector2(256, 256)
+ScreenShake = false
+ScreenShakePower = 0.1
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bpebr"]
 resource_local_to_scene = true
@@ -30,6 +105,10 @@ script = ExtResource("1_jyh8u")
 is_camera_static = true
 map_pin_cell = Vector2i(13, -19)
 game_start = NodePath("GameStart")
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+script = ExtResource("2_2t752")
+configuration = SubResource("Resource_tjonh")
 
 [node name="GameStart" parent="." instance=ExtResource("2_lyeva")]
 position = Vector2(73, 127)

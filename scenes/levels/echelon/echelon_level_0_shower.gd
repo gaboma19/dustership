@@ -20,10 +20,10 @@ func _ready():
 
 
 func on_interact():
-	var player = PartyManager.get_active_member() as Player
-	player.update_blend_position(Vector2.UP)
+	var april = PartyManager.get_april() as Player
+	april.update_blend_position(Vector2.UP)
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
-		player.speak(LINES)
+		april.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true
 	else:
-		player.speak(INTERACTED_LINES)
+		april.speak(INTERACTED_LINES)

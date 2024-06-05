@@ -1,5 +1,7 @@
 @tool
+@icon("res://addons/post_processing/node/post_process.svg")
 extends CanvasLayer
+class_name PostProcess
 
 @export_category("Post Process")
 @export var configuration : PostProcessingConfiguration
@@ -163,7 +165,7 @@ func _add_canvas_layer_children(_path : String, _name: String) -> void:
 	add_child(child_instance)
 	var material_instance = child_instance.get_children()[0].material.duplicate()
 	child_instance.get_children()[0].material = material_instance
-	print_debug("Successfully added child canvas-layer: " + _name + " to PostProcess addon node.")
+	#print_debug("Successfully added child canvas-layer: " + _name + " to PostProcess addon node.")
 
 func _process(delta):
 	if not configuration:
