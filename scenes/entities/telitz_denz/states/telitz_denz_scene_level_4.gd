@@ -52,12 +52,12 @@ const TELITZ_LINES_5: Array[String] = [
 	"I must be going. We shall speak again soon.",
 ]
 
-@onready var telitz_denz = owner as Npc
+@export var telitz_walk_point: Node2D
 
 var april: Player
 var sprite: Sprite2D
 
-@export var telitz_walk_point: Node2D
+@onready var telitz_denz = owner as Npc
 
 
 func enter(_msg := {}) -> void:

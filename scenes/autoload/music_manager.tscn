@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwh3062lqky8n"]
+
+[ext_resource type="Script" path="res://scenes/autoload/music_manager.gd" id="1_fordk"]
+
+[node name="MusicManager" type="AudioStreamPlayer"]
+bus = &"music"
+script = ExtResource("1_fordk")
+
+[node name="PauseTimer" type="Timer" parent="."]
+wait_time = 30.0
