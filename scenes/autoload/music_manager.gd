@@ -4,7 +4,7 @@ extends AudioStreamPlayer
 var transition_duration := 1
 var transition_type := 1
 var music_volume = -5
-var muted_volume: int
+var muted_volume: float
 var is_looping: bool = false
 var current_song: String
 
