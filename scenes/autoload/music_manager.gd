@@ -10,7 +10,7 @@ var current_song: String
 
 var tracks: Dictionary = {
 	"aprils_theme": "music/final/aprils_theme.mp3",
-	"battle_tempo": "music/final/battle_tempo.mp3"
+	"cactus_knight": "music/final/battle_tempo.mp3"
 }
 
 @onready var pause_timer = $PauseTimer
@@ -26,6 +26,9 @@ func _init():
 
 
 func play_track(new_song: String, set_looping: bool = false):
+	if playing && current_song == new_song:
+		return
+	
 	current_song = new_song
 	is_looping = set_looping
 	fade_in(new_song)
@@ -52,7 +55,7 @@ func fade_out_to(new_song):
 
 func fade_in(new_song):
 	stream = load(str("res://", tracks.get(new_song)))
-	print("Playing : ", str("res://", tracks.get(new_song)), " (fade_in)")
+	#print("Playing : ", str("res://", tracks.get(new_song)), " (fade_in)")
 	# tween music volume up to music_volume (normal/defined)
 	var tween_in = create_tween()
 	tween_in.tween_property(self, "volume_db", music_volume, transition_duration)
@@ -75,7 +78,7 @@ func unmute():
 func done_fade_out(new_song : String):
 	stop()
 	stream = load(str("res://", tracks.get(new_song)))
-	print("Playing : ", str("res://", tracks.get(new_song)), " (callback fade_out_to)")
+	#print("Playing : ", str("res://", tracks.get(new_song)), " (callback fade_out_to)")
 	# tween music volume up to music_volume (normal/defined)
 	var tween_in = create_tween()
 	tween_in.tween_property(self, "volume_db", music_volume, transition_duration)
@@ -90,4 +93,4 @@ func on_finished():
 
 func on_pause_timer_timeout():
 	if is_looping:
-		play_track
+		play_track(current_song)

@@ -9,6 +9,8 @@ const LINES2: Array[String] = [
 ]
 
 func _ready():
+	MusicManager.play_track("aprils_theme")
+	
 	if not EntityVariables.conversations.has(CONVERSATION_ID):
 		await get_tree().get_first_node_in_group("entities").ready
 		var player = PartyManager.get_active_member() as Player

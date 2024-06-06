@@ -3,8 +3,10 @@
 [ext_resource type="Script" path="res://scenes/autoload/music_manager.gd" id="1_fordk"]
 
 [node name="MusicManager" type="AudioStreamPlayer"]
+process_mode = 3
 bus = &"music"
 script = ExtResource("1_fordk")
 
 [node name="PauseTimer" type="Timer" parent="."]
+process_mode = 3
 wait_time = 30.0
