@@ -121,7 +121,7 @@ game_start = NodePath("GameStart")
 [node name="Events" type="Node" parent="." groups=["events"]]
 
 [node name="TelitzWalkPoint" type="Node2D" parent="Events"]
-position = Vector2(16, 368)
+position = Vector2(16, 400)
 
 [node name="EchelonBackground" parent="." instance=ExtResource("3_37m5k")]
 
@@ -382,7 +382,7 @@ battery_id = "echelon2_battery0"
 chargeable_entity = NodePath("../BatteryDoor")
 
 [node name="TelitzDenzNpc" parent="Entities" instance=ExtResource("17_y6r4n")]
-position = Vector2(16, 512)
+position = Vector2(16, 464)
 
 [node name="Sprite2D" parent="Entities/TelitzDenzNpc" index="5"]
 material = SubResource("ShaderMaterial_bpska")

@@ -14,7 +14,7 @@ var is_moving_to_point: bool = false
 var point: Vector2
 
 
-func _process(delta):
+func _process(_delta):
 	if is_moving_to_point:
 		var distance = owner.global_position.distance_to(point)
 		if distance > 1:
@@ -42,14 +42,14 @@ func accelerate_to_player():
 	accelerate_in_direction(direction)
 
 
-func accelerate_to_point(point: Vector2):
+func accelerate_to_point(target_point: Vector2):
 	is_decelerating = false
 	
 	var owner_node2d = owner as Node2D
 	if owner_node2d == null:
 		return
 	
-	var direction = owner_node2d.global_position.direction_to(point)
+	var direction = owner_node2d.global_position.direction_to(target_point)
 	accelerate_in_direction(direction)
 
 

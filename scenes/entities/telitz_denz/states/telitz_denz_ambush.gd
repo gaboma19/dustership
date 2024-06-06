@@ -21,6 +21,5 @@ func on_body_entered(body: Node2D):
 	if body != player:
 		return
 	
-	telitz_denz.show()
 	ambush_range_area.body_entered.disconnect(on_body_entered)
 	state_machine.transition_to("Spawn")

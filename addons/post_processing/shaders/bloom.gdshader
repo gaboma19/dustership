@@ -34,7 +34,7 @@ void fragment() {
     vec3 BlurredScene = texture(Screen_Sample, SampleUV, BlurAmount).rgb;
 
     // Apply threshold to filter out dark areas
-    BlurredScene = ApplyThreshold(BlurredScene, FlareThreshold); // Adjust threshold as needed (optional)
+    //BlurredScene = ApplyThreshold(BlurredScene, FlareThreshold); // Adjust threshold as needed (optional)
 
     // Calculate distance from center for falloff
     float Dist = distance(SampleUV, vec2(0.5));

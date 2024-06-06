@@ -12,6 +12,7 @@ func enter(_msg := {}) -> void:
 	var april = PartyManager.get_april()
 	april.state_machine.transition_to("Hold")
 	
+	telitz_denz.show()
 	spawn()
 
 

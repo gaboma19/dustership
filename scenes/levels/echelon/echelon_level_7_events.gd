@@ -1,27 +1,27 @@
 extends Node
 
 const CUBE_LINES: Array[String] = [
-	"Commander, hostile signature detected."
+	"Officer, hostile signature detected."
 ]
 const APRIL_LINES: Array[String] = [
 	"That's trouble."
 ]
 const CUBE_LINES_2: Array[String] = [
 	"Hostile eliminated.", 
-	"Commander, I'm pleased to report that you've been granted 200 experience points."
+	"Officer April, I'm pleased to report that you've been granted 200 experience points."
 ]
 const APRIL_LINES_2: Array[String] = [
 	"You... what?"
 ]
 const CUBE_LINES_3: Array[String] = [
-	"You have accrued 780 experience points thus far, Commander.",
+	"You have accrued 780 experience points thus far, officer.",
 	"Based on your performance, you have been placed on the remedial combat training track."
 ]
 const APRIL_LINES_3: Array[String] = [
 	"Remedial???"
 ]
 const CUBE_LINES_4: Array[String] = [
-	"I will be tracking your progress, Commander.",
+	"I will be tracking your progress, officer.",
 	"If you'd like to know your current experience point total, just say \"Hey Cube, XP\"."
 ]
 const APRIL_LINES_4: Array[String] = [

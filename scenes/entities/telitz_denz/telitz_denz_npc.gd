@@ -2,6 +2,7 @@ extends Npc
 
 @export_enum("telitz_denz_1", "telitz_denz_4") var conversation_id: String
 @onready var animation_tree: AnimationTree = $AnimationTree
+@onready var state_machine = $StateMachine
 
 
 func _ready():

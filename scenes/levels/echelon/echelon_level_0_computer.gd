@@ -3,7 +3,7 @@ extends Node2D
 const CONVERSATION_ID = "computer"
 const LINES: Array[String] = [
 	"Welp, looks like there's no power.",
-	"What is going on?"
+	"Is this ship still running?"
 ]
 
 const INTERACTED_LINES: Array[String] = [

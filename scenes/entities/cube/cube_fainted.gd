@@ -71,15 +71,10 @@ func on_interact():
 		player.speak(APRIL_RESPONSE_LINES)
 		await DialogueManager.finished_dialogue
 		
-		player.state_machine.transition_to("Hold")
 		telitz_denz.state_machine.transition_to("Spawn")
 		
-		
-		PopUp.open_party_instructions()
 		queue_free()
 		return
-	
-	
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
 		player.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true

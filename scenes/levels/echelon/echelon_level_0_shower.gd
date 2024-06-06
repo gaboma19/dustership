@@ -4,11 +4,10 @@ const CONVERSATION_ID = "shower"
 const LINES: Array[String] = [
 	"Could really use a shower.",
 	"What happened last night?",
-	"I can't remember a thing..."
 ]
 
 const INTERACTED_LINES: Array[String] = [
-	"No water."
+	"No water. Am I still on the ship?"
 ]
 
 
