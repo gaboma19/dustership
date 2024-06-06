@@ -11,7 +11,7 @@ uniform float FlareThreshold; // Threshold for brightness to consider flare
 uniform int Flares; // Number of lens flares
 uniform float FlareSpacing; // Separation between flares
 uniform float Intensity; // Overall intensity of the effect
-uniform float Saturation_; // Adjust color saturation (optional)
+//uniform float Saturation_; // Adjust color saturation (optional)
 uniform float FalloffStart; // Controls falloff start distance from center (0-1)
 uniform float FalloffEnd; // Controls falloff end distance from center (0-1)
 
@@ -49,5 +49,5 @@ void fragment() {
 
   // Apply intensity and optional saturation adjustment
   COLOR.rgb = FinalFlare * Intensity;
-  COLOR.rgb = Saturation(COLOR.rgb, Saturation_); // Adjust saturation as needed (optional)
+  //COLOR.rgb = Saturation(COLOR.rgb, Saturation_); // Adjust saturation as needed (optional)
 }
