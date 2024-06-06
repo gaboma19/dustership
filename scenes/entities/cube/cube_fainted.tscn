@@ -8,6 +8,7 @@
 size = Vector2(9, 9)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_didqj"]
+radius = 16.0
 
 [node name="CubeFainted" type="StaticBody2D"]
 script = ExtResource("1_cxxg8")

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2fkqs44w2304"]
+
+[ext_resource type="Material" uid="uid://c8vkcipk160oy" path="res://resources/materials/grain_post_process_material.tres" id="1_btb8x"]
+
+[node name="Grain" type="CanvasLayer"]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = ExtResource("1_btb8x")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

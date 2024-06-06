@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=75 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
 [ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="13_jhkio"]
 [ext_resource type="Script" path="res://scenes/components/aggro_area/aggro_area.gd" id="14_s4ryk"]
+[ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="15_7iatv"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="22_sicge"]
@@ -572,6 +573,12 @@ damage = 1
 polygon = PackedVector2Array(15, 1, 16, -5, 15, -10, 12, -15, 6, -19, 0, -20, -6, -19, -11, -16, -14, -11, -16, -2, -9, 2, -4, 0, 10, 0)
 disabled = true
 
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.9375, 1)
+texture = ExtResource("15_7iatv")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
@@ -579,7 +586,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
-frame = 10
+frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

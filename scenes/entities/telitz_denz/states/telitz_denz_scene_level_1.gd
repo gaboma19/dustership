@@ -47,20 +47,20 @@ const TELITZ_LINES_5: Array[String] = [
 ]
 
 const APRIL_LINES_YES: Array[String] = [
-	"Sure. Yeah. It's not like I was busy living my life in the real world."
+	"Sure... yeah. I had a lot of time to kill in the real world, anyway."
 ]
 
 const APRIL_LINES_NO: Array[String] = [
-	"How about no. I don't do charity work, nor will I work for my kidnappers."
+	"Saving an ancient and forbidden virtual reality isn't really on my to-do list."
 ]
 
 const TELITZ_LINES_YES: Array[String] = [
-	"Excellent.",
+	"Excellent. I assure you, you will be paid handsomely for your assistance.",
 	"I believe our interests align more closely than you have yet realized."
 ]
 
 const TELITZ_LINES_NO: Array[String] = [
-	"Think it over.",
+	"Think it over. I can assure you, you will be paid handsomely for your assistance.",
 	"Our interests align more closely than you have yet realized."
 ]
 
@@ -72,9 +72,9 @@ var sprite: Sprite2D
 
 func enter(_msg := {}) -> void:
 	sprite = telitz_denz.sprite
-	
 	april = PartyManager.get_april()
 	
+	april.update_blend_position(Vector2.UP)
 	telitz_denz.speak(TELITZ_LINES_1)
 	await DialogueManager.finished_dialogue
 	
@@ -87,6 +87,8 @@ func enter(_msg := {}) -> void:
 	april.speak(APRIL_LINES_2)
 	await DialogueManager.finished_dialogue
 	
+	telitz_denz.update_blend_position(Vector2.LEFT)
+	await get_tree().create_timer(0.1).timeout
 	telitz_denz.update_blend_position(Vector2.UP)
 	telitz_denz.speak(TELITZ_LINES_3)
 	await DialogueManager.finished_dialogue
@@ -122,15 +124,4 @@ func on_decision_container_closed(msg: String):
 	
 	await DialogueManager.finished_dialogue
 	april.state_machine.transition_to("Active")
-	despawn()
-
-
-func despawn():
-	var tween = create_tween()
-	tween.set_parallel()
-	tween.tween_property(sprite.material, "shader_parameter/alpha", 0, 1.6)
-	tween.tween_property(sprite.material, "shader_parameter/effect_factor", 1, 1.6)
-	tween.tween_property(sprite.material, "shader_parameter/noise_amount", 1, 1.6)
-	tween.tween_property(sprite, "scale", Vector2(3, 3), 1.6)
-	tween.chain()
-	tween.tween_callback(telitz_denz.queue_free)
+	telitz_denz.despawn()

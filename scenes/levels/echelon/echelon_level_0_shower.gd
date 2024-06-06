@@ -4,11 +4,10 @@ const CONVERSATION_ID = "shower"
 const LINES: Array[String] = [
 	"Could really use a shower.",
 	"What happened last night?",
-	"I can't remember a thing..."
 ]
 
 const INTERACTED_LINES: Array[String] = [
-	"No water."
+	"No water. Am I still on the ship?"
 ]
 
 
@@ -20,10 +19,10 @@ func _ready():
 
 
 func on_interact():
-	var player = PartyManager.get_active_member() as Player
-	player.update_blend_position(Vector2.UP)
+	var april = PartyManager.get_april() as Player
+	april.update_blend_position(Vector2.UP)
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
-		player.speak(LINES)
+		april.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true
 	else:
-		player.speak(INTERACTED_LINES)
+		april.speak(INTERACTED_LINES)

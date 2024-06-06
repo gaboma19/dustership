@@ -9,4 +9,5 @@ name = "thanks_for_playing"
 texture = ExtResource("2_nevik")
 is_usable = false
 description = ""
-pop_up_text = "Thank you for playing the Dustership demo! Follow along with the game's development @gutugutugames on itch.io."
+pop_up_text = "Thank you for playing the Dustership demo!
+Follow along with the game's development @gutugutugames on itch.io."

@@ -11,8 +11,8 @@ func enter(_msg := {}) -> void:
 	
 	var april = PartyManager.get_april()
 	april.state_machine.transition_to("Hold")
-	april.update_blend_position(Vector2.UP)
 	
+	telitz_denz.show()
 	spawn()
 
 

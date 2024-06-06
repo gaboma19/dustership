@@ -11,9 +11,11 @@ const TEXTURE = preload("res://assets/chest/chest.png")
 @onready var animated_sprite_2d = $AnimatedSprite2D
 @onready var spawn_material: ShaderMaterial = preload(
 	"res://resources/materials/spawn_material.tres")
+@onready var shadow_sprite = $ShadowSprite
 
 
 func _ready():
+	shadow_sprite.animation = animated_sprite_2d.animation
 	interaction_area.interact = Callable(self, "on_interact")
 	
 	if EntityVariables.chests.has(chest_id):

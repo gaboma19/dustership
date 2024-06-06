@@ -20,8 +20,8 @@ const HAS_IDENTITY_CORE_LINES: Array[String] = [
 const CUBE_LINES: Array[String] = [
 	"Hello, world!",
 	"The time is 12:00:00 Ammellan Mean Time.",
-	"DIRECTIVE! Dismantle the Echelon.",
-	"STATUS! Critical failure.",
+	"DIRECTIVE! Investigate and destroy illegal Echelonic technology.",
+	"DIRECTIVE STATUS! Critical failure.",
 	"Ammellan military officer detected. Assuming squad formation."
 ]
 
@@ -31,6 +31,8 @@ const APRIL_RESPONSE_LINES: Array[String] = [
 
 const CONVERSATION_ID: String = "cube_fainted"
 const CUBE_FIXED_CONVERSATION_ID: String = "cube_fixed"
+
+@export var telitz_denz: Npc
 
 @onready var interaction_area = $InteractionArea
 
@@ -69,11 +71,10 @@ func on_interact():
 		player.speak(APRIL_RESPONSE_LINES)
 		await DialogueManager.finished_dialogue
 		
-		PopUp.open_party_instructions()
+		telitz_denz.state_machine.transition_to("Spawn")
+		
 		queue_free()
 		return
-	
-	
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
 		player.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true
