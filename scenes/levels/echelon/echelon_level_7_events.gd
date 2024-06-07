@@ -91,6 +91,8 @@ func on_body_entered_trap(player: Player):
 	cube.speak(CUBE_LINES)
 	await DialogueManager.finished_dialogue
 	
+	MusicManager.play_track("cactus_knight")
+	
 	boss_door_1.close()
 	boss_door_1.set_interactable(false)
 	boss_door_2.set_interactable(false)
@@ -117,6 +119,8 @@ func on_body_entered_trap(player: Player):
 
 
 func on_cactus_knight_died():
+	MusicManager.fade_out()
+	
 	boss_door_1.open()
 	boss_door_2.set_interactable(true)
 	

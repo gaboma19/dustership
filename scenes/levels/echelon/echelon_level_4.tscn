@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d3s7kue7336n1"]
+[gd_scene load_steps=18 format=3 uid="uid://d3s7kue7336n1"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_jyh8u"]
 [ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_2t752"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_isaea"]
 [ext_resource type="Texture2D" uid="uid://kblalnciu7pd" path="res://assets/backgrounds/echelon_alleyway/fire_escape.png" id="4_8nlxa"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_kq1cn"]
+[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_4_events.gd" id="5_u1drp"]
 [ext_resource type="Texture2D" uid="uid://cxqowxc8qgy6e" path="res://assets/backgrounds/echelon_alleyway/shadow.png" id="6_1vluk"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="6_cpiyy"]
 [ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://resources/inventory_item/items/key.tres" id="7_1sf3k"]
@@ -115,6 +116,7 @@ position = Vector2(73, 127)
 enabled = false
 
 [node name="Events" type="Node" parent="."]
+script = ExtResource("5_u1drp")
 
 [node name="TelitzWalkPoint" type="Node2D" parent="Events"]
 unique_name_in_owner = true

@@ -17,7 +17,7 @@ config/icon="res://icon.png"
 
 [audio]
 
-buses/default_bus_layout="res://resources/default_bus_layout.tres"
+buses/default_bus_layout="res://resources/bus_layout.tres"
 
 [autoload]
 
@@ -34,6 +34,7 @@ MaterialsCache="*res://scenes/autoload/materials_cache.gd"
 EntityVariables="*res://scenes/autoload/entity_variables.tscn"
 PopUp="*res://scenes/autoload/pop_up.tscn"
 HitStop="*res://scenes/autoload/hit_stop.gd"
+MusicManager="*res://scenes/autoload/music_manager.tscn"
 
 [debug]
 
