@@ -1206,8 +1206,6 @@ script = ExtResource("1_04g6c")
 max_speed = 60
 acceleration = 10.0
 
-[node name="Abilities" type="Node" parent="."]
-
 [node name="PickupArea" type="Area2D" parent="."]
 unique_name_in_owner = true
 visible = false

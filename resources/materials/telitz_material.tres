@@ -1,0 +1,13 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://vvv3wtis6tx4"]
+
+[ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="1_5ra4m"]
+
+[resource]
+shader = ExtResource("1_5ra4m")
+shader_parameter/lines = 100
+shader_parameter/color1 = Color(0.258824, 0.756863, 0.92549, 1)
+shader_parameter/color2 = Color(1, 1, 1, 1)
+shader_parameter/speed = 0.1
+shader_parameter/alpha = 1.0
+shader_parameter/noise_amount = 0.0
+shader_parameter/effect_factor = 0.0

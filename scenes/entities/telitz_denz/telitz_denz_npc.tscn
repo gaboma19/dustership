@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_denz_npc.gd" id="1_1oro5"]
 [ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="2_wcg1t"]
 [ext_resource type="Material" uid="uid://bj8p1movfwggt" path="res://resources/materials/hologram.tres" id="3_e3qcu"]
-[ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz.png" id="4_5nev1"]
+[ext_resource type="Texture2D" uid="uid://bykhf06vkaadj" path="res://assets/telitz_denz/telitz_denz_npc.png" id="4_5nev1"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="5_xe8m4"]
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_ambush.gd" id="7_g4mkc"]
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_spawn.gd" id="8_mfvb5"]

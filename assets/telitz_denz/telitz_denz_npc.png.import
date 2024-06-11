@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://vn627vmmerfw"
-path="res://.godot/imported/telitz_denz.png-9aae9c2211a97cef456593370f3464d0.ctex"
+uid="uid://bykhf06vkaadj"
+path="res://.godot/imported/telitz_denz_npc.png-3059825204e86470685d0bd715657d80.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/telitz_denz/telitz_denz.png"
-dest_files=["res://.godot/imported/telitz_denz.png-9aae9c2211a97cef456593370f3464d0.ctex"]
+source_file="res://assets/telitz_denz/telitz_denz_npc.png"
+dest_files=["res://.godot/imported/telitz_denz_npc.png-3059825204e86470685d0bd715657d80.ctex"]
 
 [params]
 
