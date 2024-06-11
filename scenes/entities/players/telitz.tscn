@@ -1,4 +1,4 @@
-[gd_scene load_steps=90 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=88 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
@@ -1018,8 +1018,6 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
-[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_mrhhv"]
-
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_64xde"]
 animation = &"walk_down"
 
@@ -1050,75 +1048,86 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qiuan"]
 advance_mode = 2
+advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4mp2s"]
 advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3wae1"]
 advance_mode = 2
+advance_condition = &"is_attacking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4cno3"]
 advance_mode = 2
+advance_condition = &"is_attacking"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_stku1"]
 advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b4iic"]
 advance_mode = 2
+advance_condition = &"is_moving"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pr2qy"]
 advance_mode = 2
+advance_condition = &"is_dodging"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_gb7v3"]
 advance_mode = 2
+advance_condition = &"is_dodging"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dwg1m"]
 advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lrph5"]
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_16bhu"]
 advance_mode = 2
+advance_condition = &"is_charging"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_4cc1u"]
 advance_mode = 2
+advance_condition = &"is_charging"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_td2jh"]
 advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cl1uq"]
 advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sdmg2"]
+switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pa6hq"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lc1bd"]
 advance_mode = 2
+advance_condition = &"is_moving"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uq0g3"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_rleek"]
 advance_mode = 2
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_keq1u"]
-advance_mode = 2
+advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_nnyfg"]
 states/Attack/node = SubResource("AnimationNodeBlendSpace2D_lpl2o")
 states/Attack/position = Vector2(371, -122)
 states/Charge/node = SubResource("AnimationNodeBlendSpace2D_8peyd")
-states/Charge/position = Vector2(541, 201)
+states/Charge/position = Vector2(541, 222)
 states/Dodge/node = SubResource("AnimationNodeBlendSpace2D_28fbg")
 states/Dodge/position = Vector2(710, -122)
 states/Float/node = SubResource("AnimationNodeBlendSpace2D_fb1x8")
-states/Float/position = Vector2(541, 292)
+states/Float/position = Vector2(541, 373)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_bkime")
 states/Idle/position = Vector2(371, 100)
-states/Land/node = SubResource("AnimationNodeBlendSpace2D_mrhhv")
-states/Land/position = Vector2(541, 398)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_7ljqi")
 states/Move/position = Vector2(710, 100)
-transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ql5mf"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_qiuan"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4mp2s"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_3wae1"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_4cno3"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_stku1"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_b4iic"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_pr2qy"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_gb7v3"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_dwg1m"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_lrph5"), "Idle", "Charge", SubResource("AnimationNodeStateMachineTransition_16bhu"), "Move", "Charge", SubResource("AnimationNodeStateMachineTransition_4cc1u"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_td2jh"), "Charge", "Move", SubResource("AnimationNodeStateMachineTransition_cl1uq"), "Charge", "Float", SubResource("AnimationNodeStateMachineTransition_sdmg2"), "Float", "Land", SubResource("AnimationNodeStateMachineTransition_pa6hq"), "Land", "Move", SubResource("AnimationNodeStateMachineTransition_uq0g3"), "Land", "Idle", SubResource("AnimationNodeStateMachineTransition_keq1u")]
-graph_offset = Vector2(93, -67)
+transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ql5mf"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_qiuan"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4mp2s"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_3wae1"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_4cno3"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_stku1"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_b4iic"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_pr2qy"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_gb7v3"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_dwg1m"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_lrph5"), "Idle", "Charge", SubResource("AnimationNodeStateMachineTransition_16bhu"), "Move", "Charge", SubResource("AnimationNodeStateMachineTransition_4cc1u"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_td2jh"), "Charge", "Move", SubResource("AnimationNodeStateMachineTransition_cl1uq"), "Charge", "Float", SubResource("AnimationNodeStateMachineTransition_sdmg2"), "Float", "Move", SubResource("AnimationNodeStateMachineTransition_lc1bd"), "Float", "Idle", SubResource("AnimationNodeStateMachineTransition_rleek")]
+graph_offset = Vector2(72, -72)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2iecw"]
 radius = 2.0
@@ -1167,7 +1176,6 @@ texture = ExtResource("5_vwnei")
 offset = Vector2(2, -7)
 hframes = 11
 vframes = 10
-frame = 76
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -1193,15 +1201,18 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-active = false
 tree_root = SubResource("AnimationNodeStateMachine_nnyfg")
 anim_player = NodePath("../AnimationPlayer")
+parameters/conditions/is_attacking = false
+parameters/conditions/is_charging = false
+parameters/conditions/is_dodging = false
+parameters/conditions/is_idle = true
+parameters/conditions/is_moving = false
 parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Charge/blend_position = Vector2(0, 0)
 parameters/Dodge/blend_position = Vector2(0, 0)
 parameters/Float/blend_position = Vector2(0, 0)
-parameters/Idle/blend_position = Vector2(0, 0)
-parameters/Land/blend_position = Vector2(0, 0)
+parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
