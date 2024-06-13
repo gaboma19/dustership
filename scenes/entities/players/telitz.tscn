@@ -1,12 +1,12 @@
-[gd_scene load_steps=95 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=93 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="3_2nal6"]
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="4_ki7qd"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="5_vwnei"]
-[ext_resource type="Texture2D" uid="uid://b2w8532u3sndp" path="res://assets/telitz_denz/telitz_attack_effect.png" id="6_0n38i"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_aumxs"]
+[ext_resource type="PackedScene" uid="uid://o7rnlulciw5h" path="res://scenes/entities/telitz_denz/telitz_attack_effect.tscn" id="6_ngl0w"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_ja1wp"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_jff6y"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_owm0m"]
@@ -1137,38 +1137,6 @@ graph_offset = Vector2(18, -136)
 radius = 2.0
 height = 8.0
 
-[sub_resource type="Animation" id="Animation_rkgtf"]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [0, 1, 2, 3, 4, 5, 6, 7]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qolyw"]
-_data = {
-"default": SubResource("Animation_rkgtf")
-}
-
 [node name="Telitz" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 673
@@ -1268,132 +1236,28 @@ shape = SubResource("CapsuleShape2D_2iecw")
 position = Vector2(0, -28)
 rotation = 3.14159
 
-[node name="Sprite2D" type="Sprite2D" parent="Hitboxes/Up"]
-visible = false
-texture_filter = 1
-texture = ExtResource("6_0n38i")
-hframes = 3
-vframes = 3
-frame = 7
-metadata/_aseprite_wizard_config_ = {
-"i_mode": -1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://assets/telitz_denz",
-"o_name": "",
-"only_visible": true,
-"player": "Hitboxes/Down/AnimationPlayer",
-"slice": "",
-"source": "res://assets/telitz_denz/telitz_attack_effect.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"output_section": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hitboxes/Up"]
-libraries = {
-"": SubResource("AnimationLibrary_qolyw")
-}
+[node name="TelitzAttackEffect" parent="Hitboxes/Up" instance=ExtResource("6_ngl0w")]
+knockback_direction = Vector2(0, -1)
 
 [node name="Down" type="Node2D" parent="Hitboxes"]
 position = Vector2(0, 12)
 
-[node name="Sprite2D" type="Sprite2D" parent="Hitboxes/Down"]
-visible = false
-texture_filter = 1
-texture = ExtResource("6_0n38i")
-hframes = 3
-vframes = 3
-frame = 7
-metadata/_aseprite_wizard_config_ = {
-"i_mode": -1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://assets/telitz_denz",
-"o_name": "",
-"only_visible": true,
-"player": "Hitboxes/Down/AnimationPlayer",
-"slice": "",
-"source": "res://assets/telitz_denz/telitz_attack_effect.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"output_section": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hitboxes/Down"]
-libraries = {
-"": SubResource("AnimationLibrary_qolyw")
-}
+[node name="TelitzAttackEffect" parent="Hitboxes/Down" instance=ExtResource("6_ngl0w")]
+knockback_direction = Vector2(0, 1)
 
 [node name="Left" type="Node2D" parent="Hitboxes"]
 position = Vector2(-20, -8)
 rotation = 1.5708
 
-[node name="Sprite2D" type="Sprite2D" parent="Hitboxes/Left"]
-visible = false
-texture_filter = 1
-texture = ExtResource("6_0n38i")
-hframes = 3
-vframes = 3
-frame = 7
-metadata/_aseprite_wizard_config_ = {
-"i_mode": -1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://assets/telitz_denz",
-"o_name": "",
-"only_visible": true,
-"player": "Hitboxes/Down/AnimationPlayer",
-"slice": "",
-"source": "res://assets/telitz_denz/telitz_attack_effect.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"output_section": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hitboxes/Left"]
-libraries = {
-"": SubResource("AnimationLibrary_qolyw")
-}
+[node name="TelitzAttackEffect" parent="Hitboxes/Left" instance=ExtResource("6_ngl0w")]
+knockback_direction = Vector2(-1, 0)
 
 [node name="Right" type="Node2D" parent="Hitboxes"]
 position = Vector2(20, -8)
 rotation = -1.5708
 
-[node name="Sprite2D" type="Sprite2D" parent="Hitboxes/Right"]
-visible = false
-texture_filter = 1
-texture = ExtResource("6_0n38i")
-hframes = 3
-vframes = 3
-frame = 7
-metadata/_aseprite_wizard_config_ = {
-"i_mode": -1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "res://assets/telitz_denz",
-"o_name": "",
-"only_visible": true,
-"player": "Hitboxes/Down/AnimationPlayer",
-"slice": "",
-"source": "res://assets/telitz_denz/telitz_attack_effect.aseprite"
-}
-metadata/_aseprite_wizard_interface_config_ = {
-"layer_section": true,
-"output_section": true
-}
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Hitboxes/Right"]
-libraries = {
-"": SubResource("AnimationLibrary_qolyw")
-}
+[node name="TelitzAttackEffect" parent="Hitboxes/Right" instance=ExtResource("6_ngl0w")]
+knockback_direction = Vector2(1, 0)
 
 [node name="StateMachine" parent="." instance=ExtResource("6_aumxs")]
 unique_name_in_owner = true
