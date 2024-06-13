@@ -11,4 +11,4 @@ shader_parameter/speed = 0.1
 shader_parameter/alpha = 1.0
 shader_parameter/noise_amount = 0.0
 shader_parameter/effect_factor = 0.0
-shader_parameter/lerp_percent = null
+shader_parameter/lerp_percent = 0.0

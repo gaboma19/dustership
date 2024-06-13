@@ -10,9 +10,11 @@ var is_switch_character_disabled: bool = false
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
 @onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube.tscn")
+@onready var telitz_scene: PackedScene = preload("res://scenes/entities/players/telitz.tscn")
 @onready var scene_dictionary = {
 	Constants.CharacterNames.APRIL: april_scene,
-	Constants.CharacterNames.CUBE: cube_scene
+	Constants.CharacterNames.CUBE: cube_scene,
+	Constants.CharacterNames.TELITZ: telitz_scene,
 }
 
 
@@ -143,6 +145,14 @@ func get_april() -> Player:
 func get_cube() -> Player:
 	for player in members:
 		if player.character_name == Constants.CharacterNames.CUBE:
+			return player
+	
+	return null
+
+
+func get_telitz() -> Player:
+	for player in members:
+		if player.character_name == Constants.CharacterNames.TELITZ:
 			return player
 	
 	return null

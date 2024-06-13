@@ -41,9 +41,15 @@ func handle_input(event):
 		state_machine.transition_to("Attack")
 	
 	if event.is_action_pressed("dodge") \
-	&& player.character_name == Constants.CharacterNames.APRIL \
-	&& player.state_machine.state == self:
+	&& player.state_machine.state == self \
+	&& (player.character_name == Constants.CharacterNames.APRIL \
+	|| player.character_name == Constants.CharacterNames.TELITZ):
 		state_machine.transition_to("Dodge")
+	
+	if event.is_action_pressed("special") \
+	&& player.state_machine.state == self \
+	&& player.character_name == Constants.CharacterNames.TELITZ:
+		state_machine.transition_to("Special")
 
 
 func get_movement_vector():

@@ -23,6 +23,10 @@ vec4 color_shift(in vec2 uv, in sampler2D image, vec2 shift_vector) {
 
 
 void fragment() {
+	// Called for every pixel the material is visible on.
+	vec4 texture_color = texture(TEXTURE, UV);
+	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
+	
 	float lineN = floor((UV.y - TIME*speed) * float(lines));
 	float line_grade = abs(sin(lineN*PI/4.0));
 	float smooth_line_grade = abs(sin((UV.y - TIME*speed) * float(lines)));
@@ -32,13 +36,10 @@ void fragment() {
 	// change the "240.0" literal to control line color shifting
 	COLOR = color_shift(UV, TEXTURE, vec2(1.0, 0.0)*smooth_line_grade/240.0*effect_factor);
 	
-	noise(UV, COLOR);
 	
-	COLOR.rgb = mix(COLOR.rgb, line_color.rgb, effect_factor);
+	
+	COLOR.rgb = mix(final_color.rgb, line_color.rgb, effect_factor);
 	COLOR.a = alpha * COLOR.a * line_color.a;
 	
-	// Called for every pixel the material is visible on.
-	vec4 texture_color = texture(TEXTURE, UV);
-	vec4 final_color = mix(texture_color, vec4(1.0, 1.0, 1.0, texture_color.a), lerp_percent);
-	COLOR = final_color;
+	noise(UV, COLOR);
 }
