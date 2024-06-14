@@ -1,4 +1,4 @@
-[gd_scene load_steps=75 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=77 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
+[ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="8_th7fg"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_iypjm"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
@@ -25,6 +26,7 @@
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="22_sicge"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="23_d83y3"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo_chase.gd" id="24_dks63"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="26_3oeye"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nrrih"]
 animation = &"attack"
@@ -496,6 +498,8 @@ health_component = NodePath("../HealthComponent")
 drop_percent = 0.25
 health_component = NodePath("../HealthComponent")
 
+[node name="KnockbackComponent" parent="." instance=ExtResource("8_th7fg")]
+
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
 health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
@@ -524,12 +528,13 @@ libraries = {
 "": SubResource("AnimationLibrary_x6ig7")
 }
 
-[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("2_xgd4y")]
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component", "knockback_component") instance=ExtResource("2_xgd4y")]
 unique_name_in_owner = true
 visible = false
 position = Vector2(0, -6)
 health_component = NodePath("../HealthComponent")
 stun_component = NodePath("../StunComponent")
+knockback_component = NodePath("../KnockbackComponent")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
 rotation = 1.57079
@@ -586,7 +591,6 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
-frame = 11
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -632,8 +636,9 @@ enemy_attack = NodePath("../../PhiloAttack")
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource("16_gwxir")
 
-[node name="Stun" type="Node" parent="StateMachine"]
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
 script = ExtResource("17_m8kwi")
+stun_component = NodePath("../../StunComponent")
 
 [node name="Ambush" type="Node" parent="StateMachine" node_paths=PackedStringArray("ambush_range_area")]
 script = ExtResource("23_d83y3")
@@ -641,3 +646,7 @@ ambush_range_area = NodePath("../../AmbushRangeArea")
 
 [node name="Chase" type="Node" parent="StateMachine"]
 script = ExtResource("24_dks63")
+
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component")]
+script = ExtResource("26_3oeye")
+knockback_component = NodePath("../../KnockbackComponent")

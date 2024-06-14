@@ -1,6 +1,7 @@
 extends Node
 
 signal character_switched(name: Constants.CharacterNames)
+signal character_activated(name: Constants.CharacterNames)
 
 var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
@@ -34,6 +35,8 @@ func add_member(node: Player):
 	if members.size() == 1:
 		active_member_index = 0
 		node.state_machine.transition_to("Active")
+		
+		character_activated.emit(node.character_name)
 	else:
 		node.state_machine.transition_to("Follow")
 	
@@ -77,6 +80,8 @@ func instantiate_party(position: Vector2, active_member_name: Constants.Characte
 		if party_member.character_name == active_member_name:
 			party_member.state_machine.transition_to("Active")
 			active_member_index = n
+			
+			character_activated.emit(party_member.character_name)
 		else:
 			party_member.state_machine.transition_to("Follow")
 

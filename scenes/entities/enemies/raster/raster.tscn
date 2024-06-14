@@ -437,5 +437,6 @@ enemy_attack = NodePath("../../RasterAttack")
 [node name="Spawn" type="Node" parent="StateMachine"]
 script = ExtResource("17_p6gyy")
 
-[node name="Stun" type="Node" parent="StateMachine"]
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
 script = ExtResource("17_xelvb")
+stun_component = NodePath("../../StunComponent")

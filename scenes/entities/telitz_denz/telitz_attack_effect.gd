@@ -11,4 +11,8 @@ func _ready():
 
 
 func play():
-	animation_player.play()
+	var parent = get_parent()
+	global_position = parent.global_position
+	global_rotation = parent.global_rotation
+	
+	animation_player.play("default")
