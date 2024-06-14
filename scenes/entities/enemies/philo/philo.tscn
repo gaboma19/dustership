@@ -591,6 +591,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
+frame = 10
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

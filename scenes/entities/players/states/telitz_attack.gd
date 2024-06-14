@@ -1,6 +1,10 @@
 # telitz_attack.gd
 extends PlayerState
 
+const TELITZ_ATTACK_EFFECT_SCENE = preload("res://scenes/entities/telitz_denz/telitz_attack_effect.tscn")
+
+@export var hitboxes: Node2D
+
 
 func enter(_msg := {}) -> void:
 	PartyManager.disable_switch_character(true)
@@ -10,6 +14,13 @@ func enter(_msg := {}) -> void:
 	
 	await get_tree().create_timer(0.6).timeout
 	transition_to_active()
+
+
+func instantiate_attack_effect(direction: String):
+	var attack_effect = TELITZ_ATTACK_EFFECT_SCENE.instantiate()
+	
+	hitboxes.get_node(direction).add_child(attack_effect)
+	attack_effect.play()
 
 
 func transition_to_active():

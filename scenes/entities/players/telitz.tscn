@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=92 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
@@ -6,7 +6,6 @@
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="4_ki7qd"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="5_vwnei"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_aumxs"]
-[ext_resource type="PackedScene" uid="uid://o7rnlulciw5h" path="res://scenes/entities/telitz_denz/telitz_attack_effect.tscn" id="6_ngl0w"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_ja1wp"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_jff6y"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_owm0m"]
@@ -90,15 +89,15 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/Down/TelitzAttackEffect")
+tracks/2/path = NodePath("StateMachine/Attack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"play"
+"args": ["Down"],
+"method": &"instantiate_attack_effect"
 }]
 }
 
@@ -131,15 +130,15 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/Left/TelitzAttackEffect")
+tracks/2/path = NodePath("StateMachine/Attack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"play"
+"args": ["Left"],
+"method": &"instantiate_attack_effect"
 }]
 }
 
@@ -172,15 +171,15 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/Right/TelitzAttackEffect")
+tracks/2/path = NodePath("StateMachine/Attack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"play"
+"args": ["Right"],
+"method": &"instantiate_attack_effect"
 }]
 }
 
@@ -213,15 +212,15 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/Up/TelitzAttackEffect")
+tracks/2/path = NodePath("StateMachine/Attack")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0.2),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"play"
+"args": ["Up"],
+"method": &"instantiate_attack_effect"
 }]
 }
 
@@ -1291,28 +1290,16 @@ shape = SubResource("CapsuleShape2D_2iecw")
 position = Vector2(0, -28)
 rotation = 3.14159
 
-[node name="TelitzAttackEffect" parent="Hitboxes/Up" instance=ExtResource("6_ngl0w")]
-knockback_direction = Vector2(0, -1)
-
 [node name="Down" type="Node2D" parent="Hitboxes"]
 position = Vector2(0, 12)
-
-[node name="TelitzAttackEffect" parent="Hitboxes/Down" instance=ExtResource("6_ngl0w")]
-knockback_direction = Vector2(0, 1)
 
 [node name="Left" type="Node2D" parent="Hitboxes"]
 position = Vector2(-20, -8)
 rotation = 1.5708
 
-[node name="TelitzAttackEffect" parent="Hitboxes/Left" instance=ExtResource("6_ngl0w")]
-knockback_direction = Vector2(-1, 0)
-
 [node name="Right" type="Node2D" parent="Hitboxes"]
 position = Vector2(20, -8)
 rotation = -1.5708
-
-[node name="TelitzAttackEffect" parent="Hitboxes/Right" instance=ExtResource("6_ngl0w")]
-knockback_direction = Vector2(1, 0)
 
 [node name="StateMachine" parent="." instance=ExtResource("6_aumxs")]
 unique_name_in_owner = true
@@ -1327,8 +1314,9 @@ script = ExtResource("8_jff6y")
 [node name="Hold" type="Node" parent="StateMachine"]
 script = ExtResource("9_owm0m")
 
-[node name="Attack" type="Node" parent="StateMachine"]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("hitboxes")]
 script = ExtResource("10_8wyr1")
+hitboxes = NodePath("../../Hitboxes")
 
 [node name="Dodge" type="Node" parent="StateMachine"]
 script = ExtResource("10_xf8f2")

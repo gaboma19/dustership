@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://enlp5na8lllw" path="res://assets/april/april_portrait.png" id="4_8gogm"]
 
 [node name="HealthBar" type="CanvasLayer"]
+visible = false
 script = ExtResource("1_ppetb")
 heart_panel_scene = ExtResource("1_d80qb")
 empty_heart_panel_scene = ExtResource("3_1lr0a")
