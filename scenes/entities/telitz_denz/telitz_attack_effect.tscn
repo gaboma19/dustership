@@ -57,6 +57,20 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e1v02"]
 _data = {
@@ -96,8 +110,7 @@ libraries = {
 autoplay = "default"
 
 [node name="KnockboxComponent" parent="." instance=ExtResource("2_wuwp0")]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KnockboxComponent"]
-polygon = PackedVector2Array(-12, -10, -11, -10, -5, -4, -4, -4, -1, -7, 1, -7, 4, -4, 5, -4, 11, -10, 12, -10, 12, -3, 11, 1, 10, 4, 9, 6, 6, 9, 3, 10, -3, 10, -6, 9, -9, 6, -10, 4, -11, 1, -12, -3)
+polygon = PackedVector2Array(-12, -10, -5, -16, 5, -16, 12, -10, 12, -3, 11, 1, 10, 4, 9, 6, 6, 9, 3, 10, -3, 10, -6, 9, -9, 6, -10, 4, -11, 1, -12, -3)
 disabled = true

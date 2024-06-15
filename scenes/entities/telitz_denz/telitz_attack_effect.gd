@@ -8,6 +8,3 @@ var knockback_direction: Vector2
 
 func _ready():
 	knockbox_component.knockback_direction = knockback_direction
-	
-	await get_tree().create_timer(0.8).timeout
-	queue_free()

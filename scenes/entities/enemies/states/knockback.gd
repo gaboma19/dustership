@@ -22,8 +22,8 @@ func enter(msg := {}) -> void:
 	previous_state = msg.previous_state
 	wall_detector = knockback_component.wall_detector
 	
-	if not wall_detector.area_entered.is_connected(on_wall_detected):
-		wall_detector.area_entered.connect(on_wall_detected)
+	if not wall_detector.body_entered.is_connected(on_wall_detected):
+		wall_detector.body_entered.connect(on_wall_detected)
 	
 	play()
 
