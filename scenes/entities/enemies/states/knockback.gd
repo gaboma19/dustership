@@ -6,8 +6,8 @@ const KNOCKBACK_HEIGHT = 12
 
 @export var knockback_component: KnockbackComponent
 @export var sprite: Sprite2D
-@export var wall_detector: Area2D
 
+var wall_detector: Area2D
 var previous_state: String
 
 
@@ -20,7 +20,10 @@ func enter(msg := {}) -> void:
 		return
 	
 	previous_state = msg.previous_state
-	knockback_component.wall_detector.area_entered.connect(on_wall_detected)
+	wall_detector = knockback_component.wall_detector
+	
+	if not wall_detector.area_entered.is_connected(on_wall_detected):
+		wall_detector.area_entered.connect(on_wall_detected)
 	
 	play()
 
@@ -49,4 +52,4 @@ func transition_to_previous_state():
 
 
 func on_wall_detected():
-	pass
+	print("on_wall_detected")

@@ -28,6 +28,10 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo_chase.gd" id="24_dks63"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="26_3oeye"]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
+radius = 5.0
+height = 14.0
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_nrrih"]
 animation = &"attack"
 
@@ -467,10 +471,6 @@ radius = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_inu02"]
 radius = 64.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
-radius = 5.0
-height = 14.0
-
 [node name="Philo" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 256
 collision_mask = 801
@@ -499,6 +499,15 @@ drop_percent = 0.25
 health_component = NodePath("../HealthComponent")
 
 [node name="KnockbackComponent" parent="." instance=ExtResource("8_th7fg")]
+
+[node name="WallDetector" parent="KnockbackComponent" index="0"]
+collision_mask = 513
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackComponent/WallDetector" index="0"]
+visible = false
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e5krw")
 
 [node name="DeathComponent" parent="." node_paths=PackedStringArray("health_component", "sprite") instance=ExtResource("6_m3bhp")]
 health_component = NodePath("../HealthComponent")
@@ -590,7 +599,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
-frame = 5
+frame = 8
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -650,3 +659,5 @@ script = ExtResource("24_dks63")
 script = ExtResource("26_3oeye")
 knockback_component = NodePath("../../KnockbackComponent")
 sprite = NodePath("../../Sprite2D")
+
+[editable path="KnockbackComponent"]
