@@ -4,14 +4,29 @@
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_attack_effect.gd" id="1_mdubi"]
 [ext_resource type="PackedScene" uid="uid://dk5acwyfa8bk5" path="res://scenes/components/knockbox_component/knockbox_component.tscn" id="2_wuwp0"]
 
-[sub_resource type="Animation" id="Animation_jhgls"]
+[sub_resource type="Animation" id="Animation_3w6u5"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TelitzAttackEffect/KnockboxComponent/CollisionPolygon2D:disabled")
+tracks/0/path = NodePath("KnockboxComponent/CollisionPolygon2D:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_3bova"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
@@ -21,34 +36,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("TelitzAttackEffect/Sprite2D:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_rkgtf"]
-length = 0.8
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("TelitzAttackEffect/Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("TelitzAttackEffect/Sprite2D:frame")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -60,7 +48,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("TelitzAttackEffect/KnockboxComponent/CollisionPolygon2D:disabled")
+tracks/2/path = NodePath("KnockboxComponent/CollisionPolygon2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -69,29 +57,14 @@ tracks/2/keys = {
 "update": 1,
 "values": [false, true]
 }
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("TelitzAttackEffect")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"queue_free"
-}]
-}
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_qolyw"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e1v02"]
 _data = {
-"RESET": SubResource("Animation_jhgls"),
-"default": SubResource("Animation_rkgtf")
+"RESET": SubResource("Animation_3w6u5"),
+"default": SubResource("Animation_3bova")
 }
 
 [node name="TelitzAttackEffect" type="Node2D"]
-top_level = true
 script = ExtResource("1_mdubi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -107,7 +80,7 @@ metadata/_aseprite_wizard_config_ = {
 "o_folder": "res://assets/telitz_denz",
 "o_name": "",
 "only_visible": true,
-"player": "Hitboxes/Down/AnimationPlayer",
+"player": "AnimationPlayer",
 "slice": "",
 "source": "res://assets/telitz_denz/telitz_attack_effect.aseprite"
 }
@@ -117,13 +90,14 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_qolyw")
+"": SubResource("AnimationLibrary_e1v02")
 }
+autoplay = "default"
 
 [node name="KnockboxComponent" parent="." instance=ExtResource("2_wuwp0")]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="KnockboxComponent"]
 polygon = PackedVector2Array(-12, -10, -11, -10, -5, -4, -4, -4, -1, -7, 1, -7, 4, -4, 5, -4, 11, -10, 12, -10, 12, -3, 11, 1, 10, 4, 9, 6, 6, 9, 3, 10, -3, 10, -6, 9, -9, 6, -10, 4, -11, 1, -12, -3)
+disabled = true

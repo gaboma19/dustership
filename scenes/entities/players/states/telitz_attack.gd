@@ -19,8 +19,22 @@ func enter(_msg := {}) -> void:
 func instantiate_attack_effect(direction: String):
 	var attack_effect = TELITZ_ATTACK_EFFECT_SCENE.instantiate()
 	
-	hitboxes.get_node(direction).add_child(attack_effect)
-	attack_effect.play()
+	var direction_node = hitboxes.get_node(direction) as Node2D
+	attack_effect.global_position = direction_node.global_position
+	attack_effect.global_rotation = direction_node.global_rotation
+	
+	match direction:
+		"Up":
+			attack_effect.knockback_direction = Vector2.UP
+		"Down":
+			attack_effect.knockback_direction = Vector2.DOWN
+		"Left":
+			attack_effect.knockback_direction = Vector2.LEFT
+		"Right":
+			attack_effect.knockback_direction = Vector2.RIGHT
+	
+	var entities_layer = get_tree().get_first_node_in_group("entities")
+	entities_layer.add_child(attack_effect)
 
 
 func transition_to_active():

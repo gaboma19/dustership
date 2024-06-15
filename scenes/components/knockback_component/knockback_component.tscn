@@ -4,3 +4,5 @@
 
 [node name="KnockbackComponent" type="Node"]
 script = ExtResource("1_kly8f")
+
+[node name="WallDetector" type="Area2D" parent="."]
