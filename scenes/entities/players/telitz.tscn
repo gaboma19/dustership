@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=93 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="4_ki7qd"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="5_vwnei"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_aumxs"]
+[ext_resource type="PackedScene" uid="uid://bs3mkeu2l1abm" path="res://scenes/entities/telitz_denz/float_effect.tscn" id="6_ml3cm"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_ja1wp"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_jff6y"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_owm0m"]
@@ -1186,10 +1187,10 @@ states/Idle/position = Vector2(371, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_7ljqi")
 states/Move/position = Vector2(710, 100)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_ql5mf"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_qiuan"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_4mp2s"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_3wae1"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_4cno3"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_stku1"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_b4iic"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_pr2qy"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_gb7v3"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_dwg1m"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_lrph5"), "Idle", "Charge", SubResource("AnimationNodeStateMachineTransition_16bhu"), "Move", "Charge", SubResource("AnimationNodeStateMachineTransition_4cc1u"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_td2jh"), "Charge", "Move", SubResource("AnimationNodeStateMachineTransition_cl1uq"), "Charge", "Float", SubResource("AnimationNodeStateMachineTransition_sdmg2"), "Float", "Move", SubResource("AnimationNodeStateMachineTransition_lc1bd"), "Float", "Idle", SubResource("AnimationNodeStateMachineTransition_rleek")]
-graph_offset = Vector2(18, -136)
+graph_offset = Vector2(16, 219)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2iecw"]
-radius = 2.0
+radius = 4.0
 height = 8.0
 
 [node name="Telitz" type="CharacterBody2D"]
@@ -1273,14 +1274,13 @@ parameters/conditions/is_moving = false
 parameters/Attack/blend_position = Vector2(0, 1)
 parameters/Charge/blend_position = Vector2(-0.000853956, -0.808091)
 parameters/Dodge/blend_position = Vector2(0, 0)
-parameters/Float/blend_position = Vector2(0, 0)
+parameters/Float/blend_position = Vector2(0, 1)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, -2)
+position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2iecw")
 
@@ -1300,6 +1300,8 @@ rotation = 1.5708
 [node name="Right" type="Node2D" parent="Hitboxes"]
 position = Vector2(20, -8)
 rotation = -1.5708
+
+[node name="FloatEffect" parent="." instance=ExtResource("6_ml3cm")]
 
 [node name="StateMachine" parent="." instance=ExtResource("6_aumxs")]
 unique_name_in_owner = true
@@ -1324,5 +1326,6 @@ script = ExtResource("10_xf8f2")
 [node name="Special" type="Node" parent="StateMachine"]
 script = ExtResource("12_4gnox")
 
-[node name="Float" type="Node" parent="StateMachine"]
+[node name="Float" type="Node" parent="StateMachine" node_paths=PackedStringArray("float_effect")]
 script = ExtResource("13_fvg6v")
+float_effect = NodePath("../../FloatEffect")

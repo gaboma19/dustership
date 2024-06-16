@@ -501,11 +501,15 @@ health_component = NodePath("../HealthComponent")
 [node name="KnockbackComponent" parent="." instance=ExtResource("8_th7fg")]
 
 [node name="WallDetector" parent="KnockbackComponent" index="0"]
-collision_mask = 513
+position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackComponent/WallDetector" index="0"]
-visible = false
 position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e5krw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KnockbackComponent/FloorDetector" index="0"]
+position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_e5krw")
 
@@ -599,7 +603,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
-frame = 6
+frame = 13
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -655,9 +659,9 @@ ambush_range_area = NodePath("../../AmbushRangeArea")
 [node name="Chase" type="Node" parent="StateMachine"]
 script = ExtResource("24_dks63")
 
-[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component", "sprite")]
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component", "health_component")]
 script = ExtResource("26_3oeye")
 knockback_component = NodePath("../../KnockbackComponent")
-sprite = NodePath("../../Sprite2D")
+health_component = NodePath("../../HealthComponent")
 
 [editable path="KnockbackComponent"]
