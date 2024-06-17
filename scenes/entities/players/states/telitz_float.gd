@@ -4,6 +4,7 @@ extends PlayerState
 const MAX_FLOAT_TIME: float = 8.0
 
 @export var float_effect: Node2D
+@export var float_attack: Node2D
 
 var movement_vector: Vector2 = Vector2.ZERO
 var float_time: float
@@ -12,6 +13,7 @@ var land_tween: Tween
 
 func enter(_msg := {}) -> void:
 	float_time = 0
+	
 	update_blend_position(player.blend_position)
 	player.animation_state_machine.travel("Float")
 	

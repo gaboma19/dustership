@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvsn2mqxonl6a"]
+
+[ext_resource type="Script" path="res://scenes/entities/telitz_denz/float_attack.gd" id="1_5r5qv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g6ke0"]
+
+[node name="FloatAttack" type="Node2D"]
+script = ExtResource("1_5r5qv")
+
+[node name="Left" type="Node2D" parent="."]
+position = Vector2(5, -12)
+
+[node name="Timer" type="Timer" parent="Left"]
+
+[node name="Right" type="Node2D" parent="."]
+position = Vector2(-5, -12)
+
+[node name="Timer" type="Timer" parent="Right"]
+
+[node name="AttackRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_g6ke0")
