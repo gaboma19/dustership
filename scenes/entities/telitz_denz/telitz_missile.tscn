@@ -40,6 +40,7 @@ _data = {
 radius = 4.0
 
 [node name="TelitzMissile" type="Area2D"]
+scale = Vector2(0.5, 0.5)
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_eva30")
@@ -73,3 +74,6 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("CircleShape2D_hnai8")
+
+[node name="LifetimeTimer" type="Timer" parent="."]
+wait_time = 5.0

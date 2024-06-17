@@ -3,21 +3,27 @@
 [ext_resource type="Script" path="res://scenes/entities/telitz_denz/float_attack.gd" id="1_5r5qv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ke0"]
+radius = 128.0
 
 [node name="FloatAttack" type="Node2D"]
 script = ExtResource("1_5r5qv")
 
 [node name="Left" type="Node2D" parent="."]
 position = Vector2(5, -12)
+scale = Vector2(0.5, 0.5)
 
 [node name="Timer" type="Timer" parent="Left"]
 
 [node name="Right" type="Node2D" parent="."]
 position = Vector2(-5, -12)
+rotation = 3.14159
+scale = Vector2(0.5, 0.5)
 
 [node name="Timer" type="Timer" parent="Right"]
 
 [node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
 shape = SubResource("CircleShape2D_g6ke0")

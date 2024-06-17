@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://cx780dwrclh03"]
+
+[ext_resource type="Script" path="res://resources/inventory_item/inventory_item.gd" id="1_uddna"]
+
+[resource]
+script = ExtResource("1_uddna")
+name = ""
+is_usable = false
+description = ""
+pop_up_text = ""

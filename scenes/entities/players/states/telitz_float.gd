@@ -20,6 +20,7 @@ func enter(_msg := {}) -> void:
 	player.sprite.offset.y -= 5
 	
 	float_effect.play()
+	float_attack.start()
 	
 	player.velocity_component.max_speed /= 2
 	player.velocity_component.acceleration /= 2
@@ -71,6 +72,7 @@ func land():
 
 
 func transition_to_active():
+	float_attack.stop()
 	player.animation_tree.set("parameters/conditions/is_charging", false)
 	
 	PartyManager.disable_switch_character(false)

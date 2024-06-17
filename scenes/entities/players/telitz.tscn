@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=94 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="5_vwnei"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_aumxs"]
 [ext_resource type="PackedScene" uid="uid://bs3mkeu2l1abm" path="res://scenes/entities/telitz_denz/float_effect.tscn" id="6_ml3cm"]
+[ext_resource type="PackedScene" uid="uid://bvsn2mqxonl6a" path="res://scenes/entities/telitz_denz/float_attack.tscn" id="6_tb7bu"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_ja1wp"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_jff6y"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_owm0m"]
@@ -1239,7 +1240,6 @@ texture = ExtResource("5_vwnei")
 offset = Vector2(2, -7)
 hframes = 11
 vframes = 10
-frame = 8
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -1268,9 +1268,9 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_nnyfg")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/is_attacking = false
-parameters/conditions/is_charging = true
+parameters/conditions/is_charging = false
 parameters/conditions/is_dodging = false
-parameters/conditions/is_idle = false
+parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
 parameters/Attack/blend_position = Vector2(0, 1)
 parameters/Charge/blend_position = Vector2(0, 1)
@@ -1302,17 +1302,7 @@ rotation = 1.5708
 position = Vector2(20, -8)
 rotation = -1.5708
 
-[node name="FloatAttack" type="Node2D" parent="."]
-
-[node name="Left" type="Node2D" parent="FloatAttack"]
-position = Vector2(5, -12)
-
-[node name="Timer" type="Timer" parent="FloatAttack/Left"]
-
-[node name="Right" type="Node2D" parent="FloatAttack"]
-position = Vector2(-5, -12)
-
-[node name="Timer" type="Timer" parent="FloatAttack/Right"]
+[node name="FloatAttack" parent="." instance=ExtResource("6_tb7bu")]
 
 [node name="FloatEffect" parent="." instance=ExtResource("6_ml3cm")]
 
@@ -1339,6 +1329,7 @@ script = ExtResource("10_xf8f2")
 [node name="Special" type="Node" parent="StateMachine"]
 script = ExtResource("12_4gnox")
 
-[node name="Float" type="Node" parent="StateMachine" node_paths=PackedStringArray("float_effect")]
+[node name="Float" type="Node" parent="StateMachine" node_paths=PackedStringArray("float_effect", "float_attack")]
 script = ExtResource("13_fvg6v")
 float_effect = NodePath("../../FloatEffect")
+float_attack = NodePath("../../FloatAttack")
