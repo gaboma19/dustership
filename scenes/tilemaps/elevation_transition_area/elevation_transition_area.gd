@@ -1,9 +1,9 @@
 extends Area2D
 
-const floor_1: int = 6
-const floor_2: int = 10
-const floor_3: int = 11
-const floor_4: int = 13
+const FLOOR_1: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.ONE]
+const FLOOR_2: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.TWO]
+const FLOOR_3: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.THREE]
+const FLOOR_4: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.FOUR]
 
 @export_enum("One", "Two", "Three") var elevation: String
 
@@ -20,17 +20,20 @@ func on_body_entered(body: Node2D):
 	
 	match elevation:
 		"One":
-			player.set_collision_mask_value(floor_1, true)
-			player.set_collision_mask_value(floor_2, true)
-			player.set_collision_mask_value(floor_3, false)
-			player.set_collision_mask_value(floor_4, false)
+			GameEvents.emit_player_elevation_changed(Constants.Elevations.ONE)
+			player.set_collision_mask_value(FLOOR_1, true)
+			player.set_collision_mask_value(FLOOR_2, true)
+			player.set_collision_mask_value(FLOOR_3, false)
+			player.set_collision_mask_value(FLOOR_4, false)
 		"Two":
-			player.set_collision_mask_value(floor_1, false)
-			player.set_collision_mask_value(floor_2, true)
-			player.set_collision_mask_value(floor_3, true)
-			player.set_collision_mask_value(floor_4, false)
+			GameEvents.emit_player_elevation_changed(Constants.Elevations.TWO)
+			player.set_collision_mask_value(FLOOR_1, false)
+			player.set_collision_mask_value(FLOOR_2, true)
+			player.set_collision_mask_value(FLOOR_3, true)
+			player.set_collision_mask_value(FLOOR_4, false)
 		"Three":
-			player.set_collision_mask_value(floor_1, false)
-			player.set_collision_mask_value(floor_2, false)
-			player.set_collision_mask_value(floor_3, true)
-			player.set_collision_mask_value(floor_4, true)
+			GameEvents.emit_player_elevation_changed(Constants.Elevations.THREE)
+			player.set_collision_mask_value(FLOOR_1, false)
+			player.set_collision_mask_value(FLOOR_2, false)
+			player.set_collision_mask_value(FLOOR_3, true)
+			player.set_collision_mask_value(FLOOR_4, true)

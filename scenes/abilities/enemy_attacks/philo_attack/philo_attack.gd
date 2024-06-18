@@ -1,12 +1,8 @@
 extends EnemyAttack
 
-@export var hitbox_component: HitboxComponent
-@export var damage: int = 1
-
 
 func _ready():
 	cooldown_timer = $CooldownTimer
-	hitbox_component.damage = damage
 
 
 func attack():

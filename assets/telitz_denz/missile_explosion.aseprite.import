@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cfirw56wdv2hl"
+path="res://.godot/imported/missile_explosion.aseprite-da59caa086b3f31432efe88cff414064.res"
+
+[deps]
+
+source_file="res://assets/telitz_denz/missile_explosion.aseprite"
+dest_files=["res://.godot/imported/missile_explosion.aseprite-da59caa086b3f31432efe88cff414064.res"]
+
+[params]
+

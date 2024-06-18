@@ -136,6 +136,3 @@ func on_cactus_knight_died():
 	await DialogueManager.finished_dialogue
 	april.speak(APRIL_LINES_4)
 	await DialogueManager.finished_dialogue
-	
-	PopUp.open_pop_up(
-		preload("res://resources/inventory_item/items/thanks_for_playing.tres"))

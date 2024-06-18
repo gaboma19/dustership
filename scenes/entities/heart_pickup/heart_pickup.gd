@@ -10,8 +10,8 @@ func _ready():
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
 	$AnimationPlayer.queue("spin")
 	tween_bounce()
-	
-	
+
+
 func tween_bounce():
 	var direction: Vector2
 	if randf() > 0.5: 

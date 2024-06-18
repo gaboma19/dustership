@@ -8,8 +8,8 @@ var heart_pickup_scene = preload("res://scenes/entities/heart_pickup/heart_picku
 
 func _ready():
 	(health_component as HealthComponent).died.connect(on_died)
-	
-	
+
+
 func on_died():
 	if heart_pickup_scene == null:
 		return

@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bhv3w3uk3b73e"]
+[gd_scene load_steps=27 format=3 uid="uid://bhv3w3uk3b73e"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_qfi3h"]
 [ext_resource type="Texture2D" uid="uid://corxxm72cbgvw" path="res://assets/backgrounds/aprils_apartment/aprils_apartment.png" id="1_roq2h"]
@@ -12,8 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://cwhn0720eueg0" path="res://scenes/entities/doodads/aprils_apartment_light_ray.tscn" id="6_yly58"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_shower.gd" id="8_ha054"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_computer.gd" id="9_74cea"]
+[ext_resource type="Material" uid="uid://caayel4fvr7bb" path="res://resources/materials/stun.tres" id="10_8n1mc"]
 [ext_resource type="Resource" uid="uid://cydryfrgm0mep" path="res://resources/inventory_item/items/sword.tres" id="10_twkl8"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_xe4gx"]
+[ext_resource type="Texture2D" uid="uid://qoobnbohr0g" path="res://assets/backgrounds/aprils_apartment/computer_screen.png" id="11_de83u"]
 [ext_resource type="Script" path="res://scenes/level_transitions/level_transition_area_level0.gd" id="13_7sqa6"]
 
 [sub_resource type="Resource" id="Resource_guplp"]
@@ -46,7 +48,7 @@ Outline = false
 OutlineColor = Color(0, 0, 0, 1)
 OutlineThreshold = 0.0
 OutlineBlend = 0.01
-Grain = true
+Grain = false
 GrainPower = 75
 CircularWaves = false
 CircularWavesAmplitude = 2.0
@@ -143,6 +145,59 @@ _data = {
 [sub_resource type="CircleShape2D" id="CircleShape2D_sxbpc"]
 radius = 16.0
 
+[sub_resource type="Animation" id="Animation_cb0d8"]
+resource_name = "default"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Foreground/ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qwodn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Foreground/ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ph4u3"]
+resource_name = "fade_to_white"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Foreground/ColorRect2:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dxokw"]
+_data = {
+"RESET": SubResource("Animation_qwodn"),
+"default": SubResource("Animation_cb0d8"),
+"fade_to_white": SubResource("Animation_ph4u3")
+}
+
 [node name="EchelonLevel0" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_qfi3h")
@@ -211,6 +266,17 @@ action_name = "Inspect"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Computer/InteractionArea"]
 shape = SubResource("CircleShape2D_sxbpc")
 
+[node name="Sprite2D" type="Sprite2D" parent="Computer"]
+visible = false
+material = ExtResource("10_8n1mc")
+position = Vector2(-8, -25)
+texture = ExtResource("11_de83u")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Computer"]
+libraries = {
+"": SubResource("AnimationLibrary_dxokw")
+}
+
 [node name="Shower" type="Node2D" parent="."]
 position = Vector2(-48, 64)
 script = ExtResource("8_ha054")
@@ -245,6 +311,14 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Light" parent="Foreground" instance=ExtResource("6_yly58")]
+
+[node name="ColorRect2" type="ColorRect" parent="Foreground"]
+modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(250, 150)
+offset_left = -125.0
+offset_right = 125.0
+offset_bottom = 150.0
+mouse_filter = 2
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("6_ih2uo")]
 visible = false

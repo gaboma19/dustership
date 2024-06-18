@@ -1193,7 +1193,7 @@ transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-102, -110)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
-radius = 2.0
+radius = 3.0
 height = 8.0
 
 [node name="April" type="CharacterBody2D" groups=["player"]]
@@ -1205,8 +1205,6 @@ script = ExtResource("1_04g6c")
 [node name="VelocityComponent" parent="." instance=ExtResource("2_d0ecx")]
 max_speed = 60
 acceleration = 10.0
-
-[node name="Abilities" type="Node" parent="."]
 
 [node name="PickupArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -1317,8 +1315,7 @@ parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
-visible = false
-position = Vector2(0, -2)
+position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pbin4")
 

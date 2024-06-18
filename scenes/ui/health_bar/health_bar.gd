@@ -11,8 +11,8 @@ func _ready():
 	GameEvents.player_damaged.connect(on_player_damaged)
 	GameEvents.player_healed.connect(on_player_healed)
 	PartyManager.character_switched.connect(on_character_switched)
+	PartyManager.character_activated.connect(on_character_activated)
 	clear_hearts()
-	set_portrait(Constants.CharacterNames.APRIL)
 
 
 func clear_hearts():
@@ -38,6 +38,8 @@ func set_portrait(character_name: Constants.CharacterNames):
 			portrait_texture.texture = preload("res://assets/april/april_portrait.png")
 		Constants.CharacterNames.CUBE:
 			portrait_texture.texture = preload("res://assets/cube/cube_portrait.png")
+		Constants.CharacterNames.TELITZ:
+			portrait_texture.texture = preload("res://assets/telitz_denz/telitz_portrait.png")
 
 
 func on_player_damaged():
@@ -49,4 +51,8 @@ func on_player_healed():
 
 
 func on_character_switched(character_name: Constants.CharacterNames):
+	set_portrait(character_name)
+
+
+func on_character_activated(character_name: Constants.CharacterNames):
 	set_portrait(character_name)

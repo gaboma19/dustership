@@ -75,6 +75,7 @@ func on_interact():
 		
 		queue_free()
 		return
+	
 	if not EntityVariables.conversations[CONVERSATION_ID].interacted:
 		player.speak(LINES)
 		EntityVariables.conversations[CONVERSATION_ID].interacted = true

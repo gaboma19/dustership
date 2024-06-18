@@ -266,11 +266,11 @@ text = "OK"
 
 [node name="DecisionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer"]
+[node name="DecisionLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/DecisionContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Will you help Telitz Denz?"
 

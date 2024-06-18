@@ -73,6 +73,8 @@ func can_attack():
 			return PlayerVariables.has_sword
 		Constants.CharacterNames.CUBE:
 			return PlayerVariables.has_gun
+		Constants.CharacterNames.TELITZ:
+			return true
 
 
 func instantiate_shadow():

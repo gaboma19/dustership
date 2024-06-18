@@ -1,6 +1,7 @@
 extends Node
 
 signal character_switched(name: Constants.CharacterNames)
+signal character_activated(name: Constants.CharacterNames)
 
 var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
@@ -10,9 +11,11 @@ var is_switch_character_disabled: bool = false
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
 @onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube.tscn")
+@onready var telitz_scene: PackedScene = preload("res://scenes/entities/players/telitz.tscn")
 @onready var scene_dictionary = {
 	Constants.CharacterNames.APRIL: april_scene,
-	Constants.CharacterNames.CUBE: cube_scene
+	Constants.CharacterNames.CUBE: cube_scene,
+	Constants.CharacterNames.TELITZ: telitz_scene,
 }
 
 
@@ -32,6 +35,8 @@ func add_member(node: Player):
 	if members.size() == 1:
 		active_member_index = 0
 		node.state_machine.transition_to("Active")
+		
+		character_activated.emit(node.character_name)
 	else:
 		node.state_machine.transition_to("Follow")
 	
@@ -75,6 +80,8 @@ func instantiate_party(position: Vector2, active_member_name: Constants.Characte
 		if party_member.character_name == active_member_name:
 			party_member.state_machine.transition_to("Active")
 			active_member_index = n
+			
+			character_activated.emit(party_member.character_name)
 		else:
 			party_member.state_machine.transition_to("Follow")
 
@@ -132,6 +139,27 @@ func disable_switch_character(value):
 	is_switch_character_disabled = value
 
 
+func get_follow_target(follower: Player):
+	if members.size() == 2:
+		return get_active_member()
+	
+	var following: Array[int]
+	var follower_index = members.find(follower)
+	
+	if follower_index == -1:
+		return null
+	
+	if members.size() == 3:
+		if active_member_index == 0:
+			following = [2, 0, 1]
+		if active_member_index == 1:
+			following = [1, 2, 0]
+		if active_member_index == 2:
+			following = [2, 0, 2]
+	
+	return members[following[follower_index]]
+
+
 func get_april() -> Player:
 	for player in members:
 		if player.character_name == Constants.CharacterNames.APRIL:
@@ -143,6 +171,14 @@ func get_april() -> Player:
 func get_cube() -> Player:
 	for player in members:
 		if player.character_name == Constants.CharacterNames.CUBE:
+			return player
+	
+	return null
+
+
+func get_telitz() -> Player:
+	for player in members:
+		if player.character_name == Constants.CharacterNames.TELITZ:
 			return player
 	
 	return null

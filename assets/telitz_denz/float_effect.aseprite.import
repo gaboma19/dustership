@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bwa16k5qbpo2m"
+path="res://.godot/imported/float_effect.aseprite-25f494428f775d762ccd617cce40d2ca.res"
+
+[deps]
+
+source_file="res://assets/telitz_denz/float_effect.aseprite"
+dest_files=["res://.godot/imported/float_effect.aseprite-25f494428f775d762ccd617cce40d2ca.res"]
+
+[params]
+

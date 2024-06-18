@@ -1555,7 +1555,7 @@ states/Idle/position = Vector2(377, 98)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_1om58")
 states/Move/position = Vector2(678, 98)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_8c2st"), "Idle", "Move", SubResource("AnimationNodeStateMachineTransition_7w54k"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_d1mxg"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_jg5kb"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_6e577"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_cfiqh"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_ykn00"), "Attack", "Charge", SubResource("AnimationNodeStateMachineTransition_l0krv"), "Charge", "Idle", SubResource("AnimationNodeStateMachineTransition_8k7bo"), "Charge", "Move", SubResource("AnimationNodeStateMachineTransition_g36ie")]
-graph_offset = Vector2(58, 110)
+graph_offset = Vector2(46, 70)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_votkt"]
 radius = 5.0
@@ -1570,8 +1570,6 @@ character_name = 1
 [node name="VelocityComponent" parent="." instance=ExtResource("1_5e7pt")]
 max_speed = 60
 acceleration = 10.0
-
-[node name="Abilities" type="Node" parent="."]
 
 [node name="PickupArea" type="Area2D" parent="."]
 unique_name_in_owner = true

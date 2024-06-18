@@ -3,11 +3,13 @@ extends EnemyState
 
 var previous_state: String
 
-@onready var stun_component = %StunComponent
+@export var stun_component: StunComponent
 
 
 func enter(msg := {}) -> void:
 	if msg.is_empty():
+		return
+	if stun_component == null:
 		return
 	
 	previous_state = msg.previous_state
