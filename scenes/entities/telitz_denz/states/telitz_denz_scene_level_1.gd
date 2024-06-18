@@ -106,7 +106,7 @@ func enter(_msg := {}) -> void:
 	telitz_denz.speak(TELITZ_LINES_5)
 	await DialogueManager.finished_dialogue
 	
-	PopUp.open_decision_container()
+	PopUp.open_decision_container("Will you help Telitz Denz?")
 	PopUp.closed.connect(on_decision_container_closed)
 
 

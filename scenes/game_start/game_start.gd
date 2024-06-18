@@ -13,6 +13,8 @@ func _ready():
 		PlayerVariables.has_sword = true
 		PlayerVariables.has_gun = true
 		#Inventory.add_item(preload("res://resources/inventory_item/items/identity_core.tres"))
+		Inventory.add_item(preload("res://resources/inventory_item/items/eremite_diskette.tres"))
+		EntityVariables.conversations["intro_cutscene"] = { "interacted": true }
 	
 	if enabled:
 		PlayerVariables.enable_game_start = false

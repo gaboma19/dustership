@@ -95,17 +95,20 @@ func open_party_instructions():
 	%Label.text = "Cube joins the party!"
 
 
-func open_decision_container():
+func open_decision_container(text: String):
+	var label = %DecisionLabel
+	label.text = text
+	
 	show()
 	decision_container.show()
-	get_tree().paused = true
 	animate_open()
+	get_tree().paused = true
 	yes_button.grab_focus()
 
 
 func on_ok_button_pressed():
 	close()
-	closed.emit()
+	closed.emit("Ok")
 
 
 func on_yes_button_pressed():
