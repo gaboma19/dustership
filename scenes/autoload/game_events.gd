@@ -5,6 +5,8 @@ signal player_healed
 signal steel_collected(value: int)
 signal inventory_item_detail_closed
 signal player_elevation_changed
+signal cube_joined
+signal telitz_joined
 
 
 func emit_player_damaged():
@@ -25,3 +27,11 @@ func emit_inventory_item_detail_closed():
 
 func emit_player_elevation_changed(elevation: Constants.Elevations):
 	player_elevation_changed.emit(elevation)
+
+
+func emit_cube_joined():
+	cube_joined.emit()
+
+
+func emit_telitz_joined():
+	telitz_joined.emit()

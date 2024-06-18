@@ -11,4 +11,5 @@ func _ready():
 
 
 func on_interact():
+	interaction_area.set_deferred("monitoring", false)
 	ScreenTransition.transition_to_level(path, new_player_position)

@@ -73,6 +73,8 @@ func on_interact():
 		
 		telitz_denz.state_machine.transition_to("Spawn")
 		
+		GameEvents.emit_cube_joined()
+		
 		queue_free()
 		return
 	
