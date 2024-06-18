@@ -20,7 +20,7 @@ func tween_bounce():
 		direction = Vector2.LEFT
 
 	var tween = create_tween()
-	tween.tween_property(self, "position", direction * 16, 1).as_relative()
+	tween.tween_property(self, "position", direction * 32, 1).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):

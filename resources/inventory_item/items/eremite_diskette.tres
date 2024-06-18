@@ -8,5 +8,5 @@ script = ExtResource("1_uddna")
 name = "eremite_diskette"
 texture = ExtResource("2_5m1nt")
 is_usable = false
-description = ""
+description = "A computer diskette dropped by a monster in the Echelon. Strange runes are etched into the metallic casing"
 pop_up_text = ""

@@ -4,3 +4,4 @@
 
 [node name="ItemDropComponent" type="Node"]
 script = ExtResource("1_lkbiw")
+drop_percent = 1.0
