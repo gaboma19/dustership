@@ -1,0 +1,91 @@
+[gd_scene load_steps=7 format=3 uid="uid://bsv0wlt32q7pb"]
+
+[ext_resource type="Script" path="res://scenes/entities/item_pickup/item_pickup.gd" id="1_wdbk2"]
+[ext_resource type="Texture2D" uid="uid://dcuu41rt4plor" path="res://assets/eremite_diskette/eremite_diskette.png" id="2_3yjb7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xq11b"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_bd68w"]
+resource_name = "bounce"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectionArea:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 1.1, 2, 3),
+"transitions": PackedFloat32Array(1, 2, 1, 1, 3),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -32), Vector2(-4.5, -28.445), Vector2(4.5, -14.224), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ahto4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectionArea:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dcsy2"]
+_data = {
+"RESET": SubResource("Animation_ahto4"),
+"bounce": SubResource("Animation_bd68w")
+}
+
+[node name="ItemPickup" type="Node2D"]
+script = ExtResource("1_wdbk2")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -4)
+collision_layer = 0
+collision_mask = 16
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+shape = SubResource("CircleShape2D_xq11b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3yjb7")
+offset = Vector2(0, -8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dcsy2")
+}
+autoplay = "bounce"

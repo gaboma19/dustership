@@ -1,14 +1,14 @@
 extends Node2D
 
-@onready var sprite = $Sprite2D
-@onready var collision_shape_2d = $CollectionArea/CollisionShape2D
+var item: InventoryItem
 
-@export var heal_value: int = 1
+@onready var collision_shape_2d = $CollectionArea/CollisionShape2D
+@onready var sprite = $Sprite2D
 
 
 func _ready():
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
-	$AnimationPlayer.queue("spin")
+	sprite.texture = item.texture
 	tween_bounce()
 
 
@@ -37,22 +37,15 @@ func tween_collect(percent: float, start_position: Vector2):
 
 
 func collect():
-	PlayerVariables.heal(heal_value)
-	queue_free()
+	Inventory.add_item(item)
 
 
 func disable_collision():
 	collision_shape_2d.disabled = true
 
 
-func play_audio_delayed():
-	await get_tree().create_timer(0.4).timeout
-	%HeartPickupAudio.play_random()
-
-
 func on_collection_area_entered(_area: Area2D):
 	Callable(disable_collision).call_deferred()
-	play_audio_delayed()
 	
 	var tween = create_tween()
 	tween.set_parallel()

@@ -44,7 +44,7 @@ func spawn_missile(node: Node2D):
 
 func get_nearest_enemy():
 	var nearby_enemies = attack_range.get_overlapping_bodies()
-	nearby_enemies.filter(remove_spawn_state_enemies)
+	nearby_enemies = nearby_enemies.filter(remove_spawn_state_enemies)
 	nearby_enemies.sort_custom(sort_by_distance)
 	
 	if nearby_enemies.is_empty():

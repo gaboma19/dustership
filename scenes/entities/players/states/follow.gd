@@ -4,14 +4,14 @@ extends PlayerState
 @onready var pickup_area = %PickupArea
 @onready var player_hurtbox_component = %PlayerHurtboxComponent
 
-var active_player: Player
+var follow_target: Player
 
 
 func enter(_msg := {}) -> void:
 	pickup_area.set_deferred("monitorable", false)
 	player_hurtbox_component.set_deferred("monitoring", false)
 	player_hurtbox_component.set_deferred("monitorable", false)
-	active_player = PartyManager.get_active_member()
+	#follow_target = PartyManager.get_follow_target(player)
 
 
 func exit():
@@ -20,13 +20,12 @@ func exit():
 
 
 func update(_delta: float) -> void:
-	if active_player == player:
-		active_player = PartyManager.get_active_member()
+	follow_target = PartyManager.get_follow_target(player)
 		
-	if active_player == null:
+	if follow_target == null:
 		return
 	
-	var distance = player.global_position.distance_to(active_player.global_position)
+	var distance = player.global_position.distance_to(follow_target.global_position)
 	if distance > 16:
 		player.velocity_component.accelerate_to_player()
 		player.velocity_component.move(player)

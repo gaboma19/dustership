@@ -139,6 +139,27 @@ func disable_switch_character(value):
 	is_switch_character_disabled = value
 
 
+func get_follow_target(follower: Player):
+	if members.size() == 2:
+		return get_active_member()
+	
+	var following: Array[int]
+	var follower_index = members.find(follower)
+	
+	if follower_index == -1:
+		return null
+	
+	if members.size() == 3:
+		if active_member_index == 0:
+			following = [2, 0, 1]
+		if active_member_index == 1:
+			following = [1, 2, 0]
+		if active_member_index == 2:
+			following = [2, 0, 2]
+	
+	return members[following[follower_index]]
+
+
 func get_april() -> Player:
 	for player in members:
 		if player.character_name == Constants.CharacterNames.APRIL:
