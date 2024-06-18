@@ -1,0 +1,139 @@
+[gd_scene load_steps=8 format=3 uid="uid://doak1m0xw6r4t"]
+
+[ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/equipment_panel.gd" id="1_fh1sn"]
+[ext_resource type="Texture2D" uid="uid://sy8d6jld4e5i" path="res://assets/april/ammellan.png" id="1_pisyf"]
+[ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://assets/sword/sword.png" id="2_hwdbg"]
+[ext_resource type="Texture2D" uid="uid://bkaqeshji82e4" path="res://assets/cube/cube_texture.png" id="4_pbi73"]
+[ext_resource type="Texture2D" uid="uid://ba7ora8v84cie" path="res://assets/cube/laser_texture.png" id="5_7fyp7"]
+[ext_resource type="Texture2D" uid="uid://dq6ba2qqde56a" path="res://assets/telitz_denz/telitz_denz_texture.png" id="5_wuksp"]
+[ext_resource type="Texture2D" uid="uid://1pg3qf567w1d" path="res://assets/telitz_denz/push_texture.png" id="7_p06aw"]
+
+[node name="EquipmentPanel" type="PanelContainer"]
+size_flags_horizontal = 3
+theme_type_variation = &"PanelContainerLight"
+script = ExtResource("1_fh1sn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Container" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="AprilSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Container"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_pisyf")
+centered = false
+hframes = 6
+vframes = 5
+
+[node name="Container2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="SwordSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Container2"]
+unique_name_in_owner = true
+scale = Vector2(3, 3)
+texture = ExtResource("2_hwdbg")
+centered = false
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "April"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Container" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2/Container"]
+scale = Vector2(3, 3)
+texture = ExtResource("4_pbi73")
+centered = false
+
+[node name="Container2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer2/Container2"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_7fyp7")
+centered = false
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Cube"
+horizontal_alignment = 2
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Container" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer3/Container"]
+scale = Vector2(3, 3)
+texture = ExtResource("5_wuksp")
+centered = false
+
+[node name="Container2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer3/Container2"]
+scale = Vector2(3, 3)
+texture = ExtResource("7_p06aw")
+centered = false
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "Telitz"
+horizontal_alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="Container" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer4/Container"]
+scale = Vector2(3, 3)
+centered = false
+hframes = 6
+vframes = 5
+
+[node name="Container2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer4/Container2"]
+scale = Vector2(3, 3)
+centered = false
+hframes = 6
+vframes = 5
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+horizontal_alignment = 2

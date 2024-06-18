@@ -154,6 +154,7 @@ layout_mode = 2
 text = "to switch the active party member."
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/ItemGetContainer/PartyTutorial/VBoxContainer/HBoxContainer2"]
@@ -266,6 +267,7 @@ text = "OK"
 
 [node name="DecisionContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_override_constants/separation = 8
 

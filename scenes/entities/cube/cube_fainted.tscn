@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_ciwda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8anu"]
-size = Vector2(9, 9)
+size = Vector2(16, 16)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_didqj"]
 radius = 16.0
@@ -36,12 +36,12 @@ position = Vector2(0.5, -4.5)
 shape = SubResource("RectangleShape2D_a8anu")
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("3_ciwda")
 action_name = "Inspect"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+visible = false
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_didqj")

@@ -8,7 +8,6 @@ func _ready():
 	Inventory.item_added.connect(on_item_used)
 	GameEvents.inventory_item_detail_closed.connect(regrab_focus)
 	PopUp.closed.connect(regrab_focus)
-	%SwordSprite.visible = PlayerVariables.has_sword
 	
 	inventory_slots[0].grab_focus()
 

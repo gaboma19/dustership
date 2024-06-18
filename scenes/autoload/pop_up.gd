@@ -108,7 +108,7 @@ func open_decision_container(text: String):
 
 func on_ok_button_pressed():
 	close()
-	closed.emit("Ok")
+	closed.emit()
 
 
 func on_yes_button_pressed():

@@ -482,5 +482,6 @@ script = ExtResource("11_8yssa")
 [node name="Shoot" type="Node" parent="StateMachine"]
 script = ExtResource("12_ygdi2")
 
-[node name="Stun" type="Node" parent="StateMachine"]
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
 script = ExtResource("13_uojri")
+stun_component = NodePath("../../StunComponent")
