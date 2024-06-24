@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dngxye0p7kdqb"]
+
+[ext_resource type="TileSet" uid="uid://du87wogm2dp4j" path="res://scenes/tile_maps/dustership/dustership_tile_set.tres" id="1_flmvc"]
+
+[node name="DustershipTileMap" type="TileMap"]
+tile_set = ExtResource("1_flmvc")
+format = 2
+layer_0/name = "floor"
+metadata/_edit_vertical_guides_ = [656.0]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://bey7edubynppe"]
 
-[ext_resource type="TileSet" uid="uid://bmigduin12qp5" path="res://scenes/tilemaps/echelon_tile_set_0.tres" id="1_eb5t7"]
+[ext_resource type="TileSet" uid="uid://bmigduin12qp5" path="res://scenes/tile_maps/echelon/echelon_tile_set_0.tres" id="1_esc8d"]
 
 [node name="EchelonTileMap" type="TileMap"]
-tile_set = ExtResource("1_eb5t7")
+tile_set = ExtResource("1_esc8d")
 format = 2
 layer_0/name = "cliffs"
 layer_1/name = "echelon"

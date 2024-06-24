@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://da8wf3erjptmn"
+path="res://.godot/imported/dustership_exterior_2.aseprite-c85b4b8d38c4c078902fc1aa339ab39f.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/dustership_exterior/dustership_exterior_2.aseprite"
+dest_files=["res://.godot/imported/dustership_exterior_2.aseprite-c85b4b8d38c4c078902fc1aa339ab39f.res"]
+
+[params]
+

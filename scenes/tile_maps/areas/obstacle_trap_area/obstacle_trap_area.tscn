@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dujixgljuvw3k"]
 
-[ext_resource type="Script" path="res://scenes/tilemaps/obstacle_trap_area/obstacle_trap_area.gd" id="1_gp8j5"]
+[ext_resource type="Script" path="res://scenes/tile_maps/areas/obstacle_trap_area/obstacle_trap_area.gd" id="1_gp8j5"]
 
 [node name="ObstacleTrapArea" type="Area2D"]
 collision_layer = 0
