@@ -1,8 +1,9 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://du87wogm2dp4j"]
+[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://du87wogm2dp4j"]
 
 [ext_resource type="Texture2D" uid="uid://bbecefng4rpw0" path="res://assets/dustership_tiles/dustership_tiles.png" id="1_57n7y"]
 [ext_resource type="Texture2D" uid="uid://dfo3ixbdei1rp" path="res://assets/dustership_tiles/dustership_black_tiles.png" id="2_w5r1l"]
 [ext_resource type="Texture2D" uid="uid://bcmcw56b7bpdh" path="res://assets/dustership_tiles/dustership_wall_tiles.png" id="3_3paxx"]
+[ext_resource type="Texture2D" uid="uid://cvmsm6a1uk46d" path="res://assets/dustership_tiles/dustership_cliff_tiles.png" id="4_bl8h7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4pm8u"]
 resource_name = "floor"
@@ -1381,6 +1382,31 @@ texture_region_size = Vector2i(32, 32)
 5:0/0/physics_layer_0/angular_velocity = 0.0
 5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -24, 8, -24, 8, 4, -16, 4)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7sdfd"]
+resource_name = "cliffs"
+texture = ExtResource("4_bl8h7")
+texture_region_size = Vector2i(32, 32)
+0:0/size_in_atlas = Vector2i(1, 4)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -16)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/size_in_atlas = Vector2i(1, 4)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -16)
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/size_in_atlas = Vector2i(1, 4)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -16)
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/size_in_atlas = Vector2i(1, 4)
+5:0/0 = 0
+5:0/0/texture_origin = Vector2i(0, -16)
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+
 [resource]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 32
@@ -1393,3 +1419,4 @@ terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_4pm8u")
 sources/1 = SubResource("TileSetAtlasSource_3uw4u")
 sources/2 = SubResource("TileSetAtlasSource_oam6j")
+sources/3 = SubResource("TileSetAtlasSource_7sdfd")
