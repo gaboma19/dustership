@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1qmujkc22666"]
+
+[ext_resource type="Texture2D" uid="uid://c6afb61puabti" path="res://assets/backgrounds/dustership_parallax/dustership_parallax.png" id="1_nc8ps"]
+
+[node name="DustershipBackground" type="ParallaxBackground"]
+scroll_offset = Vector2(250, 150)
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.9, 0.9)
+motion_mirroring = Vector2(500, 300)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+texture = ExtResource("1_nc8ps")
