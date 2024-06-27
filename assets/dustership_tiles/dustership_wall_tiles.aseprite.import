@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dttk43b7nfq2g"
+path="res://.godot/imported/dustership_wall_tiles.aseprite-cbbed4ce8434b319e1cb62454b124354.res"
+
+[deps]
+
+source_file="res://assets/dustership_tiles/dustership_wall_tiles.aseprite"
+dest_files=["res://.godot/imported/dustership_wall_tiles.aseprite-cbbed4ce8434b319e1cb62454b124354.res"]
+
+[params]
+

@@ -5,7 +5,8 @@ var can_explode: bool = true
 var charge_percent: float = 0
 
 @onready var line_2d = $Line2D
-@onready var audio_stream_player = $RandomAudioStreamPlayer2D
+@onready var shoot_audio_stream_player = $ShootAudioStreamPlayer
+@onready var charge_audio_stream_player = $ChargeAudioStreamPlayer
 
 
 func _ready():
@@ -58,7 +59,7 @@ func set_casting(value: bool):
 
 
 func appear():
-	audio_stream_player.play_random()
+	shoot_audio_stream_player.play_random()
 	
 	var tween = create_tween()
 	var max_width = 5
@@ -70,3 +71,11 @@ func appear():
 func disappear():
 	var tween = create_tween()
 	tween.tween_property(line_2d, "width", 0, 0.1)
+
+
+func play_charge_sound():
+	charge_audio_stream_player.play_random()
+
+
+func stop_charge_sound():
+	charge_audio_stream_player.stop()

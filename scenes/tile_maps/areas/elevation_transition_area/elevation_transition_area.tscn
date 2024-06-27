@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://doclhhyd3rpub"]
 
-[ext_resource type="Script" path="res://scenes/tilemaps/elevation_transition_area/elevation_transition_area.gd" id="1_0a6wl"]
+[ext_resource type="Script" path="res://scenes/tile_maps/areas/elevation_transition_area/elevation_transition_area.gd" id="1_0a6wl"]
 
 [node name="ElevationTransitionArea" type="Area2D"]
 collision_layer = 0

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dpwxn1w6vj0jq"
+path="res://.godot/imported/dustership_cliff_tiles.aseprite-0415c4eb1d132c71cf1d1331d302cb81.res"
+
+[deps]
+
+source_file="res://assets/dustership_tiles/dustership_cliff_tiles.aseprite"
+dest_files=["res://.godot/imported/dustership_cliff_tiles.aseprite-0415c4eb1d132c71cf1d1331d302cb81.res"]
+
+[params]
+

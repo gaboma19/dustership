@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_7a6ng"]
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/map/map.gd" id="1_wh1ui"]
 [ext_resource type="Texture2D" uid="uid://ck4l415mu1e0s" path="res://assets/ui/pause_screen/tile_0185.png" id="2_2vit1"]
-[ext_resource type="PackedScene" uid="uid://c0ahkq6kqspw4" path="res://scenes/tilemaps/map/echelon_map_tiles.tscn" id="4_jw6vm"]
+[ext_resource type="PackedScene" uid="uid://c0ahkq6kqspw4" path="res://scenes/tile_maps/map/echelon_map_tiles.tscn" id="4_jw6vm"]
 
 [node name="Map" type="PanelContainer"]
 clip_contents = true

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bqahdh0ge2tfh"
+path="res://.godot/imported/dustership_parallax.aseprite-d55c87caa7d9227bb1d5ee6d727de14a.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/dustership_parallax/dustership_parallax.aseprite"
+dest_files=["res://.godot/imported/dustership_parallax.aseprite-d55c87caa7d9227bb1d5ee6d727de14a.res"]
+
+[params]
+

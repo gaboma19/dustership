@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/entities/moving_platform/moving_platform.gd" id="1_2mpkv"]
 [ext_resource type="PackedScene" uid="uid://bu2pwy0c3b43p" path="res://scenes/components/battery_charge_component/battery_charge_component.tscn" id="2_lf112"]
 [ext_resource type="Texture2D" uid="uid://c5rpljxep7myj" path="res://assets/moving_platform/moving_platform.png" id="3_wpq8r"]
-[ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tilemaps/echelon_decoration_tiles.tscn" id="4_g1bjr"]
+[ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tile_maps/echelon/echelon_decoration_tiles.tscn" id="4_g1bjr"]
 [ext_resource type="Texture2D" uid="uid://dlt0j5psgenry" path="res://assets/moving_platform/moving_platform_charged.png" id="5_qbc52"]
 [ext_resource type="Script" path="res://scenes/entities/moving_platform/nudge_position_area.gd" id="6_vc1tb"]
 
