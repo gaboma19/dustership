@@ -1,6 +1,11 @@
 # spawn.gd
 extends EnemyState
 
+const SPAWN_TIME = 1.6
+const TRANSITION_DELAY = 0.6
+
+@export var spawn_audio_stream_player: AudioStreamPlayer2D
+
 @onready var spawn_material: ShaderMaterial = preload(
 	"res://resources/materials/spawn_material.tres")
 @onready var sprite = %Sprite2D
@@ -20,12 +25,15 @@ func spawn():
 	sprite.scale = Vector2(3, 3)
 	hurtbox_component.monitoring = false
 	
+	if spawn_audio_stream_player != null:
+		spawn_audio_stream_player.play_random()
+	
 	var tween = create_tween()
 	tween.set_parallel()
 	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 0.5, 0)
 	tween.chain()
-	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 1.0, 1.6)
-	tween.tween_property(sprite, "scale", Vector2.ONE, 1.6)
+	tween.tween_property(sprite.material, "shader_parameter/dissolve_value", 1.0, SPAWN_TIME)
+	tween.tween_property(sprite, "scale", Vector2.ONE, SPAWN_TIME)
 	tween.chain()
 	tween.tween_callback(on_tween_callback)
 
@@ -36,6 +44,9 @@ func on_tween_callback():
 		hit_flash_component.set_sprite_material()
 	hurtbox_component.monitoring = true
 	
-	await get_tree().create_timer(0.6).timeout
+	if spawn_audio_stream_player != null:
+		spawn_audio_stream_player.stop()
+	
+	await get_tree().create_timer(TRANSITION_DELAY).timeout
 	
 	state_machine.transition_to("Idle")

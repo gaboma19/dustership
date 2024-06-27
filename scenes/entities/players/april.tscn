@@ -1193,8 +1193,8 @@ transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_
 graph_offset = Vector2(-102, -110)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
-radius = 3.0
-height = 8.0
+radius = 4.0
+height = 10.0
 
 [node name="April" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2

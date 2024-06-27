@@ -6,7 +6,7 @@
 [node name="DustershipBackground" type="ParallaxBackground"]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="."]
-motion_scale = Vector2(0.9, 0.9)
+motion_scale = Vector2(0.8, 0.8)
 motion_mirroring = Vector2(1000, 600)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
@@ -22,7 +22,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
-modulate = Color(1, 1, 1, 0.501961)
+modulate = Color(1, 1, 1, 0.752941)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

@@ -42,9 +42,12 @@ func update(delta: float) -> void:
 			charge_time += delta
 			if charge_time <= MAX_CHARGE_TIME:
 				%ChargeSprite.show()
+				cube_laser.play_charge_sound()
 			else:
 				%ChargeSprite.hide()
 	else:
+		cube_laser.stop_charge_sound()
+		
 		if charge_time == 0:
 			transition_to_active()
 		else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=79 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -23,6 +23,8 @@
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="15_7iatv"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="19_ay36b"]
+[ext_resource type="AudioStream" uid="uid://xju22k0w3p2t" path="res://assets/sfx/spawn.wav" id="20_xjufc"]
 [ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="22_sicge"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="23_d83y3"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo_chase.gd" id="24_dks63"]
@@ -213,6 +215,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
 }
 
 [sub_resource type="Animation" id="Animation_m8k7j"]
@@ -604,7 +618,7 @@ texture = ExtResource("1_7fay8")
 offset = Vector2(0, -3)
 hframes = 9
 vframes = 9
-frame = 6
+frame = 1
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -632,6 +646,10 @@ position = Vector2(0, -5)
 rotation = 1.57079
 shape = SubResource("CapsuleShape2D_e5krw")
 
+[node name="SpawnAudioStreamPlayer" parent="." instance=ExtResource("19_ay36b")]
+unique_name_in_owner = true
+streams = Array[AudioStream]([ExtResource("20_xjufc")])
+
 [node name="StateMachine" parent="." instance=ExtResource("6_mnpyb")]
 unique_name_in_owner = true
 initial_state = NodePath("Ambush")
@@ -646,8 +664,9 @@ script = ExtResource("8_m7fi4")
 script = ExtResource("12_8o55k")
 enemy_attack = NodePath("../../PhiloAttack")
 
-[node name="Spawn" type="Node" parent="StateMachine"]
+[node name="Spawn" type="Node" parent="StateMachine" node_paths=PackedStringArray("spawn_audio_stream_player")]
 script = ExtResource("16_gwxir")
+spawn_audio_stream_player = NodePath("../../SpawnAudioStreamPlayer")
 
 [node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
 script = ExtResource("17_m8kwi")
