@@ -1,0 +1,175 @@
+[gd_scene load_steps=12 format=3 uid="uid://boi3g8osicmbi"]
+
+[ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="1_idjol"]
+[ext_resource type="Texture2D" uid="uid://d0g4fiq3mfrpa" path="res://assets/dustership_door/dustership_door.png" id="1_p0kot"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_xyce5"]
+
+[sub_resource type="Animation" id="Animation_fyhpb"]
+resource_name = "open"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_wihnb"]
+resource_name = "set_open"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [13]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_2f0tk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xlqvj"]
+_data = {
+"RESET": SubResource("Animation_2f0tk"),
+"open": SubResource("Animation_fyhpb"),
+"set_open": SubResource("Animation_wihnb")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdmlr"]
+radius = 14.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cx8wm"]
+size = Vector2(26, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxnkf"]
+size = Vector2(19, 47)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_02t1h"]
+size = Vector2(19, 47)
+
+[node name="DustershipDoor" type="StaticBody2D"]
+script = ExtResource("1_idjol")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="DoorCloseAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_p0kot")
+hframes = 4
+vframes = 4
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/dustership_door",
+"o_name": "",
+"only_visible": true,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://assets/dustership_door/dustership_door.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xlqvj")
+}
+
+[node name="InteractionArea" parent="." instance=ExtResource("2_xyce5")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+position = Vector2(0, 25)
+shape = SubResource("CircleShape2D_tdmlr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 24.5)
+shape = SubResource("RectangleShape2D_cx8wm")
+
+[node name="WallCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-22.5, 7.5)
+shape = SubResource("RectangleShape2D_sxnkf")
+
+[node name="WallCollisionShape2" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(22.5, 7.5)
+shape = SubResource("RectangleShape2D_02t1h")

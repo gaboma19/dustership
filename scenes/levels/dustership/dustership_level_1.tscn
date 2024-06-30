@@ -5,12 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dngxye0p7kdqb" path="res://scenes/tile_maps/dustership/dustership_tile_map.tscn" id="3_dgc5w"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_wibh3"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_mp8gy"]
-[ext_resource type="Texture2D" uid="uid://d0g4fiq3mfrpa" path="res://assets/dustership_door/dustership_door.png" id="6_8r8dc"]
+[ext_resource type="PackedScene" uid="uid://boi3g8osicmbi" path="res://scenes/entities/dustership_door/dustership_door.tscn" id="6_76ybd"]
 
 [node name="DustershipLevel1" type="Node2D"]
 script = ExtResource("1_fin53")
 
 [node name="DustershipBackground" parent="." instance=ExtResource("2_bmope")]
+
+[node name="DustershipTileMap2" parent="." instance=ExtResource("3_dgc5w")]
 
 [node name="DustershipTileMap" parent="." instance=ExtResource("3_dgc5w")]
 layer_0/tile_data = PackedInt32Array(262141, 196611, 0, 262142, 262147, 0, 262143, 262147, 0, 196608, 262147, 0, 196609, 327683, 0, 524285, 196611, 0, 524286, 262147, 0, 524287, 262147, 0, 458752, 262147, 0, 458753, 327683, 0, 327677, 196611, 0, 327678, 262147, 0, 327679, 262147, 0, 262144, 262147, 0, 262145, 327683, 0, 393213, 196611, 0, 393214, 262147, 0, 393215, 262147, 0, 327680, 262147, 0, 327681, 327683, 0, 458749, 196611, 0, 458750, 262147, 0, 458751, 262147, 0, 393216, 262147, 0, 393217, 327683, 0, 131101, 327683, 0, 131100, 262147, 0, 131099, 262147, 0, 131098, 262147, 0, 131097, 262147, 0, 196637, 327683, 0, 196636, 262147, 0, 196635, 262147, 0, 196634, 262147, 0, 196633, 262147, 0, 262173, 327683, 0, 262172, 262147, 0, 262171, 262147, 0, 262170, 262147, 0, 262169, 262147, 0)
@@ -25,6 +27,5 @@ position = Vector2(912, 16)
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(855, -37)
-texture = ExtResource("6_8r8dc")
+[node name="DustershipDoor" parent="." instance=ExtResource("6_76ybd")]
+position = Vector2(384, -39)

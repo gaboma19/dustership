@@ -206,7 +206,6 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="InteractionArea" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_wr63p")
