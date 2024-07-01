@@ -9,21 +9,22 @@ const TELITZ_SCENE: PackedScene = preload("res://scenes/entities/players/telitz.
 
 func _ready():
 	if OS.has_feature("editor"):
-		enabled = true
+		# uncomment to run any level
+		#enabled = true
 		PlayerVariables.has_sword = true
 		PlayerVariables.has_gun = true
 		#Inventory.add_item(preload("res://resources/inventory_item/items/identity_core.tres"))
-		#Inventory.add_item(preload("res://resources/inventory_item/items/eremite_diskette.tres"))
-		#EntityVariables.conversations["intro_cutscene"] = { "interacted": true }
+		Inventory.add_item(preload("res://resources/inventory_item/items/eremite_diskette.tres"))
+		EntityVariables.conversations["intro_cutscene"] = { "interacted": true }
 	
 	if enabled:
+		# happens only once at the beginning of the game
 		PlayerVariables.enable_game_start = false
-		#initialize_april()
-		initialize_telitz()
+		initialize_april()
 		
-		#if OS.has_feature("editor"):
+		if OS.has_feature("editor"):
 			#initialize_telitz()
-			#initialize_cube()
+			initialize_cube()
 
 
 func initialize_april():

@@ -1,8 +1,35 @@
-[gd_scene load_steps=12 format=3 uid="uid://boi3g8osicmbi"]
+[gd_scene load_steps=13 format=3 uid="uid://boi3g8osicmbi"]
 
 [ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="1_idjol"]
 [ext_resource type="Texture2D" uid="uid://d0g4fiq3mfrpa" path="res://assets/dustership_door/dustership_door.png" id="1_p0kot"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_xyce5"]
+
+[sub_resource type="Animation" id="Animation_2f0tk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_fyhpb"]
 resource_name = "open"
@@ -72,36 +99,38 @@ tracks/1/keys = {
 "values": [true]
 }
 
-[sub_resource type="Animation" id="Animation_2f0tk"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_mawob"]
+length = 1.4
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/path = NodePath("Sprite2D:visible")
 tracks/0/interp = 1
-tracks/0/loop_wrap = true
+tracks/0/loop_wrap = false
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [true]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CollisionShape2D:disabled")
+tracks/1/path = NodePath("Sprite2D:frame")
 tracks/1/interp = 1
-tracks/1/loop_wrap = true
+tracks/1/loop_wrap = false
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [false]
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlqvj"]
 _data = {
 "RESET": SubResource("Animation_2f0tk"),
+"default": SubResource("Animation_mawob"),
 "open": SubResource("Animation_fyhpb"),
 "set_open": SubResource("Animation_wihnb")
 }
@@ -128,6 +157,7 @@ script = ExtResource("1_idjol")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_p0kot")
+offset = Vector2(0, -32)
 hframes = 4
 vframes = 4
 metadata/_aseprite_wizard_config_ = {
@@ -156,20 +186,20 @@ libraries = {
 visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-position = Vector2(0, 25)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_tdmlr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(0, 24.5)
+position = Vector2(0, -7)
 shape = SubResource("RectangleShape2D_cx8wm")
 
 [node name="WallCollisionShape" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-22.5, 7.5)
+position = Vector2(-22, -24)
 shape = SubResource("RectangleShape2D_sxnkf")
 
 [node name="WallCollisionShape2" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(22.5, 7.5)
+position = Vector2(22, -24)
 shape = SubResource("RectangleShape2D_02t1h")

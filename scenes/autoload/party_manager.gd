@@ -45,12 +45,16 @@ func add_member(node: Player):
 
 
 func remove_member(node: Player):
+	# remove the party member and the member's scene
 	members.erase(node)
+	remove_member_scene(node)
+	
 	if members.size() == 0:
 		active_member_index = -1
 
 
 func clear_members():
+	# clear references to player nodes between level transitions
 	members.clear()
 	active_member_index = -1
 
@@ -140,6 +144,9 @@ func disable_switch_character(value):
 
 
 func get_follow_target(follower: Player):
+	if members.size() == 1:
+		return null
+	
 	if members.size() == 2:
 		return get_active_member()
 	
