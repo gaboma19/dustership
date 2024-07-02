@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cbcabkqe0v47d"
+path="res://.godot/imported/remembrancer_camp.aseprite-9f8d07142dea83a38da33046b0f38a3a.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/remembrancer_camp/remembrancer_camp.aseprite"
+dest_files=["res://.godot/imported/remembrancer_camp.aseprite-9f8d07142dea83a38da33046b0f38a3a.res"]
+
+[params]
+

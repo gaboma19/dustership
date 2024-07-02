@@ -1,6 +1,7 @@
 extends Node2D
 
 const TELITZ_SCENE = preload("res://scenes/entities/players/telitz.tscn")
+const DUSTERSHIP_LEVEL_1_SCENE_PATH = "res://scenes/levels/dustership/dustership_level_1.tscn"
 const EREMITE_DISKETTE = preload(
 	"res://resources/inventory_item/items/eremite_diskette.tres")
 const CONVERSATION_ID = "computer"
@@ -91,6 +92,7 @@ func on_decision_container_closed(msg: String):
 		post_process.configuration.Glitch = true
 		
 		animation_player.play("fade_to_white")
+		MusicManager.fade_out()
 		
 		await get_tree().create_timer(8.0).timeout
 		
@@ -99,19 +101,15 @@ func on_decision_container_closed(msg: String):
 		entities_layer.add_child(telitz)
 		telitz.global_position = cube.global_position
 		
-		animation_player.play_backwards("fade_to_white")
-		
-		await get_tree().create_timer(4.0).timeout
+		PartyManager.remove_member(april)
+		PartyManager.remove_member(cube)
+		april.queue_free()
+		cube.queue_free()
 		
 		post_process.configuration.Glitch = false
 		post_process.configuration.ScreenShake = false
 		
-		await get_tree().create_timer(0.6).timeout
-		
-		april.state_machine.transition_to("Active")
-		
-		PopUp.open_pop_up(preload(
-			"res://resources/inventory_item/items/thanks_for_playing.tres"))
+		ScreenTransition.transition_to_level(DUSTERSHIP_LEVEL_1_SCENE_PATH, Vector2(0, 0))
 		
 	elif msg == "No":
 		$InteractionArea.set_deferred("monitoring", true)

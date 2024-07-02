@@ -5,6 +5,9 @@ extends Sprite2D
 
 
 func _process(_delta):
+	if flying_entity == null:
+		return
+	
 	global_position = Vector2(
 		flying_entity.global_position.x, flying_entity.global_position.y + y_offset
 	)

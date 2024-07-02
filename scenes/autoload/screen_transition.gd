@@ -14,7 +14,9 @@ func transition_out():
 
 
 func transition_to_level(scene_path: String, player_position: Vector2):
+	# store the active party member before transitioning
 	var active_member_name = PartyManager.get_active_member().character_name
+	# clear the member reference array, but member_scenes is unchanged
 	PartyManager.clear_members()
 	
 	transition_out()
@@ -24,6 +26,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
+	# re-instantiates the party while keeping the same active party member
 	var level = get_tree().current_scene
 	level.set_player_position(player_position, active_member_name)
 	
