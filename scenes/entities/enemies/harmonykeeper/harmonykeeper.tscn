@@ -1,0 +1,93 @@
+[gd_scene load_steps=20 format=3 uid="uid://cgnlmlh456grh"]
+
+[ext_resource type="Script" path="res://scripts/enemy/enemy.gd" id="1_k1k0c"]
+[ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_ehghv"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_t7628"]
+[ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_g2yxs"]
+[ext_resource type="PackedScene" uid="uid://gc8nnfm3d76d" path="res://scenes/components/hit_sound_component/hit_sound_component.tscn" id="5_gined"]
+[ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="6_wm3su"]
+[ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_ggsuc"]
+[ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="8_andqx"]
+[ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="9_tehwn"]
+[ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="10_61nn3"]
+[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="11_5dxl5"]
+[ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="12_lxvsi"]
+[ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="13_xkt3w"]
+[ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="14_fr1xl"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="15_x23j4"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="16_v8jkw"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="17_httqh"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_xvt48"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_u57dl"]
+
+[node name="Harmonykeeper" type="CharacterBody2D"]
+script = ExtResource("1_k1k0c")
+
+[node name="HealthComponent" parent="." instance=ExtResource("2_ehghv")]
+
+[node name="VelocityComponent" parent="." instance=ExtResource("3_t7628")]
+
+[node name="HitFlashComponent" parent="." instance=ExtResource("4_g2yxs")]
+
+[node name="HitSoundComponent" parent="." instance=ExtResource("5_gined")]
+
+[node name="SteelDropComponent" parent="." instance=ExtResource("6_wm3su")]
+
+[node name="HeartDropComponent" parent="." instance=ExtResource("7_ggsuc")]
+
+[node name="KnockbackComponent" parent="." instance=ExtResource("8_andqx")]
+
+[node name="DeathComponent" parent="." instance=ExtResource("9_tehwn")]
+
+[node name="StunComponent" parent="." instance=ExtResource("10_61nn3")]
+unique_name_in_owner = true
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="HurtboxComponent" parent="." instance=ExtResource("11_5dxl5")]
+unique_name_in_owner = true
+
+[node name="AggroArea" parent="." instance=ExtResource("12_lxvsi")]
+unique_name_in_owner = true
+
+[node name="AttackRangeArea" type="Area2D" parent="."]
+unique_name_in_owner = true
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(0.5, 0.5)
+scale = Vector2(0.9375, 1)
+texture = ExtResource("13_xkt3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="StateMachine" parent="." instance=ExtResource("14_fr1xl")]
+unique_name_in_owner = true
+
+[node name="Idle" type="Node" parent="StateMachine"]
+script = ExtResource("15_x23j4")
+
+[node name="Aggro" type="Node" parent="StateMachine"]
+script = ExtResource("16_v8jkw")
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy_attack")]
+script = ExtResource("17_httqh")
+enemy_attack = NodePath("")
+
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
+script = ExtResource("18_xvt48")
+stun_component = NodePath("")
+
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component", "health_component")]
+script = ExtResource("19_u57dl")
+knockback_component = NodePath("")
+health_component = NodePath("")
+
+[editable path="KnockbackComponent"]
