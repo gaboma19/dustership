@@ -18,6 +18,5 @@ func shoot():
 
 
 func on_attack_range_body_exited(_body: Node2D):
-	print("why")
 	enemy.set_attacking(false)
 	state_machine.transition_to("Aggro")

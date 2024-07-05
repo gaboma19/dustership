@@ -20,6 +20,8 @@ func enter(_msg := {}) -> void:
 func update(_delta: float) -> void:
 	enemy.velocity_component.decelerate()
 	enemy.velocity_component.move(enemy)
+	
+	enemy.update_animation_tree()
 
 
 func exit():

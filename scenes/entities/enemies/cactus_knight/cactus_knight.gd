@@ -2,6 +2,10 @@ extends Enemy
 
 
 func _process(_delta):
+	update_animation_tree()
+
+
+func update_animation_tree():
 	if velocity.is_zero_approx():
 		set_moving(false)
 	else:

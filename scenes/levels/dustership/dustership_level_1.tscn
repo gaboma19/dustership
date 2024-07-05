@@ -23,6 +23,7 @@ layer_3/tile_data = PackedInt32Array(393212, 393217, 2, 327676, 393217, 2, 26214
 [node name="GameStart" parent="." instance=ExtResource("4_wibh3")]
 
 [node name="GameCamera" parent="." instance=ExtResource("5_mp8gy")]
+zoom = Vector2(3, 3)
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true

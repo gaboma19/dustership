@@ -37,7 +37,9 @@ func update(delta: float) -> void:
 func exit() -> void:
 	(player.sprite.material as ShaderMaterial).set_shader_parameter(
 		"noise_amount", 0)
-	charge_tween.kill()
+	
+	if charge_tween != null:
+		charge_tween.kill()
 
 
 func set_charging(value: bool):
@@ -60,8 +62,11 @@ func animate_sprite():
 
 func transition_to_active():
 	PartyManager.disable_switch_character(false)
+	
+	set_charging(false)
+	
 	state_machine.transition_to("Active")
 
 
-func transition_to_float():	
+func transition_to_float():
 	state_machine.transition_to("Float")

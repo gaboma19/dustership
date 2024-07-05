@@ -10,6 +10,10 @@ class_name Enemy
 	animation_tree.get("parameters/playback")
 
 
+func update_animation_tree():
+	pass
+
+
 func set_stunned(_value: bool):
 	pass
 
