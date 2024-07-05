@@ -1,9 +1,5 @@
 extends Enemy
 
-@onready var animation_tree = $AnimationTree
-@onready var animation_state_machine: AnimationNodeStateMachinePlayback = \
-	animation_tree.get("parameters/playback")
-
 
 func _process(_delta):
 	if velocity.is_zero_approx():

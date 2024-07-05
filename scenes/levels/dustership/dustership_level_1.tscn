@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dhb3xrvsiwj0e"]
+[gd_scene load_steps=8 format=3 uid="uid://dhb3xrvsiwj0e"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_fin53"]
 [ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_bmope"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_wibh3"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_mp8gy"]
 [ext_resource type="PackedScene" uid="uid://boi3g8osicmbi" path="res://scenes/entities/dustership_door/dustership_door.tscn" id="6_76ybd"]
+[ext_resource type="PackedScene" uid="uid://cgnlmlh456grh" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle.tscn" id="7_iyrdj"]
 
 [node name="DustershipLevel1" type="Node2D" node_paths=PackedStringArray("game_start")]
 script = ExtResource("1_fin53")
@@ -34,3 +35,6 @@ position = Vector2(304, 121)
 
 [node name="DustershipDoor3" parent="Entities" instance=ExtResource("6_76ybd")]
 position = Vector2(304, 345)
+
+[node name="HarmonykeeperRifle" parent="Entities" instance=ExtResource("7_iyrdj")]
+position = Vector2(304, 32)
