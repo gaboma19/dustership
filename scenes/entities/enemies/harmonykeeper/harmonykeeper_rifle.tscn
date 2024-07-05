@@ -1,4 +1,4 @@
-[gd_scene load_steps=69 format=3 uid="uid://cgnlmlh456grh"]
+[gd_scene load_steps=70 format=3 uid="uid://cgnlmlh456grh"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper.gd" id="1_onh3x"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_thtl1"]
@@ -21,6 +21,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_attack.gd" id="18_1tp67"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_fire.gd" id="22_106ep"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgpid"]
 radius = 5.0
@@ -54,7 +55,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_mfwbd"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_gv76q"]
-graph_offset = Vector2(-354, -3)
+graph_offset = Vector2(-281, 104)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_40ukw")
 nodes/BlendSpace2D/position = Vector2(-60, 160)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_mfwbd")
@@ -737,15 +738,21 @@ script = ExtResource("15_apct1")
 [node name="Aggro" type="Node" parent="StateMachine"]
 script = ExtResource("16_tx631")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn", "harmonykeeper_rifle_laser")]
 script = ExtResource("18_1tp67")
 attack_range_area = NodePath("../../AttackRangeArea")
 attack_spawn = NodePath("../../AttackSpawn")
+harmonykeeper_rifle_laser = NodePath("../../AttackSpawn/HarmonykeeperRifleLaser")
 
 [node name="Stun" type="Node" parent="StateMachine"]
 script = ExtResource("18_yhk6r")
 
-[node name="Knockback" type="Node" parent="StateMachine"]
+[node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component", "health_component")]
 script = ExtResource("19_t36fj")
+knockback_component = NodePath("../../KnockbackComponent")
+health_component = NodePath("../../HealthComponent")
+
+[node name="Fire" type="Node" parent="StateMachine"]
+script = ExtResource("22_106ep")
 
 [editable path="KnockbackComponent"]

@@ -4,7 +4,8 @@
 
 [node name="HarmonykeeperRifleLaser" type="RayCast2D"]
 target_position = Vector2(48, 0)
-collision_mask = 3
+collision_mask = 67
+collide_with_areas = true
 script = ExtResource("1_f26i5")
 
 [node name="Line2D" type="Line2D" parent="."]
