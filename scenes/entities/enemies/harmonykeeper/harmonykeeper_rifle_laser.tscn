@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://0xfisg2scece"]
+
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.gd" id="1_f26i5"]
+
+[node name="HarmonykeeperRifleLaser" type="RayCast2D"]
+target_position = Vector2(48, 0)
+collision_mask = 3
+script = ExtResource("1_f26i5")
+
+[node name="Line2D" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, 48, 0)
+width = 1.0
+default_color = Color(0.67451, 0.196078, 0.196078, 1)
