@@ -1,6 +1,8 @@
 # harmonykeeper_attack.gd
 extends EnemyState
 
+var aim_vector
+
 @export var attack_range_area: Area2D
 @export var attack_spawn: Node2D
 @export var harmonykeeper_rifle_laser: RayCast2D
@@ -19,7 +21,7 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
-	var aim_vector = get_aiming_vector()
+	aim_vector = get_aiming_vector()
 	
 	harmonykeeper_rifle_laser.aim_direction = aim_vector
 

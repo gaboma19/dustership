@@ -172,6 +172,21 @@ states/move/position = Vector2(656, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_buorp"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_jmw5a"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_ln6gp"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_32iy3"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_ggjhp"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wywyt"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_8o4sp")]
 graph_offset = Vector2(-31, 68)
 
+[sub_resource type="Animation" id="Animation_jwmmj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AttackSpawn:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-3, 5)]
+}
+
 [sub_resource type="Animation" id="Animation_v4fmv"]
 length = 0.1
 loop_mode = 1
@@ -556,21 +571,6 @@ tracks/1/keys = {
 "values": [20, 21, 22, 23, 24, 23]
 }
 
-[sub_resource type="Animation" id="Animation_jwmmj"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AttackSpawn:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, 5)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ks7"]
 _data = {
 "RESET": SubResource("Animation_jwmmj"),
@@ -752,7 +752,9 @@ script = ExtResource("19_t36fj")
 knockback_component = NodePath("../../KnockbackComponent")
 health_component = NodePath("../../HealthComponent")
 
-[node name="Fire" type="Node" parent="StateMachine"]
+[node name="Fire" type="Node" parent="StateMachine" node_paths=PackedStringArray("harmonykeeper_rifle_laser", "attack_spawn")]
 script = ExtResource("22_106ep")
+harmonykeeper_rifle_laser = NodePath("../../AttackSpawn/HarmonykeeperRifleLaser")
+attack_spawn = NodePath("../../AttackSpawn")
 
 [editable path="KnockbackComponent"]

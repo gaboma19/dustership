@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://djyr3h5ibi5jm"]
+
+[ext_resource type="Script" path="res://scenes/components/hitbox_cast_component/hitbox_cast_component.gd" id="1_fuuit"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5befw"]
+radius = 8.0
+
+[node name="HitboxCastComponent" type="ShapeCast2D"]
+shape = SubResource("CircleShape2D_5befw")
+target_position = Vector2(48, 0)
+script = ExtResource("1_fuuit")

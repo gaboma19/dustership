@@ -31,5 +31,3 @@ func _physics_process(_delta):
 func set_casting(value: bool):
 	set_physics_process(value)
 	line_2d.set_visible(value)
-	
-	await get_tree().process_frame

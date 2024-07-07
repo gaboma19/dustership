@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://pbgkos66844q"]
+
+[ext_resource type="Texture2D" uid="uid://bbf50iguug7jg" path="res://assets/harmonykeeper/harmonykeeper_rifle_projectile.png" id="1_54tm6"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_projectile.gd" id="2_bs6xk"]
+[ext_resource type="PackedScene" uid="uid://djyr3h5ibi5jm" path="res://scenes/components/hitbox_cast_component/hitbox_cast_component.tscn" id="3_y0fv0"]
+
+[node name="HarmonykeeperRifleProjectile" type="Line2D"]
+z_index = -1
+points = PackedVector2Array(0, 0, 0, 0)
+width = 5.0
+texture = ExtResource("1_54tm6")
+texture_mode = 1
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("2_bs6xk")
+
+[node name="HitboxCastComponent" parent="." instance=ExtResource("3_y0fv0")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true

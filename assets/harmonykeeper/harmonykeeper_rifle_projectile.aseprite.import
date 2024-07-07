@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://b5rgnmwcmcnov"
+path="res://.godot/imported/harmonykeeper_rifle_projectile.aseprite-420e24b3c59b3dee11e9284cc78efa00.res"
+
+[deps]
+
+source_file="res://assets/harmonykeeper/harmonykeeper_rifle_projectile.aseprite"
+dest_files=["res://.godot/imported/harmonykeeper_rifle_projectile.aseprite-420e24b3c59b3dee11e9284cc78efa00.res"]
+
+[params]
+
