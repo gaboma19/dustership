@@ -2,6 +2,7 @@ extends Line2D
 
 @onready var hitbox_cast_component: ShapeCast2D = $HitboxCastComponent
 @onready var timer = $Timer
+@onready var floor_detector_ray_cast = $FloorDetectorRayCast
 
 
 func _ready():
@@ -14,8 +15,15 @@ func _ready():
 
 func cast(target_position: Vector2):
 	timer.start()
+	
+	# give the floor detector the same target position as the laser
+	floor_detector_ray_cast.target_position = target_position
+	floor_detector_ray_cast.force_raycast_update()
+	if floor_detector_ray_cast.is_colliding():
+		target_position = to_local(floor_detector_ray_cast.get_collision_point())
+	
 	var tween = create_tween()
-	tween.tween_method(set_target_position, Vector2.ZERO, target_position, 1.0)
+	tween.tween_method(set_target_position, Vector2.ZERO, target_position, 0.4)
 
 
 func set_target_position(value: Vector2):
@@ -24,4 +32,4 @@ func set_target_position(value: Vector2):
 
 
 func on_timer_timeout():
-	pass
+	queue_free()

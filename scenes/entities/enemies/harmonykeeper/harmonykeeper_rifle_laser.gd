@@ -30,20 +30,18 @@ func _physics_process(_delta):
 
 func set_casting(value: bool):
 	set_physics_process(value)
-	
-	if value:
-		appear()
-	else:
-		disappear()
 
 
 func appear():
-	var tween = create_tween()
-	tween.tween_method(set_line_target, Vector2.ZERO, target_position, 0.4)
+	line_2d.show()
 
 
 func disappear():
 	animation_player.play("disappear")
+
+
+func hide_laser():
+	line_2d.hide()
 
 
 func set_line_target(value: Vector2):

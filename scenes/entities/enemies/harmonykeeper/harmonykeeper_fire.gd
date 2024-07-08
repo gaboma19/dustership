@@ -17,7 +17,8 @@ func enter(_msg := {}) -> void:
 	entities_layer.add_child(harmonykeeper_rifle_projectile)
 	harmonykeeper_rifle_projectile.global_position = attack_spawn.global_position
 	
-	var target_position = harmonykeeper_rifle_laser.cast_point
+	# give the projectile the same target_position as the laser
+	var target_position = harmonykeeper_rifle_laser.target_position
 	harmonykeeper_rifle_projectile.cast(target_position)
 	
 	await get_tree().create_timer(FIRE_DURATION).timeout
