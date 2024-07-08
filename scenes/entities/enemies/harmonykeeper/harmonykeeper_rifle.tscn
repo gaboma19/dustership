@@ -728,6 +728,9 @@ position = Vector2(-3, 5)
 
 [node name="HarmonykeeperRifleLaser" parent="AttackSpawn" instance=ExtResource("15_4leud")]
 
+[node name="AimTimer" type="Timer" parent="AttackSpawn"]
+wait_time = 2.0
+
 [node name="StateMachine" parent="." instance=ExtResource("14_4m2dy")]
 unique_name_in_owner = true
 initial_state = NodePath("Idle")
@@ -738,14 +741,16 @@ script = ExtResource("15_apct1")
 [node name="Aggro" type="Node" parent="StateMachine"]
 script = ExtResource("16_tx631")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn", "harmonykeeper_rifle_laser")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn", "harmonykeeper_rifle_laser", "aim_timer")]
 script = ExtResource("18_1tp67")
 attack_range_area = NodePath("../../AttackRangeArea")
 attack_spawn = NodePath("../../AttackSpawn")
 harmonykeeper_rifle_laser = NodePath("../../AttackSpawn/HarmonykeeperRifleLaser")
+aim_timer = NodePath("../../AttackSpawn/AimTimer")
 
-[node name="Stun" type="Node" parent="StateMachine"]
+[node name="Stun" type="Node" parent="StateMachine" node_paths=PackedStringArray("stun_component")]
 script = ExtResource("18_yhk6r")
+stun_component = NodePath("../../StunComponent")
 
 [node name="Knockback" type="Node" parent="StateMachine" node_paths=PackedStringArray("knockback_component", "health_component")]
 script = ExtResource("19_t36fj")

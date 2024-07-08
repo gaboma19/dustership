@@ -1,8 +1,9 @@
-[gd_scene load_steps=94 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=95 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_x8jr6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_5urhx"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="3_2nal6"]
+[ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_36rnv"]
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="4_ki7qd"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="5_vwnei"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_aumxs"]
@@ -19,7 +20,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_vj164"]
 radius = 32.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ad5lf"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ig360"]
 radius = 4.0
 height = 18.0
 
@@ -1213,19 +1214,12 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_vj164")
 
-[node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+[node name="PlayerHurtboxComponent" parent="." instance=ExtResource("3_36rnv")]
 unique_name_in_owner = true
-visible = false
-collision_layer = 64
-collision_mask = 8
-
-[node name="DamageIntervalTimer" type="Timer" parent="PlayerHurtboxComponent"]
-wait_time = 0.5
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
 position = Vector2(0, -6)
-shape = SubResource("CapsuleShape2D_ad5lf")
+shape = SubResource("CapsuleShape2D_ig360")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)
@@ -1281,6 +1275,7 @@ parameters/Move/blend_position = Vector2(0, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_2iecw")
@@ -1303,6 +1298,7 @@ position = Vector2(20, -8)
 rotation = -1.5708
 
 [node name="FloatAttack" parent="." instance=ExtResource("6_tb7bu")]
+visible = false
 
 [node name="FloatEffect" parent="." instance=ExtResource("6_ml3cm")]
 

@@ -19,3 +19,5 @@ script = ExtResource("2_bs6xk")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="WallCollider" type="RayCast2D" parent="."]

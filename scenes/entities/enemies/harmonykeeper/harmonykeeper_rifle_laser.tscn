@@ -1,10 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://0xfisg2scece"]
+[gd_scene load_steps=5 format=3 uid="uid://0xfisg2scece"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.gd" id="1_f26i5"]
 
+[sub_resource type="Animation" id="Animation_uus30"]
+resource_name = "disappear"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_ywfnk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Line2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_damit"]
+_data = {
+"RESET": SubResource("Animation_ywfnk"),
+"disappear": SubResource("Animation_uus30")
+}
+
 [node name="HarmonykeeperRifleLaser" type="RayCast2D"]
 target_position = Vector2(48, 0)
-collision_mask = 67
+collision_mask = 65
 collide_with_areas = true
 script = ExtResource("1_f26i5")
 
@@ -12,3 +49,8 @@ script = ExtResource("1_f26i5")
 points = PackedVector2Array(0, 0, 48, 0)
 width = 1.0
 default_color = Color(0.67451, 0.196078, 0.196078, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_damit")
+}
