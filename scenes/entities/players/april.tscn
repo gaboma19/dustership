@@ -1,8 +1,9 @@
-[gd_scene load_steps=70 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=71 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_bqnmk"]
+[ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_ct3kq"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="4_8l38k"]
 [ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="4_owvm1"]
 [ext_resource type="Texture2D" uid="uid://dqf80armfmggu" path="res://assets/april/april.png" id="5_8kdh2"]
@@ -1215,15 +1216,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_iq7hs")
 
-[node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+[node name="PlayerHurtboxComponent" parent="." instance=ExtResource("3_ct3kq")]
 unique_name_in_owner = true
-visible = false
-collision_layer = 64
-collision_mask = 8
-
-[node name="DamageIntervalTimer" type="Timer" parent="PlayerHurtboxComponent"]
-wait_time = 0.5
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
 position = Vector2(0, -6)

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/ui/end_screen/end_screen.gd" id="1_j8sci"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_2kgqt"]
-[ext_resource type="AudioStream" uid="uid://t45jnooeewj6" path="res://assets/sfx/364929__jofae__game-die.mp3" id="2_qw0d1"]
+[ext_resource type="AudioStream" uid="uid://0405mjcx0yoe" path="res://music/final/game_over.mp3" id="3_7jil7"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -113,5 +113,5 @@ disabled = true
 text = "Quit to Menu"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("2_qw0d1")
+stream = ExtResource("3_7jil7")
 bus = &"sfx"

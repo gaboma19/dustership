@@ -17,6 +17,8 @@ func enter(_msg := {}) -> void:
 func update(_delta: float) -> void:
 	enemy.velocity_component.accelerate_to_player()
 	enemy.velocity_component.move(enemy)
+	
+	enemy.update_animation_tree()
 
 
 func on_body_exited(_body: Node2D):

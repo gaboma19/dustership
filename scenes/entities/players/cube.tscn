@@ -1,8 +1,9 @@
-[gd_scene load_steps=100 format=3 uid="uid://bdgmk7thjffe0"]
+[gd_scene load_steps=101 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
 [ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="3_hosl3"]
+[ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_ibl2k"]
 [ext_resource type="Texture2D" uid="uid://unj1kunay570" path="res://assets/cube/cube.png" id="3_lstn8"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="5_lwk8v"]
 [ext_resource type="Texture2D" uid="uid://bjc6jrxequwb8" path="res://assets/cube/cube_attack_charge.png" id="5_xs7av"]
@@ -1580,15 +1581,8 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupArea"]
 shape = SubResource("CircleShape2D_6mpgi")
 
-[node name="PlayerHurtboxComponent" type="Area2D" parent="."]
+[node name="PlayerHurtboxComponent" parent="." instance=ExtResource("3_ibl2k")]
 unique_name_in_owner = true
-visible = false
-collision_layer = 64
-collision_mask = 8
-
-[node name="DamageIntervalTimer" type="Timer" parent="PlayerHurtboxComponent"]
-wait_time = 0.5
-one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerHurtboxComponent"]
 position = Vector2(0, -5)

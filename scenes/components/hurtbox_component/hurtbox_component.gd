@@ -45,7 +45,7 @@ func knockback(direction: Vector2):
 	owner.state_machine.transition_to("Knockback", msg)
 
 
-func on_area_entered(other_area: Area2D):
+func on_area_entered(other_area: Node2D):
 	if other_area is HitboxComponent:
 		var hitbox_component = other_area as HitboxComponent
 		hit(hitbox_component.damage)

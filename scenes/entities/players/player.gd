@@ -18,6 +18,7 @@ var hit_flash_tween: Tween
 
 func _ready():
 	player_hurtbox_component.area_entered.connect(on_hurtbox_area_entered)
+	player_hurtbox_component.hitbox_detected.connect(on_hitbox_detected)
 	PartyManager.add_member(self)
 	
 	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 0)
@@ -93,12 +94,15 @@ func set_flying(value: bool):
 		set_collision_mask(0b1010100001)
 
 
-func on_hurtbox_area_entered(other_area: Area2D):
-	if not other_area is HitboxComponent:
+func on_hurtbox_area_entered(hitbox_component: Area2D):
+	if not hitbox_component is HitboxComponent:
 		return
 	
 	if DialogueManager.is_dialogue_active:
 		return
-	
-	var hitbox_component = other_area as HitboxComponent
+
 	damage_player(hitbox_component.damage)
+
+
+func on_hitbox_detected(damage: int):
+	damage_player(damage)
