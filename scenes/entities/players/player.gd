@@ -94,7 +94,7 @@ func set_flying(value: bool):
 		set_collision_mask(0b1010100001)
 
 
-func on_hurtbox_area_entered(hitbox_component: Node2D):
+func on_hurtbox_area_entered(hitbox_component: Area2D):
 	if not hitbox_component is HitboxComponent:
 		return
 	
