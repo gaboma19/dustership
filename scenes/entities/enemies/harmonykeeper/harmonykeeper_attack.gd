@@ -22,7 +22,10 @@ func enter(_msg := {}) -> void:
 
 func update(_delta: float) -> void:
 	if is_tracking_player:
-		enemy.update_blend_position(get_direction_to_target())
+		var direction = get_direction_to_target()
+		if direction != null:
+			enemy.update_blend_position(direction)
+		
 		aim_vector = get_aiming_vector()
 		
 		harmonykeeper_rifle_laser.aim_direction = aim_vector
@@ -57,6 +60,9 @@ func get_aiming_vector():
 
 func get_direction_to_target():
 	var player = PartyManager.get_active_member()
+	if player == null:
+		return
+	
 	var target = player.global_position
 	
 	return enemy.global_position.direction_to(target)

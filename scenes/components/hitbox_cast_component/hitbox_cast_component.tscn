@@ -7,4 +7,8 @@
 [node name="HitboxCastComponent" type="ShapeCast2D"]
 shape = SubResource("CircleShape2D_5befw")
 target_position = Vector2(48, 0)
+max_results = 1
+collision_mask = 64
+collide_with_areas = true
+collide_with_bodies = false
 script = ExtResource("1_fuuit")
