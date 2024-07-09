@@ -1,28 +1,10 @@
-[gd_scene load_steps=13 format=3 uid="uid://pbgkos66844q"]
+[gd_scene load_steps=10 format=3 uid="uid://pbgkos66844q"]
 
 [ext_resource type="Texture2D" uid="uid://bbf50iguug7jg" path="res://assets/harmonykeeper/harmonykeeper_rifle_projectile.png" id="1_54tm6"]
-[ext_resource type="Shader" path="res://scenes/entities/enemies/harmonykeeper/fire_dissolve.gdshader" id="1_82ws4"]
+[ext_resource type="Material" uid="uid://dh4hd54vel13c" path="res://resources/materials/fire_dissolve_material.tres" id="1_kl420"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_projectile.gd" id="2_bs6xk"]
 [ext_resource type="PackedScene" uid="uid://djyr3h5ibi5jm" path="res://scenes/components/hitbox_cast_component/hitbox_cast_component.tscn" id="3_y0fv0"]
 [ext_resource type="PackedScene" uid="uid://dmum4wme56gq2" path="res://scenes/components/floor_detector_ray_cast/floor_detector_ray_cast.tscn" id="5_jus50"]
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_pp1w3"]
-noise_type = 0
-frequency = 1.0
-fractal_type = 0
-fractal_ping_pong_strength = 32.0
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3u1ga"]
-width = 432
-height = 5
-noise = SubResource("FastNoiseLite_pp1w3")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_1yjob"]
-resource_local_to_scene = true
-shader = ExtResource("1_82ws4")
-shader_parameter/dissolve_value = 1.0
-shader_parameter/ratio = 1.0
-shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_3u1ga")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rkk5f"]
 radius = 2.5
@@ -65,7 +47,7 @@ _data = {
 
 [node name="HarmonykeeperRifleProjectile" type="Line2D"]
 z_index = -1
-material = SubResource("ShaderMaterial_1yjob")
+material = ExtResource("1_kl420")
 points = PackedVector2Array(0, 0, 192, 0)
 width = 5.0
 texture = ExtResource("1_54tm6")

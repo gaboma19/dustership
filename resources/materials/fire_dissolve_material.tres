@@ -1,0 +1,21 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://dh4hd54vel13c"]
+
+[ext_resource type="Shader" path="res://resources/materials/fire_dissolve.gdshader" id="1_sqb6b"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pp1w3"]
+noise_type = 0
+frequency = 1.0
+fractal_type = 0
+fractal_ping_pong_strength = 32.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_3u1ga"]
+width = 432
+height = 5
+noise = SubResource("FastNoiseLite_pp1w3")
+
+[resource]
+resource_local_to_scene = true
+shader = ExtResource("1_sqb6b")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/ratio = 1.0
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_3u1ga")
