@@ -2,6 +2,7 @@
 extends EnemyState
 
 var aim_vector
+var is_tracking_player: bool
 
 @export var attack_range_area: Area2D
 @export var attack_spawn: Node2D
@@ -20,10 +21,11 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
-	enemy.update_blend_position(get_direction_to_target())
-	aim_vector = get_aiming_vector()
-	
-	harmonykeeper_rifle_laser.aim_direction = aim_vector
+	if is_tracking_player:
+		enemy.update_blend_position(get_direction_to_target())
+		aim_vector = get_aiming_vector()
+		
+		harmonykeeper_rifle_laser.aim_direction = aim_vector
 
 
 func exit() -> void:
@@ -36,6 +38,8 @@ func exit() -> void:
 func cast_laser():
 	harmonykeeper_rifle_laser.set_casting(true)
 	harmonykeeper_rifle_laser.appear()
+	
+	is_tracking_player = true
 	
 	aim_timer.start()
 
@@ -62,9 +66,12 @@ func check_collider():
 	var collider = harmonykeeper_rifle_laser.get_collider()
 	
 	if collider is PlayerHurtboxComponent:
-		harmonykeeper_rifle_laser.set_casting(false)
+		is_tracking_player = false
+		
 		harmonykeeper_rifle_laser.disappear()
 		await get_tree().create_timer(0.75).timeout
+		
+		harmonykeeper_rifle_laser.set_casting(false)
 		transition_to_fire()
 	else:
 		aim_timer.start()

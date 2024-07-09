@@ -3,6 +3,7 @@ extends Line2D
 @onready var hitbox_cast_component: ShapeCast2D = $HitboxCastComponent
 @onready var timer = $Timer
 @onready var floor_detector_ray_cast = $FloorDetectorRayCast
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready():
@@ -23,7 +24,7 @@ func cast(target_position: Vector2):
 		target_position = to_local(floor_detector_ray_cast.get_collision_point())
 	
 	var tween = create_tween()
-	tween.tween_method(set_target_position, Vector2.ZERO, target_position, 0.4)
+	tween.tween_method(set_target_position, Vector2.ZERO, target_position, 0.2)
 
 
 func set_target_position(value: Vector2):
@@ -32,4 +33,6 @@ func set_target_position(value: Vector2):
 
 
 func on_timer_timeout():
+	animation_player.play("dissolve")
+	await get_tree().create_timer(1.0).timeout
 	queue_free()
