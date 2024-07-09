@@ -48,8 +48,12 @@ func cast_laser():
 
 
 func get_aiming_vector():
+	var target: Vector2
 	var player = PartyManager.get_active_member()
-	var target = player.global_position
+	if player == null:
+		target = Vector2.ZERO
+	else:
+		target = player.global_position
 	var origin = attack_spawn.global_position
 	
 	# target head, not feet
