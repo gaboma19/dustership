@@ -1,8 +1,7 @@
 # telitz_attack.gd
 extends PlayerState
 
-const TELITZ_ATTACK_EFFECT_SCENE = preload("res://scenes/entities/telitz_denz/telitz_attack_effect.tscn")
-
+@export var telitz_attack_effect_scene: PackedScene
 @export var hitboxes: Node2D
 
 
@@ -17,7 +16,7 @@ func enter(_msg := {}) -> void:
 
 
 func instantiate_attack_effect(direction: String):
-	var attack_effect = TELITZ_ATTACK_EFFECT_SCENE.instantiate()
+	var attack_effect = telitz_attack_effect_scene.instantiate()
 	
 	var direction_node = hitboxes.get_node(direction) as Node2D
 	attack_effect.global_position = direction_node.global_position

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://o7rnlulciw5h"]
 
 [ext_resource type="Texture2D" uid="uid://b2w8532u3sndp" path="res://assets/telitz_denz/telitz_attack_effect.png" id="1_a6qha"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_attack_effect.gd" id="1_mdubi"]
+[ext_resource type="Script" path="res://scenes/entities/players/telitz/telitz_attack_effect.gd" id="1_mdubi"]
 [ext_resource type="PackedScene" uid="uid://dk5acwyfa8bk5" path="res://scenes/components/knockbox_component/knockbox_component.tscn" id="2_wuwp0"]
 
 [sub_resource type="Animation" id="Animation_3w6u5"]

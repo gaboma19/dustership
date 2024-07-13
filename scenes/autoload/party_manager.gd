@@ -9,9 +9,9 @@ var active_member_index: int = -1
 var is_holding: bool = false
 var is_switch_character_disabled: bool = false
 
-@onready var april_scene: PackedScene = preload("res://scenes/entities/players/april.tscn")
-@onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube.tscn")
-@onready var telitz_scene: PackedScene = preload("res://scenes/entities/players/telitz.tscn")
+@onready var april_scene: PackedScene = preload("res://scenes/entities/players/april/april.tscn")
+@onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube/cube.tscn")
+@onready var telitz_scene: PackedScene = preload("res://scenes/entities/players/telitz/telitz.tscn")
 @onready var scene_dictionary = {
 	Constants.CharacterNames.APRIL: april_scene,
 	Constants.CharacterNames.CUBE: cube_scene,

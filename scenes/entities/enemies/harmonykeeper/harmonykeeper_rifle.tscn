@@ -729,7 +729,7 @@ position = Vector2(-3, 5)
 [node name="HarmonykeeperRifleLaser" parent="AttackSpawn" instance=ExtResource("15_4leud")]
 
 [node name="AimTimer" type="Timer" parent="AttackSpawn"]
-wait_time = 2.0
+wait_time = 4.0
 
 [node name="StateMachine" parent="." instance=ExtResource("14_4m2dy")]
 unique_name_in_owner = true

@@ -1,8 +1,8 @@
 extends Node2D
 
-const APRIL_SCENE: PackedScene = preload("res://scenes/entities/players/april.tscn")
-const CUBE_SCENE: PackedScene = preload("res://scenes/entities/players/cube.tscn")
-const TELITZ_SCENE: PackedScene = preload("res://scenes/entities/players/telitz.tscn")
+const APRIL_SCENE: PackedScene = preload("res://scenes/entities/players/april/april.tscn")
+const CUBE_SCENE: PackedScene = preload("res://scenes/entities/players/cube/cube.tscn")
+const TELITZ_SCENE: PackedScene = preload("res://scenes/entities/players/telitz/telitz.tscn")
 
 @export var enabled: bool = PlayerVariables.enable_game_start
 

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://chlwjgygl0shc"
+path="res://.godot/imported/dusteki.aseprite-1682b6474ffc3a36c07f5bfa4aa2b7ec.res"
+
+[deps]
+
+source_file="res://assets/dusteki/dusteki.aseprite"
+dest_files=["res://.godot/imported/dusteki.aseprite-1682b6474ffc3a36c07f5bfa4aa2b7ec.res"]
+
+[params]
+
