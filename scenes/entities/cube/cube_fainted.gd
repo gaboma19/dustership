@@ -59,7 +59,7 @@ func on_interact():
 		player.speak(HAS_IDENTITY_CORE_LINES)
 		await DialogueManager.finished_dialogue
 		
-		const CUBE_SCENE = preload("res://scenes/entities/players/cube.tscn")
+		const CUBE_SCENE = preload("res://scenes/entities/players/cube/cube.tscn")
 		var cube = CUBE_SCENE.instantiate()
 		var entities_layer = get_tree().get_first_node_in_group("entities")
 		entities_layer.add_child(cube)

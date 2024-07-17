@@ -644,8 +644,8 @@ sprite = NodePath("../Sprite2D")
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_pcdpy")
 anim_player = NodePath("../AnimationPlayer")
-parameters/conditions/is_attacking = true
-parameters/conditions/is_idle = false
+parameters/conditions/is_attacking = false
+parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
 parameters/attack/BlendSpace2D/blend_position = Vector2(0, 1)
 parameters/attack/TimeScale/scale = 1.0
@@ -698,7 +698,6 @@ texture = ExtResource("14_ml0x0")
 offset = Vector2(0, -8)
 hframes = 5
 vframes = 5
-frame = 4
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -761,5 +760,8 @@ health_component = NodePath("../../HealthComponent")
 script = ExtResource("22_106ep")
 harmonykeeper_rifle_laser = NodePath("../../AttackSpawn/HarmonykeeperRifleLaser")
 attack_spawn = NodePath("../../AttackSpawn")
+
+[node name="Chase" type="Node" parent="StateMachine"]
+script = ExtResource("15_apct1")
 
 [editable path="KnockbackComponent"]

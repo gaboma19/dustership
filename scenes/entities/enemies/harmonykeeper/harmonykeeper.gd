@@ -1,6 +1,11 @@
 extends Enemy
 
 
+func _process(delta):
+	if self.name == "HarmonykeeperRifle2":
+		print(state_machine.state.name)
+
+
 func update_animation_tree():
 	if velocity.is_zero_approx():
 		set_moving(false)
