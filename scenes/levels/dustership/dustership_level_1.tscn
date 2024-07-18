@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dhb3xrvsiwj0e"]
+[gd_scene load_steps=10 format=3 uid="uid://dhb3xrvsiwj0e"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_fin53"]
 [ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_bmope"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://boi3g8osicmbi" path="res://scenes/entities/dustership_door/dustership_door.tscn" id="6_76ybd"]
 [ext_resource type="PackedScene" uid="uid://cgnlmlh456grh" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle.tscn" id="7_iyrdj"]
 [ext_resource type="PackedScene" uid="uid://bhj2ajli52ntf" path="res://scenes/entities/npcs/dusteki/dusteki.tscn" id="8_pyo2w"]
+[ext_resource type="PackedScene" uid="uid://cgmjikmk1etpv" path="res://scenes/entities/doodads/dustership_foot.tscn" id="9_o0rq0"]
 
 [node name="DustershipLevel1" type="Node2D" node_paths=PackedStringArray("game_start")]
 script = ExtResource("1_fin53")
@@ -39,54 +40,35 @@ position = Vector2(304, 121)
 door_id = "dustership1_door2"
 
 [node name="DustershipDoor3" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(304, 345)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor4" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(480, 409)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor5" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(720, 345)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor6" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(736, 665)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor7" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(-256, 345)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor8" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(128, 857)
 door_id = "dustership1_door3"
 
 [node name="DustershipDoor9" parent="Entities" instance=ExtResource("6_76ybd")]
-z_index = 1
 position = Vector2(480, 857)
 door_id = "dustership1_door3"
 
 [node name="HarmonykeeperRifle" parent="Entities" instance=ExtResource("7_iyrdj")]
 position = Vector2(304, 32)
-
-[node name="HarmonykeeperRifle2" parent="Entities" instance=ExtResource("7_iyrdj")]
-position = Vector2(128, 480)
-
-[node name="HarmonykeeperRifle3" parent="Entities" instance=ExtResource("7_iyrdj")]
-position = Vector2(480, 480)
-
-[node name="HarmonykeeperRifle4" parent="Entities" instance=ExtResource("7_iyrdj")]
-position = Vector2(96, 448)
-
-[node name="HarmonykeeperRifle5" parent="Entities" instance=ExtResource("7_iyrdj")]
-position = Vector2(512, 448)
 
 [node name="Dusteki" parent="Entities" instance=ExtResource("8_pyo2w")]
 position = Vector2(224, -144)
@@ -99,3 +81,6 @@ position = Vector2(480, 544)
 
 [node name="Dusteki4" parent="Entities" instance=ExtResource("8_pyo2w")]
 position = Vector2(304, 208)
+
+[node name="DustershipFoot" parent="Entities" instance=ExtResource("9_o0rq0")]
+position = Vector2(898, 648)

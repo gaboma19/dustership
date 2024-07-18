@@ -23,8 +23,7 @@ func _ready():
 		initialize_april()
 		
 		if OS.has_feature("editor"):
-			pass
-			#initialize_telitz()
+			initialize_telitz()
 			#initialize_cube()
 
 
