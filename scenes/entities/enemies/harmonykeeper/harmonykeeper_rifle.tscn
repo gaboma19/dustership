@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="14_4m2dy"]
 [ext_resource type="Texture2D" uid="uid://cxhxbehfjh33u" path="res://assets/harmonykeeper/harmonykeeper_gunner.png" id="14_ml0x0"]
 [ext_resource type="PackedScene" uid="uid://0xfisg2scece" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.tscn" id="15_4leud"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="15_apct1"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_attack.gd" id="18_1tp67"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_attack.gd" id="18_1tp67"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_idle.gd" id="18_ecri3"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_aggro.gd" id="18_yy7rg"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_aggro.gd" id="18_yy7rg"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_fire.gd" id="22_106ep"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_fire.gd" id="22_106ep"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgpid"]
 radius = 5.0
@@ -737,11 +737,13 @@ wait_time = 4.0
 unique_name_in_owner = true
 initial_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine"]
-script = ExtResource("15_apct1")
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_ray_cast")]
+script = ExtResource("18_ecri3")
+aggro_ray_cast = NodePath("../../AggroRayCast")
 
-[node name="Aggro" type="Node" parent="StateMachine"]
+[node name="Aggro" type="Node" parent="StateMachine" node_paths=PackedStringArray("aggro_ray_cast")]
 script = ExtResource("18_yy7rg")
+aggro_ray_cast = NodePath("../../AggroRayCast")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn", "harmonykeeper_rifle_laser", "aim_timer")]
 script = ExtResource("18_1tp67")
@@ -763,8 +765,5 @@ health_component = NodePath("../../HealthComponent")
 script = ExtResource("22_106ep")
 harmonykeeper_rifle_laser = NodePath("../../AttackSpawn/HarmonykeeperRifleLaser")
 attack_spawn = NodePath("../../AttackSpawn")
-
-[node name="Chase" type="Node" parent="StateMachine"]
-script = ExtResource("15_apct1")
 
 [editable path="KnockbackComponent"]

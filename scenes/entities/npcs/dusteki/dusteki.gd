@@ -26,7 +26,7 @@ func set_moving(value):
 
 func update_blend_position(direction: Vector2):
 	animation_tree["parameters/idle/BlendSpace2D/blend_position"] = direction
-	animation_tree["parameters/walk/BlendSpace2D/blend_position"] = direction
+	animation_tree["parameters/move/BlendSpace2D/blend_position"] = direction
 
 
 func on_interact():

@@ -68,7 +68,7 @@ position = Vector2(480, 857)
 door_id = "dustership1_door9"
 
 [node name="HarmonykeeperRifle" parent="Entities" instance=ExtResource("7_iyrdj")]
-position = Vector2(804, 720)
+position = Vector2(304, 32)
 
 [node name="Dusteki" parent="Entities" instance=ExtResource("8_pyo2w")]
 position = Vector2(4, 113)

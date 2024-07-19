@@ -20,7 +20,7 @@ func _ready():
 	if enabled:
 		# happens only once at the beginning of the game
 		PlayerVariables.enable_game_start = false
-		initialize_april()
+		#initialize_april()
 		
 		if OS.has_feature("editor"):
 			initialize_telitz()

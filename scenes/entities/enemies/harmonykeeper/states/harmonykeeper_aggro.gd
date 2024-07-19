@@ -11,6 +11,12 @@ var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.t
 func enter(_msg := {}) -> void:
 	if not attack_range_area.body_entered.is_connected(on_attack_range_body_entered):
 		attack_range_area.body_entered.connect(on_attack_range_body_entered)
+	
+	aggro_ray_cast.player_lost.connect(on_player_lost)
+
+
+func exit() -> void:
+	aggro_ray_cast.player_lost.disconnect(on_player_lost)
 
 
 func update(_delta: float) -> void:
@@ -21,7 +27,7 @@ func update(_delta: float) -> void:
 
 
 func on_body_exited(_body: Node2D):
-	state_machine.transition_to("Chase")
+	state_machine.transition_to("Idle")
 
 
 func on_attack_range_body_entered(body: Node2D):
@@ -30,3 +36,7 @@ func on_attack_range_body_entered(body: Node2D):
 		return
 	
 	state_machine.transition_to("Attack")
+
+
+func on_player_lost():
+	state_machine.transition_to("Idle")

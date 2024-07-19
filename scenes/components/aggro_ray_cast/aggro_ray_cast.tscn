@@ -5,4 +5,3 @@
 [node name="AggroRayCast" type="RayCast2D"]
 collision_mask = 32
 script = ExtResource("1_t6mh6")
-aggro_range = null
