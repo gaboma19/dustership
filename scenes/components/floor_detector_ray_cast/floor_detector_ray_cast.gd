@@ -1,4 +1,5 @@
 extends RayCast2D
+class_name FloorDetectorRayCast
 
 const FLOOR_1: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.ONE]
 const FLOOR_2: int = Constants.ELEVATION_COLLISION_LAYERS[Constants.Elevations.TWO]

@@ -399,6 +399,9 @@ position = Vector2(0, -4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_gqwkt")
 
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 4.0
+
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("3_3fpr3")
 initial_state = NodePath("Idle")
@@ -406,5 +409,6 @@ initial_state = NodePath("Idle")
 [node name="Scene" type="Node" parent="StateMachine"]
 script = ExtResource("6_tnwai")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
 script = ExtResource("7_f7wk0")
+idle_timer = NodePath("../../IdleTimer")

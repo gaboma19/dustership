@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://cgnlmlh456grh"]
+[gd_scene load_steps=71 format=3 uid="uid://cgnlmlh456grh"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper.gd" id="1_onh3x"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_thtl1"]
@@ -12,14 +12,15 @@
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="10_wcylc"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="11_01ktk"]
 [ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="12_5eoo5"]
+[ext_resource type="PackedScene" uid="uid://uap2y0roigaf" path="res://scenes/components/aggro_ray_cast/aggro_ray_cast.tscn" id="12_cy67i"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="13_aa8a7"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="14_4m2dy"]
 [ext_resource type="Texture2D" uid="uid://cxhxbehfjh33u" path="res://assets/harmonykeeper/harmonykeeper_gunner.png" id="14_ml0x0"]
 [ext_resource type="PackedScene" uid="uid://0xfisg2scece" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.tscn" id="15_4leud"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="15_apct1"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="16_tx631"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_attack.gd" id="18_1tp67"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_aggro.gd" id="18_yy7rg"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_fire.gd" id="22_106ep"]
 
@@ -670,6 +671,8 @@ knockback_component = NodePath("../KnockbackComponent")
 position = Vector2(0, -7)
 shape = SubResource("CapsuleShape2D_dgpid")
 
+[node name="AggroRayCast" parent="." instance=ExtResource("12_cy67i")]
+
 [node name="AggroArea" parent="." instance=ExtResource("12_5eoo5")]
 unique_name_in_owner = true
 
@@ -738,7 +741,7 @@ initial_state = NodePath("Idle")
 script = ExtResource("15_apct1")
 
 [node name="Aggro" type="Node" parent="StateMachine"]
-script = ExtResource("16_tx631")
+script = ExtResource("18_yy7rg")
 
 [node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "attack_spawn", "harmonykeeper_rifle_laser", "aim_timer")]
 script = ExtResource("18_1tp67")
