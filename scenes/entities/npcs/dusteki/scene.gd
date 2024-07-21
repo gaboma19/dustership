@@ -12,4 +12,5 @@ func enter(_msg := {}) -> void:
 	var direction = dusteki.global_position.direction_to(player.global_position)
 	dusteki.update_blend_position(direction)
 	
-	dusteki.speak(["Lorem ipsum dolor sit emet."])
+	dusteki.speak(["Thank you for playing the Dustership demo!
+Follow along with the game's development @gutugutugames on itch.io."])

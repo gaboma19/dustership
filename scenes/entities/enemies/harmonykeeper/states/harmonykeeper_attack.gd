@@ -17,8 +17,6 @@ func enter(_msg := {}) -> void:
 	enemy.velocity_component.stop()
 	enemy.set_attacking(true)
 	
-	is_player_lost = false
-	
 	cast_laser()
 
 
@@ -87,8 +85,9 @@ func check_collider():
 		transition_to_fire()
 	else:
 		aim_timer.start()
+		print("here")
 		
-		transition_to_aggro()
+		transition_to_idle()
 
 
 func transition_to_fire():
@@ -100,6 +99,13 @@ func transition_to_aggro():
 	harmonykeeper_rifle_laser.set_casting(false)
 	harmonykeeper_rifle_laser.hide_laser()
 	state_machine.transition_to("Aggro")
+
+
+func transition_to_idle():
+	enemy.set_attacking(false)
+	harmonykeeper_rifle_laser.set_casting(false)
+	harmonykeeper_rifle_laser.hide_laser()
+	state_machine.transition_to("Idle")
 
 
 func on_attack_range_body_exited(_body: Node2D):

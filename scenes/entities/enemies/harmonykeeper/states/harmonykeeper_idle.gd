@@ -19,8 +19,8 @@ func enter(_msg := {}) -> void:
 
 
 func update(_delta: float) -> void:
-	enemy.velocity_component.decelerate()
-	enemy.velocity_component.move(enemy)
+	enemy.velocity_component.stop()
+	enemy.set_moving(false)
 	
 	enemy.update_animation_tree()
 
@@ -37,4 +37,5 @@ func on_player_detected():
 
 
 func on_attack_range_body_entered(_body: Node2D):
-	state_machine.transition_to("Attack")
+	pass
+	#state_machine.transition_to("Attack")

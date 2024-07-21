@@ -17,12 +17,12 @@ func _physics_process(_delta):
 	
 	if is_colliding():
 		var collider = get_collider()
-		if collider is Player:
+		if collider is PlayerHurtboxComponent:
 			if not is_player_detected:
 				is_player_detected = true
 				player_detected.emit()
 		else:
-			# collider is the tilemap
+			# collider is the TileMap / floor
 			if is_player_detected:
 				is_player_detected = false
 				player_lost.emit()
@@ -34,6 +34,7 @@ func get_direction_to_target():
 		return
 	
 	var target = player.global_position
+	target.y -= 8
 	
 	return global_position.direction_to(target)
 

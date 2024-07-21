@@ -20,6 +20,8 @@ func on_body_entered(player: Node2D):
 	if PlayerVariables.has_sword:
 		set_deferred("monitoring", false)
 		ScreenTransition.transition_to_level(path, new_player_position)
+		
+		MusicManager.fade_out(10)
 	else:
 		player.set_moving(false)
 		player.speak(LINES)

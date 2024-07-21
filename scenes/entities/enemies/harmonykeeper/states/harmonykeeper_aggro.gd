@@ -13,6 +13,8 @@ func enter(_msg := {}) -> void:
 		attack_range_area.body_entered.connect(on_attack_range_body_entered)
 	
 	aggro_ray_cast.player_lost.connect(on_player_lost)
+	
+	enemy.set_attacking(false)
 
 
 func exit() -> void:

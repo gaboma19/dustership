@@ -606,6 +606,7 @@ motion_mode = 1
 script = ExtResource("1_onh3x")
 
 [node name="HealthComponent" parent="." instance=ExtResource("2_thtl1")]
+max_health = 20
 
 [node name="VelocityComponent" parent="." instance=ExtResource("3_2w01j")]
 

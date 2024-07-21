@@ -7,8 +7,12 @@ extends State
 
 func enter(_msg := {}) -> void:
 	dusteki.velocity_component.stop()
-	idle_timer.start()
+	
+	var delay = randf_range(0.0, 0.4)
+	idle_timer.wait_time += delay
+	
 	idle_timer.timeout.connect(on_idle_timer_timeout)
+	idle_timer.start()
 
 
 func exit() -> void:

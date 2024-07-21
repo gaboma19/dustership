@@ -2,8 +2,8 @@ extends Node2D
 
 const CONVERSATION_ID = "shower"
 const LINES: Array[String] = [
-	"Could really use a shower.",
-	"What happened last night?",
+	"It's my shower.",
+	"...Or at least it looks like my shower.",
 ]
 
 const INTERACTED_LINES: Array[String] = [
