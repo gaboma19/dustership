@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bs3mkeu2l1abm"]
 
 [ext_resource type="Texture2D" uid="uid://cc5q36cne820t" path="res://assets/telitz_denz/float_effect.png" id="1_fpkad"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/float_effect.gd" id="1_iqf2f"]
+[ext_resource type="Script" path="res://scenes/entities/players/telitz/float_effect.gd" id="1_iqf2f"]
 
 [sub_resource type="Animation" id="Animation_ibf3w"]
 length = 0.001

@@ -32,11 +32,12 @@ func update(delta: float) -> void:
 	if float_time >= MAX_FLOAT_TIME:
 		transition_to_active()
 	
-	if DialogueManager.is_dialogue_active:
-		return
-	
 	if float_time > 6:
 		land()
+	
+	if DialogueManager.is_dialogue_active:
+		# skip movement input
+		return
 	
 	movement_vector = get_movement_vector()
 	

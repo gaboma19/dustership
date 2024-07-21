@@ -43,8 +43,7 @@ const TELITZ_LINES_4: Array[String] = [
 ]
 
 const APRIL_LINES_5: Array[String] = [
-	"Yeah, and I ended up totaling this car the very next year.", 
-	"But, this is back in the days when I had money.",
+	"Yeah, I used to have expensive taste.",
 	"Speaking of which, isn't it past time we discussed my payment for cleaning up this place?"
 ]
 

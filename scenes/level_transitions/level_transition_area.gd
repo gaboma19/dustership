@@ -13,6 +13,8 @@ func on_body_entered(body: Node2D):
 	if body != player:
 		return
 	
+	MusicManager.fade_out(10)
+	
 	set_deferred("monitoring", false)
 
 	ScreenTransition.transition_to_level(path, new_player_position)

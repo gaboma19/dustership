@@ -11,10 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://cxqowxc8qgy6e" path="res://assets/backgrounds/echelon_alleyway/shadow.png" id="6_1vluk"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="6_cpiyy"]
 [ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://resources/inventory_item/items/key.tres" id="7_1sf3k"]
-[ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/telitz_denz/telitz_denz_npc.tscn" id="8_jdh7e"]
+[ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/npcs/telitz_denz_npc/telitz_denz_npc.tscn" id="8_jdh7e"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_ls2hr"]
 [ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="9_ysicg"]
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/states/telitz_denz_scene_level_4.gd" id="10_4y2gf"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/telitz_denz_npc/states/telitz_denz_scene_level_4.gd" id="10_4y2gf"]
 
 [sub_resource type="Resource" id="Resource_tjonh"]
 script = ExtResource("3_isaea")

@@ -2,38 +2,30 @@ extends State
 
 const TELITZ_LINES_1: Array[String] = [
 	"Hello, April. Welcome to the Echelon.",
-	"Do you know who I am?"
 ]
 
 const APRIL_LINES_1: Array[String] = [
-	"You're Telitz Denz.",
-	"There's a bounty on your head. 40 million steel."
+	"Telitz Denz. I didn't expect to meet the ring leader.",
+	"There's a bounty on your head, you know. 40 million steel."
 ]
 
 const TELITZ_LINES_2: Array[String] = [
 	"I believe the contract you are referring to expired years ago.",
-	"Even so, there's no way to capture me from the Echelon, April."
+	"The bounty you seek was here not long ago."
 ]
 
 const APRIL_LINES_2: Array[String] = [
-	"This is the Echelon? How is that possible?"
+	"So this is it? The Echelon?"
 ]
 
 const TELITZ_LINES_3: Array[String] = [
-	"Yes... the Echelon is still alive and functioning.",
+	"Yes... still alive and functioning.",
 	"The most perfect simulation of a universe ever created and ever will be created.",
 	"Perfect to the subatomic level."
 ]
 
-const APRIL_LINES_3: Array[String] = [
-	"How do you know who I am?"
-]
-
 const TELITZ_LINES_4: Array[String] = [
-	"The truth is April, I brought you here.",
-	"It's not often I find someone so well attuned to meta-dimensional space.",
-	"And we could use someone with your combat prowess.",
-	"The Echelon, in its centuries of dormancy, has accumulated glitches in its programming."
+	"But, the Echelon has accumulated... glitches in its programming."
 ]
 
 const APRIL_LINES_4: Array[String] = [
@@ -43,15 +35,15 @@ const APRIL_LINES_4: Array[String] = [
 const TELITZ_LINES_5: Array[String] = [
 	"Fiends. Glitch monsters.",
 	"Transformed from the lost and long decaying souls that once inhabited this world.",
-	"Will you help us destroy them?"
+	"Will you help the Remembrancers and I to destroy them?"
 ]
 
 const APRIL_LINES_YES: Array[String] = [
-	"Sure... yeah. I had a lot of time to kill in the real world, anyway."
+	"Sure. Just add it to my tab."
 ]
 
 const APRIL_LINES_NO: Array[String] = [
-	"Saving an ancient and forbidden virtual reality isn't really on my to-do list."
+	"That wasn't in the contract."
 ]
 
 const TELITZ_LINES_YES: Array[String] = [
@@ -91,9 +83,6 @@ func enter(_msg := {}) -> void:
 	await get_tree().create_timer(0.1).timeout
 	telitz_denz.update_blend_position(Vector2.UP)
 	telitz_denz.speak(TELITZ_LINES_3)
-	await DialogueManager.finished_dialogue
-	
-	april.speak(APRIL_LINES_3)
 	await DialogueManager.finished_dialogue
 	
 	telitz_denz.update_blend_position(Vector2.DOWN)

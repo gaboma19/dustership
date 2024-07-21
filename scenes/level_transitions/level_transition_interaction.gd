@@ -12,4 +12,7 @@ func _ready():
 
 func on_interact():
 	interaction_area.set_deferred("monitoring", false)
+	
+	MusicManager.fade_out(10)
+	
 	ScreenTransition.transition_to_level(path, new_player_position)

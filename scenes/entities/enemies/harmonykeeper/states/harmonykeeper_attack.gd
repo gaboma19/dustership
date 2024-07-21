@@ -85,17 +85,31 @@ func check_collider():
 		transition_to_fire()
 	else:
 		aim_timer.start()
+		print("here")
+		
+		transition_to_idle()
 
 
 func transition_to_fire():
 	state_machine.transition_to("Fire")
 
 
-func on_attack_range_body_exited(_body: Node2D):
+func transition_to_aggro():
 	enemy.set_attacking(false)
 	harmonykeeper_rifle_laser.set_casting(false)
 	harmonykeeper_rifle_laser.hide_laser()
 	state_machine.transition_to("Aggro")
+
+
+func transition_to_idle():
+	enemy.set_attacking(false)
+	harmonykeeper_rifle_laser.set_casting(false)
+	harmonykeeper_rifle_laser.hide_laser()
+	state_machine.transition_to("Idle")
+
+
+func on_attack_range_body_exited(_body: Node2D):
+	transition_to_aggro()
 
 
 func on_aim_timer_timeout():

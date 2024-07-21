@@ -35,11 +35,11 @@ func play_track(new_song: String, set_looping: bool = false):
 	play()
 
 
-func fade_out():
+func fade_out(duration: float = transition_duration):
 	# tween music volume down to -80 (muted)
 	var tween_out = create_tween()
-	tween_out.tween_property(self, "volume_db", -80, transition_duration)
-	Tween.interpolate_value(music_volume, 0, 0, transition_duration, Tween.TRANS_LINEAR, Tween.EASE_OUT)
+	tween_out.tween_property(self, "volume_db", -80, duration)
+	Tween.interpolate_value(music_volume, 0, 0, duration, Tween.TRANS_LINEAR, Tween.EASE_OUT)
 
 
 func fade_out_to(new_song):

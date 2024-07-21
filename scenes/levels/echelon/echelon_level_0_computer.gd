@@ -1,6 +1,6 @@
 extends Node2D
 
-const TELITZ_SCENE = preload("res://scenes/entities/players/telitz.tscn")
+const TELITZ_SCENE = preload("res://scenes/entities/players/telitz/telitz.tscn")
 const DUSTERSHIP_LEVEL_1_SCENE_PATH = "res://scenes/levels/dustership/dustership_level_1.tscn"
 const EREMITE_DISKETTE = preload(
 	"res://resources/inventory_item/items/eremite_diskette.tres")

@@ -1,7 +1,6 @@
 extends Area2D
 
-const MISSILE_EXPLOSION_SCENE = preload(
-	"res://scenes/entities/telitz_denz/missile_explosion.tscn")
+@export var missile_explosion_scene: PackedScene
 
 @export var speed = 100
 @export var steer_force = 50.0
@@ -47,7 +46,7 @@ func _physics_process(delta):
 
 
 func explode(body: Node2D):
-	var missile_explosion = MISSILE_EXPLOSION_SCENE.instantiate()
+	var missile_explosion = missile_explosion_scene.instantiate()
 	entities_layer.call_deferred("add_child", missile_explosion)
 	missile_explosion.global_position = body.global_position
 	

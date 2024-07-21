@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dtnnj1ct7irs5"
+path="res://.godot/imported/dustership_foot.aseprite-36230e1d71b743e53f8c3382cf3c974d.res"
+
+[deps]
+
+source_file="res://assets/doodads/dustership_foot.aseprite"
+dest_files=["res://.godot/imported/dustership_foot.aseprite-36230e1d71b743e53f8c3382cf3c974d.res"]
+
+[params]
+

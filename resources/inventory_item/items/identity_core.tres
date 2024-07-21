@@ -8,5 +8,5 @@ script = ExtResource("1_lmdq2")
 name = "identity_core"
 texture = ExtResource("2_u5cqj")
 is_usable = false
-description = "An identity core for a combat training droid. The sticker on the back reads \"Gung Ho HyperLearn 212\"."
+description = "An identity core for a combat training droid. The sticker on the back reads \"Gung Ho HyperLearn\"."
 pop_up_text = ""

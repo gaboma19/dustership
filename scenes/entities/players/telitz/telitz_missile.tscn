@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://1grgmdky1nrh"]
+[gd_scene load_steps=7 format=3 uid="uid://1grgmdky1nrh"]
 
-[ext_resource type="Script" path="res://scenes/entities/telitz_denz/telitz_missile.gd" id="1_eva30"]
-[ext_resource type="Texture2D" uid="uid://ccnxwae22456u" path="res://assets/telitz_denz/missile.png" id="2_qmevl"]
+[ext_resource type="Script" path="res://scenes/entities/players/telitz/telitz_missile.gd" id="1_0ts3a"]
+[ext_resource type="Texture2D" uid="uid://ccnxwae22456u" path="res://assets/telitz_denz/missile.png" id="2_03p1s"]
+[ext_resource type="PackedScene" uid="uid://fhdv7o5e4kmm" path="res://scenes/entities/players/telitz/missile_explosion.tscn" id="2_bu1yc"]
 
 [sub_resource type="Animation" id="Animation_qinj7"]
 length = 0.2
@@ -43,11 +44,12 @@ radius = 4.0
 scale = Vector2(0.5, 0.5)
 collision_layer = 0
 collision_mask = 256
-script = ExtResource("1_eva30")
+script = ExtResource("1_0ts3a")
+missile_explosion_scene = ExtResource("2_bu1yc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_qmevl")
+texture = ExtResource("2_03p1s")
 hframes = 2
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,

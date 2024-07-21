@@ -1,7 +1,6 @@
 extends Node2D
 
-const TELITZ_MISSILE_SCENE = preload(
-	"res://scenes/entities/telitz_denz/telitz_missile.tscn")
+@export var telitz_missile_scene: PackedScene
 
 @onready var left_node: Node2D = $Left
 @onready var right_node: Node2D = $Right
@@ -33,7 +32,7 @@ func stop():
 
 
 func spawn_missile(node: Node2D):
-	var missile = TELITZ_MISSILE_SCENE.instantiate()
+	var missile = telitz_missile_scene.instantiate()
 	var target = get_nearest_enemy()
 	
 	if target != null:
