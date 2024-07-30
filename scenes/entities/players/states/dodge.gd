@@ -26,7 +26,7 @@ func enter(_msg := {}) -> void:
 	
 	original_speed = velocity_component.max_speed
 	original_acceleration = velocity_component.acceleration
-	velocity_component.max_speed = int(original_speed * 2.25)
+	velocity_component.max_speed = int(original_speed * 2)
 	
 	var tween = create_tween()
 	tween.tween_property(velocity_component, "max_speed", original_speed, DODGE_TIME) \

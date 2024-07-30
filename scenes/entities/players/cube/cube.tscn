@@ -1569,7 +1569,7 @@ script = ExtResource("1_7sqa6")
 character_name = 1
 
 [node name="VelocityComponent" parent="." instance=ExtResource("1_5e7pt")]
-max_speed = 60
+max_speed = 75
 acceleration = 10.0
 
 [node name="PickupArea" type="Area2D" parent="."]

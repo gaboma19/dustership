@@ -20,12 +20,12 @@ var is_switch_character_disabled: bool = false
 
 
 func _unhandled_input(event):
-	if Input.is_action_just_pressed("switch_character"):
+	if event.is_action_pressed("switch_character"):
 		get_tree().root.set_input_as_handled()
 		switch_character()
-	elif event.is_action_pressed("toggle_hold"):
-		get_tree().root.set_input_as_handled()
-		toggle_hold()
+	#elif event.is_action_pressed("toggle_hold"):
+		#get_tree().root.set_input_as_handled()
+		#toggle_hold()
 
 
 func add_member(node: Player):
@@ -115,17 +115,17 @@ func switch_character():
 	character_switched.emit(next_active_member.character_name)
 
 
-func toggle_hold():
-	is_holding = !is_holding
-		
-	for i in range(members.size()):
-		if i == active_member_index:
-			continue
-			
-		if is_holding:
-			members[i].state_machine.transition_to("Hold")
-		else:
-			members[i].state_machine.transition_to("Follow")
+#func toggle_hold():
+	#is_holding = !is_holding
+		#
+	#for i in range(members.size()):
+		#if i == active_member_index:
+			#continue
+			#
+		#if is_holding:
+			#members[i].state_machine.transition_to("Hold")
+		#else:
+			#members[i].state_machine.transition_to("Follow")
 
 
 func rubberband_party():
