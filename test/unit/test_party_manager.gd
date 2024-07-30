@@ -4,7 +4,6 @@ var _sender = InputSender.new(Input)
 var party_manager = load("res://scenes/autoload/party_manager.gd")
 
 
-
 func before_all():
 	PartyManager.free()
 
