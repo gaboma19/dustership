@@ -1204,7 +1204,7 @@ script = ExtResource("1_casqp")
 character_name = 2
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_brpoa")]
-max_speed = 60
+max_speed = 75
 acceleration = 10.0
 
 [node name="PickupArea" type="Area2D" parent="."]

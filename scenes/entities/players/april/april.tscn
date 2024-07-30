@@ -1204,7 +1204,7 @@ motion_mode = 1
 script = ExtResource("1_04g6c")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_d0ecx")]
-max_speed = 60
+max_speed = 75
 acceleration = 10.0
 
 [node name="PickupArea" type="Area2D" parent="."]
