@@ -3,8 +3,6 @@ extends EnemyState
 
 @export var aggro_ray_cast: RayCast2D
 
-var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
-
 @onready var attack_range_area = %AttackRangeArea
 
 
