@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://keuufppugl3h"
+path="res://.godot/imported/saguaro_attack.aseprite-81377a0e2aaaa07bda72f47957bdc5f6.res"
+
+[deps]
+
+source_file="res://assets/saguaro/saguaro_attack.aseprite"
+dest_files=["res://.godot/imported/saguaro_attack.aseprite-81377a0e2aaaa07bda72f47957bdc5f6.res"]
+
+[params]
+
