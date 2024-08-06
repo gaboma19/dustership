@@ -5,6 +5,7 @@ const SAGUARO_FOOT_SCENE = preload(
 	"res://scenes/entities/enemies/saguaro/saguaro_foot.tscn")
 
 @export var attack_range_area: Area2D
+@export var cooldown_timer: Timer
 
 
 func enter(_msg := {}) -> void:
@@ -13,7 +14,14 @@ func enter(_msg := {}) -> void:
 	enemy.velocity_component.stop()
 
 	enemy.set_attacking(true)
+	
 	spawn_foot()
+	await get_tree().create_timer(0.4).timeout
+	spawn_foot()
+	await get_tree().create_timer(2.2).timeout
+	
+	enemy.animation_state_machine.travel("rise")
+	transition_to_idle()
 
 
 func exit() -> void:

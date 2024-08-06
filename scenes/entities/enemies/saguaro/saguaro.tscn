@@ -670,7 +670,7 @@ states/rise/position = Vector2(550, 296)
 states/sink/node = SubResource("AnimationNodeBlendTree_ux3k3")
 states/sink/position = Vector2(550, 129)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_r1p6g"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_qrfhy"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_virs8"), "move", "sink", SubResource("AnimationNodeStateMachineTransition_2uk3c"), "sink", "move", SubResource("AnimationNodeStateMachineTransition_520ik"), "sink", "idle", SubResource("AnimationNodeStateMachineTransition_i443d"), "idle", "sink", SubResource("AnimationNodeStateMachineTransition_865tn"), "sink", "rise", SubResource("AnimationNodeStateMachineTransition_wj21v"), "rise", "idle", SubResource("AnimationNodeStateMachineTransition_bvl2i"), "rise", "move", SubResource("AnimationNodeStateMachineTransition_fc0ne")]
-graph_offset = Vector2(-121, -80.1967)
+graph_offset = Vector2(-106, -41.1967)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ttsp5"]
 radius = 7.0
@@ -774,7 +774,6 @@ texture = ExtResource("12_w5qij")
 
 [node name="AttackRangeArea" type="Area2D" parent="."]
 unique_name_in_owner = true
-visible = false
 collision_layer = 0
 collision_mask = 2
 
@@ -782,6 +781,9 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_s0013")
 
 [node name="AggroRayCast" parent="." instance=ExtResource("13_gjogr")]
+
+[node name="CooldownTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [node name="StateMachine" type="Node" parent="."]
 unique_name_in_owner = true
@@ -802,6 +804,7 @@ script = ExtResource("16_f876n")
 script = ExtResource("18_kic11")
 aggro_ray_cast = NodePath("../../AggroRayCast")
 
-[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area")]
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("attack_range_area", "cooldown_timer")]
 script = ExtResource("19_cbpie")
 attack_range_area = NodePath("../../AttackRangeArea")
+cooldown_timer = NodePath("../../CooldownTimer")
