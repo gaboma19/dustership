@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://c3rkehhf7c2kn" path="res://assets/saguaro/saguaro_attack.png" id="1_ir3tp"]
 
 [sub_resource type="Animation" id="Animation_1wxs6"]
-length = 1.9
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,6 +28,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 6, 6, 5, 4, 3, 2, 1, 0]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_plp0r"]
 _data = {
@@ -37,7 +51,7 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn5y0"]
 size = Vector2(8, 14)
 
-[node name="SaguaroAttack" type="StaticBody2D"]
+[node name="SaguaroFoot" type="StaticBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -45,7 +59,6 @@ texture = ExtResource("1_ir3tp")
 offset = Vector2(0, -7)
 hframes = 4
 vframes = 3
-frame = 7
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,

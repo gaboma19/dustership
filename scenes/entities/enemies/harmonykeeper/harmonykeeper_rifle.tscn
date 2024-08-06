@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://cxhxbehfjh33u" path="res://assets/harmonykeeper/harmonykeeper_gunner.png" id="14_ml0x0"]
 [ext_resource type="PackedScene" uid="uid://0xfisg2scece" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.tscn" id="15_4leud"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_attack.gd" id="18_1tp67"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_idle.gd" id="18_ecri3"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_idle.gd" id="18_ecri3"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_yy7rg"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
@@ -171,7 +171,7 @@ states/idle/position = Vector2(386, 100)
 states/move/node = SubResource("AnimationNodeBlendTree_khctp")
 states/move/position = Vector2(656, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_buorp"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_jmw5a"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_ln6gp"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_32iy3"), "move", "attack", SubResource("AnimationNodeStateMachineTransition_ggjhp"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_wywyt"), "attack", "move", SubResource("AnimationNodeStateMachineTransition_8o4sp")]
-graph_offset = Vector2(-97, 119)
+graph_offset = Vector2(-44, -36)
 
 [sub_resource type="Animation" id="Animation_jwmmj"]
 length = 0.001
