@@ -42,7 +42,7 @@ layer_0/y_sort_enabled = false
 position = Vector2(0, 160)
 
 [node name="GameCamera" parent="." instance=ExtResource("9_2k2cy")]
-position = Vector2(-16, 0)
+position = Vector2(0, 160)
 custom_limit_right = 32
 custom_limit_top = -24
 
@@ -51,6 +51,15 @@ y_sort_enabled = true
 
 [node name="Saguaro" parent="Entities" instance=ExtResource("10_vt8ca")]
 position = Vector2(0, -64)
+
+[node name="Saguaro2" parent="Entities" instance=ExtResource("10_vt8ca")]
+position = Vector2(0, -112)
+
+[node name="Saguaro3" parent="Entities" instance=ExtResource("10_vt8ca")]
+position = Vector2(-64, -64)
+
+[node name="Saguaro4" parent="Entities" instance=ExtResource("10_vt8ca")]
+position = Vector2(32, -64)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

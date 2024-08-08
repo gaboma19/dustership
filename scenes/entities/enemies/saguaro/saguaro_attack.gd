@@ -13,26 +13,37 @@ func enter(_msg := {}) -> void:
 	
 	enemy.velocity_component.stop()
 
-	enemy.set_attacking(true)
-	
-	spawn_foot()
-	await get_tree().create_timer(0.4).timeout
-	spawn_foot()
-	await get_tree().create_timer(2.2).timeout
-	
-	enemy.animation_state_machine.travel("rise")
-	transition_to_idle()
+
+func update(_delta: float):
+	if cooldown_timer.is_stopped():
+		cooldown_timer.start()
+		attack()
 
 
 func exit() -> void:
 	attack_range_area.body_exited.disconnect(on_attack_range_body_exited)
 
 
-func spawn_foot():
+func attack():
+	enemy.set_attacking(true)
+	
+	var first_target_position = get_target_position()
+	spawn_foot(first_target_position)
+	await get_tree().create_timer(0.4).timeout
+	
+	var second_target_position = get_target_position()
+	if not first_target_position == second_target_position:
+		spawn_foot(second_target_position)
+	await get_tree().create_timer(2.2).timeout
+	
+	rise()
+
+
+func spawn_foot(target_position: Vector2):
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	var saguaro_foot = SAGUARO_FOOT_SCENE.instantiate()
 	entities_layer.call_deferred("add_child", saguaro_foot)
-	saguaro_foot.global_position = get_target_position()
+	saguaro_foot.global_position = target_position
 
 
 func get_target_position():
@@ -43,14 +54,17 @@ func get_target_position():
 	return player.global_position
 
 
+func rise():
+	enemy.set_attacking(false)
+	enemy.animation_state_machine.travel("rise")
+
+
 func transition_to_aggro():
-	enemy.set_attacking(false)
+	var is_attacking = enemy.animation_tree.get("parameters/conditions/is_attacking")
+	if is_attacking:
+		rise()
+	
 	state_machine.transition_to("Aggro")
-
-
-func transition_to_idle():
-	enemy.set_attacking(false)
-	state_machine.transition_to("Idle")
 
 
 func on_attack_range_body_exited(_body: Node2D):

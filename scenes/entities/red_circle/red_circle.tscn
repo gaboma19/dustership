@@ -29,7 +29,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "method"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -48,14 +48,14 @@ _data = {
 }
 
 [node name="RedCircle" type="Node2D"]
+modulate = Color(1, 1, 1, 0.501961)
+z_index = -1
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 texture_filter = 1
 texture = ExtResource("1_cm3xr")
 hframes = 3
 vframes = 3
-frame = 8
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
