@@ -37,6 +37,9 @@ func attack():
 	await get_tree().create_timer(2.2).timeout
 	
 	rise()
+	
+	await get_tree().create_timer(0.6).timeout
+	reposition()
 
 
 func spawn_foot(target_position: Vector2):
@@ -47,16 +50,34 @@ func spawn_foot(target_position: Vector2):
 
 
 func get_target_position():
-	var player = PartyManager.get_active_member()
+	var player: Player = PartyManager.get_active_member()
 	if player == null:
 		return Vector2.ZERO
 	
-	return player.global_position
+	var target_position: Vector2
+	var is_moving = player.animation_tree.get("parameters/conditions/is_moving")
+	var angle = randf() * 2 * PI
+	var random_vector = Vector2( sin(angle), cos(angle) )
+	
+	if is_moving:
+		target_position = player.global_position + player.blend_position * 50
+		target_position += random_vector * 10
+	else:
+		target_position = player.global_position
+		target_position += random_vector * 5
+	
+	return target_position
 
 
 func rise():
 	enemy.set_attacking(false)
+	enemy.set_moving(false)
+	
 	enemy.animation_state_machine.travel("rise")
+
+
+func reposition():
+	pass
 
 
 func transition_to_aggro():

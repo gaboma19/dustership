@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7pi5igo8aa4"]
+[gd_scene load_steps=11 format=3 uid="uid://b7pi5igo8aa4"]
 
 [ext_resource type="Texture2D" uid="uid://c3rkehhf7c2kn" path="res://assets/saguaro/saguaro_attack.png" id="1_ir3tp"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="2_qce4u"]
+[ext_resource type="Texture2D" uid="uid://djbng7lqop2fh" path="res://assets/saguaro/rocks.png" id="3_rgq3f"]
 
 [sub_resource type="Animation" id="Animation_m024c"]
 length = 0.001
@@ -109,6 +110,39 @@ size = Vector2(8, 14)
 radius = 8.0
 height = 20.0
 
+[sub_resource type="Animation" id="Animation_yb4el"]
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dnban"]
+_data = {
+"default": SubResource("Animation_yb4el")
+}
+
 [node name="SaguaroFoot" type="StaticBody2D"]
 collision_mask = 0
 
@@ -159,3 +193,32 @@ damage = 1
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxComponent"]
 position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_k8a6g")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_rgq3f")
+hframes = 3
+vframes = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/saguaro",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer2",
+"slice": "",
+"source": "res://assets/saguaro/rocks.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"animation_section": false,
+"layer_section": true,
+"output_section": true
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dnban")
+}
+autoplay = "default"
