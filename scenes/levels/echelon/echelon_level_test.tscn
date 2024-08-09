@@ -9,7 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tile_maps/echelon/echelon_decoration_tiles.tscn" id="7_px4f4"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="8_xe75f"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="9_2k2cy"]
-[ext_resource type="PackedScene" uid="uid://46gibj1h8o7k" path="res://scenes/entities/enemies/saguaro/saguaro.tscn" id="10_vt8ca"]
+[ext_resource type="PackedScene" uid="uid://bgm5wujmjc2bg" path="res://scenes/entities/tumbleweed/tumbleweed.tscn" id="10_erq1u"]
 
 [node name="EchelonLevelTest" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -39,27 +39,18 @@ z_index = -1
 layer_0/y_sort_enabled = false
 
 [node name="GameStart" parent="." instance=ExtResource("8_xe75f")]
-position = Vector2(0, 160)
+position = Vector2(-16, 224)
 
 [node name="GameCamera" parent="." instance=ExtResource("9_2k2cy")]
-position = Vector2(0, 160)
+position = Vector2(-16, 224)
 custom_limit_right = 32
 custom_limit_top = -24
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="Saguaro" parent="Entities" instance=ExtResource("10_vt8ca")]
-position = Vector2(0, -64)
-
-[node name="Saguaro2" parent="Entities" instance=ExtResource("10_vt8ca")]
-position = Vector2(0, -112)
-
-[node name="Saguaro3" parent="Entities" instance=ExtResource("10_vt8ca")]
-position = Vector2(-64, -64)
-
-[node name="Saguaro4" parent="Entities" instance=ExtResource("10_vt8ca")]
-position = Vector2(32, -64)
+[node name="Tumbleweed" parent="Entities" instance=ExtResource("10_erq1u")]
+position = Vector2(32, 224)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

@@ -97,7 +97,7 @@ func enter(_msg := {}) -> void:
 	april.speak(APRIL_LINES_4)
 	await DialogueManager.finished_dialogue
 	
-	telitz_denz.velocity_component.accelerate_to_point_and_stop(
+	telitz_denz.velocity_component.process_accelerate_to_point(
 		telitz_walk_point.global_position)
 	await telitz_denz.velocity_component.arrived
 	april.update_blend_position(Vector2.LEFT)

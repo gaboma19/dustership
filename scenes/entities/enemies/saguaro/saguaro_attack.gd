@@ -26,6 +26,7 @@ func exit() -> void:
 
 func attack():
 	enemy.set_attacking(true)
+	enemy.velocity_component.stop()
 	
 	var first_target_position = get_target_position()
 	spawn_foot(first_target_position)
@@ -49,7 +50,7 @@ func spawn_foot(target_position: Vector2):
 	saguaro_foot.global_position = target_position
 
 
-func get_target_position():
+func get_target_position() -> Vector2:
 	var player: Player = PartyManager.get_active_member()
 	if player == null:
 		return Vector2.ZERO
@@ -60,13 +61,24 @@ func get_target_position():
 	var random_vector = Vector2( sin(angle), cos(angle) )
 	
 	if is_moving:
-		target_position = player.global_position + player.blend_position * 50
-		target_position += random_vector * 10
+		target_position = player.global_position + player.blend_position * 25
+		target_position += random_vector * 7
 	else:
 		target_position = player.global_position
 		target_position += random_vector * 5
 	
 	return target_position
+
+
+func get_reposition_position() -> Vector2:
+	var player: Player = PartyManager.get_active_member()
+	if player == null:
+		return Vector2.ZERO
+	
+	var direction = enemy.global_position.direction_to(player.global_position)
+	direction *= -50
+	
+	return direction
 
 
 func rise():
@@ -77,7 +89,10 @@ func rise():
 
 
 func reposition():
-	pass
+	var position = get_reposition_position()
+	enemy.set_moving(true)
+	
+	enemy.velocity_component.process_accelerate_to_point(position)
 
 
 func transition_to_aggro():

@@ -116,7 +116,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D2:visible")
+tracks/0/path = NodePath("RocksSprite:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
@@ -128,7 +128,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D2:frame")
+tracks/1/path = NodePath("RocksSprite:frame")
 tracks/1/interp = 1
 tracks/1/loop_wrap = false
 tracks/1/keys = {
@@ -152,6 +152,7 @@ texture = ExtResource("1_ir3tp")
 offset = Vector2(0, -7)
 hframes = 4
 vframes = 3
+frame = 8
 metadata/_aseprite_wizard_interface_config_ = {
 "animation_section": false,
 "layer_section": true,
@@ -186,6 +187,7 @@ shape = SubResource("RectangleShape2D_cn5y0")
 zoom = Vector2(4, 4)
 
 [node name="HitboxComponent" parent="." instance=ExtResource("2_qce4u")]
+visible = false
 collision_layer = 8
 collision_mask = 64
 damage = 1
@@ -194,11 +196,12 @@ damage = 1
 position = Vector2(0, -7.5)
 shape = SubResource("CapsuleShape2D_k8a6g")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="RocksSprite" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("3_rgq3f")
 hframes = 3
 vframes = 2
+frame = 4
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -217,7 +220,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+[node name="RocksAnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_dnban")
 }
