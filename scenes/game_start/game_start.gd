@@ -9,8 +9,6 @@ const TELITZ_SCENE: PackedScene = preload("res://scenes/entities/players/telitz/
 
 func _ready():
 	if OS.has_feature("editor"):
-		# uncomment to run any level
-		#enabled = true
 		PlayerVariables.has_sword = true
 		PlayerVariables.has_gun = true
 		#Inventory.add_item(preload("res://resources/inventory_item/items/identity_core.tres"))
@@ -23,9 +21,9 @@ func _ready():
 		initialize_april()
 		
 		if OS.has_feature("editor"):
-
+			pass
 			#initialize_telitz()
-			initialize_cube()
+			#initialize_cube()
 
 
 func initialize_april():

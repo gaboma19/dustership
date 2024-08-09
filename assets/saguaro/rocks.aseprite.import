@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://by5ojpsacf1ob"
+path="res://.godot/imported/rocks.aseprite-2dd78fbd12bcd94e4d36ef3a5faa0a95.res"
+
+[deps]
+
+source_file="res://assets/saguaro/rocks.aseprite"
+dest_files=["res://.godot/imported/rocks.aseprite-2dd78fbd12bcd94e4d36ef3a5faa0a95.res"]
+
+[params]
+
