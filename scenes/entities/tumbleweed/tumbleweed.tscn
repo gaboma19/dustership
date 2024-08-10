@@ -1,7 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bgm5wujmjc2bg"]
+[gd_scene load_steps=9 format=3 uid="uid://bgm5wujmjc2bg"]
 
 [ext_resource type="Script" path="res://scenes/entities/tumbleweed/tumbleweed.gd" id="1_5kh7v"]
 [ext_resource type="Texture2D" uid="uid://cjolpljdujkhn" path="res://assets/tumbleweed/tumbleweed.png" id="1_td5ts"]
+[ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="3_j0y6m"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ptofc"]
+bounce = 0.5
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_alicc"]
 radius = 8.0
@@ -39,20 +43,26 @@ _data = {
 "default": SubResource("Animation_73u8u")
 }
 
-[node name="Tumbleweed" type="RigidBody2D"]
-collision_layer = 0
-collision_mask = 879
-mass = 0.1
-gravity_scale = 0.1
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_2p2yp"]
+a = Vector2(-32, 0)
+b = Vector2(32, 0)
+
+[node name="Tumbleweed" type="Node2D"]
 script = ExtResource("1_5kh7v")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+collision_layer = 0
+collision_mask = 9071
+mass = 0.5
+physics_material_override = SubResource("PhysicsMaterial_ptofc")
+gravity_scale = 0.7
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
 texture_filter = 1
 texture = ExtResource("1_td5ts")
 offset = Vector2(0, -8)
 hframes = 2
 vframes = 2
-frame = 3
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -70,14 +80,28 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_alicc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
 libraries = {
 "": SubResource("AnimationLibrary_qlt0j")
 }
 autoplay = "default"
+speed_scale = 0.5
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="FloorStaticBody" type="StaticBody2D" parent="."]
+collision_layer = 8192
+collision_mask = 0
+
+[node name="Shadow" type="Sprite2D" parent="FloorStaticBody"]
+modulate = Color(1, 1, 1, 0.25098)
+top_level = true
+scale = Vector2(1.3, 1)
+texture = ExtResource("3_j0y6m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="FloorStaticBody"]
+visible = false
+shape = SubResource("SegmentShape2D_2p2yp")
