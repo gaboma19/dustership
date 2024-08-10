@@ -39,10 +39,10 @@ z_index = -1
 layer_0/y_sort_enabled = false
 
 [node name="GameStart" parent="." instance=ExtResource("8_xe75f")]
-position = Vector2(-16, 224)
+position = Vector2(-96, 0)
 
 [node name="GameCamera" parent="." instance=ExtResource("9_2k2cy")]
-position = Vector2(-16, 224)
+position = Vector2(-96, 0)
 custom_limit_right = 32
 custom_limit_top = -24
 
@@ -50,7 +50,7 @@ custom_limit_top = -24
 y_sort_enabled = true
 
 [node name="Tumbleweed" parent="Entities" instance=ExtResource("10_erq1u")]
-position = Vector2(32, 224)
+position = Vector2(-16, 0)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

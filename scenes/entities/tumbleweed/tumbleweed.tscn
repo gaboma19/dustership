@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bgm5wujmjc2bg"]
+[gd_scene load_steps=11 format=3 uid="uid://bgm5wujmjc2bg"]
 
 [ext_resource type="Script" path="res://scenes/entities/tumbleweed/tumbleweed.gd" id="1_5kh7v"]
 [ext_resource type="Texture2D" uid="uid://cjolpljdujkhn" path="res://assets/tumbleweed/tumbleweed.png" id="1_td5ts"]
 [ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="3_j0y6m"]
+[ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="3_vyo5m"]
+[ext_resource type="Script" path="res://scenes/entities/tumbleweed/tumbleweed_hurtbox_component.gd" id="4_uc1dh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ptofc"]
 bounce = 0.5
@@ -47,17 +49,16 @@ _data = {
 a = Vector2(-32, 0)
 b = Vector2(32, 0)
 
-[node name="Tumbleweed" type="Node2D"]
-script = ExtResource("1_5kh7v")
-
-[node name="RigidBody2D" type="RigidBody2D" parent="."]
+[node name="Tumbleweed" type="RigidBody2D"]
 collision_layer = 0
 collision_mask = 9071
 mass = 0.5
 physics_material_override = SubResource("PhysicsMaterial_ptofc")
 gravity_scale = 0.7
+constant_force = Vector2(4, 0)
+script = ExtResource("1_5kh7v")
 
-[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_td5ts")
 offset = Vector2(0, -8)
@@ -80,25 +81,34 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -8)
 shape = SubResource("CircleShape2D_alicc")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="RigidBody2D"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_qlt0j")
 }
 autoplay = "default"
 speed_scale = 0.5
 
+[node name="HurtboxComponent" parent="." node_paths=PackedStringArray("tumbleweed") instance=ExtResource("3_vyo5m")]
+script = ExtResource("4_uc1dh")
+tumbleweed = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxComponent"]
+position = Vector2(0, -8)
+shape = SubResource("CircleShape2D_alicc")
+
 [node name="FloorStaticBody" type="StaticBody2D" parent="."]
+top_level = true
 collision_layer = 8192
 collision_mask = 0
 
 [node name="Shadow" type="Sprite2D" parent="FloorStaticBody"]
+visible = false
 modulate = Color(1, 1, 1, 0.25098)
-top_level = true
 scale = Vector2(1.3, 1)
 texture = ExtResource("3_j0y6m")
 

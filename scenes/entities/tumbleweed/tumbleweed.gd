@@ -1,12 +1,11 @@
-extends Node2D
+extends RigidBody2D
 
-@onready var rigid_body_2d = $RigidBody2D
 @onready var floor_static_body = $FloorStaticBody
 
 
 func _ready():
-	rigid_body_2d.apply_impulse(Vector2(100, -250))
+	floor_static_body.global_position.y = global_position.y
 
 
 func _physics_process(_delta):
-	floor_static_body.global_position.x = rigid_body_2d.global_position.x
+	floor_static_body.global_position.x = global_position.x
