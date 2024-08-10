@@ -70,15 +70,15 @@ func get_target_position() -> Vector2:
 	return target_position
 
 
-func get_reposition_position() -> Vector2:
+func get_reposition_vector() -> Vector2:
 	var player: Player = PartyManager.get_active_member()
 	if player == null:
 		return Vector2.ZERO
 	
-	var direction = enemy.global_position.direction_to(player.global_position)
-	direction *= -50
+	var vector = enemy.global_position.direction_to(player.global_position)
+	vector *= -50
 	
-	return direction
+	return vector
 
 
 func rise():
@@ -89,8 +89,10 @@ func rise():
 
 
 func reposition():
-	var position = get_reposition_position()
+	var vector = get_reposition_vector()
+	var position = enemy.global_position + vector
 	enemy.set_moving(true)
+	enemy.animation_tree["parameters/move/BlendSpace2D/blend_position"] = vector.normalized()
 	
 	enemy.velocity_component.process_accelerate_to_point(position)
 

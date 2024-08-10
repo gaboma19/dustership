@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=72 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
+[ext_resource type="PackedScene" uid="uid://im4v8oo4ohx0" path="res://scenes/components/dust_particles/dust_particles.tscn" id="17_gpa1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
 radius = 32.0
@@ -1344,3 +1345,5 @@ script = ExtResource("10_fhscj")
 
 [node name="Dodge" type="Node" parent="StateMachine"]
 script = ExtResource("14_lcih4")
+
+[node name="DustParticles" parent="." instance=ExtResource("17_gpa1o")]

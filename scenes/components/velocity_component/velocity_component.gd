@@ -99,6 +99,7 @@ func apply_ramp_bias():
 
 
 func process_accelerate_to_point(target_point: Vector2):
+	# target_point in global coordinates
 	is_moving_to_point = true
 	point = target_point
 
