@@ -4,7 +4,6 @@ const DEATH_COMPONENT_MATERIAL = preload("res://resources/materials/death_compon
 const CUBE_LASER_BEAM = preload("res://resources/materials/cube_laser_beam.tres")
 const CUBE_LASER_CAST = preload("res://resources/materials/cube_laser_cast.tres")
 const CUBE_LASER_COLLISION = preload("res://resources/materials/cube_laser_collision.tres")
-const DUST_PARTICLES = preload("res://resources/materials/dust_particles.tres")
 
 const HIT_FLASH_MATERIAL = preload("res://resources/materials/hit_flash_material.tres")
 const ECHELON_PORTAL = preload("res://resources/materials/echelon_portal.tres")
@@ -19,7 +18,6 @@ var particle_materials = [
 	CUBE_LASER_BEAM,
 	CUBE_LASER_CAST,
 	CUBE_LASER_COLLISION,
-	DUST_PARTICLES
 ]
 var shader_materials = [
 	HIT_FLASH_MATERIAL,
