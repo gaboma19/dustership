@@ -680,6 +680,8 @@ height = 26.0
 radius = 135.0
 
 [node name="Saguaro" type="CharacterBody2D"]
+collision_layer = 256
+collision_mask = 801
 script = ExtResource("1_ykr4p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

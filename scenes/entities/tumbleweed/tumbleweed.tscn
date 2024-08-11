@@ -64,6 +64,7 @@ texture = ExtResource("1_td5ts")
 offset = Vector2(0, -8)
 hframes = 2
 vframes = 2
+frame = 3
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -90,10 +91,10 @@ shape = SubResource("CircleShape2D_alicc")
 libraries = {
 "": SubResource("AnimationLibrary_qlt0j")
 }
-autoplay = "default"
 speed_scale = 0.5
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("tumbleweed") instance=ExtResource("3_vyo5m")]
+visible = false
 script = ExtResource("4_uc1dh")
 tumbleweed = NodePath("..")
 

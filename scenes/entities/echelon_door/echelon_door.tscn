@@ -217,10 +217,12 @@ shape = SubResource("CircleShape2D_ceesq")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("5_1am4d")
+volume_db = -10.0
 bus = &"sfx"
 
 [node name="DoorCloseAudioStreamPlayer" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_vhivy")
+volume_db = -10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -7)
