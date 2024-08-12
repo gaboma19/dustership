@@ -3,22 +3,24 @@ extends EnemyState
 
 @export var aggro_ray_cast: RayCast2D
 
-var floating_text_scene = preload("res://scenes/ui/floating_text/floating_text.tscn")
-
 @onready var attack_range_area = %AttackRangeArea
 
 
 func enter(_msg := {}) -> void:
-	if not attack_range_area.body_entered.is_connected(on_attack_range_body_entered):
-		attack_range_area.body_entered.connect(on_attack_range_body_entered)
-	
+	attack_range_area.body_entered.connect(on_attack_range_body_entered)
 	aggro_ray_cast.player_lost.connect(on_player_lost)
+	
+	var player = PartyManager.get_active_member()
+	if player != null:
+		if attack_range_area.overlaps_body(player):
+			on_attack_range_body_entered(player)
 	
 	enemy.set_attacking(false)
 
 
 func exit() -> void:
 	aggro_ray_cast.player_lost.disconnect(on_player_lost)
+	attack_range_area.body_entered.disconnect(on_attack_range_body_entered)
 
 
 func update(_delta: float) -> void:

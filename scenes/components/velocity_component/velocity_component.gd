@@ -72,6 +72,7 @@ func stop():
 		return
 	
 	is_decelerating = true
+	is_moving_to_point = false
 	
 	owner.velocity = Vector2.ZERO
 	owner.move_and_slide()
@@ -97,7 +98,8 @@ func apply_ramp_bias():
 			velocity.y += 5.0
 
 
-func accelerate_to_point_and_stop(target_point: Vector2):
+func process_accelerate_to_point(target_point: Vector2):
+	# target_point in global coordinates
 	is_moving_to_point = true
 	point = target_point
 

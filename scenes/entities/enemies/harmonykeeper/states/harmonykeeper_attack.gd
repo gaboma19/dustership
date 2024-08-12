@@ -85,7 +85,6 @@ func check_collider():
 		transition_to_fire()
 	else:
 		aim_timer.start()
-		print("here")
 		
 		transition_to_idle()
 

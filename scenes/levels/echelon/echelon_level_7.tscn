@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://d0yym7kalvlid"]
+[gd_scene load_steps=59 format=3 uid="uid://d0yym7kalvlid"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_puqqw"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_46e5u"]
@@ -26,6 +26,7 @@
 [ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="20_0yyoj"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="21_w8h0v"]
 [ext_resource type="PackedScene" uid="uid://3xehsl854ugm" path="res://scenes/entities/enemies/raster/raster.tscn" id="22_8o7iw"]
+[ext_resource type="PackedScene" uid="uid://46gibj1h8o7k" path="res://scenes/entities/enemies/saguaro/saguaro.tscn" id="24_qo7ps"]
 [ext_resource type="PackedScene" uid="uid://dujixgljuvw3k" path="res://scenes/tile_maps/areas/obstacle_trap_area/obstacle_trap_area.tscn" id="26_4fqhi"]
 [ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="27_n1d24"]
 
@@ -662,6 +663,24 @@ position = Vector2(720, 160)
 
 [node name="Raster10" parent="Entities/ObstacleTrapEnemies" instance=ExtResource("22_8o7iw")]
 position = Vector2(768, 112)
+
+[node name="Saguaro" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(-48, 320)
+
+[node name="Saguaro2" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(608, 512)
+
+[node name="Saguaro3" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(704, 736)
+
+[node name="Saguaro4" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(64, 1088)
+
+[node name="Saguaro5" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(48, 944)
+
+[node name="Saguaro6" parent="Entities" instance=ExtResource("24_qo7ps")]
+position = Vector2(32, 304)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

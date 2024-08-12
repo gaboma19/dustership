@@ -94,6 +94,14 @@ func set_flying(value: bool):
 		set_collision_mask(0b1010100001)
 
 
+func set_hurtbox_monitoring(value: bool, delay: float = 0):
+	if delay > 0:
+		await get_tree().create_timer(delay).timeout
+	
+	player_hurtbox_component.set_deferred("monitoring", value)
+	player_hurtbox_component.set_deferred("monitorable", value)
+
+
 func on_hurtbox_area_entered(hitbox_component: Area2D):
 	if not hitbox_component is HitboxComponent:
 		return

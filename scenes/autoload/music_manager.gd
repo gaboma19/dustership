@@ -9,8 +9,8 @@ var is_looping: bool = false
 var current_song: String
 
 var tracks: Dictionary = {
-	"aprils_theme": "music/final/aprils_theme.mp3",
-	"cactus_knight": "music/final/battle_tempo.mp3"
+	"aprils_theme": "music/mp3/aprils_theme.mp3",
+	"cactus_knight": "music/mp3/battle_tempo.mp3"
 }
 
 @onready var pause_timer = $PauseTimer

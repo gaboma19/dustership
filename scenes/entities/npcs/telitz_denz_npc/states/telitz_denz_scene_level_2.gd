@@ -76,7 +76,7 @@ func enter(_msg := {}) -> void:
 	april = PartyManager.get_april() as Player
 	cube = PartyManager.get_cube() as Player
 	
-	telitz_denz.velocity_component.accelerate_to_point_and_stop(
+	telitz_denz.velocity_component.process_accelerate_to_point(
 		telitz_walk_point.global_position)
 	await telitz_denz.velocity_component.arrived
 	april.update_blend_position(Vector2.DOWN)

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dst7nqb84no0g"
+path="res://.godot/imported/tumbleweed.aseprite-d8e2954042dc7f974ec8ded2970dd587.res"
+
+[deps]
+
+source_file="res://assets/tumbleweed/tumbleweed.aseprite"
+dest_files=["res://.godot/imported/tumbleweed.aseprite-d8e2954042dc7f974ec8ded2970dd587.res"]
+
+[params]
+

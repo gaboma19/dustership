@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bsfd7ug030ad"]
+[gd_scene load_steps=52 format=3 uid="uid://bsfd7ug030ad"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_odhxy"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_cqqvq"]
@@ -22,6 +22,8 @@
 [ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/npcs/telitz_denz_npc/telitz_denz_npc.tscn" id="17_y6r4n"]
 [ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="18_g0311"]
 [ext_resource type="Script" path="res://scenes/entities/npcs/telitz_denz_npc/states/telitz_denz_scene_level_2.gd" id="19_r4m5g"]
+[ext_resource type="PackedScene" uid="uid://bgm5wujmjc2bg" path="res://scenes/entities/tumbleweed/tumbleweed.tscn" id="20_0n4u0"]
+[ext_resource type="PackedScene" uid="uid://46gibj1h8o7k" path="res://scenes/entities/enemies/saguaro/saguaro.tscn" id="21_n2vl8"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_bpska"]
 resource_local_to_scene = true
@@ -394,6 +396,30 @@ initial_state = NodePath("Hide")
 [node name="Scene" parent="Entities/TelitzDenzNpc/StateMachine" index="2" node_paths=PackedStringArray("telitz_walk_point")]
 script = ExtResource("19_r4m5g")
 telitz_walk_point = NodePath("../../../../Events/TelitzWalkPoint")
+
+[node name="Tumbleweed" parent="Entities" instance=ExtResource("20_0n4u0")]
+position = Vector2(-144, 352)
+
+[node name="Tumbleweed2" parent="Entities" instance=ExtResource("20_0n4u0")]
+position = Vector2(-256, 400)
+
+[node name="Tumbleweed3" parent="Entities" instance=ExtResource("20_0n4u0")]
+position = Vector2(-112, 608)
+
+[node name="Tumbleweed4" parent="Entities" instance=ExtResource("20_0n4u0")]
+position = Vector2(464, 352)
+
+[node name="Tumbleweed5" parent="Entities" instance=ExtResource("20_0n4u0")]
+position = Vector2(-16, 688)
+
+[node name="Saguaro" parent="Entities" instance=ExtResource("21_n2vl8")]
+position = Vector2(-16, 1136)
+
+[node name="Saguaro2" parent="Entities" instance=ExtResource("21_n2vl8")]
+position = Vector2(48, 1136)
+
+[node name="Saguaro3" parent="Entities" instance=ExtResource("21_n2vl8")]
+position = Vector2(16, 1008)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1

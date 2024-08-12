@@ -35,4 +35,4 @@ func on_idle_timer_timeout():
 	var point = dusteki.global_position + (direction * 16)
 	var velocity_component: VelocityComponent = dusteki.velocity_component
 	
-	velocity_component.accelerate_to_point_and_stop(point)
+	velocity_component.process_accelerate_to_point(point)

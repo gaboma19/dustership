@@ -9,14 +9,12 @@ var follow_target: Player
 
 func enter(_msg := {}) -> void:
 	pickup_area.set_deferred("monitorable", false)
-	player_hurtbox_component.set_deferred("monitoring", false)
-	player_hurtbox_component.set_deferred("monitorable", false)
-	#follow_target = PartyManager.get_follow_target(player)
+	player.set_hurtbox_monitoring(false)
+
 
 
 func exit():
-	player_hurtbox_component.set_deferred("monitoring", true)
-	player_hurtbox_component.set_deferred("monitorable", true)
+	player.set_hurtbox_monitoring(true)
 
 
 func update(_delta: float) -> void:

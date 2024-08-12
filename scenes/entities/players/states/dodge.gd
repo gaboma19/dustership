@@ -14,8 +14,7 @@ var animation_tree: AnimationTree
 
 func enter(_msg := {}) -> void:
 	PartyManager.disable_switch_character(true)
-	player.player_hurtbox_component.set_deferred("monitoring", false)
-	player.player_hurtbox_component.set_deferred("monitorable", false)
+	player.set_hurtbox_monitoring(false)
 	
 	velocity_component = player.velocity_component
 	animation_tree = player.animation_tree
@@ -44,8 +43,7 @@ func update(_delta: float) -> void:
 
 func exit():
 	PartyManager.disable_switch_character(false)
-	player.player_hurtbox_component.set_deferred("monitoring", true)
-	player.player_hurtbox_component.set_deferred("monitorable", true)
+	player.set_hurtbox_monitoring(true, 0.4)
 	set_dodging(false)
 
 

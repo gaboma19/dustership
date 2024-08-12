@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://im4v8oo4ohx0"]
+
+[ext_resource type="Texture2D" uid="uid://dudbwsetbvsfv" path="res://assets/dust/dust.png" id="1_ge671"]
+[ext_resource type="Material" uid="uid://bd2j1fgysj0h7" path="res://resources/materials/dust_particles.tres" id="1_iw6kp"]
+[ext_resource type="Script" path="res://scenes/components/dust_particles/dust_particles.gd" id="2_fd6v6"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5w53t"]
+particles_animation = true
+particles_anim_h_frames = 3
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+[node name="DustParticles" type="GPUParticles2D"]
+material = SubResource("CanvasItemMaterial_5w53t")
+emitting = false
+amount = 1
+process_material = ExtResource("1_iw6kp")
+texture = ExtResource("1_ge671")
+lifetime = 0.6
+one_shot = true
+script = ExtResource("2_fd6v6")

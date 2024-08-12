@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=72 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
@@ -16,6 +16,7 @@
 [ext_resource type="Script" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
+[ext_resource type="PackedScene" uid="uid://im4v8oo4ohx0" path="res://scenes/components/dust_particles/dust_particles.tscn" id="17_gpa1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
 radius = 32.0
@@ -623,6 +624,34 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 52, 53, 54, 55, 56]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DustParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(4, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DustParticles2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-4, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_w6nxe"]
 length = 0.6
@@ -650,6 +679,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [57, 58, 59, 60, 61, 62]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DustParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-2, 1), 0],
+"method": &"emit_dust_particle"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_4vv2i"]
@@ -679,6 +722,20 @@ tracks/1/keys = {
 "update": 1,
 "values": [63, 64, 65, 66, 67, 68]
 }
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DustParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(2, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_xol0i"]
 length = 0.6
@@ -706,6 +763,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [3, 69, 70, 71, 72, 73]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DustParticles")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(4, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("DustParticles2")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-4, 1), 0],
+"method": &"emit_dust_particle"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_yid2i"]
@@ -783,6 +868,34 @@ tracks/5/keys = {
 "update": 1,
 "values": [4, 5, 6, 7, 8, 9]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DustParticles")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(2, 1), -1],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DustParticles2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-2, 1), -1],
+"method": &"emit_dust_particle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_s0njq"]
 length = 0.6
@@ -858,6 +971,34 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [10, 11, 12, 13, 14, 15]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DustParticles")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(0, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DustParticles2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(0, 1), -1],
+"method": &"emit_dust_particle"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_jxfrc"]
@@ -935,6 +1076,34 @@ tracks/5/keys = {
 "update": 1,
 "values": [16, 17, 18, 19, 20, 21]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DustParticles")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(0, 1), -1],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DustParticles2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(0, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_sql1u"]
 length = 0.6
@@ -1010,6 +1179,34 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [22, 23, 24, 25, 26, 27]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DustParticles")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(2, 1), 0],
+"method": &"emit_dust_particle"
+}]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("DustParticles2")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [Vector2(-2, 1), 0],
+"method": &"emit_dust_particle"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mos2h"]
@@ -1289,6 +1486,10 @@ metadata/_aseprite_wizard_interface_config_ = {
 "slice_section": false
 }
 
+[node name="DustParticles" parent="." instance=ExtResource("17_gpa1o")]
+
+[node name="DustParticles2" parent="." instance=ExtResource("17_gpa1o")]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -1305,10 +1506,11 @@ parameters/conditions/is_moving = false
 parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Dodge/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 1)
-parameters/Move/blend_position = Vector2(0, 0)
+parameters/Move/blend_position = Vector2(0, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
+visible = false
 position = Vector2(0, -3)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pbin4")
