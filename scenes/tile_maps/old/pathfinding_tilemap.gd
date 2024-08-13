@@ -14,12 +14,13 @@ var _path : Array[Vector2i]
 func _ready():
 	_astar.region = get_used_rect()
 	_astar.cell_size = CELL_SIZE
-	_astar.offset = CELL_SIZE * 0.5
+	_astar.offset = CELL_SIZE * 0.5 # offset to center of each cell
 	_astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	_astar.default_estimate_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
 	_astar.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_NEVER
 	_astar.update()
 	
+	# first tileset atlas source (0) is for obstacles
 	for i in range(_astar.region.position.x, _astar.region.end.x):
 		for j in range(_astar.region.position.y, _astar.region.end.y):
 			var pos = Vector2i(i, j)
@@ -45,15 +46,17 @@ func clear_path():
 		erase_cell(2, _end_point)
 
 
-func find_path(local_start_point, local_end_point):
+func find_path(local_start_point, local_end_point) -> Array[Vector2i]:
 	clear_path()
 
 	_start_point = local_to_map(local_start_point)
 	_end_point = local_to_map(local_end_point)
-	_path = _astar.get_id_path(_start_point, _end_point)
+	_path = _astar.get_id_path(_start_point, _end_point) 
 
+	# second and third tileset atlas sources are for the start and end point tiles
 	if not _path.is_empty():
 		set_cell(2, _start_point, Tile.START_POINT, Vector2i(6, 0))
 		set_cell(2, _end_point, Tile.END_POINT, Vector2i(7, 0))
 
+	# returns an array of local coordinates
 	return _path.duplicate()
