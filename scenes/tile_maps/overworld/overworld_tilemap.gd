@@ -26,6 +26,9 @@ func _ready():
 			var pos = Vector2i(i, j)
 			if get_cell_source_id(Tile.WALLS, pos) == Tile.WALLS:
 				astar.set_point_solid(pos)
+			
+			if get_cell_source_id(Tile.FLOOR, pos) == -1:
+				astar.set_point_solid(pos)
 
 
 func find_path(local_start_point, local_end_point) -> Array[Vector2i]:
@@ -37,3 +40,13 @@ func find_path(local_start_point, local_end_point) -> Array[Vector2i]:
 
 	# returns an array of local coordinates
 	return path.duplicate()
+
+
+func is_cell_walkable(map_position: Vector2i) -> bool:
+	if astar.is_in_boundsv(map_position):
+		return not astar.is_point_solid(map_position)
+	return false
+
+
+func map_to_global(map_position: Vector2i) -> Vector2:
+	return to_global(map_to_local(map_position))

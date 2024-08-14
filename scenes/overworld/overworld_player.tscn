@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://mwquoqdnhkr2"]
+
+[ext_resource type="Texture2D" uid="uid://iycm2xjy11uy" path="res://assets/vinik24_tiles/echelon_tile_decorations.png" id="1_2b6l8"]
+[ext_resource type="Script" path="res://scenes/overworld/overworld_player.gd" id="2_y7lij"]
+[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_igtqg"]
+[ext_resource type="Script" path="res://scenes/overworld/overworld_player_active.gd" id="4_3k5bi"]
+
+[node name="OverworldPlayer" type="Sprite2D"]
+y_sort_enabled = true
+texture = ExtResource("1_2b6l8")
+hframes = 8
+vframes = 4
+frame = 12
+script = ExtResource("2_y7lij")
+
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("3_igtqg")
+initial_state = NodePath("Active")
+
+[node name="Active" type="Node" parent="StateMachine"]
+script = ExtResource("4_3k5bi")
