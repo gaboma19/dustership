@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1uebua632l01"]
+
+[ext_resource type="Texture2D" uid="uid://iycm2xjy11uy" path="res://assets/vinik24_tiles/echelon_tile_decorations.png" id="1_mc1y0"]
+[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_level_transition.gd" id="2_5yapm"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="3_6rl6w"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkm4x"]
+
+[node name="OverworldLevelTransition" type="Sprite2D"]
+texture = ExtResource("1_mc1y0")
+hframes = 8
+vframes = 4
+frame = 18
+script = ExtResource("2_5yapm")
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("3_6rl6w")]
+script = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionArea"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_mkm4x")

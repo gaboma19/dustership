@@ -1,6 +1,6 @@
 extends TileMap
 
-enum Tile { FLOOR, DECOR, WALLS }
+enum Tile { FLOOR, WALL }
 
 const CELL_SIZE = Vector2(32, 32)
 
@@ -24,7 +24,7 @@ func _ready():
 	for i in range(astar.region.position.x, astar.region.end.x):
 		for j in range(astar.region.position.y, astar.region.end.y):
 			var pos = Vector2i(i, j)
-			if get_cell_source_id(Tile.WALLS, pos) == Tile.WALLS:
+			if get_cell_source_id(Tile.WALL, pos) == Tile.WALL:
 				astar.set_point_solid(pos)
 			
 			if get_cell_source_id(Tile.FLOOR, pos) == -1:
