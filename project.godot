@@ -35,6 +35,7 @@ EntityVariables="*res://scenes/autoload/entity_variables.tscn"
 PopUp="*res://scenes/autoload/pop_up.tscn"
 HitStop="*res://scenes/autoload/hit_stop.gd"
 MusicManager="*res://scenes/autoload/music_manager.tscn"
+OverworldVariables="*res://scenes/autoload/overworld_variables.tscn"
 
 [debug]
 

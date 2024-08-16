@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_ickey"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/tiles/overworld_player.tscn" id="2_8nau6"]
-[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_level.tscn" id="3_rk8is"]
+[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_ingress.tscn" id="3_rk8is"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder.tscn" id="4_fr0e0"]
 
 [node name="Overworld" type="Node2D"]
@@ -46,21 +46,20 @@ layer_1/tile_data = PackedInt32Array(196608, 65537, 2, 262144, 65537, 2, 196609,
 position = Vector2(16, 8)
 overworld_tile_map = NodePath("../OverworldTileMap1")
 
-[node name="OverworldLevel1" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldIngress1" parent="." instance=ExtResource("3_rk8is")]
 position = Vector2(16, 88)
 
-[node name="OverworldLevel2" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldIngress2" parent="." instance=ExtResource("3_rk8is")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(-112, 72)
 
-[node name="OverworldLevel3" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldIngress3" parent="." instance=ExtResource("3_rk8is")]
 position = Vector2(16, 56)
 scene_path = "res://scenes/levels/echelon/echelon_level_test.tscn"
 
-[node name="OverworldLevel4" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldIngress4" parent="." instance=ExtResource("3_rk8is")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(128, 64)
 
 [node name="OverworldLadder" parent="." instance=ExtResource("4_fr0e0")]
-modulate = Color(1, 1, 0, 1)
 position = Vector2(16, 136)

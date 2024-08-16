@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://dnht3oj201iqm"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_i101g"]
+[ext_resource type="Texture2D" uid="uid://cg3bi3eoel7hc" path="res://assets/doodads/echelon_portal.png" id="1_qh2ox"]
 
 [node name="OverworldLadder" type="Sprite2D"]
-scale = Vector2(10, 10)
-texture = SubResource("PlaceholderTexture2D_i101g")
+scale = Vector2(0.125, 0.125)
+texture = ExtResource("1_qh2ox")
