@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_ickey"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/tiles/overworld_player.tscn" id="2_8nau6"]
-[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_level_transition.tscn" id="3_rk8is"]
+[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_level.tscn" id="3_rk8is"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder.tscn" id="4_fr0e0"]
 
 [node name="Overworld" type="Node2D"]
@@ -37,27 +37,27 @@ position = Vector2(0, 32)
 modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
 position = Vector2(0, 16)
 
-[node name="OverworldTileMap" parent="." instance=ExtResource("1_ickey")]
+[node name="OverworldTileMap1" parent="." instance=ExtResource("1_ickey")]
 layer_0/y_sort_origin = -8
 layer_0/tile_data = PackedInt32Array(131074, 196608, 0, 196610, 196608, 0, 262146, 196608, 0, 327682, 196608, 0, 393218, 196608, 0, 458754, 196608, 0, 524290, 196608, 0, 131075, 196608, 0, 196611, 196608, 0, 262147, 196608, 0, 327683, 196608, 0, 393219, 196608, 0, 458755, 196608, 0, 524291, 196608, 0, 131076, 196608, 0, 196612, 196608, 0, 262148, 196608, 0, 327684, 196608, 0, 131077, 196608, 0, 196613, 196608, 0, 262149, 196608, 0, 327685, 196608, 0, 131078, 196608, 0, 196614, 196608, 0, 262150, 196608, 0, 327686, 196608, 0, 131079, 196608, 0, 196615, 196608, 0, 262151, 196608, 0, 327687, 196608, 0, 393223, 196608, 0, 458759, 196608, 0, 524295, 196608, 0, 131080, 196608, 0, 196616, 196608, 0, 262152, 196608, 0, 327688, 196608, 0, 393224, 196608, 0, 458760, 196608, 0, 524296, 196608, 0, 0, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 196608, 196608, 0, 262144, 196608, 0, 327680, 196608, 0, 393216, 196608, 0, 458752, 196608, 0, 524288, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 131073, 196608, 0, 196609, 196608, 0, 262145, 196608, 0, 327681, 196608, 0, 393217, 196608, 0, 458753, 196608, 0, 524289, 196608, 0, 2, 196608, 0, 65538, 196608, 0, 3, 196608, 0, 65539, 196608, 0, 4, 196608, 0, 65540, 196608, 0, 5, 196608, 0, 65541, 196608, 0, 6, 196608, 0, 65542, 196608, 0, 7, 196608, 0, 65543, 196608, 0, 8, 196608, 0, 65544, 196608, 0)
 layer_1/tile_data = PackedInt32Array(196608, 65537, 2, 262144, 65537, 2, 196609, 458753, 4, 327680, 458753, 4, 393216, 458753, 4, 393217, 458753, 5, 327681, 458753, 5, 262145, 458753, 5, 262146, 458753, 5, 262148, 458753, 5, 262149, 458753, 4, 196614, 458753, 4, 196613, 458753, 5, 262150, 458753, 5, 131077, 458753, 5, 131078, 458753, 5, 65541, 65537, 2, 65542, 458753, 4, 5, 65537, 2, 6, 65537, 2, 4, 458753, 4, 65540, 458753, 5, 131076, 458753, 5, 65539, 458753, 5, 3, 458753, 5, 458752, 458753, 5, 458753, 458753, 5, 196615, 458753, 4, 65543, 458753, 4, 131079, 458753, 5, 131080, 131073, 11)
 
 [node name="OverworldPlayer" parent="." node_paths=PackedStringArray("overworld_tile_map") instance=ExtResource("2_8nau6")]
 position = Vector2(16, 8)
-overworld_tile_map = NodePath("../OverworldTileMap")
+overworld_tile_map = NodePath("../OverworldTileMap1")
 
-[node name="OverworldLevelTransition" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldLevel1" parent="." instance=ExtResource("3_rk8is")]
 position = Vector2(16, 88)
 
-[node name="OverworldLevelTransition2" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldLevel2" parent="." instance=ExtResource("3_rk8is")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(-112, 72)
 
-[node name="OverworldLevelTransition3" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldLevel3" parent="." instance=ExtResource("3_rk8is")]
 position = Vector2(16, 56)
 scene_path = "res://scenes/levels/echelon/echelon_level_test.tscn"
 
-[node name="OverworldLevelTransition4" parent="." instance=ExtResource("3_rk8is")]
+[node name="OverworldLevel4" parent="." instance=ExtResource("3_rk8is")]
 modulate = Color(0, 1, 1, 1)
 position = Vector2(128, 64)
 

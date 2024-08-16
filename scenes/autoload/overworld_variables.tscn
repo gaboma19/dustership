@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cus1pbnf6x2vc"]
+
+[ext_resource type="Script" path="res://scenes/autoload/overworld_variables.gd" id="1_4miex"]
+
+[node name="OverworldVariables" type="Node"]
+script = ExtResource("1_4miex")

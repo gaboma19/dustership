@@ -6,7 +6,7 @@ extends Sprite2D
 
 
 func _ready():
-	level_transition_area.on_area_entered.connect(on_player_entered)
+	level_transition_area.area_entered.connect(on_player_entered)
 
 
 func deactivate():
@@ -14,7 +14,7 @@ func deactivate():
 	level_transition_area.call_deferred("set_monitoring", false)
 
 
-func on_player_entered():
+func on_player_entered(_player_component: Area2D):
 	ScreenTransition.transition_out()
 	
 	await get_tree().create_timer(0.4).timeout
