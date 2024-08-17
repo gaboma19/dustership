@@ -15,6 +15,7 @@ script = ExtResource("2_5yapm")
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("3_6rl6w")]
 visible = false
+monitoring = false
 script = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionArea"]

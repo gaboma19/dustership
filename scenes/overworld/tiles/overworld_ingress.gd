@@ -8,9 +8,10 @@ extends Sprite2D
 
 func _ready():
 	if OverworldVariables.ingresses.has(ingress_id):
-		set_active(OverworldVariables.ingresses[ingress_id].entered)
+		set_active(OverworldVariables.ingresses[ingress_id].active)
 	else:
-		OverworldVariables[ingress_id] = { "entered": false }
+		OverworldVariables.ingresses[ingress_id] = { "active": true }
+		set_active(true)
 	
 	level_transition_area.area_entered.connect(on_player_entered)
 
@@ -21,7 +22,7 @@ func set_active(value: bool):
 
 
 func on_player_entered(_player_component: Area2D):
-	OverworldVariables.ingresses[ingress_id].entered = true
+	OverworldVariables.ingresses[ingress_id].active = false
 	
 	ScreenTransition.transition_out()
 	await get_tree().create_timer(0.4).timeout
