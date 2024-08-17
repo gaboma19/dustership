@@ -28,6 +28,7 @@ func on_player_entered(_player_component: Area2D):
 	await get_tree().create_timer(0.4).timeout
 	
 	set_active(false)
-	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
+	if not scene_path.is_empty():
+		get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	ScreenTransition.transition_in()
