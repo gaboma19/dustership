@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnht3oj201iqm"]
+[gd_scene load_steps=5 format=3 uid="uid://dnht3oj201iqm"]
 
 [ext_resource type="Texture2D" uid="uid://cg3bi3eoel7hc" path="res://assets/doodads/echelon_portal.png" id="1_qh2ox"]
+[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_ladder.gd" id="2_bamsp"]
+[ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ybrtc"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udnoi"]
+radius = 64.0
 
 [node name="OverworldLadder" type="Sprite2D"]
+z_index = 1
 scale = Vector2(0.125, 0.125)
 texture = ExtResource("1_qh2ox")
+script = ExtResource("2_bamsp")
+
+[node name="PlayerDetectorArea" parent="." instance=ExtResource("3_ybrtc")]
+monitoring = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_udnoi")

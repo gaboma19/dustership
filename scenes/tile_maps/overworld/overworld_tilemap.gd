@@ -11,6 +11,8 @@ var start_point = Vector2i()
 var end_point = Vector2i()
 var path : Array[Vector2i]
 
+@onready var animation_player = $AnimationPlayer
+
 
 func _ready():
 	astar.region = get_used_rect()
@@ -50,3 +52,7 @@ func is_cell_walkable(map_position: Vector2i) -> bool:
 
 func map_to_global(map_position: Vector2i) -> Vector2:
 	return to_global(map_to_local(map_position))
+
+
+func exit():
+	animation_player.play("fly_away")

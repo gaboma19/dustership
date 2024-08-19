@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1yjf3gg7ag8k"]
+
+[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_vyn6w"]
+
+[node name="Background" type="Node2D"]
+
+[node name="OverworldTileMap7" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 96)
+
+[node name="OverworldTileMap6" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 80)
+
+[node name="OverworldTileMap5" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 64)
+
+[node name="OverworldTileMap4" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 48)
+
+[node name="OverworldTileMap3" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 32)
+
+[node name="OverworldTileMap2" parent="." instance=ExtResource("1_vyn6w")]
+modulate = Color(0.783523, 0.783523, 0.783523, 0.25098)
+position = Vector2(0, 16)

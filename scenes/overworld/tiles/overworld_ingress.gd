@@ -3,7 +3,7 @@ extends Sprite2D
 @export var scene_path: String
 @export var ingress_id: String
 
-@onready var level_transition_area = $LevelTransitionArea
+@onready var player_detector_area = $PlayerDetectorArea
 
 
 func _ready():
@@ -13,12 +13,12 @@ func _ready():
 		OverworldVariables.ingresses[ingress_id] = { "active": true }
 		set_active(true)
 	
-	level_transition_area.area_entered.connect(on_player_entered)
+	player_detector_area.area_entered.connect(on_player_entered)
 
 
 func set_active(value: bool):
 	set_visible(value)
-	level_transition_area.call_deferred("set_monitoring", value)
+	player_detector_area.call_deferred("set_monitoring", value)
 
 
 func on_player_entered(_player_component: Area2D):

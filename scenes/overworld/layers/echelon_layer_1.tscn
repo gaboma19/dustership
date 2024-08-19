@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://20t1yol8jggr"]
+
+[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_da3df"]
+[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_ingress.tscn" id="2_jfw5e"]
+[ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder.tscn" id="3_bsrbx"]
+
+[node name="EchelonLayer1" instance=ExtResource("1_da3df")]
+layer_0/tile_data = PackedInt32Array(131074, 196608, 0, 196610, 196608, 0, 262146, 196608, 0, 327682, 196608, 0, 393218, 196608, 0, 458754, 196608, 0, 524290, 196608, 0, 131075, 196608, 0, 196611, 196608, 0, 262147, 196608, 0, 327683, 196608, 0, 393219, 196608, 0, 458755, 196608, 0, 524291, 196608, 0, 131076, 196608, 0, 196612, 196608, 0, 262148, 196608, 0, 327684, 196608, 0, 131077, 196608, 0, 196613, 196608, 0, 262149, 196608, 0, 327685, 196608, 0, 131078, 196608, 0, 196614, 196608, 0, 262150, 196608, 0, 327686, 196608, 0, 131079, 196608, 0, 196615, 196608, 0, 262151, 196608, 0, 327687, 196608, 0, 393223, 196608, 0, 458759, 196608, 0, 524295, 196608, 0, 131080, 196608, 0, 196616, 196608, 0, 262152, 196608, 0, 327688, 196608, 0, 393224, 196608, 0, 458760, 196608, 0, 524296, 196608, 0, 0, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 196608, 196608, 0, 262144, 196608, 0, 327680, 196608, 0, 393216, 196608, 0, 458752, 196608, 0, 524288, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 131073, 196608, 0, 196609, 196608, 0, 262145, 196608, 0, 327681, 196608, 0, 393217, 196608, 0, 458753, 196608, 0, 524289, 196608, 0, 2, 196608, 0, 65538, 196608, 0, 3, 196608, 0, 65539, 196608, 0, 4, 196608, 0, 65540, 196608, 0, 5, 196608, 0, 65541, 196608, 0, 6, 196608, 0, 65542, 196608, 0, 7, 196608, 0, 65543, 196608, 0, 8, 196608, 0, 65544, 196608, 0)
+layer_1/tile_data = PackedInt32Array(196608, 65537, 2, 262144, 65537, 2, 327680, 458753, 4, 393216, 458753, 4, 458752, 458753, 5, 196609, 458753, 4, 262145, 458753, 5, 327681, 458753, 5, 393217, 458753, 5, 458753, 458753, 5, 262146, 458753, 5, 3, 458753, 5, 65539, 458753, 5, 4, 458753, 4, 65540, 458753, 5, 131076, 458753, 5, 262148, 458753, 5, 5, 65537, 2, 65541, 65537, 2, 131077, 458753, 5, 196613, 458753, 5, 262149, 458753, 4, 6, 65537, 2, 65542, 458753, 4, 131078, 458753, 5, 196614, 458753, 4, 262150, 458753, 5, 65543, 458753, 4, 131079, 458753, 5, 196615, 458753, 4, 131080, 131073, 11)
+
+[node name="OverworldIngress1" parent="." index="0" instance=ExtResource("2_jfw5e")]
+position = Vector2(16, 88)
+ingress_id = "overworld_1_ingress_1"
+
+[node name="OverworldIngress2" parent="." index="1" instance=ExtResource("2_jfw5e")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(-112, 72)
+ingress_id = "overworld_1_ingress_2"
+
+[node name="OverworldIngress3" parent="." index="2" instance=ExtResource("2_jfw5e")]
+position = Vector2(16, 56)
+scene_path = "res://scenes/levels/echelon/echelon_level_test.tscn"
+ingress_id = "overworld_1_ingress_3"
+
+[node name="OverworldIngress4" parent="." index="3" instance=ExtResource("2_jfw5e")]
+modulate = Color(0, 1, 1, 1)
+position = Vector2(128, 64)
+ingress_id = "overworld_1_ingress_4"
+
+[node name="OverworldLadder" parent="." index="4" instance=ExtResource("3_bsrbx")]
+position = Vector2(16, 136)

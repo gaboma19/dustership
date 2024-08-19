@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://blhr7nv7ew1co"]
+
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="1_uh67l"]
+
+[node name="PlayerDetectorArea" instance=ExtResource("1_uh67l")]
+monitoring = false
+script = null
