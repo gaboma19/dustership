@@ -13,4 +13,5 @@ zoom = Vector2(3, 3)
 
 [node name="OverworldBackground" parent="." instance=ExtResource("2_v2oto")]
 
-[node name="EchelonLayer1" parent="." instance=ExtResource("3_mdbvn")]
+[node name="EchelonLayer1" parent="." groups=["layers"] instance=ExtResource("3_mdbvn")]
+modulate = Color(1, 1, 1, 1)

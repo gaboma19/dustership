@@ -1,6 +1,6 @@
 extends Node
 
-var active_tile_map: int = 0
+var active_layer: TileMap
 
 var player_map_position: Vector2i = Vector2i.ZERO
 

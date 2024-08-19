@@ -1,5 +1,7 @@
 extends TileMap
 
+signal layer_changed(next_layer: PackedScene)
+
 enum Tile { FLOOR, WALL }
 
 const CELL_SIZE = Vector2(32, 32)
@@ -31,6 +33,10 @@ func _ready():
 			
 			if get_cell_source_id(Tile.FLOOR, pos) == -1:
 				astar.set_point_solid(pos)
+	
+	var ladders: Array[Node] = get_tree().get_nodes_in_group("ladders")
+	for ladder in ladders:
+		ladder.ladder_activated.connect(on_ladder_activated)
 
 
 func find_path(local_start_point, local_end_point) -> Array[Vector2i]:
@@ -55,4 +61,13 @@ func map_to_global(map_position: Vector2i) -> Vector2:
 
 
 func exit():
+	# calls queue_free()
 	animation_player.play("fly_away")
+
+
+func enter():
+	animation_player.play("fade_in")
+
+
+func on_ladder_activated(next_layer: PackedScene):
+	layer_changed.emit(next_layer)
