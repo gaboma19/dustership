@@ -5,7 +5,7 @@ const OVERWORLD_PLAYER_SCENE = preload(
 
 var player: OverworldPlayer
 
-@onready var overworld_background = $OverworldBackground
+@onready var overworld_stack = $OverworldStack
 
 
 func _ready():
@@ -34,7 +34,7 @@ func switch_layers(next_layer_scene: PackedScene):
 	OverworldVariables.active_layer.exit()
 	await OverworldVariables.active_layer.tree_exited
 	
-	overworld_background.move_up()
+	overworld_stack.move_up()
 	await get_tree().create_timer(1.0).timeout
 	
 	var next_layer = next_layer_scene.instantiate()
@@ -46,7 +46,7 @@ func switch_layers(next_layer_scene: PackedScene):
 	next_layer.enter()
 	await get_tree().create_timer(2.0).timeout
 	
-	overworld_background.reset()
+	overworld_stack.reset()
 	initialize_player()
 
 

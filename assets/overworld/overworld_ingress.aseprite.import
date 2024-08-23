@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://ct80a6qpv4sx0"
+path="res://.godot/imported/overworld_ingress.aseprite-258ac4be6c7e2f8a9a161c1d36f19055.res"
+
+[deps]
+
+source_file="res://assets/overworld/overworld_ingress.aseprite"
+dest_files=["res://.godot/imported/overworld_ingress.aseprite-258ac4be6c7e2f8a9a161c1d36f19055.res"]
+
+[params]
+

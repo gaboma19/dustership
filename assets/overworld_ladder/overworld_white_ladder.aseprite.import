@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://v5u5wvubeu6m"
+path="res://.godot/imported/overworld_white_ladder.aseprite-f8a468a51e9483e0c57d19d93c894af9.res"
+
+[deps]
+
+source_file="res://assets/overworld_ladder/overworld_white_ladder.aseprite"
+dest_files=["res://.godot/imported/overworld_white_ladder.aseprite-f8a468a51e9483e0c57d19d93c894af9.res"]
+
+[params]
+

@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://cgn4nxnmrvhej"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
-[ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_background.tscn" id="2_v2oto"]
+[ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
 [ext_resource type="PackedScene" uid="uid://20t1yol8jggr" path="res://scenes/overworld/layers/echelon_layer_1.tscn" id="3_mdbvn"]
 
 [node name="Overworld" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_2uqf5")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 80)
 zoom = Vector2(3, 3)
 
-[node name="OverworldBackground" parent="." instance=ExtResource("2_v2oto")]
+[node name="OverworldStack" parent="." instance=ExtResource("2_v2oto")]
 
 [node name="EchelonLayer1" parent="." groups=["layers"] instance=ExtResource("3_mdbvn")]
-modulate = Color(1, 1, 1, 1)
