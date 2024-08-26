@@ -84,6 +84,8 @@ func set_raster_spawn_points():
 
 
 func end_boss():
+	MusicManager.fade_out(5.0)
+	
 	%BossDoor.open()
 	var chest = chest_scene.instantiate()
 	chest.inventory_item = IDENTITY_CORE_LEFT
@@ -111,6 +113,8 @@ func on_enemy_died():
 
 
 func on_boss_door_triggered():
+	MusicManager.play_track("glitch_monsters")
+	
 	$PhiloTimer.start()
 	$RasterTimer.start()
 	spawn_philo_group()

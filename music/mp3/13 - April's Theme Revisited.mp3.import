@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tphycera8lel"
+path="res://.godot/imported/13 - April's Theme Revisited.mp3-39fc1bd66e1c6b88787dc22c464136c1.mp3str"
+
+[deps]
+
+source_file="res://music/mp3/13 - April's Theme Revisited.mp3"
+dest_files=["res://.godot/imported/13 - April's Theme Revisited.mp3-39fc1bd66e1c6b88787dc22c464136c1.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

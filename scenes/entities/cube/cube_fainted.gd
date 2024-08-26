@@ -66,6 +66,7 @@ func on_interact():
 		cube.global_position = global_position
 		hide()
 		
+		MusicManager.play_track("cubes_theme")
 		cube.speak(CUBE_LINES)
 		await DialogueManager.finished_dialogue
 		player.speak(APRIL_RESPONSE_LINES)

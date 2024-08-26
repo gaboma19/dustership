@@ -66,6 +66,7 @@ func enter(_msg := {}) -> void:
 	sprite = telitz_denz.sprite
 	april = PartyManager.get_april()
 	
+	MusicManager.play_track("remembrancer")
 	april.update_blend_position(Vector2.UP)
 	telitz_denz.speak(TELITZ_LINES_1)
 	await DialogueManager.finished_dialogue

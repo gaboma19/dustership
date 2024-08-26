@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dexqoxouexeas"
+path="res://.godot/imported/06 - Heartbeat of the Dustership.mp3-101c26940f73c2b71e1efe6722464162.mp3str"
+
+[deps]
+
+source_file="res://music/mp3/06 - Heartbeat of the Dustership.mp3"
+dest_files=["res://.godot/imported/06 - Heartbeat of the Dustership.mp3-101c26940f73c2b71e1efe6722464162.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

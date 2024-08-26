@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://di5ln4iwb2aej"]
+[gd_scene load_steps=14 format=3 uid="uid://di5ln4iwb2aej"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_clc4r"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_db4j1"]
@@ -10,6 +10,12 @@
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="8_xe75f"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="9_2k2cy"]
 [ext_resource type="PackedScene" uid="uid://bgm5wujmjc2bg" path="res://scenes/entities/tumbleweed/tumbleweed.tscn" id="10_erq1u"]
+[ext_resource type="PackedScene" uid="uid://dpfr8q4p3lbq4" path="res://scenes/level_transitions/overworld_transition_area.tscn" id="11_er4j5"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0igbp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp1pt"]
+size = Vector2(64, 64)
 
 [node name="EchelonLevelTest" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -54,3 +60,15 @@ position = Vector2(-16, 0)
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
+
+[node name="OverworldTransitionArea" parent="." instance=ExtResource("11_er4j5")]
+position = Vector2(48, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="OverworldTransitionArea"]
+position = Vector2(31.75, 0)
+scale = Vector2(64.5, 64)
+texture = SubResource("PlaceholderTexture2D_0igbp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverworldTransitionArea"]
+position = Vector2(32, 0)
+shape = SubResource("RectangleShape2D_sp1pt")

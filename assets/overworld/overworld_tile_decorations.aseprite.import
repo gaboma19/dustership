@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://r1fgg41w7k4j"
+path="res://.godot/imported/overworld_tile_decorations.aseprite-2097ebdeee9066086678602dd8e48b23.res"
+
+[deps]
+
+source_file="res://assets/overworld/overworld_tile_decorations.aseprite"
+dest_files=["res://.godot/imported/overworld_tile_decorations.aseprite-2097ebdeee9066086678602dd8e48b23.res"]
+
+[params]
+

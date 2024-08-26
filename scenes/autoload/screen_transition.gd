@@ -1,14 +1,10 @@
 extends CanvasLayer
 
-signal transitioned_halfway
-
-var skip_emit = false
-
 
 func transition_in():
 	$AnimationPlayer.play("transition_in")
-	
-	
+
+
 func transition_out():
 	$AnimationPlayer.play("transition_out")
 

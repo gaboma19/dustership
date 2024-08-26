@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://dnht3oj201iqm"]
+
+[ext_resource type="Texture2D" uid="uid://cnoly8jej8bfh" path="res://assets/overworld_ladder/overworld_white_ladder.png" id="1_al640"]
+[ext_resource type="Texture2D" uid="uid://dp6i67q1by2v4" path="res://assets/overworld/overworld_green.png" id="1_ndhh8"]
+[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_ladder.gd" id="2_bamsp"]
+[ext_resource type="Texture2D" uid="uid://7a4nyl882o6p" path="res://assets/overworld/overworld_ladder_icon.png" id="3_bfve3"]
+[ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ybrtc"]
+
+[sub_resource type="Animation" id="Animation_5m1ty"]
+length = 1.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = false
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_nwojy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7elgh"]
+_data = {
+"RESET": SubResource("Animation_nwojy"),
+"default": SubResource("Animation_5m1ty")
+}
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_udnoi"]
+
+[node name="OverworldLadder" type="Sprite2D" groups=["ladders"]]
+z_index = 1
+texture_filter = 1
+texture = ExtResource("1_al640")
+hframes = 4
+vframes = 4
+script = ExtResource("2_bamsp")
+metadata/_aseprite_wizard_config_ = {
+"i_mode": -1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/overworld_ladder",
+"o_name": "",
+"only_visible": false,
+"player": "AnimationPlayer",
+"slice": "",
+"source": "res://assets/overworld_ladder/overworld_white_ladder.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Icon" type="Node2D" parent="."]
+
+[node name="Green" type="Sprite2D" parent="Icon"]
+texture = ExtResource("1_ndhh8")
+offset = Vector2(0, -5)
+
+[node name="Ladder" type="Sprite2D" parent="Icon"]
+texture = ExtResource("3_bfve3")
+offset = Vector2(0, -5.5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_7elgh")
+}
+
+[node name="PlayerDetectorArea" parent="." instance=ExtResource("3_ybrtc")]
+visible = false
+monitoring = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_udnoi")

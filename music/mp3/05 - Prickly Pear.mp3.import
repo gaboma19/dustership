@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://oed0xq4il6it"
+path="res://.godot/imported/05 - Prickly Pear.mp3-1c4061b0f11be9dc9751933b316cf63a.mp3str"
+
+[deps]
+
+source_file="res://music/mp3/05 - Prickly Pear.mp3"
+dest_files=["res://.godot/imported/05 - Prickly Pear.mp3-1c4061b0f11be9dc9751933b316cf63a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
