@@ -9,12 +9,14 @@ var follow_target: Player
 
 func enter(_msg := {}) -> void:
 	pickup_area.set_deferred("monitorable", false)
-	player.set_hurtbox_monitoring(false)
-
+	
+	if player != null:
+		player.set_hurtbox_monitoring(false)
 
 
 func exit():
-	player.set_hurtbox_monitoring(true)
+	if player != null:
+		player.set_hurtbox_monitoring(true)
 
 
 func update(_delta: float) -> void:

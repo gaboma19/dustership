@@ -9,8 +9,19 @@ var is_looping: bool = false
 var current_song: String
 
 var tracks: Dictionary = {
-	"aprils_theme": "music/mp3/aprils_theme.mp3",
-	"cactus_knight": "music/mp3/battle_tempo.mp3"
+	"fanfare": "01 - Fanfare.mp3",
+	"aprils_theme": "02 - April's Theme.mp3",
+	"remembrancer": "03 - Remembrancer.mp3",
+	"cubes_theme": "04 - Cube's Theme.mp3",
+	"prickly_pear": "05 - Prickly Pear",
+	"heartbeat_of_the_dustership": "06 - Heartbeat of the Dustership",
+	"bao_mao": "07 - Bao Mao",
+	"face_turn": "08 - Face Turn",
+	"running_out_of_time": "09 - Running Out of Time",
+	"glitch_monsters": "10 - Glitch Monsters.mp3",
+	"cactus_knight": "11 - Cactus Knight.mp3",
+	"game_over": "12 - Game Over.mp3",
+	"aprils_theme_revisited": "13 - April's Theme Revisited.mp3"
 }
 
 @onready var pause_timer = $PauseTimer
@@ -54,7 +65,7 @@ func fade_out_to(new_song):
 
 
 func fade_in(new_song):
-	stream = load(str("res://", tracks.get(new_song)))
+	stream = load(str("res://music/mp3/", tracks.get(new_song)))
 	#print("Playing : ", str("res://", tracks.get(new_song)), " (fade_in)")
 	# tween music volume up to music_volume (normal/defined)
 	var tween_in = create_tween()

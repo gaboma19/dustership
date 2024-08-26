@@ -10,7 +10,7 @@ var spawn_points: Array[Node]
 
 
 func _ready():
-	MusicManager.play_track("aprils_theme")
+	MusicManager.play_track("heartbeat_of_the_dustership")
 	chest.opened.connect(on_chest_opened)
 	
 	spawn_points = spawn_points_parent.get_children()

@@ -9,7 +9,7 @@ const LINES2: Array[String] = [
 ]
 
 func _ready():
-	MusicManager.play_track("aprils_theme")
+	MusicManager.play_track("aprils_theme_revisited")
 	
 	if not EntityVariables.conversations.has(CONVERSATION_ID):
 		await get_tree().get_first_node_in_group("entities").ready
