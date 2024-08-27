@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://ck62xntsnbb60"]
+
+[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_5duh8"]
+[ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_a75pp"]
+[ext_resource type="PackedScene" uid="uid://dngxye0p7kdqb" path="res://scenes/tile_maps/dustership/dustership_tile_map.tscn" id="3_3jph8"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_rbqk4"]
+[ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_x0md1"]
+
+[node name="Hub" type="Node2D" node_paths=PackedStringArray("game_start")]
+script = ExtResource("1_5duh8")
+game_start = NodePath("GameStart")
+
+[node name="DustershipBackground" parent="." instance=ExtResource("2_a75pp")]
+
+[node name="DustershipTileMap" parent="." instance=ExtResource("3_3jph8")]
+
+[node name="GameStart" parent="." instance=ExtResource("4_rbqk4")]
+
+[node name="GameCamera" parent="." instance=ExtResource("5_x0md1")]
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true

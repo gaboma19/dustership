@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1uebua632l01"]
+
+[ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_2hu1g"]
+[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_combat_tile.gd" id="2_lrnlk"]
+[ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ck685"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mkm4x"]
+
+[node name="OverworldCombatTIle" type="Sprite2D"]
+z_index = 2
+texture = ExtResource("1_2hu1g")
+offset = Vector2(0, -5)
+script = ExtResource("2_lrnlk")
+
+[node name="PlayerDetectorArea" parent="." instance=ExtResource("3_ck685")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_mkm4x")
