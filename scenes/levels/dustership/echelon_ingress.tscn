@@ -1,243 +1,72 @@
-[gd_scene load_steps=20 format=3 uid="uid://bilmntyxrqx21"]
+[gd_scene load_steps=7 format=3 uid="uid://bilmntyxrqx21"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wu7c6"]
-[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_go2ig"]
-[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_6cg4g"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_events.gd" id="4_nh8n5"]
+[ext_resource type="Texture2D" uid="uid://65xhmpecods6" path="res://assets/backgrounds/remembrancer_camp/remembrancer_camp.png" id="3_skxw8"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="5_l1omp"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="5_nnlbd"]
-[ext_resource type="Texture2D" uid="uid://cg24rq4idietp" path="res://assets/backgrounds/tavern/tavern.png" id="6_ctotu"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_bar.gd" id="7_po424"]
-[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="8_e16om"]
-[ext_resource type="Texture2D" uid="uid://dp5s6nnjxomr" path="res://assets/backgrounds/tavern/bar.png" id="9_fpcim"]
-[ext_resource type="Texture2D" uid="uid://cj1ohr88d7wqy" path="res://assets/backgrounds/tavern/overhang.png" id="10_151ug"]
-[ext_resource type="Texture2D" uid="uid://b32f0cyyh825" path="res://assets/backgrounds/tavern/light_tavern.png" id="11_36y81"]
-[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="12_y8b2r"]
-[ext_resource type="Resource" uid="uid://blkguusvctco3" path="res://resources/inventory_item/items/identity_core_right.tres" id="13_an4g3"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
 
-[sub_resource type="Resource" id="Resource_p0vcp"]
-script = ExtResource("3_6cg4g")
-reload = false
-ASCII = false
-ASCIISize = Vector2(4, 9)
-ChromaticAberration = false
-StrenghtCA = 1.0
-Blur = false
-L_O_D = 1.0
-FishEye = false
-FishEyeAspect = 1.0
-FishEyeDistortion = 1.0
-FishEyeRadius = 1.0
-FishEyeAlpha = 1.0
-FishEyeCrop = 1.0
-FishEyeCropColor = Color(0, 0, 0, 1)
-Vignette = false
-VignetteIntensity = 0.4
-VignetteOpacity = 0.5
-VignetteR_G_B = Color(0, 0, 0, 1)
-Glitch = false
-GlitchRange = 0.05
-GlitchNoiseQuality = 250.0
-GlitchIntenity = 0.0088
-GlitchOffset = 0.03
-GlitchColorOffset = 1.3
-Outline = false
-OutlineColor = Color(0, 0, 0, 1)
-OutlineThreshold = 0.0
-OutlineBlend = 0.01
-Grain = true
-GrainPower = 75
-CircularWaves = false
-CircularWavesAmplitude = 2.0
-CircularWavesFrequency = 12.69
-CircularWavesRippleRate = 9.2
-SpeedLines = false
-SpeedLinesColor = Color(1, 1, 1, 1)
-SpeedLinesCount = 2
-SpeedLineDensity = 0.072
-SpeedLineSpeed = 20
-ColorCorrection = false
-ColorCorrectionTint = Color(0, 0, 0, 1)
-ColorCorrectionBrightness = 0.0
-ColorCorrectionSaturation = 0.0
-Palette = false
-Pixelate = false
-PixelatePixelSize = 8
-CRT = false
-overlay = false
-scanlines_opacity = 0.4
-scanlines_width = 0.25
-grille_opacity = 0.3
-pixelate = true
-roll_speed = 8.0
-roll_size = 15.0
-roll_variation = 1.8
-distort_intensity = 0.05
-noise_opacity = 0.4
-noise_speed = 5.0
-static_noise_intensity = 0.06
-aberration = 0.03
-brightness = 1.4
-discolor = true
-warp_amount = 1.0
-clip_warp = false
-vignette_intensity = 0.4
-vignette_opacity = 0.5
-AnalogMonitor = false
-AnalogMonitorResolution = Vector2(256, 256)
-ScreenShake = false
-ScreenShakePower = 0.1
+[sub_resource type="CircleShape2D" id="CircleShape2D_4fpu4"]
+radius = 16.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6mvqy"]
-radius = 30.0666
-
-[sub_resource type="Animation" id="Animation_kf57q"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_y8ie4"]
-resource_name = "default"
-length = 5.0
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.6, 1.3, 1.8, 2.9, 4.2, 5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0.490196), Color(1, 1, 1, 0.882353), Color(1, 1, 1, 0.392157), Color(1, 1, 1, 0.784314), Color(1, 1, 1, 0.313726), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2y4"]
-_data = {
-"RESET": SubResource("Animation_kf57q"),
-"default": SubResource("Animation_y8ie4")
-}
-
-[node name="EchelonLevel5" type="Node2D" node_paths=PackedStringArray("game_start")]
+[node name="EchelonIngress" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
 script = ExtResource("1_wu7c6")
 is_camera_static = true
 map_pin_cell = Vector2i(28, -19)
 game_start = NodePath("GameStart")
 
-[node name="PostProcess" type="CanvasLayer" parent="."]
-script = ExtResource("2_go2ig")
-configuration = SubResource("Resource_p0vcp")
-
 [node name="Events" type="Node" parent="." groups=["events"]]
-script = ExtResource("4_nh8n5")
-
-[node name="SpawnPointsParent" type="Node" parent="Events"]
-
-[node name="SpawnPoint" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(27, 78)
-
-[node name="SpawnPoint2" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(18, 100)
-
-[node name="SpawnPoint3" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(-14, 110)
-
-[node name="SpawnPoint4" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(-91, 88)
-
-[node name="SpawnPoint5" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(4, 110)
-
-[node name="SpawnPoint6" type="Node2D" parent="Events/SpawnPointsParent"]
-position = Vector2(29, 91)
 
 [node name="GameStart" parent="." instance=ExtResource("5_nnlbd")]
-position = Vector2(-38, 116)
+position = Vector2(0, 122)
 
 [node name="GameCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 75)
 zoom = Vector2(4, 4)
 
 [node name="Background" type="Sprite2D" parent="."]
-texture = ExtResource("6_ctotu")
+texture = ExtResource("3_skxw8")
 offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/remembrancer_camp/remembrancer_camp.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
 
 [node name="Walls" type="StaticBody2D" parent="Background"]
 visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
 build_mode = 1
-polygon = PackedVector2Array(-63, 35, -39, 47, -7, 31, 2, 36, 20, 28, 114, 76, -14, 139, -30, 131, -46, 140, -78, 123, -62, 115, -125, 83, -125, 67)
-
-[node name="Bar" type="Node2D" parent="."]
-script = ExtResource("7_po424")
-
-[node name="InteractionArea" parent="Bar" instance=ExtResource("8_e16om")]
-action_name = "Inspect"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bar/InteractionArea"]
-position = Vector2(-37, 77)
-shape = SubResource("CircleShape2D_6mvqy")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-47, 87)
-texture = ExtResource("9_fpcim")
-offset = Vector2(-0.5, -21)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-visible = false
-position = Vector2(47, -87)
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Sprite2D/StaticBody2D"]
-polygon = PackedVector2Array(-96, 69, -93, 79, -64, 95, -32, 95, -32, 87, -11, 87, 8, 77, 8.05824, 66.5149, -11, 57, -34, 69, -55, 69, -83, 56, -96, 62)
-
-[node name="Overhang" type="Sprite2D" parent="."]
-z_index = 1
-position = Vector2(-93.5, 28)
-texture = ExtResource("10_151ug")
+polygon = PackedVector2Array(-16, 44, -19, 56, -23, 60, -25, 64, -27, 70, -27, 79, -19, 86, -8, 88, 18, 88, 28, 86, 32, 84, 37, 79, 38, 77, 38, 68, 36, 63, 34, 60, 31, 56, 30, 49, 27, 42, 38, 44, 50, 47, 54, 49, 58, 49, 71, 59, 72, 70, 83, 70, 85, 84, 82, 84, 74, 97, 63, 100, 58, 104, 58, 107, 65, 121, 35, 121, 34, 124, 34, 136, 36, 138, 73, 138, 79, 150, -52, 150, -46, 137, -25, 137, -23, 135, -23, 124, -25, 121, -47, 121, -47, 105, -51, 103, -68, 102, -77, 85, -87, 65, -77, 59, -64, 54, -58, 51, -46, 49, -36, 47)
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 1
 
-[node name="TavernLight" type="Sprite2D" parent="Foreground"]
-texture = ExtResource("11_36y81")
-offset = Vector2(0, 75)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Foreground/TavernLight"]
-libraries = {
-"": SubResource("AnimationLibrary_nt2y4")
-}
-autoplay = "default"
-
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="Chest" parent="Entities" instance=ExtResource("12_y8b2r")]
-unique_name_in_owner = true
-position = Vector2(-53, 52)
-inventory_item = ExtResource("13_an4g3")
-chest_id = "echelon5_chest0"
-
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="1"]
-animation = &"chest_isometric"
-
 [node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
-path = "res://scenes/levels/echelon/echelon_level_3.tscn"
-new_player_position = Vector2(432, 272)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
-polygon = PackedVector2Array(-62, 115, -30, 131, -46, 139, -78, 123)
+polygon = PackedVector2Array(-54, 144, 84, 144, 84, 150, -54, 150)
 
-[editable path="Entities/Chest"]
+[node name="Pod" type="Node2D" parent="."]
+
+[node name="InteractionArea" parent="Pod" instance=ExtResource("5_l1omp")]
+position = Vector2(8, 88)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pod/InteractionArea"]
+shape = SubResource("CircleShape2D_4fpu4")
