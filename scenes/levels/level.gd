@@ -1,4 +1,5 @@
 extends Node2D
+class_name Level
 
 @export var is_camera_static = false
 @export var map_pin_cell: Vector2i

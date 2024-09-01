@@ -1,12 +1,13 @@
-[gd_scene load_steps=37 format=3 uid="uid://dmw5sf2ng05hy"]
+[gd_scene load_steps=38 format=3 uid="uid://dmw5sf2ng05hy"]
 
 [ext_resource type="Script" path="res://scenes/entities/npcs/remembrancers/remembrancer.gd" id="1_ixx1o"]
+[ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="2_1tm60"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_8ruqe"]
 [ext_resource type="Texture2D" uid="uid://b45un1xjs8gev" path="res://assets/remembrancer/remembrancer_mona.png" id="2_uocx8"]
 [ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_va117"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="4_vnhue"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/scene.gd" id="5_3p4vb"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/idle.gd" id="6_kny0b"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="5_3p4vb"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="6_kny0b"]
 
 [sub_resource type="Animation" id="Animation_ym4kt"]
 length = 0.1
@@ -148,34 +149,6 @@ tracks/1/keys = {
 "values": [4, 5, 6, 7, 8, 9]
 }
 
-[sub_resource type="Animation" id="Animation_22ln0"]
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 12, 13, 14, 12]
-}
-
 [sub_resource type="Animation" id="Animation_t65mj"]
 length = 0.6
 loop_mode = 1
@@ -202,6 +175,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [15, 16, 17, 18, 19, 17]
+}
+
+[sub_resource type="Animation" id="Animation_22ln0"]
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 12]
 }
 
 [sub_resource type="Animation" id="Animation_vhng3"]
@@ -308,7 +309,7 @@ blend_mode = 1
 [sub_resource type="AnimationNodeTimeScale" id="AnimationNodeTimeScale_kqg7d"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ocqc3"]
-graph_offset = Vector2(-317, -30)
+graph_offset = Vector2(-245, 190)
 nodes/BlendSpace2D/node = SubResource("AnimationNodeBlendSpace2D_6li58")
 nodes/BlendSpace2D/position = Vector2(-80, 220)
 nodes/TimeScale/node = SubResource("AnimationNodeTimeScale_kqg7d")
@@ -343,6 +344,12 @@ height = 8.0
 
 [node name="RemembrancerMona" type="CharacterBody2D"]
 script = ExtResource("1_ixx1o")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(0, 0.6)
+scale = Vector2(0.8, 1.06667)
+texture = ExtResource("2_1tm60")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -385,6 +392,7 @@ parameters/move/BlendSpace2D/blend_position = Vector2(0, 0)
 parameters/move/TimeScale/scale = 1.0
 
 [node name="InteractionArea" type="Area2D" parent="."]
+visible = false
 script = ExtResource("3_va117")
 action_name = "Talk"
 
@@ -392,8 +400,12 @@ action_name = "Talk"
 shape = SubResource("CircleShape2D_axc6a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_ctf0s")
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 4.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_vnhue")
@@ -402,5 +414,6 @@ initial_state = NodePath("Idle")
 [node name="Scene" type="Node" parent="StateMachine"]
 script = ExtResource("5_3p4vb")
 
-[node name="Idle" type="Node" parent="StateMachine"]
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
 script = ExtResource("6_kny0b")
+idle_timer = NodePath("../../IdleTimer")

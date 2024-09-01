@@ -42,7 +42,6 @@ tile_set = ExtResource("6_3ubof")
 
 [node name="EchelonDecorationTiles" parent="." instance=ExtResource("7_px4f4")]
 z_index = -1
-layer_0/y_sort_enabled = false
 
 [node name="GameStart" parent="." instance=ExtResource("8_xe75f")]
 position = Vector2(-96, 0)

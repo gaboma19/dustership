@@ -175,7 +175,6 @@ texture = ExtResource("1_ugjor")
 offset = Vector2(0, 75)
 
 [node name="Walls" type="StaticBody2D" parent="Background"]
-visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
 build_mode = 1

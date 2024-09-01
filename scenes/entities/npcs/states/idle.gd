@@ -36,3 +36,6 @@ func on_idle_timer_timeout():
 	var velocity_component: VelocityComponent = dusteki.velocity_component
 	
 	velocity_component.process_accelerate_to_point(point)
+	
+	await get_tree().create_timer(2.0).timeout
+	velocity_component.stop()

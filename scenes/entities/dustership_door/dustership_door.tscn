@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://boi3g8osicmbi"]
+[gd_scene load_steps=14 format=3 uid="uid://boi3g8osicmbi"]
 
 [ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="1_idjol"]
 [ext_resource type="Texture2D" uid="uid://d0g4fiq3mfrpa" path="res://assets/dustership_door/dustership_door.png" id="1_p0kot"]
@@ -29,6 +29,34 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_7klyh"]
+resource_name = "close"
+length = 1.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_mawob"]
@@ -130,6 +158,7 @@ tracks/1/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlqvj"]
 _data = {
 "RESET": SubResource("Animation_2f0tk"),
+"close": SubResource("Animation_7klyh"),
 "default": SubResource("Animation_mawob"),
 "open": SubResource("Animation_fyhpb"),
 "set_open": SubResource("Animation_wihnb")

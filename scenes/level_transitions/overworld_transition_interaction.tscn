@@ -10,6 +10,7 @@ radius = 16.0
 script = ExtResource("1_yb6o1")
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_3fhuc")]
+action_name = "Enter the Echelon"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_qh6il")
