@@ -80,10 +80,8 @@ layer_0/tile_data = PackedInt32Array(131074, 196608, 0, 196610, 196608, 0, 26214
 layer_1/name = "walls"
 layer_1/y_sort_enabled = true
 layer_1/z_index = 2
-layer_1/tile_data = PackedInt32Array()
 layer_2/name = "decor"
 layer_2/y_sort_enabled = true
-layer_2/tile_data = PackedInt32Array()
 script = ExtResource("2_or5vp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

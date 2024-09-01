@@ -1,6 +1,7 @@
 extends Sprite2D
 
 @export var scene_path: String
+@export var player_position: Vector2
 @export var ingress_id: String
 
 @onready var player_detector_area = $PlayerDetectorArea
@@ -24,11 +25,10 @@ func set_active(value: bool):
 func on_player_entered(_player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
-	ScreenTransition.transition_out()
-	await get_tree().create_timer(0.4).timeout
+	if scene_path == null:
+		set_active(false)
+		return
 	
-	set_active(false)
-	if not scene_path.is_empty():
-		get_tree().change_scene_to_file.bind(scene_path).call_deferred()
-	
-	ScreenTransition.transition_in()
+	var active_member_name = Constants.CharacterNames.APRIL
+	ScreenTransition.transition_to_level_from_overworld(
+		scene_path, player_position, active_member_name)

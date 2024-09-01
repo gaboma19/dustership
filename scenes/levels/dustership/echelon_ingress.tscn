@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bilmntyxrqx21"]
+[gd_scene load_steps=6 format=3 uid="uid://bilmntyxrqx21"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wu7c6"]
 [ext_resource type="Texture2D" uid="uid://65xhmpecods6" path="res://assets/backgrounds/remembrancer_camp/remembrancer_camp.png" id="3_skxw8"]
-[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="5_l1omp"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="5_nnlbd"]
+[ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="5_uamtp"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_4fpu4"]
-radius = 16.0
 
 [node name="EchelonIngress" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -19,7 +16,7 @@ game_start = NodePath("GameStart")
 [node name="Events" type="Node" parent="." groups=["events"]]
 
 [node name="GameStart" parent="." instance=ExtResource("5_nnlbd")]
-position = Vector2(0, 122)
+position = Vector2(7, 136)
 
 [node name="GameCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 75)
@@ -59,14 +56,11 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
+path = "res://scenes/levels/dustership/hub.tscn"
+new_player_position = Vector2(0, -256)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 polygon = PackedVector2Array(-54, 144, 84, 144, 84, 150, -54, 150)
 
-[node name="Pod" type="Node2D" parent="."]
-
-[node name="InteractionArea" parent="Pod" instance=ExtResource("5_l1omp")]
+[node name="OverworldTransitionInteraction" parent="." instance=ExtResource("5_uamtp")]
 position = Vector2(8, 88)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pod/InteractionArea"]
-shape = SubResource("CircleShape2D_4fpu4")
