@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_eig4c"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_3fpr3"]
 [ext_resource type="Texture2D" uid="uid://cwdra0q2kly11" path="res://assets/dusteki/dusteki.png" id="3_3jcc0"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/scene.gd" id="6_tnwai"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/idle.gd" id="7_f7wk0"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="6_tnwai"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="7_f7wk0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3nli"]
 animation = &"idle_down"

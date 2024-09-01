@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="1_o03me"]
 [ext_resource type="Texture2D" uid="uid://csu8kk1rygu1e" path="res://assets/bao_mao/bao_mao.png" id="2_0smg8"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_syi3a"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/scene.gd" id="4_6qy0s"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/idle.gd" id="5_dj2td"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="4_6qy0s"]
+[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="5_dj2td"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wjruc"]
 animation = &"idle_down"

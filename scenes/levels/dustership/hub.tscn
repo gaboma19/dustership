@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ck62xntsnbb60"]
+[gd_scene load_steps=12 format=3 uid="uid://ck62xntsnbb60"]
 
 [ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_5duh8"]
 [ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_a75pp"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_cnh2k"]
 [ext_resource type="PackedScene" uid="uid://boi3g8osicmbi" path="res://scenes/entities/dustership_door/dustership_door.tscn" id="6_gfnpt"]
 [ext_resource type="Script" path="res://scenes/entities/dustership_door/level_transition_door.gd" id="7_fdqgm"]
+[ext_resource type="PackedScene" uid="uid://bmefddd535dd2" path="res://scenes/entities/npcs/remembrancers/remembrancer_galann.tscn" id="8_52m8n"]
+[ext_resource type="PackedScene" uid="uid://urbu41hjhkye" path="res://scenes/entities/npcs/remembrancers/remembrancer_deon.tscn" id="9_i0fht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jy7hw"]
 size = Vector2(128, 256)
@@ -43,6 +45,12 @@ new_player_position = Vector2(7, 136)
 [node name="DustershipDoor2" parent="Entities" instance=ExtResource("6_gfnpt")]
 position = Vector2(0, 105)
 door_id = "hub_door"
+
+[node name="RemembrancerGalann" parent="Entities" instance=ExtResource("8_52m8n")]
+position = Vector2(-128, 192)
+
+[node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_i0fht")]
+position = Vector2(-128, 256)
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("6_cnh2k")]
 

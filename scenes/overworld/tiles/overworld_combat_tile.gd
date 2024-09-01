@@ -25,7 +25,7 @@ func set_active(value: bool):
 func on_player_entered(_player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
-	if scene_path == null:
+	if scene_path.is_empty():
 		set_active(false)
 		return
 	
