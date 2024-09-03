@@ -1,6 +1,63 @@
-[gd_scene load_steps=2 format=3 uid="uid://c6xdqmwjubo8o"]
+[gd_scene load_steps=5 format=3 uid="uid://c6xdqmwjubo8o"]
 
-[ext_resource type="Script" path="res://scenes/ui/title_screen/title_screen.gd" id="1_a6mjb"]
+[ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_enmqm"]
+[ext_resource type="Texture2D" uid="uid://x17qi16mufq" path="res://assets/backgrounds/main_menu/main_menu_background.png" id="2_yi7hv"]
+[ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_4gxv6"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_0s3al"]
 
 [node name="MainMenu" type="CanvasLayer"]
-script = ExtResource("1_a6mjb")
+script = ExtResource("1_enmqm")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_yi7hv")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -125.0
+offset_top = 100.0
+offset_right = 125.0
+offset_bottom = 140.0
+grow_horizontal = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(125, 0)
+texture = ExtResource("3_4gxv6")
+
+[node name="Margin Container" type="MarginContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -88.0
+offset_right = 52.5
+offset_bottom = 88.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin Container"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="SoundButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Play"
+
+[node name="SoundButton2" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Settings"
+
+[node name="SoundButton3" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Credits"
+
+[node name="SoundButton4" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Quit"
