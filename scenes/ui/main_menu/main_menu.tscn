@@ -46,18 +46,18 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="SoundButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="PlayButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Play"
 
-[node name="SoundButton2" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="SettingsButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Settings"
 
-[node name="SoundButton3" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="CreditsButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Credits"
 
-[node name="SoundButton4" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="QuitButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Quit"
