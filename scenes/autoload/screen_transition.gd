@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var overworld_path: String
+@export var main_menu_path: String
 
 
 func transition_in():
@@ -66,12 +67,20 @@ func restart_game(scene_path: String):
 	transition_in()
 
 
-func transition_to_overworld():
+func transition_to_path(scene_path: String):
 	transition_out()
 	await get_tree().create_timer(0.4).timeout
-	get_tree().change_scene_to_file.bind(overworld_path).call_deferred()
+	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
 	transition_in()
+
+
+func transition_to_overworld():
+	transition_to_path(overworld_path)
+
+
+func transition_to_main_menu():
+	transition_to_path(main_menu_path)

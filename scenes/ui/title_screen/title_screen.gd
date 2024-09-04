@@ -23,8 +23,8 @@ func dissolve_title():
 
 func continue_to_main_menu():
 	MusicManager.fade_out(5.0)
-	hide()
-	print("continue to main menu")
+	
+	ScreenTransition.transition_to_main_menu()
 
 
 func open():
