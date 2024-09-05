@@ -44,5 +44,26 @@ func restart_game():
 	SteelCounter.set_counter()
 
 
+func save_data() -> Dictionary:
+	var data = {
+		"current_health" = current_health,
+		"max_health" = max_health,
+		"steel" = steel,
+		"pause_menu_screen" = pause_menu_screen,
+		"has_sword" = has_sword,
+		"has_gun" = has_gun
+	}
+	return data
+
+
+func load_data(data: Dictionary):
+	current_health = data["current_health"]
+	max_health = data["max_health"]
+	steel = data["steel"]
+	pause_menu_screen = data["pause_menu_screen"]
+	has_sword = data["has_sword"]
+	has_gun = data["has_gun"]
+
+
 func on_steel_collected(value: int):
 	steel += value

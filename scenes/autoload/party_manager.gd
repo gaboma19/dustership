@@ -59,6 +59,11 @@ func clear_members():
 	active_member_index = -1
 
 
+func add_member_scene(character_name: Constants.CharacterNames):
+	if not member_scenes.has(scene_dictionary[character_name]):
+		member_scenes.append(scene_dictionary[character_name])
+
+
 func remove_member_scene(node: Player):
 	member_scenes.erase(scene_dictionary[node.character_name])
 
@@ -189,3 +194,17 @@ func get_telitz() -> Player:
 			return player
 	
 	return null
+
+
+func save_data() -> Dictionary:
+	var member_names: Array[int]
+	for player in members:
+		member_names.append(player.character_name)
+	
+	return { "members": member_names }
+
+
+func load_data(data: Dictionary):
+	var members: Array[int] = data["members"]
+	for member_name in members:
+		add_member_scene(member_name)

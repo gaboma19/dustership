@@ -16,29 +16,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_yi7hv")
 
-[node name="TextureRect" type="TextureRect" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -125.0
-offset_top = 100.0
-offset_right = 125.0
-offset_bottom = 140.0
-grow_horizontal = 2
-scale = Vector2(2, 2)
-pivot_offset = Vector2(125, 0)
-texture = ExtResource("3_4gxv6")
-
 [node name="Margin Container" type="MarginContainer" parent="."]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -52.5
-offset_top = -88.0
-offset_right = 52.5
-offset_bottom = 88.0
+offset_left = -50.0
+offset_top = -112.0
+offset_right = 50.0
+offset_bottom = 112.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -46,18 +33,34 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 16
 
-[node name="PlayButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="Title" type="TextureRect" parent="Margin Container/VBoxContainer"]
+custom_minimum_size = Vector2(500, 80)
+layout_mode = 2
+texture = ExtResource("3_4gxv6")
+
+[node name="ButtonContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="PlayButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Play"
 
-[node name="SettingsButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="DeleteButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+disabled = true
+text = "Delete"
+
+[node name="SettingsButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Settings"
 
-[node name="CreditsButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="CreditsButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Credits"
 
-[node name="QuitButton" parent="Margin Container/VBoxContainer" instance=ExtResource("4_0s3al")]
+[node name="QuitButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
 layout_mode = 2
 text = "Quit"

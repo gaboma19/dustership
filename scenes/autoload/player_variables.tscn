@@ -2,6 +2,6 @@
 
 [ext_resource type="Script" path="res://scenes/autoload/player_variables.gd" id="1_64juq"]
 
-[node name="PlayerVariables" type="Node"]
+[node name="PlayerVariables" type="Node" groups=["persist"]]
 process_mode = 3
 script = ExtResource("1_64juq")

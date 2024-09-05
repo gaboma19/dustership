@@ -58,6 +58,10 @@ movie_writer/movie_file="D:/workspace/avi/godot.png"
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/gut/plugin.cfg")
 
+[global_group]
+
+persist=""
+
 [gui]
 
 theme/custom="res://resources/theme/theme.tres"

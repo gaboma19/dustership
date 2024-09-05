@@ -54,3 +54,20 @@ func use_item_by_name(item_name: String) -> bool:
 func play_audio_stream(audio_stream: AudioStream):
 	audio_stream_player.set_stream(audio_stream)
 	audio_stream_player.play()
+
+
+func save_data() -> Dictionary:
+	var item_names: Array[String] = []
+	for item in items:
+		item_names.append(item.name)
+	
+	var data = { "items": item_names }
+	return data
+
+
+func load_data(data: Dictionary):
+	var items: Array[String] = data["items"]
+	for item_name in items:
+		var path = "res://resources/inventory_item/items/%s.tres"
+		var inventory_item: InventoryItem = load(path % item_name)
+		add_item(inventory_item)

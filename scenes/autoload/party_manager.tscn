@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://scenes/autoload/party_manager.gd" id="1_3iajr"]
 
-[node name="PartyManager" type="Node"]
+[node name="PartyManager" type="Node" groups=["persist"]]
 script = ExtResource("1_3iajr")

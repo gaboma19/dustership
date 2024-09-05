@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+const ANIMATION_LENGTH: float = 0.4
+
 @export var overworld_path: String
 @export var main_menu_path: String
 
@@ -19,7 +21,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -37,7 +39,7 @@ func transition_to_level_from_overworld(
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -55,7 +57,7 @@ func restart_game(scene_path: String):
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -69,7 +71,7 @@ func restart_game(scene_path: String):
 
 func transition_to_path(scene_path: String):
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
