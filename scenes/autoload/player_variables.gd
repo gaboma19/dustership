@@ -2,8 +2,8 @@ extends Node
 
 signal died
 
-var current_health: int
 var max_health: int = 3
+var current_health: int = max_health
 var steel: int = 0
 var pause_menu_screen: int = 0
 var enable_game_start: bool = true

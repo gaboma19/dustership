@@ -197,14 +197,16 @@ func get_telitz() -> Player:
 
 
 func save_data() -> Dictionary:
-	var member_names: Array[int]
-	for player in members:
+	var member_names: Array[int] = []
+	
+	# save the member_scenes array, which isn't cleared by SceneTransition
+	for player in member_scenes:
 		member_names.append(player.character_name)
 	
 	return { "members": member_names }
 
 
 func load_data(data: Dictionary):
-	var members: Array[int] = data["members"]
-	for member_name in members:
-		add_member_scene(member_name)
+	var member_names: Array = data["members"]
+	for m in member_names:
+		add_member_scene(m)

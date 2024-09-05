@@ -1,58 +1,56 @@
 extends Node
 
+# %appdata%\Godot\app_userdata\Dustership\save_game.save
 const SAVE_PATH = "user://save_game.save"
 
 
 func save_game():
+	var save_file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
 	var save_nodes = get_tree().get_nodes_in_group("persist")
 	for node in save_nodes:
-		pass
+		if not node.has_method("save_data"):
+			push_warning("%s is missing save_data method; skipped." % node.name)
+			continue
+		
+		var node_data = node.call("save_data")
+		node_data = { node.name: node_data }
+		
+		var json_string = JSON.stringify(node_data)
+		
+		print(json_string)
+		
+		save_file.store_line(json_string)
 
 
+func has_save_data() -> bool:
+	return FileAccess.file_exists(SAVE_PATH)
 
 
-
-#func save_game(data: SaveData):
-	#var file = FileAccess.open(save_path, FileAccess.WRITE)
-	#file.store_var(data)
-	#file.close()
-#
-#
-#func capture_save_data() -> SaveData:
-	#var data = SaveData.new()
-	#
-	#data.items = Inventory.items
-	#
-	#data.active_layer = OverworldVariables.active_layer
-	#data.player_map_position = OverworldVariables.player_map_position
-	#data.ingresses = OverworldVariables.ingresses
-	#
-	#data.member_scenes = PartyManager.member_scenes
-	#
-	#data.current_health = PlayerVariables.current_health
-	#data.max_health = PlayerVariables.max_health
-	#data.steel = PlayerVariables.steel
-	#data.pause_menu_screen = PlayerVariables.pause_menu_screen
-	#data.has_sword = PlayerVariables.has_sword
-	#data.has_gun = PlayerVariables.has_gun
-	#
-	#return data
-#
-#
-#func capture_and_save_game():
-	#var data = capture_save_data()
-	#save_game(data)
-#
-#
-#func load_game() -> SaveData:
-	#var file = FileAccess.open(save_path, FileAccess.READ)
-	#var encoded_object: EncodedObjectAsID = file.get_var()
-	#var id = encoded_object.get_instance_id()
-	#var data = instance_from_id(id)
-	#file.close()
-	#
-	#return data
-#
-#
-#func has_save_data() -> bool:
-	#return FileAccess.file_exists(save_path)
+func load_game():
+	if not has_save_data():
+		return
+	
+	var save_file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+	while save_file.get_position() < save_file.get_length():
+		var json_string = save_file.get_line()
+		var json = JSON.new()
+		
+		var parse_result = json.parse(json_string)
+		if not parse_result == OK:
+			push_warning("JSON Parse Error: ", json.get_error_message(), " in ", json_string, " at line ", json.get_error_line())
+			continue
+		
+		var data: Dictionary = json.get_data()
+		var node_name: String = data.keys().front()
+		var node = get_tree().root.get_node(node_name)
+		var node_data = data[node_name]
+		
+		if node == null:
+			push_warning("%s not found; skipped" % node_name)
+			continue
+		
+		if not node.has_method("load_data"):
+			push_warning("%s is missing load_data method; skipped." % node.name)
+			continue
+		
+		node.load_data(node_data)
