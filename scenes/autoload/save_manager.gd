@@ -1,6 +1,6 @@
 extends Node
 
-# %appdata%\Godot\app_userdata\Dustership\save_game.save
+# %appdata%\Dustership\save_game.save
 const SAVE_PATH = "user://save_game.save"
 
 

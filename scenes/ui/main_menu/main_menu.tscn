@@ -22,45 +22,67 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -50.0
-offset_top = -112.0
-offset_right = 50.0
-offset_bottom = 112.0
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
 grow_horizontal = 2
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Margin Container"]
 layout_mode = 2
-theme_override_constants/separation = 16
+theme_override_constants/separation = 64
 
 [node name="Title" type="TextureRect" parent="Margin Container/VBoxContainer"]
 custom_minimum_size = Vector2(500, 80)
 layout_mode = 2
 texture = ExtResource("3_4gxv6")
 
-[node name="ButtonContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+[node name="MainContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="PlayButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
+[node name="PlayButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Play"
 
-[node name="DeleteButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
+[node name="SettingsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Settings"
+
+[node name="CreditsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+visible = false
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+layout_mode = 2
+text = "Quit"
+
+[node name="SaveSlotContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="NewGameButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "New Game"
+
+[node name="DeleteButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
 layout_mode = 2
 disabled = true
 text = "Delete"
 
-[node name="SettingsButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
+[node name="BackButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Settings"
-
-[node name="CreditsButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
-layout_mode = 2
-text = "Credits"
-
-[node name="QuitButton" parent="Margin Container/VBoxContainer/ButtonContainer" instance=ExtResource("4_0s3al")]
-layout_mode = 2
-text = "Quit"
+text = "Back"
