@@ -54,3 +54,8 @@ func load_game():
 			continue
 		
 		node.load_data(node_data)
+
+
+func delete_game():
+	var file_to_remove = SAVE_PATH
+	OS.move_to_trash(ProjectSettings.globalize_path(file_to_remove))

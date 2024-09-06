@@ -30,5 +30,5 @@ func on_player_entered(_player_component: Area2D):
 		return
 	
 	var active_member_name = Constants.CharacterNames.APRIL
-	ScreenTransition.transition_to_level_from_overworld(
+	ScreenTransition.transition_to_level_with_active_member_name(
 		scene_path, player_position, active_member_name)

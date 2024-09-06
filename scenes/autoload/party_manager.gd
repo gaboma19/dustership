@@ -6,7 +6,6 @@ signal character_activated(name: Constants.CharacterNames)
 var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
-var is_holding: bool = false
 var is_switch_character_disabled: bool = false
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april/april.tscn")
@@ -23,9 +22,6 @@ func _unhandled_input(event):
 	if event.is_action_pressed("switch_character"):
 		get_tree().root.set_input_as_handled()
 		switch_character()
-	#elif event.is_action_pressed("toggle_hold"):
-		#get_tree().root.set_input_as_handled()
-		#toggle_hold()
 
 
 func add_member(node: Player):
@@ -79,7 +75,6 @@ func get_active_member() -> Player:
 
 
 func instantiate_party(position: Vector2, active_member_name: Constants.CharacterNames):
-	is_holding = false
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for n in member_scenes.size():
 		var party_member = member_scenes[n].instantiate()
@@ -112,25 +107,9 @@ func switch_character():
 		if i == next_active_member_index:
 			continue
 		
-		if is_holding:
-			members[i].state_machine.transition_to("Hold")
-		else:
-			members[i].state_machine.transition_to("Follow")
+		members[i].state_machine.transition_to("Follow")
 	
 	character_switched.emit(next_active_member.character_name)
-
-
-#func toggle_hold():
-	#is_holding = !is_holding
-		#
-	#for i in range(members.size()):
-		#if i == active_member_index:
-			#continue
-			#
-		#if is_holding:
-			#members[i].state_machine.transition_to("Hold")
-		#else:
-			#members[i].state_machine.transition_to("Follow")
 
 
 func rubberband_party():
