@@ -1,14 +1,20 @@
 extends CanvasLayer
 
-enum Screens { INVENTORY, MAP, OPTIONS }
+enum Screens { INVENTORY, MAP, GAME }
+
+@export var inventory_container_scene: PackedScene
+@export var map_scene: PackedScene
+@export var game_container_scene: PackedScene
+
 var selected_screen: int = PlayerVariables.pause_menu_screen
-var is_closing
-var is_opening
+var is_closing: bool
+var is_opening: bool
 var map_pin_cell: Vector2i
 
-@onready var panel_container = %PanelContainer
-@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory/inventory_container.tscn")
-@onready var map_scene = preload("res://scenes/ui/pause_screen/map/map.tscn")
+@onready var menu_container: PanelContainer = %MenuContainer
+@onready var panel_container: PanelContainer = %PanelContainer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var header: Label = %Header
 
 
 func _ready():
@@ -39,7 +45,7 @@ func _unhandled_input(event):
 
 
 func set_menu_container():
-	for child in %MenuContainer.get_children():
+	for child in menu_container.get_children():
 		child.queue_free()
 	
 	match selected_screen:
@@ -47,33 +53,36 @@ func set_menu_container():
 			set_inventory_grid()
 		Screens.MAP:
 			set_map()
-		Screens.OPTIONS:
-			set_options()
+		Screens.GAME:
+			set_game()
 
 
 func set_inventory_grid():
-	%Label.text = "Inventory"
+	header.text = "Inventory"
 	
 	var inventory_container = inventory_container_scene.instantiate()
-	%MenuContainer.add_child(inventory_container)
+	menu_container.add_child(inventory_container)
 	
 	inventory_container.set_slots()
 
 
 func set_map():
-	%Label.text = "Map"
+	header.text = "Map"
 	
 	var map = map_scene.instantiate()
-	%MenuContainer.add_child(map)
+	menu_container.add_child(map)
 	map.draw_pin(map_pin_cell)
 
 
-func set_options():
-	%Label.text = "Options"
+func set_game():
+	header.text = "Game"
+	
+	var game_container = game_container_scene.instantiate()
+	menu_container.add_child(game_container)
 
 
 func animate_open():
-	$AnimationPlayer.play("default")
+	animation_player.play("default")
 	
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
@@ -93,7 +102,7 @@ func close():
 	
 	PlayerVariables.pause_menu_screen = selected_screen
 	
-	$AnimationPlayer.play_backwards("default")
+	animation_player.play_backwards("default")
 	
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0)

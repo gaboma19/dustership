@@ -8,6 +8,21 @@
 [ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="5_h2jfi"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu/comet.gd" id="6_8rapc"]
 
+[sub_resource type="Animation" id="Animation_vc8by"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comet:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="Animation" id="Animation_0b6e6"]
 length = 0.6
 tracks/0/type = "value"
@@ -35,21 +50,6 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
-[sub_resource type="Animation" id="Animation_vc8by"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Comet:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqy2l"]
 _data = {
 "RESET": SubResource("Animation_vc8by"),
@@ -67,6 +67,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_yi7hv")
+expand_mode = 5
 
 [node name="Margin Container" type="MarginContainer" parent="."]
 anchors_preset = 8
@@ -119,7 +120,6 @@ text = "Quit"
 
 [node name="SaveSlotContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -128,7 +128,7 @@ theme_override_constants/separation = 16
 [node name="NewGameButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "New Game"
+text = "New game"
 
 [node name="ContinueButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true

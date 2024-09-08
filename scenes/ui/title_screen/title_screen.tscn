@@ -1,10 +1,48 @@
-[gd_scene load_steps=9 format=3 uid="uid://mroumpnic8tc"]
+[gd_scene load_steps=12 format=3 uid="uid://mroumpnic8tc"]
 
 [ext_resource type="Script" path="res://scenes/ui/title_screen/title_screen.gd" id="1_to24y"]
 [ext_resource type="Texture2D" uid="uid://dkwyba4sfjnbl" path="res://assets/backgrounds/dustership_exterior/dustership_exterior.png" id="2_l6ld2"]
 [ext_resource type="Texture2D" uid="uid://dcm4w02s15rr" path="res://assets/backgrounds/studio_title/studio_title.png" id="3_2rxx3"]
 [ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_x182u"]
 [ext_resource type="Material" uid="uid://dh4hd54vel13c" path="res://resources/materials/fire_dissolve_material.tres" id="4_4x45e"]
+
+[sub_resource type="Animation" id="Animation_ncvqa"]
+resource_name = "blink"
+length = 1.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nwhfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_li3h3"]
+_data = {
+"RESET": SubResource("Animation_nwhfy"),
+"blink": SubResource("Animation_ncvqa")
+}
 
 [sub_resource type="Animation" id="Animation_qc1oa"]
 length = 0.001
@@ -78,7 +116,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [false]
+"values": [true]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -264,7 +302,6 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Title" type="TextureRect" parent="Center"]
-visible = false
 material = ExtResource("4_4x45e")
 layout_mode = 1
 anchors_preset = 14
@@ -309,6 +346,12 @@ grow_vertical = 2
 theme_override_constants/outline_size = 8
 theme_override_font_sizes/font_size = 23
 text = "Press any button to start"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Bottom/ContinuePrompt"]
+libraries = {
+"": SubResource("AnimationLibrary_li3h3")
+}
+autoplay = "blink"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
