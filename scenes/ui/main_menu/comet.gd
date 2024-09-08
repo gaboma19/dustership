@@ -6,6 +6,9 @@ extends Sprite2D
 
 func _ready():
 	timer.timeout.connect(on_timer_timeout)
+	
+	await get_tree().create_timer(4.0).timeout
+	animation_player.play("default")
 
 
 func on_timer_timeout():

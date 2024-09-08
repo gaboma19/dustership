@@ -4,21 +4,33 @@ extends CanvasLayer
 
 @onready var play_button: Button = %PlayButton
 @onready var delete_button: Button = %DeleteButton
-@onready var back_button: Button = %BackButton
+@onready var save_back_button: Button = %SaveBackButton
 @onready var new_game_button: Button = %NewGameButton
 @onready var continue_button: Button = %ContinueButton
+@onready var credits_button: Button = %CreditsButton
+@onready var credits_back_button: Button = %CreditsBackButton
+@onready var quit_button: Button = %QuitButton
+@onready var settings_button: Button = %SettingsButton
+@onready var settings_back_button: Button = %SettingsBackButton
 @onready var main_container: VBoxContainer = %MainContainer
 @onready var save_slot_container: VBoxContainer = %SaveSlotContainer
+@onready var credits_container: VBoxContainer = %CreditsContainer
+@onready var settings_container: VBoxContainer = %SettingsContainer
 
 
 func _ready():
 	MusicManager.play_track("heartbeat_of_the_dustership")
 	
 	play_button.pressed.connect(on_play_button_pressed)
-	back_button.pressed.connect(on_back_button_pressed)
+	save_back_button.pressed.connect(on_back_button_pressed)
 	delete_button.pressed.connect(on_delete_button_pressed)
 	new_game_button.pressed.connect(on_new_game_button_pressed)
 	continue_button.pressed.connect(on_continue_button_pressed)
+	credits_button.pressed.connect(on_credits_button_pressed)
+	credits_back_button.pressed.connect(on_back_button_pressed)
+	quit_button.pressed.connect(on_quit_button_pressed)
+	settings_button.pressed.connect(on_settings_button_pressed)
+	settings_back_button.pressed.connect(on_back_button_pressed)
 	
 	set_save_slot_container()
 	
@@ -49,17 +61,20 @@ func on_play_button_pressed():
 
 func on_back_button_pressed():
 	save_slot_container.hide()
+	credits_container.hide()
+	settings_container.hide()
 	main_container.show()
+	play_button.grab_focus()
 
 
 func on_delete_button_pressed():
 	PopUp.open_decision_container(
 		"Are you sure you want to delete your saved game?")
-	PopUp.closed.connect(on_pop_up_closed)
+	PopUp.closed.connect(on_delete_pop_up_closed)
 
 
-func on_pop_up_closed(msg):
-	PopUp.closed.disconnect(on_pop_up_closed)
+func on_delete_pop_up_closed(msg):
+	PopUp.closed.disconnect(on_delete_pop_up_closed)
 	
 	delete_button.grab_focus()
 	
@@ -87,3 +102,32 @@ func on_continue_button_pressed():
 	
 	ScreenTransition.transition_to_level_with_active_member_name(
 		hub_path, Vector2(0, -128), active_character_name)
+
+
+func on_credits_button_pressed():
+	main_container.hide()
+	credits_container.show()
+	
+	credits_back_button.grab_focus()
+
+
+func on_quit_button_pressed():
+	PopUp.open_decision_container(
+		"Are you sure you want to quit?")
+	PopUp.closed.connect(on_quit_pop_up_closed)
+
+
+func on_quit_pop_up_closed(msg):
+	PopUp.closed.disconnect(on_quit_pop_up_closed)
+	
+	quit_button.grab_focus()
+	
+	if msg == "Yes":
+		get_tree().quit()
+
+
+func on_settings_button_pressed():
+	main_container.hide()
+	settings_container.show()
+	
+	settings_back_button.grab_focus()

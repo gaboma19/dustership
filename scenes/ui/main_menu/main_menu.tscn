@@ -1,10 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://c6xdqmwjubo8o"]
+[gd_scene load_steps=11 format=3 uid="uid://c6xdqmwjubo8o"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_enmqm"]
 [ext_resource type="Texture2D" uid="uid://x17qi16mufq" path="res://assets/backgrounds/main_menu/main_menu_background.png" id="2_yi7hv"]
 [ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_4gxv6"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_0s3al"]
 [ext_resource type="Texture2D" uid="uid://bxq2y0ejff1fn" path="res://assets/backgrounds/main_menu/comet.png" id="5_aojlw"]
+[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="5_h2jfi"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu/comet.gd" id="6_8rapc"]
 
 [sub_resource type="Animation" id="Animation_0b6e6"]
@@ -16,10 +17,10 @@ tracks/0/path = NodePath("Comet:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = false
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.6),
+"transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [true]
+"values": [true, false]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -34,8 +35,24 @@ tracks/1/keys = {
 "values": [0, 1, 2, 3, 4, 5]
 }
 
+[sub_resource type="Animation" id="Animation_vc8by"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Comet:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqy2l"]
 _data = {
+"RESET": SubResource("Animation_vc8by"),
 "default": SubResource("Animation_0b6e6")
 }
 
@@ -86,15 +103,17 @@ layout_mode = 2
 text = "Play"
 
 [node name="SettingsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Settings"
 
 [node name="CreditsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
-visible = false
+unique_name_in_owner = true
 layout_mode = 2
 text = "Credits"
 
 [node name="QuitButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
 layout_mode = 2
 text = "Quit"
 
@@ -124,9 +143,92 @@ layout_mode = 2
 disabled = true
 text = "Delete"
 
-[node name="BackButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
+[node name="SaveBackButton" parent="Margin Container/VBoxContainer/SaveSlotContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true
 layout_mode = 2
+text = "Back"
+
+[node name="CreditsContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin Container/VBoxContainer/CreditsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.764706, 0.533333, 0.564706, 1)
+theme_override_fonts/font = ExtResource("5_h2jfi")
+theme_override_font_sizes/font_size = 16
+text = "CREATED BY"
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Gabriel Barja Ma"
+
+[node name="Control" type="Control" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.764706, 0.533333, 0.564706, 1)
+theme_override_fonts/font = ExtResource("5_h2jfi")
+theme_override_font_sizes/font_size = 16
+text = "MUSIC"
+
+[node name="Label4" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Chris Doucet"
+
+[node name="CreditsBackButton" parent="Margin Container/VBoxContainer/CreditsContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Back"
+
+[node name="SettingsContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 16
+
+[node name="PanelContainer" type="PanelContainer" parent="Margin Container/VBoxContainer/SettingsContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin Container/VBoxContainer/SettingsContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="SettingsBackButton" parent="Margin Container/VBoxContainer/SettingsContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
 text = "Back"
 
 [node name="Comet" type="Sprite2D" parent="."]
