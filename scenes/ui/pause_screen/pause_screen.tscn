@@ -1,13 +1,16 @@
-[gd_scene load_steps=13 format=3 uid="uid://xqqnvyt8o0jd"]
+[gd_scene load_steps=16 format=3 uid="uid://xqqnvyt8o0jd"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/pause_screen.gd" id="1_ldjwh"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_om4p2"]
+[ext_resource type="PackedScene" uid="uid://cbe8bpb07410p" path="res://scenes/ui/pause_screen/map/map.tscn" id="3_8xe1n"]
 [ext_resource type="Texture2D" uid="uid://dw5ilbqvufmp6" path="res://assets/ui/pause_screen/LeftArrow2.png" id="3_flgws"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_k4abv"]
 [ext_resource type="Texture2D" uid="uid://bofb38hi2k1gj" path="res://assets/ui/pause_screen/RightArrow2.png" id="4_kjenf"]
 [ext_resource type="Texture2D" uid="uid://cw5a36j4axbw5" path="res://assets/ui/pause_screen/tile_0654.png" id="5_s4m15"]
 [ext_resource type="PackedScene" uid="uid://dkk2htinw7hk6" path="res://scenes/ui/pause_screen/inventory/inventory_container.tscn" id="6_id28i"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="7_5m5n6"]
+[ext_resource type="PackedScene" uid="uid://yxjc0jme7xhg" path="res://scenes/ui/pause_screen/game/game_container.tscn" id="7_ujawq"]
+[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="8_0qyvr"]
 
 [sub_resource type="Animation" id="Animation_3yyx6"]
 length = 0.001
@@ -52,6 +55,9 @@ _data = {
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 3
 script = ExtResource("1_ldjwh")
+inventory_container_scene = ExtResource("6_id28i")
+map_scene = ExtResource("3_8xe1n")
+game_container_scene = ExtResource("7_ujawq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -91,39 +97,54 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 theme_override_constants/separation = 32
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HeaderContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="LB" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="LeftButton2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HeaderContainer" instance=ExtResource("3_k4abv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("2_om4p2")
-expand_mode = 2
+focus_mode = 1
+icon = ExtResource("2_om4p2")
+flat = true
+expand_icon = true
 
-[node name="LeftButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_k4abv")]
-custom_minimum_size = Vector2(32, 32)
+[node name="LeftButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HeaderContainer" instance=ExtResource("3_k4abv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+focus_mode = 1
 icon = ExtResource("3_flgws")
 flat = true
 
-[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="Header" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HeaderContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 32
-text = "Title"
+theme_override_fonts/font = ExtResource("8_0qyvr")
+theme_override_font_sizes/font_size = 24
+text = "TITLE"
 horizontal_alignment = 1
 
-[node name="RightButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer" instance=ExtResource("3_k4abv")]
-custom_minimum_size = Vector2(32, 32)
+[node name="RightButton" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HeaderContainer" instance=ExtResource("3_k4abv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+focus_mode = 1
 icon = ExtResource("4_kjenf")
 flat = true
+icon_alignment = 2
 
-[node name="RB" type="TextureRect" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="RightButton2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HeaderContainer" instance=ExtResource("3_k4abv")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
-texture = ExtResource("5_s4m15")
-expand_mode = 2
+focus_mode = 1
+icon = ExtResource("5_s4m15")
+flat = true
+expand_icon = true
 
 [node name="MenuContainer" type="PanelContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -131,9 +152,8 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4fevp")
 
-[node name="InventoryContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("6_id28i")]
+[node name="GameContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("7_ujawq")]
 layout_mode = 2
-script = null
 
 [node name="B" type="TextureRect" parent="MarginContainer/PanelContainer"]
 layout_mode = 2

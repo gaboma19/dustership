@@ -6,7 +6,6 @@ signal character_activated(name: Constants.CharacterNames)
 var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
-var is_holding: bool = false
 var is_switch_character_disabled: bool = false
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april/april.tscn")
@@ -23,9 +22,6 @@ func _unhandled_input(event):
 	if event.is_action_pressed("switch_character"):
 		get_tree().root.set_input_as_handled()
 		switch_character()
-	#elif event.is_action_pressed("toggle_hold"):
-		#get_tree().root.set_input_as_handled()
-		#toggle_hold()
 
 
 func add_member(node: Player):
@@ -59,6 +55,11 @@ func clear_members():
 	active_member_index = -1
 
 
+func add_member_scene(character_name: Constants.CharacterNames):
+	if not member_scenes.has(scene_dictionary[character_name]):
+		member_scenes.append(scene_dictionary[character_name])
+
+
 func remove_member_scene(node: Player):
 	member_scenes.erase(scene_dictionary[node.character_name])
 
@@ -74,7 +75,6 @@ func get_active_member() -> Player:
 
 
 func instantiate_party(position: Vector2, active_member_name: Constants.CharacterNames):
-	is_holding = false
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for n in member_scenes.size():
 		var party_member = member_scenes[n].instantiate()
@@ -107,25 +107,9 @@ func switch_character():
 		if i == next_active_member_index:
 			continue
 		
-		if is_holding:
-			members[i].state_machine.transition_to("Hold")
-		else:
-			members[i].state_machine.transition_to("Follow")
+		members[i].state_machine.transition_to("Follow")
 	
 	character_switched.emit(next_active_member.character_name)
-
-
-#func toggle_hold():
-	#is_holding = !is_holding
-		#
-	#for i in range(members.size()):
-		#if i == active_member_index:
-			#continue
-			#
-		#if is_holding:
-			#members[i].state_machine.transition_to("Hold")
-		#else:
-			#members[i].state_machine.transition_to("Follow")
 
 
 func rubberband_party():
@@ -189,3 +173,20 @@ func get_telitz() -> Player:
 			return player
 	
 	return null
+
+
+func save_data() -> Dictionary:
+	var member_names: Array[int] = []
+	
+	# save the member_scenes array, which isn't cleared by SceneTransition
+	for player in member_scenes:
+		var player_name = scene_dictionary.find_key(player)
+		member_names.append(player_name)
+	
+	return { "members": member_names }
+
+
+func load_data(data: Dictionary):
+	var member_names: Array = data["members"]
+	for m in member_names:
+		add_member_scene(m)

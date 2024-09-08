@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://c1fndwv2tyfbk"
-path="res://.godot/imported/Pixellari.ttf-1f6ac127cea2247d21e1951e0d9c681a.fontdata"
+uid="uid://din8mc4ob1pwl"
+path="res://.godot/imported/Tiny5-Regular.ttf-ec96082be8a80edf4f2abdb854c07160.fontdata"
 
 [deps]
 
-source_file="res://assets/pixellari/Pixellari.ttf"
-dest_files=["res://.godot/imported/Pixellari.ttf-1f6ac127cea2247d21e1951e0d9c681a.fontdata"]
+source_file="res://assets/tiny5/Tiny5-Regular.ttf"
+dest_files=["res://.godot/imported/Tiny5-Regular.ttf-ec96082be8a80edf4f2abdb854c07160.fontdata"]
 
 [params]
 
@@ -21,19 +21,14 @@ msdf_pixel_range=8
 msdf_size=48
 allow_system_fallback=true
 force_autohinter=false
-hinting=0
-subpixel_positioning=0
+hinting=1
+subpixel_positioning=1
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

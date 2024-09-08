@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://dtut75mogkbrj"
+path="res://.godot/imported/studio_title.aseprite-462d6cf49ee6d4da240ae6a08e9a4a96.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/studio_title/studio_title.aseprite"
+dest_files=["res://.godot/imported/studio_title.aseprite-462d6cf49ee6d4da240ae6a08e9a4a96.res"]
+
+[params]
+

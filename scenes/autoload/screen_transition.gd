@@ -1,6 +1,9 @@
 extends CanvasLayer
 
+const ANIMATION_LENGTH: float = 0.4
+
 @export var overworld_path: String
+@export var main_menu_path: String
 
 
 func transition_in():
@@ -18,7 +21,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -31,12 +34,12 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	transition_in()
 
 
-func transition_to_level_from_overworld(
+func transition_to_level_with_active_member_name(
 	scene_path: String, player_position: Vector2, active_member_name: Constants.CharacterNames):
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -54,7 +57,7 @@ func restart_game(scene_path: String):
 	PartyManager.clear_members()
 	
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
@@ -66,12 +69,20 @@ func restart_game(scene_path: String):
 	transition_in()
 
 
-func transition_to_overworld():
+func transition_to_path(scene_path: String):
 	transition_out()
-	await get_tree().create_timer(0.4).timeout
-	get_tree().change_scene_to_file.bind(overworld_path).call_deferred()
+	await get_tree().create_timer(ANIMATION_LENGTH).timeout
+	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
 	transition_in()
+
+
+func transition_to_overworld():
+	transition_to_path(overworld_path)
+
+
+func transition_to_main_menu():
+	transition_to_path(main_menu_path)

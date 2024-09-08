@@ -163,7 +163,7 @@ layer_0/tile_data = PackedInt32Array(-983040, 524288, 3, -917504, 458752, 3, -72
 position = Vector2(16, 0)
 
 [node name="GameCamera" parent="." instance=ExtResource("4_pg7im")]
-position = Vector2(16, 336)
+position = Vector2(16, 0)
 custom_limit_left = -304
 custom_limit_top = -192
 custom_limit_bottom = 456

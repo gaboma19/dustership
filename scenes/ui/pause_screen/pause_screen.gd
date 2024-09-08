@@ -1,45 +1,74 @@
 extends CanvasLayer
 
-enum Screens { INVENTORY, MAP, OPTIONS }
+enum Screens { INVENTORY, MAP, GAME }
+
+@export var inventory_container_scene: PackedScene
+@export var map_scene: PackedScene
+@export var game_container_scene: PackedScene
+
 var selected_screen: int = PlayerVariables.pause_menu_screen
-var is_closing
-var is_opening
+var is_closing: bool
+var is_opening: bool
 var map_pin_cell: Vector2i
 
-@onready var panel_container = %PanelContainer
-@onready var inventory_container_scene = preload("res://scenes/ui/pause_screen/inventory/inventory_container.tscn")
-@onready var map_scene = preload("res://scenes/ui/pause_screen/map/map.tscn")
+@onready var menu_container: PanelContainer = %MenuContainer
+@onready var panel_container: PanelContainer = %PanelContainer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var header: Label = %Header
+@onready var left_button_2 = %LeftButton2
+@onready var left_button = %LeftButton
+@onready var right_button = %RightButton
+@onready var right_button_2 = %RightButton2
 
 
 func _ready():
 	get_tree().paused = true
 	set_menu_container()
 	animate_open()
+	
+	left_button.pressed.connect(tab_left)
+	left_button_2.pressed.connect(tab_left)
+	right_button.pressed.connect(tab_right)
+	right_button_2.pressed.connect(tab_right)
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("switch_character"):
-		get_tree().root.set_input_as_handled()
-		if selected_screen == Screens.size() - 1:
-			selected_screen = 0
-		else:
-			selected_screen += 1
-		set_menu_container()
-	elif (
-		!is_opening
-		and
-		!PopUp.visible
-		and (
-			event.is_action_pressed("pause")
-			or event.is_action_pressed("ui_cancel")
-		)
-	):
-		get_tree().root.set_input_as_handled()
-		close()
+	if not PopUp.visible:
+		if event.is_action_pressed("tab_right"):
+			get_tree().root.set_input_as_handled()
+			right_button.audio_stream_player.play()
+			tab_right()
+		elif event.is_action_pressed("tab_left"):
+			get_tree().root.set_input_as_handled()
+			left_button.audio_stream_player.play()
+			tab_left()
+		elif (
+			not is_opening
+			and (
+				event.is_action_pressed("pause") 
+				or event.is_action_pressed("ui_cancel"))):
+			get_tree().root.set_input_as_handled()
+			close()
+
+
+func tab_right():
+	if selected_screen == Screens.size() - 1:
+		selected_screen = 0
+	else:
+		selected_screen += 1
+	set_menu_container()
+
+
+func tab_left():
+	if selected_screen == 0:
+		selected_screen = Screens.size() - 1
+	else:
+		selected_screen -= 1
+	set_menu_container()
 
 
 func set_menu_container():
-	for child in %MenuContainer.get_children():
+	for child in menu_container.get_children():
 		child.queue_free()
 	
 	match selected_screen:
@@ -47,33 +76,36 @@ func set_menu_container():
 			set_inventory_grid()
 		Screens.MAP:
 			set_map()
-		Screens.OPTIONS:
-			set_options()
+		Screens.GAME:
+			set_game()
 
 
 func set_inventory_grid():
-	%Label.text = "Inventory"
+	header.text = "INVENTORY"
 	
 	var inventory_container = inventory_container_scene.instantiate()
-	%MenuContainer.add_child(inventory_container)
+	menu_container.add_child(inventory_container)
 	
 	inventory_container.set_slots()
 
 
 func set_map():
-	%Label.text = "Map"
+	header.text = "MAP"
 	
 	var map = map_scene.instantiate()
-	%MenuContainer.add_child(map)
+	menu_container.add_child(map)
 	map.draw_pin(map_pin_cell)
 
 
-func set_options():
-	%Label.text = "Options"
+func set_game():
+	header.text = "GAME"
+	
+	var game_container = game_container_scene.instantiate()
+	menu_container.add_child(game_container)
 
 
 func animate_open():
-	$AnimationPlayer.play("default")
+	animation_player.play("default")
 	
 	panel_container.pivot_offset = panel_container.size / 2
 	var tween = create_tween()
@@ -93,7 +125,7 @@ func close():
 	
 	PlayerVariables.pause_menu_screen = selected_screen
 	
-	$AnimationPlayer.play_backwards("default")
+	animation_player.play_backwards("default")
 	
 	var tween = create_tween()
 	tween.tween_property(panel_container, "scale", Vector2.ONE, 0)
