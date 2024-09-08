@@ -10,7 +10,7 @@ func _physics_process(_delta):
 
 
 func _unhandled_input(event):
-	if event.is_action_type():
+	if event.is_pressed():
 		get_tree().root.set_input_as_handled()
 		continue_to_main_menu()
 
@@ -22,8 +22,6 @@ func dissolve_title():
 
 
 func continue_to_main_menu():
-	MusicManager.fade_out(5.0)
-	
 	ScreenTransition.transition_to_main_menu()
 
 

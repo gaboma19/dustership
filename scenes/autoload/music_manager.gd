@@ -67,7 +67,7 @@ func fade_out_to(new_song):
 func fade_in(new_song):
 	var path = "res://music/mp3/%s.mp3"
 	stream = load(str(path % tracks.get(new_song)))
-	#print("Playing : ", str("res://", tracks.get(new_song)), " (fade_in)")
+
 	# tween music volume up to music_volume (normal/defined)
 	var tween_in = create_tween()
 	tween_in.tween_property(self, "volume_db", music_volume, transition_duration)
@@ -89,8 +89,9 @@ func unmute():
 
 func done_fade_out(new_song : String):
 	stop()
-	stream = load(str("res://", tracks.get(new_song)))
-	#print("Playing : ", str("res://", tracks.get(new_song)), " (callback fade_out_to)")
+	var path = "res://music/mp3/%s.mp3"
+	stream = load(str(path % tracks.get(new_song)))
+	
 	# tween music volume up to music_volume (normal/defined)
 	var tween_in = create_tween()
 	tween_in.tween_property(self, "volume_db", music_volume, transition_duration)

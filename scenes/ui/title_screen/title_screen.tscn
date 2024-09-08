@@ -6,6 +6,21 @@
 [ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_x182u"]
 [ext_resource type="Material" uid="uid://dh4hd54vel13c" path="res://resources/materials/fire_dissolve_material.tres" id="4_4x45e"]
 
+[sub_resource type="Animation" id="Animation_nwhfy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ncvqa"]
 resource_name = "blink"
 length = 1.6
@@ -21,21 +36,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_nwhfy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_li3h3"]

@@ -19,7 +19,7 @@ extends CanvasLayer
 
 
 func _ready():
-	MusicManager.play_track("heartbeat_of_the_dustership")
+	MusicManager.fade_out_to("heartbeat_of_the_dustership")
 	
 	play_button.pressed.connect(on_play_button_pressed)
 	save_back_button.pressed.connect(on_back_button_pressed)
