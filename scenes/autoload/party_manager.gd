@@ -180,7 +180,8 @@ func save_data() -> Dictionary:
 	
 	# save the member_scenes array, which isn't cleared by SceneTransition
 	for player in member_scenes:
-		member_names.append(player.character_name)
+		var player_name = scene_dictionary.find_key(player)
+		member_names.append(player_name)
 	
 	return { "members": member_names }
 

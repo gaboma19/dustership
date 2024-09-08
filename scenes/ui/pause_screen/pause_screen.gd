@@ -15,33 +15,56 @@ var map_pin_cell: Vector2i
 @onready var panel_container: PanelContainer = %PanelContainer
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var header: Label = %Header
+@onready var left_button_2 = %LeftButton2
+@onready var left_button = %LeftButton
+@onready var right_button = %RightButton
+@onready var right_button_2 = %RightButton2
 
 
 func _ready():
 	get_tree().paused = true
 	set_menu_container()
 	animate_open()
+	
+	left_button.pressed.connect(tab_left)
+	left_button_2.pressed.connect(tab_left)
+	right_button.pressed.connect(tab_right)
+	right_button_2.pressed.connect(tab_right)
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("switch_character"):
-		get_tree().root.set_input_as_handled()
-		if selected_screen == Screens.size() - 1:
-			selected_screen = 0
-		else:
-			selected_screen += 1
-		set_menu_container()
-	elif (
-		!is_opening
-		and
-		!PopUp.visible
-		and (
-			event.is_action_pressed("pause")
-			or event.is_action_pressed("ui_cancel")
-		)
-	):
-		get_tree().root.set_input_as_handled()
-		close()
+	if not PopUp.visible:
+		if event.is_action_pressed("tab_right"):
+			get_tree().root.set_input_as_handled()
+			right_button.audio_stream_player.play()
+			tab_right()
+		elif event.is_action_pressed("tab_left"):
+			get_tree().root.set_input_as_handled()
+			left_button.audio_stream_player.play()
+			tab_left()
+		elif (
+			not is_opening
+			and (
+				event.is_action_pressed("pause") 
+				or event.is_action_pressed("ui_cancel"))):
+			get_tree().root.set_input_as_handled()
+			close()
+
+
+func tab_right():
+	if selected_screen == Screens.size() - 1:
+		selected_screen = 0
+	else:
+		selected_screen += 1
+	set_menu_container()
+
+
+func tab_left():
+	if selected_screen == 0:
+		selected_screen = Screens.size() - 1
+	else:
+		selected_screen -= 1
+	set_menu_container()
 
 
 func set_menu_container():
@@ -58,7 +81,7 @@ func set_menu_container():
 
 
 func set_inventory_grid():
-	header.text = "Inventory"
+	header.text = "INVENTORY"
 	
 	var inventory_container = inventory_container_scene.instantiate()
 	menu_container.add_child(inventory_container)
@@ -67,7 +90,7 @@ func set_inventory_grid():
 
 
 func set_map():
-	header.text = "Map"
+	header.text = "MAP"
 	
 	var map = map_scene.instantiate()
 	menu_container.add_child(map)
@@ -75,7 +98,7 @@ func set_map():
 
 
 func set_game():
-	header.text = "Game"
+	header.text = "GAME"
 	
 	var game_container = game_container_scene.instantiate()
 	menu_container.add_child(game_container)
