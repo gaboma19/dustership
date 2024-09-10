@@ -103,6 +103,7 @@ shader_parameter/percent = 0.5
 shader_parameter/transition_texture = ExtResource("3_6hcs7")
 
 [node name="ScreenTransition" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_qxdhp")
 overworld_path = "res://scenes/overworld/overworld.tscn"
 main_menu_path = "res://scenes/ui/main_menu/main_menu.tscn"

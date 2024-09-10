@@ -5,7 +5,7 @@
 
 [node name="MapTiles" type="TileMap"]
 y_sort_enabled = true
-scale = Vector2(3, 3)
+scale = Vector2(2, 2)
 tile_set = ExtResource("1_d3e8s")
 format = 2
 layer_0/y_sort_enabled = true
