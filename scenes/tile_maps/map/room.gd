@@ -1,10 +1,11 @@
 extends Node
+class_name Room
 
 var neighbors: Dictionary = {
-	Vector2.UP: null,
-	Vector2.DOWN: null,
-	Vector2.LEFT: null,
-	Vector2.RIGHT: null
+	Vector2i.UP: null,
+	Vector2i.DOWN: null,
+	Vector2i.LEFT: null,
+	Vector2i.RIGHT: null
 }
 
 var number_of_neighbors: int = 0

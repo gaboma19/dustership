@@ -89,6 +89,6 @@ texture = ExtResource("1_wbwr0")
 [resource]
 tile_layout = 5
 terrain_set_0/mode = 2
-terrain_set_0/terrain_0/name = "Terrain 0"
+terrain_set_0/terrain_0/name = "rooms"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_tlb7x")

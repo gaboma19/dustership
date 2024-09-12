@@ -1,4 +1,5 @@
 extends Node
+class_name MapGenerator
 
 @export var room_scene: PackedScene
 
@@ -14,7 +15,7 @@ func generate(map_seed):
 	
 	size = randi_range(6, 10)
 	
-	map[Vector2(0, 0)] = room_scene.instantiate()
+	map[Vector2i(0, 0)] = room_scene.instantiate()
 	size -= 1
 	
 	while size > 0:
@@ -22,27 +23,30 @@ func generate(map_seed):
 			if randf() < generation_chance:
 				var direction = randi_range(1, 4)
 				if direction == 1:
-					add_neighbor(i, Vector2.RIGHT)
+					add_neighbor(i, Vector2i.RIGHT)
 				elif direction == 2:
-					add_neighbor(i, Vector2.LEFT)
+					add_neighbor(i, Vector2i.LEFT)
 				elif direction == 3:
-					add_neighbor(i, Vector2.UP)
+					add_neighbor(i, Vector2i.UP)
 				elif direction == 4:
-					add_neighbor(i, Vector2.DOWN)
+					add_neighbor(i, Vector2i.DOWN)
 	
 	while not is_interesting(map):
-		for i in map.keys():
-			map.get(i).queue_free()
+		for pos in map.keys():
+			map.get(pos).queue_free()
+		
 		map = generate(map_seed * randf_range(-1, 1) + randf_range(-1, 1))
+	
 	return map
 
 
-func add_neighbor(position: Vector2, direction: Vector2):
+func add_neighbor(position: Vector2i, direction: Vector2i):
 	var new_room_position = position + direction
 	
 	if not map.has(new_room_position):
 		map[new_room_position] = room_scene.instantiate()
 		size -= 1
+	
 	if map.get(position).neighbors.get(direction) == null:
 		connect_rooms(map.get(position), map.get(new_room_position), direction)
 
