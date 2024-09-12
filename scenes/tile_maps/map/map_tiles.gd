@@ -1,6 +1,7 @@
-extends TileMap
+extends TileMapLayer
 
-const TERRAIN_ID = 0
+const TERRAIN = 0
+const TERRAIN_SET = 0
 
 var map: Dictionary = {}
 
@@ -8,8 +9,8 @@ var map: Dictionary = {}
 
 
 func _ready():
-	var seed = generate_seed()
-	map = map_generator.generate(seed)
+	var s = generate_seed()
+	map = map_generator.generate(s)
 	
 	load_map()
 
@@ -25,7 +26,8 @@ func load_map():
 	
 	for pos in map.keys():
 		var room: Room = map.get(pos)
-		for neighbor in room.neighbors:
-			if neighbor != null:
-				var path: Array[Vector2i] = [pos, neighbor]
-				set_cells_terrain_path(TERRAIN_ID, path, TERRAIN_ID, TERRAIN_ID)
+		for k in room.neighbors.keys():
+			if room.neighbors[k] != null:
+				var neighbor_pos = pos + (k as Vector2i)
+				var path: Array[Vector2i] = [pos, neighbor_pos]
+				set_cells_terrain_path(path, TERRAIN_SET, TERRAIN)

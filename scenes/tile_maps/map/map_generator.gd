@@ -41,7 +41,7 @@ func generate(map_seed):
 
 
 func add_neighbor(position: Vector2i, direction: Vector2i):
-	var new_room_position = position + direction
+	var new_room_position: Vector2i = position + direction
 	
 	if not map.has(new_room_position):
 		map[new_room_position] = room_scene.instantiate()
@@ -61,7 +61,7 @@ func connect_rooms(room_1, room_2, direction: Vector2):
 func is_interesting(dungeon):
 	var number_rooms_with_three_neighbors = 0
 	for i in dungeon.keys():
-		if dungeon.get(i).number_of_connections >= 3:
+		if dungeon.get(i).number_of_neighbors >= 3:
 			number_rooms_with_three_neighbors += 1
 	
 	return number_rooms_with_three_neighbors >= 2
