@@ -1,6 +1,5 @@
 extends Sprite2D
 
-@export var scene_path: String
 @export var player_position: Vector2
 @export var ingress_id: String
 
@@ -25,6 +24,9 @@ func set_active(value: bool):
 func on_player_entered(_player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
+	LevelManager.create_dungeon()
+	var scene_path = LevelManager.get_scene(Vector2i(0, 0))
+	
 	if scene_path.is_empty():
 		set_active(false)
 		return
@@ -32,6 +34,3 @@ func on_player_entered(_player_component: Area2D):
 	var active_member_name = Constants.CharacterNames.APRIL
 	ScreenTransition.transition_to_level_with_active_member_name(
 		scene_path, player_position, active_member_name)
-	
-	# call LevelManager to generate a  
-	# map and provide a starting level scene path

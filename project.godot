@@ -38,6 +38,7 @@ HitStop="*res://scenes/autoload/hit_stop.gd"
 MusicManager="*res://scenes/autoload/music_manager.tscn"
 OverworldVariables="*res://scenes/autoload/overworld_variables.tscn"
 SaveManager="*res://scenes/autoload/save_manager.tscn"
+LevelManager="*res://scenes/autoload/level_manager.tscn"
 
 [debug]
 

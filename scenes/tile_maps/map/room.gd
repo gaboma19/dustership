@@ -9,3 +9,4 @@ var neighbors: Dictionary = {
 }
 
 var number_of_neighbors: int = 0
+var scene_path: String
