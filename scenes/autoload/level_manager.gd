@@ -3,7 +3,6 @@ extends Node
 @onready var map_tiles = $MapTiles
 
 
-# called by overworld_combat_tile
 func create_dungeon():
 	map_tiles.create_map()
 	populate_rooms()
@@ -15,11 +14,19 @@ func get_scene(position: Vector2i) -> String:
 	return room.scene_path
 
 
-# assigns references to level scene paths for each position on the map
-# populates a Dictionary { map position: scene path string }
-# the scene path dictionary is looked up by level transition areas in each room
 func populate_rooms():
-	pass
+	var map = map_tiles.map
+	
+	for pos in map.keys():
+		var room: Room = map.get(pos)
+		var path = get_random_scene_path(room)
+		room.scene_path = path
+
+
+# picks a random random_room scene path that matches the 
+# neighbors data on the room
+func get_random_scene_path(room: Room) -> String:
+	return "res://scenes/levels/echelon/echelon_random/echelon_random.tscn"
 
 
 # returns the tilemap from $MapTiles after the rooms are generated

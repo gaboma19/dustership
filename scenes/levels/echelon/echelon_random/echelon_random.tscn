@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://di5ln4iwb2aej"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_clc4r"]
+[ext_resource type="Script" path="res://scenes/levels/random_level.gd" id="1_sxo1a"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_db4j1"]
 [ext_resource type="PackedScene" uid="uid://bey7edubynppe" path="res://scenes/tile_maps/echelon/echelon_tile_map.tscn" id="3_6vxif"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="4_lgv5t"]
@@ -17,11 +17,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sp1pt"]
 size = Vector2(64, 64)
 
-[node name="EchelonRandom" type="Node2D" node_paths=PackedStringArray("game_start")]
+[node name="EchelonRandom" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_clc4r")
-map_pin_cell = Vector2i(28, 15)
-game_start = NodePath("GameStart")
+script = ExtResource("1_sxo1a")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_db4j1")]
 

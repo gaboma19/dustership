@@ -679,7 +679,7 @@ height = 26.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_s0013"]
 radius = 135.0
 
-[node name="Saguaro" type="CharacterBody2D"]
+[node name="Saguaro" type="CharacterBody2D" groups=["enemy"]]
 collision_layer = 256
 collision_mask = 801
 script = ExtResource("1_ykr4p")
