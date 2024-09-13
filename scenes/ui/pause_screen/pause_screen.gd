@@ -94,7 +94,6 @@ func set_map():
 	
 	var map = map_scene.instantiate()
 	menu_container.add_child(map)
-	map.draw_pin(map_pin_cell)
 
 
 func set_game():

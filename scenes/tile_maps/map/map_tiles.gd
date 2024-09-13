@@ -8,7 +8,7 @@ var map: Dictionary = {}
 @onready var map_generator: MapGenerator = $MapGenerator
 
 
-func _ready():
+func create_map():
 	var s = generate_seed()
 	map = map_generator.generate(s)
 	
@@ -26,6 +26,7 @@ func load_map():
 	
 	for pos in map.keys():
 		var room: Room = map.get(pos)
+		
 		for k in room.neighbors.keys():
 			if room.neighbors[k] != null:
 				var neighbor_pos = pos + (k as Vector2i)

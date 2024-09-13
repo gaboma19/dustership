@@ -32,3 +32,6 @@ func on_player_entered(_player_component: Area2D):
 	var active_member_name = Constants.CharacterNames.APRIL
 	ScreenTransition.transition_to_level_with_active_member_name(
 		scene_path, player_position, active_member_name)
+	
+	# call LevelManager to generate a  
+	# map and provide a starting level scene path
