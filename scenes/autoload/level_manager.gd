@@ -19,13 +19,13 @@ func populate_rooms():
 	
 	for pos in map.keys():
 		var room: Room = map.get(pos)
-		var path = get_random_scene_path(room)
+		var path = get_random_scene_path()
 		room.scene_path = path
 
 
-# picks a random random_room scene path that matches the 
-# neighbors data on the room
-func get_random_scene_path(room: Room) -> String:
+# picks a random random_room scene path
+# from 4 variations in the folder /echelon_random/
+func get_random_scene_path() -> String:
 	return "res://scenes/levels/echelon/echelon_random/echelon_random.tscn"
 
 
@@ -36,5 +36,5 @@ func get_tile_map_pattern() -> TileMapPattern:
 
 
 # returns the local map position of the player to place the map pin
-func get_player_map_position() -> Vector2i:
+func get_player_dungeon_position() -> Vector2i:
 	return Vector2i.ZERO

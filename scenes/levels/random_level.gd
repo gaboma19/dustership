@@ -7,15 +7,13 @@ var reward: InventoryItem
 
 
 func _ready():
-	map_pin_cell = LevelManager.get_player_map_position()
-	
 	var enemies = get_tree().get_nodes_in_group("enemy")
-	
-	total_enemies = enemies.size()
-	
 	for e in enemies:
 		var health_component = e.get_node("HealthComponent")
 		health_component.died.connect(on_enemy_died)
+	
+	total_enemies = enemies.size()
+	map_pin_cell = LevelManager.get_player_dungeon_position()
 
 
 # pastes entrance exit patterns on tilemap

@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cbe8bpb07410p"]
+[gd_scene load_steps=5 format=3 uid="uid://cbe8bpb07410p"]
 
 [ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_7a6ng"]
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/map/map.gd" id="1_wh1ui"]
 [ext_resource type="Texture2D" uid="uid://ck4l415mu1e0s" path="res://assets/ui/pause_screen/tile_0185.png" id="2_2vit1"]
+[ext_resource type="PackedScene" uid="uid://bjom46dk4nnfc" path="res://scenes/tile_maps/map/map_tiles.tscn" id="4_eqajd"]
 
 [node name="Map" type="PanelContainer"]
 clip_contents = true
@@ -39,3 +40,6 @@ metadata/_aseprite_wizard_config_ = {
 metadata/_aseprite_wizard_interface_config_ = {
 "output_section": false
 }
+
+[node name="MapTiles" parent="." instance=ExtResource("4_eqajd")]
+script = null
