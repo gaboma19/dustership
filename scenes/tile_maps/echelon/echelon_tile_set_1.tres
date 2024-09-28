@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=48 format=3 uid="uid://c1unmjqcqtjgr"]
+[gd_resource type="TileSet" load_steps=54 format=3 uid="uid://c1unmjqcqtjgr"]
 
 [ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_jdktg"]
 [ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_7hwwx"]
@@ -12,6 +12,24 @@
 [ext_resource type="Texture2D" uid="uid://nwd1h6jeex5m" path="res://assets/echelon_tiles/ramp_tiles.png" id="10_bv1fw"]
 [ext_resource type="Texture2D" uid="uid://d0ps27d7pb1s5" path="res://assets/echelon_tiles/eremite_cliff_tiles.png" id="11_eruc2"]
 [ext_resource type="Texture2D" uid="uid://kg80fk7b5ti8" path="res://assets/echelon_tiles/eremite_wall_tiles.png" id="11_h7k0c"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_g2ymf"]
+tile_data = PackedInt32Array(0, 65542, 1, 65536, 65542, 6, 131072, 327686, 4, 1, 262150, 3, 65537, 458758, 2, 131073, 131078, 5)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_qenh6"]
+tile_data = PackedInt32Array(0, 131078, 5, 65536, 393222, 4, 1, 262150, 1, 65537, 196614, 7, 2, 262150, 3, 65538, 131078, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_1pmjb"]
+tile_data = PackedInt32Array(0, 327686, 2, 65536, 65542, 6, 131072, 196614, 4, 1, 393222, 4, 65537, 131078, 4, 131073, 131078, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_e6iyt"]
+tile_data = PackedInt32Array(0, 65542, 1, 65536, 196614, 4, 1, 196614, 5, 65537, 262150, 2, 2, 327686, 4, 65538, 327686, 2)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_hubs8"]
+tile_data = PackedInt32Array(0, 458757, 0, 1, 262149, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_wixaf"]
+tile_data = PackedInt32Array(0, 262149, 0, 1, 393221, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjo24"]
 resource_name = "pavement"
@@ -4109,3 +4127,9 @@ sources/9 = SubResource("TileSetAtlasSource_laaj1")
 sources/10 = SubResource("TileSetAtlasSource_ejvon")
 sources/11 = SubResource("TileSetAtlasSource_r36hr")
 sources/12 = SubResource("TileSetAtlasSource_k3n0e")
+pattern_0 = SubResource("TileMapPattern_g2ymf")
+pattern_1 = SubResource("TileMapPattern_qenh6")
+pattern_2 = SubResource("TileMapPattern_1pmjb")
+pattern_3 = SubResource("TileMapPattern_e6iyt")
+pattern_4 = SubResource("TileMapPattern_hubs8")
+pattern_5 = SubResource("TileMapPattern_wixaf")
