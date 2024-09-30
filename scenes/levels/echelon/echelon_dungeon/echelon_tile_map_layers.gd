@@ -1,6 +1,6 @@
 extends Node2D
 
-enum Patterns { NORTH, EAST, SOUTH, WEST, x, CLIFF_WEST, CLIFF_EAST }
+enum Patterns { NORTH, EAST, SOUTH, WEST, CLIFF_WEST, CLIFF_EAST }
 
 @export var north_door_position: Vector2i
 @export var south_door_position: Vector2i
