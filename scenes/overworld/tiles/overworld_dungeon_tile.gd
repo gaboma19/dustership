@@ -25,12 +25,13 @@ func on_player_entered(_player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
 	LevelManager.create_dungeon()
-	var scene_path = LevelManager.get_scene(Vector2i(0, 0))
+	var room: Room = LevelManager.get_room(Vector2i.ZERO)
+	var scene_path = room.scene_path
 	
 	if scene_path.is_empty():
 		set_active(false)
 		return
 	
 	var active_member_name = Constants.CharacterNames.APRIL
-	ScreenTransition.transition_to_level_with_active_member_name(
-		scene_path, player_position, active_member_name)
+	ScreenTransition.transition_to_dungeon_level(
+		scene_path, player_position, active_member_name, room)

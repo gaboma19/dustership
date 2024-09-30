@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=54 format=3 uid="uid://c1unmjqcqtjgr"]
+[gd_resource type="TileSet" load_steps=55 format=3 uid="uid://c1unmjqcqtjgr"]
 
 [ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_jdktg"]
 [ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_7hwwx"]
@@ -26,9 +26,11 @@ tile_data = PackedInt32Array(0, 327686, 2, 65536, 65542, 6, 131072, 196614, 4, 1
 tile_data = PackedInt32Array(0, 65542, 1, 65536, 196614, 4, 1, 196614, 5, 65537, 262150, 2, 2, 327686, 4, 65538, 327686, 2)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_hubs8"]
-tile_data = PackedInt32Array(0, 458757, 0, 1, 262149, 0)
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_wixaf"]
+tile_data = PackedInt32Array(0, 262149, 0, 1, 393221, 0)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_p7ka1"]
 tile_data = PackedInt32Array(0, 262149, 0, 1, 393221, 0)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sjo24"]
@@ -4133,3 +4135,4 @@ pattern_2 = SubResource("TileMapPattern_1pmjb")
 pattern_3 = SubResource("TileMapPattern_e6iyt")
 pattern_4 = SubResource("TileMapPattern_hubs8")
 pattern_5 = SubResource("TileMapPattern_wixaf")
+pattern_6 = SubResource("TileMapPattern_p7ka1")

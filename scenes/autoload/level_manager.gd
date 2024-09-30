@@ -8,6 +8,10 @@ func create_dungeon():
 	populate_rooms()
 
 
+func get_room(position: Vector2i) -> Room:
+	return map_tiles.map.get(position)
+
+
 func get_scene(position: Vector2i) -> String:
 	var room: Room = map_tiles.map.get(position)
 	

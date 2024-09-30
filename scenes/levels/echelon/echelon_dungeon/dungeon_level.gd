@@ -1,9 +1,12 @@
 extends Level
 
+@export var echelon_tiles: Node2D
+
 var number_dead_enemies: int = 0
 var total_enemies: int = 0
 var chest_scene = preload("res://scenes/entities/chest/chest.tscn")
 var reward: InventoryItem
+var room: Room
 
 
 func _ready():
@@ -14,11 +17,15 @@ func _ready():
 	
 	total_enemies = enemies.size()
 	map_pin_cell = LevelManager.get_player_dungeon_position()
+	
+	set_doorways(room)
 
 
-# pastes entrance exit patterns on tilemap
-func set_doorways():
-	pass
+func set_doorways(room: Room):
+	if echelon_tiles == null || room == null:
+		return
+	
+	echelon_tiles.set_doorways(room)
 
 
 # pastes prickly pear tiles
