@@ -27,18 +27,18 @@ func populate_rooms():
 		room.scene_path = path
 
 
-# picks a random random_room scene path
-# from 4 variations in the folder /echelon_random/
+## picks a random random_room scene path
+## from 4 variations in the folder /echelon_random/
 func get_random_scene_path() -> String:
-	return "res://scenes/levels/echelon/echelon_random/echelon_random.tscn"
+	return "res://scenes/levels/echelon/echelon_dungeon/echelon_dungeon_level.tscn"
 
 
-# returns the tilemap from $MapTiles after the rooms are generated
-# to be copied to the pause screen menu
+## returns the tilemap from $MapTiles after the rooms are generated
+## to be copied to the pause screen menu
 func get_tile_map_pattern() -> TileMapPattern:
 	return TileMapPattern.new()
 
 
-# returns the local map position of the player to place the map pin
+## returns the local map position of the player to place the map pin
 func get_player_dungeon_position() -> Vector2i:
 	return Vector2i.ZERO

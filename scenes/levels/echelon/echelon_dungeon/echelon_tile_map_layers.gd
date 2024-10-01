@@ -26,6 +26,8 @@ func paste_doorway(direction: Vector2i):
 	var cliffs_pattern: TileMapPattern
 	var cliffs_position: Vector2i
 	
+	print(direction)
+	
 	match direction:
 		Vector2i.UP:
 			pattern = tile_set.get_pattern(Patterns.NORTH)

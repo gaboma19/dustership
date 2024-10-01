@@ -51,7 +51,7 @@ func add_neighbor(position: Vector2i, direction: Vector2i):
 		connect_rooms(map.get(position), map.get(new_room_position), direction)
 
 
-func connect_rooms(room_1, room_2, direction: Vector2):
+func connect_rooms(room_1, room_2, direction: Vector2i):
 	room_1.neighbors[direction] = room_2
 	room_2.neighbors[-direction] = room_1
 	room_1.number_of_neighbors += 1

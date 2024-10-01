@@ -50,9 +50,11 @@ func transition_to_level_with_active_member_name(scene_path: String,
 	
 	transition_in()
 
-
+## passes the room reference to dungeon_level
 func transition_to_dungeon_level(scene_path: String, player_position: Vector2, 
 		active_member_name: Constants.CharacterNames, room: Room):
+	
+	
 	PartyManager.clear_members()
 	
 	transition_out()

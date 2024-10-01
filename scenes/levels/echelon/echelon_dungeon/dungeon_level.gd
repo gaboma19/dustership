@@ -19,10 +19,10 @@ func _ready():
 	total_enemies = enemies.size()
 	map_pin_cell = LevelManager.get_player_dungeon_position()
 	
-	set_doorways(room)
+	set_doorways()
 
 
-func set_doorways(room: Room):
+func set_doorways():
 	if echelon_tiles == null || room == null:
 		return
 	
@@ -30,13 +30,13 @@ func set_doorways(room: Room):
 	level_transition_areas.set_doorways(room)
 
 
-# pastes prickly pear tiles
+## pastes prickly pear tiles
 func set_prickly_pears():
 	pass
 
 
-# open the doorways
-# spawn a treasure chest with `reward`
+## open the doorways
+## spawn a treasure chest with `reward`
 func win():
 	print("You win!")
 

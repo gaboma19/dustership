@@ -24,6 +24,7 @@ func set_active(value: bool):
 func on_player_entered(_player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
+	## create a dungeon and get the first room
 	LevelManager.create_dungeon()
 	var room: Room = LevelManager.get_room(Vector2i.ZERO)
 	var scene_path = room.scene_path
