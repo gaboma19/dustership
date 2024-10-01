@@ -1,6 +1,7 @@
 extends Level
 
 @export var echelon_tiles: Node2D
+@export var level_transition_areas: Node2D
 
 var number_dead_enemies: int = 0
 var total_enemies: int = 0
@@ -26,6 +27,7 @@ func set_doorways(room: Room):
 		return
 	
 	echelon_tiles.set_doorways(room)
+	level_transition_areas.set_doorways(room)
 
 
 # pastes prickly pear tiles

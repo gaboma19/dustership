@@ -95,10 +95,11 @@ size = Vector2(20, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0wy1"]
 size = Vector2(20, 64)
 
-[node name="EchelonDungeonLevel" type="Node2D" node_paths=PackedStringArray("echelon_tiles")]
+[node name="EchelonDungeonLevel" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "level_transition_areas")]
 y_sort_enabled = true
 script = ExtResource("1_x2jwr")
 echelon_tiles = NodePath("EchelonTileMapLayers")
+level_transition_areas = NodePath("LevelTransitionAreas")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_itn3t")]
 
