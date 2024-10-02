@@ -67,7 +67,8 @@ func transition_to_dungeon_level(scene_path: String, player_position: Vector2,
 	var level = get_tree().current_scene
 	
 	level.set_player_position(player_position, active_member_name)
-	level.room = room
+	
+	level.set_doorways(room)
 	transition_in()
 
 
