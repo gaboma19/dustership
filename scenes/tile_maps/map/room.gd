@@ -10,3 +10,4 @@ var neighbors: Dictionary = {
 
 var number_of_neighbors: int = 0
 var scene_path: String = ""
+var map_position: Vector2i = Vector2i.ZERO

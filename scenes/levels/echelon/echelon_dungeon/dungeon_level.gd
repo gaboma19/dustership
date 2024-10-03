@@ -7,6 +7,7 @@ var number_dead_enemies: int = 0
 var total_enemies: int = 0
 var chest_scene = preload("res://scenes/entities/chest/chest.tscn")
 var reward: InventoryItem
+var room: Room
 
 
 func _ready():
@@ -19,7 +20,7 @@ func _ready():
 	map_pin_cell = LevelManager.get_player_dungeon_position()
 
 
-func set_doorways(room: Room):
+func set_doorways():
 	if echelon_tiles == null || room == null:
 		return
 	

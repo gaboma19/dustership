@@ -1,11 +1,19 @@
 extends Node
 
+var player_dungeon_position: Vector2i = Vector2i.ZERO
+
 @onready var map_tiles = $MapTiles
 
 
 func create_dungeon():
 	map_tiles.create_map()
 	populate_rooms()
+
+
+## called on dungeon exit
+func clear_dungeon():
+	map_tiles.clear()
+	player_dungeon_position = Vector2i.ZERO
 
 
 func get_room(position: Vector2i) -> Room:
@@ -23,8 +31,11 @@ func populate_rooms():
 	
 	for pos in map.keys():
 		var room: Room = map.get(pos)
+		
 		var path = get_random_scene_path()
 		room.scene_path = path
+		
+		room.map_position = pos
 
 
 ## picks a random random_room scene path
@@ -37,8 +48,3 @@ func get_random_scene_path() -> String:
 ## to be copied to the pause screen menu
 func get_tile_map_pattern() -> TileMapPattern:
 	return TileMapPattern.new()
-
-
-## returns the local map position of the player to place the map pin
-func get_player_dungeon_position() -> Vector2i:
-	return Vector2i.ZERO

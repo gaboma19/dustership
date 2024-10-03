@@ -32,7 +32,6 @@ func generate(map_seed):
 					add_neighbor(i, Vector2i.DOWN)
 	
 	while not is_interesting(map):
-		print("ping")
 		for pos in map.keys():
 			map.get(pos).queue_free()
 		map.clear()

@@ -1,4 +1,5 @@
 extends Area2D
+class_name LevelTransitionArea
 
 @export var path: String
 @export var new_player_position: Vector2

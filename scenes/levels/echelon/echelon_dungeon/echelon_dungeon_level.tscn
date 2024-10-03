@@ -99,7 +99,7 @@ size = Vector2(20, 64)
 y_sort_enabled = true
 script = ExtResource("1_x2jwr")
 echelon_tiles = NodePath("EchelonTileMapLayers")
-level_transition_areas = NodePath("LevelTransitionAreas")
+level_transition_areas = NodePath("DungeonTransitionAreas")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_itn3t")]
 
@@ -214,29 +214,29 @@ texture = SubResource("PlaceholderTexture2D_0igbp")
 position = Vector2(32, 0)
 shape = SubResource("RectangleShape2D_sp1pt")
 
-[node name="LevelTransitionAreas" type="Node2D" parent="."]
+[node name="DungeonTransitionAreas" type="Node2D" parent="."]
 script = ExtResource("13_dq05x")
 
-[node name="LevelTransitionAreaNorth" parent="LevelTransitionAreas" instance=ExtResource("13_gn8lv")]
+[node name="LevelTransitionAreaNorth" parent="DungeonTransitionAreas" instance=ExtResource("13_gn8lv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionAreas/LevelTransitionAreaNorth"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTransitionAreas/LevelTransitionAreaNorth"]
 position = Vector2(0, -214)
 shape = SubResource("RectangleShape2D_74vqm")
 
-[node name="LevelTransitionAreaSouth" parent="LevelTransitionAreas" instance=ExtResource("13_gn8lv")]
+[node name="LevelTransitionAreaSouth" parent="DungeonTransitionAreas" instance=ExtResource("13_gn8lv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionAreas/LevelTransitionAreaSouth"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTransitionAreas/LevelTransitionAreaSouth"]
 position = Vector2(0, 214)
 shape = SubResource("RectangleShape2D_74vqm")
 
-[node name="LevelTransitionAreaWest" parent="LevelTransitionAreas" instance=ExtResource("13_gn8lv")]
+[node name="LevelTransitionAreaWest" parent="DungeonTransitionAreas" instance=ExtResource("13_gn8lv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionAreas/LevelTransitionAreaWest"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTransitionAreas/LevelTransitionAreaWest"]
 position = Vector2(-246, 0)
 shape = SubResource("RectangleShape2D_luc54")
 
-[node name="LevelTransitionAreaEast" parent="LevelTransitionAreas" instance=ExtResource("13_gn8lv")]
+[node name="LevelTransitionAreaEast" parent="DungeonTransitionAreas" instance=ExtResource("13_gn8lv")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="LevelTransitionAreas/LevelTransitionAreaEast"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonTransitionAreas/LevelTransitionAreaEast"]
 position = Vector2(246, 0)
 shape = SubResource("RectangleShape2D_l0wy1")
