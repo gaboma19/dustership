@@ -2,6 +2,7 @@ extends TileMapLayer
 
 const TERRAIN = 0
 const TERRAIN_SET = 0
+const SOURCE_ID = 1
 
 var map: Dictionary = {}
 
@@ -32,3 +33,10 @@ func load_map():
 				var neighbor_pos = pos + (k as Vector2i)
 				var path: Array[Vector2i] = [pos, neighbor_pos]
 				set_cells_terrain_path(path, TERRAIN_SET, TERRAIN)
+
+
+func draw_player_token(coords: Vector2i):
+	const ALTERNATIVE_TILE = 1
+	var atlas_coords: Vector2i = get_cell_atlas_coords(coords)
+	
+	set_cell(coords, SOURCE_ID, atlas_coords, ALTERNATIVE_TILE)

@@ -1,6 +1,11 @@
 extends Node
 
-var player_dungeon_position: Vector2i = Vector2i.ZERO
+var player_dungeon_position: Vector2i = Vector2i.ZERO:
+	get:
+		return player_dungeon_position
+	set(coords):
+		player_dungeon_position = coords
+		map_tiles.draw_player_token(coords)
 
 @onready var map_tiles = $MapTiles
 

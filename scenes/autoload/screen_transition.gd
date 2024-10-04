@@ -7,6 +7,7 @@ const ANIMATION_LENGTH: float = 0.4
 
 
 func transition_in():
+	await get_tree().create_timer(0.2).timeout
 	$AnimationPlayer.play("transition_in")
 
 
@@ -53,8 +54,6 @@ func transition_to_level_with_active_member_name(scene_path: String,
 ## passes the room reference to dungeon_level
 func transition_to_dungeon_level(scene_path: String, player_position: Vector2, 
 		active_member_name: Constants.CharacterNames, room: Room):
-	
-	
 	PartyManager.clear_members()
 	
 	transition_out()
@@ -70,6 +69,8 @@ func transition_to_dungeon_level(scene_path: String, player_position: Vector2,
 	
 	level.room = room
 	level.set_doorways()
+	
+	DungeonManager.player_dungeon_position = room.map_position
 	
 	transition_in()
 
