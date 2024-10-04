@@ -17,7 +17,7 @@ func _ready():
 		health_component.died.connect(on_enemy_died)
 	
 	total_enemies = enemies.size()
-	map_pin_cell = LevelManager.get_player_dungeon_position()
+	map_pin_cell = DungeonManager.get_player_dungeon_position()
 
 
 func set_doorways():

@@ -14,7 +14,7 @@ func _process(_delta):
 
 
 func load_map():
-	var pattern = LevelManager.get_tile_map_pattern()
+	var pattern = DungeonManager.get_tile_map_pattern()
 	map_tiles.set_pattern(Vector2i(0, 0), pattern)
 
 

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dogvp15fbrsrd"]
+
+[ext_resource type="Script" path="res://scenes/autoload/dungeon_manager.gd" id="1_5x43m"]
+[ext_resource type="PackedScene" uid="uid://bjom46dk4nnfc" path="res://scenes/tile_maps/map/map_tiles.tscn" id="2_ivf8t"]
+
+[node name="DungeonManager" type="Node"]
+script = ExtResource("1_5x43m")
+
+[node name="MapTiles" parent="." instance=ExtResource("2_ivf8t")]
