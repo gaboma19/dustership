@@ -15,7 +15,7 @@ func create_map():
 	map = map_generator.generate(s)
 	
 	load_map()
-	set_control_rect()
+	set_control_size()
 
 
 func generate_seed() -> int:
@@ -37,16 +37,15 @@ func load_map():
 				set_cells_terrain_path(path, TERRAIN_SET, TERRAIN)
 
 
-func set_control_rect():
+func set_control_size():
+	var tile_size = tile_set.tile_size
 	var rect = get_used_rect()
-	var size = rect.size * Vector2i(16, 16)
-	
-	print(rect)
-	print(size)
+	var size = rect.size * tile_size
+	var offset = rect.position * tile_size * -1
 	
 	control.custom_minimum_size = size
-	position.x = size.x / 2
-	position.y = size.y / 2
+	position.x = offset.x
+	position.y = offset.y
 
 
 func draw_player_token(coords: Vector2i):
