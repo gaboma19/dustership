@@ -1,9 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://dogvp15fbrsrd"]
+[gd_scene load_steps=3 format=4 uid="uid://dogvp15fbrsrd"]
 
 [ext_resource type="Script" path="res://scenes/autoload/dungeon_manager.gd" id="1_5x43m"]
 [ext_resource type="PackedScene" uid="uid://bjom46dk4nnfc" path="res://scenes/tile_maps/map/map_tiles.tscn" id="2_ivf8t"]
 
-[node name="DungeonManager" type="Node"]
+[node name="DungeonManager" type="CanvasLayer"]
 script = ExtResource("1_5x43m")
 
-[node name="MapTiles" parent="." instance=ExtResource("2_ivf8t")]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="Control" type="Control" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="MapTiles" parent="MarginContainer/Control" instance=ExtResource("2_ivf8t")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAAAAAAAQACAAEAAAD//wAAAQACAAEAAAD/////AQACAAEAAAAAAP//AQACAAEAAAABAP//AQACAAEAAAABAAAAAQACAAEAAAAAAAEAAQACAAEAAAD//wEAAQACAAEAAAD+/wEAAQACAAEAAAD+/wAAAQACAAEAAAD+////AQACAAEAAAD+//7/AQACAAEAAAD///7/AQACAAEAAAAAAP7/AQACAAEAAAABAAEAAQACAAEAAAABAP7/AQACAAEAAAABAP3/AQACAAMAAAAAAP3/AQACAAMAAAD///3/AQACAAMAAAD+//3/AQACAAMAAAD9//3/AQABAAIAAAD9//7/AQADAAMAAAD9////AQADAAMAAAD9/wAAAQADAAMAAAD9/wEAAQADAAMAAAD+/wIAAQAAAAMAAAD//wIAAQAAAAMAAAAAAAIAAQAAAAMAAAD9/wIAAQAAAAIAAAABAAIAAQAAAAMAAAACAAIAAQADAAIAAAACAAEAAQABAAMAAAACAAAAAQABAAMAAAACAP//AQABAAMAAAACAP7/AQABAAMAAAACAP3/AQACAAIAAAA=")

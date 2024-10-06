@@ -16,6 +16,7 @@ func _ready():
 	
 	HealthBar.show()
 	SteelCounter.show()
+	DungeonManager.show()
 
 
 func _unhandled_input(event):

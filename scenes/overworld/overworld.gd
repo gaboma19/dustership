@@ -17,6 +17,7 @@ func _ready():
 	
 	HealthBar.hide()
 	SteelCounter.hide()
+	DungeonManager.hide()
 
 
 func initialize_player():

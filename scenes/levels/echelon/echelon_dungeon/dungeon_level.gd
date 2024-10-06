@@ -17,6 +17,10 @@ func _ready():
 		health_component.died.connect(on_enemy_died)
 	
 	total_enemies = enemies.size()
+	
+	HealthBar.show()
+	SteelCounter.show()
+	DungeonManager.show()
 
 
 func set_doorways():

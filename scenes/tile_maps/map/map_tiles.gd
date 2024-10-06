@@ -7,6 +7,7 @@ const SOURCE_ID = 1
 var map: Dictionary = {}
 
 @onready var map_generator: MapGenerator = $MapGenerator
+@onready var control: Control = get_parent()
 
 
 func create_map():
@@ -14,6 +15,7 @@ func create_map():
 	map = map_generator.generate(s)
 	
 	load_map()
+	set_control_rect()
 
 
 func generate_seed() -> int:
@@ -33,6 +35,18 @@ func load_map():
 				var neighbor_pos = pos + (k as Vector2i)
 				var path: Array[Vector2i] = [pos, neighbor_pos]
 				set_cells_terrain_path(path, TERRAIN_SET, TERRAIN)
+
+
+func set_control_rect():
+	var rect = get_used_rect()
+	var size = rect.size * Vector2i(16, 16)
+	
+	print(rect)
+	print(size)
+	
+	control.custom_minimum_size = size
+	position.x = size.x / 2
+	position.y = size.y / 2
 
 
 func draw_player_token(coords: Vector2i):

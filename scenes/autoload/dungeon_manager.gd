@@ -7,7 +7,11 @@ var player_dungeon_position: Vector2i = Vector2i.ZERO:
 		player_dungeon_position = coords
 		map_tiles.draw_player_token(coords)
 
-@onready var map_tiles = $MapTiles
+@onready var map_tiles: TileMapLayer = %MapTiles
+
+
+func _ready():
+	map_tiles.clear()
 
 
 func create_dungeon():
