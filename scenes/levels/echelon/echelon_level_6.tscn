@@ -73,8 +73,6 @@ position = Vector2(-16, 0)
 
 [node name="GameCamera" parent="." instance=ExtResource("5_541d7")]
 position = Vector2(-16, 0)
-custom_limit_right = 32
-custom_limit_top = -24
 
 [node name="Events" type="Node" parent="."]
 script = ExtResource("3_wjbuw")

@@ -23,7 +23,7 @@ theme_override_constants/margin_bottom = 16
 custom_minimum_size = Vector2(100, 32)
 layout_mode = 2
 size_flags_horizontal = 8
-size_flags_vertical = 0
+size_flags_vertical = 8
 alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer"]

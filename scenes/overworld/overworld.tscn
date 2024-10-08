@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cgn4nxnmrvhej"]
+[gd_scene load_steps=5 format=3 uid="uid://cgn4nxnmrvhej"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
+[ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/overworld_player/overworld_player.tscn" id="2_0m0c2"]
 [ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
 [ext_resource type="PackedScene" uid="uid://20t1yol8jggr" path="res://scenes/overworld/layers/echelon_layer_1.tscn" id="3_mdbvn"]
 
 [node name="Overworld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2uqf5")
+overworld_player_scene = ExtResource("2_0m0c2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 80)
