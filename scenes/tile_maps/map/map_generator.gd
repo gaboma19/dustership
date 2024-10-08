@@ -15,9 +15,13 @@ func generate(map_seed):
 	
 	size = randi_range(6, 10)
 	
-	map[Vector2i(0, 0)] = room_scene.instantiate()
+	## place entrance
+	var entrance_room = room_scene.instantiate()
+	entrance_room.type = Room.Type.ENTRANCE
+	map[Vector2i(0, 0)] = entrance_room
 	size -= 1
 	
+	## place rooms randomly
 	while size > 0:
 		for i in map.keys():
 			if randf() < generation_chance:
@@ -31,6 +35,7 @@ func generate(map_seed):
 				elif direction == 4:
 					add_neighbor(i, Vector2i.DOWN)
 	
+	## redo generation if not interesting
 	while not is_interesting():
 		for pos in map.keys():
 			map.get(pos).queue_free()
@@ -78,4 +83,5 @@ func add_exit():
 			if i.abs() > furthest_end_room.abs():
 				furthest_end_room = i
 	
-	print(furthest_end_room)
+	var exit_room = map.get(furthest_end_room)
+	exit_room.type = Room.Type.EXIT

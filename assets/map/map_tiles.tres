@@ -1,6 +1,7 @@
-[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://bxlbylfhcdr5b"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bxlbylfhcdr5b"]
 
 [ext_resource type="Texture2D" uid="uid://2w5gpjj7yk1j" path="res://assets/map/map_tiles.png" id="1_wbwr0"]
+[ext_resource type="Texture2D" uid="uid://dfm3nfr2xj633" path="res://assets/map/map_icons.png" id="2_8bwyg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tlb7x"]
 resource_name = "map"
@@ -134,9 +135,18 @@ texture = ExtResource("1_wbwr0")
 3:0/1 = 1
 3:0/1/modulate = Color(0.945098, 0.741176, 0.54902, 1)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12a4x"]
+resource_name = "icons"
+texture = ExtResource("2_8bwyg")
+texture_region_size = Vector2i(7, 9)
+0:0/0 = 0
+1:0/0 = 0
+
 [resource]
 tile_layout = 5
 terrain_set_0/mode = 2
 terrain_set_0/terrain_0/name = "rooms"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_tlb7x")
+sources/0 = SubResource("TileSetAtlasSource_tlb7x")
+sources/1 = SubResource("TileSetAtlasSource_12a4x")
+tile_proxies/coords_level = [[1, Vector2i(0, 0)], [7, Vector2i(0, 0)], [2, Vector2i(0, 0)], [7, Vector2i(1, 0)]]

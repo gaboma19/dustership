@@ -4,8 +4,9 @@ var player_dungeon_position: Vector2i = Vector2i.ZERO:
 	get:
 		return player_dungeon_position
 	set(coords):
+		map_tiles.erase_player_tile(player_dungeon_position)
 		player_dungeon_position = coords
-		map_tiles.draw_player_token(coords)
+		map_tiles.draw_player_tile(coords)
 
 @onready var map_tiles: TileMapLayer = %MapTiles
 
@@ -48,7 +49,7 @@ func populate_rooms():
 
 
 ## picks a random random_room scene path
-## from 4 variations in the folder /echelon_random/
+## from variations in the folder /echelon_random/
 func get_random_scene_path() -> String:
 	return "res://scenes/levels/echelon/echelon_dungeon/echelon_dungeon_level.tscn"
 
