@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://di5ln4iwb2aej"]
+[gd_scene load_steps=20 format=4 uid="uid://di5ln4iwb2aej"]
 
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_dungeon/dungeon_level.gd" id="1_x2jwr"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_itn3t"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="8_qq084"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="9_dqlw7"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="10_6o1fb"]
-[ext_resource type="PackedScene" uid="uid://dpfr8q4p3lbq4" path="res://scenes/level_transitions/overworld_transition_area.tscn" id="12_ep5up"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_dungeon/dungeon_transition_areas.gd" id="13_dq05x"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="13_gn8lv"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_area.gd" id="15_qq7e3"]
@@ -80,11 +79,6 @@ scenes/2/scene = ExtResource("8_qq084")
 [sub_resource type="TileSet" id="TileSet_ixha2"]
 sources/0 = SubResource("TileSetAtlasSource_ekoqy")
 sources/1 = SubResource("TileSetScenesCollectionSource_sld0t")
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_0igbp"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp1pt"]
-size = Vector2(64, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74vqm"]
 size = Vector2(64, 20)
@@ -197,18 +191,6 @@ y_sort_enabled = true
 
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
-
-[node name="OverworldTransitionArea" parent="." instance=ExtResource("12_ep5up")]
-position = Vector2(480, 0)
-
-[node name="Sprite2D" type="Sprite2D" parent="OverworldTransitionArea"]
-position = Vector2(31.75, 0)
-scale = Vector2(64.5, 64)
-texture = SubResource("PlaceholderTexture2D_0igbp")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OverworldTransitionArea"]
-position = Vector2(32, 0)
-shape = SubResource("RectangleShape2D_sp1pt")
 
 [node name="DungeonTransitionAreas" type="Node2D" parent="."]
 script = ExtResource("13_dq05x")

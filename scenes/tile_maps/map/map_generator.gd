@@ -31,12 +31,14 @@ func generate(map_seed):
 				elif direction == 4:
 					add_neighbor(i, Vector2i.DOWN)
 	
-	while not is_interesting(map):
+	while not is_interesting():
 		for pos in map.keys():
 			map.get(pos).queue_free()
 		map.clear()
 		
 		map = generate(map_seed * randf_range(-1, 1) + randf_range(-1, 1))
+	
+	add_exit()
 	
 	return map
 
@@ -59,10 +61,21 @@ func connect_rooms(room_1, room_2, direction: Vector2i):
 	room_2.number_of_neighbors += 1
 
 
-func is_interesting(dungeon):
+func is_interesting():
 	var number_rooms_with_three_neighbors = 0
-	for i in dungeon.keys():
-		if dungeon.get(i).number_of_neighbors >= 3:
+	for i in map.keys():
+		if map.get(i).number_of_neighbors >= 3:
 			number_rooms_with_three_neighbors += 1
 	
 	return number_rooms_with_three_neighbors >= 2
+
+
+func add_exit():
+	var furthest_end_room = Vector2i.ZERO
+	
+	for i in map.keys():
+		if map.get(i).number_of_neighbors == 1:
+			if i.abs() > furthest_end_room.abs():
+				furthest_end_room = i
+	
+	print(furthest_end_room)

@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=4 uid="uid://30n2o1l78jxr"]
+
+[ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="1_r6gty"]
+
+[node name="DungeonEntrance" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(64, 64)
+
+[node name="floor" type="TileMapLayer" parent="."]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+//7/CAABAAEAAAD+////CAABAAQAAAD+/wAACAABAAQAAAD+/wEACAADAAQAAAD//wEACAADAAcAAAAAAAEACAACAAcAAAABAAEACAACAAIAAAABAAAACAACAAQAAAABAP//CAACAAQAAAABAP7/CAAEAAMAAAAAAP7/CAADAAUAAAD///7/CAAEAAEAAAD//wAACAAGAAMAAAAAAAAACAACAAYAAAAAAP//CAAGAAMAAAD/////CAAGAAMAAAA=")
+tile_set = ExtResource("1_r6gty")
