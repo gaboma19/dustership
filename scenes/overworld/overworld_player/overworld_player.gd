@@ -4,6 +4,7 @@ class_name OverworldPlayer
 var is_moving: bool = false
 
 @onready var animation_player = $AnimationPlayer
+@onready var state_machine: StateMachine = $StateMachine
 
 
 func _ready():

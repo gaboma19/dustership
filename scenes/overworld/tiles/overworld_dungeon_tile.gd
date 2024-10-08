@@ -21,8 +21,11 @@ func set_active(value: bool):
 	player_detector_area.call_deferred("set_monitoring", value)
 
 
-func on_player_entered(_player_component: Area2D):
+func on_player_entered(player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
+	
+	var player = player_component.get_parent()
+	player.state_machine.transition_to("Hold")
 	
 	## create a dungeon and get the first room
 	DungeonManager.create_dungeon()

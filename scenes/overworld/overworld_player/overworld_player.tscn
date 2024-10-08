@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://mwquoqdnhkr2"]
+[gd_scene load_steps=11 format=3 uid="uid://mwquoqdnhkr2"]
 
 [ext_resource type="Texture2D" uid="uid://b0yjhs3su6n0h" path="res://assets/overworld_player/overworld_player.png" id="1_45bvd"]
-[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_player.gd" id="2_y7lij"]
+[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player.gd" id="2_y7lij"]
 [ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_igtqg"]
-[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_player_active.gd" id="4_3k5bi"]
+[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player_active.gd" id="4_3k5bi"]
+[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player_hold.gd" id="5_1e4wg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4i4n"]
 radius = 1.0
@@ -129,6 +130,9 @@ initial_state = NodePath("Active")
 
 [node name="Active" type="Node" parent="StateMachine"]
 script = ExtResource("4_3k5bi")
+
+[node name="Hold" type="Node" parent="StateMachine"]
+script = ExtResource("5_1e4wg")
 
 [node name="PlayerComponent" type="Area2D" parent="."]
 collision_layer = 2
