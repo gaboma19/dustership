@@ -19,6 +19,13 @@ func create_map():
 	set_control_size()
 
 
+func clear_map():
+	map_icons.clear()
+	self.clear()
+	map.clear()
+	map_generator.clear()
+
+
 func generate_seed() -> int:
 	var time_seed = int(Time.get_unix_time_from_system())
 	var random_seed = randi()

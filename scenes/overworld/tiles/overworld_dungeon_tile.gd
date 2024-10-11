@@ -28,7 +28,7 @@ func on_player_entered(player_component: Area2D):
 	player.state_machine.transition_to("Hold")
 	
 	## create a dungeon and get the first room
-	DungeonManager.create_dungeon()
+	DungeonManager.create()
 	var room: Room = DungeonManager.get_room(Vector2i.ZERO)
 	var scene_path = room.scene_path
 	

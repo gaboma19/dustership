@@ -37,15 +37,19 @@ func generate(map_seed):
 	
 	## redo generation if not interesting
 	while not is_interesting():
-		for pos in map.keys():
-			map.get(pos).queue_free()
-		map.clear()
+		clear()
 		
 		map = generate(map_seed * randf_range(-1, 1) + randf_range(-1, 1))
 	
 	add_exit()
 	
 	return map
+
+
+func clear():
+	for pos in map.keys():
+		map.get(pos).queue_free()
+		map.clear()
 
 
 func add_neighbor(position: Vector2i, direction: Vector2i):

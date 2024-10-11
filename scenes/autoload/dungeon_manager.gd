@@ -15,15 +15,14 @@ func _ready():
 	map_tiles.clear()
 
 
-func create_dungeon():
+func create():
 	map_tiles.create_map()
 	populate_rooms()
 
 
-## called on dungeon exit
-func clear_dungeon():
-	map_tiles.clear()
+func clear():
 	player_dungeon_position = Vector2i.ZERO
+	map_tiles.clear_map()
 
 
 func get_room(position: Vector2i) -> Room:
