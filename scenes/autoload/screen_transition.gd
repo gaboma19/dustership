@@ -68,7 +68,7 @@ func transition_to_dungeon_level(scene_path: String, player_position: Vector2,
 	level.set_player_position(player_position, active_member_name)
 	
 	level.room = room
-	level.set_doorways()
+	level.build()
 	
 	DungeonManager.player_dungeon_position = room.map_position
 	

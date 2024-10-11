@@ -2,12 +2,16 @@ extends Level
 
 @export var echelon_tiles: Node2D
 @export var level_transition_areas: Node2D
+@export var entrance_scene: PackedScene
+@export var exit_scene: PackedScene
 
 var number_dead_enemies: int = 0
 var total_enemies: int = 0
 var chest_scene = preload("res://scenes/entities/chest/chest.tscn")
 var reward: InventoryItem
 var room: Room
+
+@onready var entities_layer = get_tree().get_first_node_in_group("entities")
 
 
 func _ready():
@@ -23,16 +27,25 @@ func _ready():
 	DungeonManager.show()
 
 
-func set_doorways():
+func build():
 	if echelon_tiles == null || room == null:
 		return
 	
 	echelon_tiles.set_doorways(room)
 	level_transition_areas.set_doorways(room)
+	
+	match room.type:
+		Room.Type.ENTRANCE:
+			var entrance = entrance_scene.instantiate()
+			entities_layer.add_child(entrance)
+		Room.Type.EXIT:
+			var exit = exit_scene.instantiate()
+			entities_layer.add_child(exit)
+		Room.Type.DEFAULT:
+			paste_prickly_pears()
 
 
-## pastes prickly pear tiles
-func set_prickly_pears():
+func paste_prickly_pears():
 	pass
 
 

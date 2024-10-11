@@ -1,8 +1,10 @@
-[gd_scene load_steps=20 format=4 uid="uid://di5ln4iwb2aej"]
+[gd_scene load_steps=22 format=4 uid="uid://di5ln4iwb2aej"]
 
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_dungeon/dungeon_level.gd" id="1_x2jwr"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_itn3t"]
+[ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_npl4v"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_dungeon/echelon_tile_map_layers.gd" id="3_57ht5"]
+[ext_resource type="PackedScene" uid="uid://bwlrqnguuk0yg" path="res://scenes/entities/dungeon_exit/dungeon_exit.tscn" id="3_bd0a3"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="4_6uk6m"]
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="5_tad1b"]
 [ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="6_rpb47"]
@@ -94,6 +96,8 @@ y_sort_enabled = true
 script = ExtResource("1_x2jwr")
 echelon_tiles = NodePath("EchelonTileMapLayers")
 level_transition_areas = NodePath("DungeonTransitionAreas")
+entrance_scene = ExtResource("2_npl4v")
+exit_scene = ExtResource("3_bd0a3")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("2_itn3t")]
 

@@ -37,7 +37,7 @@ func load_map():
 				var path: Array[Vector2i] = [pos, neighbor_pos]
 				set_cells_terrain_path(path, TERRAIN_SET, TERRAIN)
 		
-		draw_icon(pos, room.type)
+		draw_room_icon(pos, room.type)
 
 
 func set_control_size():
@@ -46,6 +46,9 @@ func set_control_size():
 	var size = rect.size * tile_size
 	var offset = rect.position * tile_size * -1
 	
+	size *= 2
+	offset *=2
+	
 	control.custom_minimum_size = size
 	position.x = offset.x
 	position.y = offset.y
@@ -53,7 +56,7 @@ func set_control_size():
 	map_icons.position.y = offset.y
 
 
-func draw_icon(coords: Vector2i, type: Room.Type):
+func draw_room_icon(coords: Vector2i, type: Room.Type):
 	match type:
 		Room.Type.ENTRANCE:
 			map_icons.set_cell(coords, 1, Vector2i(0, 0))

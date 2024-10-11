@@ -25,9 +25,11 @@ size_flags_vertical = 0
 
 [node name="MapTiles" parent="MarginContainer/Control" instance=ExtResource("2_ivf8t")]
 unique_name_in_owner = true
+scale = Vector2(2, 2)
 
 [node name="MapIcons" type="TileMapLayer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
+scale = Vector2(2, 2)
 tile_set = ExtResource("3_hff7b")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/Control"]
