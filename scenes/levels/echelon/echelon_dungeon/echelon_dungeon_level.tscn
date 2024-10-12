@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=4 uid="uid://di5ln4iwb2aej"]
+[gd_scene load_steps=23 format=4 uid="uid://di5ln4iwb2aej"]
 
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_dungeon/dungeon_level.gd" id="1_x2jwr"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_itn3t"]
@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="5_tad1b"]
 [ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="6_rpb47"]
 [ext_resource type="PackedScene" uid="uid://crn0k4nf1fvyl" path="res://scenes/entities/prickly_pear/prickly_pear.tscn" id="7_ekp83"]
+[ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="7_w4haj"]
 [ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="8_qq084"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="9_dqlw7"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="10_6o1fb"]
@@ -143,11 +144,47 @@ tile_set = ExtResource("4_6uk6m")
 use_parent_material = true
 tile_set = ExtResource("4_6uk6m")
 
+[node name="ShadowTiles" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 0.0980392)
+z_index = -1
+position = Vector2(16, 0)
+
+[node name="cliffs" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD8////AwABAAEAAAD9////AwACAAEAAAADAP//AwACAAEAAAADAAMAAwACAAEAAAD8/wMAAwABAAEAAAACAP//AwABAAEAAAACAAMAAwABAAEAAAD9/wMAAwACAAEAAAA=")
+tile_set = ExtResource("7_w4haj")
+
+[node name="echelon" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_set = ExtResource("7_w4haj")
+
+[node name="floor" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD8//3/BAABAAEAAAD8//7/BAADAAQAAAD9//7/BAACAAIAAAD9//3/BAAEAAMAAAADAP3/BAAEAAMAAAADAP7/BAACAAIAAAACAP7/BAADAAQAAAACAP3/BAABAAEAAAD9/wEABAAEAAMAAAD9/wIABAACAAIAAAD8/wEABAABAAEAAAD8/wIABAADAAQAAAACAAEABAABAAEAAAADAAEABAAEAAMAAAADAAIABAACAAIAAAACAAIABAADAAQAAAA=")
+tile_set = ExtResource("7_w4haj")
+
+[node name="rocks" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_set = ExtResource("7_w4haj")
+
+[node name="pavement" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_set = ExtResource("7_w4haj")
+
+[node name="ramps" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_set = ExtResource("7_w4haj")
+
+[node name="walls" type="TileMapLayer" parent="ShadowTiles"]
+use_parent_material = true
+tile_set = ExtResource("7_w4haj")
+
 [node name="EchelonTileMapLayers2" type="Node2D" parent="."]
 z_index = -1
 
 [node name="cliffs" type="TileMapLayer" parent="EchelonTileMapLayers2"]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAD8////AwABAAEAAAD9////AwACAAEAAAADAP//AwACAAEAAAADAAMAAwACAAEAAAD8/wMAAwABAAEAAAACAP//AwABAAEAAAACAAMAAwABAAEAAAD9/wMAAwACAAEAAAA=")
 tile_set = ExtResource("5_tad1b")
 
 [node name="echelon" type="TileMapLayer" parent="EchelonTileMapLayers2"]
@@ -156,6 +193,7 @@ tile_set = ExtResource("5_tad1b")
 
 [node name="floor" type="TileMapLayer" parent="EchelonTileMapLayers2"]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAD8//3/BAABAAEAAAD8//7/BAADAAQAAAD9//7/BAACAAIAAAD9//3/BAAEAAMAAAADAP3/BAAEAAMAAAADAP7/BAACAAIAAAACAP7/BAADAAQAAAACAP3/BAABAAEAAAD9/wEABAAEAAMAAAD9/wIABAACAAIAAAD8/wEABAABAAEAAAD8/wIABAADAAQAAAACAAEABAABAAEAAAADAAEABAAEAAMAAAADAAIABAACAAIAAAACAAIABAADAAQAAAA=")
 tile_set = ExtResource("5_tad1b")
 
 [node name="rocks" type="TileMapLayer" parent="EchelonTileMapLayers2"]
@@ -177,6 +215,7 @@ tile_set = ExtResource("5_tad1b")
 [node name="EchelonDecorationTiles" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 use_parent_material = true
+tile_map_data = PackedByteArray("AADz/wgAAQAAAAAAAQDz/wkAAQAAAAAAAQD0/wkAAQAAAAAAAQD0/woAAQAAAAAAAQD1/woAAQAAAAAAAQD1/wkAAQAAAAAAAQD1/wgAAQAAAAAAAQD0/wgAAQAAAAAAAQD4/wkAAQAAAAAAAQD4/woAAQAAAAAAAQD5/woAAQAAAAAAAQD6/woAAQAAAAAAAQD7/woAAQAAAAAAAQD7/wkAAQAAAAAAAQD5/wkAAQAAAAAAAQD6/wkAAQAAAAAAAQDz/wUAAQAAAAAAAQD0/wUAAQAAAAAAAQDz/wMAAQAAAAAAAQD0/wMAAQAAAAAAAQD0/wQAAQAAAAAAAQDz/wQAAQAAAAAAAQAEAAkAAQAAAAAAAQAEAAoAAQAAAAAAAQAFAAoAAQAAAAAAAQAGAAoAAQAAAAAAAQAHAAoAAQAAAAAAAQAHAAkAAQAAAAAAAQAFAAkAAQAAAAAAAQAGAAkAAQAAAAAAAQAKAAgAAQAAAAAAAQAKAAkAAQAAAAAAAQAKAAoAAQAAAAAAAQALAAoAAQAAAAAAAQALAAkAAQAAAAAAAQALAAgAAQAAAAAAAQAMAAgAAQAAAAAAAQAMAAkAAQAAAAAAAQALAAUAAQAAAAAAAQAMAAUAAQAAAAAAAQAMAAQAAQAAAAAAAQAMAAMAAQAAAAAAAQALAAMAAQAAAAAAAQALAAQAAQAAAAAAAQDz//z/AQAAAAAAAQD0//z/AQAAAAAAAQD0//r/AQAAAAAAAQDz//r/AQAAAAAAAQDz//v/AQAAAAAAAQD0//v/AQAAAAAAAQDz//f/AQAAAAAAAQD0//f/AQAAAAAAAQD1//f/AQAAAAAAAQD1//b/AQAAAAAAAQD1//X/AQAAAAAAAQD0//X/AQAAAAAAAQD0//b/AQAAAAAAAQDz//b/AQAAAAAAAQD4//X/AQAAAAAAAQD4//b/AQAAAAAAAQD7//b/AQAAAAAAAQD7//X/AQAAAAAAAQD6//X/AQAAAAAAAQD5//X/AQAAAAAAAQD5//b/AQAAAAAAAQD6//b/AQAAAAAAAQAKAPX/AQAAAAAAAQALAPX/AQAAAAAAAQALAPb/AQAAAAAAAQAMAPb/AQAAAAAAAQAMAPf/AQAAAAAAAQALAPf/AQAAAAAAAQAKAPf/AQAAAAAAAQAKAPb/AQAAAAAAAQAHAPX/AQAAAAAAAQAHAPb/AQAAAAAAAQAEAPb/AQAAAAAAAQAEAPX/AQAAAAAAAQAFAPX/AQAAAAAAAQAGAPX/AQAAAAAAAQAGAPb/AQAAAAAAAQAFAPb/AQAAAAAAAQALAPz/AQAAAAAAAQAMAPz/AQAAAAAAAQAMAPr/AQAAAAAAAQALAPr/AQAAAAAAAQALAPv/AQAAAAAAAQAMAPv/AQAAAAAAAQA=")
 tile_set = SubResource("TileSet_ixha2")
 
 [node name="GameStart" parent="." instance=ExtResource("9_dqlw7")]

@@ -51,9 +51,3 @@ func populate_rooms():
 ## from variations in the folder /echelon_random/
 func get_random_scene_path() -> String:
 	return "res://scenes/levels/echelon/echelon_dungeon/echelon_dungeon_level.tscn"
-
-
-## returns the tilemap from $MapTiles after the rooms are generated
-## to be copied to the pause screen menu
-func get_tile_map_pattern() -> TileMapPattern:
-	return TileMapPattern.new()

@@ -9,16 +9,9 @@ func _ready():
 
 func transition_to_overworld():
 	MusicManager.fade_out(10)
-	
 	set_deferred("monitoring", false)
 	
 	ScreenTransition.transition_to_overworld()
-	#ScreenTransition.transition_out()
-	#await get_tree().create_timer(0.4).timeout
-	#
-	#get_tree().change_scene_to_file.bind(OVERWORLD_PATH).call_deferred()
-	#
-	#ScreenTransition.transition_in()
 
 
 func on_body_entered(body: Node2D):

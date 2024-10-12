@@ -13,7 +13,8 @@ var size: int = 0
 func generate(map_seed):
 	seed(map_seed)
 	
-	size = randi_range(6, 10)
+	size = randi_range(min_number_rooms, max_number_rooms)
+	print(size)
 	
 	## place entrance
 	var entrance_room = room_scene.instantiate()
@@ -49,7 +50,8 @@ func generate(map_seed):
 func clear():
 	for pos in map.keys():
 		map.get(pos).queue_free()
-		map.clear()
+	
+	map.clear()
 
 
 func add_neighbor(position: Vector2i, direction: Vector2i):

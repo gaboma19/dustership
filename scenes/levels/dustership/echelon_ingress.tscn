@@ -73,3 +73,4 @@ polygon = PackedVector2Array(-54, 144, 84, 144, 84, 150, -54, 150)
 [node name="OverworldTransitionInteraction" parent="." instance=ExtResource("5_uamtp")]
 visible = false
 position = Vector2(8, 88)
+action_name = "Enter the Echelon"

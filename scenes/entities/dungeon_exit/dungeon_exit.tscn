@@ -1,16 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwlrqnguuk0yg"]
+[gd_scene load_steps=2 format=3 uid="uid://bwlrqnguuk0yg"]
 
-[ext_resource type="PackedScene" uid="uid://dpfr8q4p3lbq4" path="res://scenes/level_transitions/overworld_transition_area.tscn" id="1_dlpfi"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_u51wy"]
-size = Vector2(64, 64)
+[ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="1_dx1xj"]
 
 [node name="DungeonExit" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(64, 63.504)
 
-[node name="OverworldTransitionArea" parent="." instance=ExtResource("1_dlpfi")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="OverworldTransitionArea"]
-shape = SubResource("RectangleShape2D_u51wy")
+[node name="OverworldTransitionInteraction" parent="." instance=ExtResource("1_dx1xj")]
+action_name = "Wake Up"
