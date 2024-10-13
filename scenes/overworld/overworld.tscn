@@ -17,4 +17,5 @@ zoom = Vector2(3, 3)
 [node name="OverworldStack" parent="." instance=ExtResource("2_v2oto")]
 
 [node name="EchelonLayer1" parent="." groups=["layers"] instance=ExtResource("3_mdbvn")]
+layer_1/z_index = 1
 layer_2/z_index = 1

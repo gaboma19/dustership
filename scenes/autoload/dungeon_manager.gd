@@ -50,12 +50,15 @@ func populate_rooms():
 
 
 func get_random_scene_path() -> String:
+	const PREFIX = "res://scenes/levels/dungeon/"
 	var dir = DirAccess.open(DUNGEON_LEVEL_DIR)
 	var random_file: String
+	var index: int
 	
 	if dir:
-		var file_names = dir.get_files()
+		var file_names: PackedStringArray = dir.get_files()
 		if file_names.size() > 0:
-			random_file = file_names.pick_random()
+			index = randi_range(0, file_names.size() - 1)
+			random_file = file_names[index]
 	
-	return random_file
+	return PREFIX + random_file
