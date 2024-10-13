@@ -1,7 +1,7 @@
 extends Level
 
 @export var echelon_tiles: Node2D
-@export var level_transition_areas: Node2D
+@export var dungeon_level_transition_areas_controller: Node2D
 @export var entrance_scene: PackedScene
 @export var exit_scene: PackedScene
 
@@ -25,6 +25,8 @@ func _ready():
 	HealthBar.show()
 	SteelCounter.show()
 	DungeonManager.show()
+	
+	_test_set_doorways()
 
 
 func build():
@@ -32,7 +34,7 @@ func build():
 		return
 	
 	echelon_tiles.set_doorways(room)
-	level_transition_areas.set_doorways(room)
+	dungeon_level_transition_areas_controller.set_doorways(room)
 	
 	match room.type:
 		Room.Type.ENTRANCE:
@@ -59,3 +61,15 @@ func on_enemy_died():
 	number_dead_enemies += 1
 	if number_dead_enemies == total_enemies:
 		win()
+
+
+func _test_set_doorways():
+	var test_room: Room = Room.new()
+	test_room.neighbors = {
+		Vector2i.UP: Room.new(),
+		Vector2i.DOWN: Room.new(),
+		Vector2i.LEFT: Room.new(),
+		Vector2i.RIGHT: Room.new()
+	}
+	
+	echelon_tiles.set_doorways(test_room)

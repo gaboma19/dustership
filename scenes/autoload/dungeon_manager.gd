@@ -1,5 +1,7 @@
 extends Node
 
+const DUNGEON_LEVEL_DIR = "res://scenes/levels/dungeon/"
+
 var player_dungeon_position: Vector2i = Vector2i.ZERO:
 	get:
 		return player_dungeon_position
@@ -47,7 +49,13 @@ func populate_rooms():
 		room.map_position = pos
 
 
-## picks a random random_room scene path
-## from variations in the folder /echelon_random/
 func get_random_scene_path() -> String:
-	return "res://scenes/levels/echelon/echelon_dungeon/echelon_dungeon_level.tscn"
+	var dir = DirAccess.open(DUNGEON_LEVEL_DIR)
+	var random_file: String
+	
+	if dir:
+		var file_names = dir.get_files()
+		if file_names.size() > 0:
+			random_file = file_names.pick_random()
+	
+	return random_file

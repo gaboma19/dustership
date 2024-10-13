@@ -5,10 +5,10 @@ extends Node2D
 @export var player_position_west: Vector2
 @export var player_position_east: Vector2
 
-@onready var level_transition_area_north: LevelTransitionArea = $LevelTransitionAreaNorth
-@onready var level_transition_area_south: LevelTransitionArea = $LevelTransitionAreaSouth
-@onready var level_transition_area_west: LevelTransitionArea = $LevelTransitionAreaWest
-@onready var level_transition_area_east: LevelTransitionArea = $LevelTransitionAreaEast
+@onready var level_transition_area_north: LevelTransitionArea = $DungeonLevelTransitionAreaNorth
+@onready var level_transition_area_south: LevelTransitionArea = $DungeonLevelTransitionAreaSouth
+@onready var level_transition_area_west: LevelTransitionArea = $DungeonLevelTransitionAreaWest
+@onready var level_transition_area_east: LevelTransitionArea = $DungeonLevelTransitionAreaEast
 
 
 func set_doorways(room: Room):
