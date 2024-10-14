@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_ytbn3"]
 [ext_resource type="PackedScene" uid="uid://bwlrqnguuk0yg" path="res://scenes/entities/dungeon_exit/dungeon_exit.tscn" id="3_4gpxm"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="4_egkhf"]
-[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_tile_map_layers.gd" id="5_drgqp"]
+[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_dungeon_tile_map_layers.gd" id="5_drgqp"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="6_bj3bt"]
 [ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="7_echpl"]
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="7_m3x8q"]
@@ -220,7 +220,6 @@ tile_set = SubResource("TileSet_ixha2")
 [node name="GameStart" parent="." instance=ExtResource("11_bchw3")]
 
 [node name="GameCamera" parent="." instance=ExtResource("12_w2840")]
-position = Vector2(0, -72)
 limit_left = -256
 limit_top = -224
 limit_right = 256

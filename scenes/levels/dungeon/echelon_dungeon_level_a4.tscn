@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_fbkgq"]
 [ext_resource type="PackedScene" uid="uid://bwlrqnguuk0yg" path="res://scenes/entities/dungeon_exit/dungeon_exit.tscn" id="3_vdn0o"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="4_3tagp"]
-[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_tile_map_layers.gd" id="5_7qrxw"]
+[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_dungeon_tile_map_layers.gd" id="5_7qrxw"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="6_xa5af"]
 [ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="7_183et"]
 [ext_resource type="PackedScene" uid="uid://crn0k4nf1fvyl" path="res://scenes/entities/prickly_pear/prickly_pear.tscn" id="8_cgnyd"]

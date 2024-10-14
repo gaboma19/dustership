@@ -26,7 +26,7 @@ func _ready():
 	SteelCounter.show()
 	DungeonManager.show()
 	
-	#_test_set_doorways()
+	_test_set_doorways()
 
 
 func build():
