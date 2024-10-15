@@ -14,12 +14,6 @@ enum Patterns { NORTH, EAST, SOUTH, WEST, CLIFF_WEST, CLIFF_EAST }
 @onready var tile_set: TileSet = floor_layer.tile_set
 
 
-func set_doorways(room: Room):
-	for direction in room.neighbors.keys():
-		if room.neighbors[direction] != null:
-			paste_doorway(direction)
-
-
 func paste_doorway(direction: Vector2i):
 	var pattern: TileMapPattern
 	var door_position: Vector2i

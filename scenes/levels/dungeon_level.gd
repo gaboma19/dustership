@@ -2,6 +2,7 @@ extends Level
 
 @export var echelon_tiles: Node2D
 @export var dungeon_level_transition_areas_controller: Node2D
+@export var echelon_decoration_tiles: TileMapLayer
 @export var entrance_scene: PackedScene
 @export var exit_scene: PackedScene
 
@@ -33,8 +34,7 @@ func build():
 	if echelon_tiles == null || room == null:
 		return
 	
-	echelon_tiles.set_doorways(room)
-	dungeon_level_transition_areas_controller.set_doorways(room)
+	set_doorways()
 	
 	match room.type:
 		Room.Type.ENTRANCE:
@@ -44,11 +44,16 @@ func build():
 			var exit = exit_scene.instantiate()
 			entities_layer.add_child(exit)
 		Room.Type.DEFAULT:
-			paste_prickly_pears()
+			pass
 
 
-func paste_prickly_pears():
-	pass
+func set_doorways():
+	for direction in room.neighbors.keys():
+		if room.neighbors[direction] != null:
+			echelon_tiles.paste_doorway(direction)
+			dungeon_level_transition_areas_controller.set_transition_area_scene_path(
+				room.neighbors[direction], direction)
+			echelon_decoration_tiles.paste_doorway(direction)
 
 
 ## open the doorways
@@ -71,5 +76,6 @@ func _test_set_doorways():
 		Vector2i.LEFT: Room.new(),
 		Vector2i.RIGHT: Room.new()
 	}
+	room = test_room
 	
-	echelon_tiles.set_doorways(test_room)
+	set_doorways()

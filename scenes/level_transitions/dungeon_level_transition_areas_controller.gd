@@ -11,12 +11,6 @@ extends Node2D
 @onready var level_transition_area_east: LevelTransitionArea = $DungeonLevelTransitionAreaEast
 
 
-func set_doorways(room: Room):
-	for direction in room.neighbors.keys():
-		if room.neighbors[direction] != null:
-			set_transition_area_scene_path(room.neighbors[direction], direction)
-
-
 func set_transition_area_scene_path(neighbor: Room, direction: Vector2i):
 	match direction:
 		Vector2i.UP:
