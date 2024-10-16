@@ -236,10 +236,10 @@ z_index = 1
 
 [node name="DungeonLevelTransitionAreasController" type="Node2D" parent="."]
 script = ExtResource("13_sykde")
-player_position_north = Vector2(0, -192)
-player_position_south = Vector2(0, 192)
-player_position_west = Vector2(-224, 0)
-player_position_east = Vector2(224, 0)
+player_position_north = Vector2(0, -144)
+player_position_south = Vector2(0, 144)
+player_position_west = Vector2(-208, 0)
+player_position_east = Vector2(208, 0)
 
 [node name="DungeonLevelTransitionAreaNorth" parent="DungeonLevelTransitionAreasController" instance=ExtResource("14_opksr")]
 script = ExtResource("15_31y8o")

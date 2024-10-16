@@ -10,6 +10,8 @@ var player_dungeon_position: Vector2i = Vector2i.ZERO:
 		player_dungeon_position = coords
 		map_tiles.draw_player_tile(coords)
 
+var chest_number: int = 0
+
 @onready var map_tiles: TileMapLayer = %MapTiles
 
 
@@ -22,17 +24,18 @@ func create():
 	populate_rooms()
 
 
-func clear():
+func exit():
 	player_dungeon_position = Vector2i.ZERO
 	map_tiles.clear_map()
+	reset_chest_data()
 
 
-func get_room(position: Vector2i) -> Room:
-	return map_tiles.map.get(position)
+func get_room(coords: Vector2i) -> Room:
+	return map_tiles.map.get(coords)
 
 
-func get_scene(position: Vector2i) -> String:
-	var room: Room = map_tiles.map.get(position)
+func get_scene(coords: Vector2i) -> String:
+	var room: Room = map_tiles.map.get(coords)
 	
 	return room.scene_path
 
@@ -62,3 +65,16 @@ func get_random_scene_path() -> String:
 			random_file = file_names[index]
 	
 	return PREFIX + random_file
+
+
+func get_chest_id() -> String:
+	var format_string = "dungeon_chest{num}"
+	var id = format_string.format({"num": chest_number})
+	chest_number += 1
+	
+	return id
+
+
+func reset_chest_data():
+	EntityVariables.chests.clear()
+	chest_number = 0

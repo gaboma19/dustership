@@ -105,7 +105,7 @@ func transition_to_path(scene_path: String):
 
 
 func transition_to_overworld():
-	DungeonManager.clear()
+	DungeonManager.exit()
 	transition_to_path(overworld_path)
 
 
