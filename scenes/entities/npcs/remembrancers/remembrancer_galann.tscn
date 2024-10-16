@@ -393,6 +393,8 @@ parameters/move/TimeScale/scale = 1.0
 
 [node name="InteractionArea" type="Area2D" parent="."]
 visible = false
+collision_layer = 0
+collision_mask = 2
 script = ExtResource("3_pj70x")
 action_name = "Talk"
 

@@ -16,19 +16,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.5]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"values": [0.0]
 }
 
 [sub_resource type="Animation" id="Animation_dpnjy"]
@@ -47,18 +35,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [1.0, 0.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="Animation" id="Animation_7beaw"]
 resource_name = "transition_out"
@@ -76,18 +52,6 @@ tracks/0/keys = {
 "update": 0,
 "values": [0.0, 1.0]
 }
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ColorRect:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [false, true]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_rpupj"]
 _data = {
@@ -99,10 +63,11 @@ _data = {
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ujikc"]
 shader = ExtResource("2_kyf4c")
 shader_parameter/transition_color = null
-shader_parameter/percent = 0.5
+shader_parameter/percent = 0.0
 shader_parameter/transition_texture = ExtResource("3_6hcs7")
 
 [node name="ScreenTransition" type="CanvasLayer"]
+layer = 2
 script = ExtResource("1_qxdhp")
 overworld_path = "res://scenes/overworld/overworld.tscn"
 main_menu_path = "res://scenes/ui/main_menu/main_menu.tscn"
@@ -113,7 +78,6 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_ujikc")
 anchors_preset = 15
 anchor_right = 1.0

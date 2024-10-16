@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://20t1yol8jggr"]
 
 [ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_da3df"]
-[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_combat_tile.tscn" id="2_jfw5e"]
+[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_dungeon_tile.tscn" id="2_jfw5e"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder_tile.tscn" id="3_bsrbx"]
 [ext_resource type="Texture2D" uid="uid://31fbvxl03gme" path="res://assets/overworld/overworld_plus.png" id="3_y6dlo"]
 [ext_resource type="PackedScene" uid="uid://dms221iw84wsl" path="res://scenes/overworld/layers/echelon_layer_2.tscn" id="4_jihhk"]
@@ -12,21 +12,20 @@ layer_1/tile_data = PackedInt32Array(196608, 65537, 2, 262144, 65537, 2, 327680,
 layer_2/z_index = 2
 layer_2/tile_data = PackedInt32Array(327682, 2, 0, 393218, 2, 0, 393219, 2, 2, 458754, 327682, 1, 262151, 65538, 0, 327687, 393218, 1, 327688, 327682, 0, 393224, 196610, 1, 262152, 458754, 0, 196616, 65538, 0, 65544, 327682, 0, 65536, 65538, 0, 65537, 131074, 0, 131073, 2, 0, 131074, 65538, 0, 524290, 458754, 1, 327684, 65538, 2, 327685, 262146, 1, 0, 196610, 1, 1, 327682, 1, 65538, 196610, 1, 393223, 131074, 1, 458760, 2, 1, 8, 393218, 1, 7, 458754, 1, 458755, 2, 2, 327683, 131074, 2, 262147, 2, 2, 524291, 2, 2, 131076, 65538, 65536, 131077, 131074, 65536, 131078, 327682, 65536, 196614, 2, 65536, 458752, 131074, 65536, 458753, 65538, 65536, 393217, 196610, 131073, 262145, 196610, 131073, 262146, 131074, 131073, 196615, 196610, 131073, 262149, 393218, 131073, 327680, 458754, 131073, 65542, 458754, 131073, 65541, 65538, 196608, 196608, 131074, 196608)
 
-[node name="OverworldCombat1" parent="." index="4" instance=ExtResource("2_jfw5e")]
+[node name="OverworldDungeon1" parent="." index="4" instance=ExtResource("2_jfw5e")]
 position = Vector2(16, 88)
 ingress_id = "overworld_1_ingress_1"
 
-[node name="OverworldCombat2" parent="." index="5" instance=ExtResource("2_jfw5e")]
+[node name="OverworldDungeon2" parent="." index="5" instance=ExtResource("2_jfw5e")]
 position = Vector2(-112, 72)
 texture = ExtResource("3_y6dlo")
 ingress_id = "overworld_1_ingress_2"
 
-[node name="OverworldCombat3" parent="." index="6" instance=ExtResource("2_jfw5e")]
+[node name="OverworldDungeon3" parent="." index="6" instance=ExtResource("2_jfw5e")]
 position = Vector2(16, 56)
-scene_path = "res://scenes/levels/echelon/echelon_level_test.tscn"
 ingress_id = "overworld_1_ingress_3"
 
-[node name="OverworldCombat4" parent="." index="7" instance=ExtResource("2_jfw5e")]
+[node name="OverworldDungeon4" parent="." index="7" instance=ExtResource("2_jfw5e")]
 position = Vector2(128, 64)
 texture = ExtResource("3_y6dlo")
 ingress_id = "overworld_1_ingress_4"

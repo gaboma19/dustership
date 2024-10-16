@@ -1,0 +1,70 @@
+extends Level
+
+@export var echelon_tiles: Node2D
+@export var dungeon_level_transition_areas_controller: Node2D
+@export var echelon_obstacle_tiles: TileMapLayer
+@export var entrance_scene: PackedScene
+@export var exit_scene: PackedScene
+@export var spawner: Node
+
+var reward: InventoryItem
+var room: Room
+
+@onready var entities_layer = get_tree().get_first_node_in_group("entities")
+
+
+func _ready():
+	spawner.enemies_cleared.connect(win)
+	
+	HealthBar.show()
+	SteelCounter.show()
+	DungeonManager.show()
+	
+	#_test_set_doorways()
+
+
+func build():
+	if echelon_tiles == null || room == null:
+		return
+	
+	set_doorways()
+	
+	match room.type:
+		Room.Type.ENTRANCE:
+			var entrance = entrance_scene.instantiate()
+			entities_layer.add_child(entrance)
+		Room.Type.EXIT:
+			var exit = exit_scene.instantiate()
+			entities_layer.add_child(exit)
+		Room.Type.DEFAULT:
+			if not room.visited:
+				spawner.spawn_enemies()
+				echelon_obstacle_tiles.close_doors()
+
+
+func set_doorways():
+	for direction in room.neighbors.keys():
+		if room.neighbors[direction] != null:
+			echelon_tiles.paste_doorway(direction)
+			dungeon_level_transition_areas_controller.set_transition_area_scene_path(
+				room.neighbors[direction], direction)
+			echelon_obstacle_tiles.paste_doorway(direction)
+
+
+func win():
+	room.visited = true
+	echelon_obstacle_tiles.open_doors()
+	spawner.spawn_chest(reward)
+
+
+func _test_set_doorways():
+	var test_room: Room = Room.new()
+	test_room.neighbors = {
+		Vector2i.UP: Room.new(),
+		Vector2i.DOWN: Room.new(),
+		Vector2i.LEFT: Room.new(),
+		Vector2i.RIGHT: Room.new()
+	}
+	room = test_room
+	
+	set_doorways()

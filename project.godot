@@ -38,6 +38,7 @@ HitStop="*res://scenes/autoload/hit_stop.gd"
 MusicManager="*res://scenes/autoload/music_manager.tscn"
 OverworldVariables="*res://scenes/autoload/overworld_variables.tscn"
 SaveManager="*res://scenes/autoload/save_manager.tscn"
+DungeonManager="*res://scenes/autoload/dungeon_manager.tscn"
 
 [debug]
 
@@ -62,6 +63,7 @@ enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addon
 [global_group]
 
 persist=""
+enemy=""
 
 [gui]
 

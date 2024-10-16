@@ -1,4 +1,5 @@
 extends Area2D
+class_name LevelTransitionArea
 
 @export var path: String
 @export var new_player_position: Vector2
@@ -6,8 +7,8 @@ extends Area2D
 
 func _ready():
 	body_entered.connect(on_body_entered)
-	
-	
+
+
 func on_body_entered(body: Node2D):
 	var player = PartyManager.get_active_member()
 	if body != player:

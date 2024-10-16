@@ -2,9 +2,9 @@ shader_type canvas_item;
 
 uniform int lines = 100;
 uniform vec4 color1 : source_color = vec4(0.0, 0.0, 1.0, 1.0);
-uniform vec4 color2 : source_color = vec4(1.0, 0.0, 0.0, 1.0);  
+uniform vec4 color2 : source_color = vec4(1.0, 0.0, 0.0, 1.0);
 uniform float speed : hint_range(0.0, 2.0, 0.01) = 0.4;
-uniform float alpha : hint_range(0.0, 1.0, 0.01) = 0.5; 
+uniform float alpha : hint_range(0.0, 1.0, 0.01) = 0.5;
 uniform float noise_amount : hint_range(0.0, 1.0, 0.01) = 0.05;
 uniform float effect_factor : hint_range(0.0, 1.0, 0.01) = 0.4;
 
@@ -24,14 +24,14 @@ void fragment() {
 	float lineN = floor((UV.y - TIME*speed) * float(lines));
 	float line_grade = abs(sin(lineN*PI/4.0));
 	float smooth_line_grade = abs(sin((UV.y - TIME*speed) * float(lines)));
-	
+
 	vec4 line_color = mix(color1, color2, line_grade);
-	
+
 	// change the "240.0" literal to control line color shifting
 	COLOR = color_shift(UV, TEXTURE, vec2(1.0, 0.0)*smooth_line_grade/240.0*effect_factor);
-	
+
 	noise(UV, COLOR);
-	
+
 	COLOR.rgb = mix(COLOR.rgb, line_color.rgb, effect_factor);
 	COLOR.a = alpha * COLOR.a * line_color.a;
 }

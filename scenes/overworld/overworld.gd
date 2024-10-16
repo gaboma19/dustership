@@ -1,7 +1,6 @@
 extends Node2D
 
-const OVERWORLD_PLAYER_SCENE = preload(
-	"res://scenes/overworld/tiles/overworld_player.tscn")
+@export var overworld_player_scene: PackedScene
 
 var player: OverworldPlayer
 
@@ -17,10 +16,11 @@ func _ready():
 	
 	HealthBar.hide()
 	SteelCounter.hide()
+	DungeonManager.hide()
 
 
 func initialize_player():
-	player = OVERWORLD_PLAYER_SCENE.instantiate()
+	player = overworld_player_scene.instantiate()
 	add_child(player)
 	
 	var active_layer = OverworldVariables.active_layer
