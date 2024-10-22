@@ -27,7 +27,7 @@ vec2 wave(vec2 uv, float time) {
 void fragment() {
 	vec2 wave_uv = wave(UV, TIME);
 	vec4 ns = texture(noise, wave_uv);
-	
+
 	vec2 motion = vec2(0.0, 1.0);
 	float pi = 3.14159265358979323846;
 	vec2 uv = UV * 2.0 - 1.0;
@@ -39,8 +39,8 @@ void fragment() {
 
 
 	vec4 color = vec4(0.773,0.8,0.722, 2.0 * ripple);
-	
-	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5; 
+
+	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5;
 
 
 	color.a *= 1.0 * alphaScalar * (ripple + ns.x * ns.y);
