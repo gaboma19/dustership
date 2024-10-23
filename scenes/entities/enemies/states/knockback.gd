@@ -54,7 +54,7 @@ func launch():
 
 
 func land():
-	if number_floors_crossed == 1 || floor_detector.has_overlapping_bodies():
+	if number_floors_crossed == 1 or floor_detector.has_overlapping_bodies():
 		health_component.damage(health_component.max_health)
 	
 	transition_to_previous_state()

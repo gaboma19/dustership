@@ -18,7 +18,7 @@ func update(_delta: float) -> void:
 	
 	movement_vector = get_movement_vector()
 	
-	if movement_vector.x != 0 || movement_vector.y != 0:
+	if movement_vector.x != 0 or movement_vector.y != 0:
 		player.set_moving(true)
 		player.update_blend_position(movement_vector)
 		player.velocity_component.accelerate_in_direction(movement_vector)

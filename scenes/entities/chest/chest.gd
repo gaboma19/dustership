@@ -14,6 +14,7 @@ const TEXTURE = preload("res://assets/chest/chest.png")
 	"res://resources/materials/spawn_material.tres")
 @onready var shadow_sprite = $ShadowSprite
 @onready var collision_shape_2d = $CollisionShape2D
+@onready var spawn_audio_stream_player = %SpawnAudioStreamPlayer
 
 
 func _ready():
@@ -35,6 +36,9 @@ func set_opened(value: bool):
 
 func spawn():
 	collision_shape_2d.disabled = false
+	
+	if spawn_audio_stream_player != null:
+		spawn_audio_stream_player.play_random()
 	
 	var sprite = $AnimatedSprite2D
 	sprite.material = spawn_material

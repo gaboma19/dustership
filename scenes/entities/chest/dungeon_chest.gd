@@ -2,6 +2,8 @@ extends Chest
 
 
 func _ready():
+	hide()
+	
 	shadow_sprite.animation = animated_sprite_2d.animation
 	interaction_area.interact = Callable(self, "on_interact")
 	
@@ -12,7 +14,8 @@ func _ready():
 	else:
 		EntityVariables.chests[chest_id] = { 
 			"opened": false,
-			"spawned": false }
+			"spawned": false 
+		}
 
 
 func set_state(chest_data: Dictionary):
@@ -26,3 +29,9 @@ func set_state(chest_data: Dictionary):
 		show()
 		interaction_area.monitoring = true
 		collision_shape_2d.disabled = false
+
+
+func spawn():
+	EntityVariables.chests[chest_id].spawned = true
+	interaction_area.monitoring = true
+	super()

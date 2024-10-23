@@ -21,10 +21,11 @@ func _ready():
 	DungeonManager.show()
 	
 	#_test_set_doorways()
+	#_test_spawn_chest(4.0)
 
-
+### called by ScreenTransition.transition_to_dungeon_level()
 func build():
-	if echelon_tiles == null || room == null:
+	if echelon_tiles == null or room == null:
 		return
 	
 	set_doorways()
@@ -68,3 +69,8 @@ func _test_set_doorways():
 	room = test_room
 	
 	set_doorways()
+
+
+func _test_spawn_chest(delay: float):
+	await get_tree().create_timer(delay).timeout
+	spawner.spawn_chest(reward)
