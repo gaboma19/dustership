@@ -1,9 +1,9 @@
 extends CanvasLayer
 
-enum Screens { INVENTORY, MAP, GAME }
+enum Screens { INVENTORY, GAME }
 
 @export var inventory_container_scene: PackedScene
-@export var map_scene: PackedScene
+#@export var map_scene: PackedScene
 @export var game_container_scene: PackedScene
 
 var selected_screen: int = PlayerVariables.pause_menu_screen
@@ -74,10 +74,10 @@ func set_menu_container():
 	match selected_screen:
 		Screens.INVENTORY:
 			set_inventory_grid()
-		Screens.MAP:
-			set_map()
 		Screens.GAME:
 			set_game()
+		#Screens.MAP:
+			#set_map()
 
 
 func set_inventory_grid():
@@ -89,12 +89,11 @@ func set_inventory_grid():
 	inventory_container.set_slots()
 
 
-func set_map():
-	header.text = "MAP"
-	
-	var map = map_scene.instantiate()
-	menu_container.add_child(map)
-	map.draw_pin(map_pin_cell)
+#func set_map():
+	#header.text = "MAP"
+	#
+	#var map = map_scene.instantiate()
+	#menu_container.add_child(map)
 
 
 func set_game():

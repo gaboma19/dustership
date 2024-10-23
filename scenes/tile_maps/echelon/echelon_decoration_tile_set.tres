@@ -1,0 +1,79 @@
+[gd_resource type="TileSet" load_steps=8 format=3 uid="uid://dhtty22f6ngsu"]
+
+[ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="1_llhn5"]
+[ext_resource type="PackedScene" uid="uid://crn0k4nf1fvyl" path="res://scenes/entities/prickly_pear/prickly_pear.tscn" id="2_do8kq"]
+[ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="3_he60b"]
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_mipgl"]
+tile_data = PackedInt32Array(0, 1, 131072, 65536, 1, 131072)
+
+[sub_resource type="TileMapPattern" id="TileMapPattern_k8vy7"]
+tile_data = PackedInt32Array(0, 1, 131072, 1, 1, 131072)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekoqy"]
+resource_name = "decorations"
+texture = ExtResource("1_llhn5")
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+6:3/next_alternative_id = 2
+6:3/0 = 0
+6:3/1 = 1
+6:3/1/flip_h = true
+7:3/next_alternative_id = 2
+7:3/0 = 0
+7:3/1 = 1
+7:3/1/flip_v = true
+8:3/next_alternative_id = 2
+8:3/0 = 0
+8:3/1 = 1
+8:3/1/flip_v = true
+9:3/next_alternative_id = 2
+9:3/0 = 0
+9:3/1 = 1
+9:3/1/flip_h = true
+9:3/1/flip_v = true
+10:3/next_alternative_id = 2
+10:3/0 = 0
+10:3/1 = 1
+10:3/1/flip_h = true
+10:3/1/flip_v = true
+6:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+6:4/next_alternative_id = 4
+6:4/0 = 0
+6:4/1 = 1
+6:4/1/flip_h = true
+6:4/3 = 3
+6:4/3/flip_v = true
+7:4/next_alternative_id = 2
+7:4/0 = 0
+7:4/1 = 1
+7:4/1/flip_h = true
+8:4/next_alternative_id = 3
+8:4/0 = 0
+8:4/1 = 1
+8:4/1/flip_h = true
+8:4/2 = 2
+8:4/2/flip_v = true
+9:4/next_alternative_id = 2
+9:4/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sld0t"]
+resource_name = "obstacles"
+scenes/1/scene = ExtResource("2_do8kq")
+scenes/2/scene = ExtResource("3_he60b")
+
+[resource]
+sources/0 = SubResource("TileSetAtlasSource_ekoqy")
+sources/1 = SubResource("TileSetScenesCollectionSource_sld0t")
+pattern_0 = SubResource("TileMapPattern_mipgl")
+pattern_1 = SubResource("TileMapPattern_k8vy7")

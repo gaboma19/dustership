@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwlrqnguuk0yg"]
+
+[ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="1_dx1xj"]
+
+[node name="DungeonExit" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(64, 63.504)
+
+[node name="OverworldTransitionInteraction" parent="." instance=ExtResource("1_dx1xj")]
+action_name = "Wake Up"

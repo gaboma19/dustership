@@ -1,12 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bjom46dk4nnfc"]
+[gd_scene load_steps=5 format=3 uid="uid://bjom46dk4nnfc"]
 
 [ext_resource type="TileSet" uid="uid://bxlbylfhcdr5b" path="res://assets/map/map_tiles.tres" id="1_d3e8s"]
 [ext_resource type="Script" path="res://scenes/tile_maps/map/map_tiles.gd" id="2_w5ysg"]
+[ext_resource type="Script" path="res://scenes/tile_maps/map/map_generator.gd" id="3_ql1xf"]
+[ext_resource type="PackedScene" uid="uid://didw2qmeygsk1" path="res://scenes/tile_maps/map/room.tscn" id="4_pwp2w"]
 
-[node name="MapTiles" type="TileMap"]
+[node name="MapTiles" type="TileMapLayer"]
 y_sort_enabled = true
-scale = Vector2(3, 3)
+use_parent_material = true
 tile_set = ExtResource("1_d3e8s")
-format = 2
-layer_0/y_sort_enabled = true
 script = ExtResource("2_w5ysg")
+
+[node name="MapGenerator" type="Node" parent="."]
+script = ExtResource("3_ql1xf")
+room_scene = ExtResource("4_pwp2w")

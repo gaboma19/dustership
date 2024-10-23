@@ -1,4 +1,5 @@
 extends StaticBody2D
+class_name Chest
 
 signal opened
 
@@ -12,6 +13,7 @@ const TEXTURE = preload("res://assets/chest/chest.png")
 @onready var spawn_material: ShaderMaterial = preload(
 	"res://resources/materials/spawn_material.tres")
 @onready var shadow_sprite = $ShadowSprite
+@onready var collision_shape_2d = $CollisionShape2D
 
 
 func _ready():
@@ -26,11 +28,14 @@ func _ready():
 
 func set_opened(value: bool):
 	if value:
+		show()
 		animated_sprite_2d.set_frame(1)
 		interaction_area.monitoring = false
 
 
 func spawn():
+	collision_shape_2d.disabled = false
+	
 	var sprite = $AnimatedSprite2D
 	sprite.material = spawn_material
 	(sprite.material as ShaderMaterial).set_shader_parameter(
