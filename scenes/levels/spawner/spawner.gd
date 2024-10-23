@@ -5,7 +5,7 @@ signal enemies_cleared
 @export var philo_scene: PackedScene
 @export var raster_scene: PackedScene
 @export var saguaro_scene: PackedScene
-@export var chest: StaticBody2D
+@export var chest: Chest
 @export var spawn_points_parent: Node
 
 var number_dead_enemies: int = 0
@@ -26,8 +26,6 @@ func spawn_enemies():
 func spawn_chest(reward: InventoryItem):
 	chest.show()
 	chest.inventory_item = reward
-	chest.chest_id = DungeonManager.get_chest_id()
-	entities_layer.add_child(chest)
 	chest.spawn()
 
 

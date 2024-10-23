@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dvjhtyaa6pwbr"]
+
+[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="1_s01ah"]
+[ext_resource type="Script" path="res://scenes/entities/chest/dungeon_chest.gd" id="2_cq70w"]
+
+[node name="DungeonChest" instance=ExtResource("1_s01ah")]
+visible = false
+script = ExtResource("2_cq70w")
+
+[node name="CollisionShape2D" parent="." index="2"]
+disabled = true
+
+[node name="InteractionArea" parent="." index="3"]
+monitoring = false

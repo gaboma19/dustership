@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_h7i31"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_area.gd" id="15_3eb3w"]
 [ext_resource type="PackedScene" uid="uid://d1s1knjxbebw6" path="res://scenes/levels/spawner/spawner.tscn" id="15_y2omc"]
-[ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="16_7ef05"]
+[ext_resource type="PackedScene" uid="uid://dvjhtyaa6pwbr" path="res://scenes/entities/chest/dungeon_chest.tscn" id="16_tntmi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74vqm"]
 size = Vector2(64, 20)
@@ -26,7 +26,7 @@ size = Vector2(20, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0wy1"]
 size = Vector2(20, 64)
 
-[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller", "echelon_obstacle_tiles")]
+[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller", "echelon_obstacle_tiles", "spawner")]
 y_sort_enabled = true
 script = ExtResource("1_ng4nf")
 echelon_tiles = NodePath("EchelonTileMapLayers")
@@ -34,6 +34,7 @@ dungeon_level_transition_areas_controller = NodePath("DungeonLevelTransitionArea
 echelon_obstacle_tiles = NodePath("EchelonDecorationTiles")
 entrance_scene = ExtResource("2_sh81t")
 exit_scene = ExtResource("3_o4e6k")
+spawner = NodePath("Spawner")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("4_y8u3w")]
 
@@ -208,10 +209,9 @@ position = Vector2(246, 0)
 shape = SubResource("RectangleShape2D_l0wy1")
 
 [node name="Spawner" parent="." node_paths=PackedStringArray("chest", "spawn_points_parent") instance=ExtResource("15_y2omc")]
-chest = NodePath("Chest")
+chest = NodePath("DungeonChest")
 spawn_points_parent = NodePath("SpawnPointsParent")
 
-[node name="Chest" parent="Spawner" instance=ExtResource("16_7ef05")]
-visible = false
+[node name="DungeonChest" parent="Spawner" instance=ExtResource("16_tntmi")]
 
 [node name="SpawnPointsParent" type="Node" parent="Spawner"]
