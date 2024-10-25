@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://crx1bf24bp73"]
+[gd_scene load_steps=25 format=4 uid="uid://crx1bf24bp73"]
 
 [ext_resource type="Script" path="res://scenes/levels/dungeon_level.gd" id="1_yu4ip"]
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_npl0t"]
@@ -16,6 +16,8 @@
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_areas_controller.gd" id="14_dsjkf"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="15_7acrr"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_area.gd" id="16_3gy24"]
+[ext_resource type="PackedScene" uid="uid://d1s1knjxbebw6" path="res://scenes/levels/spawner/spawner.tscn" id="17_fsqae"]
+[ext_resource type="PackedScene" uid="uid://dvjhtyaa6pwbr" path="res://scenes/entities/chest/dungeon_chest.tscn" id="18_e81df"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekoqy"]
 resource_name = "decorations"
@@ -92,13 +94,15 @@ size = Vector2(20, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0wy1"]
 size = Vector2(20, 64)
 
-[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller")]
+[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller", "echelon_obstacle_tiles", "spawner")]
 y_sort_enabled = true
 script = ExtResource("1_yu4ip")
 echelon_tiles = NodePath("EchelonTileMapLayers")
 dungeon_level_transition_areas_controller = NodePath("DungeonLevelTransitionAreasController")
+echelon_obstacle_tiles = NodePath("EchelonDecorationTiles")
 entrance_scene = ExtResource("2_npl0t")
 exit_scene = ExtResource("3_rbexe")
+spawner = NodePath("Spawner")
 
 [node name="EchelonBackground" parent="." instance=ExtResource("4_o0vcd")]
 
@@ -268,3 +272,89 @@ script = ExtResource("16_3gy24")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DungeonLevelTransitionAreasController/DungeonLevelTransitionAreaEast"]
 position = Vector2(246, 0)
 shape = SubResource("RectangleShape2D_l0wy1")
+
+[node name="Spawner" parent="." node_paths=PackedStringArray("chest", "spawn_points_parent") instance=ExtResource("17_fsqae")]
+chest = NodePath("DungeonChest")
+spawn_points_parent = NodePath("SpawnPointsParent")
+
+[node name="DungeonChest" parent="Spawner" instance=ExtResource("18_e81df")]
+
+[node name="SpawnPointsParent" type="Node" parent="Spawner"]
+
+[node name="Node2D" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, -32)
+
+[node name="Node2D2" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, -96)
+
+[node name="Node2D3" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-48, -64)
+
+[node name="Node2D4" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(64, 0)
+
+[node name="Node2D5" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, -80)
+
+[node name="Node2D6" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, -32)
+
+[node name="Node2D7" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, 32)
+
+[node name="Node2D8" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(48, 64)
+
+[node name="Node2D9" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, 96)
+
+[node name="Node2D10" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-160, 64)
+
+[node name="Node2D11" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, 96)
+
+[node name="Node2D12" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, 32)
+
+[node name="Node2D13" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-64, 0)
+
+[node name="Node2D14" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-64, 32)
+
+[node name="Node2D15" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-16, 64)
+
+[node name="Node2D16" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(16, 64)
+
+[node name="Node2D17" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(64, 32)
+
+[node name="Node2D18" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(48, -48)
+
+[node name="Node2D19" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(64, -32)
+
+[node name="Node2D20" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(16, -64)
+
+[node name="Node2D21" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-16, -64)
+
+[node name="Node2D22" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-64, -32)
+
+[node name="Node2D23" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(0, -32)
+
+[node name="Node2D24" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-32, 0)
+
+[node name="Node2D25" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(0, 32)
+
+[node name="Node2D26" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(32, 0)

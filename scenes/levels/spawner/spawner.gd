@@ -14,7 +14,7 @@ var total_enemies: int = 0
 @onready var enemy_max_number = {
 	philo_scene: 6,
 	raster_scene: 1,
-	saguaro_scene: 4
+	saguaro_scene: 2
 }
 @onready var spawn_points = spawn_points_parent.get_children()
 @onready var entities_layer = get_tree().get_first_node_in_group("entities")
@@ -50,8 +50,7 @@ func spawn_scene(scene: PackedScene, number: int, spawn_point: Node2D):
 		var enemy = scene.instantiate()
 		entities_layer.add_child(enemy)
 		
-		var point_offset = Vector2.RIGHT.rotated(PI / 2 * n) * 24
-		enemy.global_position = spawn_point.global_position + point_offset
+		enemy.global_position = spawn_point.global_position
 		
 		var health_component = enemy.get_node("HealthComponent")
 		health_component.died.connect(on_enemy_died)
@@ -68,5 +67,5 @@ func spawn_chest(reward: InventoryItem):
 
 func on_enemy_died():
 	number_dead_enemies += 1
-	if number_dead_enemies == total_enemies:
+	if number_dead_enemies >= total_enemies:
 		enemies_cleared.emit()
