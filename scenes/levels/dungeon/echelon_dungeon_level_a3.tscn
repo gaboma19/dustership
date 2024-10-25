@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://bynvmh0yam6v3"]
+[gd_scene load_steps=19 format=4 uid="uid://bynvmh0yam6v3"]
 
 [ext_resource type="Script" path="res://scenes/levels/dungeon_level.gd" id="1_ncxyl"]
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_tf68p"]
@@ -6,9 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="4_r2xrx"]
 [ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_dungeon_tile_map_layers.gd" id="5_hk4rq"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="6_tpdsm"]
-[ext_resource type="Texture2D" uid="uid://bsxmwb4d6pge5" path="res://assets/echelon_tiles/tile_decorations.png" id="7_f82hg"]
-[ext_resource type="PackedScene" uid="uid://crn0k4nf1fvyl" path="res://scenes/entities/prickly_pear/prickly_pear.tscn" id="8_w85fr"]
-[ext_resource type="PackedScene" uid="uid://c3xqiiibyonaa" path="res://scenes/entities/echelon_obstacle/echelon_obstacle.tscn" id="9_j17p5"]
+[ext_resource type="TileSet" uid="uid://dhtty22f6ngsu" path="res://scenes/tile_maps/echelon/echelon_decoration_tile_set.tres" id="7_trstf"]
+[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="10_5jqon"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="10_b0vdf"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="11_a1kxn"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_areas_controller.gd" id="12_heu5l"]
@@ -16,72 +15,6 @@
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_area.gd" id="14_upit8"]
 [ext_resource type="PackedScene" uid="uid://d1s1knjxbebw6" path="res://scenes/levels/spawner/spawner.tscn" id="15_t3hpq"]
 [ext_resource type="PackedScene" uid="uid://dvjhtyaa6pwbr" path="res://scenes/entities/chest/dungeon_chest.tscn" id="16_wblj5"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ekoqy"]
-resource_name = "decorations"
-texture = ExtResource("7_f82hg")
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-10:1/0 = 0
-6:3/next_alternative_id = 2
-6:3/0 = 0
-6:3/1 = 1
-6:3/1/flip_h = true
-7:3/next_alternative_id = 2
-7:3/0 = 0
-7:3/1 = 1
-7:3/1/flip_v = true
-8:3/next_alternative_id = 2
-8:3/0 = 0
-8:3/1 = 1
-8:3/1/flip_v = true
-9:3/next_alternative_id = 2
-9:3/0 = 0
-9:3/1 = 1
-9:3/1/flip_h = true
-9:3/1/flip_v = true
-10:3/next_alternative_id = 2
-10:3/0 = 0
-10:3/1 = 1
-10:3/1/flip_h = true
-10:3/1/flip_v = true
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-10:2/0 = 0
-6:4/next_alternative_id = 4
-6:4/0 = 0
-6:4/1 = 1
-6:4/1/flip_h = true
-6:4/3 = 3
-6:4/3/flip_v = true
-7:4/next_alternative_id = 2
-7:4/0 = 0
-7:4/1 = 1
-7:4/1/flip_h = true
-8:4/next_alternative_id = 3
-8:4/0 = 0
-8:4/1 = 1
-8:4/1/flip_h = true
-8:4/2 = 2
-8:4/2/flip_v = true
-9:4/next_alternative_id = 2
-9:4/0 = 0
-
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_sld0t"]
-resource_name = "obstacles"
-scenes/1/scene = ExtResource("8_w85fr")
-scenes/2/scene = ExtResource("9_j17p5")
-
-[sub_resource type="TileSet" id="TileSet_ixha2"]
-sources/0 = SubResource("TileSetAtlasSource_ekoqy")
-sources/1 = SubResource("TileSetScenesCollectionSource_sld0t")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_74vqm"]
 size = Vector2(64, 20)
@@ -146,11 +79,13 @@ tile_set = ExtResource("6_tpdsm")
 use_parent_material = true
 tile_set = ExtResource("6_tpdsm")
 
-[node name="EchelonDecorationTiles" type="TileMapLayer" parent="."]
+[node name="EchelonDecorationTiles" type="TileMapLayer" parent="." node_paths=PackedStringArray("echelon_tile_map_layers")]
 y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD2/wUAAQAAAAAAAQD2/wYAAQAAAAAAAQD3/wYAAQAAAAAAAQD6/wcAAQAAAAAAAQD7/wcAAQAAAAAAAQD7/wgAAQAAAAAAAQD8/wgAAQAAAAAAAQAGAAYAAQAAAAAAAQAFAAcAAQAAAAAAAQAEAAcAAQAAAAAAAQADAAcAAQAAAAAAAQADAAgAAQAAAAAAAQAFAAgAAQAAAAAAAQAHAAgAAQAAAAAAAQAIAAgAAQAAAAAAAQAJAAgAAQAAAAAAAQAJAAcAAQAAAAAAAQAKAAcAAQAAAAAAAQAKAAYAAQAAAAAAAQAKAAUAAQAAAAAAAQAJAAUAAQAAAAAAAQAIAAYAAQAAAAAAAQAHAAcAAQAAAAAAAQAGAAcAAQAAAAAAAQAHAAYAAQAAAAAAAQAIAAUAAQAAAAAAAQAKAAQAAQAAAAAAAQAIAAcAAQAAAAAAAQD0/wcAAQAAAAAAAQD1/wcAAQAAAAAAAQD2/wgAAQAAAAAAAQD3/wgAAQAAAAAAAQD1/wgAAQAAAAAAAQD0/wgAAQAAAAAAAQDz/wUAAQAAAAAAAQDz/wYAAQAAAAAAAQD0/wYAAQAAAAAAAQD0/wUAAQAAAAAAAQDz//r/AQAAAAAAAQDz//v/AQAAAAAAAQD0//r/AQAAAAAAAQD1//n/AQAAAAAAAQDz//j/AQAAAAAAAQDz//n/AQAAAAAAAQD0//f/AQAAAAAAAQD0//j/AQAAAAAAAQD1//f/AQAAAAAAAQD2//f/AQAAAAAAAQD2//j/AQAAAAAAAQD3//f/AQAAAAAAAQD3//j/AQAAAAAAAQD4//f/AQAAAAAAAQD4//j/AQAAAAAAAQD5//f/AQAAAAAAAQD6//f/AQAAAAAAAQD7//f/AQAAAAAAAQD8//f/AQAAAAAAAQAGAPj/AQAAAAAAAQAHAPf/AQAAAAAAAQAHAPj/AQAAAAAAAQAIAPf/AQAAAAAAAQAJAPf/AQAAAAAAAQAJAPj/AQAAAAAAAQAKAPj/AQAAAAAAAQALAPn/AQAAAAAAAQA=")
-tile_set = SubResource("TileSet_ixha2")
+tile_set = ExtResource("7_trstf")
+script = ExtResource("10_5jqon")
+echelon_tile_map_layers = NodePath("../EchelonTileMapLayers")
 
 [node name="GameStart" parent="." instance=ExtResource("10_b0vdf")]
 
