@@ -3,6 +3,8 @@ class_name Chest
 
 signal opened
 
+enum Sprites { CHEST0, CHEST1, CHEST2, CHEST3 }
+
 const TEXTURE = preload("res://assets/chest/chest.png")
 
 @export var inventory_item: InventoryItem

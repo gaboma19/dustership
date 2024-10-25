@@ -58,7 +58,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_hapii")
 }],
 "loop": false,
-"name": &"chest1",
+"name": &"chest0",
 "speed": 5.0
 }, {
 "frames": [{
@@ -69,7 +69,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jjap0")
 }],
 "loop": false,
-"name": &"chest2",
+"name": &"chest1",
 "speed": 5.0
 }, {
 "frames": [{
@@ -80,7 +80,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jsde4")
 }],
 "loop": false,
-"name": &"chest3",
+"name": &"chest2",
 "speed": 5.0
 }, {
 "frames": [{
@@ -91,7 +91,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_vn6mu")
 }],
 "loop": false,
-"name": &"chest4",
+"name": &"chest3",
 "speed": 5.0
 }, {
 "frames": [{
@@ -120,13 +120,13 @@ modulate = Color(0, 0, 0, 0.25098)
 position = Vector2(2.38419e-07, 0)
 skew = 0.785398
 sprite_frames = SubResource("SpriteFrames_uu64q")
-animation = &"chest1"
+animation = &"chest0"
 offset = Vector2(0, -8)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_uu64q")
-animation = &"chest1"
+animation = &"chest3"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

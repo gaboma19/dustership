@@ -10,12 +10,12 @@ signal enemies_cleared
 
 var number_dead_enemies: int = 0
 var total_enemies: int = 0
-var enemy_max_number = {
+
+@onready var enemy_max_number = {
 	philo_scene: 6,
 	raster_scene: 1,
 	saguaro_scene: 4
 }
-
 @onready var spawn_points = spawn_points_parent.get_children()
 @onready var entities_layer = get_tree().get_first_node_in_group("entities")
 

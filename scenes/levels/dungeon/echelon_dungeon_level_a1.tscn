@@ -215,3 +215,81 @@ spawn_points_parent = NodePath("SpawnPointsParent")
 [node name="DungeonChest" parent="Spawner" instance=ExtResource("16_tntmi")]
 
 [node name="SpawnPointsParent" type="Node" parent="Spawner"]
+
+[node name="Node2D" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, -32)
+
+[node name="Node2D2" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-96, -64)
+
+[node name="Node2D3" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-48, -96)
+
+[node name="Node2D4" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(48, -96)
+
+[node name="Node2D5" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(96, -64)
+
+[node name="Node2D6" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, -32)
+
+[node name="Node2D7" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(144, 32)
+
+[node name="Node2D8" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(96, 64)
+
+[node name="Node2D9" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(48, 96)
+
+[node name="Node2D10" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-48, 96)
+
+[node name="Node2D11" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-96, 64)
+
+[node name="Node2D12" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-144, 32)
+
+[node name="Node2D13" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-112, 0)
+
+[node name="Node2D14" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-64, 32)
+
+[node name="Node2D15" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-16, 64)
+
+[node name="Node2D16" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(16, 64)
+
+[node name="Node2D17" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(64, 32)
+
+[node name="Node2D18" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(112, 0)
+
+[node name="Node2D19" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(64, -32)
+
+[node name="Node2D20" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(16, -64)
+
+[node name="Node2D21" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-16, -64)
+
+[node name="Node2D22" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-64, -32)
+
+[node name="Node2D23" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(0, -32)
+
+[node name="Node2D24" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(-32, 0)
+
+[node name="Node2D25" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(0, 32)
+
+[node name="Node2D26" type="Node2D" parent="Spawner/SpawnPointsParent"]
+position = Vector2(32, 0)

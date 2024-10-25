@@ -22,6 +22,7 @@ func _ready():
 	
 	#_test_set_doorways()
 	#_test_spawn_chest(4.0)
+	_test_spawn_enemies(4.0)
 
 ### called by ScreenTransition.transition_to_dungeon_level()
 func build():
@@ -58,7 +59,7 @@ func win():
 	spawner.spawn_chest(reward)
 
 
-func _test_set_doorways():
+func _mock_room():
 	var test_room: Room = Room.new()
 	test_room.neighbors = {
 		Vector2i.UP: Room.new(),
@@ -67,6 +68,10 @@ func _test_set_doorways():
 		Vector2i.RIGHT: Room.new()
 	}
 	room = test_room
+
+
+func _test_set_doorways():
+	_mock_room()
 	
 	set_doorways()
 
@@ -74,3 +79,10 @@ func _test_set_doorways():
 func _test_spawn_chest(delay: float):
 	await get_tree().create_timer(delay).timeout
 	spawner.spawn_chest(reward)
+
+
+func _test_spawn_enemies(delay: float):
+	_mock_room()
+	
+	await get_tree().create_timer(delay).timeout
+	spawner.spawn_enemies()
