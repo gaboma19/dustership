@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1s1knjxbebw6"]
+[gd_scene load_steps=6 format=3 uid="uid://d1s1knjxbebw6"]
 
 [ext_resource type="Script" path="res://scenes/levels/spawner/spawner.gd" id="1_rvy3l"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="2_x57up"]
 [ext_resource type="PackedScene" uid="uid://3xehsl854ugm" path="res://scenes/entities/enemies/raster/raster.tscn" id="3_d732b"]
 [ext_resource type="PackedScene" uid="uid://46gibj1h8o7k" path="res://scenes/entities/enemies/saguaro/saguaro.tscn" id="4_agkct"]
+[ext_resource type="PackedScene" uid="uid://bgm5wujmjc2bg" path="res://scenes/entities/tumbleweed/tumbleweed.tscn" id="5_cjkvi"]
 
 [node name="Spawner" type="Node2D"]
 y_sort_enabled = true
@@ -11,3 +12,4 @@ script = ExtResource("1_rvy3l")
 philo_scene = ExtResource("2_x57up")
 raster_scene = ExtResource("3_d732b")
 saguaro_scene = ExtResource("4_agkct")
+tumbleweed_scene = ExtResource("5_cjkvi")

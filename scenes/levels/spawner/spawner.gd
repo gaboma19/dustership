@@ -12,7 +12,7 @@ signal enemies_cleared
 var number_dead_enemies: int = 0
 var total_enemies: int = 0
 
-@onready var enemy_max_number = {
+@onready var enemy_max_count = {
 	philo_scene: 6,
 	raster_scene: 1,
 	saguaro_scene: 2,
@@ -26,13 +26,18 @@ func _ready():
 	spawn_points.shuffle()
 
 
-func spawn_enemies():
-	var wave_size = 4
+func spawn_enemies(wave_size: int = 4):
+	var spawn_list: Array[PackedScene]
+	
 	for i in wave_size:
 		var scene = get_random_scene()
-		var spawn_point = spawn_points[i % spawn_points.size()]
-		var number = randi_range(1, enemy_max_number[scene])
-		spawn_scene(scene, number, spawn_point)
+		var count = randi_range(1, enemy_max_count[scene])
+		for j in range(count):
+			spawn_list.append(scene)
+	
+	for k in range(spawn_list.size()):
+		var spawn_point = spawn_points[k % spawn_points.size()]
+		spawn_scene(spawn_list[k], spawn_point)
 
 
 func get_random_scene():
@@ -47,20 +52,19 @@ func get_random_scene():
 		return tumbleweed_scene
 
 
-func spawn_scene(scene: PackedScene, number: int, spawn_point: Node2D):
-	for n in number:
-		total_enemies += 1
-		
-		var enemy = scene.instantiate()
-		entities_layer.add_child(enemy)
-		
-		enemy.global_position = spawn_point.global_position
-		
-		var health_component = enemy.get_node("HealthComponent")
-		health_component.died.connect(on_enemy_died)
-		
-		var state_machine = enemy.get_node("StateMachine")
-		state_machine.transition_to("Spawn")
+func spawn_scene(scene: PackedScene, spawn_point: Node2D):
+	total_enemies += 1
+	
+	var enemy = scene.instantiate()
+	entities_layer.add_child(enemy)
+	
+	enemy.global_position = spawn_point.global_position
+	
+	var health_component = enemy.get_node("HealthComponent")
+	health_component.died.connect(on_enemy_died)
+	
+	var state_machine = enemy.get_node("StateMachine")
+	state_machine.transition_to("Spawn")
 
 
 func spawn_chest(reward: InventoryItem):
