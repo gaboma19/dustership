@@ -57,9 +57,9 @@ func set_random_scene_path(room: Room):
 	
 	match layout:
 		Room.Layout.A:
-			layout_dir = "res://scenes/levels/dungeon/a"
+			layout_dir = "res://scenes/levels/dungeon/a/"
 		Room.Layout.B:
-			layout_dir = "res://scenes/levels/dungeon/b"
+			layout_dir = "res://scenes/levels/dungeon/b/"
 	
 	var dir = DirAccess.open(layout_dir)
 	var random_file: String
@@ -71,9 +71,9 @@ func set_random_scene_path(room: Room):
 			index = randi_range(0, file_names.size() - 1)
 			random_file = file_names[index]
 	
-	room.path = layout_dir + random_file
+	room.scene_path = layout_dir + random_file
 	room.layout = layout
-	room.layout_positions = Constants.PLAYER_POSITIONS_DICT.layout
+	room.layout_positions = Constants.PLAYER_POSITIONS_DICT[layout]
 
 
 func get_chest_id() -> String:
