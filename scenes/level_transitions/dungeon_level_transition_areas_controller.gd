@@ -1,10 +1,5 @@
 extends Node2D
 
-@export var player_position_north: Vector2
-@export var player_position_south: Vector2
-@export var player_position_west: Vector2
-@export var player_position_east: Vector2
-
 @onready var level_transition_area_north: LevelTransitionArea = $DungeonLevelTransitionAreaNorth
 @onready var level_transition_area_south: LevelTransitionArea = $DungeonLevelTransitionAreaSouth
 @onready var level_transition_area_west: LevelTransitionArea = $DungeonLevelTransitionAreaWest
