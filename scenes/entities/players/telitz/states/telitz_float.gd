@@ -63,7 +63,7 @@ func get_movement_vector():
 
 
 func land():
-	if land_tween != null && land_tween.is_valid():
+	if land_tween != null and land_tween.is_valid():
 		return
 	
 	var final_offset = Vector2(player.sprite.offset.x, player.sprite.offset.y + 5)

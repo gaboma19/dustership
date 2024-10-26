@@ -33,22 +33,30 @@ func handle_input(event):
 	if DialogueManager.is_dialogue_active:
 		return
 	
-	if event.is_action_pressed("attack") \
-	&& player.animation_state_machine.get_current_node() != "Attack" \
-	&& player.animation_state_machine.get_current_node() != "Charge" \
-	&& player.can_attack() \
-	&& player.state_machine.state == self:
+	if (
+		event.is_action_pressed("attack")
+		and player.animation_state_machine.get_current_node() != "Attack"
+		and player.animation_state_machine.get_current_node() != "Charge"
+		and player.can_attack()
+		and player.state_machine.state == self
+	):
 		state_machine.transition_to("Attack")
 	
-	if event.is_action_pressed("dodge") \
-	&& player.state_machine.state == self \
-	&& (player.character_name == Constants.CharacterNames.APRIL \
-	|| player.character_name == Constants.CharacterNames.TELITZ):
+	if (
+		event.is_action_pressed("dodge")
+		and player.state_machine.state == self
+		and (
+			player.character_name == Constants.CharacterNames.APRIL
+			or player.character_name == Constants.CharacterNames.TELITZ
+		)
+	):
 		state_machine.transition_to("Dodge")
 	
-	if event.is_action_pressed("special") \
-	&& player.state_machine.state == self \
-	&& player.character_name == Constants.CharacterNames.TELITZ:
+	if (
+		event.is_action_pressed("special")
+		and player.state_machine.state == self
+		and player.character_name == Constants.CharacterNames.TELITZ
+	):
 		state_machine.transition_to("Special")
 
 

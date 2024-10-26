@@ -14,7 +14,6 @@ func generate(map_seed):
 	seed(map_seed)
 	
 	size = randi_range(min_number_rooms, max_number_rooms)
-	print(size)
 	
 	## place entrance
 	var entrance_room = room_scene.instantiate()

@@ -59,7 +59,7 @@ func update_blend_position(direction: Vector2):
 
 
 func hit_flash():
-	if hit_flash_tween != null && hit_flash_tween.is_valid():
+	if hit_flash_tween != null and hit_flash_tween.is_valid():
 		hit_flash_tween.kill()
 
 	($Sprite2D.material as ShaderMaterial).set_shader_parameter("lerp_percent", 1.0)

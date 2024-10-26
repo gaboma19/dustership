@@ -25,11 +25,12 @@ size = Vector2(20, 64)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0wy1"]
 size = Vector2(20, 64)
 
-[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller", "spawner")]
+[node name="EchelonDungeonLevelA" type="Node2D" node_paths=PackedStringArray("echelon_tiles", "dungeon_level_transition_areas_controller", "echelon_obstacle_tiles", "spawner")]
 y_sort_enabled = true
 script = ExtResource("1_ng4nf")
 echelon_tiles = NodePath("EchelonTileMapLayers")
 dungeon_level_transition_areas_controller = NodePath("DungeonLevelTransitionAreasController")
+echelon_obstacle_tiles = NodePath("EchelonDecorationTiles")
 entrance_scene = ExtResource("2_sh81t")
 exit_scene = ExtResource("3_o4e6k")
 spawner = NodePath("Spawner")

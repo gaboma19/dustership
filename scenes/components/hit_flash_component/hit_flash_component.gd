@@ -29,7 +29,7 @@ func set_connected(value: bool):
 
 func on_health_changed():
 	# restart tween if it is already active
-	if hit_flash_tween != null && hit_flash_tween.is_valid():
+	if hit_flash_tween != null and hit_flash_tween.is_valid():
 		hit_flash_tween.kill()
 
 	(sprite.material as ShaderMaterial).set_shader_parameter("lerp_percent", 1.0)

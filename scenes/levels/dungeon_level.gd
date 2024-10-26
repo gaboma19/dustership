@@ -22,7 +22,8 @@ func _ready():
 	
 	#_test_set_doorways()
 	#_test_spawn_chest(4.0)
-	_test_spawn_enemies(4.0)
+	#_test_spawn_enemies(4.0)
+	#_test_close_doors(1.0)
 
 
 ### called by ScreenTransition.transition_to_dungeon_level()
@@ -42,6 +43,7 @@ func build():
 		Room.Type.DEFAULT:
 			if not room.visited:
 				spawner.spawn_enemies()
+				await get_tree().create_timer(0.4).timeout #TODO: wait for obstacles
 				echelon_obstacle_tiles.close_doors()
 
 
@@ -87,3 +89,9 @@ func _test_spawn_enemies(delay: float):
 	
 	await get_tree().create_timer(delay).timeout
 	spawner.spawn_enemies()
+
+
+func _test_close_doors(delay: float):
+	await get_tree().create_timer(delay).timeout
+	
+	echelon_obstacle_tiles.close_doors()

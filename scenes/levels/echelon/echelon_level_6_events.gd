@@ -106,9 +106,7 @@ func on_raster_timer_timeout():
 func on_enemy_died():
 	number_dead_enemies += 1
 	
-	if is_done_spawning && (
-		number_dead_enemies == number_spawned_enemies or 
-		number_dead_enemies > number_spawned_enemies):
+	if is_done_spawning and number_dead_enemies >= number_spawned_enemies:
 		end_boss()
 
 

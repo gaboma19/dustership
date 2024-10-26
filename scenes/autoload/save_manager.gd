@@ -17,8 +17,6 @@ func save_game():
 		
 		var json_string = JSON.stringify(node_data)
 		
-		print(json_string)
-		
 		save_file.store_line(json_string)
 
 

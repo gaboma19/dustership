@@ -100,7 +100,7 @@ _data = {
 
 [node name="OverworldPlayer" type="Sprite2D"]
 visible = false
-z_index = 2
+z_index = 1
 y_sort_enabled = true
 texture_filter = 1
 texture = ExtResource("1_45bvd")
