@@ -53,18 +53,19 @@ func get_random_scene():
 
 
 func spawn_scene(scene: PackedScene, spawn_point: Node2D):
-	total_enemies += 1
+	var entity = scene.instantiate()
+	entities_layer.add_child(entity)
 	
-	var enemy = scene.instantiate()
-	entities_layer.add_child(enemy)
+	entity.global_position = spawn_point.global_position
 	
-	enemy.global_position = spawn_point.global_position
+	if entity is Enemy:
+		total_enemies += 1
+		
+		var health_component = entity.get_node("HealthComponent")
+		health_component.died.connect(on_enemy_died)
 	
-	var health_component = enemy.get_node("HealthComponent")
-	health_component.died.connect(on_enemy_died)
-	
-	var state_machine = enemy.get_node("StateMachine")
-	state_machine.transition_to("Spawn")
+		var state_machine = entity.get_node("StateMachine")
+		state_machine.transition_to("Spawn")
 
 
 func spawn_chest(reward: InventoryItem):
