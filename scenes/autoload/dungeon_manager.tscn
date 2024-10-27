@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dogvp15fbrsrd"]
+[gd_scene load_steps=5 format=3 uid="uid://dogvp15fbrsrd"]
 
 [ext_resource type="Script" path="res://scenes/autoload/dungeon_manager.gd" id="1_5x43m"]
 [ext_resource type="PackedScene" uid="uid://bjom46dk4nnfc" path="res://scenes/tile_maps/map/map_tiles.tscn" id="2_ivf8t"]
 [ext_resource type="TileSet" uid="uid://bxlbylfhcdr5b" path="res://assets/map/map_tiles.tres" id="3_hff7b"]
+[ext_resource type="PackedScene" uid="uid://bwiqfqs0p3t06" path="res://scenes/tile_maps/map/map_tiles_display.tscn" id="4_v8kds"]
 
 [node name="DungeonManager" type="CanvasLayer"]
 script = ExtResource("1_5x43m")
@@ -25,12 +26,17 @@ size_flags_vertical = 0
 
 [node name="MapTiles" parent="MarginContainer/Control" instance=ExtResource("2_ivf8t")]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(2, 2)
 
 [node name="MapIcons" type="TileMapLayer" parent="MarginContainer/Control"]
 unique_name_in_owner = true
+visible = false
 scale = Vector2(2, 2)
 tile_set = ExtResource("3_hff7b")
+
+[node name="MapTilesDisplay" parent="MarginContainer/Control" instance=ExtResource("4_v8kds")]
+unique_name_in_owner = true
 
 [node name="ReferenceRect" type="ReferenceRect" parent="MarginContainer/Control"]
 visible = false

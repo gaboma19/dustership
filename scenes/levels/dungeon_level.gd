@@ -35,9 +35,11 @@ func build():
 	
 	match room.type:
 		Room.Type.ENTRANCE:
+			room.visited = true
 			var entrance = entrance_scene.instantiate()
 			entities_layer.add_child(entrance)
 		Room.Type.EXIT:
+			room.visited = true
 			var exit = exit_scene.instantiate()
 			entities_layer.add_child(exit)
 		Room.Type.DEFAULT:

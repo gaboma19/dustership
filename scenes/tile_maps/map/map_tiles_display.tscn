@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwiqfqs0p3t06"]
+
+[ext_resource type="Script" path="res://scenes/tile_maps/map/map_tiles_display.gd" id="1_tea2k"]
+[ext_resource type="TileSet" uid="uid://bxlbylfhcdr5b" path="res://assets/map/map_tiles.tres" id="2_ftpid"]
+
+[node name="MapTilesDisplay" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_tea2k")
+
+[node name="MapTilesCopy" type="TileMapLayer" parent="."]
+position = Vector2(984, 16)
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_ftpid")
+
+[node name="MapIconsCopy" type="TileMapLayer" parent="."]
+position = Vector2(984, 16)
+scale = Vector2(2, 2)
+tile_set = ExtResource("2_ftpid")

@@ -1,7 +1,6 @@
 extends Node
 
 
-
 var player_dungeon_position: Vector2i = Vector2i.ZERO:
 	get:
 		return player_dungeon_position

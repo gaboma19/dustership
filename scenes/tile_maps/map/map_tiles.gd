@@ -9,6 +9,7 @@ var map: Dictionary = {}
 @onready var map_generator: MapGenerator = $MapGenerator
 @onready var control: Control = get_parent()
 @onready var map_icons = %MapIcons
+@onready var map_tiles_display = %MapTilesDisplay
 
 
 func create_map():
@@ -16,7 +17,6 @@ func create_map():
 	map = map_generator.generate(s)
 	
 	load_map()
-	set_control_size()
 
 
 func clear_map():
@@ -24,6 +24,7 @@ func clear_map():
 	self.clear()
 	map.clear()
 	map_generator.clear()
+	map_tiles_display.clear()
 
 
 func generate_seed() -> int:
@@ -47,22 +48,6 @@ func load_map():
 		draw_room_icon(pos, room.type)
 
 
-func set_control_size():
-	var tile_size = tile_set.tile_size
-	var rect = get_used_rect()
-	var size = rect.size * tile_size
-	var offset = rect.position * tile_size * -1
-	
-	size *= 2
-	offset *=2
-	
-	control.custom_minimum_size = size
-	position.x = offset.x
-	position.y = offset.y
-	map_icons.position.x = offset.x
-	map_icons.position.y = offset.y
-
-
 func draw_room_icon(coords: Vector2i, type: Room.Type):
 	match type:
 		Room.Type.ENTRANCE:
@@ -78,9 +63,11 @@ func draw_player_tile(coords: Vector2i):
 	var atlas_coords: Vector2i = get_cell_atlas_coords(coords)
 	
 	set_cell(coords, SOURCE_ID, atlas_coords, ALTERNATIVE_TILE)
+	map_tiles_display.copy_tile(coords)
 
 
 func erase_player_tile(coords: Vector2i):
 	var atlas_coords: Vector2i = get_cell_atlas_coords(coords)
 	
 	set_cell(coords, SOURCE_ID, atlas_coords, 0)
+	map_tiles_display.copy_tile(coords)
