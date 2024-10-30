@@ -17,4 +17,4 @@ var map_position: Vector2i = Vector2i.ZERO
 var type: Type = Type.DEFAULT
 var visited: bool = false
 var layout: Layout
-var layout_positions: Dictionary
+var layout_positions: Dictionary = Constants.PLAYER_POSITIONS[Layout.A]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://cur5p1u2ekb50"]
+[gd_scene load_steps=21 format=4 uid="uid://cur5p1u2ekb50"]
 
 [ext_resource type="Script" path="res://scenes/levels/dungeon_level.gd" id="1_m4ctp"]
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_88agt"]
@@ -9,6 +9,7 @@
 [ext_resource type="TileSet" uid="uid://dhtty22f6ngsu" path="res://scenes/tile_maps/echelon/echelon_decoration_tile_set.tres" id="7_1phls"]
 [ext_resource type="PackedScene" uid="uid://cjlfsrio1c68" path="res://scenes/tile_map_layers/echelon_tile_map_layer.tscn" id="7_yju57"]
 [ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="8_g7rod"]
+[ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="8_mqyon"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="9_2wror"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="10_fu0as"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_areas_controller.gd" id="11_i2bqa"]
@@ -86,20 +87,27 @@ z_index = -1
 position = Vector2(16, 0)
 
 [node name="cliffs" parent="ShadowTiles" instance=ExtResource("7_yju57")]
+tile_set = ExtResource("8_mqyon")
 
 [node name="echelon" parent="ShadowTiles" instance=ExtResource("7_yju57")]
+tile_set = ExtResource("8_mqyon")
 
 [node name="floor" parent="ShadowTiles" instance=ExtResource("7_yju57")]
 tile_map_data = PackedByteArray("AAD4/wIABAAEAAMAAAD2/wIABAABAAEAAAD3/wIABAAEAAEAAAD4/wMABAAHAAIAAAD4/wQABAACAAUAAAD3/wQABAADAAYAAAD2/wQABAAFAAMAAAD2/wMABAABAAQAAAD3/wMABAACAAYAAAD5/wQABAAEAAEAAAD6/wQABAAEAAMAAAD6/wUABAACAAUAAAD5/wUABAADAAYAAAD4/wUABAADAAYAAAD3/wUABAAGAAMAAAD5/wYABAAGAAMAAAD6/wYABAAGAAMAAAD4/wYABAAGAAIAAAD2/wUABAABAAYAAAD3/wYABAAGAAMAAAD7/wUABAAEAAEAAAD8/wUABAAEAAMAAAD8/wYABAAHAAIAAAD8/wcABAACAAIAAAD7/wcABAAEAAIAAAD7/wYABAADAAYAAAD5/wcABAADAAcAAAD6/wcABAADAAcAAAD4/wcABAACAAcAAAD3/wcABAACAAcAAAD2/wYABAABAAYAAAD2/wcABAADAAQAAAADAPn/BAAFAAQAAAADAPr/BAAFAAIAAAAEAPr/BAADAAYAAAAEAPn/BAAGAAMAAAAEAPj/BAADAAUAAAAFAPn/BAACAAYAAAAFAPr/BAAGAAIAAAAGAPr/BAAGAAIAAAAHAPr/BAACAAYAAAAIAPr/BAAGAAMAAAAIAPn/BAACAAUAAAAHAPn/BAAGAAIAAAAGAPn/BAAGAAMAAAACAPn/BAABAAEAAAACAPr/BAADAAQAAAADAPv/BAADAAQAAAAEAPv/BAAEAAIAAAAFAPv/BAACAAcAAAAGAPv/BAAFAAIAAAAHAPv/BAADAAYAAAAIAPv/BAAGAAMAAAAJAPv/BAAHAAMAAAAJAPz/BAACAAUAAAAJAPr/BAAHAAMAAAAJAPn/BAAEAAMAAAADAPj/BAABAAEAAAAFAPj/BAAEAAEAAAAGAPj/BAAEAAEAAAAHAPj/BAAGAAEAAAAIAPj/BAAEAAMAAAAIAPz/BAACAAYAAAAGAPz/BAAFAAMAAAAGAP3/BAADAAQAAAAHAP3/BAADAAcAAAAKAP3/BAACAAIAAAAKAPz/BAAEAAMAAAAHAPz/BAACAAYAAAAJAP3/BAADAAcAAAAIAP3/BAACAAcAAAA=")
+tile_set = ExtResource("8_mqyon")
 
 [node name="rocks" parent="ShadowTiles" instance=ExtResource("7_yju57")]
+tile_set = ExtResource("8_mqyon")
 
 [node name="pavement" parent="ShadowTiles" instance=ExtResource("7_yju57")]
+tile_set = ExtResource("8_mqyon")
 
 [node name="ramps" parent="ShadowTiles" instance=ExtResource("7_yju57")]
+tile_set = ExtResource("8_mqyon")
 
 [node name="walls" parent="ShadowTiles" instance=ExtResource("7_yju57")]
 tile_map_data = PackedByteArray("AAADAPv/AwAHAAEAAAADAPz/AwABAAEAAAAEAPz/AwAEAAEAAAAFAPz/AwAEAAEAAAAGAPz/AwAHAAEAAAAGAP7/AwABAAEAAAAHAP7/BQAEAAAAAAAIAP7/BQAEAAAAAAAJAP7/BQAEAAAAAAAKAP7/BQACAAAAAAD8/wgABQACAAAAAAD7/wgABQAEAAAAAAD6/wgABQAEAAAAAAD5/wgABQAEAAAAAAD4/wgABQAEAAAAAAD3/wgABQAEAAAAAAD2/wgABQABAAAAAAA=")
+tile_set = ExtResource("8_mqyon")
 
 [node name="EchelonTileMapLayers2" type="Node2D" parent="."]
 z_index = -1

@@ -72,7 +72,7 @@ func set_random_scene_path(room: Room):
 	
 	room.scene_path = layout_dir + random_file
 	room.layout = layout
-	room.layout_positions = Constants.PLAYER_POSITIONS_DICT[layout]
+	room.layout_positions = Constants.PLAYER_POSITIONS[layout]
 
 
 func get_chest_id() -> String:

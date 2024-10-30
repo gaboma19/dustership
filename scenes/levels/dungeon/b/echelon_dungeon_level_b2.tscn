@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bqqg3f7emqdyw"]
+[gd_scene load_steps=21 format=4 uid="uid://bqqg3f7emqdyw"]
 
 [ext_resource type="Script" path="res://scenes/levels/dungeon_level.gd" id="1_rcsey"]
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_5tkdf"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_dungeon_tile_map_layers.gd" id="5_vfv0l"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="6_6fpxc"]
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="7_8qdxw"]
+[ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="7_tmgww"]
 [ext_resource type="TileSet" uid="uid://dhtty22f6ngsu" path="res://scenes/tile_maps/echelon/echelon_decoration_tile_set.tres" id="8_jlw07"]
 [ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="9_74bal"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="10_1cbbh"]
@@ -88,25 +89,25 @@ position = Vector2(16, 0)
 [node name="echelon" type="TileMapLayer" parent="ShadowTiles"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD5/wUABQACAAAAAAD4/wUABQAHAAAAAAD4/wgABQACAAAAAAD3/wgABQAEAAAAAAD2/wgABQABAAAAAAD1/wUABQABAAAAAAD2/wUABQAGAAAAAAA=")
-tile_set = ExtResource("7_8qdxw")
+tile_set = ExtResource("7_tmgww")
 
 [node name="floor" type="TileMapLayer" parent="ShadowTiles"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD2/wIABAADAAUAAAD3/wIABAADAAUAAAD4/wIABAAEAAEAAAD4/wMABAAGAAMAAAD5/wIABAAEAAMAAAD5/wMABAAHAAIAAAD5/wQABAACAAIAAAD4/wQABAAGAAQAAAD3/wQABAACAAYAAAD2/wQABAAFAAIAAAD1/wQABAADAAQAAAD1/wMABAABAAQAAAD1/wIABAABAAEAAAD3/wMABAAGAAMAAAD2/wMABAAGAAMAAAD4/wUABAAHAAMAAAD4/wYABAACAAQAAAD4/wcABAACAAIAAAD3/wcABAADAAcAAAD2/wcABAADAAQAAAD2/wYABAABAAQAAAD3/wYABAAGAAIAAAD3/wUABAAGAAMAAAD2/wUABAAFAAMAAAD9//j/BAAEAAMAAAD9//n/BAACAAIAAAD8//n/BAACAAcAAAD7//n/BAAEAAIAAAD6//n/BAAEAAIAAAD5//n/BAAGAAQAAAD4//n/BAADAAYAAAD4//r/BAAGAAQAAAD3//r/BAADAAYAAAD3//v/BAAFAAIAAAD2//v/BAADAAQAAAD2//r/BAABAAQAAAD2//n/BAABAAYAAAD2//j/BAABAAEAAAD3//j/BAADAAUAAAD4//j/BAAEAAEAAAD5//j/BAADAAUAAAD6//j/BAAEAAEAAAD7//j/BAADAAUAAAD8//j/BAAEAAEAAAD3//n/BAAGAAMAAAD4//v/BAAHAAMAAAD4//z/BAACAAIAAAD3//z/BAADAAQAAAD5//r/BAACAAIAAAA=")
-tile_set = ExtResource("7_8qdxw")
+tile_set = ExtResource("7_tmgww")
 
 [node name="pavement" type="TileMapLayer" parent="ShadowTiles"]
 use_parent_material = true
-tile_set = ExtResource("7_8qdxw")
+tile_set = ExtResource("7_tmgww")
 
 [node name="ramps" type="TileMapLayer" parent="ShadowTiles"]
 use_parent_material = true
-tile_set = ExtResource("7_8qdxw")
+tile_set = ExtResource("7_tmgww")
 
 [node name="walls" type="TileMapLayer" parent="ShadowTiles"]
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD5/wUAAwACAAAAAAD4/wUAAwAGAAAAAAD9//r/AwACAAAAAAD8//r/AwAEAAAAAAD7//r/AwAEAAAAAAD6//r/AwAEAAAAAAD4//3/AwACAAAAAAD3//3/AwABAAAAAAD2//z/AwABAAAAAAD3//z/AwAGAAEAAAD5//v/AwACAAAAAAD4//v/AwAGAAAAAAD5//r/AwAGAAAAAAA=")
-tile_set = ExtResource("7_8qdxw")
+tile_set = ExtResource("7_tmgww")
 
 [node name="EchelonTileMapLayers2" type="Node2D" parent="."]
 z_index = -1

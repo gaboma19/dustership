@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://bynvmh0yam6v3"]
+[gd_scene load_steps=21 format=4 uid="uid://bynvmh0yam6v3"]
 
 [ext_resource type="Script" path="res://scenes/levels/dungeon_level.gd" id="1_p02dv"]
 [ext_resource type="PackedScene" uid="uid://30n2o1l78jxr" path="res://scenes/entities/dungeon_entrance/dungeon_entrance.tscn" id="2_gwq7k"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cjlfsrio1c68" path="res://scenes/tile_map_layers/echelon_tile_map_layer.tscn" id="7_l2sm6"]
 [ext_resource type="TileSet" uid="uid://dhtty22f6ngsu" path="res://scenes/tile_maps/echelon/echelon_decoration_tile_set.tres" id="7_tna0u"]
 [ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="8_hboxx"]
+[ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="8_v01tk"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="9_kn5n7"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="10_oowwc"]
 [ext_resource type="Script" path="res://scenes/level_transitions/dungeon_level_transition_areas_controller.gd" id="11_oswpi"]
@@ -79,6 +80,35 @@ tile_set = ExtResource("6_7q0nh")
 [node name="walls" type="TileMapLayer" parent="EchelonTileMapLayers"]
 use_parent_material = true
 tile_set = ExtResource("6_7q0nh")
+
+[node name="ShadowTiles" type="Node2D" parent="."]
+modulate = Color(0, 0, 0, 0.0980392)
+z_index = -1
+position = Vector2(16, 0)
+
+[node name="cliffs" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_map_data = PackedByteArray("AAAHAPv/CQAFAAAAAAAHAP7/CQAEAAAAAAAIAP7/CQAEAAAAAAAJAP7/CQAFAAAAAAAJAAcACQAFAAAAAAD9/wcACQAFAAAAAAD3/wcACQADAAAAAAD3//7/CQADAAAAAAD5//7/CQAFAAAAAAD4//7/CQAEAAAAAAD9//v/CQAFAAAAAAD5//v/CQADAAAAAAD6//v/CQAEAAAAAAD7//v/CQAEAAAAAAD8//v/CQAEAAAAAAD4/wcACQAEAAAAAAD5/wcACQAEAAAAAAD6/wcACQAEAAAAAAD7/wcACQAEAAAAAAD8/wcACQAEAAAAAAADAAcACQAEAAAAAAAEAAcACQAEAAAAAAAFAAcACQAEAAAAAAAGAAcACQAEAAAAAAAHAAcACQAEAAAAAAAIAAcACQAEAAAAAAACAAcACQADAAAAAAD3/wEACAABAAEAAAD4/wEACAADAAUAAAD5/wEACAAEAAMAAAD5/wIACAACAAIAAAD4/wIACAACAAcAAAD3/wIACAADAAQAAAD6/wUACAAAAAYAAAAHAAEACAABAAEAAAAIAAEACAAGAAEAAAAJAAEACAAEAAMAAAAJAAIACAACAAIAAAAIAAIACAADAAcAAAAHAAIACAADAAQAAAAGAPv/CQAEAAAAAAAGAP7/CQADAAAAAAA=")
+tile_set = ExtResource("8_v01tk")
+
+[node name="echelon" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_set = ExtResource("8_v01tk")
+
+[node name="floor" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_map_data = PackedByteArray("AAD4/wIACAAGAAEAAAD4/wMACAACAAYAAAD4/wQACAAGAAIAAAD5/wIACAAEAAMAAAD5/wMACAAHAAMAAAD5/wQACAACAAUAAAD4/wUACAAGAAIAAAD5/wUACAADAAYAAAD6/wUACAADAAYAAAD7/wUACAAGAAMAAAD8/wUACAAGAAMAAAD9/wUACAACAAQAAAD9/wQACAAEAAMAAAD8/wQACAAEAAEAAAD7/wQACAAGAAEAAAD6/wQACAAGAAEAAAD3/wIACAABAAEAAAD3/wQACAAFAAMAAAD3/wUACAABAAYAAAD3/wMACAABAAYAAAD3/wYACAADAAQAAAD4/wYACAACAAcAAAD5/wYACAAEAAIAAAD6/wYACAADAAcAAAD7/wYACAAEAAIAAAD8/wYACAACAAcAAAD9/wYACAACAAIAAAACAAQACAABAAEAAAACAAUACAAFAAMAAAACAAYACAADAAQAAAADAAYACAAEAAIAAAAEAAYACAAEAAIAAAAFAAYACAADAAcAAAAGAAYACAACAAcAAAAHAAYACAADAAcAAAAHAAUACAAGAAMAAAAHAAQACAAGAAIAAAAHAAMACAADAAYAAAAHAAIACAACAAUAAAAIAAIACAADAAUAAAAIAAMACAACAAYAAAAIAAQACAADAAYAAAAIAAUACAAGAAMAAAAIAAYACAADAAcAAAAFAAUACAAGAAMAAAAEAAUACAAGAAIAAAADAAUACAAGAAIAAAADAAQACAADAAUAAAAEAAQACAAEAAEAAAAFAAQACAADAAUAAAAGAAQACAAFAAQAAAAGAAUACAAGAAMAAAAJAAIACAAEAAMAAAAJAAMACAAHAAMAAAAJAAQACAAHAAMAAAAJAAUACAACAAQAAAAJAAYACAACAAIAAAD3//3/CAADAAQAAAD4//3/CAACAAcAAAD5//3/CAACAAIAAAD5//z/CAACAAQAAAD5//v/CAAHAAMAAAD5//r/CAAGAAQAAAD6//r/CAAEAAIAAAD7//r/CAACAAcAAAD8//r/CAAEAAIAAAD9//r/CAACAAIAAAD9//n/CAAEAAMAAAD8//n/CAAEAAEAAAD7//n/CAAGAAEAAAD6//n/CAADAAUAAAD5//n/CAAGAAEAAAD4//n/CAAGAAEAAAD3//n/CAABAAEAAAD3//r/CAAFAAMAAAD3//v/CAAFAAMAAAD3//z/CAABAAQAAAD4//z/CAAGAAMAAAD4//v/CAADAAYAAAD4//r/CAAGAAIAAAACAPn/CAABAAEAAAACAPr/CAADAAQAAAADAPr/CAACAAcAAAAEAPr/CAAEAAIAAAAFAPr/CAACAAcAAAAGAPr/CAAFAAIAAAAHAPr/CAAGAAMAAAAHAPv/CAAGAAMAAAAHAPz/CAAGAAIAAAAHAP3/CAACAAcAAAAIAP3/CAAEAAIAAAAIAPz/CAACAAYAAAAIAPv/CAACAAYAAAAIAPr/CAAGAAIAAAAIAPn/CAADAAUAAAAHAPn/CAADAAUAAAAGAPn/CAAEAAEAAAAFAPn/CAADAAUAAAAEAPn/CAAGAAEAAAADAPn/CAADAAUAAAAJAPn/CAAEAAMAAAAJAPr/CAAHAAIAAAAJAPv/CAAHAAMAAAAJAPz/CAAHAAIAAAAJAP3/CAACAAIAAAAGAPv/CAAFAAMAAAAGAPz/CAABAAQAAAAGAP3/CAADAAQAAAAHAAEACAAEAAMAAAAGAAEACAABAAEAAAAGAAIACAABAAYAAAAGAAMACAABAAQAAAA=")
+tile_set = ExtResource("8_v01tk")
+
+[node name="rocks" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_set = ExtResource("8_v01tk")
+
+[node name="pavement" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_set = ExtResource("8_v01tk")
+
+[node name="ramps" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_set = ExtResource("8_v01tk")
+
+[node name="walls" parent="ShadowTiles" instance=ExtResource("7_l2sm6")]
+tile_map_data = PackedByteArray("AAACAPv/CQADAAAAAAADAPv/CQAEAAAAAAAEAPv/CQAEAAAAAAAFAPv/CQAEAAAAAAA=")
+tile_set = ExtResource("8_v01tk")
 
 [node name="EchelonTileMapLayers2" type="Node2D" parent="."]
 z_index = -1

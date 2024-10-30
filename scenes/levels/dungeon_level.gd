@@ -20,7 +20,7 @@ func _ready():
 	SteelCounter.show()
 	DungeonManager.show()
 	
-	#_test_set_doorways()
+	_test_set_doorways()
 	#_test_spawn_chest(4.0)
 	#_test_spawn_enemies(4.0)
 	_test_close_doors(1.0)
@@ -72,6 +72,9 @@ func _mock_room():
 		Vector2i.LEFT: Room.new(),
 		Vector2i.RIGHT: Room.new()
 	}
+	test_room.layout_positions = Constants.PLAYER_POSITIONS[Room.Layout.B]
+	for neighbor in test_room.neighbors.values():
+		neighbor.layout_positions = Constants.PLAYER_POSITIONS[Room.Layout.B]
 	room = test_room
 
 

@@ -10,7 +10,7 @@ const ELEVATION_COLLISION_LAYERS = {
 	Elevations.FOUR: 13,
 }
 
-const PLAYER_POSITIONS_DICT: Dictionary = {
+const PLAYER_POSITIONS: Dictionary = {
 	Room.Layout.A: {
 		Vector2i.UP: Vector2(0, -144),
 		Vector2i.DOWN: Vector2(0, 144),
