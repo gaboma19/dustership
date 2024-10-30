@@ -1,10 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://dnht3oj201iqm"]
+[gd_scene load_steps=11 format=3 uid="uid://dnht3oj201iqm"]
 
 [ext_resource type="Texture2D" uid="uid://cnoly8jej8bfh" path="res://assets/overworld_ladder/overworld_white_ladder.png" id="1_al640"]
 [ext_resource type="Texture2D" uid="uid://dp6i67q1by2v4" path="res://assets/overworld/overworld_green.png" id="1_ndhh8"]
 [ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_ladder_tile.gd" id="2_bamsp"]
 [ext_resource type="Texture2D" uid="uid://7a4nyl882o6p" path="res://assets/overworld/overworld_ladder_icon.png" id="3_bfve3"]
+[ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="3_nture"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ybrtc"]
+
+[sub_resource type="Animation" id="Animation_nwojy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_5m1ty"]
 length = 1.3
@@ -45,21 +61,6 @@ tracks/2/keys = {
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 }
 
-[sub_resource type="Animation" id="Animation_nwojy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Icon:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7elgh"]
 _data = {
 "RESET": SubResource("Animation_nwojy"),
@@ -93,6 +94,14 @@ metadata/_aseprite_wizard_interface_config_ = {
 }
 
 [node name="Icon" type="Node2D" parent="."]
+
+[node name="ShadowSprite" type="Sprite2D" parent="Icon"]
+modulate = Color(0, 0, 0, 0.25098)
+show_behind_parent = true
+position = Vector2(2.98223, -2.48223)
+scale = Vector2(1, 0.712132)
+skew = 0.785398
+texture = ExtResource("3_nture")
 
 [node name="Green" type="Sprite2D" parent="Icon"]
 texture = ExtResource("1_ndhh8")

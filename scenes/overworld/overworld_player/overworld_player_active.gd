@@ -29,8 +29,11 @@ func get_movement_vector():
 
 
 func cartesian_to_isometric(direction):
-	var iso_x = direction.x * cos(deg_to_rad(27)) - direction.y * cos(deg_to_rad(63))
-	var iso_y = direction.x * sin(deg_to_rad(27)) + direction.y * sin(deg_to_rad(63))
+	const X_ROTATION = deg_to_rad(27)
+	const Y_ROTATION = deg_to_rad(63)
+	
+	var iso_x = direction.x * cos(X_ROTATION) - direction.y * cos(Y_ROTATION)
+	var iso_y = direction.x * sin(X_ROTATION) + direction.y * sin(Y_ROTATION)
 	
 	return Vector2(iso_x, iso_y)
 

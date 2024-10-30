@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://tx1yoett8auy"]
+
+[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_dungeon_tile_map_layers.gd" id="1_gjlqf"]
+[ext_resource type="PackedScene" uid="uid://cjlfsrio1c68" path="res://scenes/tile_map_layers/echelon_tile_map_layer.tscn" id="2_8r7uc"]
+
+[node name="EchelonTileMapLayers" type="Node2D"]
+z_index = -1
+script = ExtResource("1_gjlqf")
+
+[node name="cliffs" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="echelon" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="floor" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="rocks" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="pavement" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="ramps" parent="." instance=ExtResource("2_8r7uc")]
+
+[node name="walls" parent="." instance=ExtResource("2_8r7uc")]
