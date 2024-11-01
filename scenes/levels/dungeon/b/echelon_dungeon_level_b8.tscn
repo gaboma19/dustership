@@ -110,6 +110,7 @@ tile_set = ExtResource("7_q5tvn")
 [node name="EchelonDecorationTiles" type="TileMapLayer" parent="." node_paths=PackedStringArray("echelon_tile_map_layers")]
 y_sort_enabled = true
 use_parent_material = true
+tile_map_data = PackedByteArray("AAD7////AQAAAAAAAQD6/wAAAQAAAAAAAQD6////AQAAAAAAAQD7/wAAAQAAAAAAAQAEAP//AQAAAAAAAQAEAAAAAQAAAAAAAQAFAP//AQAAAAAAAQAFAAAAAQAAAAAAAQD//wQAAQAAAAAAAQD//wUAAQAAAAAAAQAAAAQAAQAAAAAAAQAAAAUAAQAAAAAAAQD///r/AQAAAAAAAQD///v/AQAAAAAAAQAAAPr/AQAAAAAAAQAAAPv/AQAAAAAAAQD5//7/AQAAAAAAAQD7//7/AQAAAAAAAQD6//3/AQAAAAAAAQD5//z/AQAAAAAAAQD7//z/AQAAAAAAAQD6//v/AQAAAAAAAQD5//r/AQAAAAAAAQD7//r/AQAAAAAAAQD5/wEAAQAAAAAAAQD7/wEAAQAAAAAAAQD6/wIAAQAAAAAAAQD5/wMAAQAAAAAAAQD7/wMAAQAAAAAAAQD6/wQAAQAAAAAAAQD5/wUAAQAAAAAAAQD7/wUAAQAAAAAAAQAEAPr/AQAAAAAAAQAGAPr/AQAAAAAAAQAFAPv/AQAAAAAAAQAEAPz/AQAAAAAAAQAGAPz/AQAAAAAAAQAFAP3/AQAAAAAAAQAEAP7/AQAAAAAAAQAGAP7/AQAAAAAAAQAEAAEAAQAAAAAAAQAGAAEAAQAAAAAAAQAFAAIAAQAAAAAAAQAEAAMAAQAAAAAAAQAGAAMAAQAAAAAAAQAFAAQAAQAAAAAAAQAEAAUAAQAAAAAAAQAGAAUAAQAAAAAAAQD8/wQAAQAAAAAAAQD8/wUAAQAAAAAAAQD9/wQAAQAAAAAAAQADAAQAAQAAAAAAAQADAAUAAQAAAAAAAQACAAQAAQAAAAAAAQD+/wUAAQAAAAAAAQABAAUAAQAAAAAAAQD+//r/AQAAAAAAAQABAPr/AQAAAAAAAQACAPv/AQAAAAAAAQD9//v/AQAAAAAAAQD8//r/AQAAAAAAAQD8//v/AQAAAAAAAQADAPr/AQAAAAAAAQADAPv/AQAAAAAAAQD6/wYAAQAAAAAAAQD8/wYAAQAAAAAAAQAFAAYAAQAAAAAAAQADAAYAAQAAAAAAAQD6//n/AQAAAAAAAQD8//n/AQAAAAAAAQAFAPn/AQAAAAAAAQADAPn/AQAAAAAAAQD///n/AQAAAAAAAQAAAPn/AQAAAAAAAQD//wYAAQAAAAAAAQAAAAYAAQAAAAAAAQD2//v/AQAAAAAAAQD2//z/AQAAAAAAAQD3//v/AQAAAAAAAQD3//z/AQAAAAAAAQAIAPv/AQAAAAAAAQAIAPz/AQAAAAAAAQAJAPv/AQAAAAAAAQAJAPz/AQAAAAAAAQD2/wMAAQAAAAAAAQD2/wQAAQAAAAAAAQD3/wMAAQAAAAAAAQD3/wQAAQAAAAAAAQAIAAMAAQAAAAAAAQAIAAQAAQAAAAAAAQAJAAMAAQAAAAAAAQAJAAQAAQAAAAAAAQD1//n/AQAAAAAAAQD1//f/AQAAAAAAAQD3//f/AQAAAAAAAQAKAPn/AQAAAAAAAQAKAPf/AQAAAAAAAQAIAPf/AQAAAAAAAQD1/wYAAQAAAAAAAQD1/wgAAQAAAAAAAQD3/wgAAQAAAAAAAQAKAAYAAQAAAAAAAQAKAAgAAQAAAAAAAQAIAAgAAQAAAAAAAQD2/wcAAQAAAAAAAQAJAAcAAQAAAAAAAQD2//j/AQAAAAAAAQAJAPj/AQAAAAAAAQAJAPb/AQAAAAAAAQAKAPb/AQAAAAAAAQD2//b/AQAAAAAAAQD1//b/AQAAAAAAAQD0//f/AQAAAAAAAQD0//j/AQAAAAAAAQALAPf/AQAAAAAAAQALAPj/AQAAAAAAAQD0/wcAAQAAAAAAAQD0/wgAAQAAAAAAAQD2/wkAAQAAAAAAAQD1/wkAAQAAAAAAAQAJAAkAAQAAAAAAAQAKAAkAAQAAAAAAAQALAAcAAQAAAAAAAQALAAgAAQAAAAAAAQD8/wgAAQAAAAAAAQD7/wkAAQAAAAAAAQD6/woAAQAAAAAAAQADAAgAAQAAAAAAAQAEAAkAAQAAAAAAAQAFAAoAAQAAAAAAAQD8//f/AQAAAAAAAQD7//b/AQAAAAAAAQD6//X/AQAAAAAAAQADAPf/AQAAAAAAAQAEAPb/AQAAAAAAAQAFAPX/AQAAAAAAAQD5//f/AQAAAAAAAQAGAPf/AQAAAAAAAQD5/wgAAQAAAAAAAQAGAAgAAQAAAAAAAQD2//7/AQAAAAAAAQD1////AQAAAAAAAQD1/wAAAQAAAAAAAQD2/wEAAQAAAAAAAQAJAP7/AQAAAAAAAQAKAP//AQAAAAAAAQAKAAAAAQAAAAAAAQAJAAEAAQAAAAAAAQDz//v/AQAAAAAAAQDz//z/AQAAAAAAAQAMAPv/AQAAAAAAAQAMAPz/AQAAAAAAAQAMAAMAAQAAAAAAAQAMAAQAAQAAAAAAAQDz/wMAAQAAAAAAAQDz/wQAAQAAAAAAAQD///b/AQAAAAAAAQAAAPb/AQAAAAAAAQD//wkAAQAAAAAAAQAAAAkAAQAAAAAAAQA=")
 tile_set = ExtResource("8_ewr4c")
 script = ExtResource("9_rh2a2")
 echelon_tile_map_layers = NodePath("../EchelonTileMapLayers")
@@ -170,70 +171,70 @@ spawn_points_parent = NodePath("SpawnPointsParent")
 [node name="SpawnPointsParent" type="Node" parent="Spawner"]
 
 [node name="Node2D" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-144, -32)
+position = Vector2(-128, -32)
 
 [node name="Node2D2" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-96, -64)
+position = Vector2(-128, -96)
 
 [node name="Node2D3" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-48, -96)
+position = Vector2(-32, -112)
 
 [node name="Node2D4" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(48, -96)
+position = Vector2(32, -112)
 
 [node name="Node2D5" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(96, -64)
+position = Vector2(128, -96)
 
 [node name="Node2D6" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(144, -32)
+position = Vector2(128, -32)
 
 [node name="Node2D7" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(144, 32)
+position = Vector2(128, 32)
 
 [node name="Node2D8" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(96, 64)
+position = Vector2(128, 96)
 
 [node name="Node2D9" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(48, 96)
+position = Vector2(32, 112)
 
 [node name="Node2D10" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-48, 96)
+position = Vector2(-32, 112)
 
 [node name="Node2D11" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-96, 64)
+position = Vector2(-128, 96)
 
 [node name="Node2D12" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-144, 32)
+position = Vector2(-128, 32)
 
 [node name="Node2D13" type="Node2D" parent="Spawner/SpawnPointsParent"]
 position = Vector2(-112, 0)
 
 [node name="Node2D14" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-64, 32)
+position = Vector2(-48, 32)
 
 [node name="Node2D15" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-16, 64)
+position = Vector2(-32, 48)
 
 [node name="Node2D16" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(16, 64)
+position = Vector2(32, 48)
 
 [node name="Node2D17" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(64, 32)
+position = Vector2(48, 32)
 
 [node name="Node2D18" type="Node2D" parent="Spawner/SpawnPointsParent"]
 position = Vector2(112, 0)
 
 [node name="Node2D19" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(64, -32)
+position = Vector2(48, -32)
 
 [node name="Node2D20" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(16, -64)
+position = Vector2(32, -48)
 
 [node name="Node2D21" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-16, -64)
+position = Vector2(-32, -48)
 
 [node name="Node2D22" type="Node2D" parent="Spawner/SpawnPointsParent"]
-position = Vector2(-64, -32)
+position = Vector2(-48, -32)
 
 [node name="Node2D23" type="Node2D" parent="Spawner/SpawnPointsParent"]
 position = Vector2(0, -32)
