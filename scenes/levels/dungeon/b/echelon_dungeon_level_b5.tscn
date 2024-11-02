@@ -178,13 +178,11 @@ tile_set = ExtResource("8_ou34t")
 script = ExtResource("9_tv1fw")
 echelon_tile_map_layers = NodePath("../EchelonTileMapLayers")
 
-[node name="EchelonDecorationTiles2" type="TileMapLayer" parent="." node_paths=PackedStringArray("echelon_tile_map_layers")]
+[node name="EchelonDecorationTiles" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAACAAkAAQAAAAAAAQABAAkAAQAAAAAAAQAAAAkAAQAAAAAAAQAAAAoAAQAAAAAAAQABAAoAAQAAAAAAAQACAAoAAQAAAAAAAQADAAgAAQAAAAAAAQADAAkAAQAAAAAAAQAEAAkAAQAAAAAAAQAEAAgAAQAAAAAAAQAFAAgAAQAAAAAAAQAFAAkAAQAAAAAAAQD9/wgAAQAAAAAAAQD+/wkAAQAAAAAAAQD9/wkAAQAAAAAAAQD7//X/AQAAAAAAAQD6//X/AQAAAAAAAQD7//b/AQAAAAAAAQD8//X/AQAAAAAAAQD8//b/AQAAAAAAAQA=")
 tile_set = ExtResource("8_ou34t")
-script = ExtResource("9_tv1fw")
-echelon_tile_map_layers = NodePath("../EchelonTileMapLayers")
 
 [node name="GameStart" parent="." instance=ExtResource("10_7s7q8")]
 

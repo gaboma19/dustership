@@ -17,7 +17,7 @@ var chest_number: int = 0
 func _ready():
 	map_tiles.clear()
 	
-	_test_create()
+	#_test_create()
 
 
 func create():

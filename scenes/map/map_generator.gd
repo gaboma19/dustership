@@ -89,17 +89,19 @@ func add_exit():
 
 func get_longest_path_room(start: Vector2i = Vector2i.ZERO) -> Room:
 	var queue = [start]
-	var visited = {}
-	visited[start] = 0  # Store the path length from the start
+	var visited = { start: 0 }
 	var longest_room = map[start]
 	var longest_length = 0
 	
 	while not queue.is_empty():
 		var current = queue.pop_front()
 		var current_length = visited[current]
-		var current_room = map[current]
+		var current_room: Room = map[current]
 	
-		if current_length > longest_length:
+		if (
+			current_length > longest_length
+			and current_room.number_of_neighbors == 1
+		):
 			longest_length = current_length
 			longest_room = current_room
 	

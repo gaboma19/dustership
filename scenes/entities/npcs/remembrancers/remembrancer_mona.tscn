@@ -407,7 +407,7 @@ position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_ctf0s")
 
 [node name="IdleTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 10.0
 
 [node name="StateMachine" type="Node" parent="."]
 script = ExtResource("4_vnhue")

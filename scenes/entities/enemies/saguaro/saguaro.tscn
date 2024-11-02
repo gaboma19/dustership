@@ -1,4 +1,4 @@
-[gd_scene load_steps=78 format=3 uid="uid://46gibj1h8o7k"]
+[gd_scene load_steps=79 format=3 uid="uid://46gibj1h8o7k"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/saguaro/saguaro.gd" id="1_ykr4p"]
 [ext_resource type="Texture2D" uid="uid://cidxhkjuqju0f" path="res://assets/saguaro/saguaro.png" id="2_02e6a"]
@@ -19,6 +19,7 @@
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="16_f876n"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_kic11"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/saguaro/saguaro_attack.gd" id="19_cbpie"]
+[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="20_jssqq"]
 
 [sub_resource type="Animation" id="Animation_xhmdg"]
 length = 0.1
@@ -735,7 +736,7 @@ position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_ttsp5")
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_20n0d")]
-max_health = 30
+max_health = 20
 
 [node name="VelocityComponent" parent="." instance=ExtResource("4_ccm1e")]
 
@@ -753,6 +754,7 @@ health_component = NodePath("../HealthComponent")
 sprite = NodePath("../Sprite2D")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component", "knockback_component") instance=ExtResource("9_57uci")]
+unique_name_in_owner = true
 health_component = NodePath("../HealthComponent")
 stun_component = NodePath("../StunComponent")
 knockback_component = NodePath("../KnockbackComponent")
@@ -786,7 +788,7 @@ shape = SubResource("CircleShape2D_s0013")
 [node name="AggroRayCast" parent="." instance=ExtResource("13_gjogr")]
 
 [node name="CooldownTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 8.0
 one_shot = true
 
 [node name="StateMachine" type="Node" parent="."]
@@ -812,3 +814,6 @@ aggro_ray_cast = NodePath("../../AggroRayCast")
 script = ExtResource("19_cbpie")
 attack_range_area = NodePath("../../AttackRangeArea")
 cooldown_timer = NodePath("../../CooldownTimer")
+
+[node name="Spawn" type="Node" parent="StateMachine"]
+script = ExtResource("20_jssqq")
