@@ -16,6 +16,8 @@ var chest_number: int = 0
 
 func _ready():
 	map_tiles.clear()
+	
+	_test_create()
 
 
 func create():
@@ -86,3 +88,11 @@ func get_chest_id() -> String:
 func reset_chest_data():
 	EntityVariables.chests.clear()
 	chest_number = 0
+
+
+func _test_create():
+	create()
+	($MarginContainer/Control as Control).size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+	($MarginContainer/Control as Control).size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	%MapTiles.show()
+	%MapIcons.show()

@@ -35,7 +35,9 @@ func set_control_size():
 	offset *= 2
 	
 	control.custom_minimum_size = size
-	map_tiles_copy.position.x = offset.x
-	map_tiles_copy.position.y = offset.y
-	map_icons_copy.position.x = offset.x
-	map_icons_copy.position.y = offset.y
+	map_tiles_copy.set_position(Vector2(offset.x, offset.y))
+	map_icons_copy.set_position(Vector2(offset.x, offset.y))
+	map_tiles.set_position(Vector2(offset.x, offset.y))
+	map_icons.set_position(Vector2(offset.x, offset.y))
+	#map_icons_copy.position.x = offset.x
+	#map_icons_copy.position.y = offset.y

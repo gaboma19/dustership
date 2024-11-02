@@ -15,13 +15,11 @@ func generate(map_seed):
 	
 	size = randi_range(min_number_rooms, max_number_rooms)
 	
-	## place entrance
 	var entrance_room = room_scene.instantiate()
 	entrance_room.type = Room.Type.ENTRANCE
 	map[Vector2i(0, 0)] = entrance_room
 	size -= 1
 	
-	## place rooms randomly
 	while size > 0:
 		for i in map.keys():
 			if randf() < generation_chance:
@@ -35,7 +33,6 @@ func generate(map_seed):
 				elif direction == 4:
 					add_neighbor(i, Vector2i.DOWN)
 	
-	## redo generation if not interesting
 	while not is_interesting():
 		clear()
 		
@@ -81,12 +78,40 @@ func is_interesting():
 
 
 func add_exit():
-	var furthest_end_room = Vector2i.ZERO
-	
-	for i in map.keys():
-		if map.get(i).number_of_neighbors == 1:
-			if i.abs() > furthest_end_room.abs():
-				furthest_end_room = i
-	
-	var exit_room = map.get(furthest_end_room)
+	#var furthest_end_room = Vector2i.ZERO
+	#
+	#for coord in map:
+		#if map[coord].number_of_neighbors == 1:
+			#
+				#furthest_end_room = coord
+	#
+	#var exit_room = map.get(furthest_end_room)
+	var exit_room = get_longest_path_room()
+	print(exit_room)
 	exit_room.type = Room.Type.EXIT
+
+
+func get_longest_path_room(start: Vector2i = Vector2i.ZERO) -> Room:
+	var visited = []
+	var longest_path_length = 0
+	var longest_path_room = map[start]
+	dfs(start, visited, 0, longest_path_length, longest_path_room)
+	return longest_path_room
+
+
+func dfs(current: Vector2i, visited: Array, path_length: int, longest_path_length: int, longest_path_room: Room):
+	visited.append(current)
+	var current_room = map[current]
+	
+	if path_length > longest_path_length:
+		longest_path_length = path_length
+		longest_path_room = current_room
+	
+	for direction in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
+		var neighbor_coord = current + direction
+		if neighbor_coord in map and neighbor_coord not in visited:
+			var neighbor_room = map[neighbor_coord]
+			if neighbor_room:
+				dfs(neighbor_coord, visited, path_length + 1, longest_path_length, longest_path_room)
+	
+	visited.pop_back()
