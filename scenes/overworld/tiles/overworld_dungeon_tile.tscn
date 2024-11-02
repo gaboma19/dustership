@@ -18,3 +18,11 @@ visible = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
 scale = Vector2(1, 0.5)
 shape = SubResource("CircleShape2D_mkm4x")
+
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.25098)
+show_behind_parent = true
+position = Vector2(2.98223, -2.48223)
+scale = Vector2(1, 0.712132)
+skew = 0.785398
+texture = ExtResource("1_osohj")

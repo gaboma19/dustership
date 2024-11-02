@@ -43,9 +43,9 @@ func _on_text_box_finished_displaying():
 
 func _unhandled_input(event):
 	if (
-		event.is_action_pressed("interact") &&
-		is_dialogue_active &&
-		can_advance_line
+		event.is_action_pressed("interact")
+		and is_dialogue_active
+		and can_advance_line
 	):
 		get_tree().root.set_input_as_handled()
 		text_box.call_deferred("queue_free")

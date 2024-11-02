@@ -52,7 +52,7 @@ func set_charging(value: bool):
 
 
 func animate_sprite():
-	if charge_tween != null && charge_tween.is_valid():
+	if charge_tween != null and charge_tween.is_valid():
 		return
 	
 	var sprite = player.sprite

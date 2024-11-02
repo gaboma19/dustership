@@ -83,7 +83,7 @@ func apply_ramp_bias():
 	if is_decelerating:
 		return
 	
-	if velocity.x < 1 && velocity.x > -1:
+	if velocity.x < 1 and velocity.x > -1:
 		return
 	
 	if is_on_down_ramp:

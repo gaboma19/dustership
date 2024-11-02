@@ -1,6 +1,11 @@
-[gd_resource type="AudioBusLayout" format=3 uid="uid://cru8u0l2sivew"]
+[gd_resource type="AudioBusLayout" load_steps=2 format=3 uid="uid://cru8u0l2sivew"]
+
+[sub_resource type="AudioEffectHardLimiter" id="AudioEffectHardLimiter_yrv5f"]
+resource_name = "HardLimiter"
 
 [resource]
+bus/0/effect/0/effect = SubResource("AudioEffectHardLimiter_yrv5f")
+bus/0/effect/0/enabled = true
 bus/1/name = &"sfx"
 bus/1/solo = false
 bus/1/mute = false

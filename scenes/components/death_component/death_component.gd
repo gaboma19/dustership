@@ -30,7 +30,7 @@ func get_texture_from_atlas():
 
 
 func on_died():
-	if owner == null || not owner is Node2D:
+	if owner == null or not owner is Node2D:
 		return
 	
 	$GPUParticles2D.texture = get_texture_from_atlas()

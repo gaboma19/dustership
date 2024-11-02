@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjlfsrio1c68"]
+
+[ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="1_apjqi"]
+
+[node name="cliffs" type="TileMapLayer"]
+use_parent_material = true
+tile_set = ExtResource("1_apjqi")

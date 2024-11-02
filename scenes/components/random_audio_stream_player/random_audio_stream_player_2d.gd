@@ -7,7 +7,7 @@ extends AudioStreamPlayer2D
 
 
 func play_random():
-	if streams == null || streams.size() == 0:
+	if streams == null or streams.size() == 0:
 		return
 		
 	if randomize_pitch:

@@ -41,7 +41,7 @@ func update(delta: float) -> void:
 	
 	movement_vector = get_movement_vector()
 	
-	if movement_vector.x != 0 || movement_vector.y != 0:
+	if movement_vector.x != 0 or movement_vector.y != 0:
 		update_blend_position(movement_vector)
 		player.velocity_component.accelerate_in_direction(movement_vector)
 	else:
@@ -63,7 +63,7 @@ func get_movement_vector():
 
 
 func land():
-	if land_tween != null && land_tween.is_valid():
+	if land_tween != null and land_tween.is_valid():
 		return
 	
 	var final_offset = Vector2(player.sprite.offset.x, player.sprite.offset.y + 5)

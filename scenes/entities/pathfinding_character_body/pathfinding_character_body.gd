@@ -39,25 +39,25 @@ func _process(_delta):
 	elif _state == State.MOVING:
 		_set_moving(true)
 		_update_blend_position()
-		
-		
+
+
 func _set_moving(value):
 	_animation_tree.set("parameters/conditions/is_idle", not value)
 	_animation_tree.set("parameters/conditions/is_moving", value)
-	
-	
+
+
 func _update_blend_position():
 	_animation_tree["parameters/Idle/blend_position"] = _direction
 	_animation_tree["parameters/Walk/blend_position"] = _direction
-	
-	
+
+
 func _unhandled_input(event):
 	_click_position = get_global_mouse_position()
 	if _tile_map.is_point_walkable(_click_position):
 		if event.is_action_pressed(&"move_to"):
 			_change_state(State.FOLLOW)
-	
-	
+
+
 func _move_to(local_position):
 	_direction = position.direction_to(local_position)
 	velocity = _direction * speed
@@ -66,8 +66,8 @@ func _move_to(local_position):
 	if not has_arrived:
 		move_and_slide()
 	return has_arrived
-	
-	
+
+
 func _change_state(new_state):
 	if new_state == State.IDLE:
 		_tile_map.clear_path()
@@ -97,6 +97,7 @@ func _physics_process(_delta):
 	velocity = _direction * speed
 	
 	move_and_slide()
-	
+
+
 #func _cartesian_to_isometric(cartesian):
 	#return Vector2(cartesian.x - cartesian.y, (cartesian.x + cartesian.y) / 2)

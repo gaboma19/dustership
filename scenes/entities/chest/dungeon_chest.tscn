@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://scenes/entities/chest/dungeon_chest.gd" id="2_cq70w"]
 
 [node name="DungeonChest" instance=ExtResource("1_s01ah")]
-visible = false
 script = ExtResource("2_cq70w")
 
 [node name="CollisionShape2D" parent="." index="2"]

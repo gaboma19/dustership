@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://bjom46dk4nnfc"]
 
 [ext_resource type="TileSet" uid="uid://bxlbylfhcdr5b" path="res://assets/map/map_tiles.tres" id="1_d3e8s"]
-[ext_resource type="Script" path="res://scenes/tile_maps/map/map_tiles.gd" id="2_w5ysg"]
-[ext_resource type="Script" path="res://scenes/tile_maps/map/map_generator.gd" id="3_ql1xf"]
-[ext_resource type="PackedScene" uid="uid://didw2qmeygsk1" path="res://scenes/tile_maps/map/room.tscn" id="4_pwp2w"]
+[ext_resource type="Script" path="res://scenes/map/map_tiles.gd" id="2_w5ysg"]
+[ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="3_ql1xf"]
+[ext_resource type="PackedScene" uid="uid://didw2qmeygsk1" path="res://scenes/map/room.tscn" id="4_pwp2w"]
 
 [node name="MapTiles" type="TileMapLayer"]
 y_sort_enabled = true

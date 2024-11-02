@@ -30,12 +30,7 @@ func attack():
 	
 	var first_target_position = get_target_position()
 	spawn_foot(first_target_position)
-	await get_tree().create_timer(0.4).timeout
-	
-	var second_target_position = get_target_position()
-	if not first_target_position == second_target_position:
-		spawn_foot(second_target_position)
-	await get_tree().create_timer(2.2).timeout
+	await get_tree().create_timer(2.6).timeout
 	
 	rise()
 	

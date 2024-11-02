@@ -64,4 +64,3 @@ func on_child_entered_tree(child: Node):
 	
 	if child is Obstacle:
 		obstacles.append(child)
-		child.rise()
