@@ -19,6 +19,14 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
+[node name="Button" type="Button" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+disabled = true
+text = "Regenerate"
+
 [node name="Control" type="Control" parent="MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8

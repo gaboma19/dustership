@@ -21,6 +21,7 @@ func _ready():
 
 
 func create():
+	exit()
 	map_tiles.create_map()
 	populate_rooms()
 
@@ -96,3 +97,6 @@ func _test_create():
 	($MarginContainer/Control as Control).size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	%MapTiles.show()
 	%MapIcons.show()
+	$MarginContainer/Button.show()
+	$MarginContainer/Button.disabled = false
+	$MarginContainer/Button.pressed.connect(create)
