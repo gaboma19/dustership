@@ -8,6 +8,7 @@ var max_number_rooms = 10
 var generation_chance: float = 0.2
 var map: Dictionary = {}
 var size: int = 0
+var result = { "length": 0, "room": Vector2i.ZERO }
 
 
 func generate(map_seed):
@@ -93,25 +94,27 @@ func add_exit():
 
 func get_longest_path_room(start: Vector2i = Vector2i.ZERO) -> Room:
 	var visited = []
-	var longest_path_length = 0
-	var longest_path_room = map[start]
-	dfs(start, visited, 0, longest_path_length, longest_path_room)
-	return longest_path_room
+	dfs(start, visited, 0)
+	return result["room"]
 
 
-func dfs(current: Vector2i, visited: Array, path_length: int, longest_path_length: int, longest_path_room: Room):
+func dfs(current: Vector2i, visited: Array, path_length: int):
 	visited.append(current)
 	var current_room = map[current]
 	
-	if path_length > longest_path_length:
-		longest_path_length = path_length
-		longest_path_room = current_room
+	if path_length > result["length"]:
+		result["length"] = path_length
+		result["room"] = current_room
 	
 	for direction in [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT]:
 		var neighbor_coord = current + direction
-		if neighbor_coord in map and neighbor_coord not in visited:
+		if (
+			neighbor_coord in map
+			and current_room.neighbors[direction] != null
+			and neighbor_coord not in visited
+		):
 			var neighbor_room = map[neighbor_coord]
 			if neighbor_room:
-				dfs(neighbor_coord, visited, path_length + 1, longest_path_length, longest_path_room)
+				dfs(neighbor_coord, visited, path_length + 1)
 	
 	visited.pop_back()
