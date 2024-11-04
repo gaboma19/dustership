@@ -225,7 +225,9 @@ shape = SubResource("RectangleShape2D_q3j8u")
 disabled = true
 
 [node name="RiseAudioStreamPlayer" parent="." instance=ExtResource("3_m73yc")]
+volume_db = -4.0
 streams = Array[AudioStream]([ExtResource("4_y3xqh")])
 
 [node name="LowerAudioStreamPlayer" parent="." instance=ExtResource("3_m73yc")]
+volume_db = -4.0
 streams = Array[AudioStream]([ExtResource("5_u7i6t")])
