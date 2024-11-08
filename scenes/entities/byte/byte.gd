@@ -1,15 +1,15 @@
 extends Node2D
 
+const NUMBER_FRAMES: int = 8
+
 @onready var sprite = $Sprite2D
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
-
-@export var steel_value: int = 1
 
 
 func _ready():
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
-	$AnimationPlayer.queue("spin")
 	tween_bounce()
+	sprite.frame = randi_range(0, NUMBER_FRAMES - 1)
 
 
 func tween_bounce():
@@ -18,7 +18,7 @@ func tween_bounce():
 		direction = Vector2.RIGHT 
 	else: 
 		direction = Vector2.LEFT
-	
+
 	var tween = create_tween()
 	tween.tween_property(self, "position", direction * 16, 1).as_relative()
 
@@ -36,7 +36,7 @@ func tween_collect(percent: float, start_position: Vector2):
 
 
 func collect():
-	GameEvents.emit_steel_collected(steel_value)
+	#GameEvents.emit_steel_collected(steel_value)
 	queue_free()
 
 
@@ -46,7 +46,7 @@ func disable_collision():
 
 func play_audio_delayed():
 	await get_tree().create_timer(0.4).timeout
-	%SteelPickupAudio.play_random()
+	%BytePickupAudio.play_random()
 
 
 func on_collection_area_entered(_area: Area2D):

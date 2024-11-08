@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqvf30xhp8xku"]
+
+[ext_resource type="Script" path="res://scenes/entities/byte/byte.gd" id="1_fmx3w"]
+[ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_nsso4"]
+[ext_resource type="Texture2D" uid="uid://b02kttusnkoqy" path="res://assets/byte/byte.png" id="4_mb2ou"]
+[ext_resource type="AudioStream" uid="uid://bp8rcdnddnmkf" path="res://assets/sfx/steel_pickup.wav" id="4_txwik"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1k4bw"]
+radius = 16.0
+
+[node name="Byte" type="Node2D"]
+script = ExtResource("1_fmx3w")
+
+[node name="CollectionArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_1k4bw")
+
+[node name="BytePickupAudio" parent="." instance=ExtResource("3_nsso4")]
+unique_name_in_owner = true
+volume_db = 15.0
+streams = Array[AudioStream]([ExtResource("4_txwik")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("4_mb2ou")
+offset = Vector2(0, -2)
+hframes = 3
+vframes = 3

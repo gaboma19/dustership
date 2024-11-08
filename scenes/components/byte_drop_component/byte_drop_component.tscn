@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bx4adj5uc8517"]
+
+[ext_resource type="Script" path="res://scenes/components/byte_drop_component/byte_drop_component.gd" id="1_2bjmi"]
+
+[node name="ByteDropComponent" type="Node"]
+script = ExtResource("1_2bjmi")
