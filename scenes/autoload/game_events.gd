@@ -7,6 +7,7 @@ signal inventory_item_detail_closed
 signal player_elevation_changed
 signal cube_joined
 signal telitz_joined
+signal bytes_gained(value: int)
 
 
 func emit_player_damaged():
@@ -19,6 +20,10 @@ func emit_player_healed():
 
 func emit_steel_collected(value: int):
 	steel_collected.emit(value)
+
+
+func emit_bytes_gained(value: int):
+	bytes_gained.emit(value)
 
 
 func emit_inventory_item_detail_closed():

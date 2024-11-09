@@ -5,6 +5,7 @@ signal died
 var max_health: int = 3
 var current_health: int = max_health
 var steel: int = 0
+var bytes: int = 0
 var pause_menu_screen: int = 0
 var enable_game_start: bool = true
 var has_sword: bool = false
@@ -17,6 +18,7 @@ func _ready():
 	current_health = max_health
 	
 	GameEvents.steel_collected.connect(on_steel_collected)
+	GameEvents.bytes_gained.connect(on_bytes_gained)
 	HealthBar.set_hearts()
 
 
@@ -73,3 +75,7 @@ func load_data(data: Dictionary):
 
 func on_steel_collected(value: int):
 	steel += value
+
+
+func on_bytes_gained(value: int):
+	bytes += value

@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://ggvy8hstsf8l"]
+[gd_scene load_steps=80 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="8_th7fg"]
+[ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_wf58x"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_iypjm"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
@@ -505,11 +506,15 @@ sprite = NodePath("../Sprite2D")
 health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_6lyqc")]
-drop_percent = 1.0
+drop_percent = 0.05
 health_component = NodePath("../HealthComponent")
 
 [node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_grd2l")]
 drop_percent = 0.25
+health_component = NodePath("../HealthComponent")
+
+[node name="ByteDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_wf58x")]
+number = 5
 health_component = NodePath("../HealthComponent")
 
 [node name="KnockbackComponent" parent="." instance=ExtResource("8_th7fg")]

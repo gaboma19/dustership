@@ -2,6 +2,8 @@ extends Node2D
 
 const NUMBER_FRAMES: int = 8
 
+@export var byte_value: int = 1
+
 @onready var sprite = $Sprite2D
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 
@@ -13,21 +15,20 @@ func _ready():
 
 
 func tween_bounce():
-	var direction: Vector2
-	if randf() > 0.5: 
-		direction = Vector2.RIGHT 
-	else: 
-		direction = Vector2.LEFT
+	var angle: float = randf() * 2.0 * PI
+	var direction: Vector2 = Vector2(cos(angle), sin(angle))
+	var distance: float = 32 + randf_range(-16, 16)
+	var final_val: Vector2 = distance * direction
 
 	var tween = create_tween()
-	tween.tween_property(self, "position", direction * 16, 1).as_relative()
+	tween.tween_property(self, "position", final_val, 1).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):
 	var player = PartyManager.get_active_member()
 	if player == null:
 		return
-		
+	
 	global_position = start_position.lerp(player.global_position, percent)
 	var direction_from_start = player.global_position - start_position
 	
@@ -36,7 +37,7 @@ func tween_collect(percent: float, start_position: Vector2):
 
 
 func collect():
-	#GameEvents.emit_steel_collected(steel_value)
+	GameEvents.emit_bytes_gained(byte_value)
 	queue_free()
 
 

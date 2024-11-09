@@ -22,7 +22,7 @@ func _ready():
 	
 	#_test_set_doorways()
 	#_test_spawn_chest(4.0)
-	#_test_spawn_enemies(4.0)
+	_test_spawn_enemies(4.0)
 	#_test_close_doors(1.0)
 
 
