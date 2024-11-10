@@ -9,7 +9,13 @@ const NUMBER_FRAMES: int = 8
 
 
 func _ready():
+	hide()
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
+	
+	var delay: float = randf()
+	await get_tree().create_timer(delay).timeout
+	
+	show()
 	tween_bounce()
 	sprite.frame = randi_range(0, NUMBER_FRAMES - 1)
 
@@ -21,7 +27,7 @@ func tween_bounce():
 	var final_val: Vector2 = distance * direction
 
 	var tween = create_tween()
-	tween.tween_property(self, "position", final_val, 1).as_relative()
+	tween.tween_property(self, "position", final_val, 0.8).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):

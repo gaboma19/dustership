@@ -13,14 +13,13 @@ func _ready():
 
 
 func tween_bounce():
-	var direction: Vector2
-	if randf() > 0.5: 
-		direction = Vector2.RIGHT 
-	else: 
-		direction = Vector2.LEFT
-	
+	var angle: float = randf() * 2.0 * PI
+	var direction: Vector2 = Vector2(cos(angle), sin(angle))
+	var distance: float = 32 + randf_range(-16, 16)
+	var final_val: Vector2 = distance * direction
+
 	var tween = create_tween()
-	tween.tween_property(self, "position", direction * 16, 1).as_relative()
+	tween.tween_property(self, "position", final_val, 0.8).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):
