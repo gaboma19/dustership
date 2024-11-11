@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://deavqr5nhm48i"]
+[gd_scene load_steps=5 format=3 uid="uid://deavqr5nhm48i"]
 
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="1_lrtqf"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_p5no2"]
+[ext_resource type="Script" path="res://scenes/ui/dungeon_detail/dungeon_detail.gd" id="1_uexro"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="1_wysy4"]
 
 [node name="DungeonDetail" type="PanelContainer"]
@@ -9,6 +10,7 @@ offset_right = 166.0
 offset_bottom = 169.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_uexro")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2

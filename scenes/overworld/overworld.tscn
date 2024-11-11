@@ -31,5 +31,4 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="DungeonDetail" parent="OverworldUI/MarginContainer" instance=ExtResource("5_i4tal")]
-visible = false
 layout_mode = 2
