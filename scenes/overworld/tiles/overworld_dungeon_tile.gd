@@ -1,7 +1,8 @@
 extends Sprite2D
 
-@export var player_position: Vector2
+@export var player_position: Vector2 = Vector2.ZERO
 @export var ingress_id: String
+@export var dungeon_detail_scene: PackedScene
 
 @onready var player_detector_area = $PlayerDetectorArea
 
@@ -21,11 +22,17 @@ func set_active(value: bool):
 	player_detector_area.call_deferred("set_monitoring", value)
 
 
+func open_dungeon_detail():
+	dungeon_detail_scene.instantiate()
+
+
 func on_player_entered(player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
 	var player = player_component.get_parent()
 	player.state_machine.transition_to("Hold")
+	
+	open_dungeon_detail()
 	
 	## create a dungeon and get the first room
 	DungeonManager.create()

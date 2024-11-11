@@ -72,8 +72,11 @@ func spawn_steel():
 	var mod = randi_range(-4, 4)
 	number_steel += mod
 	
+	var angle = (1.0 / number_steel) * TAU
+	
 	for n in number_steel:
 		var steel = STEEL_SCENE.instantiate()
+		steel.angle = n * angle
 		entities_layer.add_child(steel)
 		steel.global_position = self.global_position
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgn4nxnmrvhej"]
+[gd_scene load_steps=6 format=3 uid="uid://cgn4nxnmrvhej"]
 
 [ext_resource type="Script" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/overworld_player/overworld_player.tscn" id="2_0m0c2"]
 [ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
 [ext_resource type="PackedScene" uid="uid://20t1yol8jggr" path="res://scenes/overworld/layers/echelon_layer_1.tscn" id="3_mdbvn"]
+[ext_resource type="PackedScene" uid="uid://deavqr5nhm48i" path="res://scenes/ui/dungeon_detail/dungeon_detail.tscn" id="5_i4tal"]
 
 [node name="Overworld" type="Node2D"]
 y_sort_enabled = true
@@ -19,3 +20,16 @@ zoom = Vector2(3, 3)
 [node name="EchelonLayer1" parent="." groups=["layers"] instance=ExtResource("3_mdbvn")]
 layer_1/z_index = 1
 layer_2/z_index = 1
+
+[node name="OverworldUI" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="OverworldUI"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DungeonDetail" parent="OverworldUI/MarginContainer" instance=ExtResource("5_i4tal")]
+visible = false
+layout_mode = 2

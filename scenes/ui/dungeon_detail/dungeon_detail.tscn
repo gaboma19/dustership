@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://deavqr5nhm48i"]
+
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="1_lrtqf"]
+[ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_p5no2"]
+[ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="1_wysy4"]
+
+[node name="DungeonDetail" type="PanelContainer"]
+offset_right = 166.0
+offset_bottom = 169.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("1_p5no2")
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 10
+text = "WARNING
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Sector data is corrupt.
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="SoundButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_lrtqf")]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Spawn"
+
+[node name="NextIndicator" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+texture = ExtResource("1_wysy4")

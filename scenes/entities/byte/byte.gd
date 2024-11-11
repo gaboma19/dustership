@@ -4,27 +4,22 @@ const NUMBER_FRAMES: int = 8
 
 @export var byte_value: int = 1
 
+var angle: float = 0
+
 @onready var sprite = $Sprite2D
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 
 
 func _ready():
-	hide()
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
 	
-	var delay: float = randf()
-	await get_tree().create_timer(delay).timeout
-	
-	show()
 	tween_bounce()
 	sprite.frame = randi_range(0, NUMBER_FRAMES - 1)
 
 
 func tween_bounce():
-	var angle: float = randf() * 2.0 * PI
 	var direction: Vector2 = Vector2(cos(angle), sin(angle))
-	var distance: float = 32 + randf_range(-16, 16)
-	var final_val: Vector2 = distance * direction
+	var final_val: Vector2 = 32 * direction
 
 	var tween = create_tween()
 	tween.tween_property(self, "position", final_val, 0.8).as_relative()

@@ -1,7 +1,9 @@
 extends Node
 
 # "chest_id": {
-#	"opened": false
+#	"opened": false,
+#	"spawned": false,
+#	"sprite": sprite_index
 # }
 var chests: Dictionary = {}
 

@@ -203,7 +203,6 @@ chest = NodePath("DungeonChest")
 spawn_points_parent = NodePath("SpawnPointsParent")
 
 [node name="DungeonChest" parent="Spawner" instance=ExtResource("15_exc4j")]
-number_steel = 10
 
 [node name="SpawnPointsParent" type="Node" parent="Spawner"]
 
