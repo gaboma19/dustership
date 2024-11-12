@@ -1,7 +1,7 @@
 extends Sprite2D
 
 @export var player_position: Vector2 = Vector2.ZERO
-@export var ingress_id: String
+@export var dungeon_id: String
 @export var dungeon_warning_scene: PackedScene
 
 @onready var interaction_area = $InteractionArea
@@ -11,10 +11,10 @@ extends Sprite2D
 
 
 func _ready():
-	if OverworldVariables.ingresses.has(ingress_id):
-		set_active(OverworldVariables.ingresses[ingress_id].active)
+	if OverworldVariables.dungeons.has(dungeon_id):
+		set_active(OverworldVariables.dungeons[dungeon_id].active)
 	else:
-		OverworldVariables.ingresses[ingress_id] = { "active": true }
+		OverworldVariables.dungeons[dungeon_id] = { "active": true }
 		set_active(true)
 	
 	interaction_area.interact = Callable(self, "on_interact")
@@ -36,7 +36,7 @@ func on_player_exited(_player_component: Area2D):
 
 
 func on_interact(player_component: Area2D):
-	OverworldVariables.ingresses[ingress_id].active = false
+	OverworldVariables.dungeons[dungeon_id].active = false
 	
 	var player = player_component.get_parent()
 	player.state_machine.transition_to("Hold")

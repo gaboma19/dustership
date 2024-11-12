@@ -6,7 +6,7 @@ var items: Array[InventoryItem]
 
 var active_layer: TileMap
 var player_map_position: Vector2i = Vector2i.ZERO
-var ingresses: Dictionary = {}
+var dungeons: Dictionary = {}
 
 var member_scenes: Array[PackedScene] = []
 
