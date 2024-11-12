@@ -1,9 +1,10 @@
-extends PanelContainer
+extends AnimatedPanel
 
 signal continue_pressed
 
 @onready var continue_button = %ContinueButton
-@onready var texture_rect = $MarginContainer/VBoxContainer/HBoxContainer/TextureRect
+@onready var location_name = %LocationName
+@onready var infection_icon = %InfectionIcon
 
 
 func _ready():
@@ -11,4 +12,4 @@ func _ready():
 
 
 func on_continue_pressed():
-	pass
+	continue_pressed.emit()

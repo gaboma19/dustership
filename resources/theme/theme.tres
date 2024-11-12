@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=23 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=24 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccd4wwqnxpfqu" path="res://assets/nine_patch/inventory_slot_hover.png" id="4_0f3h1"]
 [ext_resource type="Texture2D" uid="uid://b4lsbkcpitpq0" path="res://assets/nine_patch/inventory_slot.png" id="5_ybjwd"]
 [ext_resource type="Texture2D" uid="uid://cuek43uw71p4q" path="res://assets/nine_patch/pop_up.png" id="6_3g70y"]
+[ext_resource type="FontVariation" uid="uid://cdjaxm2av00ly" path="res://resources/theme/tiny5.tres" id="6_gdx8a"]
 [ext_resource type="Texture2D" uid="uid://yms1koqi4f3s" path="res://assets/nine_patch/transparent_panel.png" id="6_p6t45"]
 [ext_resource type="Texture2D" uid="uid://g7w5xbeiu8j" path="res://assets/nine_patch/dialogue_box.png" id="9_pxko2"]
 
@@ -106,6 +107,10 @@ ButtonLight/base_type = &"Button"
 ButtonLight/styles/hover = SubResource("StyleBoxTexture_3oet2")
 ButtonLight/styles/normal = SubResource("StyleBoxTexture_w27ip")
 ButtonLight/styles/pressed = SubResource("StyleBoxTexture_y6cla")
+FlatButton/font_sizes/font_size = 16
+Header/base_type = &"Label"
+Header/font_sizes/font_size = 16
+Header/fonts/font = ExtResource("6_gdx8a")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_51dbo")
 PanelContainerLight/base_type = &"PanelContainer"
 PanelContainerLight/styles/panel = SubResource("StyleBoxTexture_oxma3")
