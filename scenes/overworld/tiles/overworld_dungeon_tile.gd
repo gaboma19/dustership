@@ -2,9 +2,12 @@ extends Sprite2D
 
 @export var player_position: Vector2 = Vector2.ZERO
 @export var ingress_id: String
-@export var dungeon_detail_scene: PackedScene
+@export var dungeon_warning_scene: PackedScene
 
+@onready var interaction_area = $InteractionArea
+@onready var overworld_ui = %OverworldUI
 @onready var player_detector_area = $PlayerDetectorArea
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready():
@@ -14,27 +17,35 @@ func _ready():
 		OverworldVariables.ingresses[ingress_id] = { "active": true }
 		set_active(true)
 	
-	player_detector_area.area_entered.connect(on_player_entered)
+	interaction_area.interact = Callable(self, "on_interact")
+	player_detector_area.area_entered.connect(on_player_detected)
+	player_detector_area.area_exited.connect(on_player_exited)
 
 
 func set_active(value: bool):
 	set_visible(value)
-	player_detector_area.call_deferred("set_monitoring", value)
+	interaction_area.call_deferred("set_monitoring", value)
 
 
-func open_dungeon_detail():
-	dungeon_detail_scene.instantiate()
+func on_player_detected(_player_component: Area2D):
+	animation_player.play("fade_out")
 
 
-func on_player_entered(player_component: Area2D):
+func on_player_exited(_player_component: Area2D):
+	animation_player.play_backwards("fade_out")
+
+
+func on_interact(player_component: Area2D):
 	OverworldVariables.ingresses[ingress_id].active = false
 	
 	var player = player_component.get_parent()
 	player.state_machine.transition_to("Hold")
 	
-	open_dungeon_detail()
-	
-	## create a dungeon and get the first room
+	var dungeon_warning = dungeon_warning_scene.instantiate()
+	dungeon_warning.continue_pressed.connect(on_continue)
+
+
+func on_continue():
 	DungeonManager.create()
 	var room: Room = DungeonManager.get_room(Vector2i.ZERO)
 	var scene_path = room.scene_path

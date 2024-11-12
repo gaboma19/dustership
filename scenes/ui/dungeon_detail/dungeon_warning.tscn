@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://deavqr5nhm48i"]
+[gd_scene load_steps=6 format=3 uid="uid://deavqr5nhm48i"]
 
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="1_lrtqf"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_p5no2"]
-[ext_resource type="Script" path="res://scenes/ui/dungeon_detail/dungeon_detail.gd" id="1_uexro"]
+[ext_resource type="Script" path="res://scenes/ui/dungeon_detail/dungeon_warning.gd" id="1_uexro"]
 [ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="1_wysy4"]
+[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="3_pkj7p"]
 
-[node name="DungeonDetail" type="PanelContainer"]
+[node name="DungeonWarning" type="PanelContainer"]
 offset_right = 166.0
 offset_bottom = 169.0
+scale = Vector2(0.5, 0.5)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 script = ExtResource("1_uexro")
@@ -28,6 +30,7 @@ layout_mode = 2
 size_flags_vertical = 4
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -38,6 +41,7 @@ texture = ExtResource("1_p5no2")
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 10
+theme_override_fonts/font = ExtResource("3_pkj7p")
 text = "WARNING
 "
 horizontal_alignment = 1
@@ -48,17 +52,17 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Sector data is corrupt.
-"
+text = "Corrupted memory detected."
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="SoundButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_lrtqf")]
+[node name="ContinueButton" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_lrtqf")]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Spawn"
+text = "Continue"
 
 [node name="NextIndicator" type="TextureRect" parent="."]
 layout_mode = 2

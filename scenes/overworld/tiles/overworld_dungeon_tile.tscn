@@ -1,11 +1,75 @@
-[gd_scene load_steps=6 format=3 uid="uid://d1uebua632l01"]
+[gd_scene load_steps=11 format=3 uid="uid://d1uebua632l01"]
 
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_osohj"]
 [ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_dungeon_tile.gd" id="2_3a5j3"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_4qmee"]
 [ext_resource type="TileSet" uid="uid://bgaer8o2d65k4" path="res://scenes/tile_maps/overworld/overworld_tile_set.tres" id="4_ranpr"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="5_6an66"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mkm4x"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcri0"]
+
+[sub_resource type="Animation" id="Animation_fml3t"]
+resource_name = "fade_out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShadowSprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5xiwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ShadowSprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8i83"]
+_data = {
+"RESET": SubResource("Animation_5xiwb"),
+"fade_out": SubResource("Animation_fml3t")
+}
 
 [node name="OverworldDungeonTile" type="Sprite2D"]
 z_index = 2
@@ -13,12 +77,21 @@ texture = ExtResource("1_osohj")
 offset = Vector2(0, -5)
 script = ExtResource("2_3a5j3")
 
+[node name="InteractionArea" parent="." instance=ExtResource("5_6an66")]
+visible = false
+action_name = "Explore"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+scale = Vector2(1, 0.5)
+shape = SubResource("CircleShape2D_mkm4x")
+
 [node name="PlayerDetectorArea" parent="." instance=ExtResource("3_4qmee")]
 visible = false
+monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
 scale = Vector2(1, 0.5)
-shape = SubResource("CircleShape2D_mkm4x")
+shape = SubResource("CircleShape2D_dcri0")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.25098)
@@ -32,3 +105,8 @@ texture = ExtResource("1_osohj")
 show_behind_parent = true
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 tile_set = ExtResource("4_ranpr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_w8i83")
+}
