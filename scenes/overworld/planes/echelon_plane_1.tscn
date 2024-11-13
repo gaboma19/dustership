@@ -14,21 +14,17 @@ layer_2/tile_data = PackedInt32Array(327682, 2, 0, 393218, 2, 0, 393219, 2, 2, 4
 
 [node name="OverworldDungeon1" parent="." index="4" instance=ExtResource("2_ofuul")]
 position = Vector2(16, 88)
-ingress_id = "overworld_1_ingress_1"
 
 [node name="OverworldDungeon2" parent="." index="5" instance=ExtResource("2_ofuul")]
 position = Vector2(-112, 72)
 texture = ExtResource("3_alvbu")
-ingress_id = "overworld_1_ingress_2"
 
 [node name="OverworldDungeon3" parent="." index="6" instance=ExtResource("2_ofuul")]
 position = Vector2(16, 56)
-ingress_id = "overworld_1_ingress_3"
 
 [node name="OverworldDungeon4" parent="." index="7" instance=ExtResource("2_ofuul")]
 position = Vector2(128, 64)
 texture = ExtResource("3_alvbu")
-ingress_id = "overworld_1_ingress_4"
 
 [node name="OverworldLadder" parent="." index="8" instance=ExtResource("4_iqjur")]
 position = Vector2(16, 136)

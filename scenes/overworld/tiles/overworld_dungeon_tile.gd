@@ -5,9 +5,9 @@ extends Sprite2D
 @export var dungeon_warning_scene: PackedScene
 
 @onready var interaction_area = $InteractionArea
-@onready var overworld_ui = %OverworldUI
 @onready var player_detector_area = $PlayerDetectorArea
 @onready var animation_player = $AnimationPlayer
+@onready var overworld_ui = %OverworldUI
 
 
 func _ready():

@@ -8,11 +8,11 @@ var player: OverworldPlayer
 
 
 func _ready():
-	var active_layer = get_tree().get_first_node_in_group("layers")
-	OverworldVariables.active_layer = active_layer
+	var active_plane = get_tree().get_first_node_in_group("planes")
+	OverworldVariables.active_plane = active_plane
 	
 	initialize_player()
-	active_layer.layer_changed.connect(on_layer_changed)
+	active_plane.plane_changed.connect(on_plane_changed)
 	
 	HealthBar.hide()
 	SteelCounter.hide()
@@ -23,32 +23,32 @@ func initialize_player():
 	player = overworld_player_scene.instantiate()
 	add_child(player)
 	
-	var active_layer = OverworldVariables.active_layer
-	var player_position = active_layer.map_to_global(
+	var active_plane = OverworldVariables.active_plane
+	var player_position = active_plane.map_to_global(
 		OverworldVariables.player_map_position)
 	player.global_position = player_position
 
 
-func switch_layers(next_layer_scene: PackedScene):
+func switch_planes(next_plane_scene: PackedScene):
 	player.exit()
-	OverworldVariables.active_layer.exit()
-	await OverworldVariables.active_layer.tree_exited
+	OverworldVariables.active_plane.exit()
+	await OverworldVariables.active_plane.tree_exited
 	
 	overworld_stack.move_up()
 	await get_tree().create_timer(1.0).timeout
 	
-	var next_layer = next_layer_scene.instantiate()
-	next_layer.set_modulate(Color.TRANSPARENT)
-	OverworldVariables.active_layer = next_layer
-	next_layer.layer_changed.connect(on_layer_changed)
-	add_child(next_layer)
+	var next_plane = next_plane_scene.instantiate()
+	next_plane.set_modulate(Color.TRANSPARENT)
+	OverworldVariables.active_plane = next_plane
+	next_plane.plane_changed.connect(on_plane_changed)
+	add_child(next_plane)
 	
-	next_layer.enter()
+	next_plane.enter()
 	await get_tree().create_timer(2.0).timeout
 	
 	overworld_stack.reset()
 	initialize_player()
 
 
-func on_layer_changed(next_layer_scene: PackedScene):
-	switch_layers(next_layer_scene)
+func on_plane_changed(next_plane_scene: PackedScene):
+	switch_planes(next_plane_scene)
