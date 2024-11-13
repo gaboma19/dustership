@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://oxdmvyyhvo3y"]
+
+[ext_resource type="PackedScene" uid="uid://cevcci2xmryyi" path="res://scenes/ui/animated_panel/animated_panel.tscn" id="1_0bl76"]
+[ext_resource type="Script" path="res://scenes/ui/dungeon_detail/dungeon_detail.gd" id="2_xp2dd"]
+[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="2_ytl3a"]
+[ext_resource type="Texture2D" uid="uid://dp6i67q1by2v4" path="res://assets/overworld/overworld_green.png" id="3_jv186"]
+[ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="3_paldr"]
+[ext_resource type="Texture2D" uid="uid://cy1pn6tmg6kux" path="res://assets/overworld/overworld_mild.png" id="4_nq671"]
+[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_w7fvl"]
+[ext_resource type="Texture2D" uid="uid://c5nxv3exsxnx2" path="res://assets/overworld/overworld_moderate.png" id="5_noc5w"]
+[ext_resource type="Texture2D" uid="uid://srbga6cbubf1" path="res://assets/overworld/overworld_severe.png" id="6_i75yh"]
+
+[node name="DungeonDetail" instance=ExtResource("1_0bl76")]
+script = ExtResource("2_xp2dd")
+none_infection_icon = ExtResource("3_jv186")
+mild_infection_icon = ExtResource("4_nq671")
+moderate_infection_icon = ExtResource("5_noc5w")
+severe_infection_icon = ExtResource("6_i75yh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" index="0"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HBoxContainer1" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="LocationName" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer1" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_ytl3a")
+text = "LOCATION NAME
+"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="InfectionIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(30, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+texture = ExtResource("3_paldr")
+
+[node name="InfectionLevel" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"Header"
+theme_override_font_sizes/font_size = 16
+text = "INFECTION LEVEL: MODERATE."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="ContinueButton" parent="MarginContainer/VBoxContainer" index="2" instance=ExtResource("4_w7fvl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Continue"

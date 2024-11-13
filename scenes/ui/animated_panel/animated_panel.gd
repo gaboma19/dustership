@@ -4,7 +4,6 @@ class_name AnimatedPanel
 var is_opening: bool = false
 var is_closing: bool = false
 
-@onready var animation_player = $AnimationPlayer
 @onready var b_button = %BButton
 
 
@@ -24,7 +23,6 @@ func _unhandled_input(event):
 
 func open():
 	is_opening = true
-	animation_player.play("default")
 	get_tree().paused = true
 	
 	pivot_offset = size / 2
@@ -42,7 +40,6 @@ func close():
 	if is_closing:
 		return
 	is_closing = true
-	animation_player.play_backwards("default")
 	
 	pivot_offset = size / 2
 	var tween = create_tween()

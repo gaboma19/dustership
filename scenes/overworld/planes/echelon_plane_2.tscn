@@ -1,5 +1,5 @@
 [gd_scene load_steps=2 format=3 uid="uid://dms221iw84wsl"]
 
-[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_wo8fw"]
+[ext_resource type="PackedScene" uid="uid://n1pxrr1e7ev" path="res://scenes/tile_maps/overworld/overworld_plane.tscn" id="1_vvws3"]
 
-[node name="EchelonPlane2" instance=ExtResource("1_wo8fw")]
+[node name="EchelonPlane2" instance=ExtResource("1_vvws3")]

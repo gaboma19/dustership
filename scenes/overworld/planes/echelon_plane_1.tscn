@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://20t1yol8jggr"]
+[gd_scene load_steps=5 format=3 uid="uid://20t1yol8jggr"]
 
 [ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_jjivc"]
 [ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_dungeon_tile.tscn" id="2_ofuul"]
-[ext_resource type="Texture2D" uid="uid://31fbvxl03gme" path="res://assets/overworld/overworld_plus.png" id="3_alvbu"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder_tile.tscn" id="4_iqjur"]
 [ext_resource type="PackedScene" uid="uid://dms221iw84wsl" path="res://scenes/overworld/planes/echelon_plane_2.tscn" id="5_c3xxg"]
 
-[node name="EchelonPlane1" instance=ExtResource("1_jjivc")]
+[node name="EchelonPlane1" groups=["planes"] instance=ExtResource("1_jjivc")]
 layer_0/tile_data = PackedInt32Array(131074, 196608, 0, 196610, 196608, 0, 262146, 196608, 0, 327682, 196608, 0, 393218, 196608, 0, 458754, 196608, 0, 524290, 196608, 0, 131075, 196608, 0, 196611, 196608, 0, 262147, 196608, 0, 327683, 196608, 0, 393219, 196608, 0, 458755, 196608, 0, 524291, 196608, 0, 131076, 196608, 0, 196612, 196608, 0, 262148, 196608, 0, 327684, 196608, 0, 131077, 196608, 0, 196613, 196608, 0, 262149, 196608, 0, 327685, 196608, 0, 131078, 196608, 0, 196614, 196608, 0, 262150, 196608, 0, 327686, 196608, 0, 131079, 196608, 0, 196615, 196608, 0, 262151, 196608, 0, 327687, 196608, 0, 393223, 196608, 0, 458759, 196608, 0, 524295, 196608, 0, 131080, 196608, 0, 196616, 196608, 0, 262152, 196608, 0, 327688, 196608, 0, 393224, 196608, 0, 458760, 196608, 0, 524296, 196608, 0, 0, 196608, 0, 65536, 196608, 0, 131072, 196608, 0, 196608, 196608, 0, 262144, 196608, 0, 327680, 196608, 0, 393216, 196608, 0, 458752, 196608, 0, 524288, 196608, 0, 1, 196608, 0, 65537, 196608, 0, 131073, 196608, 0, 196609, 196608, 0, 262145, 196608, 0, 327681, 196608, 0, 393217, 196608, 0, 458753, 196608, 0, 524289, 196608, 0, 2, 196608, 0, 65538, 196608, 0, 3, 196608, 0, 65539, 196608, 0, 4, 196608, 0, 65540, 196608, 0, 5, 196608, 0, 65541, 196608, 0, 6, 196608, 0, 65542, 196608, 0, 7, 196608, 0, 65543, 196608, 0, 8, 196608, 0, 65544, 196608, 0)
 layer_1/tile_data = PackedInt32Array(196608, 65537, 2, 262144, 65537, 2, 327680, 458753, 4, 393216, 458753, 4, 458752, 458753, 5, 196609, 458753, 4, 262145, 458753, 5, 327681, 458753, 5, 393217, 458753, 5, 458753, 458753, 5, 262146, 458753, 5, 3, 458753, 5, 65539, 458753, 5, 4, 458753, 4, 65540, 458753, 5, 131076, 458753, 5, 262148, 458753, 5, 5, 65537, 2, 65541, 65537, 2, 131077, 458753, 5, 196613, 458753, 5, 262149, 458753, 4, 6, 65537, 2, 65542, 458753, 4, 131078, 458753, 5, 196614, 458753, 4, 262150, 458753, 5, 65543, 458753, 4, 131079, 458753, 5, 196615, 458753, 4, 131080, 131073, 11)
 layer_2/z_index = 2
@@ -14,17 +13,22 @@ layer_2/tile_data = PackedInt32Array(327682, 2, 0, 393218, 2, 0, 393219, 2, 2, 4
 
 [node name="OverworldDungeon1" parent="." index="4" instance=ExtResource("2_ofuul")]
 position = Vector2(16, 88)
+dungeon_id = "plane_1_dungeon_1"
+infection_level = 3
 
 [node name="OverworldDungeon2" parent="." index="5" instance=ExtResource("2_ofuul")]
 position = Vector2(-112, 72)
-texture = ExtResource("3_alvbu")
+dungeon_id = "plane_1_dungeon_2"
 
 [node name="OverworldDungeon3" parent="." index="6" instance=ExtResource("2_ofuul")]
 position = Vector2(16, 56)
+dungeon_id = "plane_1_dungeon_3"
+location_name = "Sector (3,3)"
+infection_level = 2
 
 [node name="OverworldDungeon4" parent="." index="7" instance=ExtResource("2_ofuul")]
 position = Vector2(128, 64)
-texture = ExtResource("3_alvbu")
+dungeon_id = "plane_1_dungeon_4"
 
 [node name="OverworldLadder" parent="." index="8" instance=ExtResource("4_iqjur")]
 position = Vector2(16, 136)
