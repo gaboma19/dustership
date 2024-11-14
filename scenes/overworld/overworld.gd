@@ -15,7 +15,7 @@ func _ready():
 	active_plane.plane_changed.connect(on_plane_changed)
 	
 	HealthBar.hide()
-	SteelCounter.hide()
+	CurrencyCounter.hide()
 	DungeonManager.hide()
 
 

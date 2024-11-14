@@ -15,7 +15,7 @@ func _ready():
 	PlayerVariables.died.connect(on_player_died)
 	
 	HealthBar.show()
-	SteelCounter.show()
+	CurrencyCounter.show()
 	DungeonManager.show()
 
 

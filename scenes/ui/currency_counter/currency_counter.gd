@@ -2,6 +2,7 @@ extends CanvasLayer
 
 
 func _ready():
+	hide()
 	GameEvents.steel_collected.connect(on_steel_collected)
 	set_counter()
 

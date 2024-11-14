@@ -17,7 +17,7 @@ func _ready():
 	spawner.enemies_cleared.connect(win)
 	
 	HealthBar.show()
-	SteelCounter.show()
+	CurrencyCounter.show()
 	DungeonManager.show()
 	
 	#_test_set_doorways()
