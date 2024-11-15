@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=24 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=28 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cuek43uw71p4q" path="res://assets/nine_patch/pop_up.png" id="6_3g70y"]
 [ext_resource type="FontVariation" uid="uid://cdjaxm2av00ly" path="res://resources/theme/tiny5.tres" id="6_gdx8a"]
 [ext_resource type="Texture2D" uid="uid://yms1koqi4f3s" path="res://assets/nine_patch/transparent_panel.png" id="6_p6t45"]
+[ext_resource type="Texture2D" uid="uid://dur754f2sa7lm" path="res://assets/nine_patch/panel_green.png" id="7_m4x1d"]
+[ext_resource type="Texture2D" uid="uid://bmjwr5cntox5y" path="res://assets/nine_patch/panel_brown.png" id="7_ye08y"]
 [ext_resource type="Texture2D" uid="uid://g7w5xbeiu8j" path="res://assets/nine_patch/dialogue_box.png" id="9_pxko2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jv8l"]
@@ -61,6 +63,13 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6tyth"]
+texture = ExtResource("7_ye08y")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_51dbo"]
 texture = ExtResource("1_jbmej")
 texture_margin_left = 8.0
@@ -68,6 +77,13 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 24, 24)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a66y"]
+texture = ExtResource("7_m4x1d")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_oxma3"]
 texture = ExtResource("5_ybjwd")
@@ -111,7 +127,10 @@ FlatButton/font_sizes/font_size = 16
 Header/base_type = &"Label"
 Header/font_sizes/font_size = 16
 Header/fonts/font = ExtResource("6_gdx8a")
+Panel/styles/panel = SubResource("StyleBoxTexture_6tyth")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_51dbo")
+PanelContainerGreen/base_type = &"PanelContainer"
+PanelContainerGreen/styles/panel = SubResource("StyleBoxTexture_0a66y")
 PanelContainerLight/base_type = &"PanelContainer"
 PanelContainerLight/styles/panel = SubResource("StyleBoxTexture_oxma3")
 PanelContainerRed/base_type = &"PanelContainer"

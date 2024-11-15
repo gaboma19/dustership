@@ -3,7 +3,7 @@ extends Sprite2D
 const OVERWORLD_SEVERE = preload("res://assets/overworld/overworld_severe.png")
 const OVERWORLD_MODERATE = preload("res://assets/overworld/overworld_moderate.png")
 const OVERWORLD_MILD = preload("res://assets/overworld/overworld_mild.png")
-const OVERWORLD_GREEN = preload("res://assets/overworld/overworld_green.png")
+const OVERWORLD_GREEN = preload("res://assets/overworld/overworld_none.png")
 
 @export var player_position: Vector2 = Vector2.ZERO
 @export var dungeon_id: String
@@ -13,7 +13,7 @@ const OVERWORLD_GREEN = preload("res://assets/overworld/overworld_green.png")
 
 @onready var interaction_area = $InteractionArea
 @onready var player_detector_area = $PlayerDetectorArea
-@onready var animation_player = $AnimationPlayer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var overworld_ui = %OverworldUI
 
 

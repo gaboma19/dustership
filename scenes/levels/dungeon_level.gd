@@ -1,4 +1,5 @@
 extends Level
+class_name DungeonLevel
 
 @export var echelon_tiles: Node2D
 @export var dungeon_level_transition_areas_controller: Node2D
@@ -26,7 +27,6 @@ func _ready():
 	#_test_close_doors(1.0)
 
 
-### called by ScreenTransition.transition_to_dungeon_level()
 func build():
 	if echelon_tiles == null or room == null:
 		return

@@ -1,14 +1,20 @@
 extends CanvasLayer
 
+@onready var steel_label = %SteelLabel
+@onready var bytes_label = %BytesLabel
+
 
 func _ready():
 	hide()
-	GameEvents.steel_collected.connect(on_steel_collected)
+	
+	GameEvents.steel_collected.connect(on_currency_collected)
+	GameEvents.bytes_gained.connect(on_currency_collected)
 	set_counter()
 
 
 func set_counter():
-	%Label.text = format_number(PlayerVariables.steel)
+	steel_label.text = format_number(PlayerVariables.steel)
+	bytes_label.text = format_number(PlayerVariables.bytes)
 
 
 func format_number(value) -> String:
@@ -23,5 +29,5 @@ func format_number(value) -> String:
 	return output
 
 
-func on_steel_collected(_value):
+func on_currency_collected(_value):
 	set_counter()

@@ -14,6 +14,7 @@ var infection_level: Constants.InfectionLevel
 @onready var location_name_label: Label = %LocationName
 @onready var infection_icon: TextureRect = %InfectionIcon
 @onready var infection_level_label: Label = %InfectionLevel
+@onready var infection_panel: PanelContainer = %InfectionPanel
 
 
 func _ready():
@@ -22,6 +23,8 @@ func _ready():
 	
 	set_state()
 	open()
+	
+	_test_infection_level(Constants.InfectionLevel.MILD)
 
 
 func set_state():
@@ -30,18 +33,24 @@ func set_state():
 	match infection_level:
 		Constants.InfectionLevel.NONE:
 			infection_icon.texture = none_infection_icon
-			infection_level_label.text = "Infection not detected."
+			infection_level_label.text = "NONE"
 		Constants.InfectionLevel.MILD:
 			infection_icon.texture = mild_infection_icon
-			infection_level_label.text = "INFECTION LEVEL: MILD."
+			infection_level_label.text = "MILD"
 		Constants.InfectionLevel.MODERATE:
 			infection_icon.texture = moderate_infection_icon
-			infection_level_label.text = "INFECTION LEVEL: MODERATE."
+			infection_level_label.text = "MODERATE"
 		Constants.InfectionLevel.SEVERE:
 			infection_icon.texture = severe_infection_icon
-			infection_level_label.text = "INFECTION LEVEL: SEVERE."
+			infection_level_label.text = "SEVERE"
+			#infection_panel.set_theme_type_variation(&"PanelContainerRed")
 
 
 func on_continue_pressed():
 	close()
 	closed.emit()
+
+
+func _test_infection_level(level: Constants.InfectionLevel):
+	infection_level = level
+	set_state()
