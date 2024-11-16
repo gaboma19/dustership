@@ -1,10 +1,13 @@
 extends PanelContainer
 class_name AnimatedPanel
 
+signal canceled
+
 var is_opening: bool = false
 var is_closing: bool = false
 
 @onready var b_button = %BButton
+@onready var animation_player = $AnimationPlayer
 
 
 func _ready():
@@ -18,20 +21,27 @@ func _unhandled_input(event):
 	if event.is_action_pressed("ui_cancel") and not is_opening:
 		get_tree().root.set_input_as_handled()
 		b_button.audio_stream_player.play()
+		canceled.emit()
 		close()
 
 
 func open():
 	is_opening = true
-	get_tree().paused = true
 	
 	pivot_offset = size / 2
+	
+	modulate.a = 0
+	scale = Vector2.ZERO
+	await get_tree().process_frame # https://github.com/godotengine/godot/issues/20623
+	
 	var tween = create_tween()
-	tween.tween_property(self, "scale", Vector2.ZERO, 0)
+	tween.tween_property(self, "modulate", Color(1, 1, 1, 1), 0)
 	tween.tween_property(self, "scale", Vector2.ONE, 0.3) \
+		.from(Vector2.ZERO) \
 		.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BACK)
 	
 	await tween.finished
+	get_tree().paused = true
 	
 	is_opening = false
 

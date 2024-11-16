@@ -54,7 +54,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/movie_file="D:/workspace/avi/godot.png"
+movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.png"
 
 [editor_plugins]
 

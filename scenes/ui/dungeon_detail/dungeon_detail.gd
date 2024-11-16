@@ -1,6 +1,6 @@
 extends AnimatedPanel
 
-signal closed
+signal continued
 
 @export var none_infection_icon: Texture2D
 @export var mild_infection_icon: Texture2D
@@ -18,10 +18,14 @@ var infection_level: Constants.InfectionLevel
 
 
 func _ready():
+	#hide()
 	continue_button.grab_focus()
 	continue_button.pressed.connect(on_continue_pressed)
 	
 	set_state()
+	
+	#await get_tree().process_frame
+	#scale = Vector2.ZERO
 	open()
 	
 	_test_infection_level(Constants.InfectionLevel.MILD)
@@ -48,7 +52,7 @@ func set_state():
 
 func on_continue_pressed():
 	close()
-	closed.emit()
+	continued.emit()
 
 
 func _test_infection_level(level: Constants.InfectionLevel):

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv4vc5ogjearw"]
+
+[ext_resource type="TileSet" uid="uid://bgaer8o2d65k4" path="res://scenes/tile_maps/overworld/overworld_tile_set.tres" id="1_1w344"]
+
+[node name="OverworldTileMapLayer" type="TileMapLayer"]
+show_behind_parent = true
+tile_set = ExtResource("1_1w344")
