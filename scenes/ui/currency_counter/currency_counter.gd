@@ -21,7 +21,7 @@ func format_number(value) -> String:
 	value = str(round(value))
 	var output := ""
 	
-	for i in range(0, value.length()):
+	for i in range(value.length()):
 		if i != 0 and i % 3 == value.length() % 3:
 			output += ","
 		output += value[i]

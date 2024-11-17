@@ -24,8 +24,55 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 
-[node name="SteelContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
+[node name="BytesContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
 custom_minimum_size = Vector2(100, 32)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_constants/separation = 8
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("3_7r5b1")
+expand_mode = 2
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"op_exp": false,
+"player": "",
+"source": "res://assets/steel/steel.aseprite"
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
+custom_minimum_size = Vector2(100, 16)
+layout_mode = 2
+size_flags_vertical = 4
+max_value = 1024.0
+step = 1.0
+value = 512.0
+rounded = true
+show_percentage = false
+
+[node name="BytesLabel" type="Label" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "5"
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
+layout_mode = 2
+
+[node name="SteelContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -33,7 +80,9 @@ alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/CurrenciesContainer/SteelContainer"]
 texture_filter = 1
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
+size_flags_vertical = 4
 texture = ExtResource("2_4ishk")
 expand_mode = 2
 stretch_mode = 4
@@ -51,37 +100,6 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="SteelLabel" type="Label" parent="MarginContainer/CurrenciesContainer/SteelContainer"]
-unique_name_in_owner = true
-layout_mode = 2
-theme_override_font_sizes/font_size = 32
-text = "5"
-
-[node name="BytesContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
-custom_minimum_size = Vector2(100, 32)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
-texture_filter = 1
-layout_mode = 2
-texture = ExtResource("3_7r5b1")
-expand_mode = 2
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"op_exp": false,
-"player": "",
-"source": "res://assets/steel/steel.aseprite"
-}
-
-[node name="BytesLabel" type="Label" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 32

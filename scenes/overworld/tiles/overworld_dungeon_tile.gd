@@ -78,7 +78,7 @@ func on_detail_canceled():
 	animation_player.play_backwards("dim")
 	
 	var player: OverworldPlayer = OverworldVariables.player
-	player.move(OverworldVariables.previous_map_position)
+	player.move(OverworldVariables.vector_to_previous_position())
 	
 	await get_tree().create_timer(0.3).timeout
 	
