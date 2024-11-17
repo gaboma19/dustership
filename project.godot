@@ -23,7 +23,7 @@ buses/default_bus_layout="res://resources/bus_layout.tres"
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
-HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
+HUD="*res://scenes/autoload/hud.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 Inventory="*res://scenes/autoload/inventory.tscn"
 CurrencyCounter="*res://scenes/ui/currency_counter/currency_counter.tscn"

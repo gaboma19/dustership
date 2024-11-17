@@ -8,7 +8,6 @@ extends CanvasLayer
 
 
 func _ready():
-	hide()
 	GameEvents.player_damaged.connect(on_player_damaged)
 	GameEvents.player_healed.connect(on_player_healed)
 	PartyManager.character_switched.connect(on_character_switched)

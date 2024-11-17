@@ -14,8 +14,7 @@ func _ready():
 	initialize_player()
 	active_plane.plane_changed.connect(on_plane_changed)
 	
-	HealthBar.hide()
-	CurrencyCounter.hide()
+	HUD.hide()
 	DungeonManager.hide()
 
 

@@ -14,8 +14,7 @@ var pause_screen_scene = preload("res://scenes/ui/pause_screen/pause_screen.tscn
 func _ready():
 	PlayerVariables.died.connect(on_player_died)
 	
-	HealthBar.show()
-	CurrencyCounter.show()
+	HUD.show()
 	DungeonManager.show()
 
 

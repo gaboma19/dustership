@@ -5,8 +5,6 @@ extends CanvasLayer
 
 
 func _ready():
-	hide()
-	
 	GameEvents.steel_collected.connect(on_currency_collected)
 	GameEvents.bytes_gained.connect(on_currency_collected)
 	set_counter()

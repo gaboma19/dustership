@@ -17,8 +17,7 @@ var room: Room
 func _ready():
 	spawner.enemies_cleared.connect(win)
 	
-	HealthBar.show()
-	CurrencyCounter.show()
+	HUD.show()
 	DungeonManager.show()
 	
 	#_test_set_doorways()

@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=28 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=32 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://dur754f2sa7lm" path="res://assets/nine_patch/panel_green.png" id="7_m4x1d"]
 [ext_resource type="Texture2D" uid="uid://bmjwr5cntox5y" path="res://assets/nine_patch/panel_brown.png" id="7_ye08y"]
 [ext_resource type="Texture2D" uid="uid://g7w5xbeiu8j" path="res://assets/nine_patch/dialogue_box.png" id="9_pxko2"]
+[ext_resource type="Texture2D" uid="uid://dgxnrw8mwcn0y" path="res://assets/nine_patch/progress_bar.png" id="13_errka"]
+[ext_resource type="Texture2D" uid="uid://bvbnorm4xcte8" path="res://assets/nine_patch/progress_bar_fill.png" id="14_ck2ei"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jv8l"]
 texture = ExtResource("1_ywon2")
@@ -113,6 +115,21 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7vmdx"]
+texture = ExtResource("13_errka")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gt1ro"]
+texture = ExtResource("14_ck2ei")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+
 [resource]
 default_font = ExtResource("1_38iv3")
 Button/styles/disabled = SubResource("StyleBoxTexture_2jv8l")
@@ -139,3 +156,6 @@ PanelContainerTransparent/base_type = &"PanelContainer"
 PanelContainerTransparent/styles/panel = SubResource("StyleBoxTexture_b61o2")
 PanelContainerWhite/base_type = &"PanelContainer"
 PanelContainerWhite/styles/panel = SubResource("StyleBoxTexture_ctyvq")
+ProgressBarBytes/base_type = &"ProgressBar"
+ProgressBarBytes/styles/background = SubResource("StyleBoxTexture_7vmdx")
+ProgressBarBytes/styles/fill = SubResource("StyleBoxTexture_gt1ro")

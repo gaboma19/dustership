@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://blsvqygmf3aui"
+path="res://.godot/imported/progress_bar.aseprite-214d3ee83cb474bb1c53bd6e8a25ce3e.res"
+
+[deps]
+
+source_file="res://assets/nine_patch/progress_bar.aseprite"
+dest_files=["res://.godot/imported/progress_bar.aseprite-214d3ee83cb474bb1c53bd6e8a25ce3e.res"]
+
+[params]
+

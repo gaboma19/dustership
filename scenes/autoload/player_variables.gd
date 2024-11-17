@@ -19,7 +19,7 @@ func _ready():
 	
 	GameEvents.steel_collected.connect(on_steel_collected)
 	GameEvents.bytes_gained.connect(on_bytes_gained)
-	HealthBar.set_hearts()
+	HUD.set_hearts()
 
 
 func heal(heal_amount: int):
@@ -44,8 +44,8 @@ func check_death():
 func restart_game():
 	current_health = max_health
 	steel = 0
-	HealthBar.set_hearts()
-	CurrencyCounter.set_counter()
+	HUD.set_hearts()
+	HUD.set_counter()
 
 
 func save_data() -> Dictionary:

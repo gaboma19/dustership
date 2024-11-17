@@ -23,6 +23,7 @@ theme_override_constants/margin_bottom = 16
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
+theme_override_constants/separation = 16
 
 [node name="BytesContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
 custom_minimum_size = Vector2(100, 32)
@@ -34,7 +35,7 @@ alignment = 2
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
 texture_filter = 1
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_vertical = 4
 texture = ExtResource("3_7r5b1")
@@ -53,13 +54,13 @@ metadata/_aseprite_wizard_config_ = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
-custom_minimum_size = Vector2(100, 16)
+custom_minimum_size = Vector2(142, 16)
 layout_mode = 2
 size_flags_vertical = 4
-max_value = 1024.0
+theme_type_variation = &"ProgressBarBytes"
+max_value = 512.0
 step = 1.0
-value = 512.0
-rounded = true
+value = 128.0
 show_percentage = false
 
 [node name="BytesLabel" type="Label" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
@@ -68,9 +69,6 @@ visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 32
 text = "5"
-
-[node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/CurrenciesContainer/BytesContainer"]
-layout_mode = 2
 
 [node name="SteelContainer" type="HBoxContainer" parent="MarginContainer/CurrenciesContainer"]
 layout_mode = 2
