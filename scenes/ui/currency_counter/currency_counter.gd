@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 @onready var steel_label = %SteelLabel
-@onready var bytes_label = %BytesLabel
+@onready var bytes_progress_bar = %BytesProgressBar
 
 
 func _ready():
@@ -12,7 +12,7 @@ func _ready():
 
 func set_counter():
 	steel_label.text = format_number(PlayerVariables.steel)
-	bytes_label.text = format_number(PlayerVariables.bytes)
+	bytes_progress_bar.value = PlayerVariables.bytes
 
 
 func format_number(value) -> String:

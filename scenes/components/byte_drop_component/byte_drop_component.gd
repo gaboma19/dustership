@@ -15,15 +15,12 @@ func spawn_byte(angle: float):
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	byte.angle = angle
 	entities_layer.add_child(byte)
-	
-	
 	byte.global_position = spawn_position
 
 
 func on_died():
 	if byte_scene == null:
 		return
-	
 	if not owner is Node2D:
 		return
 	
@@ -31,6 +28,5 @@ func on_died():
 	number += mod
 	
 	var angle: float = (1.0 / number) * TAU
-	
 	for n in number:
 		spawn_byte(angle * n)

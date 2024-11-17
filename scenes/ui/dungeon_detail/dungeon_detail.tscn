@@ -27,38 +27,42 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+theme_type_variation = &"Header"
 theme_override_fonts/font = ExtResource("2_ytl3a")
 text = "Location Name"
 horizontal_alignment = 1
 text_overrun_behavior = 3
 
-[node name="InfectionPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer" index="1"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer" index="1"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer" index="0"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"HeaderSmall"
+text = "INFECTION LEVEL"
+horizontal_alignment = 3
+
+[node name="InfectionPanel" type="PanelContainer" parent="MarginContainer/VBoxContainer/VBoxContainer" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 0
 theme_type_variation = &"PanelContainerRed"
 
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/InfectionPanel" index="0"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/InfectionPanel" index="0"]
 layout_mode = 2
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/InfectionPanel/MarginContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/InfectionPanel/MarginContainer" index="0"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer" index="0"]
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = &"Header"
-text = "INFECTION LEVEL"
-horizontal_alignment = 3
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer" index="1"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/VBoxContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer" index="0"]
 layout_mode = 2
 size_flags_vertical = 4
 
-[node name="InfectionIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
+[node name="InfectionIcon" type="TextureRect" parent="MarginContainer/VBoxContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer/HBoxContainer2" index="0"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
@@ -66,12 +70,12 @@ size_flags_horizontal = 6
 size_flags_vertical = 4
 texture = ExtResource("3_paldr")
 
-[node name="InfectionLevel" type="Label" parent="MarginContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
+[node name="InfectionLevel" type="Label" parent="MarginContainer/VBoxContainer/VBoxContainer/InfectionPanel/MarginContainer/VBoxContainer/HBoxContainer2" index="1"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 8
-theme_type_variation = &"Header"
+theme_type_variation = &"HeaderSmall"
 theme_override_font_sizes/font_size = 16
 text = "SEVERE"
 horizontal_alignment = 1

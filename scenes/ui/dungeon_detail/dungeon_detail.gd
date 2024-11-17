@@ -18,17 +18,13 @@ var infection_level: Constants.InfectionLevel
 
 
 func _ready():
-	#hide()
 	continue_button.grab_focus()
 	continue_button.pressed.connect(on_continue_pressed)
 	
 	set_state()
-	
-	#await get_tree().process_frame
-	#scale = Vector2.ZERO
 	open()
 	
-	_test_infection_level(Constants.InfectionLevel.MILD)
+	#_test_infection_level(Constants.InfectionLevel.MILD)
 
 
 func set_state():

@@ -1,4 +1,5 @@
 extends TileMapLayer
+class_name MapTiles
 
 const TERRAIN = 0
 const TERRAIN_SET = 0
