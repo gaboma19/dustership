@@ -2,22 +2,24 @@ extends Node
 
 signal died
 
-var max_health: int = 3
-var current_health: int = max_health
-var steel: int = 0
-var pause_menu_screen: int = 0
-var enable_game_start: bool = true
-var has_sword: bool = false
-var has_gun: bool = true
-var is_april_active: bool = true
-var is_telitz_active: bool = false
+@export var enable_game_start: bool = true
+@export var max_health: int = 3
+@export var current_health: int = max_health
+@export var steel: int = 0
+@export var bytes: int = 0
+@export var pause_menu_screen: int = 0
+@export var has_sword: bool = false
+@export var has_gun: bool = true
+@export var is_april_active: bool = true
+@export var is_telitz_active: bool = false
 
 
 func _ready():
 	current_health = max_health
 	
 	GameEvents.steel_collected.connect(on_steel_collected)
-	HealthBar.set_hearts()
+	GameEvents.bytes_gained.connect(on_bytes_gained)
+	HUD.set_hearts()
 
 
 func heal(heal_amount: int):
@@ -42,8 +44,8 @@ func check_death():
 func restart_game():
 	current_health = max_health
 	steel = 0
-	HealthBar.set_hearts()
-	SteelCounter.set_counter()
+	HUD.set_hearts()
+	HUD.set_counter()
 
 
 func save_data() -> Dictionary:
@@ -73,3 +75,7 @@ func load_data(data: Dictionary):
 
 func on_steel_collected(value: int):
 	steel += value
+
+
+func on_bytes_gained(value: int):
+	bytes += value

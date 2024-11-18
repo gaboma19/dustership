@@ -1,35 +1,44 @@
 extends Node
 
-var active_layer: TileMap
+var active_plane: TileMap
 
-var player_map_position: Vector2i = Vector2i.ZERO
+var player_map_position: Vector2i = Vector2i.ZERO:
+	set(value):
+		previous_map_position = player_map_position
+		player_map_position = value
+var previous_map_position: Vector2i = Vector2i.ZERO
+var player: OverworldPlayer
 
-#"ingress_id": {
+#"dungeon_id": {
 #	"entered": true
 #}
-var ingresses: Dictionary = {}
+var dungeons: Dictionary = {}
+
+
+func vector_to_previous_position():
+	return previous_map_position - player_map_position
 
 
 func save_data() -> Dictionary:
-	var active_layer_path = null
-	if active_layer != null:
-		active_layer_path = active_layer.scene_file_path
+	var active_plane_path = null
+	if active_plane != null:
+		active_plane_path = active_plane.scene_file_path
 	
 	var data = {
-		"active_layer_path" = active_layer_path,
+		"active_plane_path" = active_plane_path,
 		"player_map_position.x" = player_map_position.x,
 		"player_map_position.y" = player_map_position.y,
-		"ingresses" = ingresses
+		"dungeons" = dungeons
 	}
 	
 	return data
 
 
 func load_data(data: Dictionary):
-	if data["active_layer_path"] != null:
-		active_layer = load(data["active_layer_path"]).instantiate()
+	if data["active_plane_path"] != null:
+		active_plane = load(data["active_plane_path"]).instantiate()
 	
 	player_map_position = Vector2(
 		data["player_map_position.x"], data["player_map_position.y"])
 	
-	ingresses = data["ingresses"]
+	dungeons = data["dungeons"]

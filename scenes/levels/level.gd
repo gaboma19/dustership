@@ -14,8 +14,7 @@ var pause_screen_scene = preload("res://scenes/ui/pause_screen/pause_screen.tscn
 func _ready():
 	PlayerVariables.died.connect(on_player_died)
 	
-	HealthBar.show()
-	SteelCounter.show()
+	HUD.show()
 	DungeonManager.show()
 
 
@@ -38,6 +37,7 @@ func set_player_position(
 	player_position: Vector2, active_member_name: Constants.CharacterNames):
 	
 	PartyManager.instantiate_party(player_position, active_member_name)
+	
 	if not is_camera_static:
 		game_camera.global_position = player_position
 		game_camera.reset_smoothing()

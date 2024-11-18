@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://xogyxc4yjmii"]
+[gd_scene load_steps=57 format=3 uid="uid://xogyxc4yjmii"]
 
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_24cqq"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ckfchym8oum5f" path="res://scenes/components/item_drop_component/item_drop_component.tscn" id="6_gfki3"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_qmdoe"]
 [ext_resource type="Resource" uid="uid://cx780dwrclh03" path="res://resources/inventory_item/items/eremite_diskette.tres" id="7_haysb"]
+[ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_ho3fb"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="9_jrfpc"]
@@ -378,6 +379,10 @@ health_component = NodePath("../HealthComponent")
 [node name="ItemDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("6_gfki3")]
 health_component = NodePath("../HealthComponent")
 item = ExtResource("7_haysb")
+
+[node name="ByteDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_ho3fb")]
+number = 40
+health_component = NodePath("../HealthComponent")
 
 [node name="HurtboxComponent" parent="." node_paths=PackedStringArray("health_component", "stun_component") instance=ExtResource("9_p3ffu")]
 unique_name_in_owner = true

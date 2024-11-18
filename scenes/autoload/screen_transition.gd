@@ -63,7 +63,7 @@ func transition_to_dungeon_level(scene_path: String, player_position: Vector2,
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
-	var level = get_tree().current_scene
+	var level: DungeonLevel = get_tree().current_scene
 	
 	level.set_player_position(player_position, active_member_name)
 	

@@ -1,6 +1,5 @@
 extends Node
 
-
 var player_dungeon_position: Vector2i = Vector2i.ZERO:
 	get:
 		return player_dungeon_position
@@ -11,7 +10,7 @@ var player_dungeon_position: Vector2i = Vector2i.ZERO:
 
 var chest_number: int = 0
 
-@onready var map_tiles: TileMapLayer = %MapTiles
+@onready var map_tiles: MapTiles = %MapTiles
 
 
 func _ready():
@@ -53,7 +52,9 @@ func populate_rooms():
 		room.map_position = pos
 
 
-func set_random_scene_path(room: Room):
+func set_random_scene_path(room: Room) -> void:
+	randomize()
+	
 	var layout: Room.Layout = Room.Layout.A if randf() < 0.5 else Room.Layout.B
 	var layout_dir: String
 	
@@ -63,15 +64,17 @@ func set_random_scene_path(room: Room):
 		Room.Layout.B:
 			layout_dir = "res://scenes/levels/dungeon/b/"
 	
-	var dir = DirAccess.open(layout_dir)
+	var dir: DirAccess = DirAccess.open(layout_dir)
 	var random_file: String
 	var index: int
+	var file_names: PackedStringArray
 	
 	if dir:
-		var file_names: PackedStringArray = dir.get_files()
+		file_names = dir.get_files()
 		if file_names.size() > 0:
 			index = randi_range(0, file_names.size() - 1)
 			random_file = file_names[index]
+			file_names.remove_at(index)
 	
 	room.scene_path = layout_dir + random_file
 	room.layout = layout

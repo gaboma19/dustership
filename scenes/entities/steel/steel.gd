@@ -3,24 +3,27 @@ extends Node2D
 @onready var sprite = $Sprite2D
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 
+var angle: float
+
 @export var steel_value: int = 1
 
 
 func _ready():
 	$CollectionArea.area_entered.connect(on_collection_area_entered)
 	$AnimationPlayer.queue("spin")
+	
+	if angle == null:
+		angle = randf() * TAU
+	
 	tween_bounce()
-	
-	
+
+
 func tween_bounce():
-	var direction: Vector2
-	if randf() > 0.5: 
-		direction = Vector2.RIGHT 
-	else: 
-		direction = Vector2.LEFT
+	var direction: Vector2 = Vector2(cos(angle), sin(angle))
+	var final_val: Vector2 = 32 * direction
 
 	var tween = create_tween()
-	tween.tween_property(self, "position", direction * 16, 1).as_relative()
+	tween.tween_property(self, "position", final_val, 0.8).as_relative()
 
 
 func tween_collect(percent: float, start_position: Vector2):

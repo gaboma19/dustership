@@ -23,10 +23,10 @@ buses/default_bus_layout="res://resources/bus_layout.tres"
 [autoload]
 
 GameEvents="*res://scenes/autoload/game_events.tscn"
-HealthBar="*res://scenes/ui/health_bar/health_bar.tscn"
+HUD="*res://scenes/autoload/hud.tscn"
 PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 Inventory="*res://scenes/autoload/inventory.tscn"
-SteelCounter="*res://scenes/ui/steel_counter/steel_counter.tscn"
+CurrencyCounter="*res://scenes/ui/currency_counter/currency_counter.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 InteractionManager="*res://scenes/autoload/interaction_manager.tscn"
 DialogueManager="*res://scenes/autoload/dialogue_manager.gd"
@@ -54,11 +54,11 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/movie_file="D:/workspace/avi/godot.png"
+movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
 [global_group]
 

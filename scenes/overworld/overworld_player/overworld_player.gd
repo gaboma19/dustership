@@ -10,6 +10,7 @@ var is_moving: bool = false
 func _ready():
 	show()
 	animation_player.play("enter")
+	OverworldVariables.player = self
 
 
 func set_is_moving(value: bool):
@@ -17,18 +18,19 @@ func set_is_moving(value: bool):
 
 
 func move(vector: Vector2i):
-	var active_layer = OverworldVariables.active_layer
+	var active_plane = OverworldVariables.active_plane
 	
 	var new_cell = OverworldVariables.player_map_position + vector
 	
-	if active_layer.is_cell_walkable(new_cell):
-		OverworldVariables.player_map_position = new_cell
-		var new_position = active_layer.map_to_global(new_cell)
+	if active_plane.is_cell_walkable(new_cell):
+		var new_position = active_plane.map_to_global(new_cell)
 		
 		set_is_moving(true)
 		var tween = create_tween()
 		tween.tween_property(self, "global_position", new_position, 0.2)
 		tween.tween_callback(set_is_moving.bind(false))
+		
+		OverworldVariables.player_map_position = new_cell
 
 
 func exit():

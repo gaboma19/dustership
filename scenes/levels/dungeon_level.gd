@@ -1,4 +1,5 @@
 extends Level
+class_name DungeonLevel
 
 @export var echelon_tiles: Node2D
 @export var dungeon_level_transition_areas_controller: Node2D
@@ -16,17 +17,15 @@ var room: Room
 func _ready():
 	spawner.enemies_cleared.connect(win)
 	
-	HealthBar.show()
-	SteelCounter.show()
+	HUD.show()
 	DungeonManager.show()
 	
 	#_test_set_doorways()
-	#_test_spawn_chest(4.0)
+	#_test_spawn_chest(1.0)
 	#_test_spawn_enemies(4.0)
 	#_test_close_doors(1.0)
 
 
-### called by ScreenTransition.transition_to_dungeon_level()
 func build():
 	if echelon_tiles == null or room == null:
 		return

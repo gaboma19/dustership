@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=3 uid="uid://3xehsl854ugm"]
+[gd_scene load_steps=61 format=3 uid="uid://3xehsl854ugm"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
@@ -27,6 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="19_pyocl"]
 [ext_resource type="AudioStream" uid="uid://xju22k0w3p2t" path="res://assets/sfx/spawn.wav" id="20_xfds6"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="25_1a0db"]
+[ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="28_dfm2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_df87s"]
 radius = 9.0
@@ -338,10 +339,14 @@ audio_stream = ExtResource("6_gxy1q")
 health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("5_iyhcl")]
-drop_percent = 1.0
+drop_percent = 0.05
 health_component = NodePath("../HealthComponent")
 
 [node name="HeartDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_cfhkn")]
+health_component = NodePath("../HealthComponent")
+
+[node name="ByteDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("28_dfm2m")]
+number = 10
 health_component = NodePath("../HealthComponent")
 
 [node name="KnockbackComponent" parent="." instance=ExtResource("9_222q4")]

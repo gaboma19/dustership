@@ -1,6 +1,15 @@
 extends Chest
 
-@onready var animations: PackedStringArray = animated_sprite_2d.sprite_frames.get_animation_names()
+const ITEM_PICKUP_SCENE: PackedScene = preload(
+	"res://scenes/entities/item_pickup/item_pickup.tscn")
+const STEEL_SCENE: PackedScene = preload(
+	"res://scenes/entities/steel/steel.tscn")
+
+@export var number_steel: int = 10
+
+@onready var animations: PackedStringArray = \
+	animated_sprite_2d.sprite_frames.get_animation_names()
+@onready var entities_layer = get_tree().get_first_node_in_group("entities")
 
 
 func _ready():
@@ -47,3 +56,35 @@ func spawn():
 	EntityVariables.chests[chest_id].spawned = true
 	interaction_area.monitoring = true
 	super()
+
+
+func spawn_item_pickup():
+	if inventory_item == null:
+		return
+	
+	var item_pickup = ITEM_PICKUP_SCENE.instantiate()
+	item_pickup.item = inventory_item
+	entities_layer.add_child(item_pickup)
+	item_pickup.global_position = self.global_position
+
+
+func spawn_steel():
+	var mod = randi_range(-4, 4)
+	number_steel += mod
+	
+	var angle = (1.0 / number_steel) * TAU
+	
+	for n in number_steel:
+		var steel = STEEL_SCENE.instantiate()
+		steel.angle = n * angle
+		entities_layer.add_child(steel)
+		steel.global_position = self.global_position
+
+
+func on_interact():
+	$AudioStreamPlayer2D.play()
+	animated_sprite_2d.play()
+	interaction_area.monitoring = false
+	
+	spawn_item_pickup()
+	spawn_steel()

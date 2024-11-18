@@ -1,11 +1,11 @@
 [gd_scene load_steps=11 format=3 uid="uid://dnht3oj201iqm"]
 
 [ext_resource type="Texture2D" uid="uid://cnoly8jej8bfh" path="res://assets/overworld_ladder/overworld_white_ladder.png" id="1_al640"]
-[ext_resource type="Texture2D" uid="uid://dp6i67q1by2v4" path="res://assets/overworld/overworld_green.png" id="1_ndhh8"]
 [ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_ladder_tile.gd" id="2_bamsp"]
 [ext_resource type="Texture2D" uid="uid://7a4nyl882o6p" path="res://assets/overworld/overworld_ladder_icon.png" id="3_bfve3"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="3_nture"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ybrtc"]
+[ext_resource type="Texture2D" uid="uid://bxfb0r3qa07en" path="res://assets/overworld/overworld_blue.png" id="4_vn1de"]
 
 [sub_resource type="Animation" id="Animation_nwojy"]
 length = 0.001
@@ -103,8 +103,8 @@ scale = Vector2(1, 0.712132)
 skew = 0.785398
 texture = ExtResource("3_nture")
 
-[node name="Green" type="Sprite2D" parent="Icon"]
-texture = ExtResource("1_ndhh8")
+[node name="Icon" type="Sprite2D" parent="Icon"]
+texture = ExtResource("4_vn1de")
 offset = Vector2(0, -5)
 
 [node name="Ladder" type="Sprite2D" parent="Icon"]

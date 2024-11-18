@@ -1,23 +1,181 @@
-[gd_scene load_steps=5 format=3 uid="uid://d1uebua632l01"]
+[gd_scene load_steps=13 format=3 uid="uid://d1uebua632l01"]
 
+[ext_resource type="Texture2D" uid="uid://byqa15xvjcdrh" path="res://assets/overworld/overworld_white.png" id="1_3d3wh"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_osohj"]
 [ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_dungeon_tile.gd" id="2_3a5j3"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_4qmee"]
+[ext_resource type="PackedScene" uid="uid://oxdmvyyhvo3y" path="res://scenes/ui/dungeon_detail/dungeon_detail.tscn" id="3_62w3f"]
+[ext_resource type="PackedScene" uid="uid://bv4vc5ogjearw" path="res://scenes/tile_map_layers/overworld_tile_map_layer.tscn" id="4_8ltow"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_mkm4x"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcri0"]
 
-[node name="OverworldDungeonTile" type="Sprite2D"]
-z_index = 2
-texture = ExtResource("1_osohj")
-offset = Vector2(0, -5)
+[sub_resource type="Animation" id="Animation_5xiwb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ShadowSprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../CanvasLayer/ColorRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../ShadowSprite:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.712132)]
+}
+
+[sub_resource type="Animation" id="Animation_fl6iv"]
+resource_name = "dim"
+length = 0.15
+step = 0.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_fml3t"]
+resource_name = "fade_out"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ShadowSprite:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2r2ba"]
+resource_name = "hide_icon"
+length = 0.2
+step = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../ShadowSprite:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.712132), Vector2(0, 0.712)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_w8i83"]
+_data = {
+"RESET": SubResource("Animation_5xiwb"),
+"dim": SubResource("Animation_fl6iv"),
+"fade_out": SubResource("Animation_fml3t"),
+"hide_icon": SubResource("Animation_2r2ba")
+}
+
+[node name="OverworldDungeonTile" type="Node2D"]
+process_mode = 3
 script = ExtResource("2_3a5j3")
+dungeon_detail_scene = ExtResource("3_62w3f")
 
 [node name="PlayerDetectorArea" parent="." instance=ExtResource("3_4qmee")]
 visible = false
+monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
 scale = Vector2(1, 0.5)
-shape = SubResource("CircleShape2D_mkm4x")
+shape = SubResource("CircleShape2D_dcri0")
+
+[node name="OverworldTileMapLayer" parent="." instance=ExtResource("4_8ltow")]
+z_index = 2
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
+
+[node name="IconSprite" type="Sprite2D" parent="."]
+process_mode = 3
+z_index = 2
+texture = ExtResource("1_3d3wh")
+offset = Vector2(0, -5)
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 0.25098)
@@ -26,3 +184,30 @@ position = Vector2(2.98223, -2.48223)
 scale = Vector2(1, 0.712132)
 skew = 0.785398
 texture = ExtResource("1_osohj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../IconSprite")
+libraries = {
+"": SubResource("AnimationLibrary_w8i83")
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.501961)
+metadata/_edit_use_anchors_ = true
+
+[node name="OverworldUI" type="MarginContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true

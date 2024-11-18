@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://46gibj1h8o7k"]
+[gd_scene load_steps=80 format=3 uid="uid://46gibj1h8o7k"]
 
 [ext_resource type="Script" path="res://scenes/entities/enemies/saguaro/saguaro.gd" id="1_ykr4p"]
 [ext_resource type="Texture2D" uid="uid://cidxhkjuqju0f" path="res://assets/saguaro/saguaro.png" id="2_02e6a"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="5_0vkio"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="6_w0832"]
 [ext_resource type="PackedScene" uid="uid://dd20ju6l4rhiy" path="res://scenes/components/steel_drop_component/steel_drop_component.tscn" id="7_wffih"]
+[ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_jep8e"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_poeel"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="9_57uci"]
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="10_bdjoc"]
@@ -748,6 +749,11 @@ sprite = NodePath("../Sprite2D")
 health_component = NodePath("../HealthComponent")
 
 [node name="SteelDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("7_wffih")]
+drop_percent = 0.05
+health_component = NodePath("../HealthComponent")
+
+[node name="ByteDropComponent" parent="." node_paths=PackedStringArray("health_component") instance=ExtResource("8_jep8e")]
+number = 10
 health_component = NodePath("../HealthComponent")
 
 [node name="StunComponent" parent="." node_paths=PackedStringArray("sprite") instance=ExtResource("8_poeel")]

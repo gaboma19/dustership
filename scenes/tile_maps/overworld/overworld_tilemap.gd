@@ -1,6 +1,6 @@
 extends TileMap
 
-signal layer_changed(next_layer: PackedScene)
+signal plane_changed(next_plane: PackedScene)
 
 enum Tile { FLOOR, WALL }
 
@@ -69,5 +69,5 @@ func enter():
 	animation_player.play("fade_in")
 
 
-func on_ladder_activated(next_layer: PackedScene):
-	layer_changed.emit(next_layer)
+func on_ladder_activated(next_plane: PackedScene):
+	plane_changed.emit(next_plane)

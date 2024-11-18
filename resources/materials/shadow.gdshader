@@ -14,23 +14,23 @@ uniform float y_buffer = 2.0;
 
 //uniform vec2 texture_size; //uncomment for GLES2
 
-void vertex() {	
+void vertex() {
 	//This increases the size of the uv so the sprite can be drawn 'out of bounds'
 	VERTEX.x *= x_buffer;
 	VERTEX.y *= y_buffer;
 }
 
 void fragment() {
-	
+
 	//This part resizes your sprite back to normal after the uv adjustment
-	vec2 uvTest = UV * 2.0 - 1.0;	
+	vec2 uvTest = UV * 2.0 - 1.0;
 	uvTest.x *= x_buffer;
 	uvTest.x /= 1.0;
 	uvTest.y *= y_buffer;
 	uvTest.y /= 1.0;
 	uvTest = (uvTest + 1.0) / 2.0;
 	COLOR = texture(TEXTURE, uvTest);
-	
+
 	vec2 ps = TEXTURE_PIXEL_SIZE;
 	vec2 uv = uvTest;
 	float sizex = float(textureSize(TEXTURE,int(ps.x)).x); //comment for GLES2
