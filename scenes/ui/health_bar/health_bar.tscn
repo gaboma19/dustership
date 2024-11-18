@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scenes/ui/health_bar/health_bar.gd" id="1_ppetb"]
 [ext_resource type="PackedScene" uid="uid://c5ma31chcek2c" path="res://scenes/ui/health_bar/empty_heart_panel.tscn" id="3_1lr0a"]
 [ext_resource type="Texture2D" uid="uid://enlp5na8lllw" path="res://assets/april/april_portrait.png" id="4_8gogm"]
-[ext_resource type="Texture2D" uid="uid://y66uvuelkisa" path="res://assets/steel/steel_icon.png" id="5_r865f"]
+[ext_resource type="Texture2D" uid="uid://kegcdtpfftrv" path="res://assets/steel/steel_mini_icon.png" id="5_lvnxn"]
 [ext_resource type="Texture2D" uid="uid://dq875mykeum6v" path="res://assets/byte/byte_icon.png" id="6_oywlf"]
 
 [node name="HealthBar" type="CanvasLayer"]
@@ -55,7 +55,7 @@ texture_filter = 1
 custom_minimum_size = Vector2(16, 16)
 layout_mode = 2
 size_flags_vertical = 4
-texture = ExtResource("5_r865f")
+texture = ExtResource("5_lvnxn")
 expand_mode = 2
 stretch_mode = 4
 metadata/_aseprite_wizard_config_ = {

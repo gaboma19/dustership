@@ -1,9 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://bo5357bykvsmg"]
+[gd_scene load_steps=4 format=3 uid="uid://bo5357bykvsmg"]
 
 [ext_resource type="Script" path="res://scenes/autoload/hud.gd" id="1_rpocd"]
 [ext_resource type="PackedScene" uid="uid://b61du28ox3e38" path="res://scenes/ui/health_bar/health_bar.tscn" id="2_1spjr"]
+[ext_resource type="PackedScene" uid="uid://qd741gjicajr" path="res://scenes/ui/inventory_slots/inventory_slots.tscn" id="3_xn3na"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rpocd")
 
 [node name="HealthBar" parent="." instance=ExtResource("2_1spjr")]
+
+[node name="InventorySlots" parent="." instance=ExtResource("3_xn3na")]
