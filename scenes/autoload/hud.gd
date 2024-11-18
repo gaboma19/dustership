@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 @onready var health_bar = $HealthBar
-@onready var currency_counter = $CurrencyCounter
 
 
 func _ready():
@@ -13,4 +12,4 @@ func set_hearts():
 
 
 func set_counter():
-	currency_counter.set_counter()
+	health_bar.set_counter()

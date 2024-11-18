@@ -3,12 +3,13 @@
 [ext_resource type="Texture2D" uid="uid://ccr71dcu6cbeu" path="res://assets/heart/heart.png" id="1_5dlwt"]
 
 [node name="HeartPanel" type="Panel"]
+size_flags_vertical = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("1_5dlwt")
-offset = Vector2(0, -5)
+offset = Vector2(5.5, -4.5)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
 "keep_anim_length": false,
