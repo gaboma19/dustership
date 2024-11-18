@@ -139,7 +139,6 @@ axis_stretch_horizontal = 1
 
 [resource]
 default_font = ExtResource("1_38iv3")
-Button/colors/icon_hover_color = Color(0.258824, 0.756863, 0.92549, 0.0980392)
 Button/styles/disabled = SubResource("StyleBoxTexture_2jv8l")
 Button/styles/focus = SubResource("StyleBoxTexture_5nsdv")
 Button/styles/hover = SubResource("StyleBoxTexture_c81hl")

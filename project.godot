@@ -58,7 +58,7 @@ movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.png"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/gut/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/gut/plugin.cfg", "res://addons/post_processing/plugin.cfg")
 
 [global_group]
 
