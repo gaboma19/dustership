@@ -8,8 +8,6 @@ var player_dungeon_position: Vector2i = Vector2i.ZERO:
 		player_dungeon_position = coords
 		map_tiles.draw_player_tile(coords)
 
-var chest_number: int = 0
-
 @onready var map_tiles: MapTiles = %MapTiles
 
 
@@ -28,7 +26,7 @@ func create():
 func exit():
 	player_dungeon_position = Vector2i.ZERO
 	map_tiles.clear_map()
-	reset_chest_data()
+	EntityVariables.chests.clear()
 
 
 func get_room(coords: Vector2i) -> Room:
@@ -46,10 +44,10 @@ func populate_rooms():
 	
 	for pos in map.keys():
 		var room: Room = map.get(pos)
+		room.map_position = pos
 		
 		set_random_scene_path(room)
-		
-		room.map_position = pos
+		room.chest_id = get_chest_id(pos)
 
 
 func set_random_scene_path(room: Room) -> void:
@@ -81,17 +79,11 @@ func set_random_scene_path(room: Room) -> void:
 	room.layout_positions = Constants.PLAYER_POSITIONS[layout]
 
 
-func get_chest_id() -> String:
+func get_chest_id(pos: Vector2i) -> String:
 	var format_string = "dungeon_chest{num}"
-	var id = format_string.format({"num": chest_number})
-	chest_number += 1
+	var id = format_string.format({"num": pos})
 	
 	return id
-
-
-func reset_chest_data():
-	EntityVariables.chests.clear()
-	chest_number = 0
 
 
 func _test_create():

@@ -6,7 +6,7 @@ signal enemies_cleared
 @export var raster_scene: PackedScene
 @export var saguaro_scene: PackedScene
 @export var tumbleweed_scene: PackedScene
-@export var chest: Chest
+@export var chest: DungeonChest
 @export var spawn_points_parent: Node
 
 var number_dead_enemies: int = 0
@@ -24,6 +24,10 @@ var total_enemies: int = 0
 
 func _ready():
 	spawn_points.shuffle()
+
+
+func build(room: Room):
+	chest.build(room.chest_id)
 
 
 func spawn_enemies(wave_size: int = 4):

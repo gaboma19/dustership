@@ -1,10 +1,11 @@
-[gd_resource type="Theme" load_steps=33 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=34 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
 [ext_resource type="Texture2D" uid="uid://87i431evp216" path="res://assets/nine_patch/pause_screen.png" id="1_jbmej"]
 [ext_resource type="Texture2D" uid="uid://cvbcvyordp2mt" path="res://assets/nine_patch/disable_button.png" id="1_ywon2"]
 [ext_resource type="Texture2D" uid="uid://ca2i68v3x06bl" path="res://assets/nine_patch/button.png" id="2_mjf8k"]
+[ext_resource type="Texture2D" uid="uid://bo3fj01l3x0v6" path="res://assets/nine_patch/button_pink.png" id="2_qk8v2"]
 [ext_resource type="Texture2D" uid="uid://ccd4wwqnxpfqu" path="res://assets/nine_patch/inventory_slot_hover.png" id="4_0f3h1"]
 [ext_resource type="Texture2D" uid="uid://b4lsbkcpitpq0" path="res://assets/nine_patch/inventory_slot.png" id="5_ybjwd"]
 [ext_resource type="Texture2D" uid="uid://cuek43uw71p4q" path="res://assets/nine_patch/pop_up.png" id="6_3g70y"]
@@ -24,7 +25,7 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5nsdv"]
-texture = ExtResource("1_gtqpl")
+texture = ExtResource("2_qk8v2")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0

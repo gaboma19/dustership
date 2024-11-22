@@ -30,6 +30,8 @@ func build():
 	if echelon_tiles == null or room == null:
 		return
 	
+	spawner.build(room)
+	
 	set_doorways()
 	
 	match room.type:
