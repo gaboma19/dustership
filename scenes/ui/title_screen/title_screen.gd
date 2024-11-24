@@ -3,10 +3,8 @@ extends CanvasLayer
 @onready var title = $Center/Title
 
 
-func _physics_process(_delta):
-	if MaterialsCache.loaded:
-		set_physics_process(false)
-		open()
+func _ready():
+	MusicManager.play_track("fanfare")
 
 
 func _unhandled_input(event):
@@ -23,7 +21,3 @@ func dissolve_title():
 
 func continue_to_main_menu():
 	ScreenTransition.transition_to_main_menu()
-
-
-func open():
-	MusicManager.play_track("fanfare")
