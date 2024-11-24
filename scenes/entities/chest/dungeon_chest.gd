@@ -40,16 +40,14 @@ func create_state():
 
 
 func set_state(chest_data: Dictionary):
-	if chest_data.opened:
-		show()
-		animated_sprite_2d.set_frame(1)
-		interaction_area.monitoring = false
-		collision_shape_2d.disabled = false
-	
 	if chest_data.spawned:
 		show()
 		interaction_area.monitoring = true
 		collision_shape_2d.disabled = false
+	
+	if chest_data.opened:
+		animated_sprite_2d.set_frame(1)
+		interaction_area.monitoring = false
 	
 	animated_sprite_2d.animation = animations[chest_data.sprite]
 

@@ -30,8 +30,6 @@ func build():
 	if echelon_tiles == null or room == null:
 		return
 	
-	spawner.build(room)
-	
 	set_doorways()
 	
 	match room.type:
@@ -48,6 +46,8 @@ func build():
 				spawner.spawn_enemies()
 				await get_tree().create_timer(0.4).timeout #TODO: wait for obstacles
 				echelon_obstacle_tiles.close_doors()
+	
+	spawner.build(room)
 
 
 func set_doorways():
