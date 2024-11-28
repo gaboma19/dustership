@@ -8,7 +8,6 @@ const SOURCE_ID = 0
 var map: Dictionary = {}
 
 @onready var map_generator: MapGenerator = $MapGenerator
-@onready var control: Control = get_parent()
 @onready var map_icons = %MapIcons
 @onready var map_tiles_display = %MapTilesDisplay
 

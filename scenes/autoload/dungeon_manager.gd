@@ -107,11 +107,18 @@ func get_chest_id(pos: Vector2i) -> String:
 
 
 func _test_create():
+	DungeonManager.hide()
 	create()
 	($MarginContainer/Control as Control).size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 	($MarginContainer/Control as Control).size_flags_vertical = Control.SIZE_SHRINK_CENTER
 	%MapTiles.show()
 	%MapIcons.show()
+	%MapTilesDisplay.hide()
 	$MarginContainer/Button.show()
 	$MarginContainer/Button.disabled = false
-	$MarginContainer/Button.pressed.connect(create)
+	$MarginContainer/Button.pressed.connect(_test_regenerate)
+
+
+func _test_regenerate():
+	exit()
+	create()
