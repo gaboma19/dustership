@@ -103,7 +103,7 @@ func on_continue_button_pressed():
 		active_character_name = Constants.CharacterNames.TELITZ
 	
 	ScreenTransition.transition_to_level_with_active_member_name(
-		hub_path, Vector2(0, -128), active_character_name)
+		hub_path, Vector2(7, 136), active_character_name)
 
 
 func on_credits_button_pressed():

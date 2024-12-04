@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://sy8d6jld4e5i"
-path="res://.godot/imported/ammellan.png-236906900374d1204b4ddcf210855621.ctex"
+uid="uid://cispse7j8qbwx"
+path="res://.godot/imported/april_icon.png-7b4e89184a123462f0494f89f9379594.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/april/ammellan.png"
-dest_files=["res://.godot/imported/ammellan.png-236906900374d1204b4ddcf210855621.ctex"]
+source_file="res://assets/april/april_icon.png"
+dest_files=["res://.godot/imported/april_icon.png-7b4e89184a123462f0494f89f9379594.ctex"]
 
 [params]
 
