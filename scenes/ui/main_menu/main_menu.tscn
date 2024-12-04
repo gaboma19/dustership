@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6xdqmwjubo8o"]
+[gd_scene load_steps=12 format=3 uid="uid://c6xdqmwjubo8o"]
 
 [ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_enmqm"]
 [ext_resource type="Texture2D" uid="uid://x17qi16mufq" path="res://assets/backgrounds/main_menu/main_menu_background.png" id="2_yi7hv"]
@@ -7,6 +7,28 @@
 [ext_resource type="Texture2D" uid="uid://bxq2y0ejff1fn" path="res://assets/backgrounds/main_menu/comet.png" id="5_aojlw"]
 [ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="5_h2jfi"]
 [ext_resource type="Script" path="res://scenes/ui/main_menu/comet.gd" id="6_8rapc"]
+
+[sub_resource type="FontFile" id="FontFile_as0ab"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/12/0/ascent = 0.0
+cache/0/12/0/descent = 0.0
+cache/0/12/0/underline_position = 0.0
+cache/0/12/0/underline_thickness = 0.0
+cache/0/12/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
 
 [sub_resource type="Animation" id="Animation_vc8by"]
 length = 0.001
@@ -93,6 +115,7 @@ texture = ExtResource("3_4gxv6")
 
 [node name="MainContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -105,6 +128,7 @@ text = "Play"
 
 [node name="SettingsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Settings"
 
@@ -151,26 +175,25 @@ text = "Back"
 
 [node name="CreditsContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_constants/separation = 16
 
-[node name="PanelContainer" type="PanelContainer" parent="Margin Container/VBoxContainer/CreditsContainer"]
+[node name="Panel1" type="PanelContainer" parent="Margin Container/VBoxContainer/CreditsContainer"]
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.764706, 0.533333, 0.564706, 1)
@@ -178,16 +201,16 @@ theme_override_fonts/font = ExtResource("5_h2jfi")
 theme_override_font_sizes/font_size = 16
 text = "CREATED BY"
 
-[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Gabriel Barja Ma"
 
-[node name="Control" type="Control" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 16)
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_colors/font_color = Color(0.764706, 0.533333, 0.564706, 1)
@@ -195,10 +218,205 @@ theme_override_fonts/font = ExtResource("5_h2jfi")
 theme_override_font_sizes/font_size = 16
 text = "MUSIC"
 
-[node name="Label4" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label4" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel1/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Chris Doucet"
+
+[node name="Panel2" type="PanelContainer" parent="Margin Container/VBoxContainer/CreditsContainer"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.764706, 0.533333, 0.564706, 1)
+theme_override_fonts/font = ExtResource("5_h2jfi")
+theme_override_font_sizes/font_size = 16
+text = "CONTRIBUTORS"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "2D Pickups"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "fightswithbears.itch.io"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "Pixel art chests"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "lowich.itch.io"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "Grenades"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "mtk.itch.io"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "Pixellari"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "ztdp.ca"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "Tiny5"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "github.com/Gissio"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "Isometric 32x32 Sandbox Pixel World"
+
+[node name="Label3" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+clip_text = true
+
+[node name="Label8" type="Label" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 8
+theme_type_variation = &"ContributorsLabel"
+theme_override_fonts/font = SubResource("FontFile_as0ab")
+theme_override_font_sizes/font_size = 14
+text = "route1rodent.itch.io"
+
+[node name="Control" type="Control" parent="Margin Container/VBoxContainer/CreditsContainer/Panel2/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="NextButton" parent="Margin Container/VBoxContainer/CreditsContainer" instance=ExtResource("4_0s3al")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Next"
 
 [node name="CreditsBackButton" parent="Margin Container/VBoxContainer/CreditsContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true

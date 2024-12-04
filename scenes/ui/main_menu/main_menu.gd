@@ -12,6 +12,7 @@ extends CanvasLayer
 @onready var quit_button: Button = %QuitButton
 @onready var settings_button: Button = %SettingsButton
 @onready var settings_back_button: Button = %SettingsBackButton
+@onready var next_button: Button = %NextButton
 @onready var main_container: VBoxContainer = %MainContainer
 @onready var save_slot_container: VBoxContainer = %SaveSlotContainer
 @onready var credits_container: VBoxContainer = %CreditsContainer
@@ -31,6 +32,7 @@ func _ready():
 	quit_button.pressed.connect(on_quit_button_pressed)
 	settings_button.pressed.connect(on_settings_button_pressed)
 	settings_back_button.pressed.connect(on_back_button_pressed)
+	next_button.pressed.connect(on_next_button_pressed)
 	
 	set_save_slot_container()
 	
@@ -109,6 +111,14 @@ func on_credits_button_pressed():
 	credits_container.show()
 	
 	credits_back_button.grab_focus()
+
+
+func on_next_button_pressed():
+	var panel1 = $"Margin Container/VBoxContainer/CreditsContainer/Panel1"
+	var panel2 = $"Margin Container/VBoxContainer/CreditsContainer/Panel2"
+	
+	panel1.visible = not panel1.visible
+	panel2.visible = not panel2.visible
 
 
 func on_quit_button_pressed():
