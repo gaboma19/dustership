@@ -3,7 +3,7 @@ extends Node
 signal item_used
 signal item_added
 
-const SIZE: int = 12
+const SIZE: int = 4
 
 var items: Array[InventoryItem]
 
