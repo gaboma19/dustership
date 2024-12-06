@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dhje5ilvce2o1"]
+
+[ext_resource type="PackedScene" uid="uid://bsv0wlt32q7pb" path="res://scenes/entities/item_pickup/item_pickup.tscn" id="1_vuqnu"]
+[ext_resource type="Texture2D" uid="uid://bgti76rb7hytg" path="res://assets/tonic/tonic.png" id="2_dr8hn"]
+
+[node name="Tonic" instance=ExtResource("1_vuqnu")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_dr8hn")

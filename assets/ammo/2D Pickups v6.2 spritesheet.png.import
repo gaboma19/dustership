@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ck1rvftdieji4"
-path="res://.godot/imported/2D Pickups v6.2 spritesheet.png-258245c0ea4b85ef9f515fe700d65872.ctex"
+path="res://.godot/imported/2D Pickups v6.2 spritesheet.png-9bbf3d346bdd6d87a9ad8866882ed773.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bullet/2D Pickups v6.2 spritesheet.png"
-dest_files=["res://.godot/imported/2D Pickups v6.2 spritesheet.png-258245c0ea4b85ef9f515fe700d65872.ctex"]
+source_file="res://assets/ammo/2D Pickups v6.2 spritesheet.png"
+dest_files=["res://.godot/imported/2D Pickups v6.2 spritesheet.png-9bbf3d346bdd6d87a9ad8866882ed773.ctex"]
 
 [params]
 

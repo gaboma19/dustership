@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dd7hk62spxkbk"]
+
+[ext_resource type="PackedScene" uid="uid://bsv0wlt32q7pb" path="res://scenes/entities/item_pickup/item_pickup.tscn" id="1_daonl"]
+[ext_resource type="Texture2D" uid="uid://b8hb66tnd8bpe" path="res://assets/grenade/grenades_by_mtk.png" id="2_3sln6"]
+
+[node name="Grenade" instance=ExtResource("1_daonl")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_3sln6")
+offset = Vector2(0, -7)
+hframes = 8
+vframes = 4

@@ -1,6 +1,6 @@
 extends Node2D
 
-var item: InventoryItem
+@export var item: InventoryItem
 
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 @onready var sprite = $Sprite2D
