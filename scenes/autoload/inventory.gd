@@ -34,6 +34,18 @@ func use_item(item: InventoryItem) -> bool:
 		return false
 
 
+func use_item_by_index(index: int):
+	if index < 0 or index >= SIZE:
+		return
+	
+	var item: InventoryItem = items[index]
+	if item.audio_stream != null:
+		play_audio_stream(item.audio_stream)
+	
+	items[index] = null
+	item_used.emit()
+
+
 func use_item_by_name(item_name: String) -> bool:
 	var match_name = func(item):
 		if item == null: 

@@ -15,6 +15,26 @@ extends CanvasLayer
 func _ready():
 	Inventory.item_used.connect(on_item_used)
 	Inventory.item_added.connect(on_item_added)
+	
+	_test_inventory()
+
+
+func _unhandled_input(event):
+	var index: int
+	if event.is_action_pressed("item_1"):
+		index = 0
+	elif event.is_action_pressed("item_2"):
+		index = 1
+	elif event.is_action_pressed("item_3"):
+		index = 2
+	elif event.is_action_pressed("item_4"):
+		index = 3
+	else:
+		return
+	
+	get_tree().root.set_input_as_handled()
+	Inventory.use_item_by_index(index)
+	inventory_buttons[index].use_item()
 
 
 func set_slots():
@@ -28,3 +48,15 @@ func on_item_used():
 
 func on_item_added():
 	set_slots()
+
+
+func _test_inventory():
+	var grenade = load("res://resources/inventory_item/items/grenade.tres")
+	var ammo = load("res://resources/inventory_item/items/ammo.tres")
+	var magnet = load("res://resources/inventory_item/items/magnet.tres")
+	var tonic = load("res://resources/inventory_item/items/tonic.tres")
+	
+	Inventory.add_item(grenade)
+	Inventory.add_item(ammo)
+	Inventory.add_item(magnet)
+	Inventory.add_item(tonic)
