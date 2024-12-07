@@ -10,4 +10,3 @@ script = ExtResource("1_rpocd")
 [node name="HealthBar" parent="." instance=ExtResource("2_1spjr")]
 
 [node name="InventoryDisplay" parent="." instance=ExtResource("3_xn3na")]
-visible = false

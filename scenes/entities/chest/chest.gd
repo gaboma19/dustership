@@ -11,7 +11,7 @@ const TEXTURE = preload("res://assets/chest/chest.png")
 @export var chest_id: String
 
 @onready var interaction_area = $InteractionArea
-@onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var spawn_material: ShaderMaterial = preload(
 	"res://resources/materials/spawn_material.tres")
 @onready var shadow_sprite = $ShadowSprite

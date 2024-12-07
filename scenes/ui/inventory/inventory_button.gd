@@ -2,9 +2,13 @@ extends Button
 
 var item: InventoryItem
 
+@onready var reference_rect = $ReferenceRect
+
 
 func _ready():
 	pressed.connect(on_pressed)
+	
+	#reference_rect.hide()
 
 
 func use_item():

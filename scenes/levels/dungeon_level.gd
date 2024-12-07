@@ -8,7 +8,6 @@ class_name DungeonLevel
 @export var exit_scene: PackedScene
 @export var spawner: Node
 
-var reward: InventoryItem
 var room: Room
 
 @onready var entities_layer = get_tree().get_first_node_in_group("entities")
@@ -62,7 +61,7 @@ func set_doorways():
 func win():
 	room.visited = true
 	echelon_obstacle_tiles.open_doors()
-	spawner.spawn_chest(reward)
+	spawner.spawn_chest()
 
 
 func _mock_room():
@@ -87,7 +86,7 @@ func _test_set_doorways():
 
 func _test_spawn_chest(delay: float):
 	await get_tree().create_timer(delay).timeout
-	spawner.spawn_chest(reward)
+	spawner.spawn_chest()
 
 
 func _test_spawn_enemies(delay: float):

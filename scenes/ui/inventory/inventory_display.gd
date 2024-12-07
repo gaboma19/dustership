@@ -16,7 +16,7 @@ func _ready():
 	Inventory.item_used.connect(on_item_used)
 	Inventory.item_added.connect(on_item_added)
 	
-	_test_inventory()
+	#_test_inventory()
 
 
 func _unhandled_input(event):
@@ -33,12 +33,12 @@ func _unhandled_input(event):
 		return
 	
 	get_tree().root.set_input_as_handled()
-	Inventory.use_item_by_index(index)
 	inventory_buttons[index].use_item()
+	Inventory.use_item_by_index(index)
 
 
 func set_slots():
-	for i in range(Inventory.items.size() - 1):
+	for i in range(Inventory.SIZE):
 		inventory_buttons[i].set_item(Inventory.items[i])
 
 

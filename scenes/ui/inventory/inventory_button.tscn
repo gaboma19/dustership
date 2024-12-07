@@ -1,22 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2r63txfjknrf"]
+[gd_scene load_steps=2 format=3 uid="uid://c2r63txfjknrf"]
 
 [ext_resource type="Script" path="res://scenes/ui/inventory/inventory_button.gd" id="1_sqxxi"]
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ymfgi"]
-size = Vector2(14, 14)
-
 [node name="InventoryButton" type="Button"]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(48, 48)
+offset_right = 48.0
+offset_bottom = 48.0
 size_flags_vertical = 4
 focus_mode = 0
-icon = SubResource("PlaceholderTexture2D_ymfgi")
 flat = true
 icon_alignment = 1
 expand_icon = true
 script = ExtResource("1_sqxxi")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(48, 48)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
+border_color = Color(1, 1, 1, 1)
