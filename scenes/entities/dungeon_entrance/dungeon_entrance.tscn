@@ -1,6 +1,7 @@
-[gd_scene load_steps=49 format=4 uid="uid://30n2o1l78jxr"]
+[gd_scene load_steps=50 format=4 uid="uid://30n2o1l78jxr"]
 
 [ext_resource type="Texture2D" uid="uid://c6pjy7uc18uoa" path="res://assets/echelon_tiles/pavement_tiles.png" id="1_nxmip"]
+[ext_resource type="Texture2D" uid="uid://8uga3pam42oa" path="res://assets/dungeon_entrance/Sprite-0001.png" id="1_y1ff1"]
 [ext_resource type="Texture2D" uid="uid://bua23oj2dvlaq" path="res://assets/echelon_tiles/rocky_tiles.png" id="2_ku6vy"]
 [ext_resource type="Texture2D" uid="uid://cc2vtikfs51bv" path="res://assets/echelon_tiles/eremite_tiles.png" id="3_npgke"]
 [ext_resource type="Texture2D" uid="uid://bv48tj2gkcead" path="res://assets/echelon_tiles/eremite_stairs.png" id="4_6i8n0"]
@@ -4113,7 +4114,9 @@ sources/12 = SubResource("TileSetAtlasSource_j7aar")
 [node name="DungeonEntrance" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(64, 64)
+visible = false
+texture = ExtResource("1_y1ff1")
+offset = Vector2(0, -32)
 
 [node name="floor" type="TileMapLayer" parent="."]
 z_index = -1

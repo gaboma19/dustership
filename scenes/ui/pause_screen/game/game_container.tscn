@@ -25,6 +25,7 @@ text = "Save game"
 
 [node name="SettingsButton" parent="VBoxContainer" instance=ExtResource("2_05xsp")]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 text = "Settings"
 

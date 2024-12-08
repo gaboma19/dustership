@@ -3,7 +3,7 @@ extends Node2D
 const TELITZ_SCENE = preload("res://scenes/entities/players/telitz/telitz.tscn")
 const DUSTERSHIP_LEVEL_1_SCENE_PATH = "res://scenes/levels/dustership/dustership_level_1.tscn"
 const EREMITE_DISKETTE = preload(
-	"res://resources/inventory_item/items/eremite_diskette.tres")
+	"res://resources/inventory_item/items/old/eremite_diskette.tres")
 const CONVERSATION_ID = "computer"
 const EREMITE_DISKETTE_CONVERSATION_ID = "eremite_diskette"
 const LINES: Array[String] = [

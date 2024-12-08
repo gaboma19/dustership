@@ -126,7 +126,7 @@ offset = Vector2(0, -8)
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_uu64q")
-animation = &"chest3"
+animation = &"chest0"
 offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,7 +1,7 @@
 extends Node
 
 const IDENTITY_CORE_LEFT = preload(
-	"res://resources/inventory_item/items/identity_core_left.tres")
+	"res://resources/inventory_item/items/old/identity_core_left.tres")
 
 var number_raster_groups: int = 0
 var number_dead_enemies: int = 0

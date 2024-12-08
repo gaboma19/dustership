@@ -19,10 +19,13 @@ func set_item(new_item: InventoryItem):
 
 
 func on_pressed():
-	if item == null:
-		return
+	# TODO: swap item positions with another slot
+	pass
 	
-	var inventory_item_detail = inventory_item_detail_scene.instantiate()
-	inventory_item_detail.item = item
-	get_tree().get_first_node_in_group("top_margin_container").add_child(
-		inventory_item_detail)
+	#if item == null:
+		#return
+	#
+	#var inventory_item_detail = inventory_item_detail_scene.instantiate()
+	#inventory_item_detail.item = item
+	#get_tree().get_first_node_in_group("top_margin_container").add_child(
+		#inventory_item_detail)

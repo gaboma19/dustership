@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_shower.gd" id="8_ha054"]
 [ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_0_computer.gd" id="9_74cea"]
 [ext_resource type="Material" uid="uid://caayel4fvr7bb" path="res://resources/materials/stun.tres" id="10_8n1mc"]
-[ext_resource type="Resource" uid="uid://cydryfrgm0mep" path="res://resources/inventory_item/items/sword.tres" id="10_twkl8"]
+[ext_resource type="Resource" uid="uid://cydryfrgm0mep" path="res://resources/inventory_item/items/old/sword.tres" id="10_twkl8"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_xe4gx"]
 [ext_resource type="Texture2D" uid="uid://qoobnbohr0g" path="res://assets/backgrounds/aprils_apartment/computer_screen.png" id="11_de83u"]
 [ext_resource type="Script" path="res://scenes/level_transitions/level_transition_area_level0.gd" id="13_7sqa6"]

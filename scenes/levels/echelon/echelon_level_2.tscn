@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="8_xs4nq"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="10_n8e37"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="11_4hago"]
-[ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/steel_card.tres" id="11_na7b6"]
+[ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/old/steel_card.tres" id="11_na7b6"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="12_1cs4y"]
 [ext_resource type="Script" path="res://scenes/entities/echelon_door/battery_door.gd" id="12_w6ok0"]
 [ext_resource type="PackedScene" uid="uid://doclhhyd3rpub" path="res://scenes/tile_maps/areas/elevation_transition_area/elevation_transition_area.tscn" id="13_wc7bs"]

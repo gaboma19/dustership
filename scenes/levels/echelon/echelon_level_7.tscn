@@ -15,8 +15,8 @@
 [ext_resource type="TileSet" uid="uid://5rw78mijyell" path="res://scenes/tile_maps/echelon/echelon_tile_set_4.tres" id="8_eovsv"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_2g8ni"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="10_40tex"]
-[ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/steel_card.tres" id="11_7f2cm"]
-[ext_resource type="Resource" uid="uid://34ccf2iojcia" path="res://resources/inventory_item/items/health_tonic.tres" id="11_axopf"]
+[ext_resource type="Resource" uid="uid://c1mmr81amlp5c" path="res://resources/inventory_item/items/old/steel_card.tres" id="11_7f2cm"]
+[ext_resource type="Resource" uid="uid://34ccf2iojcia" path="res://resources/inventory_item/items/old/health_tonic.tres" id="11_axopf"]
 [ext_resource type="PackedScene" uid="uid://jan8t6wjwwrs" path="res://scenes/entities/battery/battery.tscn" id="12_518d7"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="16_pqvt8"]
 [ext_resource type="Script" path="res://scenes/entities/echelon_door/battery_door.gd" id="17_drlg2"]
@@ -362,9 +362,6 @@ y_sort_enabled = true
 position = Vector2(-208, 32)
 inventory_item = ExtResource("11_7f2cm")
 chest_id = "echelon7_chest0"
-
-[node name="AnimatedSprite2D" parent="Entities/Chest" index="1"]
-animation = &"chest4"
 
 [node name="Chest2" parent="Entities" instance=ExtResource("10_40tex")]
 position = Vector2(32, 1120)

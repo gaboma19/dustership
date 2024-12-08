@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://doak1m0xw6r4t"]
 
 [ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/equipment_panel.gd" id="1_fh1sn"]
-[ext_resource type="Texture2D" uid="uid://sy8d6jld4e5i" path="res://assets/april/ammellan.png" id="1_pisyf"]
 [ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://assets/sword/sword.png" id="2_hwdbg"]
+[ext_resource type="Texture2D" uid="uid://cispse7j8qbwx" path="res://assets/april/april_icon.png" id="2_s4amf"]
 [ext_resource type="Texture2D" uid="uid://bkaqeshji82e4" path="res://assets/cube/cube_texture.png" id="4_pbi73"]
 [ext_resource type="Texture2D" uid="uid://ba7ora8v84cie" path="res://assets/cube/laser_texture.png" id="5_7fyp7"]
 [ext_resource type="Texture2D" uid="uid://dq6ba2qqde56a" path="res://assets/telitz_denz/telitz_denz_texture.png" id="5_wuksp"]
@@ -31,12 +31,11 @@ layout_mode = 2
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 2
 
-[node name="AprilSprite" type="Sprite2D" parent="MarginContainer/VBoxContainer/HBoxContainer/Container"]
-scale = Vector2(3, 3)
-texture = ExtResource("1_pisyf")
-centered = false
-hframes = 6
-vframes = 5
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/Container"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_s4amf")
 
 [node name="Container2" type="Control" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(48, 48)

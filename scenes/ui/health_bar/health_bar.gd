@@ -5,6 +5,9 @@ extends CanvasLayer
 
 @onready var heart_container: HBoxContainer = %HeartContainer
 @onready var portrait_texture = %PortraitTexture
+@onready var steel_label = %SteelLabel
+@onready var bytes_progress_bar = %BytesProgressBar
+@onready var hud: CanvasLayer = get_parent()
 
 
 func _ready():
@@ -12,7 +15,17 @@ func _ready():
 	GameEvents.player_healed.connect(on_player_healed)
 	PartyManager.character_switched.connect(on_character_switched)
 	PartyManager.character_activated.connect(on_character_activated)
+	GameEvents.steel_collected.connect(on_currency_collected)
+	GameEvents.bytes_gained.connect(on_currency_collected)
+	hud.visibility_changed.connect(on_visibility_changed)
+	
 	clear_hearts()
+	set_counter()
+
+
+func set_counter():
+	steel_label.text = format_number(PlayerVariables.steel)
+	bytes_progress_bar.value = PlayerVariables.bytes
 
 
 func clear_hearts():
@@ -42,6 +55,22 @@ func set_portrait(character_name: Constants.CharacterNames):
 			portrait_texture.texture = preload("res://assets/telitz_denz/telitz_portrait.png")
 
 
+func format_number(value) -> String:
+	value = str(round(value))
+	var output := ""
+	
+	for i in range(value.length()):
+		if i != 0 and i % 3 == value.length() % 3:
+			output += ","
+		output += value[i]
+	
+	return output
+
+
+func on_currency_collected(_value):
+	set_counter()
+
+
 func on_player_damaged():
 	set_hearts()
 
@@ -56,3 +85,7 @@ func on_character_switched(character_name: Constants.CharacterNames):
 
 func on_character_activated(character_name: Constants.CharacterNames):
 	set_portrait(character_name)
+
+
+func on_visibility_changed():
+	visible = hud.visible

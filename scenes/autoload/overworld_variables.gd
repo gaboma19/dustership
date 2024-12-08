@@ -35,10 +35,17 @@ func save_data() -> Dictionary:
 
 
 func load_data(data: Dictionary):
-	if data["active_plane_path"] != null:
+	if (
+		data.has("active_plane_path") 
+		and data["active_plane_path"] != null
+	):
 		active_plane = load(data["active_plane_path"]).instantiate()
 	
 	player_map_position = Vector2(
 		data["player_map_position.x"], data["player_map_position.y"])
 	
-	dungeons = data["dungeons"]
+	if (
+		data.has("dungeons")
+		and data["dungeons"] != null
+	):
+		dungeons = data.get("dungeons")

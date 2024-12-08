@@ -46,8 +46,8 @@ _data = {
 }
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2p2yp"]
-a = Vector2(-32, 0)
-b = Vector2(32, 0)
+a = Vector2(-256, 0)
+b = Vector2(256, 0)
 
 [node name="Tumbleweed" type="RigidBody2D"]
 collision_layer = 0
@@ -114,5 +114,4 @@ scale = Vector2(1.3, 1)
 texture = ExtResource("3_j0y6m")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="FloorStaticBody"]
-visible = false
 shape = SubResource("SegmentShape2D_2p2yp")

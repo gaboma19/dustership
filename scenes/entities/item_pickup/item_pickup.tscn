@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://bsv0wlt32q7pb"]
+[gd_scene load_steps=8 format=3 uid="uid://bsv0wlt32q7pb"]
 
 [ext_resource type="Script" path="res://scenes/entities/item_pickup/item_pickup.gd" id="1_wdbk2"]
-[ext_resource type="Texture2D" uid="uid://dcuu41rt4plor" path="res://assets/eremite_diskette/eremite_diskette.png" id="2_3yjb7"]
+[ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="3_8rbin"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xq11b"]
 radius = 16.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_2467t"]
+size = Vector2(16, 16)
 
 [sub_resource type="Animation" id="Animation_ahto4"]
 length = 0.001
@@ -31,6 +34,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0.6)]
 }
 
 [sub_resource type="Animation" id="Animation_bd68w"]
@@ -60,6 +75,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(0, 0), Vector2(0, -32), Vector2(-4.5, -28.445), Vector2(4.5, -14.224), Vector2(0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ShadowSprite:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0.6), Vector2(-4.5, 0.6), Vector2(4.5, 0.6), Vector2(0, 0.6)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dcsy2"]
 _data = {
@@ -80,8 +107,14 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CollectionArea"]
 shape = SubResource("CircleShape2D_xq11b")
 
+[node name="ShadowSprite" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+position = Vector2(0, 0.6)
+scale = Vector2(0.8, 1.06667)
+texture = ExtResource("3_8rbin")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_3yjb7")
+texture = SubResource("PlaceholderTexture2D_2467t")
 offset = Vector2(0, -8)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

@@ -1,9 +1,10 @@
 extends Node2D
 
-var item: InventoryItem
+@export var item: InventoryItem
 
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 @onready var sprite = $Sprite2D
+@onready var shadow_sprite = $ShadowSprite
 
 
 func _ready():
@@ -12,12 +13,12 @@ func _ready():
 	tween_bounce()
 
 
-func tween_bounce():
-	var direction: Vector2
-	if randf() > 0.5: 
-		direction = Vector2.RIGHT 
-	else: 
-		direction = Vector2.LEFT
+func tween_bounce(direction: Vector2 = Vector2.ZERO):
+	if direction != Vector2.RIGHT or direction != Vector2.LEFT:
+		if randf() > 0.5: 
+			direction = Vector2.RIGHT 
+		else: 
+			direction = Vector2.LEFT
 
 	var tween = create_tween()
 	tween.tween_property(self, "position", direction * 48, 1).as_relative()
@@ -38,6 +39,7 @@ func tween_collect(percent: float, start_position: Vector2):
 
 func collect():
 	Inventory.add_item(item)
+	queue_free()
 
 
 func disable_collision():
@@ -46,6 +48,7 @@ func disable_collision():
 
 func on_collection_area_entered(_area: Area2D):
 	Callable(disable_collision).call_deferred()
+	shadow_sprite.hide()
 	
 	var tween = create_tween()
 	tween.set_parallel()
