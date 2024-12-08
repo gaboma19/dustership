@@ -5,7 +5,7 @@
 
 [node name="Grenade" instance=ExtResource("1_daonl")]
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_3sln6")
 offset = Vector2(0, -7)
 hframes = 8

@@ -23,7 +23,7 @@ border_color = Color(1, 1, 1, 1)
 editor_only = false
 
 [node name="Panel" type="Panel" parent="."]
-modulate = Color(1, 1, 1, 0.12549)
+modulate = Color(1, 1, 1, 0.376471)
 show_behind_parent = true
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 0

@@ -47,6 +47,7 @@ func set_state():
 
 
 func on_continue_pressed():
+	continue_button.pressed.disconnect(on_continue_pressed)
 	close()
 	continued.emit()
 

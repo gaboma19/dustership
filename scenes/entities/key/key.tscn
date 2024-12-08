@@ -7,6 +7,6 @@
 [node name="Key" instance=ExtResource("1_y5b14")]
 item = ExtResource("2_k2jdi")
 
-[node name="Sprite2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="2"]
 texture = ExtResource("2_535is")
 offset = Vector2(0, -6)

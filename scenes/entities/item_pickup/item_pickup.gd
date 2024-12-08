@@ -4,6 +4,7 @@ extends Node2D
 
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 @onready var sprite = $Sprite2D
+@onready var shadow_sprite = $ShadowSprite
 
 
 func _ready():
@@ -38,6 +39,7 @@ func tween_collect(percent: float, start_position: Vector2):
 
 func collect():
 	Inventory.add_item(item)
+	queue_free()
 
 
 func disable_collision():
@@ -46,6 +48,7 @@ func disable_collision():
 
 func on_collection_area_entered(_area: Area2D):
 	Callable(disable_collision).call_deferred()
+	shadow_sprite.hide()
 	
 	var tween = create_tween()
 	tween.set_parallel()
