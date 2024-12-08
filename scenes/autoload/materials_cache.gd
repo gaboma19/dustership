@@ -1,4 +1,4 @@
-extends CanvasLayer
+extends Node
 
 const DEATH_COMPONENT_MATERIAL = preload("res://resources/materials/death_component_material.tres")
 const CUBE_LASER_BEAM = preload("res://resources/materials/cube_laser_beam.tres")

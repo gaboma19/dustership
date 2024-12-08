@@ -3,12 +3,12 @@ extends Node
 signal died
 
 @export var enable_game_start: bool = true
-@export var max_health: int = 3
+@export var max_health: int = 4
 @export var current_health: int = max_health
 @export var steel: int = 0
 @export var bytes: int = 0
 @export var pause_menu_screen: int = 0
-@export var has_sword: bool = false
+@export var has_sword: bool = true
 @export var has_gun: bool = true
 @export var is_april_active: bool = true
 @export var is_telitz_active: bool = false

@@ -1,4 +1,5 @@
 extends Chest
+class_name DungeonChest
 
 const ITEM_PICKUP_SCENE: PackedScene = preload(
 	"res://scenes/entities/item_pickup/item_pickup.tscn")
@@ -17,9 +18,10 @@ func _ready():
 	
 	shadow_sprite.animation = animated_sprite_2d.animation
 	interaction_area.interact = Callable(self, "on_interact")
-	
-	chest_id = DungeonManager.get_chest_id()
-	
+
+
+func build(id: String):
+	chest_id = id
 	if EntityVariables.chests.has(chest_id):
 		set_state(EntityVariables.chests[chest_id])
 	else:
@@ -38,18 +40,16 @@ func create_state():
 
 
 func set_state(chest_data: Dictionary):
-	if chest_data.opened:
-		show()
-		animated_sprite_2d.set_frame(1)
-		interaction_area.monitoring = false
-		collision_shape_2d.disabled = false
+	animated_sprite_2d.animation = animations[chest_data.sprite]
 	
 	if chest_data.spawned:
 		show()
 		interaction_area.monitoring = true
 		collision_shape_2d.disabled = false
 	
-	animated_sprite_2d.animation = animations[chest_data.sprite]
+	if chest_data.opened:
+		animated_sprite_2d.set_frame(1)
+		interaction_area.monitoring = false
 
 
 func spawn():
@@ -82,6 +82,8 @@ func spawn_steel():
 
 
 func on_interact():
+	EntityVariables.chests[chest_id].opened = true
+	
 	$AudioStreamPlayer2D.play()
 	animated_sprite_2d.play()
 	interaction_area.monitoring = false

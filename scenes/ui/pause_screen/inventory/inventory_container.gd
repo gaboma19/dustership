@@ -17,7 +17,7 @@ func get_slots():
 
 
 func set_slots():
-	for i in range(Inventory.items.size() - 1):
+	for i in range(Inventory.SIZE):
 		inventory_slots[i].set_item(Inventory.items[i])
 
 

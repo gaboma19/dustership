@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cvwvu7n6sio5m"
+path="res://.godot/imported/grenade_mini_icon.aseprite-e24a63f3fa0d68411710e8965052e27b.res"
+
+[deps]
+
+source_file="res://assets/grenade/grenade_mini_icon.aseprite"
+dest_files=["res://.godot/imported/grenade_mini_icon.aseprite-e24a63f3fa0d68411710e8965052e27b.res"]
+
+[params]
+

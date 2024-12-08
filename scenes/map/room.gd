@@ -18,3 +18,4 @@ var type: Type = Type.DEFAULT
 var visited: bool = false
 var layout: Layout
 var layout_positions: Dictionary = Constants.PLAYER_POSITIONS[Layout.A]
+var chest_id: String = ""

@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_2hqpj"]
 [ext_resource type="PackedScene" uid="uid://ckfchym8oum5f" path="res://scenes/components/item_drop_component/item_drop_component.tscn" id="6_gfki3"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="6_qmdoe"]
-[ext_resource type="Resource" uid="uid://cx780dwrclh03" path="res://resources/inventory_item/items/eremite_diskette.tres" id="7_haysb"]
+[ext_resource type="Resource" uid="uid://cx780dwrclh03" path="res://resources/inventory_item/items/old/eremite_diskette.tres" id="7_haysb"]
 [ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_ho3fb"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
 [ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]

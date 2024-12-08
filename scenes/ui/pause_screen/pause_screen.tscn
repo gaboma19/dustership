@@ -150,9 +150,6 @@ layout_mode = 2
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_4fevp")
 
-[node name="GameContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MenuContainer" instance=ExtResource("7_ujawq")]
-layout_mode = 2
-
 [node name="B" type="TextureRect" parent="MarginContainer/PanelContainer"]
 layout_mode = 2
 size_flags_horizontal = 8

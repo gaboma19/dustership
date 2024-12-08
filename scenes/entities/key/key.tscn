@@ -1,38 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://2aaiewbv6ie8"]
+[gd_scene load_steps=4 format=3 uid="uid://c1lepx7d30xbt"]
 
-[ext_resource type="Script" path="res://scenes/entities/key/key.gd" id="1_wyr7b"]
+[ext_resource type="PackedScene" uid="uid://bsv0wlt32q7pb" path="res://scenes/entities/item_pickup/item_pickup.tscn" id="1_y5b14"]
 [ext_resource type="Texture2D" uid="uid://dbwvlxukdj8vg" path="res://assets/key/key.png" id="2_535is"]
 [ext_resource type="Resource" uid="uid://cqfo1k0pnwcoe" path="res://resources/inventory_item/items/key.tres" id="2_k2jdi"]
-[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="3_eke1n"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_tpb4j"]
-radius = 16.0
+[node name="Key" instance=ExtResource("1_y5b14")]
+item = ExtResource("2_k2jdi")
 
-[node name="Key" type="Node2D"]
-script = ExtResource("1_wyr7b")
-inventory_item = ExtResource("2_k2jdi")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(0, -6)
+[node name="Sprite2D" parent="." index="1"]
 texture = ExtResource("2_535is")
-metadata/_aseprite_wizard_config_ = {
-"i_mode": 1,
-"keep_anim_length": false,
-"layer": "",
-"o_ex_p": "",
-"o_folder": "",
-"o_name": "",
-"only_visible": false,
-"op_exp": false,
-"player": "",
-"source": "res://assets/key/key.aseprite"
-}
-
-[node name="InteractionArea" parent="." instance=ExtResource("3_eke1n")]
-position = Vector2(0, -6)
-action_name = "Pick up"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
-visible = false
-shape = SubResource("CircleShape2D_tpb4j")
+offset = Vector2(0, -6)

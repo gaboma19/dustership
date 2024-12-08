@@ -3,7 +3,6 @@ extends CanvasLayer
 enum Screens { INVENTORY, GAME }
 
 @export var inventory_container_scene: PackedScene
-#@export var map_scene: PackedScene
 @export var game_container_scene: PackedScene
 
 var selected_screen: int = PlayerVariables.pause_menu_screen
@@ -30,6 +29,8 @@ func _ready():
 	left_button_2.pressed.connect(tab_left)
 	right_button.pressed.connect(tab_right)
 	right_button_2.pressed.connect(tab_right)
+	
+	#_test_set_menu_container(Screens.INVENTORY)
 
 
 func _unhandled_input(event):
@@ -76,8 +77,6 @@ func set_menu_container():
 			set_inventory_grid()
 		Screens.GAME:
 			set_game()
-		#Screens.MAP:
-			#set_map()
 
 
 func set_inventory_grid():
@@ -87,13 +86,6 @@ func set_inventory_grid():
 	menu_container.add_child(inventory_container)
 	
 	inventory_container.set_slots()
-
-
-#func set_map():
-	#header.text = "MAP"
-	#
-	#var map = map_scene.instantiate()
-	#menu_container.add_child(map)
 
 
 func set_game():
@@ -140,3 +132,8 @@ func close():
 	
 	get_tree().paused = false
 	queue_free()
+
+
+func _test_set_menu_container(screen: Screens):
+	selected_screen = screen
+	set_menu_container()

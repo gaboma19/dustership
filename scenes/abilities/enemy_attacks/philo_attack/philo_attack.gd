@@ -6,6 +6,7 @@ func _ready():
 
 
 func attack():
+	await get_tree().create_timer(0.6).timeout
 	owner.animation_state_machine.travel("attack")
 	%AttackAudio.play_random()
 

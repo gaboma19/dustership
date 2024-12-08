@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://jh27381syy2o"]
+
+[ext_resource type="PackedScene" uid="uid://bsv0wlt32q7pb" path="res://scenes/entities/item_pickup/item_pickup.tscn" id="1_ef5pe"]
+[ext_resource type="Texture2D" uid="uid://rfmmp3kjq5nd" path="res://assets/magnet/magnet.png" id="2_kmegr"]
+
+[node name="Magnet" instance=ExtResource("1_ef5pe")]
+
+[node name="Sprite2D" parent="." index="1"]
+texture = ExtResource("2_kmegr")
+offset = Vector2(0, -7)

@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cta26llvggdfn"
+path="res://.godot/imported/april.aseprite-f63ffd360313201def32da7526081429.res"
+
+[deps]
+
+source_file="res://assets/april/april.aseprite"
+dest_files=["res://.godot/imported/april.aseprite-f63ffd360313201def32da7526081429.res"]
+
+[params]
+

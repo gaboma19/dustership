@@ -1,6 +1,6 @@
 extends Node2D
 
-var item: InventoryItem
+@export var item: InventoryItem
 
 @onready var collision_shape_2d = $CollectionArea/CollisionShape2D
 @onready var sprite = $Sprite2D
@@ -12,12 +12,12 @@ func _ready():
 	tween_bounce()
 
 
-func tween_bounce():
-	var direction: Vector2
-	if randf() > 0.5: 
-		direction = Vector2.RIGHT 
-	else: 
-		direction = Vector2.LEFT
+func tween_bounce(direction: Vector2 = Vector2.ZERO):
+	if direction != Vector2.RIGHT or direction != Vector2.LEFT:
+		if randf() > 0.5: 
+			direction = Vector2.RIGHT 
+		else: 
+			direction = Vector2.LEFT
 
 	var tween = create_tween()
 	tween.tween_property(self, "position", direction * 48, 1).as_relative()

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://blkguusvctco3"]
+
+[ext_resource type="Script" path="res://resources/inventory_item/items/old/identity_core_half.gd" id="1_thd8i"]
+[ext_resource type="Texture2D" uid="uid://cipqxyg76d2s2" path="res://assets/identity_core/identity_core_right.png" id="2_gtvet"]
+
+[resource]
+script = ExtResource("1_thd8i")
+other_half = "identity_core_left"
+name = "identity_core_right"
+texture = ExtResource("2_gtvet")
+is_usable = true
+description = "The right hemisphere of a combat droid's identity core."
+pop_up_text = "Found a piece of an identity core!"
