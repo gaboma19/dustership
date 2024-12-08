@@ -5,7 +5,7 @@ extends InventoryItem
 
 func use():
 	const IDENTITY_CORE = preload(
-		"res://resources/inventory_item/items/identity_core.tres")
+		"res://resources/inventory_item/items/old/identity_core.tres")
 
 	if Inventory.use_item_by_name(other_half):
 		Inventory.use_item(self)

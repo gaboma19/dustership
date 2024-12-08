@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://b3mx6jhcxd3p1"]
 
-[ext_resource type="Script" path="res://resources/inventory_item/items/identity_core_half.gd" id="1_ywrax"]
+[ext_resource type="Script" path="res://resources/inventory_item/items/old/identity_core_half.gd" id="1_ywrax"]
 [ext_resource type="Texture2D" uid="uid://c1hy1qqur25c8" path="res://assets/identity_core/identity_core_left.png" id="2_dv2nd"]
 
 [resource]

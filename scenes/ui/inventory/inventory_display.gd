@@ -35,7 +35,18 @@ func _unhandled_input(event):
 		return
 	
 	get_tree().root.set_input_as_handled()
-	inventory_buttons[index].use_item()
+	
+	use_item(index)
+
+
+func use_item(index: int) -> void:
+	if index < 0 or index >= Inventory.SIZE:
+		return
+	
+	if inventory_buttons[index].item == null:
+		return
+	
+	inventory_buttons[index].item.use()
 	Inventory.use_item_by_index(index)
 
 

@@ -14,8 +14,19 @@ expand_icon = true
 script = ExtResource("1_sqxxi")
 
 [node name="ReferenceRect" type="ReferenceRect" parent="."]
+visible = false
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 0
 offset_right = 32.0
 offset_bottom = 32.0
 border_color = Color(1, 1, 1, 1)
+editor_only = false
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(1, 1, 1, 0.12549)
+show_behind_parent = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_type_variation = &"PanelFlat"

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://34ccf2iojcia"]
 
-[ext_resource type="Script" path="res://resources/inventory_item/items/health_tonic.gd" id="1_qt1de"]
+[ext_resource type="Script" path="res://resources/inventory_item/items/old/health_tonic.gd" id="1_qt1de"]
 [ext_resource type="Texture2D" uid="uid://bgti76rb7hytg" path="res://assets/tonic/tonic.png" id="2_ajdh1"]
 
 [resource]
