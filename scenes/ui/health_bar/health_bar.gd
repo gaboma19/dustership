@@ -7,6 +7,7 @@ extends CanvasLayer
 @onready var portrait_texture = %PortraitTexture
 @onready var steel_label = %SteelLabel
 @onready var bytes_progress_bar = %BytesProgressBar
+@onready var hud: CanvasLayer = get_parent()
 
 
 func _ready():
@@ -16,6 +17,7 @@ func _ready():
 	PartyManager.character_activated.connect(on_character_activated)
 	GameEvents.steel_collected.connect(on_currency_collected)
 	GameEvents.bytes_gained.connect(on_currency_collected)
+	hud.visibility_changed.connect(on_visibility_changed)
 	
 	clear_hearts()
 	set_counter()
@@ -83,3 +85,7 @@ func on_character_switched(character_name: Constants.CharacterNames):
 
 func on_character_activated(character_name: Constants.CharacterNames):
 	set_portrait(character_name)
+
+
+func on_visibility_changed():
+	visible = hud.visible

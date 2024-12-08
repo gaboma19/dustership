@@ -10,11 +10,13 @@ extends CanvasLayer
 		inventory_button_3, 
 		inventory_button_4
 	]
+@onready var hud: CanvasLayer = get_parent()
 
 
 func _ready():
 	Inventory.item_used.connect(on_item_used)
 	Inventory.item_added.connect(on_item_added)
+	hud.visibility_changed.connect(on_visibility_changed)
 	
 	#_test_inventory()
 
@@ -48,6 +50,10 @@ func on_item_used():
 
 func on_item_added():
 	set_slots()
+
+
+func on_visibility_changed():
+	visible = hud.visible
 
 
 func _test_inventory():

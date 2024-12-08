@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @onready var health_bar = $HealthBar
+@onready var inventory_display = $InventoryDisplay
 
 
 func _ready():
