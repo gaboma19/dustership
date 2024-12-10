@@ -35,8 +35,11 @@ func handle_input(event):
 	
 	if (
 		event.is_action_pressed("attack")
-		and player.animation_state_machine.get_current_node() != "Attack"
-		and player.animation_state_machine.get_current_node() != "Charge"
+		and player.animation_state_machine.get_current_node() != &"Attack"
+		and player.animation_state_machine.get_current_node() != &"Attack 1"
+		and player.animation_state_machine.get_current_node() != &"Attack 2"
+		and player.animation_state_machine.get_current_node() != &"Attack 3"
+		and player.animation_state_machine.get_current_node() != &"Charge"
 		and player.can_attack()
 		and player.state_machine.state == self
 	):
