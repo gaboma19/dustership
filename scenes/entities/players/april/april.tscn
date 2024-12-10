@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=118 format=3 uid="uid://dsqd5wjpj1yo6"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
@@ -13,6 +13,7 @@
 [ext_resource type="AudioStream" uid="uid://cdiori6y6gq6j" path="res://assets/sfx/sword_swipe/sword_swipe_3.wav" id="7_6bfai"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
+[ext_resource type="Script" path="res://scenes/entities/players/april/april_animation_tree.gd" id="9_wh658"]
 [ext_resource type="Script" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
@@ -2328,7 +2329,7 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijq14"]
 advance_mode = 2
-advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pd6w"]
 advance_mode = 2
@@ -2337,6 +2338,7 @@ advance_condition = &"is_idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nrtd"]
 advance_mode = 2
 advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djiu5"]
 advance_mode = 2
@@ -2366,10 +2368,6 @@ advance_condition = &"is_moving"
 advance_mode = 2
 advance_condition = &"is_idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ft635"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_hc47y"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bf0al"]
 advance_mode = 2
 advance_condition = &"is_moving"
@@ -2386,25 +2384,45 @@ advance_condition = &"is_idle"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c10mg"]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wvj1"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mbtex"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6css3"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0qh64"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "is_attacking() and number_attacks == 2"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dps2l"]
 "states/Attack 1/node" = SubResource("AnimationNodeBlendSpace2D_jjqlp")
-"states/Attack 1/position" = Vector2(583, 211)
+"states/Attack 1/position" = Vector2(583, 202)
 "states/Attack 2/node" = SubResource("AnimationNodeBlendSpace2D_1d3f7")
-"states/Attack 2/position" = Vector2(583, 309)
+"states/Attack 2/position" = Vector2(583, 294)
 "states/Attack 3/node" = SubResource("AnimationNodeBlendSpace2D_58001")
-"states/Attack 3/position" = Vector2(583, 418)
+"states/Attack 3/position" = Vector2(583, 397)
 states/Defeated/node = SubResource("AnimationNodeAnimation_0b056")
-states/Defeated/position = Vector2(379, 211)
+states/Defeated/position = Vector2(379, 294)
 states/Dodge/node = SubResource("AnimationNodeBlendSpace2D_r5eah")
-states/Dodge/position = Vector2(583, -23)
+states/Dodge/position = Vector2(583, -102)
 states/Hurt/node = SubResource("AnimationNodeBlendSpace2D_mkdhq")
-states/Hurt/position = Vector2(379, -23)
+states/Hurt/position = Vector2(379, -102)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_0y31l")
 states/Idle/position = Vector2(379, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
 states/Move/position = Vector2(799, 100)
-transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack 1", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack 1", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack 1", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack 1", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3"), "Attack 2", "Move", SubResource("AnimationNodeStateMachineTransition_be5n3"), "Attack 2", "Idle", SubResource("AnimationNodeStateMachineTransition_vskki"), "Attack 1", "Attack 2", SubResource("AnimationNodeStateMachineTransition_ft635"), "Attack 2", "Attack 3", SubResource("AnimationNodeStateMachineTransition_hc47y"), "Attack 3", "Move", SubResource("AnimationNodeStateMachineTransition_bf0al"), "Attack 3", "Idle", SubResource("AnimationNodeStateMachineTransition_uhn6w"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_phu06"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_apcsk"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_034sp"), "Defeated", "Idle", SubResource("AnimationNodeStateMachineTransition_c10mg")]
-graph_offset = Vector2(103, -83)
+transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack 1", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack 1", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack 1", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack 1", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3"), "Attack 2", "Move", SubResource("AnimationNodeStateMachineTransition_be5n3"), "Attack 2", "Idle", SubResource("AnimationNodeStateMachineTransition_vskki"), "Attack 3", "Move", SubResource("AnimationNodeStateMachineTransition_bf0al"), "Attack 3", "Idle", SubResource("AnimationNodeStateMachineTransition_uhn6w"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_phu06"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_apcsk"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_034sp"), "Defeated", "Idle", SubResource("AnimationNodeStateMachineTransition_c10mg"), "Idle", "Attack 2", SubResource("AnimationNodeStateMachineTransition_2wvj1"), "Move", "Attack 2", SubResource("AnimationNodeStateMachineTransition_mbtex"), "Idle", "Attack 3", SubResource("AnimationNodeStateMachineTransition_6css3"), "Move", "Attack 3", SubResource("AnimationNodeStateMachineTransition_0qh64")]
+graph_offset = Vector2(116, 24)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
 radius = 4.0
@@ -2577,6 +2595,7 @@ parameters/Dodge/blend_position = Vector2(0, 0)
 parameters/Hurt/blend_position = Vector2(0.420543, 0.556086)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 1)
+script = ExtResource("9_wh658")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
