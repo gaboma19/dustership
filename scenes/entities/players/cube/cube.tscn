@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://bdgmk7thjffe0"]
+[gd_scene load_steps=102 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c5na4y02njogc" path="res://scenes/entities/cube/cube_laser.tscn" id="7_kjrqo"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="7_uuqah"]
 [ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="8_0uk7y"]
+[ext_resource type="Script" path="res://scenes/entities/players/cube/cube_animation_tree.gd" id="9_4u4y7"]
 [ext_resource type="Script" path="res://scenes/entities/players/cube/cube_attack.gd" id="9_y4v5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mpgi"]
@@ -1712,6 +1713,7 @@ parameters/Attack/blend_position = Vector2(0, 0)
 parameters/Charge/blend_position = Vector2(0, 0)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 0)
+script = ExtResource("9_4u4y7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

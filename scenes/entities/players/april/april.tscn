@@ -389,6 +389,20 @@ tracks/3/keys = {
 "method": &"nudge"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_w631k"]
 length = 1.8
@@ -604,6 +618,20 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
 }]
 }
 
@@ -822,6 +850,20 @@ tracks/3/keys = {
 "method": &"nudge"
 }]
 }
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_504gn"]
 length = 1.8
@@ -1036,6 +1078,20 @@ tracks/3/keys = {
 "values": [{
 "args": [],
 "method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
 }]
 }
 
@@ -2423,7 +2479,7 @@ states/Idle/position = Vector2(379, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
 states/Move/position = Vector2(799, 100)
 transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack 1", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack 1", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack 1", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack 1", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3"), "Attack 2", "Move", SubResource("AnimationNodeStateMachineTransition_be5n3"), "Attack 2", "Idle", SubResource("AnimationNodeStateMachineTransition_vskki"), "Attack 3", "Move", SubResource("AnimationNodeStateMachineTransition_bf0al"), "Attack 3", "Idle", SubResource("AnimationNodeStateMachineTransition_uhn6w"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_phu06"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_apcsk"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_034sp"), "Defeated", "Idle", SubResource("AnimationNodeStateMachineTransition_c10mg"), "Idle", "Attack 2", SubResource("AnimationNodeStateMachineTransition_2wvj1"), "Move", "Attack 2", SubResource("AnimationNodeStateMachineTransition_mbtex"), "Idle", "Attack 3", SubResource("AnimationNodeStateMachineTransition_6css3"), "Move", "Attack 3", SubResource("AnimationNodeStateMachineTransition_0qh64")]
-graph_offset = Vector2(116, 24)
+graph_offset = Vector2(91, 92)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
 radius = 4.0
@@ -2553,6 +2609,7 @@ texture = ExtResource("5_8kdh2")
 offset = Vector2(-0.5, -8)
 hframes = 12
 vframes = 11
+frame = 99
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

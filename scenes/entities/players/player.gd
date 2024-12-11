@@ -51,10 +51,7 @@ func set_attacking(value):
 
 
 func update_blend_position(direction: Vector2):
-	animation_tree["parameters/Idle/blend_position"] = direction
-	animation_tree["parameters/Move/blend_position"] = direction
-	animation_tree["parameters/Attack/blend_position"] = direction
-	
+	animation_tree.update_blend_position(direction)
 	blend_position = direction
 
 

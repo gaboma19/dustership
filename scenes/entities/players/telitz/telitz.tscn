@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=98 format=3 uid="uid://dnuma441ejwst"]
 
 [ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_casqp"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_brpoa"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="4_xiiw3"]
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="5_m0dbh"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="6_22tof"]
+[ext_resource type="Script" path="res://scenes/entities/players/telitz/telitz_animation_tree.gd" id="7_8xljm"]
 [ext_resource type="PackedScene" uid="uid://bvsn2mqxonl6a" path="res://scenes/entities/players/telitz/float_attack.tscn" id="7_ic7mu"]
 [ext_resource type="PackedScene" uid="uid://bs3mkeu2l1abm" path="res://scenes/entities/players/telitz/float_effect.tscn" id="8_chbfx"]
 [ext_resource type="PackedScene" uid="uid://1grgmdky1nrh" path="res://scenes/entities/players/telitz/telitz_missile.tscn" id="8_x0u7a"]
@@ -1274,6 +1275,7 @@ parameters/Dodge/blend_position = Vector2(0, 0)
 parameters/Float/blend_position = Vector2(0, 1)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 0)
+script = ExtResource("7_8xljm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
