@@ -343,6 +343,7 @@ radius = 4.0
 height = 8.0
 
 [node name="RemembrancerMona" type="CharacterBody2D"]
+collision_mask = 673
 script = ExtResource("1_ixx1o")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
