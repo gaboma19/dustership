@@ -2329,7 +2329,8 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijq14"]
 advance_mode = 2
-advance_expression = "is_attacking() and number_attacks == 0"
+advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pd6w"]
 advance_mode = 2
@@ -2338,7 +2339,7 @@ advance_condition = &"is_idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nrtd"]
 advance_mode = 2
 advance_condition = &"is_attacking"
-advance_expression = "is_attacking() and number_attacks == 0"
+advance_expression = "number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djiu5"]
 advance_mode = 2
@@ -2387,22 +2388,22 @@ advance_condition = &"is_idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wvj1"]
 advance_mode = 2
 advance_condition = &"is_attacking"
-advance_expression = "is_attacking() and number_attacks == 1"
+advance_expression = "number_attacks == 1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mbtex"]
 advance_mode = 2
 advance_condition = &"is_attacking"
-advance_expression = "is_attacking() and number_attacks == 1"
+advance_expression = "number_attacks == 1"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6css3"]
 advance_mode = 2
 advance_condition = &"is_attacking"
-advance_expression = "is_attacking() and number_attacks == 2"
+advance_expression = "number_attacks == 2"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0qh64"]
 advance_mode = 2
 advance_condition = &"is_attacking"
-advance_expression = "is_attacking() and number_attacks == 2"
+advance_expression = "number_attacks == 2"
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dps2l"]
 "states/Attack 1/node" = SubResource("AnimationNodeBlendSpace2D_jjqlp")
@@ -2605,6 +2606,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pbin4")
 
 [node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
+[node name="AttackComboTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.6
 one_shot = true

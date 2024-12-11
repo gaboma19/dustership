@@ -4,6 +4,7 @@ extends PlayerState
 var nudge_direction: Vector2
 
 @onready var attack_timer: Timer = %AttackTimer
+@onready var attack_combo_timer: Timer = %AttackComboTimer
 
 
 func enter(_msg := {}) -> void:
@@ -14,6 +15,8 @@ func enter(_msg := {}) -> void:
 	player.velocity_component.stop()
 	
 	attack_timer.start()
+	attack_combo_timer.stop()
+	attack_combo_timer.start()
 	
 	await attack_timer.timeout
 	transition_to_active()
