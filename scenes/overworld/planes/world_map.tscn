@@ -1,0 +1,135 @@
+[gd_scene load_steps=11 format=4 uid="uid://6r544aatause"]
+
+[ext_resource type="Script" path="res://scenes/overworld/planes/world_map.gd" id="1_rm8te"]
+[ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_dungeon_tile.tscn" id="2_s6kef"]
+[ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder_tile.tscn" id="3_1m58k"]
+[ext_resource type="PackedScene" uid="uid://dms221iw84wsl" path="res://scenes/overworld/planes/echelon_plane_2.tscn" id="4_5ud05"]
+[ext_resource type="Script" path="res://scenes/tile_maps/overworld/overworld_tilemap.gd" id="4_mxjvs"]
+[ext_resource type="PackedScene" uid="uid://bv4vc5ogjearw" path="res://scenes/tile_map_layers/overworld_tile_map_layer.tscn" id="5_jo0ap"]
+
+[sub_resource type="Animation" id="Animation_n5r7n"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_ecwb6"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_rbr7d"]
+resource_name = "fly_away"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -160)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7in2h"]
+_data = {
+"RESET": SubResource("Animation_n5r7n"),
+"fade_in": SubResource("Animation_ecwb6"),
+"fly_away": SubResource("Animation_rbr7d")
+}
+
+[node name="WorldMap" type="Node2D" groups=["planes"]]
+script = ExtResource("1_rm8te")
+
+[node name="OverworldDungeon1" parent="." instance=ExtResource("2_s6kef")]
+position = Vector2(16, 88)
+dungeon_id = "plane_1_dungeon_1"
+location_name = "Neptune County"
+infection_level = 3
+
+[node name="OverworldDungeon2" parent="." instance=ExtResource("2_s6kef")]
+position = Vector2(-112, 72)
+dungeon_id = "plane_1_dungeon_2"
+location_name = "Barrens"
+
+[node name="OverworldDungeon3" parent="." instance=ExtResource("2_s6kef")]
+position = Vector2(16, 56)
+dungeon_id = "plane_1_dungeon_3"
+location_name = "Route 33"
+infection_level = 2
+
+[node name="OverworldDungeon4" parent="." instance=ExtResource("2_s6kef")]
+position = Vector2(128, 64)
+dungeon_id = "plane_1_dungeon_4"
+location_name = "Restobar"
+
+[node name="OverworldLadder" parent="." instance=ExtResource("3_1m58k")]
+position = Vector2(16, 136)
+next_layer = ExtResource("4_5ud05")
+
+[node name="TileMapLayers" type="Node2D" parent="."]
+y_sort_enabled = true
+texture_filter = 1
+script = ExtResource("4_mxjvs")
+
+[node name="Floor" parent="TileMapLayers" instance=ExtResource("5_jo0ap")]
+tile_map_data = PackedByteArray("AAAAAAAAAAADAAAAAAAAAAEAAAADAAAAAAAAAAIAAAADAAAAAAAAAAMAAAADAAAAAAAAAAQAAAADAAAAAAAAAAUAAAADAAAAAAAAAAYAAAADAAAAAAAAAAcAAAADAAAAAAAAAAgAAAAAAAAAAAABAAAAAAADAAAAAAABAAEAAAADAAAAAAABAAIAAAADAAAAAAABAAMAAAADAAAAAAABAAQAAAADAAAAAAABAAUAAAADAAAAAAABAAYAAAADAAAAAAABAAcAAAADAAAAAAABAAgAAAANAAEAAAACAAAAAAADAAAAAAACAAEAAAADAAAAAAACAAIAAAADAAAAAAACAAMAAAADAAAAAAACAAQAAAADAAAAAAACAAUAAAADAAAAAAACAAYAAAADAAAAAAACAAcAAAADAAAAAAACAAgAAAANAAAAAAADAAAAAAADAAAAAAADAAEAAAADAAAAAAADAAIAAAADAAAAAAADAAMAAAAAAAAAAAADAAQAAAADAAAAAAADAAUAAAANAAEAAAADAAYAAAANAAEAAAADAAcAAAANAAAAAAADAAgAAAADAAAAAAAEAAAAAAADAAAAAAAEAAEAAAADAAAAAAAEAAIAAAADAAAAAAAEAAMAAAADAAAAAAAEAAQAAAADAAAAAAAEAAUAAAANAAAAAAAFAAAAAAADAAAAAAAFAAEAAAADAAAAAAAFAAIAAAADAAAAAAAFAAMAAAADAAAAAAAFAAQAAAADAAAAAAAFAAUAAAAAAAAAAAAGAAAAAAADAAAAAAAGAAEAAAADAAAAAAAGAAIAAAADAAAAAAAGAAMAAAADAAAAAAAGAAQAAAADAAAAAAAGAAUAAAANAAAAAAAHAAAAAAAAAAAAAAAHAAEAAAADAAAAAAAHAAIAAAADAAAAAAAHAAMAAAADAAAAAAAHAAQAAAADAAAAAAAHAAUAAAANAAEAAAAHAAYAAAANAAEAAAAHAAcAAAADAAAAAAAHAAgAAAADAAAAAAAIAAAAAAANAAEAAAAIAAEAAAANAAAAAAAIAAIAAAADAAAAAAAIAAMAAAADAAAAAAAIAAQAAAADAAAAAAAIAAUAAAANAAAAAAAIAAYAAAADAAAAAAAIAAcAAAADAAAAAAAIAAgAAAADAAAAAAA=")
+
+[node name="Walls" parent="TileMapLayers" instance=ExtResource("5_jo0ap")]
+tile_map_data = PackedByteArray("AAAAAAMAAQABAAIAAAAAAAQAAQABAAIAAAAAAAUAAQAHAAQAAAAAAAYAAQAHAAQAAAAAAAcAAQAHAAUAAAABAAMAAQAHAAQAAAABAAQAAQAHAAUAAAABAAUAAQAHAAUAAAABAAYAAQAHAAUAAAABAAcAAQAHAAUAAAACAAQAAQAHAAUAAAADAAAAAQAHAAUAAAADAAEAAQAHAAUAAAAEAAAAAQAHAAQAAAAEAAEAAQAHAAUAAAAEAAIAAQAHAAUAAAAEAAQAAQAHAAUAAAAFAAAAAQABAAIAAAAFAAEAAQABAAIAAAAFAAIAAQAHAAUAAAAFAAMAAQAHAAUAAAAFAAQAAQAHAAQAAAAGAAAAAQABAAIAAAAGAAEAAQAHAAQAAAAGAAIAAQAHAAUAAAAGAAMAAQAHAAQAAAAGAAQAAQAHAAUAAAAHAAEAAQAHAAQAAAAHAAIAAQAHAAUAAAAHAAMAAQAHAAQAAAAIAAIAAQACAAsAAAA=")
+
+[node name="Decor" parent="TileMapLayers" instance=ExtResource("5_jo0ap")]
+tile_map_data = PackedByteArray("AAAAAAAAAgADAAEAAAAAAAEAAgABAAAAAAAAAAMAAgACAAAAAwAAAAUAAgAHAAEAAgAAAAcAAgACAAAAAQABAAAAAgAFAAEAAAABAAEAAgACAAAAAAABAAIAAgAAAAAAAAABAAQAAgADAAEAAgABAAYAAgADAAEAAgABAAcAAgABAAAAAQACAAEAAgADAAEAAAACAAIAAgABAAAAAAACAAQAAgACAAEAAgACAAUAAgAAAAAAAAACAAYAAgAAAAAAAAACAAcAAgAFAAEAAAACAAgAAgAHAAEAAAADAAIAAgAAAAIAAAADAAQAAgAAAAIAAAADAAUAAgACAAIAAAADAAYAAgAAAAIAAAADAAcAAgAAAAIAAAADAAgAAgAAAAIAAAAEAAIAAgABAAAAAQAEAAUAAgABAAIAAAAFAAEAAgABAAAAAwAFAAIAAgACAAAAAQAFAAQAAgAGAAEAAgAGAAEAAgAHAAEAAgAGAAIAAgAFAAAAAQAGAAMAAgAAAAAAAQAHAAAAAgAHAAEAAAAHAAMAAgADAAEAAgAHAAQAAgABAAAAAAAHAAUAAgAGAAEAAAAHAAYAAgACAAEAAAAIAAAAAgAGAAEAAAAIAAEAAgAFAAAAAAAIAAMAAgABAAAAAAAIAAQAAgAHAAAAAAAIAAUAAgAFAAAAAAAIAAYAAgADAAEAAAAIAAcAAgAAAAEAAAA=")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="TileMapLayers"]
+libraries = {
+"": SubResource("AnimationLibrary_7in2h")
+}
+speed_scale = 0.5
