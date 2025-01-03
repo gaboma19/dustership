@@ -1,7 +1,5 @@
 extends Node2D
 
-signal plane_changed(next_plane: PackedScene)
-
 const CELL_SIZE = Vector2(32, 32)
 
 # The object for pathfinding on 2D grids.
@@ -12,21 +10,16 @@ var end_point = Vector2i()
 var path : Array[Vector2i]
 
 @onready var animation_player = $AnimationPlayer
-@onready var floor: TileMapLayer = $Floor
-@onready var walls: TileMapLayer = $Walls
-@onready var decor: TileMapLayer = $Decor
+@onready var floor_layer: TileMapLayer = $Floor
+@onready var walls_layer: TileMapLayer = $Walls
 
 
 func _ready():
 	configure_astar()
-	
-	var ladders: Array[Node] = get_tree().get_nodes_in_group("ladders")
-	for ladder in ladders:
-		ladder.ladder_activated.connect(on_ladder_activated)
 
 
 func configure_astar():
-	astar.region = floor.get_used_rect()
+	astar.region = floor_layer.get_used_rect()
 	astar.cell_size = CELL_SIZE
 	astar.offset = CELL_SIZE * 0.5 # offset to center of each cell
 	astar.default_compute_heuristic = AStarGrid2D.HEURISTIC_MANHATTAN
@@ -37,18 +30,18 @@ func configure_astar():
 	for i in range(astar.region.position.x, astar.region.end.x):
 		for j in range(astar.region.position.y, astar.region.end.y):
 			var pos = Vector2i(i, j)
-			if walls.get_cell_source_id(pos) != -1:
+			if walls_layer.get_cell_source_id(pos) != -1:
 				astar.set_point_solid(pos)
 			
-			if floor.get_cell_source_id(pos) == -1:
+			if floor_layer.get_cell_source_id(pos) == -1:
 				astar.set_point_solid(pos)
 
 
 func find_path(local_start_point, local_end_point) -> Array[Vector2i]:
 	path.clear()
 
-	start_point = floor.local_to_map(local_start_point)
-	end_point = floor.local_to_map(local_end_point)
+	start_point = floor_layer.local_to_map(local_start_point)
+	end_point = floor_layer.local_to_map(local_end_point)
 	path = astar.get_id_path(start_point, end_point) 
 
 	# returns an array of local coordinates
@@ -62,17 +55,4 @@ func is_cell_walkable(map_position: Vector2i) -> bool:
 
 
 func map_to_global(map_position: Vector2i) -> Vector2:
-	return to_global(floor.map_to_local(map_position))
-
-
-func exit():
-	# calls queue_free()
-	animation_player.play("fly_away")
-
-
-func enter():
-	animation_player.play("fade_in")
-
-
-func on_ladder_activated(next_plane: PackedScene):
-	plane_changed.emit(next_plane)
+	return to_global(floor_layer.map_to_local(map_position))

@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/overworld_player/overworld_player.tscn" id="2_0m0c2"]
 [ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
-[ext_resource type="PackedScene" uid="uid://20t1yol8jggr" path="res://scenes/overworld/planes/echelon_plane_1.tscn" id="3_mdbvn"]
+[ext_resource type="PackedScene" uid="uid://6r544aatause" path="res://scenes/overworld/planes/overworld_plane_0.tscn" id="5_xm8jg"]
 
 [node name="Overworld" type="Node2D"]
 y_sort_enabled = true
@@ -16,4 +16,4 @@ zoom = Vector2(3, 3)
 
 [node name="OverworldStack" parent="." instance=ExtResource("2_v2oto")]
 
-[node name="EchelonPlane1" parent="." instance=ExtResource("3_mdbvn")]
+[node name="OverworldPlane0" parent="." instance=ExtResource("5_xm8jg")]

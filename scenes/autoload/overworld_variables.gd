@@ -1,6 +1,6 @@
 extends Node
 
-var active_plane: TileMap
+var active_plane: OverworldPlane
 
 var player_map_position: Vector2i = Vector2i.ZERO:
 	set(value):
