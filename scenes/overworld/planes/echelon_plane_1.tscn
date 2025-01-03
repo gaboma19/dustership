@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://20t1yol8jggr"]
 
-[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/overworld/overworld_tilemap.tscn" id="1_jjivc"]
+[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/old/overworld_tilemap.tscn" id="1_jjivc"]
 [ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_dungeon_tile.tscn" id="2_ofuul"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder_tile.tscn" id="4_iqjur"]
 [ext_resource type="PackedScene" uid="uid://dms221iw84wsl" path="res://scenes/overworld/planes/echelon_plane_2.tscn" id="5_c3xxg"]

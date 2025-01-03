@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://3bl0qhv7hhkp"]
 
 [ext_resource type="TileSet" uid="uid://bgaer8o2d65k4" path="res://scenes/tile_maps/overworld/overworld_tile_set.tres" id="1_ek2sx"]
-[ext_resource type="Script" path="res://scenes/tile_maps/overworld/overworld_tilemap.gd" id="2_or5vp"]
+[ext_resource type="Script" path="res://scenes/tile_maps/old/overworld_tilemap.gd" id="2_or5vp"]
 
 [sub_resource type="Animation" id="Animation_n5r7n"]
 length = 0.001
