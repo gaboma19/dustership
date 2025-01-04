@@ -156,6 +156,8 @@ _data = {
 
 [node name="OverworldDungeonTile" type="Node2D"]
 process_mode = 3
+z_index = -1
+y_sort_enabled = true
 script = ExtResource("2_3a5j3")
 dungeon_detail_scene = ExtResource("3_62w3f")
 

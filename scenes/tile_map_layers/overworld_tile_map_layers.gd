@@ -2,14 +2,11 @@ extends Node2D
 
 const CELL_SIZE = Vector2(32, 32)
 
-# The object for pathfinding on 2D grids.
 var astar = AStarGrid2D.new()
-
 var start_point = Vector2i()
 var end_point = Vector2i()
 var path : Array[Vector2i]
 
-@onready var animation_player = $AnimationPlayer
 @onready var floor_layer: TileMapLayer = $Floor
 @onready var walls_layer: TileMapLayer = $Walls
 
