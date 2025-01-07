@@ -156,7 +156,7 @@ _data = {
 
 [node name="OverworldDungeonTile" type="Node2D"]
 process_mode = 3
-z_index = -1
+z_index = 1
 y_sort_enabled = true
 script = ExtResource("2_3a5j3")
 dungeon_detail_scene = ExtResource("3_62w3f")
@@ -170,7 +170,7 @@ scale = Vector2(1, 0.5)
 shape = SubResource("CircleShape2D_dcri0")
 
 [node name="OverworldTileMapLayer" parent="." instance=ExtResource("4_8ltow")]
-z_index = 2
+y_sort_enabled = true
 tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 2, 0, 0, 0, 4, 0, 0, 0)
 
 [node name="IconSprite" type="Sprite2D" parent="."]

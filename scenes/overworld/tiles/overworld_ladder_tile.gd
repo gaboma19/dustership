@@ -4,7 +4,7 @@ signal ladder_activated(next_layer: PackedScene)
 
 @export var next_layer: PackedScene
 
-@onready var layer: OverworldPlane = get_parent()
+@onready var layer: OverworldPlane = $"../.."
 @onready var player_detector_area = $PlayerDetectorArea
 @onready var animation_player = $AnimationPlayer
 
