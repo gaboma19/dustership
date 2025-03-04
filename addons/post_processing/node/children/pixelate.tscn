@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bs1yan5h4eao8"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/pixelate.gdshader" id="1_yebq2"]
+[ext_resource type="Shader" uid="uid://bej172crrd5ec" path="res://addons/post_processing/shaders/pixelate.gdshader" id="1_yebq2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gfycf"]
 shader = ExtResource("1_yebq2")

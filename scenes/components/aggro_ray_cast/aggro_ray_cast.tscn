@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://uap2y0roigaf"]
 
-[ext_resource type="Script" path="res://scenes/components/aggro_ray_cast/aggro_ray_cast.gd" id="1_t6mh6"]
+[ext_resource type="Script" uid="uid://q61eb1pxcltm" path="res://scenes/components/aggro_ray_cast/aggro_ray_cast.gd" id="1_t6mh6"]
 
 [node name="AggroRayCast" type="RayCast2D"]
 collision_mask = 97

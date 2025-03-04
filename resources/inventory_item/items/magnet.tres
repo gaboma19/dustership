@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://1livo7vu3txd"]
 
-[ext_resource type="Script" path="res://resources/inventory_item/items/magnet.gd" id="1_smynv"]
+[ext_resource type="Script" uid="uid://d12583a4fumyr" path="res://resources/inventory_item/items/magnet.gd" id="1_smynv"]
 [ext_resource type="Texture2D" uid="uid://rfmmp3kjq5nd" path="res://assets/magnet/magnet.png" id="2_clx7k"]
 
 [resource]

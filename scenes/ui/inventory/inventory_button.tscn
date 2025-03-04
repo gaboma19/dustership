@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c2r63txfjknrf"]
 
-[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_button.gd" id="1_sqxxi"]
+[ext_resource type="Script" uid="uid://degwmjpd2beqw" path="res://scenes/ui/inventory/inventory_button.gd" id="1_sqxxi"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a1cps"]
 

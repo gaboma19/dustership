@@ -1,6 +1,6 @@
 [gd_scene load_steps=118 format=3 uid="uid://dsqd5wjpj1yo6"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
+[ext_resource type="Script" uid="uid://byk214wbsimxv" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_bqnmk"]
 [ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_ct3kq"]
@@ -9,14 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dqf80armfmggu" path="res://assets/april/april.png" id="5_8kdh2"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_nb6t5"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="6_pymer"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_6a30f"]
+[ext_resource type="Script" uid="uid://rp8e1t252v0f" path="res://scenes/entities/players/states/follow.gd" id="7_6a30f"]
 [ext_resource type="AudioStream" uid="uid://cdiori6y6gq6j" path="res://assets/sfx/sword_swipe/sword_swipe_3.wav" id="7_6bfai"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
-[ext_resource type="Script" path="res://scenes/entities/players/april/april_animation_tree.gd" id="9_wh658"]
-[ext_resource type="Script" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
+[ext_resource type="Script" uid="uid://5h6yfv54hy6f" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
+[ext_resource type="Script" uid="uid://dkgwotjre6fau" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
+[ext_resource type="Script" uid="uid://bktc1s28o2unr" path="res://scenes/entities/players/april/april_animation_tree.gd" id="9_wh658"]
+[ext_resource type="Script" uid="uid://bwyegeym8b8ra" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
+[ext_resource type="Script" uid="uid://d31tqgtngilb" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
 [ext_resource type="PackedScene" uid="uid://im4v8oo4ohx0" path="res://scenes/components/dust_particles/dust_particles.tscn" id="17_gpa1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
@@ -2153,40 +2153,40 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mos2h"]
 _data = {
-"RESET": SubResource("Animation_n6c6g"),
-"attack down": SubResource("Animation_pa7ik"),
-"attack down 1": SubResource("Animation_f7cfy"),
-"attack down 2": SubResource("Animation_3tjqu"),
-"attack down 3": SubResource("Animation_fv1f1"),
-"attack left": SubResource("Animation_w631k"),
-"attack left 1": SubResource("Animation_1c80a"),
-"attack left 2": SubResource("Animation_k8cd3"),
-"attack left 3": SubResource("Animation_y8ovg"),
-"attack right": SubResource("Animation_6hj57"),
-"attack right 1": SubResource("Animation_tdd6f"),
-"attack right 2": SubResource("Animation_ywdop"),
-"attack right 3": SubResource("Animation_qld68"),
-"attack up": SubResource("Animation_504gn"),
-"attack up 1": SubResource("Animation_e0f1x"),
-"attack up 2": SubResource("Animation_7itng"),
-"attack up 3": SubResource("Animation_2yiql"),
-"defeated": SubResource("Animation_6a7qs"),
-"hurt down": SubResource("Animation_ecqs5"),
-"hurt left": SubResource("Animation_4g2om"),
-"hurt right": SubResource("Animation_2not0"),
-"hurt up": SubResource("Animation_rxaxv"),
-"idle down": SubResource("Animation_1hco7"),
-"idle left": SubResource("Animation_hlhe4"),
-"idle right": SubResource("Animation_w4ole"),
-"idle up": SubResource("Animation_n82wu"),
-"roll down": SubResource("Animation_4oogx"),
-"roll left": SubResource("Animation_w6nxe"),
-"roll right": SubResource("Animation_4vv2i"),
-"roll up": SubResource("Animation_xol0i"),
-"walk down": SubResource("Animation_yid2i"),
-"walk left": SubResource("Animation_s0njq"),
-"walk right": SubResource("Animation_jxfrc"),
-"walk up": SubResource("Animation_sql1u")
+&"RESET": SubResource("Animation_n6c6g"),
+&"attack down": SubResource("Animation_pa7ik"),
+&"attack down 1": SubResource("Animation_f7cfy"),
+&"attack down 2": SubResource("Animation_3tjqu"),
+&"attack down 3": SubResource("Animation_fv1f1"),
+&"attack left": SubResource("Animation_w631k"),
+&"attack left 1": SubResource("Animation_1c80a"),
+&"attack left 2": SubResource("Animation_k8cd3"),
+&"attack left 3": SubResource("Animation_y8ovg"),
+&"attack right": SubResource("Animation_6hj57"),
+&"attack right 1": SubResource("Animation_tdd6f"),
+&"attack right 2": SubResource("Animation_ywdop"),
+&"attack right 3": SubResource("Animation_qld68"),
+&"attack up": SubResource("Animation_504gn"),
+&"attack up 1": SubResource("Animation_e0f1x"),
+&"attack up 2": SubResource("Animation_7itng"),
+&"attack up 3": SubResource("Animation_2yiql"),
+&"defeated": SubResource("Animation_6a7qs"),
+&"hurt down": SubResource("Animation_ecqs5"),
+&"hurt left": SubResource("Animation_4g2om"),
+&"hurt right": SubResource("Animation_2not0"),
+&"hurt up": SubResource("Animation_rxaxv"),
+&"idle down": SubResource("Animation_1hco7"),
+&"idle left": SubResource("Animation_hlhe4"),
+&"idle right": SubResource("Animation_w4ole"),
+&"idle up": SubResource("Animation_n82wu"),
+&"roll down": SubResource("Animation_4oogx"),
+&"roll left": SubResource("Animation_w6nxe"),
+&"roll right": SubResource("Animation_4vv2i"),
+&"roll up": SubResource("Animation_xol0i"),
+&"walk down": SubResource("Animation_yid2i"),
+&"walk left": SubResource("Animation_s0njq"),
+&"walk right": SubResource("Animation_jxfrc"),
+&"walk up": SubResource("Animation_sql1u")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oosg8"]

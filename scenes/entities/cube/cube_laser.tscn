@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c5na4y02njogc"]
 
 [ext_resource type="Texture2D" uid="uid://ddte5at3mefdg" path="res://assets/cube/laser.png" id="1_uxvrx"]
-[ext_resource type="Script" path="res://scenes/entities/cube/cube_laser.gd" id="1_v2m0k"]
+[ext_resource type="Script" uid="uid://djpm042tqv688" path="res://scenes/entities/cube/cube_laser.gd" id="1_v2m0k"]
 [ext_resource type="Material" uid="uid://cgm4t62y3gix4" path="res://resources/materials/cube_laser_cast.tres" id="3_1lipb"]
 [ext_resource type="Texture2D" uid="uid://d2ptymhg48svk" path="res://assets/cube/reticle.png" id="3_2khc0"]
 [ext_resource type="Material" uid="uid://h58jepot0brn" path="res://resources/materials/cube_laser_collision.tres" id="4_ifwif"]

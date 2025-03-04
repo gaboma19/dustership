@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://oxdmvyyhvo3y"]
 
 [ext_resource type="PackedScene" uid="uid://cevcci2xmryyi" path="res://scenes/ui/animated_panel/animated_panel.tscn" id="1_0bl76"]
-[ext_resource type="Script" path="res://scenes/ui/dungeon_detail/dungeon_detail.gd" id="2_xp2dd"]
+[ext_resource type="Script" uid="uid://dngots8qs2syk" path="res://scenes/ui/dungeon_detail/dungeon_detail.gd" id="2_xp2dd"]
 [ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="2_ytl3a"]
 [ext_resource type="Texture2D" uid="uid://cccr0wvswwsln" path="res://assets/overworld/overworld_none.png" id="3_l263g"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="3_paldr"]

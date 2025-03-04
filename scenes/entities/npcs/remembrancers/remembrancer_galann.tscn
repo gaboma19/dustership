@@ -1,13 +1,13 @@
 [gd_scene load_steps=38 format=3 uid="uid://bmefddd535dd2"]
 
-[ext_resource type="Script" path="res://scenes/entities/npcs/remembrancers/remembrancer.gd" id="1_b50x1"]
+[ext_resource type="Script" uid="uid://3tn4nstd83uq" path="res://scenes/entities/npcs/remembrancers/remembrancer.gd" id="1_b50x1"]
 [ext_resource type="Texture2D" uid="uid://cu2a6eurlsgtl" path="res://assets/remembrancer/remembrancer_galann.png" id="2_bawe8"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="2_n65v6"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_wihwl"]
-[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_pj70x"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="4_0fe3v"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="5_2i7xw"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="6_xm3fm"]
+[ext_resource type="Script" uid="uid://8okv68pk5qqj" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_pj70x"]
+[ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="4_0fe3v"]
+[ext_resource type="Script" uid="uid://bp8umm7d8fts1" path="res://scenes/entities/npcs/states/scene.gd" id="5_2i7xw"]
+[ext_resource type="Script" uid="uid://bf20n03pxdqg6" path="res://scenes/entities/npcs/states/idle.gd" id="6_xm3fm"]
 
 [sub_resource type="Animation" id="Animation_cnrkp"]
 length = 0.1
@@ -235,14 +235,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gd838"]
 _data = {
-"idle_down": SubResource("Animation_cnrkp"),
-"idle_left": SubResource("Animation_0qg4l"),
-"idle_right": SubResource("Animation_t14n2"),
-"idle_up": SubResource("Animation_upghi"),
-"walk_down": SubResource("Animation_uctsl"),
-"walk_left": SubResource("Animation_333y5"),
-"walk_right": SubResource("Animation_3uhrk"),
-"walk_up": SubResource("Animation_de34g")
+&"idle_down": SubResource("Animation_cnrkp"),
+&"idle_left": SubResource("Animation_0qg4l"),
+&"idle_right": SubResource("Animation_t14n2"),
+&"idle_up": SubResource("Animation_upghi"),
+&"walk_down": SubResource("Animation_uctsl"),
+&"walk_left": SubResource("Animation_333y5"),
+&"walk_right": SubResource("Animation_3uhrk"),
+&"walk_up": SubResource("Animation_de34g")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_v1duv"]

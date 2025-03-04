@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=3 format=3 uid="uid://dfwuos0hdtcmw"]
 
-[ext_resource type="Script" path="res://resources/inventory_item/items/ammo.gd" id="1_pitet"]
+[ext_resource type="Script" uid="uid://rw11p3smu3ds" path="res://resources/inventory_item/items/ammo.gd" id="1_pitet"]
 [ext_resource type="Texture2D" uid="uid://clt3g7ou4s0pd" path="res://assets/ammo/bullet_triple.png" id="2_raqk3"]
 
 [resource]

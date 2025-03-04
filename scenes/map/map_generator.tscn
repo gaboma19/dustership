@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c51k7b0nv1a8i"]
 
-[ext_resource type="Script" path="res://scenes/map/map_generator.gd" id="1_o6xew"]
+[ext_resource type="Script" uid="uid://co3ynpb0wf6cg" path="res://scenes/map/map_generator.gd" id="1_o6xew"]
 [ext_resource type="PackedScene" uid="uid://didw2qmeygsk1" path="res://scenes/map/room.tscn" id="2_4eu23"]
 
 [node name="MapGenerator" type="Node"]

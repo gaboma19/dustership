@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bh0460g3b4757"]
 
-[ext_resource type="Script" path="res://scenes/tile_maps/areas/elevation_velocity_bias_area/elevation_velocity_bias_area.gd" id="1_gfn7u"]
+[ext_resource type="Script" uid="uid://baxyjfunu2evm" path="res://scenes/tile_maps/areas/elevation_velocity_bias_area/elevation_velocity_bias_area.gd" id="1_gfn7u"]
 
 [node name="ElevationVelocityBiasArea" type="Area2D"]
 collision_layer = 0

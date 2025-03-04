@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://k1on8wr4vmh3"]
 
 [ext_resource type="Texture2D" uid="uid://cu2ex3j6ba5bv" path="res://assets/stun/electricity.png" id="1_0guu2"]
-[ext_resource type="Script" path="res://scenes/components/stun_component/stun_component.gd" id="1_nux8s"]
+[ext_resource type="Script" uid="uid://buaf7roycyr07" path="res://scenes/components/stun_component/stun_component.gd" id="1_nux8s"]
 
 [sub_resource type="Animation" id="Animation_cyeeh"]
 length = 0.7
@@ -61,8 +61,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l8a48"]
 _data = {
-"big_flash": SubResource("Animation_cyeeh"),
-"flashes": SubResource("Animation_4b6eo")
+&"big_flash": SubResource("Animation_cyeeh"),
+&"flashes": SubResource("Animation_4b6eo")
 }
 
 [node name="StunComponent" type="Sprite2D"]

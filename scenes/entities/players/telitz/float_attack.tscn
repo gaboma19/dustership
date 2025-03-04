@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvsn2mqxonl6a"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/float_attack.gd" id="1_5r5qv"]
+[ext_resource type="Script" uid="uid://b8kp3s5jc3fkl" path="res://scenes/entities/players/telitz/float_attack.gd" id="1_5r5qv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g6ke0"]
 radius = 128.0

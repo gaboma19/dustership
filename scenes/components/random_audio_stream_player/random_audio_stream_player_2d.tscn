@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cfjnx3fg20dbm"]
 
-[ext_resource type="Script" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.gd" id="1_lw28u"]
+[ext_resource type="Script" uid="uid://yn6s87xxwdxx" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.gd" id="1_lw28u"]
 
 [node name="RandomAudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 max_distance = 300.0

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="PostProcessingConfiguration" load_steps=2 format=3 uid="uid://b0y2aqe5muo14"]
 
-[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="1_vx4xd"]
+[ext_resource type="Script" uid="uid://nrhry0kkx3y6" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="1_vx4xd"]
 
 [resource]
 script = ExtResource("1_vx4xd")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://pwjuge8xppnb"]
 
-[ext_resource type="Script" path="res://scenes/components/wall_detector_ray_cast/wall_detector_ray_cast.gd" id="1_iigiu"]
+[ext_resource type="Script" uid="uid://cbiu6use5vonp" path="res://scenes/components/wall_detector_ray_cast/wall_detector_ray_cast.gd" id="1_iigiu"]
 
 [node name="WallDetectorRayCast" type="RayCast2D"]
 collision_mask = 32

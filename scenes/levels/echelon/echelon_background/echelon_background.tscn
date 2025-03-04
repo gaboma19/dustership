@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ewsjw48tvrn7" path="res://assets/backgrounds/echelon_parallax/Layer 1.png" id="1_2lki5"]
 [ext_resource type="Texture2D" uid="uid://cttyxcdbb3i6i" path="res://assets/backgrounds/echelon_parallax/Layer 2.png" id="2_asilx"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_background/clouds.gd" id="2_tyhj0"]
+[ext_resource type="Script" uid="uid://twtcbotqbw22" path="res://scenes/levels/echelon/echelon_background/clouds.gd" id="2_tyhj0"]
 [ext_resource type="Material" uid="uid://ccbiyesa1bsn4" path="res://resources/materials/echelon_background.tres" id="3_wrhpp"]
 
 [node name="EchelonBackground" type="ParallaxBackground"]

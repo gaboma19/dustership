@@ -1,12 +1,39 @@
 [gd_scene load_steps=9 format=3 uid="uid://dqvf30xhp8xku"]
 
-[ext_resource type="Script" path="res://scenes/entities/byte/byte.gd" id="1_fmx3w"]
+[ext_resource type="Script" uid="uid://bwyq3xrthgvt5" path="res://scenes/entities/byte/byte.gd" id="1_fmx3w"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_nsso4"]
 [ext_resource type="Texture2D" uid="uid://b02kttusnkoqy" path="res://assets/byte/byte.png" id="4_mb2ou"]
 [ext_resource type="AudioStream" uid="uid://bp8rcdnddnmkf" path="res://assets/sfx/steel_pickup.wav" id="4_txwik"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1k4bw"]
 radius = 16.0
+
+[sub_resource type="Animation" id="Animation_7yuwc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CollectionArea:monitoring")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_w6g28"]
 resource_name = "bounce"
@@ -36,37 +63,10 @@ tracks/1/keys = {
 "values": [Vector2(0, 0), Vector2(0, -32), Vector2(0, 0), Vector2(0, -16), Vector2(0, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_7yuwc"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CollectionArea:monitoring")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ji1qa"]
 _data = {
-"RESET": SubResource("Animation_7yuwc"),
-"bounce": SubResource("Animation_w6g28")
+&"RESET": SubResource("Animation_7yuwc"),
+&"bounce": SubResource("Animation_w6g28")
 }
 
 [node name="Byte" type="Node2D"]

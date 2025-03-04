@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://byqa15xvjcdrh" path="res://assets/overworld/overworld_white.png" id="1_3d3wh"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="1_osohj"]
-[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_dungeon_tile.gd" id="2_3a5j3"]
+[ext_resource type="Script" uid="uid://cu6yyxje8nvv5" path="res://scenes/overworld/tiles/overworld_dungeon_tile.gd" id="2_3a5j3"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_4qmee"]
 [ext_resource type="PackedScene" uid="uid://oxdmvyyhvo3y" path="res://scenes/ui/dungeon_detail/dungeon_detail.tscn" id="3_62w3f"]
 [ext_resource type="PackedScene" uid="uid://bv4vc5ogjearw" path="res://scenes/tile_map_layers/overworld_tile_map_layer.tscn" id="4_8ltow"]
@@ -148,10 +148,10 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w8i83"]
 _data = {
-"RESET": SubResource("Animation_5xiwb"),
-"dim": SubResource("Animation_fl6iv"),
-"fade_out": SubResource("Animation_fml3t"),
-"hide_icon": SubResource("Animation_2r2ba")
+&"RESET": SubResource("Animation_5xiwb"),
+&"dim": SubResource("Animation_fl6iv"),
+&"fade_out": SubResource("Animation_fml3t"),
+&"hide_icon": SubResource("Animation_2r2ba")
 }
 
 [node name="OverworldDungeonTile" type="Node2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://0xfisg2scece"]
 
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.gd" id="1_f26i5"]
+[ext_resource type="Script" uid="uid://c1k14pi0k46rw" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.gd" id="1_f26i5"]
 
 [sub_resource type="Animation" id="Animation_ywfnk"]
 length = 0.001
@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_damit"]
 _data = {
-"RESET": SubResource("Animation_ywfnk"),
-"disappear": SubResource("Animation_uus30")
+&"RESET": SubResource("Animation_ywfnk"),
+&"disappear": SubResource("Animation_uus30")
 }
 
 [node name="HarmonykeeperRifleLaser" type="RayCast2D"]

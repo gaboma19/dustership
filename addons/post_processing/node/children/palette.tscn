@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b31wqmjq3q7ad"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/palette_limiter.gdshader" id="1_e4qfa"]
+[ext_resource type="Shader" uid="uid://dsew8l8sjtsow" path="res://addons/post_processing/shaders/palette_limiter.gdshader" id="1_e4qfa"]
 [ext_resource type="Texture2D" uid="uid://nf2dcuadvrh7" path="res://addons/post_processing/assets/interesting_palette.png" id="2_y1cuq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_x8ge8"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://ciyba36r6f1l1"]
 
-[ext_resource type="Script" path="res://scenes/entities/cube/cube_fainted.gd" id="1_cxxg8"]
+[ext_resource type="Script" uid="uid://b0s1g21m8g4wx" path="res://scenes/entities/cube/cube_fainted.gd" id="1_cxxg8"]
 [ext_resource type="Texture2D" uid="uid://dj3hm6creotvo" path="res://assets/cube/cube_fainted.png" id="2_lwek4"]
-[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_ciwda"]
+[ext_resource type="Script" uid="uid://8okv68pk5qqj" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_ciwda"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a8anu"]
 size = Vector2(16, 16)

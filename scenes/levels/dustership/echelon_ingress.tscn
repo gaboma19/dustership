@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bilmntyxrqx21"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wu7c6"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_wu7c6"]
 [ext_resource type="Texture2D" uid="uid://65xhmpecods6" path="res://assets/backgrounds/remembrancer_camp/remembrancer_camp.png" id="3_skxw8"]
 [ext_resource type="PackedScene" uid="uid://dmw5sf2ng05hy" path="res://scenes/entities/npcs/remembrancers/remembrancer_mona.tscn" id="4_ak51r"]
 [ext_resource type="PackedScene" uid="uid://dieedo4dqjmi5" path="res://scenes/entities/npcs/remembrancers/remembrancer_safiya.tscn" id="5_ba2dd"]

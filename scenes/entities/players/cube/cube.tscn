@@ -1,19 +1,19 @@
 [gd_scene load_steps=102 format=3 uid="uid://bdgmk7thjffe0"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_5e7pt"]
-[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
+[ext_resource type="Script" uid="uid://byk214wbsimxv" path="res://scenes/entities/players/player.gd" id="1_7sqa6"]
 [ext_resource type="Material" uid="uid://dqiwj53l61k2m" path="res://resources/materials/hit_flash_material.tres" id="3_hosl3"]
 [ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_ibl2k"]
 [ext_resource type="Texture2D" uid="uid://unj1kunay570" path="res://assets/cube/cube.png" id="3_lstn8"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="5_lwk8v"]
 [ext_resource type="Texture2D" uid="uid://bjc6jrxequwb8" path="res://assets/cube/cube_attack_charge.png" id="5_xs7av"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="6_l7h03"]
+[ext_resource type="Script" uid="uid://rp8e1t252v0f" path="res://scenes/entities/players/states/follow.gd" id="6_l7h03"]
 [ext_resource type="Texture2D" uid="uid://d2ptymhg48svk" path="res://assets/cube/reticle.png" id="6_nta0a"]
 [ext_resource type="PackedScene" uid="uid://c5na4y02njogc" path="res://scenes/entities/cube/cube_laser.tscn" id="7_kjrqo"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="7_uuqah"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="8_0uk7y"]
-[ext_resource type="Script" path="res://scenes/entities/players/cube/cube_animation_tree.gd" id="9_4u4y7"]
-[ext_resource type="Script" path="res://scenes/entities/players/cube/cube_attack.gd" id="9_y4v5w"]
+[ext_resource type="Script" uid="uid://5h6yfv54hy6f" path="res://scenes/entities/players/states/active.gd" id="7_uuqah"]
+[ext_resource type="Script" uid="uid://dkgwotjre6fau" path="res://scenes/entities/players/states/hold.gd" id="8_0uk7y"]
+[ext_resource type="Script" uid="uid://g4wecnlpbbw0" path="res://scenes/entities/players/cube/cube_animation_tree.gd" id="9_4u4y7"]
+[ext_resource type="Script" uid="uid://byre372qalohn" path="res://scenes/entities/players/cube/cube_attack.gd" id="9_y4v5w"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6mpgi"]
 radius = 32.0
@@ -80,8 +80,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_63x7h"]
 _data = {
-"RESET": SubResource("Animation_m0jrv"),
-"default": SubResource("Animation_2cyhw")
+&"RESET": SubResource("Animation_m0jrv"),
+&"default": SubResource("Animation_2cyhw")
 }
 
 [sub_resource type="Animation" id="Animation_pop8y"]
@@ -1293,39 +1293,39 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e211m"]
 _data = {
-"RESET": SubResource("Animation_pop8y"),
-"attack_e": SubResource("Animation_4mp31"),
-"attack_n": SubResource("Animation_m87ya"),
-"attack_ne": SubResource("Animation_bemyk"),
-"attack_nw": SubResource("Animation_ubarm"),
-"attack_s": SubResource("Animation_bjh8b"),
-"attack_se": SubResource("Animation_bf3xi"),
-"attack_sw": SubResource("Animation_5a78i"),
-"attack_w": SubResource("Animation_cn3o5"),
-"charge_e": SubResource("Animation_tljfs"),
-"charge_n": SubResource("Animation_ghe23"),
-"charge_ne": SubResource("Animation_smigm"),
-"charge_nw": SubResource("Animation_6wawk"),
-"charge_s": SubResource("Animation_ryr25"),
-"charge_se": SubResource("Animation_022dn"),
-"charge_sw": SubResource("Animation_vkw6n"),
-"charge_w": SubResource("Animation_s0647"),
-"idle_e": SubResource("Animation_u46pe"),
-"idle_n": SubResource("Animation_7as08"),
-"idle_ne": SubResource("Animation_fe32f"),
-"idle_nw": SubResource("Animation_aqnkw"),
-"idle_s": SubResource("Animation_5ie03"),
-"idle_se": SubResource("Animation_drckp"),
-"idle_sw": SubResource("Animation_4htbb"),
-"idle_w": SubResource("Animation_37ylj"),
-"move_e": SubResource("Animation_yi05s"),
-"move_n": SubResource("Animation_malk4"),
-"move_ne": SubResource("Animation_fqaq4"),
-"move_nw": SubResource("Animation_iqyun"),
-"move_s": SubResource("Animation_ikk4r"),
-"move_se": SubResource("Animation_j14xw"),
-"move_sw": SubResource("Animation_jo4d8"),
-"move_w": SubResource("Animation_5q8t3")
+&"RESET": SubResource("Animation_pop8y"),
+&"attack_e": SubResource("Animation_4mp31"),
+&"attack_n": SubResource("Animation_m87ya"),
+&"attack_ne": SubResource("Animation_bemyk"),
+&"attack_nw": SubResource("Animation_ubarm"),
+&"attack_s": SubResource("Animation_bjh8b"),
+&"attack_se": SubResource("Animation_bf3xi"),
+&"attack_sw": SubResource("Animation_5a78i"),
+&"attack_w": SubResource("Animation_cn3o5"),
+&"charge_e": SubResource("Animation_tljfs"),
+&"charge_n": SubResource("Animation_ghe23"),
+&"charge_ne": SubResource("Animation_smigm"),
+&"charge_nw": SubResource("Animation_6wawk"),
+&"charge_s": SubResource("Animation_ryr25"),
+&"charge_se": SubResource("Animation_022dn"),
+&"charge_sw": SubResource("Animation_vkw6n"),
+&"charge_w": SubResource("Animation_s0647"),
+&"idle_e": SubResource("Animation_u46pe"),
+&"idle_n": SubResource("Animation_7as08"),
+&"idle_ne": SubResource("Animation_fe32f"),
+&"idle_nw": SubResource("Animation_aqnkw"),
+&"idle_s": SubResource("Animation_5ie03"),
+&"idle_se": SubResource("Animation_drckp"),
+&"idle_sw": SubResource("Animation_4htbb"),
+&"idle_w": SubResource("Animation_37ylj"),
+&"move_e": SubResource("Animation_yi05s"),
+&"move_n": SubResource("Animation_malk4"),
+&"move_ne": SubResource("Animation_fqaq4"),
+&"move_nw": SubResource("Animation_iqyun"),
+&"move_s": SubResource("Animation_ikk4r"),
+&"move_se": SubResource("Animation_j14xw"),
+&"move_sw": SubResource("Animation_jo4d8"),
+&"move_w": SubResource("Animation_5q8t3")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8e63s"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bbf50iguug7jg" path="res://assets/harmonykeeper/harmonykeeper_rifle_projectile.png" id="1_54tm6"]
 [ext_resource type="Material" uid="uid://dh4hd54vel13c" path="res://resources/materials/fire_dissolve_material.tres" id="1_kl420"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_projectile.gd" id="2_bs6xk"]
+[ext_resource type="Script" uid="uid://n5xuqpxtmxmi" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_projectile.gd" id="2_bs6xk"]
 [ext_resource type="PackedScene" uid="uid://djyr3h5ibi5jm" path="res://scenes/components/hitbox_cast_component/hitbox_cast_component.tscn" id="3_y0fv0"]
 [ext_resource type="PackedScene" uid="uid://dmum4wme56gq2" path="res://scenes/components/floor_detector_ray_cast/floor_detector_ray_cast.tscn" id="5_jus50"]
 
@@ -41,8 +41,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_a15db"]
 _data = {
-"RESET": SubResource("Animation_yjnnm"),
-"dissolve": SubResource("Animation_b8e7x")
+&"RESET": SubResource("Animation_yjnnm"),
+&"dissolve": SubResource("Animation_b8e7x")
 }
 
 [node name="HarmonykeeperRifleProjectile" type="Line2D"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://bs5ftsbs1wbh1"]
 
-[ext_resource type="Script" path="res://scenes/autoload/pop_up.gd" id="1_6sq5a"]
+[ext_resource type="Script" uid="uid://crjpvgouibvj0" path="res://scenes/autoload/pop_up.gd" id="1_6sq5a"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_geuv0"]
 [ext_resource type="Texture2D" uid="uid://cw5a36j4axbw5" path="res://assets/ui/pause_screen/tile_0654.png" id="3_4nbcf"]
 [ext_resource type="Texture2D" uid="uid://mgnj5j3a24w2" path="res://assets/ui/interact_prompt/tile_0044.png" id="3_7d17u"]
@@ -47,8 +47,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m6p1w"]
 _data = {
-"RESET": SubResource("Animation_3yyx6"),
-"default": SubResource("Animation_g5i6e")
+&"RESET": SubResource("Animation_3yyx6"),
+&"default": SubResource("Animation_g5i6e")
 }
 
 [node name="PopUp" type="CanvasLayer"]

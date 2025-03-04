@@ -1,16 +1,16 @@
 [gd_scene load_steps=20 format=3 uid="uid://ba6jprjolkx5b"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_eilwh"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_eilwh"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="1_lmlqw"]
 [ext_resource type="Texture2D" uid="uid://cg24rq4idietp" path="res://assets/backgrounds/tavern/tavern.png" id="1_ugjor"]
-[ext_resource type="Script" path="res://addons/post_processing/node/post_process.gd" id="2_cbj6o"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_events.gd" id="2_e65xy"]
+[ext_resource type="Script" uid="uid://uigmu3v81224" path="res://addons/post_processing/node/post_process.gd" id="2_cbj6o"]
+[ext_resource type="Script" uid="uid://cvej5yalvm1au" path="res://scenes/levels/echelon/echelon_level_5_events.gd" id="2_e65xy"]
 [ext_resource type="Texture2D" uid="uid://dp5s6nnjxomr" path="res://assets/backgrounds/tavern/bar.png" id="2_o4auw"]
-[ext_resource type="Script" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_kood4"]
+[ext_resource type="Script" uid="uid://nrhry0kkx3y6" path="res://addons/post_processing/resource/post_processing_configuration.gd" id="3_kood4"]
 [ext_resource type="PackedScene" uid="uid://buge8kcxqepq3" path="res://scenes/entities/chest/chest.tscn" id="4_8l4ih"]
 [ext_resource type="Texture2D" uid="uid://cj1ohr88d7wqy" path="res://assets/backgrounds/tavern/overhang.png" id="5_jyr2x"]
 [ext_resource type="Texture2D" uid="uid://b32f0cyyh825" path="res://assets/backgrounds/tavern/light_tavern.png" id="6_8r5s3"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_5_bar.gd" id="7_inlxi"]
+[ext_resource type="Script" uid="uid://b8tywuh2d22ff" path="res://scenes/levels/echelon/echelon_level_5_bar.gd" id="7_inlxi"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="8_y6pck"]
 [ext_resource type="Resource" uid="uid://blkguusvctco3" path="res://resources/inventory_item/items/old/identity_core_right.tres" id="9_5wvs0"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="9_vd5o6"]
@@ -125,8 +125,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2y4"]
 _data = {
-"RESET": SubResource("Animation_kf57q"),
-"default": SubResource("Animation_y8ie4")
+&"RESET": SubResource("Animation_kf57q"),
+&"default": SubResource("Animation_y8ie4")
 }
 
 [node name="EchelonLevel5" type="Node2D" node_paths=PackedStringArray("game_start")]

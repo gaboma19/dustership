@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://dhb3xrvsiwj0e"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_fin53"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_fin53"]
 [ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_bmope"]
 [ext_resource type="PackedScene" uid="uid://dngxye0p7kdqb" path="res://scenes/tile_maps/dustership/dustership_tile_map.tscn" id="3_dgc5w"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_wibh3"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://b0770lwctcbti"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/circularwaves.gdshader" id="1_s8hqx"]
+[ext_resource type="Shader" uid="uid://cneuk4oadjopx" path="res://addons/post_processing/shaders/circularwaves.gdshader" id="1_s8hqx"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_mq5id"]
 

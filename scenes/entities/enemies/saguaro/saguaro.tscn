@@ -1,6 +1,6 @@
 [gd_scene load_steps=80 format=3 uid="uid://46gibj1h8o7k"]
 
-[ext_resource type="Script" path="res://scenes/entities/enemies/saguaro/saguaro.gd" id="1_ykr4p"]
+[ext_resource type="Script" uid="uid://c6124f1mxi58a" path="res://scenes/entities/enemies/saguaro/saguaro.gd" id="1_ykr4p"]
 [ext_resource type="Texture2D" uid="uid://cidxhkjuqju0f" path="res://assets/saguaro/saguaro.png" id="2_02e6a"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="3_20n0d"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="4_ccm1e"]
@@ -14,13 +14,13 @@
 [ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="11_tqnnc"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="12_w5qij"]
 [ext_resource type="PackedScene" uid="uid://uap2y0roigaf" path="res://scenes/components/aggro_ray_cast/aggro_ray_cast.tscn" id="13_gjogr"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="13_ra6hc"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_idle.gd" id="15_0efvc"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="15_ipo2i"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="16_f876n"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_kic11"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/saguaro/saguaro_attack.gd" id="19_cbpie"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="20_jssqq"]
+[ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="13_ra6hc"]
+[ext_resource type="Script" uid="uid://dqkarnmpbwedf" path="res://scenes/entities/enemies/states/raycast_idle.gd" id="15_0efvc"]
+[ext_resource type="Script" uid="uid://bettw0k3jswim" path="res://scenes/entities/enemies/states/knockback.gd" id="15_ipo2i"]
+[ext_resource type="Script" uid="uid://cmp2w46h33iam" path="res://scenes/entities/enemies/states/stun.gd" id="16_f876n"]
+[ext_resource type="Script" uid="uid://bb77s0y086ual" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_kic11"]
+[ext_resource type="Script" uid="uid://b3q742innu0ue" path="res://scenes/entities/enemies/saguaro/saguaro_attack.gd" id="19_cbpie"]
+[ext_resource type="Script" uid="uid://ctbp3cystna3d" path="res://scenes/entities/enemies/states/spawn.gd" id="20_jssqq"]
 
 [sub_resource type="Animation" id="Animation_xhmdg"]
 length = 0.1
@@ -464,22 +464,22 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_npmsn"]
 _data = {
-"idle_down": SubResource("Animation_xhmdg"),
-"idle_left": SubResource("Animation_kfpyt"),
-"idle_right": SubResource("Animation_bxmgd"),
-"idle_up": SubResource("Animation_0xoq7"),
-"rise_down": SubResource("Animation_ysir6"),
-"rise_left": SubResource("Animation_8pnu0"),
-"rise_right": SubResource("Animation_560vf"),
-"rise_up": SubResource("Animation_ac76n"),
-"sink_down": SubResource("Animation_qq4am"),
-"sink_left": SubResource("Animation_lely7"),
-"sink_right": SubResource("Animation_vm5ew"),
-"sink_up": SubResource("Animation_kprdw"),
-"walk_down": SubResource("Animation_qmb8o"),
-"walk_left": SubResource("Animation_k7vxb"),
-"walk_right": SubResource("Animation_qvb62"),
-"walk_up": SubResource("Animation_i54f0")
+&"idle_down": SubResource("Animation_xhmdg"),
+&"idle_left": SubResource("Animation_kfpyt"),
+&"idle_right": SubResource("Animation_bxmgd"),
+&"idle_up": SubResource("Animation_0xoq7"),
+&"rise_down": SubResource("Animation_ysir6"),
+&"rise_left": SubResource("Animation_8pnu0"),
+&"rise_right": SubResource("Animation_560vf"),
+&"rise_up": SubResource("Animation_ac76n"),
+&"sink_down": SubResource("Animation_qq4am"),
+&"sink_left": SubResource("Animation_lely7"),
+&"sink_right": SubResource("Animation_vm5ew"),
+&"sink_up": SubResource("Animation_kprdw"),
+&"walk_down": SubResource("Animation_qmb8o"),
+&"walk_left": SubResource("Animation_k7vxb"),
+&"walk_right": SubResource("Animation_qvb62"),
+&"walk_up": SubResource("Animation_i54f0")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_licbb"]

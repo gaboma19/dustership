@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://doak1m0xw6r4t"]
 
-[ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/equipment_panel.gd" id="1_fh1sn"]
+[ext_resource type="Script" uid="uid://6dmklbm1r40n" path="res://scenes/ui/pause_screen/inventory/equipment_panel.gd" id="1_fh1sn"]
 [ext_resource type="Texture2D" uid="uid://d3l3ohivsx6bv" path="res://assets/sword/sword.png" id="2_hwdbg"]
 [ext_resource type="Texture2D" uid="uid://cispse7j8qbwx" path="res://assets/april/april_icon.png" id="2_s4amf"]
 [ext_resource type="Texture2D" uid="uid://bkaqeshji82e4" path="res://assets/cube/cube_texture.png" id="4_pbi73"]

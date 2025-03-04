@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://dudbwsetbvsfv" path="res://assets/dust/dust.png" id="1_ge671"]
 [ext_resource type="Material" uid="uid://bd2j1fgysj0h7" path="res://resources/materials/dust_particles.tres" id="1_iw6kp"]
-[ext_resource type="Script" path="res://scenes/components/dust_particles/dust_particles.gd" id="2_fd6v6"]
+[ext_resource type="Script" uid="uid://crypi5mu80osf" path="res://scenes/components/dust_particles/dust_particles.gd" id="2_fd6v6"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_5w53t"]
 particles_animation = true

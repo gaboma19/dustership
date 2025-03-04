@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkk2htinw7hk6"]
 
 [ext_resource type="PackedScene" uid="uid://bhybpvycs41re" path="res://scenes/ui/pause_screen/inventory/inventory_grid.tscn" id="1_5u2cg"]
-[ext_resource type="Script" path="res://scenes/ui/pause_screen/inventory/inventory_container.gd" id="1_1853p"]
+[ext_resource type="Script" uid="uid://dlmlqkwowwka7" path="res://scenes/ui/pause_screen/inventory/inventory_container.gd" id="1_1853p"]
 [ext_resource type="PackedScene" uid="uid://doak1m0xw6r4t" path="res://scenes/ui/pause_screen/inventory/equipment_panel.tscn" id="3_aqj5b"]
 
 [node name="InventoryContainer" type="HBoxContainer"]

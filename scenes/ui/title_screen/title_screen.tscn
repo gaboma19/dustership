@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://mroumpnic8tc"]
 
-[ext_resource type="Script" path="res://scenes/ui/title_screen/title_screen.gd" id="1_to24y"]
+[ext_resource type="Script" uid="uid://ccuxlyl3yydr7" path="res://scenes/ui/title_screen/title_screen.gd" id="1_to24y"]
 [ext_resource type="Texture2D" uid="uid://dkwyba4sfjnbl" path="res://assets/backgrounds/dustership_exterior/dustership_exterior.png" id="2_l6ld2"]
 [ext_resource type="Texture2D" uid="uid://dcm4w02s15rr" path="res://assets/backgrounds/studio_title/studio_title.png" id="3_2rxx3"]
 [ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_x182u"]
@@ -40,8 +40,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_li3h3"]
 _data = {
-"RESET": SubResource("Animation_nwhfy"),
-"blink": SubResource("Animation_ncvqa")
+&"RESET": SubResource("Animation_nwhfy"),
+&"blink": SubResource("Animation_ncvqa")
 }
 
 [sub_resource type="Animation" id="Animation_qc1oa"]
@@ -260,8 +260,8 @@ tracks/8/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6a7e5"]
 _data = {
-"RESET": SubResource("Animation_qc1oa"),
-"default": SubResource("Animation_8rxxy")
+&"RESET": SubResource("Animation_qc1oa"),
+&"default": SubResource("Animation_8rxxy")
 }
 
 [node name="TitleScreen" type="CanvasLayer"]

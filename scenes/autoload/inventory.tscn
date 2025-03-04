@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csicacaad2oab"]
 
-[ext_resource type="Script" path="res://scenes/autoload/inventory.gd" id="1_2sb0j"]
+[ext_resource type="Script" uid="uid://df76k3b8nqxxg" path="res://scenes/autoload/inventory.gd" id="1_2sb0j"]
 
 [node name="Inventory" type="Node" groups=["persist"]]
 process_mode = 3

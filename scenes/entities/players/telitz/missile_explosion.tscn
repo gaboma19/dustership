@@ -92,8 +92,8 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tkeko"]
 _data = {
-"RESET": SubResource("Animation_7ud41"),
-"default": SubResource("Animation_6sofv")
+&"RESET": SubResource("Animation_7ud41"),
+&"default": SubResource("Animation_6sofv")
 }
 
 [node name="MissileExplosion" type="Node2D"]

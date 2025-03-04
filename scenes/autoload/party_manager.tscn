@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://qxy5l7jh8mqe"]
 
-[ext_resource type="Script" path="res://scenes/autoload/party_manager.gd" id="1_3iajr"]
+[ext_resource type="Script" uid="uid://ot56ulft6mu0" path="res://scenes/autoload/party_manager.gd" id="1_3iajr"]
 
 [node name="PartyManager" type="Node" groups=["persist"]]
 script = ExtResource("1_3iajr")

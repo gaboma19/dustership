@@ -99,8 +99,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_plp0r"]
 _data = {
-"RESET": SubResource("Animation_m024c"),
-"default": SubResource("Animation_1wxs6")
+&"RESET": SubResource("Animation_m024c"),
+&"default": SubResource("Animation_1wxs6")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cn5y0"]
@@ -140,7 +140,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dnban"]
 _data = {
-"default": SubResource("Animation_yb4el")
+&"default": SubResource("Animation_yb4el")
 }
 
 [node name="SaguaroFoot" type="StaticBody2D"]

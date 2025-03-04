@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://6r544aatause"]
 
-[ext_resource type="Script" path="res://scenes/overworld/planes/overworld_plane.gd" id="1_cf2fa"]
+[ext_resource type="Script" uid="uid://crijipbmj15bg" path="res://scenes/overworld/planes/overworld_plane.gd" id="1_cf2fa"]
 [ext_resource type="PackedScene" uid="uid://d1uebua632l01" path="res://scenes/overworld/tiles/overworld_dungeon_tile.tscn" id="2_8ft8y"]
 [ext_resource type="PackedScene" uid="uid://dnht3oj201iqm" path="res://scenes/overworld/tiles/overworld_ladder_tile.tscn" id="3_47fpl"]
 [ext_resource type="PackedScene" uid="uid://dms221iw84wsl" path="res://scenes/tile_maps/old/echelon_plane_2.tscn" id="4_3wl8d"]
-[ext_resource type="Script" path="res://scenes/tile_map_layers/overworld_tile_map_layers.gd" id="5_0qtxg"]
+[ext_resource type="Script" uid="uid://pdv077gojmvr" path="res://scenes/tile_map_layers/overworld_tile_map_layers.gd" id="5_0qtxg"]
 [ext_resource type="PackedScene" uid="uid://bv4vc5ogjearw" path="res://scenes/tile_map_layers/overworld_tile_map_layer.tscn" id="6_k5o6a"]
 
 [sub_resource type="Animation" id="Animation_n5r7n"]
@@ -80,9 +80,9 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7in2h"]
 _data = {
-"RESET": SubResource("Animation_n5r7n"),
-"fade_in": SubResource("Animation_ecwb6"),
-"fly_away": SubResource("Animation_rbr7d")
+&"RESET": SubResource("Animation_n5r7n"),
+&"fade_in": SubResource("Animation_ecwb6"),
+&"fly_away": SubResource("Animation_rbr7d")
 }
 
 [node name="OverworldPlane0" type="Node2D" groups=["planes"]]

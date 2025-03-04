@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://mwquoqdnhkr2"]
 
 [ext_resource type="Texture2D" uid="uid://b0yjhs3su6n0h" path="res://assets/overworld_player/overworld_player.png" id="1_45bvd"]
-[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player.gd" id="2_y7lij"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_igtqg"]
-[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player_active.gd" id="4_3k5bi"]
-[ext_resource type="Script" path="res://scenes/overworld/overworld_player/overworld_player_hold.gd" id="5_1e4wg"]
+[ext_resource type="Script" uid="uid://bgacwsl0sgqc0" path="res://scenes/overworld/overworld_player/overworld_player.gd" id="2_y7lij"]
+[ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="3_igtqg"]
+[ext_resource type="Script" uid="uid://ck4dwypylhx56" path="res://scenes/overworld/overworld_player/overworld_player_active.gd" id="4_3k5bi"]
+[ext_resource type="Script" uid="uid://dfjuml0ia45e" path="res://scenes/overworld/overworld_player/overworld_player_hold.gd" id="5_1e4wg"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l4i4n"]
 radius = 1.0
@@ -93,9 +93,9 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6el8d"]
 _data = {
-"RESET": SubResource("Animation_sklnf"),
-"enter": SubResource("Animation_yhpm8"),
-"exit": SubResource("Animation_nem35")
+&"RESET": SubResource("Animation_sklnf"),
+&"enter": SubResource("Animation_yhpm8"),
+&"exit": SubResource("Animation_nem35")
 }
 
 [node name="OverworldPlayer" type="Sprite2D"]

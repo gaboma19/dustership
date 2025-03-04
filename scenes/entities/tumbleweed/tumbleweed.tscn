@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://bgm5wujmjc2bg"]
 
-[ext_resource type="Script" path="res://scenes/entities/tumbleweed/tumbleweed.gd" id="1_5kh7v"]
+[ext_resource type="Script" uid="uid://cdmispvirctog" path="res://scenes/entities/tumbleweed/tumbleweed.gd" id="1_5kh7v"]
 [ext_resource type="Texture2D" uid="uid://cjolpljdujkhn" path="res://assets/tumbleweed/tumbleweed.png" id="1_td5ts"]
 [ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="3_j0y6m"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="3_vyo5m"]
-[ext_resource type="Script" path="res://scenes/entities/tumbleweed/tumbleweed_hurtbox_component.gd" id="4_uc1dh"]
+[ext_resource type="Script" uid="uid://ctmigmshtonk0" path="res://scenes/entities/tumbleweed/tumbleweed_hurtbox_component.gd" id="4_uc1dh"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_ptofc"]
 bounce = 0.5
@@ -42,7 +42,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qlt0j"]
 _data = {
-"default": SubResource("Animation_73u8u")
+&"default": SubResource("Animation_73u8u")
 }
 
 [sub_resource type="SegmentShape2D" id="SegmentShape2D_2p2yp"]

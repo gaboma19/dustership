@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c1yjf3gg7ag8k"]
 
-[ext_resource type="Script" path="res://scenes/overworld/components/overworld_stack.gd" id="1_54q8p"]
+[ext_resource type="Script" uid="uid://dr3gm4nqaw38x" path="res://scenes/overworld/components/overworld_stack.gd" id="1_54q8p"]
 [ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/old/overworld_tilemap.tscn" id="1_vyn6w"]
 
 [sub_resource type="Animation" id="Animation_ho4ec"]
@@ -35,8 +35,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0sykg"]
 _data = {
-"RESET": SubResource("Animation_ho4ec"),
-"move_up": SubResource("Animation_cwdok")
+&"RESET": SubResource("Animation_ho4ec"),
+&"move_up": SubResource("Animation_cwdok")
 }
 
 [node name="OverworldStack" type="Node2D"]

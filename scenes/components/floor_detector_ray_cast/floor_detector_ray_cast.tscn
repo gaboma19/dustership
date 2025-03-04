@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dmum4wme56gq2"]
 
-[ext_resource type="Script" path="res://scenes/components/floor_detector_ray_cast/floor_detector_ray_cast.gd" id="1_hdysj"]
+[ext_resource type="Script" uid="uid://dtqeagellk446" path="res://scenes/components/floor_detector_ray_cast/floor_detector_ray_cast.gd" id="1_hdysj"]
 
 [node name="FloorDetectorRayCast" type="RayCast2D"]
 collision_mask = 32
