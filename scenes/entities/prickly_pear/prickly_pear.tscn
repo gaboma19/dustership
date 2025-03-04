@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://crn0k4nf1fvyl"]
 
-[ext_resource type="Script" path="res://scenes/entities/prickly_pear/prickly_pear.gd" id="1_hr0l3"]
+[ext_resource type="Script" uid="uid://b1ud3lwetgdae" path="res://scenes/entities/prickly_pear/prickly_pear.gd" id="1_hr0l3"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_36fo5"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_sta3n"]
 [ext_resource type="Texture2D" uid="uid://c0fdvisl6jlk" path="res://assets/prickly_pear/prickly_pear.png" id="3_r7mk1"]

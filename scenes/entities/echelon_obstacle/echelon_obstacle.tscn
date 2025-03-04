@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://c3xqiiibyonaa"]
 
-[ext_resource type="Script" path="res://scenes/entities/echelon_obstacle/obstacle.gd" id="1_ankcq"]
+[ext_resource type="Script" uid="uid://ejjrikq3bm1q" path="res://scenes/entities/echelon_obstacle/obstacle.gd" id="1_ankcq"]
 [ext_resource type="Texture2D" uid="uid://d3al8386nag7e" path="res://assets/echelon_block/echelon_block.png" id="2_mve6h"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_m73yc"]
 [ext_resource type="AudioStream" uid="uid://d1hhl37eyotoq" path="res://assets/sfx/echelon_obstacle_rise.wav" id="4_y3xqh"]
@@ -150,9 +150,9 @@ tracks/3/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_erwkh"]
 _data = {
-"RESET": SubResource("Animation_6m64o"),
-"lower": SubResource("Animation_yfqqg"),
-"rise": SubResource("Animation_er0vh")
+&"RESET": SubResource("Animation_6m64o"),
+&"lower": SubResource("Animation_yfqqg"),
+&"rise": SubResource("Animation_er0vh")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q3j8u"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bk41jg7ukkude"]
 
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_projectile.gd" id="1_jj1n2"]
+[ext_resource type="Script" uid="uid://dmaabrx2rpesl" path="res://scenes/entities/enemies/cactus_knight/cactus_projectile.gd" id="1_jj1n2"]
 [ext_resource type="Texture2D" uid="uid://bk0woa664trmx" path="res://assets/cactus_knight/cactus_projectile.png" id="1_rgmf8"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="2_svxku"]
 
@@ -35,7 +35,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_gikbd"]
 _data = {
-"default": SubResource("Animation_2dega")
+&"default": SubResource("Animation_2dega")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5po18"]

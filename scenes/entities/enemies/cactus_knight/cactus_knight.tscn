@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=3 uid="uid://xogyxc4yjmii"]
 
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_24cqq"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
+[ext_resource type="Script" uid="uid://buda0usflkmo7" path="res://scenes/entities/enemies/cactus_knight/cactus_knight.gd" id="1_47wl3"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_borqo"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_wtii1"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="5_eoek3"]
@@ -11,16 +11,16 @@
 [ext_resource type="Resource" uid="uid://cx780dwrclh03" path="res://resources/inventory_item/items/old/eremite_diskette.tres" id="7_haysb"]
 [ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_ho3fb"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="8_mreo4"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
+[ext_resource type="Script" uid="uid://dtnj1h84rgx5l" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_idle.gd" id="9_el4iu"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="9_jrfpc"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="9_p3ffu"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="10_c5qg4"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_aggro.gd" id="10_d7o8x"]
+[ext_resource type="Script" uid="uid://b68fk47llu44g" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_aggro.gd" id="10_d7o8x"]
 [ext_resource type="Texture2D" uid="uid://67wshfayy4dh" path="res://assets/cactus_knight/portal_guardian.png" id="10_gevsb"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="10_haauw"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_attack.gd" id="11_8yssa"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_shoot.gd" id="12_ygdi2"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="13_uojri"]
+[ext_resource type="Script" uid="uid://ctbp3cystna3d" path="res://scenes/entities/enemies/states/spawn.gd" id="10_haauw"]
+[ext_resource type="Script" uid="uid://cx8hng6hok3tv" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_attack.gd" id="11_8yssa"]
+[ext_resource type="Script" uid="uid://chbjptp2b7mq4" path="res://scenes/entities/enemies/cactus_knight/states/cactus_knight_shoot.gd" id="12_ygdi2"]
+[ext_resource type="Script" uid="uid://cmp2w46h33iam" path="res://scenes/entities/enemies/states/stun.gd" id="13_uojri"]
 
 [sub_resource type="Animation" id="Animation_2j527"]
 length = 3.9
@@ -206,11 +206,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b7y3o"]
 _data = {
-"attack_360": SubResource("Animation_2j527"),
-"attack_left": SubResource("Animation_xfrbq"),
-"attack_right": SubResource("Animation_lnmff"),
-"idle": SubResource("Animation_2w6t8"),
-"walk_down": SubResource("Animation_etogb")
+&"attack_360": SubResource("Animation_2j527"),
+&"attack_left": SubResource("Animation_xfrbq"),
+&"attack_right": SubResource("Animation_lnmff"),
+&"idle": SubResource("Animation_2w6t8"),
+&"walk_down": SubResource("Animation_etogb")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fv273"]

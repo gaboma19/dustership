@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dwioerk4ps6rr"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/glitch.gdshader" id="1_3euvy"]
+[ext_resource type="Shader" uid="uid://bqvm1kmblwtn6" path="res://addons/post_processing/shaders/glitch.gdshader" id="1_3euvy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gdr74"]
 shader = ExtResource("1_3euvy")

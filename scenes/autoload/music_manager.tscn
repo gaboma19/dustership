@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dwh3062lqky8n"]
 
-[ext_resource type="Script" path="res://scenes/autoload/music_manager.gd" id="1_fordk"]
+[ext_resource type="Script" uid="uid://ca62aj2dp3q4r" path="res://scenes/autoload/music_manager.gd" id="1_fordk"]
 
 [node name="MusicManager" type="AudioStreamPlayer"]
 process_mode = 3

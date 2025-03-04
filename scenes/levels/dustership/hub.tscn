@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://ck62xntsnbb60"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_5duh8"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_5duh8"]
 [ext_resource type="PackedScene" uid="uid://d1qmujkc22666" path="res://scenes/levels/dustership/dustership_background/dustership_background.tscn" id="2_a75pp"]
 [ext_resource type="PackedScene" uid="uid://dngxye0p7kdqb" path="res://scenes/tile_maps/dustership/dustership_tile_map.tscn" id="3_3jph8"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_rbqk4"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="5_x0md1"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_cnh2k"]
 [ext_resource type="PackedScene" uid="uid://boi3g8osicmbi" path="res://scenes/entities/dustership_door/dustership_door.tscn" id="6_gfnpt"]
-[ext_resource type="Script" path="res://scenes/entities/dustership_door/level_transition_door.gd" id="7_fdqgm"]
+[ext_resource type="Script" uid="uid://bl0qnsx8gsb6l" path="res://scenes/entities/dustership_door/level_transition_door.gd" id="7_fdqgm"]
 [ext_resource type="PackedScene" uid="uid://bmefddd535dd2" path="res://scenes/entities/npcs/remembrancers/remembrancer_galann.tscn" id="8_52m8n"]
 [ext_resource type="PackedScene" uid="uid://urbu41hjhkye" path="res://scenes/entities/npcs/remembrancers/remembrancer_deon.tscn" id="9_i0fht"]
 

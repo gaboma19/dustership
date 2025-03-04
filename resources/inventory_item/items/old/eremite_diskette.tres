@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://cx780dwrclh03"]
 
-[ext_resource type="Script" path="res://resources/inventory_item/inventory_item.gd" id="1_uddna"]
+[ext_resource type="Script" uid="uid://cwmffkk4dbdn1" path="res://resources/inventory_item/inventory_item.gd" id="1_uddna"]
 [ext_resource type="Texture2D" uid="uid://dcuu41rt4plor" path="res://assets/eremite_diskette/eremite_diskette.png" id="2_5m1nt"]
 
 [resource]

@@ -1,9 +1,9 @@
 [gd_scene load_steps=15 format=3 uid="uid://lm4n2658jmcd"]
 
-[ext_resource type="Script" path="res://scenes/entities/echelon_door/key_door.gd" id="1_dsfls"]
+[ext_resource type="Script" uid="uid://tnewtjyfhllo" path="res://scenes/entities/echelon_door/key_door.gd" id="1_dsfls"]
 [ext_resource type="PackedScene" uid="uid://bu2pwy0c3b43p" path="res://scenes/components/battery_charge_component/battery_charge_component.tscn" id="2_ka1bb"]
 [ext_resource type="Texture2D" uid="uid://c0sis1nktacte" path="res://assets/echelon_door/echelon_door.png" id="2_or053"]
-[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="4_wr63p"]
+[ext_resource type="Script" uid="uid://8okv68pk5qqj" path="res://scenes/components/interaction_area/interaction_area.gd" id="4_wr63p"]
 [ext_resource type="AudioStream" uid="uid://dle304ybsrlau" path="res://assets/sfx/door1.wav" id="5_1am4d"]
 [ext_resource type="AudioStream" uid="uid://cpel3vixq2x0p" path="res://assets/sfx/door1_reverse.wav" id="6_vhivy"]
 
@@ -156,10 +156,10 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iq6lm"]
 _data = {
-"RESET": SubResource("Animation_us7fr"),
-"default": SubResource("Animation_8hf7x"),
-"open": SubResource("Animation_rtf1c"),
-"set_open": SubResource("Animation_ifq0h")
+&"RESET": SubResource("Animation_us7fr"),
+&"default": SubResource("Animation_8hf7x"),
+&"open": SubResource("Animation_rtf1c"),
+&"set_open": SubResource("Animation_ifq0h")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ceesq"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cxsuld87nxd0v"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/blur.gdshader" id="1_6v1pv"]
+[ext_resource type="Shader" uid="uid://cwjblvqxwq40c" path="res://addons/post_processing/shaders/blur.gdshader" id="1_6v1pv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_efbmf"]
 shader = ExtResource("1_6v1pv")

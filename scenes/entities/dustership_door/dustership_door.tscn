@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://boi3g8osicmbi"]
 
-[ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="1_idjol"]
+[ext_resource type="Script" uid="uid://cmvgvwfjrl5g0" path="res://scenes/entities/echelon_door/door.gd" id="1_idjol"]
 [ext_resource type="Texture2D" uid="uid://d0g4fiq3mfrpa" path="res://assets/dustership_door/dustership_door.png" id="1_p0kot"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_xyce5"]
 
@@ -157,11 +157,11 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xlqvj"]
 _data = {
-"RESET": SubResource("Animation_2f0tk"),
-"close": SubResource("Animation_7klyh"),
-"default": SubResource("Animation_mawob"),
-"open": SubResource("Animation_fyhpb"),
-"set_open": SubResource("Animation_wihnb")
+&"RESET": SubResource("Animation_2f0tk"),
+&"close": SubResource("Animation_7klyh"),
+&"default": SubResource("Animation_mawob"),
+&"open": SubResource("Animation_fyhpb"),
+&"set_open": SubResource("Animation_wihnb")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdmlr"]

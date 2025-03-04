@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://cgmjikmk1etpv"]
 
 [ext_resource type="Texture2D" uid="uid://d3721pvywjkcr" path="res://assets/doodads/dustership_foot.png" id="1_8oqsi"]
-[ext_resource type="Script" path="res://scenes/entities/doodads/dustership_foot.gd" id="1_jwk3s"]
+[ext_resource type="Script" uid="uid://bxhybxbqi1j2t" path="res://scenes/entities/doodads/dustership_foot.gd" id="1_jwk3s"]
 
 [sub_resource type="Animation" id="Animation_l4nw0"]
 length = 0.8
@@ -33,7 +33,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qdice"]
 _data = {
-"default": SubResource("Animation_l4nw0")
+&"default": SubResource("Animation_l4nw0")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lupnh"]

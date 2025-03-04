@@ -1,23 +1,24 @@
-[gd_scene load_steps=97 format=3 uid="uid://dnuma441ejwst"]
+[gd_scene load_steps=98 format=3 uid="uid://dnuma441ejwst"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_casqp"]
+[ext_resource type="Script" uid="uid://byk214wbsimxv" path="res://scenes/entities/players/player.gd" id="1_casqp"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_brpoa"]
 [ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_n057w"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="4_xiiw3"]
 [ext_resource type="Material" uid="uid://vvv3wtis6tx4" path="res://resources/materials/telitz_material.tres" id="5_m0dbh"]
 [ext_resource type="Texture2D" uid="uid://vn627vmmerfw" path="res://assets/telitz_denz/telitz_denz.png" id="6_22tof"]
+[ext_resource type="Script" uid="uid://bpy564qdslnrn" path="res://scenes/entities/players/telitz/telitz_animation_tree.gd" id="7_8xljm"]
 [ext_resource type="PackedScene" uid="uid://bvsn2mqxonl6a" path="res://scenes/entities/players/telitz/float_attack.tscn" id="7_ic7mu"]
 [ext_resource type="PackedScene" uid="uid://bs3mkeu2l1abm" path="res://scenes/entities/players/telitz/float_effect.tscn" id="8_chbfx"]
 [ext_resource type="PackedScene" uid="uid://1grgmdky1nrh" path="res://scenes/entities/players/telitz/telitz_missile.tscn" id="8_x0u7a"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="9_7f11u"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="10_l61e5"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="11_6drpn"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="12_cvyh7"]
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/states/telitz_attack.gd" id="13_htoen"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_hweep"]
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/states/telitz_charge.gd" id="15_8dnkn"]
+[ext_resource type="Script" uid="uid://rp8e1t252v0f" path="res://scenes/entities/players/states/follow.gd" id="10_l61e5"]
+[ext_resource type="Script" uid="uid://5h6yfv54hy6f" path="res://scenes/entities/players/states/active.gd" id="11_6drpn"]
+[ext_resource type="Script" uid="uid://dkgwotjre6fau" path="res://scenes/entities/players/states/hold.gd" id="12_cvyh7"]
+[ext_resource type="Script" uid="uid://hlfhqrbydkv1" path="res://scenes/entities/players/telitz/states/telitz_attack.gd" id="13_htoen"]
+[ext_resource type="Script" uid="uid://d31tqgtngilb" path="res://scenes/entities/players/states/dodge.gd" id="14_hweep"]
+[ext_resource type="Script" uid="uid://ct8qc2vk8wnd4" path="res://scenes/entities/players/telitz/states/telitz_charge.gd" id="15_8dnkn"]
 [ext_resource type="PackedScene" uid="uid://o7rnlulciw5h" path="res://scenes/entities/players/telitz/telitz_attack_effect.tscn" id="15_atb8v"]
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/states/telitz_float.gd" id="16_7j5fo"]
+[ext_resource type="Script" uid="uid://bwo362onm7m53" path="res://scenes/entities/players/telitz/states/telitz_float.gd" id="16_7j5fo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vj164"]
 radius = 32.0
@@ -931,31 +932,31 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4bpr1"]
 _data = {
-"RESET": SubResource("Animation_4af2n"),
-"attack_down": SubResource("Animation_qjisu"),
-"attack_left": SubResource("Animation_7alek"),
-"attack_right": SubResource("Animation_it17a"),
-"attack_up": SubResource("Animation_c04nh"),
-"charge_down": SubResource("Animation_msjn1"),
-"charge_left": SubResource("Animation_4mslu"),
-"charge_right": SubResource("Animation_tipj0"),
-"charge_up": SubResource("Animation_eewcq"),
-"dodge_down": SubResource("Animation_hdl1m"),
-"dodge_left": SubResource("Animation_corh8"),
-"dodge_right": SubResource("Animation_yl2p0"),
-"dodge_up": SubResource("Animation_07cgu"),
-"float_down": SubResource("Animation_rkdcp"),
-"float_left": SubResource("Animation_yfng1"),
-"float_right": SubResource("Animation_i5qx7"),
-"float_up": SubResource("Animation_dl4fh"),
-"idle_down": SubResource("Animation_6vlmg"),
-"idle_left": SubResource("Animation_ywbtc"),
-"idle_right": SubResource("Animation_4s5aa"),
-"idle_up": SubResource("Animation_tubqw"),
-"walk_down": SubResource("Animation_adlfs"),
-"walk_left": SubResource("Animation_5xj0h"),
-"walk_right": SubResource("Animation_f1a5m"),
-"walk_up": SubResource("Animation_nt7yn")
+&"RESET": SubResource("Animation_4af2n"),
+&"attack_down": SubResource("Animation_qjisu"),
+&"attack_left": SubResource("Animation_7alek"),
+&"attack_right": SubResource("Animation_it17a"),
+&"attack_up": SubResource("Animation_c04nh"),
+&"charge_down": SubResource("Animation_msjn1"),
+&"charge_left": SubResource("Animation_4mslu"),
+&"charge_right": SubResource("Animation_tipj0"),
+&"charge_up": SubResource("Animation_eewcq"),
+&"dodge_down": SubResource("Animation_hdl1m"),
+&"dodge_left": SubResource("Animation_corh8"),
+&"dodge_right": SubResource("Animation_yl2p0"),
+&"dodge_up": SubResource("Animation_07cgu"),
+&"float_down": SubResource("Animation_rkdcp"),
+&"float_left": SubResource("Animation_yfng1"),
+&"float_right": SubResource("Animation_i5qx7"),
+&"float_up": SubResource("Animation_dl4fh"),
+&"idle_down": SubResource("Animation_6vlmg"),
+&"idle_left": SubResource("Animation_ywbtc"),
+&"idle_right": SubResource("Animation_4s5aa"),
+&"idle_up": SubResource("Animation_tubqw"),
+&"walk_down": SubResource("Animation_adlfs"),
+&"walk_left": SubResource("Animation_5xj0h"),
+&"walk_right": SubResource("Animation_f1a5m"),
+&"walk_up": SubResource("Animation_nt7yn")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y1jen"]
@@ -1274,6 +1275,7 @@ parameters/Dodge/blend_position = Vector2(0, 0)
 parameters/Float/blend_position = Vector2(0, 1)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 0)
+script = ExtResource("7_8xljm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true

@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bx4adj5uc8517"]
 
-[ext_resource type="Script" path="res://scenes/components/byte_drop_component/byte_drop_component.gd" id="1_2bjmi"]
+[ext_resource type="Script" uid="uid://dsw0n8t6c1lny" path="res://scenes/components/byte_drop_component/byte_drop_component.gd" id="1_2bjmi"]
 [ext_resource type="PackedScene" uid="uid://dqvf30xhp8xku" path="res://scenes/entities/byte/byte.tscn" id="2_clk8u"]
 
 [node name="ByteDropComponent" type="Node"]

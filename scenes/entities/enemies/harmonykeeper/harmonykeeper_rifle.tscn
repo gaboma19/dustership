@@ -1,6 +1,6 @@
 [gd_scene load_steps=71 format=3 uid="uid://cgnlmlh456grh"]
 
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper.gd" id="1_onh3x"]
+[ext_resource type="Script" uid="uid://xomb4v5f04e3" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper.gd" id="1_onh3x"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_thtl1"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="3_2w01j"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="4_6c0ht"]
@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="14_4m2dy"]
 [ext_resource type="Texture2D" uid="uid://cxhxbehfjh33u" path="res://assets/harmonykeeper/harmonykeeper_gunner.png" id="14_ml0x0"]
 [ext_resource type="PackedScene" uid="uid://0xfisg2scece" path="res://scenes/entities/enemies/harmonykeeper/harmonykeeper_rifle_laser.tscn" id="15_4leud"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_attack.gd" id="18_1tp67"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_idle.gd" id="18_ecri3"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_yy7rg"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_fire.gd" id="22_106ep"]
+[ext_resource type="Script" uid="uid://dgxkkwpb7fm0i" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_attack.gd" id="18_1tp67"]
+[ext_resource type="Script" uid="uid://dqkarnmpbwedf" path="res://scenes/entities/enemies/states/raycast_idle.gd" id="18_ecri3"]
+[ext_resource type="Script" uid="uid://cmp2w46h33iam" path="res://scenes/entities/enemies/states/stun.gd" id="18_yhk6r"]
+[ext_resource type="Script" uid="uid://bb77s0y086ual" path="res://scenes/entities/enemies/states/raycast_aggro.gd" id="18_yy7rg"]
+[ext_resource type="Script" uid="uid://bettw0k3jswim" path="res://scenes/entities/enemies/states/knockback.gd" id="19_t36fj"]
+[ext_resource type="Script" uid="uid://cvwqdul2jnk0u" path="res://scenes/entities/enemies/harmonykeeper/states/harmonykeeper_fire.gd" id="22_106ep"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dgpid"]
 radius = 5.0
@@ -574,19 +574,19 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f1ks7"]
 _data = {
-"RESET": SubResource("Animation_jwmmj"),
-"attack_down": SubResource("Animation_v4fmv"),
-"attack_left": SubResource("Animation_e3n6g"),
-"attack_right": SubResource("Animation_csdah"),
-"attack_up": SubResource("Animation_ee8f1"),
-"idle_down": SubResource("Animation_g1dhp"),
-"idle_left": SubResource("Animation_1j0ir"),
-"idle_right": SubResource("Animation_g3c3t"),
-"idle_up": SubResource("Animation_jxk1x"),
-"walk_down": SubResource("Animation_xshpv"),
-"walk_left": SubResource("Animation_8gu34"),
-"walk_right": SubResource("Animation_3f0wj"),
-"walk_up": SubResource("Animation_bcjwq")
+&"RESET": SubResource("Animation_jwmmj"),
+&"attack_down": SubResource("Animation_v4fmv"),
+&"attack_left": SubResource("Animation_e3n6g"),
+&"attack_right": SubResource("Animation_csdah"),
+&"attack_up": SubResource("Animation_ee8f1"),
+&"idle_down": SubResource("Animation_g1dhp"),
+&"idle_left": SubResource("Animation_1j0ir"),
+&"idle_right": SubResource("Animation_g3c3t"),
+&"idle_up": SubResource("Animation_jxk1x"),
+&"walk_down": SubResource("Animation_xshpv"),
+&"walk_left": SubResource("Animation_8gu34"),
+&"walk_right": SubResource("Animation_3f0wj"),
+&"walk_up": SubResource("Animation_bcjwq")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_e5l4d"]

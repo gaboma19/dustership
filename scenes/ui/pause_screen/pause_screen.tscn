@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://xqqnvyt8o0jd"]
 
-[ext_resource type="Script" path="res://scenes/ui/pause_screen/pause_screen.gd" id="1_ldjwh"]
+[ext_resource type="Script" uid="uid://pmv82qkn86qk" path="res://scenes/ui/pause_screen/pause_screen.gd" id="1_ldjwh"]
 [ext_resource type="Texture2D" uid="uid://ct44o5nxyriny" path="res://assets/ui/pause_screen/tile_0653.png" id="2_om4p2"]
 [ext_resource type="Texture2D" uid="uid://dw5ilbqvufmp6" path="res://assets/ui/pause_screen/LeftArrow2.png" id="3_flgws"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="3_k4abv"]
@@ -45,8 +45,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_m6p1w"]
 _data = {
-"RESET": SubResource("Animation_3yyx6"),
-"default": SubResource("Animation_g5i6e")
+&"RESET": SubResource("Animation_3yyx6"),
+&"default": SubResource("Animation_g5i6e")
 }
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4fevp"]

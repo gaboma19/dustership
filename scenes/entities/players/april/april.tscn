@@ -1,6 +1,6 @@
-[gd_scene load_steps=89 format=3 uid="uid://dsqd5wjpj1yo6"]
+[gd_scene load_steps=118 format=3 uid="uid://dsqd5wjpj1yo6"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
+[ext_resource type="Script" uid="uid://byk214wbsimxv" path="res://scenes/entities/players/player.gd" id="1_04g6c"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_d0ecx"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="3_bqnmk"]
 [ext_resource type="PackedScene" uid="uid://b66sb8wx8wfj5" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.tscn" id="3_ct3kq"]
@@ -9,13 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://dqf80armfmggu" path="res://assets/april/april.png" id="5_8kdh2"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_nb6t5"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="6_pymer"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/follow.gd" id="7_6a30f"]
+[ext_resource type="Script" uid="uid://rp8e1t252v0f" path="res://scenes/entities/players/states/follow.gd" id="7_6a30f"]
 [ext_resource type="AudioStream" uid="uid://cdiori6y6gq6j" path="res://assets/sfx/sword_swipe/sword_swipe_3.wav" id="7_6bfai"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
-[ext_resource type="Script" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
+[ext_resource type="Script" uid="uid://5h6yfv54hy6f" path="res://scenes/entities/players/states/active.gd" id="8_riylq"]
+[ext_resource type="Script" uid="uid://dkgwotjre6fau" path="res://scenes/entities/players/states/hold.gd" id="9_j6hc8"]
+[ext_resource type="Script" uid="uid://bktc1s28o2unr" path="res://scenes/entities/players/april/april_animation_tree.gd" id="9_wh658"]
+[ext_resource type="Script" uid="uid://bwyegeym8b8ra" path="res://scenes/entities/players/april/april_attack.gd" id="10_fhscj"]
 [ext_resource type="AudioStream" uid="uid://dt1wh6km1kvg0" path="res://assets/sfx/sword_swipe/sword_swipe_6.wav" id="10_l8nc2"]
-[ext_resource type="Script" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
+[ext_resource type="Script" uid="uid://d31tqgtngilb" path="res://scenes/entities/players/states/dodge.gd" id="14_lcih4"]
 [ext_resource type="PackedScene" uid="uid://im4v8oo4ohx0" path="res://scenes/components/dust_particles/dust_particles.tscn" id="17_gpa1o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iq7hs"]
@@ -30,7 +31,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -42,7 +43,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -54,7 +55,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -66,10 +67,106 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown2:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown3:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft2:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft3:disabled")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight2:disabled")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight3:disabled")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp2:disabled")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp3:disabled")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -83,7 +180,7 @@ step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -161,7 +258,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -212,6 +309,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [39, 40, 41, 42, 43, 44]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_fv1f1"]
 length = 0.6
@@ -240,6 +363,46 @@ tracks/1/keys = {
 "update": 1,
 "values": [45, 46, 47, 48, 49, 50]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_w631k"]
 length = 1.8
@@ -247,7 +410,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -326,7 +489,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -377,6 +540,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [57, 58, 59, 60, 61, 62]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_y8ovg"]
 length = 0.6
@@ -405,6 +594,46 @@ tracks/1/keys = {
 "update": 1,
 "values": [63, 64, 65, 66, 67, 68]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_6hj57"]
 length = 1.8
@@ -412,7 +641,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -490,7 +719,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -541,6 +770,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [75, 76, 77, 78, 79, 80]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_qld68"]
 length = 0.6
@@ -569,6 +824,46 @@ tracks/1/keys = {
 "update": 1,
 "values": [81, 82, 83, 84, 85, 86]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_504gn"]
 length = 1.8
@@ -576,7 +871,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -654,7 +949,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -705,6 +1000,32 @@ tracks/1/keys = {
 "update": 1,
 "values": [93, 94, 95, 96, 97, 98]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp2:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2yiql"]
 length = 0.6
@@ -732,6 +1053,46 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [99, 100, 101, 102, 103, 104]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp3:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StateMachine/Attack")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"nudge"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AnimationTree")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_number_attacks"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_6a7qs"]
@@ -880,7 +1241,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -892,7 +1253,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -904,7 +1265,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -916,7 +1277,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -956,7 +1317,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -968,7 +1329,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -980,7 +1341,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -992,7 +1353,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1032,7 +1393,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1044,7 +1405,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1056,7 +1417,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1068,7 +1429,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1108,7 +1469,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1120,7 +1481,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1132,7 +1493,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1144,7 +1505,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1380,7 +1741,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1392,7 +1753,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1404,7 +1765,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1416,7 +1777,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1484,7 +1845,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1496,7 +1857,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1508,7 +1869,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1520,7 +1881,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1588,7 +1949,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1600,7 +1961,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1612,7 +1973,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1624,7 +1985,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1692,7 +2053,7 @@ loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown:disabled")
+tracks/0/path = NodePath("Hitboxes/HitboxComponentDown/CollisionPolygon2DDown1:disabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1704,7 +2065,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft:disabled")
+tracks/1/path = NodePath("Hitboxes/HitboxComponentLeft/CollisionPolygon2DLeft1:disabled")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1716,7 +2077,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight:disabled")
+tracks/2/path = NodePath("Hitboxes/HitboxComponentRight/CollisionPolygon2DRight1:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1728,7 +2089,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp:disabled")
+tracks/3/path = NodePath("Hitboxes/HitboxComponentUp/CollisionPolygon2DUp1:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -1792,40 +2153,40 @@ tracks/7/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_mos2h"]
 _data = {
-"RESET": SubResource("Animation_n6c6g"),
-"attack down": SubResource("Animation_pa7ik"),
-"attack down 1": SubResource("Animation_f7cfy"),
-"attack down 2": SubResource("Animation_3tjqu"),
-"attack down 3": SubResource("Animation_fv1f1"),
-"attack left": SubResource("Animation_w631k"),
-"attack left 1": SubResource("Animation_1c80a"),
-"attack left 2": SubResource("Animation_k8cd3"),
-"attack left 3": SubResource("Animation_y8ovg"),
-"attack right": SubResource("Animation_6hj57"),
-"attack right 1": SubResource("Animation_tdd6f"),
-"attack right 2": SubResource("Animation_ywdop"),
-"attack right 3": SubResource("Animation_qld68"),
-"attack up": SubResource("Animation_504gn"),
-"attack up 1": SubResource("Animation_e0f1x"),
-"attack up 2": SubResource("Animation_7itng"),
-"attack up 3": SubResource("Animation_2yiql"),
-"defeated": SubResource("Animation_6a7qs"),
-"hurt down": SubResource("Animation_ecqs5"),
-"hurt left": SubResource("Animation_4g2om"),
-"hurt right": SubResource("Animation_2not0"),
-"hurt up": SubResource("Animation_rxaxv"),
-"idle down": SubResource("Animation_1hco7"),
-"idle left": SubResource("Animation_hlhe4"),
-"idle right": SubResource("Animation_w4ole"),
-"idle up": SubResource("Animation_n82wu"),
-"roll down": SubResource("Animation_4oogx"),
-"roll left": SubResource("Animation_w6nxe"),
-"roll right": SubResource("Animation_4vv2i"),
-"roll up": SubResource("Animation_xol0i"),
-"walk down": SubResource("Animation_yid2i"),
-"walk left": SubResource("Animation_s0njq"),
-"walk right": SubResource("Animation_jxfrc"),
-"walk up": SubResource("Animation_sql1u")
+&"RESET": SubResource("Animation_n6c6g"),
+&"attack down": SubResource("Animation_pa7ik"),
+&"attack down 1": SubResource("Animation_f7cfy"),
+&"attack down 2": SubResource("Animation_3tjqu"),
+&"attack down 3": SubResource("Animation_fv1f1"),
+&"attack left": SubResource("Animation_w631k"),
+&"attack left 1": SubResource("Animation_1c80a"),
+&"attack left 2": SubResource("Animation_k8cd3"),
+&"attack left 3": SubResource("Animation_y8ovg"),
+&"attack right": SubResource("Animation_6hj57"),
+&"attack right 1": SubResource("Animation_tdd6f"),
+&"attack right 2": SubResource("Animation_ywdop"),
+&"attack right 3": SubResource("Animation_qld68"),
+&"attack up": SubResource("Animation_504gn"),
+&"attack up 1": SubResource("Animation_e0f1x"),
+&"attack up 2": SubResource("Animation_7itng"),
+&"attack up 3": SubResource("Animation_2yiql"),
+&"defeated": SubResource("Animation_6a7qs"),
+&"hurt down": SubResource("Animation_ecqs5"),
+&"hurt left": SubResource("Animation_4g2om"),
+&"hurt right": SubResource("Animation_2not0"),
+&"hurt up": SubResource("Animation_rxaxv"),
+&"idle down": SubResource("Animation_1hco7"),
+&"idle left": SubResource("Animation_hlhe4"),
+&"idle right": SubResource("Animation_w4ole"),
+&"idle up": SubResource("Animation_n82wu"),
+&"roll down": SubResource("Animation_4oogx"),
+&"roll left": SubResource("Animation_w6nxe"),
+&"roll right": SubResource("Animation_4vv2i"),
+&"roll up": SubResource("Animation_xol0i"),
+&"walk down": SubResource("Animation_yid2i"),
+&"walk left": SubResource("Animation_s0njq"),
+&"walk right": SubResource("Animation_jxfrc"),
+&"walk up": SubResource("Animation_sql1u")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_oosg8"]
@@ -1853,6 +2214,59 @@ min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
 blend_mode = 1
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_s4dhe"]
+animation = &"attack down 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_7r5tk"]
+animation = &"attack up 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dq34k"]
+animation = &"attack left 2"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_04uik"]
+animation = &"attack right 2"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_1d3f7"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_s4dhe")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_7r5tk")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_dq34k")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_04uik")
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_uqiko"]
+animation = &"attack down 3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vga3x"]
+animation = &"attack up 3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d075a"]
+animation = &"attack left 3"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6b7gj"]
+animation = &"attack right 3"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_58001"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_uqiko")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_vga3x")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_d075a")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_6b7gj")
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_0b056"]
+animation = &"defeated"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ibmfa"]
 animation = &"roll down"
 
@@ -1873,6 +2287,31 @@ blend_point_1/pos = Vector2(0, -1.1)
 blend_point_2/node = SubResource("AnimationNodeAnimation_5jv7u")
 blend_point_2/pos = Vector2(-1, 0)
 blend_point_3/node = SubResource("AnimationNodeAnimation_cgp3i")
+blend_point_3/pos = Vector2(1, 0)
+min_space = Vector2(-1, -1.1)
+max_space = Vector2(1, 1.1)
+blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rfstn"]
+animation = &"hurt down"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_d13hc"]
+animation = &"hurt up"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_n3k8n"]
+animation = &"hurt left"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_fwv13"]
+animation = &"hurt right"
+
+[sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_mkdhq"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_rfstn")
+blend_point_0/pos = Vector2(0, 1.1)
+blend_point_1/node = SubResource("AnimationNodeAnimation_d13hc")
+blend_point_1/pos = Vector2(0, -1.1)
+blend_point_2/node = SubResource("AnimationNodeAnimation_n3k8n")
+blend_point_2/pos = Vector2(-1, 0)
+blend_point_3/node = SubResource("AnimationNodeAnimation_fwv13")
 blend_point_3/pos = Vector2(1, 0)
 min_space = Vector2(-1, -1.1)
 max_space = Vector2(1, 1.1)
@@ -1947,6 +2386,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ijq14"]
 advance_mode = 2
 advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2pd6w"]
 advance_mode = 2
@@ -1955,6 +2395,7 @@ advance_condition = &"is_idle"
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2nrtd"]
 advance_mode = 2
 advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 0"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djiu5"]
 advance_mode = 2
@@ -1976,17 +2417,69 @@ advance_condition = &"is_dodging"
 advance_mode = 2
 advance_condition = &"is_moving"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_be5n3"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_vskki"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bf0al"]
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uhn6w"]
+advance_mode = 2
+advance_condition = &"is_idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_phu06"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_apcsk"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_034sp"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_c10mg"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_2wvj1"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mbtex"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 1"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_6css3"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 2"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0qh64"]
+advance_mode = 2
+advance_condition = &"is_attacking"
+advance_expression = "number_attacks == 2"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dps2l"]
-states/Attack/node = SubResource("AnimationNodeBlendSpace2D_jjqlp")
-states/Attack/position = Vector2(489, 247)
+"states/Attack 1/node" = SubResource("AnimationNodeBlendSpace2D_jjqlp")
+"states/Attack 1/position" = Vector2(583, 202)
+"states/Attack 2/node" = SubResource("AnimationNodeBlendSpace2D_1d3f7")
+"states/Attack 2/position" = Vector2(583, 294)
+"states/Attack 3/node" = SubResource("AnimationNodeBlendSpace2D_58001")
+"states/Attack 3/position" = Vector2(583, 397)
+states/Defeated/node = SubResource("AnimationNodeAnimation_0b056")
+states/Defeated/position = Vector2(379, 294)
 states/Dodge/node = SubResource("AnimationNodeBlendSpace2D_r5eah")
-states/Dodge/position = Vector2(489, -49)
+states/Dodge/position = Vector2(583, -102)
+states/Hurt/node = SubResource("AnimationNodeBlendSpace2D_mkdhq")
+states/Hurt/position = Vector2(379, -102)
 states/Idle/node = SubResource("AnimationNodeBlendSpace2D_0y31l")
 states/Idle/position = Vector2(379, 100)
 states/Move/node = SubResource("AnimationNodeBlendSpace2D_m0gv6")
-states/Move/position = Vector2(599, 100)
-transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3")]
-graph_offset = Vector2(14, 78)
+states/Move/position = Vector2(799, 100)
+transitions = ["Idle", "Move", SubResource("AnimationNodeStateMachineTransition_77yd1"), "Move", "Idle", SubResource("AnimationNodeStateMachineTransition_2mxql"), "Start", "Idle", SubResource("AnimationNodeStateMachineTransition_7hed3"), "Idle", "Attack 1", SubResource("AnimationNodeStateMachineTransition_ijq14"), "Attack 1", "Idle", SubResource("AnimationNodeStateMachineTransition_2pd6w"), "Move", "Attack 1", SubResource("AnimationNodeStateMachineTransition_2nrtd"), "Attack 1", "Move", SubResource("AnimationNodeStateMachineTransition_djiu5"), "Idle", "Dodge", SubResource("AnimationNodeStateMachineTransition_c3yod"), "Dodge", "Idle", SubResource("AnimationNodeStateMachineTransition_hd77d"), "Move", "Dodge", SubResource("AnimationNodeStateMachineTransition_r2g64"), "Dodge", "Move", SubResource("AnimationNodeStateMachineTransition_ui5e3"), "Attack 2", "Move", SubResource("AnimationNodeStateMachineTransition_be5n3"), "Attack 2", "Idle", SubResource("AnimationNodeStateMachineTransition_vskki"), "Attack 3", "Move", SubResource("AnimationNodeStateMachineTransition_bf0al"), "Attack 3", "Idle", SubResource("AnimationNodeStateMachineTransition_uhn6w"), "Idle", "Hurt", SubResource("AnimationNodeStateMachineTransition_phu06"), "Idle", "Defeated", SubResource("AnimationNodeStateMachineTransition_apcsk"), "Hurt", "Idle", SubResource("AnimationNodeStateMachineTransition_034sp"), "Defeated", "Idle", SubResource("AnimationNodeStateMachineTransition_c10mg"), "Idle", "Attack 2", SubResource("AnimationNodeStateMachineTransition_2wvj1"), "Move", "Attack 2", SubResource("AnimationNodeStateMachineTransition_mbtex"), "Idle", "Attack 3", SubResource("AnimationNodeStateMachineTransition_6css3"), "Move", "Attack 3", SubResource("AnimationNodeStateMachineTransition_0qh64")]
+graph_offset = Vector2(91, 92)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pbin4"]
 radius = 4.0
@@ -2021,40 +2514,91 @@ shape = SubResource("CapsuleShape2D_rhy7w")
 [node name="Hitboxes" type="Node2D" parent="."]
 
 [node name="HitboxComponentDown" parent="Hitboxes" instance=ExtResource("3_bqnmk")]
-visible = false
 damage = 10
 
-[node name="CollisionPolygon2DDown" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentDown"]
-polygon = PackedVector2Array(-21, -1, -9, -3, -8, 1, -7, 4, -5, 6, 1, 6, 4, 5, 6, 4, 7, 3, 8, 2, 8, -1, 7, -2, 9, -4, 10.8027, -2.79819, 13, -2, 15, -1, 17, 0, 18, 2, 18, 9, 17, 10, 16, 12, 15, 13, 14, 14, 12, 15, 11, 16, 9, 17, 7, 18, -8, 18, -10, 17, -12, 16, -13, 15, -14, 14, -15, 13, -16, 12, -17, 11, -18, 10, -19, 9, -20, 8, -21, 5)
+[node name="CollisionPolygon2DDown1" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentDown"]
+visible = false
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-21, -1, -9, -3, 9, -4, 10.8027, -2.79819, 13, -2, 15, -1, 17, 0, 18, 2, 18, 9, 17, 10, 16, 12, 15, 13, 14, 14, 12, 15, 11, 16, 9, 17, 7, 18, -8, 18, -10, 17, -12, 16, -13, 15, -14, 14, -15, 13, -16, 12, -17, 11, -18, 10, -19, 9, -20, 8, -21, 5)
+disabled = true
+
+[node name="CollisionPolygon2DDown2" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentDown"]
+visible = false
+polygon = PackedVector2Array(20, -3, 20, 0, 19, 3, 18, 6, 17, 8, 16, 10, 11, 15, 9, 16, -8, 16, -12, 14, -15, 12, -17, 10, -19, 7, -19, 0, -18, -2, -12, -5, -10, -6, -9, -6, -8, -5, 7, -3)
+disabled = true
+
+[node name="CollisionPolygon2DDown3" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentDown"]
+visible = false
+polygon = PackedVector2Array(-9, 1, -11, 4, -11, 5, -10, 10, -5, 16, -1, 24, 0, 26, 1, 25, 2, 22, 5, 16, 10, 10, 11, 5, 11, 4, 9, 1, 0, -9)
 disabled = true
 
 [node name="HitboxComponentLeft" parent="Hitboxes" instance=ExtResource("3_bqnmk")]
-visible = false
 damage = 10
 
-[node name="CollisionPolygon2DLeft" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentLeft"]
-polygon = PackedVector2Array(8, -14, 8, -11, 7, -6, 6, -1, 5, 3, 4, 5, 3, 7, -4, 14, -12, 14, -17, 9, -18, 7, -19, 6, -20, 4, -21, 3, -22, 1, -22, -9, -21, -12, -20, -14, -19, -16, -16, -19, -15, -21, -11, -25, -9, -26, -8, -26, -7, -25, -5, -16, -5, -14, -10, -9, -10, -2, -8, 0, -3, 0, 1, -4, 2, -6, 3, -8, 4, -9, 5, -11, 6, -13, 7, -14)
+[node name="CollisionPolygon2DLeft1" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentLeft"]
+visible = false
+position = Vector2(0, -1)
+polygon = PackedVector2Array(8, -14, 8, -11, 7, -6, 6, -1, 5, 3, 4, 5, 3, 7, -4, 14, -12, 14, -17, 9, -18, 7, -19, 6, -20, 4, -21, 3, -22, 1, -22, -9, -21, -12, -20, -14, -19, -16, -16, -19, -15, -21, -11, -25, -9, -26, -8, -26, -7, -25, -5, -16, -5, -14, 3, -8, 4, -9, 5, -11, 6, -13, 7, -14)
+disabled = true
+
+[node name="CollisionPolygon2DLeft2" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentLeft"]
+visible = false
+polygon = PackedVector2Array(5, -16, 2, -19, 0, -20, -10, -20, -14, -18, -20, -12, -22, -8, -22, -1, -21, 2, -16, 7, -14, 8, -13, 9, -9, 11, 4, 11, 6, 10, 9, 9, 10, 7, 12, 5, 13, 3, 14, 2, 14, -3, 13, -4, 3, -4, -1, -11, 3, -13, 5, -15)
+disabled = true
+
+[node name="CollisionPolygon2DLeft3" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentLeft"]
+visible = false
+position = Vector2(-7, -4)
+rotation = 1.5708
+polygon = PackedVector2Array(-9, 1, -11, 4, -11, 5, -10, 10, -5, 16, -1, 24, 0, 26, 1, 25, 2, 22, 5, 16, 10, 10, 11, 5, 11, 4, 9, 1, 0, -9)
 disabled = true
 
 [node name="HitboxComponentRight" parent="Hitboxes" instance=ExtResource("3_bqnmk")]
-visible = false
 damage = 10
 
-[node name="CollisionPolygon2DRight" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentRight"]
-polygon = PackedVector2Array(-1, -13, -2, -15, -2, -17, 2, -21, 12, -21, 18, -18, 21, -15, 22, -13, 23, -10, 23, 0, 22, 2, 21, 3, 20, 5, 19, 6, 18, 8, 14, 12, 12, 12, 12, 13, 3, 14, -2, 14, -5, 13, -5, 10, -4, 8, -3, 5, -1, 1, 1, 1, 7, 1, 11, -3, 11, -10, 7, -14, 2, -14, 1, -13)
+[node name="CollisionPolygon2DRight1" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentRight"]
+visible = false
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-1, -13, -2, -15, -2, -17, 2, -21, 12, -21, 18, -18, 21, -15, 22, -13, 23, -10, 23, 0, 22, 2, 21, 3, 20, 5, 19, 6, 18, 8, 14, 12, 12, 13, 3, 14, -2, 14, -5, 13, -5, 10, -4, 8, -3, 5, -1, 1, 1, 1, 1, -13)
+disabled = true
+
+[node name="CollisionPolygon2DRight2" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentRight"]
+visible = false
+polygon = PackedVector2Array(6, -16, 6, -18, 7, -23, 8, -27, 9, -28, 10, -28, 12, -27, 16, -23, 17, -21, 20, -18, 21, -16, 22, -14, 23, -11, 23, -1, 22, 1, 20, 4, 18, 7, 13, 12, 5, 12, -2, 5, -4, 1, -5, -3, -6, -8, -7, -13, -7, -16, -6, -16, -5, -15, -4, -13, -2, -10, -1, -8)
+disabled = true
+
+[node name="CollisionPolygon2DRight3" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentRight"]
+visible = false
+position = Vector2(9, -5)
+rotation = -1.5708
+polygon = PackedVector2Array(-9, 1, -11, 4, -11, 5, -10, 10, -5, 16, -1, 24, 0, 26, 1, 25, 2, 22, 5, 16, 10, 10, 11, 5, 11, 4, 9, 1, 0, -9)
 disabled = true
 
 [node name="HitboxComponentUp" parent="Hitboxes" instance=ExtResource("3_bqnmk")]
-visible = false
 damage = 10
 
-[node name="CollisionPolygon2DUp" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentUp"]
-polygon = PackedVector2Array(-7, -9, -8, -8, -9, -8, -17, -12, -18, -14, -18, -21, -17, -22, -16, -24, -14, -26, -12, -27, -11, -28, -7, -30, 8, -30, 12, -28, 20, -20, 21, -17, 21, -11, 20, -10, 14, -9, 10, -9, 8, -13, 7, -16, 5, -18, -1, -18, -4, -17, -6, -16, -8, -14, -8, -11, -7, -10)
+[node name="CollisionPolygon2DUp1" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentUp"]
+visible = false
+position = Vector2(0, -1)
+polygon = PackedVector2Array(-7, -9, -8, -8, -9, -8, -17, -12, -18, -14, -18, -21, -17, -22, -16, -24, -14, -26, -12, -27, -11, -28, -7, -30, 8, -30, 12, -28, 20, -20, 21, -17, 21, -11, 20, -10, 14, -9, 10, -9)
+disabled = true
+
+[node name="CollisionPolygon2DUp2" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentUp"]
+visible = false
+polygon = PackedVector2Array(-8, -12, 4, -11, 8, -11, 13, -12, 18, -17, 18, -23, 11, -30, 9, -31, -8, -31, -12, -29, -20, -21, -21, -19, -21, -16, -10, -12)
+disabled = true
+
+[node name="CollisionPolygon2DUp3" type="CollisionPolygon2D" parent="Hitboxes/HitboxComponentUp"]
+visible = false
+position = Vector2(0, -16)
+rotation = 3.14159
+polygon = PackedVector2Array(-9, 1, -11, 4, -11, 5, -10, 10, -5, 16, -1, 24, 0, 26, 1, 25, 2, 22, 5, 16, 10, 10, 11, 5, 11, 4, 9, 1, 0, -9)
 disabled = true
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.25098)
-scale = Vector2(0.75, 0.75)
+position = Vector2(0, -0.520833)
+scale = Vector2(0.75, 0.958333)
 texture = ExtResource("4_8l38k")
 offset = Vector2(0, 1)
 
@@ -2065,6 +2609,7 @@ texture = ExtResource("5_8kdh2")
 offset = Vector2(-0.5, -8)
 hframes = 12
 vframes = 11
+frame = 99
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -2101,10 +2646,14 @@ parameters/conditions/is_attacking = false
 parameters/conditions/is_dodging = false
 parameters/conditions/is_idle = true
 parameters/conditions/is_moving = false
-parameters/Attack/blend_position = Vector2(0.00202024, 0.469283)
+"parameters/Attack 1/blend_position" = Vector2(0, 0.695318)
+"parameters/Attack 2/blend_position" = Vector2(0.00193799, 0.522319)
+"parameters/Attack 3/blend_position" = Vector2(-0.00387597, 0.551203)
 parameters/Dodge/blend_position = Vector2(0, 0)
+parameters/Hurt/blend_position = Vector2(0.420543, 0.556086)
 parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 1)
+script = ExtResource("9_wh658")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
@@ -2114,6 +2663,11 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pbin4")
 
 [node name="AttackTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.6
+one_shot = true
+
+[node name="AttackComboTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 wait_time = 0.6
 one_shot = true

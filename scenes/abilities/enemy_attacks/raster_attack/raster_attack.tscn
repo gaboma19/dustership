@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bl7suko51ux4b"]
 
-[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.gd" id="1_kny5v"]
+[ext_resource type="Script" uid="uid://bnslm1gvb1x4t" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.gd" id="1_kny5v"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="2_41xe4"]
 [ext_resource type="AudioStream" uid="uid://8vtjib7b1cw8" path="res://assets/sfx/raster_attack.wav" id="3_6ri3c"]
 

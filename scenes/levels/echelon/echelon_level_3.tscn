@@ -1,6 +1,6 @@
 [gd_scene load_steps=57 format=3 uid="uid://cxkyi8l5cv1hk"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_h1x7x"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_h1x7x"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_31n7q"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_b7tb1"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_i45ol"]
@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="10_wv0wa"]
 [ext_resource type="PackedScene" uid="uid://ybu3bew6102p" path="res://scenes/entities/doodads/tavern_exterior.tscn" id="11_cx0oo"]
 [ext_resource type="PackedScene" uid="uid://bd6hx2jfaj84n" path="res://scenes/level_transitions/level_transition_interaction.tscn" id="11_iyukd"]
-[ext_resource type="Script" path="res://scenes/entities/echelon_door/battery_door.gd" id="13_n8y8r"]
+[ext_resource type="Script" uid="uid://o4nujv3or6cu" path="res://scenes/entities/echelon_door/battery_door.gd" id="13_n8y8r"]
 [ext_resource type="PackedScene" uid="uid://blhjdfjvetixm" path="res://scenes/entities/echelon_button/echelon_button.tscn" id="14_ry47p"]
 [ext_resource type="PackedScene" uid="uid://doclhhyd3rpub" path="res://scenes/tile_maps/areas/elevation_transition_area/elevation_transition_area.tscn" id="16_15iss"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="16_flpnf"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bqp027bkxbbdq"]
 
-[ext_resource type="Script" path="res://scenes/components/death_component/death_component.gd" id="1_sm3xe"]
+[ext_resource type="Script" uid="uid://dmccahvsknt8c" path="res://scenes/components/death_component/death_component.gd" id="1_sm3xe"]
 [ext_resource type="Material" uid="uid://c3y1oga6g15pc" path="res://resources/materials/death_component_material.tres" id="2_h4ab1"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_howyd"]
 
@@ -50,8 +50,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4bf1o"]
 _data = {
-"RESET": SubResource("Animation_0vwux"),
-"default": SubResource("Animation_jbi63")
+&"RESET": SubResource("Animation_0vwux"),
+&"default": SubResource("Animation_jbi63")
 }
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_5tcvf"]

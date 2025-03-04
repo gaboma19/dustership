@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c7t8vbrvflhqd"]
 
-[ext_resource type="Script" path="res://scenes/components/velocity_component/velocity_component.gd" id="1_bi4ls"]
+[ext_resource type="Script" uid="uid://nb25p55gsbgl" path="res://scenes/components/velocity_component/velocity_component.gd" id="1_bi4ls"]
 
 [node name="VelocityComponent" type="Node"]
 script = ExtResource("1_bi4ls")

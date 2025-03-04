@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c2r63txfjknrf"]
+[gd_scene load_steps=3 format=3 uid="uid://c2r63txfjknrf"]
 
-[ext_resource type="Script" path="res://scenes/ui/inventory/inventory_button.gd" id="1_sqxxi"]
+[ext_resource type="Script" uid="uid://degwmjpd2beqw" path="res://scenes/ui/inventory/inventory_button.gd" id="1_sqxxi"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_a1cps"]
 
 [node name="InventoryButton" type="Button"]
 custom_minimum_size = Vector2(48, 48)
@@ -27,6 +29,23 @@ modulate = Color(1, 1, 1, 0.376471)
 show_behind_parent = true
 custom_minimum_size = Vector2(48, 48)
 layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+theme_type_variation = &"PanelFlat"
+
+[node name="Control" type="Control" parent="."]
+visible = false
+show_behind_parent = true
+anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme_type_variation = &"PanelFlat"
+scale = Vector2(1, 0.5)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 64.0
+offset_bottom = 48.0
+rotation = 0.785398
+scale = Vector2(0.94, 0.94)
+texture = SubResource("PlaceholderTexture2D_a1cps")

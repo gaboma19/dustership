@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dnbgplt548dxq"]
 
 [ext_resource type="Texture2D" uid="uid://wgvkfebydk2y" path="res://assets/cube/cube_shadow.png" id="1_lcqcb"]
-[ext_resource type="Script" path="res://scenes/entities/cube/shadow_sprite.gd" id="2_oc4cw"]
+[ext_resource type="Script" uid="uid://bauqbm5ea5db1" path="res://scenes/entities/cube/shadow_sprite.gd" id="2_oc4cw"]
 
 [node name="ShadowSprite" type="Sprite2D"]
 modulate = Color(1, 1, 1, 0.25098)

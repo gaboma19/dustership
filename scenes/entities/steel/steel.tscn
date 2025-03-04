@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://b42vxidw5eb3m"]
 
-[ext_resource type="Script" path="res://scenes/entities/steel/steel.gd" id="1_djhec"]
+[ext_resource type="Script" uid="uid://cbwb7nvjltwjn" path="res://scenes/entities/steel/steel.gd" id="1_djhec"]
 [ext_resource type="Texture2D" uid="uid://b314xfwo2enj5" path="res://assets/steel/steel.png" id="2_0qc3i"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="3_xgt0u"]
 [ext_resource type="AudioStream" uid="uid://bp8rcdnddnmkf" path="res://assets/sfx/steel_pickup.wav" id="4_ot78h"]
@@ -129,9 +129,9 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_geyvy"]
 _data = {
-"RESET": SubResource("Animation_evck6"),
-"bounce": SubResource("Animation_0vou4"),
-"spin": SubResource("Animation_37t5e")
+&"RESET": SubResource("Animation_evck6"),
+&"bounce": SubResource("Animation_0vou4"),
+&"spin": SubResource("Animation_37t5e")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1k4bw"]

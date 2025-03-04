@@ -36,8 +36,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nt2y4"]
 _data = {
-"RESET": SubResource("Animation_kf57q"),
-"default": SubResource("Animation_y8ie4")
+&"RESET": SubResource("Animation_kf57q"),
+&"default": SubResource("Animation_y8ie4")
 }
 
 [node name="LightRay" type="Sprite2D"]

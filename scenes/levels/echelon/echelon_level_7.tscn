@@ -1,12 +1,12 @@
 [gd_scene load_steps=59 format=3 uid="uid://d0yym7kalvlid"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_puqqw"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_puqqw"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_46e5u"]
 [ext_resource type="PackedScene" uid="uid://bey7edubynppe" path="res://scenes/tile_maps/echelon/echelon_tile_map.tscn" id="3_1ua20"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="3_ntcod"]
 [ext_resource type="TileSet" uid="uid://c1unmjqcqtjgr" path="res://scenes/tile_maps/echelon/echelon_tile_set_1.tres" id="4_4r8n6"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="4_dffsp"]
-[ext_resource type="Script" path="res://scenes/levels/echelon/echelon_level_7_events.gd" id="5_er4xp"]
+[ext_resource type="Script" uid="uid://iifr8eve5qyy" path="res://scenes/levels/echelon/echelon_level_7_events.gd" id="5_er4xp"]
 [ext_resource type="TileSet" uid="uid://bmulk8loxkv4x" path="res://scenes/tile_maps/echelon/shadow_tile_set.tres" id="5_tgq7m"]
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="5_uuyj5"]
 [ext_resource type="PackedScene" uid="uid://cp1sgx6p5qtyh" path="res://scenes/tile_maps/echelon/echelon_decoration_tiles.tscn" id="6_fcdc0"]
@@ -19,11 +19,11 @@
 [ext_resource type="Resource" uid="uid://34ccf2iojcia" path="res://resources/inventory_item/items/old/health_tonic.tres" id="11_axopf"]
 [ext_resource type="PackedScene" uid="uid://jan8t6wjwwrs" path="res://scenes/entities/battery/battery.tscn" id="12_518d7"]
 [ext_resource type="PackedScene" uid="uid://lm4n2658jmcd" path="res://scenes/entities/echelon_door/echelon_door.tscn" id="16_pqvt8"]
-[ext_resource type="Script" path="res://scenes/entities/echelon_door/battery_door.gd" id="17_drlg2"]
+[ext_resource type="Script" uid="uid://o4nujv3or6cu" path="res://scenes/entities/echelon_door/battery_door.gd" id="17_drlg2"]
 [ext_resource type="PackedScene" uid="uid://doclhhyd3rpub" path="res://scenes/tile_maps/areas/elevation_transition_area/elevation_transition_area.tscn" id="17_swi6v"]
 [ext_resource type="PackedScene" uid="uid://blhjdfjvetixm" path="res://scenes/entities/echelon_button/echelon_button.tscn" id="18_2725m"]
 [ext_resource type="PackedScene" uid="uid://bh0460g3b4757" path="res://scenes/tile_maps/areas/elevation_velocity_bias_area/elevation_velocity_bias_area.tscn" id="18_sl5eh"]
-[ext_resource type="Script" path="res://scenes/entities/echelon_door/door.gd" id="20_0yyoj"]
+[ext_resource type="Script" uid="uid://cmvgvwfjrl5g0" path="res://scenes/entities/echelon_door/door.gd" id="20_0yyoj"]
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="21_w8h0v"]
 [ext_resource type="PackedScene" uid="uid://3xehsl854ugm" path="res://scenes/entities/enemies/raster/raster.tscn" id="22_8o7iw"]
 [ext_resource type="PackedScene" uid="uid://46gibj1h8o7k" path="res://scenes/entities/enemies/saguaro/saguaro.tscn" id="24_qo7ps"]
@@ -83,9 +83,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_abv8s"]
 _data = {
-"RESET": SubResource("Animation_12owp"),
-"call_end_move": SubResource("Animation_hmnn0"),
-"move": SubResource("Animation_4250v")
+&"RESET": SubResource("Animation_12owp"),
+&"call_end_move": SubResource("Animation_hmnn0"),
+&"move": SubResource("Animation_4250v")
 }
 
 [sub_resource type="Animation" id="Animation_2kemc"]
@@ -138,9 +138,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fggsc"]
 _data = {
-"RESET": SubResource("Animation_2kemc"),
-"call_end_move": SubResource("Animation_bt5o1"),
-"move": SubResource("Animation_t5uob")
+&"RESET": SubResource("Animation_2kemc"),
+&"call_end_move": SubResource("Animation_bt5o1"),
+&"move": SubResource("Animation_t5uob")
 }
 
 [sub_resource type="Animation" id="Animation_p7vjs"]
@@ -193,9 +193,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_f41uy"]
 _data = {
-"RESET": SubResource("Animation_p7vjs"),
-"call_end_move": SubResource("Animation_u5mm2"),
-"move": SubResource("Animation_jpa4k")
+&"RESET": SubResource("Animation_p7vjs"),
+&"call_end_move": SubResource("Animation_u5mm2"),
+&"move": SubResource("Animation_jpa4k")
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tyeio"]

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://djywsws3aenwh"]
 
-[ext_resource type="Script" path="res://scenes/autoload/player_variables.gd" id="1_64juq"]
+[ext_resource type="Script" uid="uid://cgts4thn1iwol" path="res://scenes/autoload/player_variables.gd" id="1_64juq"]
 
 [node name="PlayerVariables" type="Node" groups=["persist"]]
 process_mode = 3

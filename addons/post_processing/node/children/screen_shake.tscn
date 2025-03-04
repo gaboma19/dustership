@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://b7k7vdwyhgqpd"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/screen_shake.gdshader" id="1_62rht"]
+[ext_resource type="Shader" uid="uid://bsk5a1sf7djyx" path="res://addons/post_processing/shaders/screen_shake.gdshader" id="1_62rht"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4rxg5"]
 shader = ExtResource("1_62rht")

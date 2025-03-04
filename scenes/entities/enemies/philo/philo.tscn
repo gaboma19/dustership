@@ -1,7 +1,7 @@
 [gd_scene load_steps=80 format=3 uid="uid://ggvy8hstsf8l"]
 
 [ext_resource type="Texture2D" uid="uid://dof77yend8fdb" path="res://assets/philo/philo.png" id="1_7fay8"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
+[ext_resource type="Script" uid="uid://cont1vv6dnx6u" path="res://scenes/entities/enemies/philo/philo.gd" id="1_wrftd"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_2owtl"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="2_t7y50"]
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="2_xgd4y"]
@@ -11,25 +11,25 @@
 [ext_resource type="PackedScene" uid="uid://bqp027bkxbbdq" path="res://scenes/components/death_component/death_component.tscn" id="6_m3bhp"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="6_mnpyb"]
 [ext_resource type="AudioStream" uid="uid://divnxwsojvf1t" path="res://assets/sfx/philo_hit.wav" id="6_w8iiw"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="7_bsmhr"]
+[ext_resource type="Script" uid="uid://q54er3lgrnog" path="res://scenes/entities/enemies/states/idle.gd" id="7_bsmhr"]
 [ext_resource type="PackedScene" uid="uid://cpvfdb3a12pel" path="res://scenes/components/heart_drop_component/heart_drop_component.tscn" id="7_grd2l"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
+[ext_resource type="Script" uid="uid://bnwaqhkmyfpb3" path="res://scenes/entities/enemies/states/aggro.gd" id="8_m7fi4"]
 [ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="8_th7fg"]
 [ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="8_wf58x"]
 [ext_resource type="PackedScene" uid="uid://b4uqeq1xl5adt" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.tscn" id="9_2trgo"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_iypjm"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
+[ext_resource type="Script" uid="uid://c0qmttvk4xpos" path="res://scenes/entities/enemies/states/attack.gd" id="12_8o55k"]
 [ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="13_jhkio"]
-[ext_resource type="Script" path="res://scenes/components/aggro_area/aggro_area.gd" id="14_s4ryk"]
+[ext_resource type="Script" uid="uid://cs6xjtc03ppyb" path="res://scenes/components/aggro_area/aggro_area.gd" id="14_s4ryk"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="15_7iatv"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
+[ext_resource type="Script" uid="uid://ctbp3cystna3d" path="res://scenes/entities/enemies/states/spawn.gd" id="16_gwxir"]
+[ext_resource type="Script" uid="uid://cmp2w46h33iam" path="res://scenes/entities/enemies/states/stun.gd" id="17_m8kwi"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="19_ay36b"]
 [ext_resource type="AudioStream" uid="uid://xju22k0w3p2t" path="res://assets/sfx/spawn.wav" id="20_xjufc"]
-[ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="22_sicge"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/ambush.gd" id="23_d83y3"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/philo/philo_chase.gd" id="24_dks63"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="26_3oeye"]
+[ext_resource type="Script" uid="uid://c7ieim401jhc" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="22_sicge"]
+[ext_resource type="Script" uid="uid://b4w5xn4wwha0" path="res://scenes/entities/enemies/states/ambush.gd" id="23_d83y3"]
+[ext_resource type="Script" uid="uid://c63747dtryb7u" path="res://scenes/entities/enemies/philo/philo_chase.gd" id="24_dks63"]
+[ext_resource type="Script" uid="uid://bettw0k3jswim" path="res://scenes/entities/enemies/states/knockback.gd" id="26_3oeye"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e5krw"]
 radius = 5.0
@@ -463,14 +463,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6ig7"]
 _data = {
-"RESET": SubResource("Animation_hmiyf"),
-"attack": SubResource("Animation_m8k7j"),
-"idle": SubResource("Animation_qugig"),
-"morph": SubResource("Animation_oc6jn"),
-"move": SubResource("Animation_x2s4k"),
-"roll_left": SubResource("Animation_b5uiv"),
-"roll_right": SubResource("Animation_xej8k"),
-"unmorph": SubResource("Animation_l8h0l")
+&"RESET": SubResource("Animation_hmiyf"),
+&"attack": SubResource("Animation_m8k7j"),
+&"idle": SubResource("Animation_qugig"),
+&"morph": SubResource("Animation_oc6jn"),
+&"move": SubResource("Animation_x2s4k"),
+&"roll_left": SubResource("Animation_b5uiv"),
+&"roll_right": SubResource("Animation_xej8k"),
+&"unmorph": SubResource("Animation_l8h0l")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eoy7n"]

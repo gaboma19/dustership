@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://q8472v8awese"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/color_correction.gdshader" id="1_cf4sj"]
+[ext_resource type="Shader" uid="uid://cap15e25dsit4" path="res://addons/post_processing/shaders/color_correction.gdshader" id="1_cf4sj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nmxm8"]
 shader = ExtResource("1_cf4sj")

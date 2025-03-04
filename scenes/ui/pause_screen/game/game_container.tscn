@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://yxjc0jme7xhg"]
 
-[ext_resource type="Script" path="res://scenes/ui/pause_screen/game/game_container.gd" id="1_ef7w6"]
+[ext_resource type="Script" uid="uid://co4j1jg2tf2p4" path="res://scenes/ui/pause_screen/game/game_container.gd" id="1_ef7w6"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_05xsp"]
 
 [node name="GameContainer" type="MarginContainer"]

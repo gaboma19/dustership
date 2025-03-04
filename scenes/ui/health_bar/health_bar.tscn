@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b61du28ox3e38"]
 
 [ext_resource type="PackedScene" uid="uid://crbfqt62kncy7" path="res://scenes/ui/health_bar/heart_panel.tscn" id="1_d80qb"]
-[ext_resource type="Script" path="res://scenes/ui/health_bar/health_bar.gd" id="1_ppetb"]
+[ext_resource type="Script" uid="uid://crleoba8j5ahe" path="res://scenes/ui/health_bar/health_bar.gd" id="1_ppetb"]
 [ext_resource type="PackedScene" uid="uid://c5ma31chcek2c" path="res://scenes/ui/health_bar/empty_heart_panel.tscn" id="3_1lr0a"]
 [ext_resource type="Texture2D" uid="uid://enlp5na8lllw" path="res://assets/april/april_portrait.png" id="4_8gogm"]
 [ext_resource type="Texture2D" uid="uid://kegcdtpfftrv" path="res://assets/steel/steel_mini_icon.png" id="5_lvnxn"]

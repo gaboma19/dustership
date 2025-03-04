@@ -1,13 +1,13 @@
 [gd_scene load_steps=38 format=3 uid="uid://dieedo4dqjmi5"]
 
-[ext_resource type="Script" path="res://scenes/entities/npcs/remembrancers/remembrancer.gd" id="1_507f2"]
+[ext_resource type="Script" uid="uid://3tn4nstd83uq" path="res://scenes/entities/npcs/remembrancers/remembrancer.gd" id="1_507f2"]
 [ext_resource type="Texture2D" uid="uid://cfm2t25pksm7s" path="res://assets/remembrancer/remembrancer_safiya.png" id="2_m8l0e"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="2_ojuqa"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_oydaf"]
-[ext_resource type="Script" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_xelvw"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="4_1xksj"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="5_aop1p"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="6_pph05"]
+[ext_resource type="Script" uid="uid://8okv68pk5qqj" path="res://scenes/components/interaction_area/interaction_area.gd" id="3_xelvw"]
+[ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="4_1xksj"]
+[ext_resource type="Script" uid="uid://bp8umm7d8fts1" path="res://scenes/entities/npcs/states/scene.gd" id="5_aop1p"]
+[ext_resource type="Script" uid="uid://bf20n03pxdqg6" path="res://scenes/entities/npcs/states/idle.gd" id="6_pph05"]
 
 [sub_resource type="Animation" id="Animation_wsnul"]
 length = 0.1
@@ -235,14 +235,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bcxsy"]
 _data = {
-"idle_down": SubResource("Animation_wsnul"),
-"idle_left": SubResource("Animation_8npe3"),
-"idle_right": SubResource("Animation_6wdco"),
-"idle_up": SubResource("Animation_p6n4k"),
-"walk_down": SubResource("Animation_daopp"),
-"walk_left": SubResource("Animation_55co0"),
-"walk_right": SubResource("Animation_08tkm"),
-"walk_up": SubResource("Animation_y1b5y")
+&"idle_down": SubResource("Animation_wsnul"),
+&"idle_left": SubResource("Animation_8npe3"),
+&"idle_right": SubResource("Animation_6wdco"),
+&"idle_up": SubResource("Animation_p6n4k"),
+&"walk_down": SubResource("Animation_daopp"),
+&"walk_left": SubResource("Animation_55co0"),
+&"walk_right": SubResource("Animation_08tkm"),
+&"walk_up": SubResource("Animation_y1b5y")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3nli"]
@@ -343,6 +343,7 @@ radius = 4.0
 height = 8.0
 
 [node name="RemembrancerSafiya" type="CharacterBody2D"]
+collision_mask = 673
 script = ExtResource("1_507f2")
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://o7rnlulciw5h"]
 
 [ext_resource type="Texture2D" uid="uid://b2w8532u3sndp" path="res://assets/telitz_denz/telitz_attack_effect.png" id="1_a6qha"]
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/telitz_attack_effect.gd" id="1_mdubi"]
+[ext_resource type="Script" uid="uid://by0dak6uuuv5g" path="res://scenes/entities/players/telitz/telitz_attack_effect.gd" id="1_mdubi"]
 [ext_resource type="PackedScene" uid="uid://dk5acwyfa8bk5" path="res://scenes/components/knockbox_component/knockbox_component.tscn" id="2_wuwp0"]
 [ext_resource type="PackedScene" uid="uid://6qdcjvv18u6n" path="res://scenes/components/hitbox_component/hitbox_component.tscn" id="4_rwosv"]
 
@@ -99,8 +99,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e1v02"]
 _data = {
-"RESET": SubResource("Animation_3w6u5"),
-"default": SubResource("Animation_3bova")
+&"RESET": SubResource("Animation_3w6u5"),
+&"default": SubResource("Animation_3bova")
 }
 
 [node name="TelitzAttackEffect" type="Node2D"]

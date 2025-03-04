@@ -1,12 +1,12 @@
 [gd_scene load_steps=12 format=3 uid="uid://c6xdqmwjubo8o"]
 
-[ext_resource type="Script" path="res://scenes/ui/main_menu/main_menu.gd" id="1_enmqm"]
+[ext_resource type="Script" uid="uid://caovg17k1ndht" path="res://scenes/ui/main_menu/main_menu.gd" id="1_enmqm"]
 [ext_resource type="Texture2D" uid="uid://x17qi16mufq" path="res://assets/backgrounds/main_menu/main_menu_background.png" id="2_yi7hv"]
 [ext_resource type="Texture2D" uid="uid://caufnkqiuwjh4" path="res://assets/backgrounds/dustership_exterior/dustership_exterior_title.png" id="3_4gxv6"]
 [ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="4_0s3al"]
 [ext_resource type="Texture2D" uid="uid://bxq2y0ejff1fn" path="res://assets/backgrounds/main_menu/comet.png" id="5_aojlw"]
 [ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="5_h2jfi"]
-[ext_resource type="Script" path="res://scenes/ui/main_menu/comet.gd" id="6_8rapc"]
+[ext_resource type="Script" uid="uid://bmlpvi4g861iq" path="res://scenes/ui/main_menu/comet.gd" id="6_8rapc"]
 
 [sub_resource type="FontFile" id="FontFile_as0ab"]
 cache/0/16/0/ascent = 0.0
@@ -74,8 +74,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_sqy2l"]
 _data = {
-"RESET": SubResource("Animation_vc8by"),
-"default": SubResource("Animation_0b6e6")
+&"RESET": SubResource("Animation_vc8by"),
+&"default": SubResource("Animation_0b6e6")
 }
 
 [node name="MainMenu" type="CanvasLayer"]

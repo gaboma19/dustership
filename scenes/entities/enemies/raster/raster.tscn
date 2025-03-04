@@ -1,6 +1,6 @@
 [gd_scene load_steps=61 format=3 uid="uid://3xehsl854ugm"]
 
-[ext_resource type="Script" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
+[ext_resource type="Script" uid="uid://bsrvtd77b7e0e" path="res://scenes/entities/enemies/raster/raster.gd" id="1_20mlh"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="1_x05dx"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_vs8li"]
 [ext_resource type="PackedScene" uid="uid://dmoxbd2k6knqn" path="res://scenes/components/hit_flash_component/hit_flash_component.tscn" id="3_uqeap"]
@@ -13,20 +13,20 @@
 [ext_resource type="PackedScene" uid="uid://bad0hk0t7q50h" path="res://scenes/components/hurtbox_component/hurtbox_component.tscn" id="7_vxjo0"]
 [ext_resource type="PackedScene" uid="uid://txlnj5q7hlne" path="res://scripts/state_machine/state_machine.tscn" id="8_8tof0"]
 [ext_resource type="PackedScene" uid="uid://701d23h5780w" path="res://scenes/components/knockback_component/knockback_component.tscn" id="9_222q4"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/idle.gd" id="9_bh5ej"]
+[ext_resource type="Script" uid="uid://q54er3lgrnog" path="res://scenes/entities/enemies/states/idle.gd" id="9_bh5ej"]
 [ext_resource type="PackedScene" uid="uid://k1on8wr4vmh3" path="res://scenes/components/stun_component/stun_component.tscn" id="9_x3y2r"]
 [ext_resource type="AudioStream" uid="uid://c84t2s2k5r8vt" path="res://assets/sfx/raster_die.wav" id="10_1dddl"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/aggro.gd" id="10_10x4m"]
+[ext_resource type="Script" uid="uid://bnwaqhkmyfpb3" path="res://scenes/entities/enemies/states/aggro.gd" id="10_10x4m"]
 [ext_resource type="PackedScene" uid="uid://bl7suko51ux4b" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_attack.tscn" id="10_ihupy"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
+[ext_resource type="Script" uid="uid://c0qmttvk4xpos" path="res://scenes/entities/enemies/states/attack.gd" id="11_xayrl"]
 [ext_resource type="PackedScene" uid="uid://b0unx4atycwv4" path="res://scenes/components/aggro_area/aggro_area.tscn" id="12_iftpq"]
-[ext_resource type="Script" path="res://scenes/components/aggro_area/aggro_area.gd" id="13_m33cn"]
+[ext_resource type="Script" uid="uid://cs6xjtc03ppyb" path="res://scenes/components/aggro_area/aggro_area.gd" id="13_m33cn"]
 [ext_resource type="Texture2D" uid="uid://busau1810mont" path="res://assets/april/april_shadow.png" id="15_imy6r"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
+[ext_resource type="Script" uid="uid://ctbp3cystna3d" path="res://scenes/entities/enemies/states/spawn.gd" id="17_p6gyy"]
+[ext_resource type="Script" uid="uid://cmp2w46h33iam" path="res://scenes/entities/enemies/states/stun.gd" id="17_xelvb"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="19_pyocl"]
 [ext_resource type="AudioStream" uid="uid://xju22k0w3p2t" path="res://assets/sfx/spawn.wav" id="20_xfds6"]
-[ext_resource type="Script" path="res://scenes/entities/enemies/states/knockback.gd" id="25_1a0db"]
+[ext_resource type="Script" uid="uid://bettw0k3jswim" path="res://scenes/entities/enemies/states/knockback.gd" id="25_1a0db"]
 [ext_resource type="PackedScene" uid="uid://bx4adj5uc8517" path="res://scenes/components/byte_drop_component/byte_drop_component.tscn" id="28_dfm2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_df87s"]
@@ -301,12 +301,12 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_guf7e"]
 _data = {
-"RESET": SubResource("Animation_fsh4j"),
-"attack": SubResource("Animation_8rxwo"),
-"idle_left": SubResource("Animation_nwph4"),
-"idle_right": SubResource("Animation_mqbv0"),
-"walk_left": SubResource("Animation_8g8wt"),
-"walk_right": SubResource("Animation_wqvuq")
+&"RESET": SubResource("Animation_fsh4j"),
+&"attack": SubResource("Animation_8rxwo"),
+&"idle_left": SubResource("Animation_nwph4"),
+&"idle_right": SubResource("Animation_mqbv0"),
+&"walk_left": SubResource("Animation_8g8wt"),
+&"walk_right": SubResource("Animation_wqvuq")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_28tq7"]

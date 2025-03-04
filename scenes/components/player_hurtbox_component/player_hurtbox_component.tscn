@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b66sb8wx8wfj5"]
 
-[ext_resource type="Script" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.gd" id="1_l4jdq"]
+[ext_resource type="Script" uid="uid://d4hkdicl0vqxd" path="res://scenes/components/player_hurtbox_component/player_hurtbox_component.gd" id="1_l4jdq"]
 
 [node name="PlayerHurtboxComponent" type="Area2D"]
 visible = false

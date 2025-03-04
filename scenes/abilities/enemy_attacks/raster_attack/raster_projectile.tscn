@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://5mtvexaio8a6"]
 
-[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile.gd" id="1_0ly4t"]
+[ext_resource type="Script" uid="uid://dw1icoi1ffiwk" path="res://scenes/abilities/enemy_attacks/raster_attack/raster_projectile.gd" id="1_0ly4t"]
 [ext_resource type="Texture2D" uid="uid://bkbscsoft3d63" path="res://assets/raster/raster_projectile.png" id="1_5h860"]
-[ext_resource type="Script" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="1_ojv6y"]
+[ext_resource type="Script" uid="uid://c7ieim401jhc" path="res://scenes/components/hitbox_component/hitbox_component.gd" id="1_ojv6y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yrly0"]
 size = Vector2(2, 8)

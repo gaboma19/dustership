@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ctdvjs742haos"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/analog_monitor.gdshader" id="1_yo3om"]
+[ext_resource type="Shader" uid="uid://ci7t0glcjyrh7" path="res://addons/post_processing/shaders/analog_monitor.gdshader" id="1_yo3om"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s1g6v"]
 shader = ExtResource("1_yo3om")

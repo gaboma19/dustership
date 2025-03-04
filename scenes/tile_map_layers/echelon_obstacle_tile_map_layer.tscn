@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=4 uid="uid://xqrawxxj46td"]
 
 [ext_resource type="TileSet" uid="uid://dhtty22f6ngsu" path="res://scenes/tile_maps/echelon/echelon_decoration_tile_set.tres" id="1_nk27k"]
-[ext_resource type="Script" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="2_4cfgl"]
+[ext_resource type="Script" uid="uid://c0vnnx4qc2380" path="res://scenes/tile_map_layers/echelon_obstacle_tile_map_layer.gd" id="2_4cfgl"]
 
 [node name="EchelonDecorationTiles" type="TileMapLayer"]
 y_sort_enabled = true

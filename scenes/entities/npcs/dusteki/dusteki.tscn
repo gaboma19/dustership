@@ -1,12 +1,12 @@
 [gd_scene load_steps=37 format=3 uid="uid://bhj2ajli52ntf"]
 
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="1_6yelo"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/dusteki/dusteki.gd" id="1_b100c"]
+[ext_resource type="Script" uid="uid://bty2mvdekjls8" path="res://scenes/entities/npcs/dusteki/dusteki.gd" id="1_b100c"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_eig4c"]
-[ext_resource type="Script" path="res://scripts/state_machine/state_machine.gd" id="3_3fpr3"]
+[ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="3_3fpr3"]
 [ext_resource type="Texture2D" uid="uid://cwdra0q2kly11" path="res://assets/dusteki/dusteki.png" id="3_3jcc0"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/scene.gd" id="6_tnwai"]
-[ext_resource type="Script" path="res://scenes/entities/npcs/states/idle.gd" id="7_f7wk0"]
+[ext_resource type="Script" uid="uid://bp8umm7d8fts1" path="res://scenes/entities/npcs/states/scene.gd" id="6_tnwai"]
+[ext_resource type="Script" uid="uid://bf20n03pxdqg6" path="res://scenes/entities/npcs/states/idle.gd" id="7_f7wk0"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3nli"]
 animation = &"idle_down"
@@ -324,14 +324,14 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x6alk"]
 _data = {
-"idle_down": SubResource("Animation_eoe03"),
-"idle_left": SubResource("Animation_i1u0h"),
-"idle_right": SubResource("Animation_bvyj2"),
-"idle_up": SubResource("Animation_26dvf"),
-"walk_down": SubResource("Animation_iop44"),
-"walk_left": SubResource("Animation_fb3hv"),
-"walk_right": SubResource("Animation_4jrh8"),
-"walk_up": SubResource("Animation_2f2kx")
+&"idle_down": SubResource("Animation_eoe03"),
+&"idle_left": SubResource("Animation_i1u0h"),
+&"idle_right": SubResource("Animation_bvyj2"),
+&"idle_up": SubResource("Animation_26dvf"),
+&"walk_down": SubResource("Animation_iop44"),
+&"walk_left": SubResource("Animation_fb3hv"),
+&"walk_right": SubResource("Animation_4jrh8"),
+&"walk_up": SubResource("Animation_2f2kx")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4vce7"]

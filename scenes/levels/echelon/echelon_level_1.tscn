@@ -1,6 +1,6 @@
 [gd_scene load_steps=34 format=3 uid="uid://c07831odmeqpn"]
 
-[ext_resource type="Script" path="res://scenes/levels/level.gd" id="1_wi3wv"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_wi3wv"]
 [ext_resource type="PackedScene" uid="uid://dl1i1ytfm3yq8" path="res://scenes/levels/echelon/echelon_background/echelon_background.tscn" id="2_eqcm2"]
 [ext_resource type="PackedScene" uid="uid://v8ktvgppf1kf" path="res://scenes/game_camera/game_camera.tscn" id="3_8drjm"]
 [ext_resource type="PackedScene" uid="uid://bey7edubynppe" path="res://scenes/tile_maps/echelon/echelon_tile_map.tscn" id="5_7u4al"]
@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://ggvy8hstsf8l" path="res://scenes/entities/enemies/philo/philo.tscn" id="12_xtur6"]
 [ext_resource type="PackedScene" uid="uid://bh0460g3b4757" path="res://scenes/tile_maps/areas/elevation_velocity_bias_area/elevation_velocity_bias_area.tscn" id="13_ihls5"]
 [ext_resource type="PackedScene" uid="uid://bfc18wt45wp1g" path="res://scenes/entities/npcs/telitz_denz_npc/telitz_denz_npc.tscn" id="13_uls1k"]
-[ext_resource type="Shader" path="res://resources/materials/hologram.gdshader" id="14_txqau"]
+[ext_resource type="Shader" uid="uid://x2l1ihacihgc" path="res://resources/materials/hologram.gdshader" id="14_txqau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f41ch"]
 size = Vector2(10, 128)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://blhjdfjvetixm"]
 
-[ext_resource type="Script" path="res://scenes/entities/echelon_button/echelon_button.gd" id="1_f41lo"]
+[ext_resource type="Script" uid="uid://bvbtwuohiql65" path="res://scenes/entities/echelon_button/echelon_button.gd" id="1_f41lo"]
 [ext_resource type="Texture2D" uid="uid://1ywyha3n2a46" path="res://assets/echelon_button/echelon_button.png" id="1_uxixw"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_jb7il"]
 [ext_resource type="AudioStream" uid="uid://cfoh7m7nly4j6" path="res://assets/sfx/switch7.ogg" id="4_ufj7b"]
@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wpwi1"]
 _data = {
-"default": SubResource("Animation_stplr")
+&"default": SubResource("Animation_stplr")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rp402"]

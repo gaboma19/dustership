@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://8mj6n5arl8rg"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/player.gd" id="1_1rubt"]
+[ext_resource type="Script" uid="uid://byk214wbsimxv" path="res://scenes/entities/players/player.gd" id="1_1rubt"]
 [ext_resource type="Texture2D" uid="uid://siitdmrp7hur" path="res://assets/gabriel/gabriel.png" id="2_7oby8"]
 [ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_rdnns"]
 [ext_resource type="PackedScene" uid="uid://b1qboeyt6528a" path="res://scenes/components/health_component/health_component.tscn" id="4_bveuy"]
@@ -529,15 +529,15 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vs3ls"]
 _data = {
-"RESET": SubResource("Animation_ek2j0"),
-"idle down": SubResource("Animation_owhys"),
-"idle left": SubResource("Animation_5eoq8"),
-"idle right": SubResource("Animation_toaro"),
-"idle up": SubResource("Animation_2n1ub"),
-"walk down": SubResource("Animation_e17vm"),
-"walk left": SubResource("Animation_cj6c0"),
-"walk right": SubResource("Animation_2exue"),
-"walk up": SubResource("Animation_68qcu")
+&"RESET": SubResource("Animation_ek2j0"),
+&"idle down": SubResource("Animation_owhys"),
+&"idle left": SubResource("Animation_5eoq8"),
+&"idle right": SubResource("Animation_toaro"),
+&"idle up": SubResource("Animation_2n1ub"),
+&"walk down": SubResource("Animation_e17vm"),
+&"walk left": SubResource("Animation_cj6c0"),
+&"walk right": SubResource("Animation_2exue"),
+&"walk up": SubResource("Animation_68qcu")
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hosbi"]

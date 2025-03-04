@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://jan8t6wjwwrs"]
 
-[ext_resource type="Script" path="res://scenes/entities/battery/battery.gd" id="1_h446k"]
+[ext_resource type="Script" uid="uid://dhs0ti3cn24um" path="res://scenes/entities/battery/battery.gd" id="1_h446k"]
 [ext_resource type="Texture2D" uid="uid://dgg75qv0yb5e6" path="res://assets/battery/battery.png" id="2_x35lo"]
 [ext_resource type="PackedScene" uid="uid://c13w6xlu3md2p" path="res://scenes/entities/battery/battery_charge_area.tscn" id="3_8unh7"]
 [ext_resource type="AudioStream" uid="uid://dl54e7hkf72r5" path="res://assets/sfx/battery.wav" id="4_hmdgk"]
@@ -63,8 +63,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dqy8l"]
 _data = {
-"off": SubResource("Animation_txp47"),
-"on": SubResource("Animation_mljjs")
+&"off": SubResource("Animation_txp47"),
+&"on": SubResource("Animation_mljjs")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h8l4g"]

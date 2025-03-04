@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dk5acwyfa8bk5"]
 
-[ext_resource type="Script" path="res://scenes/components/knockbox_component/knockbox_component.gd" id="1_33l8x"]
+[ext_resource type="Script" uid="uid://ddx4c6nwaq4dm" path="res://scenes/components/knockbox_component/knockbox_component.gd" id="1_33l8x"]
 
 [node name="KnockboxComponent" type="Area2D"]
 collision_layer = 4

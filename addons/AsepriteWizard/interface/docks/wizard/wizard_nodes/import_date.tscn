@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://cprl4xgvv3ulc"]
 
-[ext_resource type="Script" path="res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/import_date.gd" id="1"]
+[ext_resource type="Script" uid="uid://bt6uw275kghqn" path="res://addons/AsepriteWizard/interface/docks/wizard/wizard_nodes/import_date.gd" id="1"]
 
 [node name="import_date" type="Label"]
 offset_left = 660.0
@@ -8,4 +8,4 @@ offset_top = 39.0
 offset_right = 774.0
 offset_bottom = 53.0
 text = "2022-07-18 18:01"
-script = ExtResource( 1 )
+script = ExtResource("1")

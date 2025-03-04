@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://ccxkudlhbgmv7"]
 
-[ext_resource type="Shader" path="res://addons/post_processing/shaders/chromatic.gdshader" id="1_qxjen"]
+[ext_resource type="Shader" uid="uid://dfjg6cox8a2yr" path="res://addons/post_processing/shaders/chromatic.gdshader" id="1_qxjen"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ke5y5"]
 shader = ExtResource("1_qxjen")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://1grgmdky1nrh"]
 
-[ext_resource type="Script" path="res://scenes/entities/players/telitz/telitz_missile.gd" id="1_0ts3a"]
+[ext_resource type="Script" uid="uid://b58ds1qljw2cs" path="res://scenes/entities/players/telitz/telitz_missile.gd" id="1_0ts3a"]
 [ext_resource type="Texture2D" uid="uid://ccnxwae22456u" path="res://assets/telitz_denz/missile.png" id="2_03p1s"]
 [ext_resource type="PackedScene" uid="uid://fhdv7o5e4kmm" path="res://scenes/entities/players/telitz/missile_explosion.tscn" id="2_bu1yc"]
 
@@ -34,7 +34,7 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_10eq4"]
 _data = {
-"default": SubResource("Animation_qinj7")
+&"default": SubResource("Animation_qinj7")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_hnai8"]

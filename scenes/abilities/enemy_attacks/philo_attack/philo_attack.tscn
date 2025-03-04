@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4uqeq1xl5adt"]
 
-[ext_resource type="Script" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.gd" id="1_cafif"]
+[ext_resource type="Script" uid="uid://b3k7tm6offf4l" path="res://scenes/abilities/enemy_attacks/philo_attack/philo_attack.gd" id="1_cafif"]
 [ext_resource type="PackedScene" uid="uid://cfjnx3fg20dbm" path="res://scenes/components/random_audio_stream_player/random_audio_stream_player_2d.tscn" id="4_gdcpd"]
 [ext_resource type="AudioStream" uid="uid://brie44in4ffdd" path="res://assets/sfx/philo_attack.wav" id="5_8k386"]
 

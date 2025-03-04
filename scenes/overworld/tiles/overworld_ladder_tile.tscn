@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dnht3oj201iqm"]
 
 [ext_resource type="Texture2D" uid="uid://cnoly8jej8bfh" path="res://assets/overworld_ladder/overworld_white_ladder.png" id="1_al640"]
-[ext_resource type="Script" path="res://scenes/overworld/tiles/overworld_ladder_tile.gd" id="2_bamsp"]
+[ext_resource type="Script" uid="uid://dfxsxox5n1x84" path="res://scenes/overworld/tiles/overworld_ladder_tile.gd" id="2_bamsp"]
 [ext_resource type="Texture2D" uid="uid://7a4nyl882o6p" path="res://assets/overworld/overworld_ladder_icon.png" id="3_bfve3"]
 [ext_resource type="Texture2D" uid="uid://bqojl8sueufbo" path="res://assets/overworld/overworld_minus.png" id="3_nture"]
 [ext_resource type="PackedScene" uid="uid://blhr7nv7ew1co" path="res://scenes/overworld/components/player_detector_area.tscn" id="3_ybrtc"]
@@ -63,8 +63,8 @@ tracks/2/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_7elgh"]
 _data = {
-"RESET": SubResource("Animation_nwojy"),
-"default": SubResource("Animation_5m1ty")
+&"RESET": SubResource("Animation_nwojy"),
+&"default": SubResource("Animation_5m1ty")
 }
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_udnoi"]
