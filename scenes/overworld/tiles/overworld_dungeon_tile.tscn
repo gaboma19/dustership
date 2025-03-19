@@ -190,7 +190,7 @@ texture = ExtResource("1_osohj")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../IconSprite")
 libraries = {
-"": SubResource("AnimationLibrary_w8i83")
+&"": SubResource("AnimationLibrary_w8i83")
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

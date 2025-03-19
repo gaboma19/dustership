@@ -86,6 +86,6 @@ script = ExtResource("2_or5vp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_djcqr")
+&"": SubResource("AnimationLibrary_djcqr")
 }
 speed_scale = 0.5
