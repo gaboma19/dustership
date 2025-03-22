@@ -1,7 +1,10 @@
 extends Sprite2D
 class_name OverworldPlayer
 
+@export var overworld_indicator_tile_scene: PackedScene
+
 var is_moving: bool = false
+var selected_tile: Vector2i
 
 @onready var animation_player = $AnimationPlayer
 @onready var state_machine: StateMachine = $StateMachine
@@ -11,6 +14,7 @@ func _ready():
 	show()
 	animation_player.play("enter")
 	OverworldVariables.player = self
+	selected_tile = OverworldVariables.player_map_position
 
 
 func set_is_moving(value: bool):
@@ -19,7 +23,6 @@ func set_is_moving(value: bool):
 
 func move(vector: Vector2i):
 	var active_plane = OverworldVariables.active_plane
-	
 	var new_cell = OverworldVariables.player_map_position + vector
 	
 	if active_plane.is_cell_walkable(new_cell):
@@ -31,6 +34,14 @@ func move(vector: Vector2i):
 		tween.tween_callback(set_is_moving.bind(false))
 		
 		OverworldVariables.player_map_position = new_cell
+
+
+func select(vector: Vector2i):
+	var active_plane = OverworldVariables.active_plane
+	var new_cell = OverworldVariables.player_map_position + vector
+	
+	if active_plane.is_cell_walkable(new_cell):
+		selected_tile = new_cell
 
 
 func exit():

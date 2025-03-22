@@ -14,13 +14,13 @@ func handle_input(_event: InputEvent) -> void:
 		var direction = map_vector_to_direction(vector)
 		match direction:
 			Direction.LEFT:
-				player.move(Vector2i.LEFT)
+				player.select(Vector2i.LEFT)
 			Direction.RIGHT:
-				player.move(Vector2i.RIGHT)
+				player.select(Vector2i.RIGHT)
 			Direction.UP:
-				player.move(Vector2i.UP)
+				player.select(Vector2i.UP)
 			Direction.DOWN:
-				player.move(Vector2i.DOWN)
+				player.select(Vector2i.DOWN)
 
 
 func get_movement_vector():
