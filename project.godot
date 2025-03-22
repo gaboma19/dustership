@@ -233,6 +233,7 @@ item_4={
 2d_physics/layer_11="Floor3"
 2d_physics/layer_12="BatteryChargeArea"
 2d_physics/layer_13="Floor4"
+2d_physics/layer_14="InputPickable"
 
 [rendering]
 

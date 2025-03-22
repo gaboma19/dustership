@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgn4nxnmrvhej"]
+[gd_scene load_steps=5 format=3 uid="uid://cgn4nxnmrvhej"]
 
 [ext_resource type="Script" uid="uid://by2hcm2g8oudq" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/overworld_player/overworld_player.tscn" id="2_0m0c2"]
 [ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
-[ext_resource type="PackedScene" uid="uid://bxmkemd1bsybc" path="res://scenes/overworld/tiles/overworld_indicator_tile.tscn" id="5_dhsp4"]
 [ext_resource type="PackedScene" uid="uid://6r544aatause" path="res://scenes/overworld/planes/overworld_plane_0.tscn" id="5_xm8jg"]
 
 [node name="Overworld" type="Node2D"]
@@ -18,9 +17,3 @@ zoom = Vector2(3, 3)
 [node name="OverworldStack" parent="." instance=ExtResource("2_v2oto")]
 
 [node name="OverworldPlane0" parent="." instance=ExtResource("5_xm8jg")]
-
-[node name="OverworldPlayer" parent="." instance=ExtResource("2_0m0c2")]
-position = Vector2(16, 24)
-
-[node name="OverworldIndicatorTile" parent="OverworldPlayer" instance=ExtResource("5_dhsp4")]
-position = Vector2(32, 16)

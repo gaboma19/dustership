@@ -18,6 +18,12 @@ func _ready():
 	DungeonManager.hide()
 
 
+func _unhandled_input(event):
+	# disables PartyManager
+	if event.is_action_pressed("switch_character"):
+		get_tree().root.set_input_as_handled()
+
+
 func initialize_player():
 	player = overworld_player_scene.instantiate()
 	add_child(player)

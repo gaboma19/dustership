@@ -113,7 +113,7 @@ offset = Vector2(0, -5.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7elgh")
+&"": SubResource("AnimationLibrary_7elgh")
 }
 
 [node name="PlayerDetectorArea" parent="." instance=ExtResource("3_ybrtc")]

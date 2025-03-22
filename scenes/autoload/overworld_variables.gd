@@ -14,7 +14,6 @@ var player: OverworldPlayer
 #}
 var dungeons: Dictionary = {}
 
-
 func vector_to_previous_position():
 	return previous_map_position - player_map_position
 
