@@ -11,35 +11,25 @@ signal mouse_clicked(vector: Vector2i)
 
 
 func _ready():
-	center.mouse_entered.connect(on_center_detected)
-	up.mouse_entered.connect(on_up_detected)
-	right.mouse_entered.connect(on_right_detected)
-	left.mouse_entered.connect(on_left_detected)
-	down.mouse_entered.connect(on_down_detected)
+	center.mouse_entered.connect(on_mouse_entered.bind(Vector2i.ZERO))
+	up.mouse_entered.connect(on_mouse_entered.bind(Vector2i.UP))
+	right.mouse_entered.connect(on_mouse_entered.bind(Vector2i.RIGHT))
+	left.mouse_entered.connect(on_mouse_entered.bind(Vector2i.LEFT))
+	down.mouse_entered.connect(on_mouse_entered.bind(Vector2i.DOWN))
 	
-	center.input_event.connect(on_center_event)
+	center.input_event.connect(on_mouse_clicked.bind(Vector2i.ZERO))
+	up.input_event.connect(on_mouse_clicked.bind(Vector2i.UP))
+	right.input_event.connect(on_mouse_clicked.bind(Vector2i.RIGHT))
+	left.input_event.connect(on_mouse_clicked.bind(Vector2i.LEFT))
+	down.input_event.connect(on_mouse_clicked.bind(Vector2i.DOWN))
 
 
-func on_center_event(_viewport, event: InputEvent, _shape_idx):
+func on_mouse_entered(vector: Vector2i):
+	mouse_entered.emit(vector)
+
+
+func on_mouse_clicked(_viewport, event: InputEvent, _shape_idx, 
+		vector: Vector2i):
 	if event.is_action_pressed("attack"):
-		mouse_clicked.emit(Vector2i.ZERO)
-
-
-func on_center_detected():
-	mouse_entered.emit(Vector2i.ZERO)
-
-
-func on_up_detected():
-	mouse_entered.emit(Vector2i.UP)
-
-
-func on_right_detected():
-	mouse_entered.emit(Vector2i.RIGHT)
-
-
-func on_left_detected():
-	mouse_entered.emit(Vector2i.LEFT)
-
-
-func on_down_detected():
-	mouse_entered.emit(Vector2i.DOWN)
+		get_tree().root.set_input_as_handled()
+		mouse_clicked.emit(vector)

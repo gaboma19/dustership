@@ -7,10 +7,12 @@ var is_keyboard_mouse_controls: bool = false
 
 func enter(_msg := {}) -> void:
 	player.mouse_detectors.mouse_entered.connect(on_mouse_entered)
+	player.mouse_detectors.mouse_clicked.connect(on_mouse_clicked)
 
 
 func exit() -> void:
 	player.mouse_detectors.mouse_entered.disconnect(on_mouse_entered)
+	player.mouse_detectors.mouse_clicked.disconnect(on_mouse_clicked)
 
 
 func handle_input(event: InputEvent) -> void:
@@ -22,6 +24,11 @@ func handle_input(event: InputEvent) -> void:
 	if event is InputEventJoypadMotion:
 		is_keyboard_mouse_controls = false
 	
+	if event.is_action_pressed("interact"):
+		get_tree().root.set_input_as_handled()
+		player.move_to_selected_tile()
+		return
+	
 	var vector = get_movement_vector()
 	var direction = map_vector_to_direction(vector)
 	
@@ -29,13 +36,17 @@ func handle_input(event: InputEvent) -> void:
 		return
 	
 	if is_keyboard_mouse_controls:
-		player.select_keyboard(direction)
+		player.select_from_selected_position(direction)
 	else:
-		player.select(direction)
+		player.select_from_player_position(direction)
 
 
 func on_mouse_entered(vector: Vector2i):
-	player.select(vector)
+	player.select_from_player_position(vector)
+
+
+func on_mouse_clicked(vector: Vector2i):
+	player.move_in_direction(vector)
 
 
 func get_movement_vector():

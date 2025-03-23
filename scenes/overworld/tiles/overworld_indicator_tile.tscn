@@ -35,6 +35,7 @@ _data = {
 }
 
 [node name="OverworldIndicatorTile" type="Sprite2D"]
+top_level = true
 z_as_relative = false
 texture_filter = 1
 texture = ExtResource("1_v3o3h")
@@ -58,3 +59,4 @@ libraries = {
 &"": SubResource("AnimationLibrary_t8ae1")
 }
 autoplay = "default"
+speed_scale = 0.8

@@ -32,6 +32,7 @@ func initialize_player():
 	var player_position = active_plane.map_to_global(
 		OverworldVariables.player_map_position)
 	player.global_position = player_position
+	player.reset_indicator_tile()
 
 
 func switch_planes(next_plane_scene: PackedScene):
