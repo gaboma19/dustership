@@ -1,5 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://n1pxrr1e7ev"]
-
-[ext_resource type="PackedScene" uid="uid://3bl0qhv7hhkp" path="res://scenes/tile_maps/old/overworld_tilemap.tscn" id="1_wyqft"]
-
-[node name="OverworldPlane" groups=["planes"] instance=ExtResource("1_wyqft")]

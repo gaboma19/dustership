@@ -25,6 +25,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	get_tree().change_scene_to_file.bind(scene_path).call_deferred()
 	
+	# TODO: https://github.com/godotengine/godot/issues/85852
 	await get_tree().process_frame
 	await get_tree().process_frame
 	
