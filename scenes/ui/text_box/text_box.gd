@@ -34,7 +34,8 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 		await resized
 		await resized
 		custom_minimum_size.y = size.y
-		
+	
+	# move up and center
 	global_position.x -= size.x / 2
 	global_position.y -= size.y + 24
 

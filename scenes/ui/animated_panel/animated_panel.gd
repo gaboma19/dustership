@@ -6,12 +6,8 @@ signal canceled
 var is_opening: bool = false
 var is_closing: bool = false
 
-@onready var b_button = %BButton
+@onready var audio_stream_player = $AudioStreamPlayer
 @onready var animation_player = $AnimationPlayer
-
-
-func _ready():
-	b_button.pressed.connect(on_b_pressed)
 
 
 func _unhandled_input(event):
@@ -20,8 +16,6 @@ func _unhandled_input(event):
 
 	if event.is_action_pressed("ui_cancel") and not is_opening:
 		get_tree().root.set_input_as_handled()
-		b_button.audio_stream_player.play()
-		canceled.emit()
 		close()
 
 
@@ -51,6 +45,9 @@ func close():
 		return
 	is_closing = true
 	
+	audio_stream_player.play()
+	canceled.emit()
+	
 	pivot_offset = size / 2
 	var tween = create_tween()
 	tween.tween_property(self, "scale", Vector2.ONE, 0)
@@ -62,7 +59,3 @@ func close():
 	is_closing = false
 	get_tree().paused = false
 	queue_free()
-
-
-func on_b_pressed():
-	close()

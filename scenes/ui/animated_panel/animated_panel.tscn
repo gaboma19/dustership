@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cevcci2xmryyi"]
+[gd_scene load_steps=6 format=3 uid="uid://cevcci2xmryyi"]
 
 [ext_resource type="Script" uid="uid://bakf8mravyekx" path="res://scenes/ui/animated_panel/animated_panel.gd" id="1_m1u43"]
-[ext_resource type="PackedScene" uid="uid://6fbuh03eitpr" path="res://scenes/ui/sound_button/sound_button.tscn" id="2_l0lw5"]
-[ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="3_n0wdp"]
+[ext_resource type="AudioStream" uid="uid://b1pwhoxo5x3w1" path="res://assets/sfx/blip_select.wav" id="2_dykll"]
 
 [sub_resource type="Animation" id="Animation_0sd8q"]
 length = 0.001
@@ -76,7 +75,7 @@ script = ExtResource("1_m1u43")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_phhlu")
+&"": SubResource("AnimationLibrary_phhlu")
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -86,21 +85,6 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 16
 
-[node name="Control" type="Control" parent="."]
-custom_minimum_size = Vector2(16, 16)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 8
-
-[node name="BButton" parent="Control" instance=ExtResource("2_l0lw5")]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = -8.0
-offset_top = -8.0
-offset_right = 24.0
-offset_bottom = 24.0
-pivot_offset = Vector2(16, 16)
-size_flags_horizontal = 8
-size_flags_vertical = 8
-icon = ExtResource("3_n0wdp")
-flat = true
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_dykll")
+bus = &"sfx"

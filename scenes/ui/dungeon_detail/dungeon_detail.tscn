@@ -81,10 +81,21 @@ text = "SEVERE"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="ContinueButton" parent="MarginContainer/VBoxContainer" index="2" instance=ExtResource("4_w7fvl")]
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" index="2"]
+layout_mode = 2
+
+[node name="ContinueButton" parent="MarginContainer/VBoxContainer/HBoxContainer" index="0" instance=ExtResource("4_w7fvl")]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(70, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Continue"
+
+[node name="CancelButton" parent="MarginContainer/VBoxContainer/HBoxContainer" index="1" instance=ExtResource("4_w7fvl")]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Cancel"

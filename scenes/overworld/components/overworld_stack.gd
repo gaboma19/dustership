@@ -1,6 +1,5 @@
 extends Node2D
 
-@onready var animation_player = $AnimationPlayer
 @onready var layers: Array[Node] = $Layers.get_children()
 
 
@@ -15,4 +14,5 @@ func move_up():
 
 
 func reset():
-	animation_player.stop()
+	var top = layers.pop_front()
+	top.queue_free()

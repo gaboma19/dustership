@@ -50,7 +50,7 @@ func set_icon():
 func open_detail():
 	OverworldVariables.dungeons[dungeon_id].active = false
 	
-	animation_player.play("dim")
+	#animation_player.play("dim")
 	
 	var dungeon_detail = dungeon_detail_scene.instantiate()
 	dungeon_detail.canceled.connect(on_detail_canceled)
