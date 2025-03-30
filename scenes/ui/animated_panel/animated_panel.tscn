@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://cevcci2xmryyi"]
+[gd_scene load_steps=5 format=3 uid="uid://cevcci2xmryyi"]
 
 [ext_resource type="Script" uid="uid://bakf8mravyekx" path="res://scenes/ui/animated_panel/animated_panel.gd" id="1_m1u43"]
-[ext_resource type="AudioStream" uid="uid://b1pwhoxo5x3w1" path="res://assets/sfx/blip_select.wav" id="2_dykll"]
 
 [sub_resource type="Animation" id="Animation_0sd8q"]
 length = 0.001
@@ -67,10 +66,11 @@ _data = {
 
 [node name="AnimatedPanel" type="PanelContainer"]
 process_mode = 3
-offset_right = 48.0
-offset_bottom = 48.0
+offset_right = 16.0
+offset_bottom = 16.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_type_variation = &"PanelContainerFlat"
 script = ExtResource("1_m1u43")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -80,11 +80,3 @@ libraries = {
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 2
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 8
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 16
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("2_dykll")
-bus = &"sfx"

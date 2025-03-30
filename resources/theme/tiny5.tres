@@ -1,6 +1,7 @@
 [gd_resource type="FontVariation" load_steps=2 format=3 uid="uid://cdjaxm2av00ly"]
 
-[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="1_bv35k"]
+[ext_resource type="FontFile" uid="uid://dj0sppqukrs15" path="res://assets/perfect_dos_vga_437/Perfect DOS VGA 437 Win.ttf" id="1_xq6s5"]
 
 [resource]
-base_font = ExtResource("1_bv35k")
+base_font = ExtResource("1_xq6s5")
+baseline_offset = 0.1

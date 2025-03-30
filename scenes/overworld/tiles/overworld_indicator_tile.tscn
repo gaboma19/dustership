@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bxmkemd1bsybc"]
+[gd_scene load_steps=5 format=3 uid="uid://bxmkemd1bsybc"]
 
 [ext_resource type="Texture2D" uid="uid://bvk6ai6qspk0y" path="res://scenes/overworld/tiles/indicator_tile.png" id="1_v3o3h"]
 
@@ -34,6 +34,9 @@ _data = {
 &"default": SubResource("Animation_3o6xy")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3o3h"]
+size = Vector2(5, 5)
+
 [node name="OverworldIndicatorTile" type="Sprite2D"]
 top_level = true
 z_as_relative = false
@@ -60,3 +63,12 @@ libraries = {
 }
 autoplay = "default"
 speed_scale = 0.8
+
+[node name="IndicatorArea" type="Area2D" parent="."]
+scale = Vector2(2, 1)
+collision_layer = 16384
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IndicatorArea"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_v3o3h")

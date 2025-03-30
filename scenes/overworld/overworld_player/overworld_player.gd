@@ -59,9 +59,7 @@ func select_from_player_position(vector: Vector2i):
 	
 	var new_cell = OverworldVariables.player_map_position + vector
 	
-	selected_tile = new_cell
-	var indicator_position = active_plane.map_to_global(new_cell)
-	overworld_indicator_tile.global_position = indicator_position
+	select(new_cell)
 
 
 func select_from_selected_position(vector: Vector2i):
@@ -82,6 +80,10 @@ func select_from_selected_position(vector: Vector2i):
 	if new_cell not in allowed_cells:
 		return
 	
+	select(new_cell)
+
+
+func select(new_cell: Vector2i):
 	selected_tile = new_cell
 	var indicator_position = active_plane.map_to_global(new_cell)
 	overworld_indicator_tile.global_position = indicator_position
