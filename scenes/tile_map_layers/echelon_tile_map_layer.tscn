@@ -2,6 +2,6 @@
 
 [ext_resource type="TileSet" uid="uid://bxwbovt0rew57" path="res://scenes/tile_maps/echelon/echelon_tile_set_2.tres" id="1_apjqi"]
 
-[node name="cliffs" type="TileMapLayer"]
+[node name="EchelonTileMapLayer" type="TileMapLayer"]
 use_parent_material = true
 tile_set = ExtResource("1_apjqi")
