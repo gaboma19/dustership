@@ -16,7 +16,7 @@ var dungeon_detail: AnimatedPanel
 @onready var player_detector_area: Area2D = $PlayerDetectorArea
 @onready var indicator_detector_area: Area2D = $IndicatorDetectorArea
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var overworld_ui = %OverworldUI
+@onready var detail_container = %DetailContainer
 @onready var icon_sprite: Sprite2D = $IconSprite
 
 
@@ -77,22 +77,17 @@ func on_indicator_exited(_area: Area2D):
 
 
 func open_detail():
+	var canvas_pos = get_global_transform_with_canvas().origin
+	
 	dungeon_detail = dungeon_detail_scene.instantiate()
 	dungeon_detail.location_name = location_name
+	detail_container.add_child(dungeon_detail)
 	
-	overworld_ui.add_child(dungeon_detail)
+	await detail_container.resized
 	
-	var my_transform = get_global_transform()
-	var target_transform = dungeon_detail.get_global_transform()
-	#var target_local_position = target_transform.affine_inverse().basis_xform(global_position)
-	var target_local_position = target_transform.affine_inverse().basis_xform(global_position - target_transform.origin)
-	
-	print(target_local_position)
-	dungeon_detail.global_position = target_local_position
-	#dungeon_detail.global_position = Vector2(
-		#target_local_position.x, target_local_position.y - 24)
-	#dungeon_detail.global_position.x -= dungeon_detail.size.x / 2
-	#print(dungeon_detail.global_position)
+	canvas_pos.x -= detail_container.size.x / 2
+	canvas_pos.y -= 72
+	detail_container.position = canvas_pos
 	
 	dungeon_detail.open()
 
