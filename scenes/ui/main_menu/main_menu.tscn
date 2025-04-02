@@ -483,5 +483,5 @@ autostart = true
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Comet"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_sqy2l")
+&"": SubResource("AnimationLibrary_sqy2l")
 }

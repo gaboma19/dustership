@@ -52,7 +52,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.png"
+movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.avi"
 
 [editor_plugins]
 
@@ -233,6 +233,8 @@ item_4={
 2d_physics/layer_11="Floor3"
 2d_physics/layer_12="BatteryChargeArea"
 2d_physics/layer_13="Floor4"
+2d_physics/layer_14="InputPickable"
+2d_physics/layer_15="OverworldIndicator"
 
 [rendering]
 

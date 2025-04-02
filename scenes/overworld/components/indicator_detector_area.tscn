@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://camv1nxovfiu1"]
+
+[node name="IndicatorDetectorArea" type="Area2D"]
+visible = false
+z_index = 1
+collision_layer = 0
+collision_mask = 16384
+monitorable = false

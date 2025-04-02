@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bqei6sw1ju6fr"]
 
-[ext_resource type="Shader" path="res://resources/materials/echelon_portal.gdshader" id="1_e8qok"]
+[ext_resource type="Shader" uid="uid://dr8fp7xbrufxh" path="res://resources/materials/echelon_portal.gdshader" id="1_e8qok"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_axrs6"]
 noise_type = 0

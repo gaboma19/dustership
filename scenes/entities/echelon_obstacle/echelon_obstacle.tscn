@@ -164,7 +164,7 @@ script = ExtResource("1_ankcq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_erwkh")
+&"": SubResource("AnimationLibrary_erwkh")
 }
 
 [node name="ShadowSprite" type="Sprite2D" parent="."]

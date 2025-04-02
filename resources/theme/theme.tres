@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=36 format=3 uid="uid://dvxsu1p51t4yo"]
+[gd_resource type="Theme" load_steps=37 format=3 uid="uid://dvxsu1p51t4yo"]
 
 [ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
@@ -89,6 +89,14 @@ texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 region_rect = Rect2(0, 0, 24, 24)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cn5nv"]
+texture = ExtResource("14_xjhym")
+texture_margin_left = 8.0
+texture_margin_top = 8.0
+texture_margin_right = 8.0
+texture_margin_bottom = 8.0
+modulate_color = Color(1, 1, 1, 0.376471)
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0a66y"]
 texture = ExtResource("7_m4x1d")
 texture_margin_left = 8.0
@@ -169,6 +177,8 @@ HeaderSmall/font_sizes/font_size = 16
 HeaderSmall/fonts/font = ExtResource("6_gdx8a")
 Panel/styles/panel = SubResource("StyleBoxTexture_6tyth")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_51dbo")
+PanelContainerFlat/base_type = &"PanelContainer"
+PanelContainerFlat/styles/panel = SubResource("StyleBoxTexture_cn5nv")
 PanelContainerGreen/base_type = &"PanelContainer"
 PanelContainerGreen/styles/panel = SubResource("StyleBoxTexture_0a66y")
 PanelContainerLight/base_type = &"PanelContainer"

@@ -59,7 +59,7 @@ game_container_scene = ExtResource("7_ujawq")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m6p1w")
+&"": SubResource("AnimationLibrary_m6p1w")
 }
 
 [node name="ColorRect" type="ColorRect" parent="."]

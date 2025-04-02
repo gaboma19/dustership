@@ -18,6 +18,12 @@ func _ready():
 	DungeonManager.hide()
 
 
+func _unhandled_input(event):
+	# disables PartyManager
+	if event.is_action_pressed("switch_character"):
+		get_tree().root.set_input_as_handled()
+
+
 func initialize_player():
 	player = overworld_player_scene.instantiate()
 	add_child(player)
@@ -26,6 +32,7 @@ func initialize_player():
 	var player_position = active_plane.map_to_global(
 		OverworldVariables.player_map_position)
 	player.global_position = player_position
+	player.reset_indicator_tile()
 
 
 func switch_planes(next_plane_scene: PackedScene):

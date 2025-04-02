@@ -47,7 +47,7 @@ script = ExtResource("1_j8sci")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_m6p1w")
+&"": SubResource("AnimationLibrary_m6p1w")
 }
 autoplay = "default"
 

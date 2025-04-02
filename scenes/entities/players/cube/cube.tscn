@@ -1648,7 +1648,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="AttackChargeAnimationPlayer" type="AnimationPlayer" parent="AttackSpawn"]
 libraries = {
-"": SubResource("AnimationLibrary_63x7h")
+&"": SubResource("AnimationLibrary_63x7h")
 }
 autoplay = "default"
 
@@ -1700,7 +1700,7 @@ unique_name_in_owner = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_e211m")
+&"": SubResource("AnimationLibrary_e211m")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

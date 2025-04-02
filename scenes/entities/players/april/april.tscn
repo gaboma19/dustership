@@ -2636,7 +2636,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
-"": SubResource("AnimationLibrary_mos2h")
+&"": SubResource("AnimationLibrary_mos2h")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

@@ -1,0 +1,58 @@
+[gd_scene load_steps=3 format=3 uid="uid://b5050iecnmrti"]
+
+[ext_resource type="Script" uid="uid://drio8ypw1b3ph" path="res://scenes/overworld/overworld_player/mouse_detectors.gd" id="1_jhjc4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m5jp1"]
+size = Vector2(10, 10)
+
+[node name="MouseDetectors" type="Node2D"]
+script = ExtResource("1_jhjc4")
+
+[node name="Center" type="Area2D" parent="."]
+scale = Vector2(2, 1)
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Center"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_m5jp1")
+
+[node name="Up" type="Area2D" parent="."]
+position = Vector2(16, -8)
+scale = Vector2(2, 1)
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Up"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_m5jp1")
+
+[node name="Right" type="Area2D" parent="."]
+position = Vector2(16, 8)
+scale = Vector2(2, 1)
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Right"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_m5jp1")
+
+[node name="Left" type="Area2D" parent="."]
+position = Vector2(-16, -8)
+scale = Vector2(2, 1)
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Left"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_m5jp1")
+
+[node name="Down" type="Area2D" parent="."]
+position = Vector2(-16, 8)
+scale = Vector2(2, 1)
+collision_layer = 8192
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Down"]
+rotation = 0.785398
+shape = SubResource("RectangleShape2D_m5jp1")

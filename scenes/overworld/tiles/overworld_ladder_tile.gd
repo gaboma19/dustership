@@ -1,10 +1,10 @@
 extends Sprite2D
 
-signal ladder_activated(next_layer: PackedScene)
+signal ladder_activated(next_plane: PackedScene)
 
-@export var next_layer: PackedScene
+@export var next_plane: PackedScene
 
-@onready var layer: OverworldPlane = $"../.."
+@onready var plane: OverworldPlane = $"../.."
 @onready var player_detector_area = $PlayerDetectorArea
 @onready var animation_player = $AnimationPlayer
 
@@ -20,4 +20,4 @@ func open():
 func on_player_detected(_player_component: Area2D):
 	open()
 	await get_tree().create_timer(1.3).timeout
-	ladder_activated.emit(next_layer)
+	ladder_activated.emit(next_plane)

@@ -4,5 +4,4 @@
 
 [resource]
 base_font = ExtResource("1_bnpip")
-spacing_top = 2
-spacing_bottom = -2
+spacing_bottom = -3

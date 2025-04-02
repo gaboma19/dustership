@@ -113,12 +113,11 @@ offset = Vector2(0, -5.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_7elgh")
+&"": SubResource("AnimationLibrary_7elgh")
 }
 
 [node name="PlayerDetectorArea" parent="." instance=ExtResource("3_ybrtc")]
 visible = false
-monitoring = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectorArea"]
 scale = Vector2(1, 0.5)
