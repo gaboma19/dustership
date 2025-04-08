@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c00wechkehf0x"
+path="res://.godot/imported/ingress.aseprite-ccbf1e80e5e546c49d57d0e0fdae9781.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/ingress/ingress.aseprite"
+dest_files=["res://.godot/imported/ingress.aseprite-ccbf1e80e5e546c49d57d0e0fdae9781.res"]
+
+[params]
+
