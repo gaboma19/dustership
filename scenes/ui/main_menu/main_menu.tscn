@@ -134,7 +134,7 @@ text = "Settings"
 [node name="CreditsButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Credits"
+text = "About"
 
 [node name="QuitButton" parent="Margin Container/VBoxContainer/MainContainer" instance=ExtResource("4_0s3al")]
 unique_name_in_owner = true

@@ -123,7 +123,7 @@ func on_next_button_pressed():
 
 func on_quit_button_pressed():
 	PopUp.open_decision_container(
-		"Are you sure you want to quit?")
+		"Are you sure you want to quit?", true)
 	PopUp.closed.connect(on_quit_pop_up_closed)
 
 

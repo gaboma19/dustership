@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dw341w0jdakjm"
-path="res://.godot/imported/dustership_exterior_2.png-1cc1135451175fe88b70357702693f90.ctex"
+uid="uid://c7ib2sgllfe1c"
+path="res://.godot/imported/ship.png-d21fb20d1f21e064b1174abdb4b01879.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/backgrounds/dustership_map/dustership_exterior_2.png"
-dest_files=["res://.godot/imported/dustership_exterior_2.png-1cc1135451175fe88b70357702693f90.ctex"]
+source_file="res://assets/backgrounds/dustership_map/ship.png"
+dest_files=["res://.godot/imported/ship.png-d21fb20d1f21e064b1174abdb4b01879.ctex"]
 
 [params]
 

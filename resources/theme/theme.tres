@@ -1,11 +1,9 @@
 [gd_resource type="Theme" load_steps=37 format=3 uid="uid://dvxsu1p51t4yo"]
 
-[ext_resource type="FontVariation" uid="uid://vruy23h2oe6v" path="res://resources/theme/pixellari.tres" id="1_38iv3"]
 [ext_resource type="Texture2D" uid="uid://b3sojv04sase6" path="res://assets/nine_patch/hover_button.png" id="1_gtqpl"]
 [ext_resource type="Texture2D" uid="uid://87i431evp216" path="res://assets/nine_patch/pause_screen.png" id="1_jbmej"]
 [ext_resource type="Texture2D" uid="uid://cvbcvyordp2mt" path="res://assets/nine_patch/disable_button.png" id="1_ywon2"]
 [ext_resource type="Texture2D" uid="uid://ca2i68v3x06bl" path="res://assets/nine_patch/button.png" id="2_mjf8k"]
-[ext_resource type="Texture2D" uid="uid://bo3fj01l3x0v6" path="res://assets/nine_patch/button_pink.png" id="2_qk8v2"]
 [ext_resource type="Texture2D" uid="uid://ccd4wwqnxpfqu" path="res://assets/nine_patch/inventory_slot_hover.png" id="4_0f3h1"]
 [ext_resource type="Texture2D" uid="uid://b4lsbkcpitpq0" path="res://assets/nine_patch/inventory_slot.png" id="5_ybjwd"]
 [ext_resource type="Texture2D" uid="uid://cuek43uw71p4q" path="res://assets/nine_patch/pop_up.png" id="6_3g70y"]
@@ -17,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://dgxnrw8mwcn0y" path="res://assets/nine_patch/progress_bar.png" id="13_errka"]
 [ext_resource type="Texture2D" uid="uid://bvbnorm4xcte8" path="res://assets/nine_patch/progress_bar_fill.png" id="14_ck2ei"]
 [ext_resource type="Texture2D" uid="uid://rbb4soqt6xwu" path="res://assets/nine_patch/flat_panel.png" id="14_xjhym"]
+[ext_resource type="FontFile" uid="uid://dj0sppqukrs15" path="res://assets/perfect_dos_vga_437/Perfect DOS VGA 437 Win.ttf" id="17_cn5nv"]
+[ext_resource type="FontFile" uid="uid://din8mc4ob1pwl" path="res://assets/tiny5/Tiny5-Regular.ttf" id="17_qmq78"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2jv8l"]
 texture = ExtResource("1_ywon2")
@@ -25,14 +25,14 @@ texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5nsdv"]
-texture = ExtResource("2_qk8v2")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c81hl"]
+texture = ExtResource("1_gtqpl")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
 texture_margin_right = 8.0
 texture_margin_bottom = 8.0
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_c81hl"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qmq78"]
 texture = ExtResource("1_gtqpl")
 texture_margin_left = 8.0
 texture_margin_top = 8.0
@@ -156,10 +156,12 @@ texture_margin_bottom = 2.0
 axis_stretch_horizontal = 1
 
 [resource]
-default_font = ExtResource("1_38iv3")
+default_font = ExtResource("17_cn5nv")
+Button/constants/align_to_largest_stylebox = 1
+Button/constants/h_separation = 6
 Button/styles/disabled = SubResource("StyleBoxTexture_2jv8l")
-Button/styles/focus = SubResource("StyleBoxTexture_5nsdv")
 Button/styles/hover = SubResource("StyleBoxTexture_c81hl")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_qmq78")
 Button/styles/normal = SubResource("StyleBoxTexture_sqv11")
 Button/styles/pressed = SubResource("StyleBoxTexture_q3316")
 ButtonLight/base_type = &"Button"
@@ -194,3 +196,8 @@ PanelFlat/styles/panel = SubResource("StyleBoxTexture_q20eb")
 ProgressBarBytes/base_type = &"ProgressBar"
 ProgressBarBytes/styles/background = SubResource("StyleBoxTexture_7vmdx")
 ProgressBarBytes/styles/fill = SubResource("StyleBoxTexture_gt1ro")
+Tiny5Label/base_type = &"Label"
+Tiny5Label/colors/font_shadow_color = Color(0, 0, 0, 0.188235)
+Tiny5Label/constants/shadow_offset_x = 1
+Tiny5Label/constants/shadow_offset_y = 1
+Tiny5Label/fonts/font = ExtResource("17_qmq78")
