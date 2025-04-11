@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://cki42m1twprf7"]
+
+[ext_resource type="Texture2D" uid="uid://dbjfx3qfdxlbf" path="res://assets/ui/dustership_map/tile_0000.png" id="1_tpu8m"]
+[ext_resource type="Texture2D" uid="uid://bdstti6mgnl8f" path="res://assets/ui/dustership_map/tile_selected.png" id="2_uy7bl"]
+[ext_resource type="BitMap" uid="uid://dbh1b0wv1gtpo" path="res://assets/ui/dustership_map/tile_click_mask.png" id="3_axleo"]
+[ext_resource type="Script" uid="uid://bf44jf1uhen3f" path="res://scenes/levels/dustership/dustership_location.gd" id="4_uy7bl"]
+
+[node name="DustershipLocation" type="TextureButton"]
+offset_right = 16.0
+offset_bottom = 16.0
+scale = Vector2(2, 2)
+pivot_offset = Vector2(16, 16)
+texture_normal = ExtResource("1_tpu8m")
+texture_hover = ExtResource("2_uy7bl")
+texture_focused = ExtResource("2_uy7bl")
+texture_click_mask = ExtResource("3_axleo")
+script = ExtResource("4_uy7bl")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 20.0
+offset_top = 5.0
+offset_right = 137.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
+text = "Location name"
