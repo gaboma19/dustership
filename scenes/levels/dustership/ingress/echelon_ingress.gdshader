@@ -1,8 +1,10 @@
 shader_type canvas_item;
 
+uniform vec3 rgb : source_color;
+
 // for circles
-uniform float amplitude: hint_range(0, 2, 0.01) = 2.0;
-uniform float frequency: hint_range(0, 15, 0.01) = 12.69;
+uniform float amplitude : hint_range(0, 2, 0.01) = 2.0;
+uniform float frequency : hint_range(0, 15, 0.01) = 12.69;
 uniform float rippleRate : hint_range(0.5, 150.0, 0.1) = 9.2;
 
 
@@ -36,9 +38,8 @@ void fragment() {
 	ns *= 1.4142135;
 	dist += -0.1 * ns.x;
 	float ripple = sin(dist * -frequency * pi + rippleRate * TIME) * amplitude / (dist + 1.0);
-
-
-	vec4 color = vec4(0,0,0, 2.0 * ripple);
+	
+	vec4 color = vec4(rgb.r,rgb.g,rgb.b, 2.0 * ripple);
 
 	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5;
 

@@ -2493,7 +2493,7 @@ script = ExtResource("1_04g6c")
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_d0ecx")]
 max_speed = 75
-acceleration = 10.0
+acceleration = 20.0
 
 [node name="PickupArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -2609,7 +2609,6 @@ texture = ExtResource("5_8kdh2")
 offset = Vector2(-0.5, -8)
 hframes = 12
 vframes = 11
-frame = 99
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,

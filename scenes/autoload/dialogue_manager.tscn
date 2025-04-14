@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://btxitib5y04qf"]
+
+[ext_resource type="Script" uid="uid://bhi3hmafpjvbo" path="res://scenes/autoload/dialogue_manager.gd" id="1_cwtnp"]
+
+[node name="DialogueManager" type="Node"]
+script = ExtResource("1_cwtnp")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]

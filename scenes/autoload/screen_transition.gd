@@ -4,6 +4,7 @@ const ANIMATION_LENGTH: float = 0.4
 
 @export var overworld_path: String
 @export var main_menu_path: String
+@export var ingress_path: String
 
 
 func transition_in():
@@ -108,6 +109,10 @@ func transition_to_path(scene_path: String):
 func transition_to_overworld():
 	DungeonManager.exit()
 	transition_to_path(overworld_path)
+
+
+func transition_to_ingress():
+	transition_to_path(ingress_path)
 
 
 func transition_to_main_menu():

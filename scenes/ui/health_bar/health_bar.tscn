@@ -74,7 +74,7 @@ metadata/_aseprite_wizard_config_ = {
 [node name="SteelLabel" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer/SteelContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-theme_type_variation = &"HeaderSmall"
+theme_type_variation = &"Tiny5Label"
 theme_override_font_sizes/font_size = 24
 text = "1,000"
 

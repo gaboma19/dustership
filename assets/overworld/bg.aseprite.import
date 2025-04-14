@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://lcb4384ex8l6"
+path="res://.godot/imported/bg.aseprite-15f4413ba900435cefff2600e248e950.res"
+
+[deps]
+
+source_file="res://assets/overworld/bg.aseprite"
+dest_files=["res://.godot/imported/bg.aseprite-15f4413ba900435cefff2600e248e950.res"]
+
+[params]
+

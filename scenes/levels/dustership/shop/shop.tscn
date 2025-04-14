@@ -1,26 +1,26 @@
 [gd_scene load_steps=10 format=3 uid="uid://dx281bkxxn832"]
 
-[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_hf7y3"]
-[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_og31u"]
-[ext_resource type="Texture2D" uid="uid://ba7peavepha2p" path="res://assets/backgrounds/shop/shop.png" id="3_4s3sd"]
-[ext_resource type="Texture2D" uid="uid://bx7wcy3gr0u6f" path="res://assets/backgrounds/shop/table.png" id="3_45vc3"]
-[ext_resource type="Texture2D" uid="uid://cdm5sld46agn4" path="res://assets/backgrounds/shop/item.png" id="4_5ri4c"]
-[ext_resource type="Texture2D" uid="uid://bk3iill63ciix" path="res://assets/backgrounds/shop/chair.png" id="5_hf7y3"]
-[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="6_mhihh"]
-[ext_resource type="Texture2D" uid="uid://c31ou4okikwl0" path="res://assets/backgrounds/shop/wall.png" id="6_og31u"]
-[ext_resource type="Texture2D" uid="uid://00lo7uisutvk" path="res://assets/backgrounds/shop/front_wall.png" id="7_hygty"]
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_r7oeb"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_vas0s"]
+[ext_resource type="Texture2D" uid="uid://bx7wcy3gr0u6f" path="res://assets/backgrounds/shop/table.png" id="3_glks5"]
+[ext_resource type="Texture2D" uid="uid://cdm5sld46agn4" path="res://assets/backgrounds/shop/item.png" id="4_gdcob"]
+[ext_resource type="Texture2D" uid="uid://bk3iill63ciix" path="res://assets/backgrounds/shop/chair.png" id="5_0ovsf"]
+[ext_resource type="Texture2D" uid="uid://c31ou4okikwl0" path="res://assets/backgrounds/shop/wall.png" id="6_gwjo1"]
+[ext_resource type="Texture2D" uid="uid://00lo7uisutvk" path="res://assets/backgrounds/shop/front_wall.png" id="7_0m8dy"]
+[ext_resource type="Texture2D" uid="uid://ba7peavepha2p" path="res://assets/backgrounds/shop/shop.png" id="8_2jrs2"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_tlh0c"]
 
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
-script = ExtResource("1_hf7y3")
+script = ExtResource("1_r7oeb")
 is_camera_static = true
 map_pin_cell = Vector2i(28, -19)
 game_start = NodePath("GameStart")
 
 [node name="Events" type="Node" parent="." groups=["events"]]
 
-[node name="GameStart" parent="." instance=ExtResource("2_og31u")]
-position = Vector2(7, 136)
+[node name="GameStart" parent="." instance=ExtResource("2_vas0s")]
+position = Vector2(73, 139)
 
 [node name="GameCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 75)
@@ -29,35 +29,35 @@ zoom = Vector2(4, 4)
 [node name="Table" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(23, 96)
-texture = ExtResource("3_45vc3")
+texture = ExtResource("3_glks5")
 offset = Vector2(33, -1.5)
 
 [node name="Item" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(-47, 91)
-texture = ExtResource("4_5ri4c")
+texture = ExtResource("4_gdcob")
 offset = Vector2(-9, -4.5)
 
 [node name="Chair" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(44, 66)
-texture = ExtResource("5_hf7y3")
+texture = ExtResource("5_0ovsf")
 offset = Vector2(0, -7)
 
 [node name="Wall" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(41, 60)
-texture = ExtResource("6_og31u")
+texture = ExtResource("6_gwjo1")
 offset = Vector2(24, -10.5)
 
 [node name="Wall2" type="Sprite2D" parent="."]
 z_index = 1
 position = Vector2(-76, 113)
-texture = ExtResource("7_hygty")
+texture = ExtResource("7_0m8dy")
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("3_4s3sd")
+texture = ExtResource("8_2jrs2")
 offset = Vector2(0, 75)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,
@@ -79,6 +79,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="Walls" type="StaticBody2D" parent="Background"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+z_index = 1
 build_mode = 1
 polygon = PackedVector2Array(29, 65, 33, 87, 18, 95, 121, 147, 89, 163, 41, 139, 20, 150, -27, 150, -27, 130, -70, 107, -39, 91, -62, 79, 73, 11, 103, 26)
 
@@ -88,8 +89,10 @@ z_index = 1
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
-[node name="LevelTransitionArea" parent="." instance=ExtResource("6_mhihh")]
-path = "res://scenes/levels/dustership/hub.tscn"
-new_player_position = Vector2(0, -256)
+[node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]
+path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
+new_player_position = Vector2(-73, 123)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+position = Vector2(185, -117)
+polygon = PackedVector2Array(-112, 128, -81, 143, -104, 155, -136, 140)

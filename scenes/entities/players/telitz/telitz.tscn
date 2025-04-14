@@ -1206,7 +1206,6 @@ character_name = 2
 
 [node name="VelocityComponent" parent="." instance=ExtResource("2_brpoa")]
 max_speed = 75
-acceleration = 10.0
 
 [node name="PickupArea" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -1258,7 +1257,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_4bpr1")
+&"": SubResource("AnimationLibrary_4bpr1")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

@@ -4,7 +4,7 @@ class_name VelocityComponent
 signal arrived
 
 @export var max_speed: int = 40
-@export var acceleration: float = 5
+@export var acceleration: float = 10
 
 var velocity = Vector2.ZERO
 var is_on_up_ramp: bool = false

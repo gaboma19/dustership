@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://cuw611pbb2u5i"]
 
-[ext_resource type="Script" uid="uid://dn4x7w2rjmxyu" path="res://scenes/levels/dustership/dustership_map.gd" id="1_0txec"]
+[ext_resource type="Script" uid="uid://dn4x7w2rjmxyu" path="res://scenes/levels/dustership/map/dustership_map.gd" id="1_0txec"]
 [ext_resource type="Texture2D" uid="uid://dyks4filn7u4j" path="res://assets/backgrounds/dustership_map/bg.png" id="2_ok77b"]
 [ext_resource type="Texture2D" uid="uid://dssbkxged3k8m" path="res://assets/backgrounds/dustership_map/eye.png" id="3_ph650"]
 [ext_resource type="Texture2D" uid="uid://b1q55wg5go3uc" path="res://assets/backgrounds/dustership_map/eyelid.png" id="4_7sp2v"]
@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://cq1vtrbednoj0" path="res://assets/backgrounds/dustership_map/lights4.png" id="9_3byef"]
 [ext_resource type="Texture2D" uid="uid://cshi5j4a3j4ik" path="res://assets/backgrounds/dustership_map/lights5.png" id="10_t6tcc"]
 [ext_resource type="Texture2D" uid="uid://diely617sbwa2" path="res://assets/backgrounds/dustership_map/red_lights.png" id="11_hoqa8"]
-[ext_resource type="PackedScene" uid="uid://cki42m1twprf7" path="res://scenes/levels/dustership/dustership_location.tscn" id="12_3byef"]
+[ext_resource type="PackedScene" uid="uid://cki42m1twprf7" path="res://scenes/levels/dustership/map/dustership_location.tscn" id="12_3byef"]
 
 [sub_resource type="Animation" id="Animation_df6vi"]
 length = 0.001

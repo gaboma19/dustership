@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dbjfx3qfdxlbf" path="res://assets/ui/dustership_map/tile_0000.png" id="1_tpu8m"]
 [ext_resource type="Texture2D" uid="uid://bdstti6mgnl8f" path="res://assets/ui/dustership_map/tile_selected.png" id="2_uy7bl"]
 [ext_resource type="BitMap" uid="uid://dbh1b0wv1gtpo" path="res://assets/ui/dustership_map/tile_click_mask.png" id="3_axleo"]
-[ext_resource type="Script" uid="uid://bf44jf1uhen3f" path="res://scenes/levels/dustership/dustership_location.gd" id="4_uy7bl"]
+[ext_resource type="Script" uid="uid://bf44jf1uhen3f" path="res://scenes/levels/dustership/map/dustership_location.gd" id="4_uy7bl"]
 
 [node name="DustershipLocation" type="TextureButton"]
 offset_right = 16.0

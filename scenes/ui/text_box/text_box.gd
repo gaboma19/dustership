@@ -35,18 +35,29 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 		await resized
 		custom_minimum_size.y = size.y
 	
+	var right_edge = global_position.x + size.x / 2
+	var left_edge = global_position.x - size.x / 2
+	var top_edge = global_position.y - size.y - 72
+	
+	if right_edge > 1000:
+		global_position.x -= right_edge - 1000
+	if left_edge < 0:
+		global_position.x += left_edge * -1
+	if top_edge < 0:
+		global_position.y += top_edge * -1
+	
 	# move up and center
 	global_position.x -= size.x / 2
-	global_position.y -= size.y + 24
+	global_position.y -= size.y + 72
 
 	label.text = ""
 	
 	pivot_offset = Vector2(size.x / 2, size.y)
 	
 	var tween = get_tree().create_tween()
-	tween.tween_property(
-		self, "scale", Vector2(0.5, 0.5), 0.15
-	).set_trans(Tween.TRANS_BACK)
+	tween.tween_property(self, "scale", Vector2.ONE, 0.3) \
+		.from(Vector2.ZERO) \
+		.set_trans(Tween.TRANS_BACK)
 	
 	_display_letter()
 	

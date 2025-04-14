@@ -28,7 +28,7 @@ PlayerVariables="*res://scenes/autoload/player_variables.tscn"
 Inventory="*res://scenes/autoload/inventory.tscn"
 ScreenTransition="*res://scenes/autoload/screen_transition.tscn"
 InteractionManager="*res://scenes/autoload/interaction_manager.tscn"
-DialogueManager="*res://scenes/autoload/dialogue_manager.gd"
+DialogueManager="*res://scenes/autoload/dialogue_manager.tscn"
 PartyManager="*res://scenes/autoload/party_manager.tscn"
 EntityVariables="*res://scenes/autoload/entity_variables.tscn"
 PopUp="*res://scenes/autoload/pop_up.tscn"
@@ -52,6 +52,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
+movie_writer/mjpeg_quality=0.9
 movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.avi"
 
 [editor_plugins]

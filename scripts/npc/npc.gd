@@ -9,4 +9,6 @@ class_name Npc
 
 
 func speak(lines: Array[String]):
-	DialogueManager.start_dialogue(global_position, lines, speech_sound)
+	var canvas_pos = get_global_transform_with_canvas().origin
+	print(canvas_pos)
+	DialogueManager.start_dialogue(canvas_pos, lines, speech_sound)

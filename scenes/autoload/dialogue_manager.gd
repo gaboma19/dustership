@@ -14,6 +14,7 @@ var is_dialogue_active = false
 var can_advance_line = false
 
 @onready var text_box_scene = preload("res://scenes/ui/text_box/text_box.tscn")
+@onready var canvas_layer = $CanvasLayer
 
 
 func start_dialogue(position: Vector2, lines: Array[String], speech_sfx: AudioStream):
@@ -31,8 +32,9 @@ func start_dialogue(position: Vector2, lines: Array[String], speech_sfx: AudioSt
 func _show_text_box():
 	text_box = text_box_scene.instantiate()
 	text_box.finished_displaying.connect(_on_text_box_finished_displaying)
-	get_tree().root.add_child(text_box)
-	text_box.global_position = text_box_position
+	canvas_layer.add_child(text_box)
+	text_box.position = text_box_position
+	
 	text_box.display_text(dialogue_lines[current_line_index], sfx)
 	can_advance_line = false
 
