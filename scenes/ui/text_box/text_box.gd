@@ -15,6 +15,7 @@ var punctuation_time = 0.2
 @onready var timer = $LetterDisplayTimer
 @onready var audio_player = $AudioStreamPlayer2D
 @onready var next_indicator = %NextIndicator
+@onready var tail = $NinePatchRect/Tail
 
 
 func _ready():
@@ -35,20 +36,23 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 		await resized
 		custom_minimum_size.y = size.y
 	
-	var right_edge = global_position.x + size.x / 2
+	var right_edge = global_position.x + size.x / 2 + 8
 	var left_edge = global_position.x - size.x / 2
 	var top_edge = global_position.y - size.y - 72
 	
 	if right_edge > 1000:
-		global_position.x -= right_edge - 1000
+		var offset = right_edge - 1000
+		global_position.x -= offset
+		tail.position.x += offset
 	if left_edge < 0:
 		global_position.x += left_edge * -1
+		tail.position.x -= left_edge * -1
 	if top_edge < 0:
 		global_position.y += top_edge * -1
 	
 	# move up and center
 	global_position.x -= size.x / 2
-	global_position.y -= size.y + 72
+	global_position.y -= size.y + 80
 
 	label.text = ""
 	

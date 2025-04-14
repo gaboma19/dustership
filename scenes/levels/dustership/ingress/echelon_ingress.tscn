@@ -627,9 +627,11 @@ y_sort_enabled = true
 
 [node name="RemembrancerMona" parent="Entities" instance=ExtResource("4_ak51r")]
 position = Vector2(103, 107)
+lines = Array[String](["Use the ingress pod to enter the Echelon.", "Ethereal attunement should only take a few minutes.", "You may experience some memory loss. It should recover after neural lattice alignment is complete."])
 
 [node name="RemembrancerSaf" parent="Entities" instance=ExtResource("5_ba2dd")]
 position = Vector2(71, 91)
+lines = Array[String](["Did you know the lab's design is based on ancient Eremite blueprints?", "I can't enter the Echelon because I'm not attuned like you, so I stay in the real world.", "I hate my job!"])
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
 path = "res://scenes/levels/dustership/shop/shop.tscn"

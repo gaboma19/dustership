@@ -359,7 +359,7 @@ parameters/move/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_x6alk")
+&"": SubResource("AnimationLibrary_x6alk")
 }
 
 [node name="InteractionArea" parent="." instance=ExtResource("2_eig4c")]
