@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dal244kqc5awr"
-path="res://.godot/imported/ingress.png-592b2ea442a69ea4e61803fa77386308.ctex"
+uid="uid://cwp66ex1vtgcr"
+path="res://.godot/imported/open_pod.png-cb79f8b85ce105a8edbd8c8793c297ba.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/levels/dustership/ingress/ingress.png"
-dest_files=["res://.godot/imported/ingress.png-592b2ea442a69ea4e61803fa77386308.ctex"]
+source_file="res://assets/backgrounds/ingress/open_pod.png"
+dest_files=["res://.godot/imported/open_pod.png-cb79f8b85ce105a8edbd8c8793c297ba.ctex"]
 
 [params]
 

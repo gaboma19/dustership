@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cubs0q5iodero"
+path="res://.godot/imported/pod.aseprite-ce6b06245f47e37a808bd8c1a8f5d0d9.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/ingress/pod.aseprite"
+dest_files=["res://.godot/imported/pod.aseprite-ce6b06245f47e37a808bd8c1a8f5d0d9.res"]
+
+[params]
+

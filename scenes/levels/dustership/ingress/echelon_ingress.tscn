@@ -1,19 +1,87 @@
-[gd_scene load_steps=35 format=3 uid="uid://bilmntyxrqx21"]
+[gd_scene load_steps=44 format=3 uid="uid://bilmntyxrqx21"]
 
 [ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_wu7c6"]
 [ext_resource type="Script" uid="uid://b4ifsm0f71vqq" path="res://scenes/levels/dustership/ingress/events.gd" id="2_khyk3"]
 [ext_resource type="Texture2D" uid="uid://ddi1gkr4xs5e" path="res://assets/backgrounds/ingress/pod.png" id="3_k8der"]
 [ext_resource type="PackedScene" uid="uid://dmw5sf2ng05hy" path="res://scenes/entities/npcs/remembrancers/remembrancer_mona.tscn" id="4_ak51r"]
 [ext_resource type="Texture2D" uid="uid://bncyxapjsv6yg" path="res://assets/backgrounds/ingress/chair.png" id="4_vecaa"]
+[ext_resource type="Texture2D" uid="uid://cwp66ex1vtgcr" path="res://assets/backgrounds/ingress/open_pod.png" id="4_wbir0"]
 [ext_resource type="Texture2D" uid="uid://cnv06yxc1j5b2" path="res://assets/backgrounds/ingress/crates.png" id="5_2hiyp"]
 [ext_resource type="PackedScene" uid="uid://dieedo4dqjmi5" path="res://scenes/entities/npcs/remembrancers/remembrancer_safiya.tscn" id="5_ba2dd"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="5_nnlbd"]
 [ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="5_uamtp"]
-[ext_resource type="Texture2D" uid="uid://dal244kqc5awr" path="res://scenes/levels/dustership/ingress/ingress.png" id="6_2hiyp"]
+[ext_resource type="Shader" uid="uid://g0cvup54cq6q" path="res://resources/materials/fire_dissolve.gdshader" id="5_wbir0"]
 [ext_resource type="Shader" uid="uid://3p6fc82hpee7" path="res://scenes/levels/dustership/ingress/echelon_ingress.gdshader" id="7_2hiyp"]
+[ext_resource type="Texture2D" uid="uid://fyyabgvirfb1" path="res://assets/backgrounds/ingress/ingress.png" id="7_18gqi"]
 [ext_resource type="Texture2D" uid="uid://djsenkeuqsdvi" path="res://assets/backgrounds/ingress/portal.png" id="8_4xklc"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="14_18gqi"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gwwc3"]
+fractal_type = 3
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2dems"]
+noise = SubResource("FastNoiseLite_gwwc3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dems"]
+shader = ExtResource("5_wbir0")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_2dems")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/ratio = 1.0
+
+[sub_resource type="Animation" id="Animation_wbir0"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_gwwc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2dems"]
+resource_name = "close"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uku4j"]
+_data = {
+&"RESET": SubResource("Animation_gwwc3"),
+&"close": SubResource("Animation_2dems"),
+&"open": SubResource("Animation_wbir0")
+}
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_2hiyp"]
 noise_type = 0
@@ -544,11 +612,23 @@ position = Vector2(-73, 123)
 offset = Vector2(0, 75)
 zoom = Vector2(4, 4)
 
+[node name="OpenPod" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(35, 101.5)
+texture = ExtResource("4_wbir0")
+offset = Vector2(-38, -18)
+
 [node name="Pod" type="Sprite2D" parent="."]
 y_sort_enabled = true
+material = SubResource("ShaderMaterial_2dems")
 position = Vector2(35, 101.5)
 texture = ExtResource("3_k8der")
 offset = Vector2(-38, -18)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pod"]
+libraries = {
+&"": SubResource("AnimationLibrary_uku4j")
+}
 
 [node name="Chair" type="Sprite2D" parent="."]
 position = Vector2(40, 74)
@@ -563,7 +643,7 @@ offset = Vector2(0, 0.5)
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("6_2hiyp")
+texture = ExtResource("7_18gqi")
 offset = Vector2(0, 75)
 metadata/_aseprite_wizard_config_ = {
 "i_mode": 1,

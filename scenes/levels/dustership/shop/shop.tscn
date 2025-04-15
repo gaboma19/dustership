@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dx281bkxxn832"]
+[gd_scene load_steps=13 format=3 uid="uid://dx281bkxxn832"]
 
 [ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_r7oeb"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_vas0s"]
@@ -8,7 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://c31ou4okikwl0" path="res://assets/backgrounds/shop/wall.png" id="6_gwjo1"]
 [ext_resource type="Texture2D" uid="uid://00lo7uisutvk" path="res://assets/backgrounds/shop/front_wall.png" id="7_0m8dy"]
 [ext_resource type="Texture2D" uid="uid://ba7peavepha2p" path="res://assets/backgrounds/shop/shop.png" id="8_2jrs2"]
+[ext_resource type="PackedScene" uid="uid://urbu41hjhkye" path="res://scenes/entities/npcs/remembrancers/remembrancer_deon.tscn" id="9_gdcob"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_tlh0c"]
+[ext_resource type="PackedScene" uid="uid://bmefddd535dd2" path="res://scenes/entities/npcs/remembrancers/remembrancer_galann.tscn" id="10_0ovsf"]
+[ext_resource type="PackedScene" uid="uid://bhj2ajli52ntf" path="res://scenes/entities/npcs/dusteki/dusteki.tscn" id="11_gwjo1"]
 
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -88,6 +91,15 @@ z_index = 1
 
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
+
+[node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_gdcob")]
+position = Vector2(57, 75)
+
+[node name="RemembrancerGalann" parent="Entities" instance=ExtResource("10_0ovsf")]
+position = Vector2(25, 75)
+
+[node name="Dusteki" parent="Entities" instance=ExtResource("11_gwjo1")]
+position = Vector2(-39, 83)
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]
 path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
