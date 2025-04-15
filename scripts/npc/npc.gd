@@ -10,7 +10,7 @@ class_name Npc
 @onready var animation_tree: AnimationTree = $AnimationTree
 
 
-func speak(lines: Array[String]):
+func speak(input_lines: Array[String]):
 	var canvas_pos = get_global_transform_with_canvas().origin
 	
-	DialogueManager.start_dialogue(canvas_pos, lines, speech_sound)
+	DialogueManager.start_dialogue(canvas_pos, input_lines, speech_sound)

@@ -31,21 +31,33 @@ zoom = Vector2(4, 4)
 
 [node name="Table" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(23, 96)
+position = Vector2(22, 97)
 texture = ExtResource("3_glks5")
-offset = Vector2(33, -1.5)
+offset = Vector2(33, 3.5)
+
+[node name="Item2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(48, 99)
+texture = ExtResource("4_gdcob")
+offset = Vector2(-9, -11)
+
+[node name="Item3" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(68, 109)
+texture = ExtResource("4_gdcob")
+offset = Vector2(-9, -11)
 
 [node name="Item" type="Sprite2D" parent="."]
 y_sort_enabled = true
 position = Vector2(-47, 91)
 texture = ExtResource("4_gdcob")
-offset = Vector2(-9, -4.5)
+offset = Vector2(-9, -2)
 
 [node name="Chair" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(44, 66)
+position = Vector2(57, 75)
 texture = ExtResource("5_0ovsf")
-offset = Vector2(0, -7)
+offset = Vector2(3, -9)
 
 [node name="Wall" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -84,7 +96,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
 z_index = 1
 build_mode = 1
-polygon = PackedVector2Array(29, 65, 33, 87, 18, 95, 121, 147, 89, 163, 41, 139, 20, 150, -27, 150, -27, 130, -70, 107, -39, 91, -62, 79, 73, 11, 103, 26)
+polygon = PackedVector2Array(91, 84, 62, 101, 33, 87, 18, 95, 121, 147, 89, 163, 41, 139, 20, 150, -27, 150, -27, 130, -70, 107, -39, 91, -62, 79, 73, 11, 103, 26, 41, 59, 57, 67, 48, 72, 58, 77, 67, 72)
 
 [node name="Foreground" type="Node2D" parent="."]
 z_index = 1
@@ -93,12 +105,12 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_gdcob")]
-position = Vector2(57, 75)
+position = Vector2(73, 83)
 
 [node name="RemembrancerGalann" parent="Entities" instance=ExtResource("10_0ovsf")]
-position = Vector2(25, 75)
+position = Vector2(41, 67)
 
-[node name="Dusteki" parent="Entities" instance=ExtResource("11_gwjo1")]
+[node name="DustekiLang" parent="Entities" instance=ExtResource("11_gwjo1")]
 position = Vector2(-39, 83)
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]

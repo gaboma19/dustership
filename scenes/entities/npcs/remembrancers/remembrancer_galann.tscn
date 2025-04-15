@@ -336,7 +336,7 @@ states/move/position = Vector2(633, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_ytmb0"), "idle", "move", SubResource("AnimationNodeStateMachineTransition_luq0j"), "move", "idle", SubResource("AnimationNodeStateMachineTransition_mbl46")]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_axc6a"]
-radius = 32.0
+radius = 16.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ctf0s"]
 radius = 4.0
@@ -379,7 +379,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_gd838")
+&"": SubResource("AnimationLibrary_gd838")
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]

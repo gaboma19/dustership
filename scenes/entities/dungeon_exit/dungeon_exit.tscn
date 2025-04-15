@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwlrqnguuk0yg"]
+[gd_scene load_steps=4 format=3 uid="uid://bwlrqnguuk0yg"]
 
 [ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="1_dx1xj"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="2_1o5on"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cd6l1"]
+radius = 16.0
 
 [node name="DungeonExit" type="Node2D"]
 
@@ -9,3 +13,9 @@ scale = Vector2(64, 63.504)
 
 [node name="OverworldTransitionInteraction" parent="." instance=ExtResource("1_dx1xj")]
 action_name = "Wake Up"
+
+[node name="InteractionArea" parent="OverworldTransitionInteraction" instance=ExtResource("2_1o5on")]
+action_name = "Enter"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OverworldTransitionInteraction/InteractionArea"]
+shape = SubResource("CircleShape2D_cd6l1")
