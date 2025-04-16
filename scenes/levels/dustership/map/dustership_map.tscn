@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cuw611pbb2u5i"]
+[gd_scene load_steps=19 format=3 uid="uid://cuw611pbb2u5i"]
 
 [ext_resource type="Script" uid="uid://dn4x7w2rjmxyu" path="res://scenes/levels/dustership/map/dustership_map.gd" id="1_0txec"]
 [ext_resource type="Texture2D" uid="uid://dyks4filn7u4j" path="res://assets/backgrounds/dustership_map/bg.png" id="2_ok77b"]
@@ -18,7 +18,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Eyelid:modulate")
+tracks/0/path = NodePath("Dustership/Eyelid:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -30,7 +30,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Lights2:modulate")
+tracks/1/path = NodePath("Dustership/Lights2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -42,7 +42,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Lights3:modulate")
+tracks/2/path = NodePath("Dustership/Lights3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -54,7 +54,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Lights4:modulate")
+tracks/3/path = NodePath("Dustership/Lights4:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -66,7 +66,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Lights5:modulate")
+tracks/4/path = NodePath("Dustership/Lights5:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -78,7 +78,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Lights6:modulate")
+tracks/5/path = NodePath("Dustership/Lights6:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -96,7 +96,7 @@ step = 1.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Eyelid:modulate")
+tracks/0/path = NodePath("Dustership/Eyelid:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -108,7 +108,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Lights2:modulate")
+tracks/1/path = NodePath("Dustership/Lights2:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -120,7 +120,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("Lights3:modulate")
+tracks/2/path = NodePath("Dustership/Lights3:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -132,7 +132,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("Lights4:modulate")
+tracks/3/path = NodePath("Dustership/Lights4:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -144,7 +144,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Lights5:modulate")
+tracks/4/path = NodePath("Dustership/Lights5:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -156,7 +156,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Lights6:modulate")
+tracks/5/path = NodePath("Dustership/Lights6:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -172,6 +172,45 @@ _data = {
 &"default": SubResource("Animation_0smq5")
 }
 
+[sub_resource type="Animation" id="Animation_a2kjd"]
+resource_name = "bob"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Dustership:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cv3f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Dustership:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gabw5"]
+_data = {
+&"RESET": SubResource("Animation_cv3f2"),
+&"bob": SubResource("Animation_a2kjd")
+}
+
 [node name="DustershipMap" type="Node2D"]
 script = ExtResource("1_0txec")
 
@@ -180,6 +219,14 @@ libraries = {
 &"": SubResource("AnimationLibrary_hoqa8")
 }
 autoplay = "default"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_gabw5")
+}
+autoplay = "bob"
+speed_scale = 0.75
 
 [node name="GameCamera" type="Camera2D" parent="."]
 position = Vector2(500, 300)
@@ -206,17 +253,19 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Eye" type="Sprite2D" parent="."]
+[node name="Dustership" type="Node2D" parent="."]
+
+[node name="Eye" type="Sprite2D" parent="Dustership"]
 position = Vector2(728, 226)
 scale = Vector2(4, 4)
 texture = ExtResource("3_ph650")
 
-[node name="Eyelid" type="Sprite2D" parent="."]
+[node name="Eyelid" type="Sprite2D" parent="Dustership"]
 position = Vector2(728, 226)
 scale = Vector2(4, 4)
 texture = ExtResource("4_7sp2v")
 
-[node name="Ship" type="Sprite2D" parent="."]
+[node name="Ship" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("5_4rp1l")
@@ -238,7 +287,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights" type="Sprite2D" parent="."]
+[node name="Lights" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("6_ph650")
@@ -260,7 +309,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights2" type="Sprite2D" parent="."]
+[node name="Lights2" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("7_df6vi")
@@ -282,7 +331,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights3" type="Sprite2D" parent="."]
+[node name="Lights3" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("8_hoqa8")
@@ -304,7 +353,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights4" type="Sprite2D" parent="."]
+[node name="Lights4" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("9_3byef")
@@ -326,7 +375,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights5" type="Sprite2D" parent="."]
+[node name="Lights5" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("10_t6tcc")
@@ -348,7 +397,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 "output_section": true
 }
 
-[node name="Lights6" type="Sprite2D" parent="."]
+[node name="Lights6" type="Sprite2D" parent="Dustership"]
 texture_filter = 1
 scale = Vector2(4, 4)
 texture = ExtResource("11_hoqa8")
@@ -379,6 +428,7 @@ offset_right = 600.0
 offset_bottom = 176.0
 focus_neighbor_bottom = NodePath("../Apartment")
 location_name = "Remembrancer camp"
+scene_path = "res://scenes/levels/dustership/shop/shop.tscn"
 
 [node name="Apartment" parent="CanvasLayer" instance=ExtResource("12_3byef")]
 offset_left = 352.0

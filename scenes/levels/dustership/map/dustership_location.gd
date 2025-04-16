@@ -35,4 +35,7 @@ func on_unfocused():
 
 
 func on_pressed():
+	if scene_path == null:
+		return
+	
 	ScreenTransition.transition_to_path(scene_path)

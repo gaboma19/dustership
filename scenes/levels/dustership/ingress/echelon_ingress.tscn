@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://bilmntyxrqx21"]
+[gd_scene load_steps=45 format=3 uid="uid://bilmntyxrqx21"]
 
 [ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_wu7c6"]
 [ext_resource type="Script" uid="uid://b4ifsm0f71vqq" path="res://scenes/levels/dustership/ingress/events.gd" id="2_khyk3"]
@@ -13,6 +13,7 @@
 [ext_resource type="Shader" uid="uid://g0cvup54cq6q" path="res://resources/materials/fire_dissolve.gdshader" id="5_wbir0"]
 [ext_resource type="Shader" uid="uid://3p6fc82hpee7" path="res://scenes/levels/dustership/ingress/echelon_ingress.gdshader" id="7_2hiyp"]
 [ext_resource type="Texture2D" uid="uid://fyyabgvirfb1" path="res://assets/backgrounds/ingress/ingress.png" id="7_18gqi"]
+[ext_resource type="Script" uid="uid://bnsyrptelxdxh" path="res://scenes/levels/dustership/ingress/pod.gd" id="7_gwwc3"]
 [ext_resource type="Texture2D" uid="uid://djsenkeuqsdvi" path="res://assets/backgrounds/ingress/portal.png" id="8_4xklc"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="14_18gqi"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
@@ -47,7 +48,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2dems"]
 resource_name = "close"
-step = 1.0
+length = 0.5
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -55,7 +57,7 @@ tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [0.0, 1.0]
@@ -63,6 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_wbir0"]
 resource_name = "open"
+length = 0.5
+step = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -70,7 +74,7 @@ tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
+"times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(2, 1),
 "update": 0,
 "values": [1.0, 0.0]
@@ -624,11 +628,21 @@ material = SubResource("ShaderMaterial_2dems")
 position = Vector2(35, 101.5)
 texture = ExtResource("3_k8der")
 offset = Vector2(-38, -18)
+script = ExtResource("7_gwwc3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pod"]
 libraries = {
 &"": SubResource("AnimationLibrary_uku4j")
 }
+
+[node name="AnimationArea" type="Area2D" parent="Pod"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pod/AnimationArea"]
+position = Vector2(-27, -13.5)
+polygon = PackedVector2Array(-57, 7, 7, 39, 46, 19, 31, 11, -1, 27, -49, 3)
 
 [node name="Chair" type="Sprite2D" parent="."]
 position = Vector2(40, 74)
@@ -683,8 +697,9 @@ offset = Vector2(0, -0.5)
 [node name="Walls" type="StaticBody2D" parent="Background"]
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+scale = Vector2(1.01958, 1.00803)
 build_mode = 1
-polygon = PackedVector2Array(-41, 91, 7, 115, 39, 99, -9, 75, 7, 67, 23, 59, 39, 67, 23, 75, 39, 83, 55, 75, 71, 83, 55, 91, 87, 107, 103, 99, 119, 107, 103, 115, 119, 123, 66, 150, -19, 150, -57, 131, -105, 155, -137, 139)
+polygon = PackedVector2Array(-49.0398, 95.2356, -32.3663, 95.2356, 6.86558, 114.084, 38.2511, 98.2117, -9, 75, 4.90398, 67.4586, 4.90398, 51.586, 22.5583, 42.6576, 38.2511, 50.5939, 30.4047, 54.5621, 30.4047, 62.4984, 38.2511, 66.4665, 30.4047, 70.4347, 40.2127, 75.3949, 48.059, 71.4267, 69.6366, 82.3391, 85.3293, 90.2754, 75.5214, 95.2356, 86.3101, 100.196, 95.1373, 95.2356, 101.022, 98.2117, 116.715, 90.2754, 122.6, 93.2515, 122.6, 121.029, 66.6942, 148.806, -19.6159, 148.806, -55.9054, 129.957, -102.984, 153.766, -134.369, 137.893)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
 libraries = {
@@ -711,7 +726,7 @@ lines = Array[String](["Use the ingress pod to enter the Echelon.", "Ethereal at
 
 [node name="RemembrancerSaf" parent="Entities" instance=ExtResource("5_ba2dd")]
 position = Vector2(71, 91)
-lines = Array[String](["Did you know the lab's design is based on ancient Eremite blueprints?", "I can't enter the Echelon because I'm not attuned like you, so I stay in the real world.", "I hate my job!"])
+lines = Array[String](["Thanks for doing this, April.", "I can't enter the Echelon because I'm not attuned like you, so I stay in the real world.", "I hate my job!"])
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
 path = "res://scenes/levels/dustership/shop/shop.tscn"
@@ -726,6 +741,7 @@ position = Vector2(8, 88)
 action_name = "Enter"
 
 [node name="InteractionArea" parent="OverworldTransitionInteraction" instance=ExtResource("14_18gqi")]
+visible = false
 action_name = "Enter"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverworldTransitionInteraction/InteractionArea"]

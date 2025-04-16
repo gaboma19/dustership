@@ -106,12 +106,15 @@ y_sort_enabled = true
 
 [node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_gdcob")]
 position = Vector2(73, 83)
+lines = Array[String](["Hey, April.", "Do you miss Ammella yet?", "The dustership feels just like home... except here, the walls hum with light, and you can hear its pulse."])
 
 [node name="RemembrancerGalann" parent="Entities" instance=ExtResource("10_0ovsf")]
 position = Vector2(41, 67)
+lines = Array[String](["Hello, April.", "The data brokers have placed another order. Let's prioritize it to stay on track.", "They're waiting for you in the lab."])
 
 [node name="DustekiLang" parent="Entities" instance=ExtResource("11_gwjo1")]
 position = Vector2(-39, 83)
+lines = Array[String](["You don’t look like you’re from around here.", "Need something?", "The Hondonerance is a treasure trove, and our scavengers know it better than anyone."])
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]
 path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
