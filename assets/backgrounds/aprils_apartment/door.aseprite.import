@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://cnvtaexkjflsb"
+path="res://.godot/imported/door.aseprite-79e31e3888dbb08fb9c8cc3b762ecbc0.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/aprils_apartment/door.aseprite"
+dest_files=["res://.godot/imported/door.aseprite-79e31e3888dbb08fb9c8cc3b762ecbc0.res"]
+
+[params]
+
