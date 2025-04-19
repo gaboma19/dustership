@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dx281bkxxn832"]
+[gd_scene load_steps=14 format=3 uid="uid://dx281bkxxn832"]
 
 [ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_r7oeb"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_vas0s"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_tlh0c"]
 [ext_resource type="PackedScene" uid="uid://bmefddd535dd2" path="res://scenes/entities/npcs/remembrancers/remembrancer_galann.tscn" id="10_0ovsf"]
 [ext_resource type="PackedScene" uid="uid://bhj2ajli52ntf" path="res://scenes/entities/npcs/dusteki/dusteki.tscn" id="11_gwjo1"]
+[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_transition_area.tscn" id="13_0ovsf"]
 
 [node name="Shop" type="Node2D" node_paths=PackedStringArray("game_start")]
 y_sort_enabled = true
@@ -106,7 +107,7 @@ y_sort_enabled = true
 
 [node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_gdcob")]
 position = Vector2(73, 83)
-lines = Array[String](["Hey, April.", "Do you miss Ammella yet?", "The dustership feels just like home... except here, the walls hum with light, and you can hear its pulse."])
+lines = Array[String](["Hey, April.", "Do you miss Ammella yet?", "The dustership feels just like home... except here, the carved walls tell stories, and you can hear its pulse beneath them."])
 
 [node name="RemembrancerGalann" parent="Entities" instance=ExtResource("10_0ovsf")]
 position = Vector2(41, 67)
@@ -114,7 +115,7 @@ lines = Array[String](["Hello, April.", "The data brokers have placed another or
 
 [node name="DustekiLang" parent="Entities" instance=ExtResource("11_gwjo1")]
 position = Vector2(-39, 83)
-lines = Array[String](["You don’t look like you’re from around here.", "Need something?", "The Hondonerance is a treasure trove, and our scavengers know it better than anyone."])
+lines = Array[String](["Haag wycandihm?", "Ohyndak Ammellan.", "The Hondonerance has treasures you won't find anywhere else, and our scavengers know it better than anyone."])
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]
 path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
@@ -123,3 +124,9 @@ new_player_position = Vector2(-73, 123)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 position = Vector2(185, -117)
 polygon = PackedVector2Array(-112, 128, -81, 143, -104, 155, -136, 140)
+
+[node name="DustershipTransitionArea" parent="." instance=ExtResource("13_0ovsf")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DustershipTransitionArea"]
+position = Vector2(68, 33)
+polygon = PackedVector2Array(-9, 115, 5, 122, 37, 106, 23, 99)

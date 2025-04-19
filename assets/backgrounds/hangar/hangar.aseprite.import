@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://bml3p3pais5vt"
+path="res://.godot/imported/hangar.aseprite-bb6f9d557c2403967d18d0c37d74b446.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/hangar/hangar.aseprite"
+dest_files=["res://.godot/imported/hangar.aseprite-bb6f9d557c2403967d18d0c37d74b446.res"]
+
+[params]
+

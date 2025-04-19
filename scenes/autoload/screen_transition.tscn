@@ -72,6 +72,7 @@ script = ExtResource("1_qxdhp")
 overworld_path = "res://scenes/overworld/overworld.tscn"
 main_menu_path = "res://scenes/ui/main_menu/main_menu.tscn"
 ingress_path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
+dustership_map_path = "res://scenes/levels/dustership/map/dustership_map.tscn"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {

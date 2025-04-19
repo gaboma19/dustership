@@ -5,6 +5,7 @@ const ANIMATION_LENGTH: float = 0.4
 @export var overworld_path: String
 @export var main_menu_path: String
 @export var ingress_path: String
+@export var dustership_map_path: String
 
 
 func transition_in():
@@ -112,7 +113,13 @@ func transition_to_overworld():
 
 
 func transition_to_ingress():
-	transition_to_path(ingress_path)
+	const INGRESS_PLAYER_POSITION = Vector2(7, 123)
+	
+	transition_to_level(ingress_path, INGRESS_PLAYER_POSITION)
+
+
+func transition_to_dustership_map():
+	transition_to_path(dustership_map_path)
 
 
 func transition_to_main_menu():

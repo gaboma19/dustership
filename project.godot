@@ -52,8 +52,7 @@ window/stretch/mode="viewport"
 
 [editor]
 
-movie_writer/mjpeg_quality=0.9
-movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.avi"
+movie_writer/movie_file="D:/workspace/godot_movie_writer/godot.png"
 
 [editor_plugins]
 

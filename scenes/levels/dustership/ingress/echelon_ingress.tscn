@@ -618,16 +618,16 @@ zoom = Vector2(4, 4)
 
 [node name="OpenPod" type="Sprite2D" parent="."]
 y_sort_enabled = true
-position = Vector2(35, 101.5)
+position = Vector2(35, 93.5)
 texture = ExtResource("4_wbir0")
-offset = Vector2(-38, -18)
+offset = Vector2(-38, -10)
 
 [node name="Pod" type="Sprite2D" parent="."]
 y_sort_enabled = true
 material = SubResource("ShaderMaterial_2dems")
-position = Vector2(35, 101.5)
+position = Vector2(35, 93.5)
 texture = ExtResource("3_k8der")
-offset = Vector2(-38, -18)
+offset = Vector2(-38, -10)
 script = ExtResource("7_gwwc3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Pod"]
@@ -641,8 +641,8 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pod/AnimationArea"]
-position = Vector2(-27, -13.5)
-polygon = PackedVector2Array(-57, 7, 7, 39, 46, 19, 31, 11, -1, 27, -49, 3)
+position = Vector2(-26, -5.5)
+polygon = PackedVector2Array(-58, 7, 6, 39, 46, 19, 31, 11, -2, 27, -50, 3)
 
 [node name="Chair" type="Sprite2D" parent="."]
 position = Vector2(40, 74)
@@ -721,7 +721,7 @@ z_index = 1
 y_sort_enabled = true
 
 [node name="RemembrancerMona" parent="Entities" instance=ExtResource("4_ak51r")]
-position = Vector2(103, 107)
+position = Vector2(-41, 99)
 lines = Array[String](["Use the ingress pod to enter the Echelon.", "Ethereal attunement should only take a few minutes.", "You may experience some memory loss. It should recover after neural lattice alignment is complete."])
 
 [node name="RemembrancerSaf" parent="Entities" instance=ExtResource("5_ba2dd")]

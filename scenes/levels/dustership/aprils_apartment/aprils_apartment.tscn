@@ -1,16 +1,33 @@
-[gd_scene load_steps=12 format=3 uid="uid://ceq04tmi5qjtp"]
+[gd_scene load_steps=14 format=3 uid="uid://ceq04tmi5qjtp"]
 
 [ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_ecy4t"]
 [ext_resource type="Texture2D" uid="uid://b7s7mfg2n5nc8" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_2.png" id="3_3o5hr"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="4_1rsqs"]
 [ext_resource type="Texture2D" uid="uid://mh5oawc8c07a" path="res://assets/backgrounds/aprils_apartment/door.png" id="4_cd5n3"]
 [ext_resource type="Texture2D" uid="uid://blnycbkxa8ubd" path="res://assets/backgrounds/aprils_apartment/bed.png" id="5_cyx1r"]
+[ext_resource type="Script" uid="uid://dv0crxrwbj4rv" path="res://scenes/levels/dustership/aprils_apartment/door.gd" id="5_kw6in"]
 [ext_resource type="Texture2D" uid="uid://bl1dkpipu0651" path="res://assets/backgrounds/aprils_apartment/chair.png" id="6_kw6in"]
 [ext_resource type="Texture2D" uid="uid://cykj4ncm0c5pv" path="res://assets/backgrounds/aprils_apartment/sword.png" id="7_cd5n3"]
 [ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_bathroom.png" id="7_s11fp"]
-[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="16_tqtsg"]
+[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_transition_area.tscn" id="9_cd5n3"]
+
+[sub_resource type="Animation" id="Animation_cd5n3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StaticBody2D/CollisionPolygon2D:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_yqbg1"]
+resource_name = "open"
 length = 0.7
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -36,10 +53,23 @@ tracks/1/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StaticBody2D/CollisionPolygon2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_u3n5t"]
 _data = {
-&"default": SubResource("Animation_yqbg1")
+&"RESET": SubResource("Animation_cd5n3"),
+&"open": SubResource("Animation_yqbg1")
 }
 
 [node name="AprilsApartment" type="Node2D" node_paths=PackedStringArray("game_start")]
@@ -50,7 +80,7 @@ map_pin_cell = Vector2i(2, 2)
 game_start = NodePath("GameStart")
 
 [node name="GameStart" parent="." instance=ExtResource("4_1rsqs")]
-position = Vector2(32, 56)
+position = Vector2(7, 107)
 
 [node name="Background" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -77,6 +107,7 @@ texture = ExtResource("4_cd5n3")
 offset = Vector2(0, -16)
 hframes = 3
 vframes = 3
+script = ExtResource("5_kw6in")
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -99,9 +130,19 @@ libraries = {
 }
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Door"]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Door/StaticBody2D"]
 polygon = PackedVector2Array(-9, 11, 12, 1, 6, -2, -16, 7)
+
+[node name="AnimationArea" type="Area2D" parent="Door"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Door/AnimationArea"]
+position = Vector2(-26, -5.5)
+polygon = PackedVector2Array(27, 27.5, 53, 14.5, 61, 10.5, 46, 2.5, 38, 6.5, 15, -4.5, -18, 13.5, -5, 20.5, 11, 12.5, 17, 16.5, 11, 19.5)
 
 [node name="Bed" type="Sprite2D" parent="."]
 y_sort_enabled = true
@@ -129,7 +170,7 @@ offset = Vector2(-10, -30)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Walls"]
 build_mode = 1
-polygon = PackedVector2Array(-92, 88, -79, 95, -64, 87, -57, 91, -72, 99, -24, 123, -9, 115, 8, 123, 40, 107, 24, 99, 63, 79, 36, 65, 57, 54, 33, 41, 12, 53, 2, 47, -18, 57, -18, 72, -36, 81, -58, 70)
+polygon = PackedVector2Array(-92, 88, -79, 95, -64, 87, -57, 91, -72, 99, -24, 123, -9, 115, 21, 130, 53, 114, 23, 99, 63, 79, 36, 65, 57, 54, 33, 41, 12, 53, 2, 47, -18, 57, -18, 72, -36, 81, -58, 70)
 
 [node name="GameCamera" type="Camera2D" parent="."]
 offset = Vector2(0, 75)
@@ -141,9 +182,8 @@ y_sort_enabled = true
 [node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
 z_index = 1
 
-[node name="LevelTransitionArea" parent="." instance=ExtResource("16_tqtsg")]
-script = null
+[node name="DustershipTransitionArea" parent="." instance=ExtResource("9_cd5n3")]
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DustershipTransitionArea"]
 position = Vector2(16, 8)
 polygon = PackedVector2Array(-9, 115, 5, 122, 37, 106, 23, 99)

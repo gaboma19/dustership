@@ -5,11 +5,11 @@ func _ready():
 	body_entered.connect(on_body_entered)
 
 
-func transition_to_overworld():
+func transition_to_dustership_map():
 	MusicManager.fade_out(10)
 	set_deferred("monitoring", false)
 	
-	ScreenTransition.transition_to_overworld()
+	ScreenTransition.transition_to_dustership_map()
 
 
 func on_body_entered(body: Node2D):
@@ -17,4 +17,4 @@ func on_body_entered(body: Node2D):
 	if body != player:
 		return
 	
-	transition_to_overworld()
+	transition_to_dustership_map()
