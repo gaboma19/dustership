@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cflni3m7412y8" path="res://scenes/level_transitions/level_transition_area.gd" id="1_yf30s"]
 
-[node name="LevelTransitionArea" type="Area2D"]
+[node name="LevelTransitionArea" type="Area2D" groups=["transition_area"]]
 z_index = 1
 collision_layer = 0
 collision_mask = 2

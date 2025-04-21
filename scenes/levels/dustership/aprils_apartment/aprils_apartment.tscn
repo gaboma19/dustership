@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bl1dkpipu0651" path="res://assets/backgrounds/aprils_apartment/chair.png" id="6_kw6in"]
 [ext_resource type="Texture2D" uid="uid://cykj4ncm0c5pv" path="res://assets/backgrounds/aprils_apartment/sword.png" id="7_cd5n3"]
 [ext_resource type="Texture2D" uid="uid://b25kyh5wad48t" path="res://assets/backgrounds/aprils_apartment/aprils_apartment_bathroom.png" id="7_s11fp"]
-[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_transition_area.tscn" id="9_cd5n3"]
+[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_map_transition_area.tscn" id="9_cd5n3"]
 
 [sub_resource type="Animation" id="Animation_cd5n3"]
 length = 0.001
@@ -72,12 +72,13 @@ _data = {
 &"open": SubResource("Animation_yqbg1")
 }
 
-[node name="AprilsApartment" type="Node2D" node_paths=PackedStringArray("game_start")]
+[node name="AprilsApartment" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
 y_sort_enabled = true
 script = ExtResource("1_ecy4t")
 is_camera_static = true
 map_pin_cell = Vector2i(2, 2)
 game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoint")]
 
 [node name="GameStart" parent="." instance=ExtResource("4_1rsqs")]
 position = Vector2(7, 107)
@@ -187,3 +188,6 @@ z_index = 1
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DustershipTransitionArea"]
 position = Vector2(16, 8)
 polygon = PackedVector2Array(-9, 115, 5, 122, 37, 106, 23, 99)
+
+[node name="EntrancePoint" type="Node2D" parent="."]
+position = Vector2(35, 120)

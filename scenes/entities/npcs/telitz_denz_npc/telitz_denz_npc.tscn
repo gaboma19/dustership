@@ -358,7 +358,7 @@ parameters/walk/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_jlnrk")
+&"": SubResource("AnimationLibrary_jlnrk")
 }
 
 [node name="AmbushRangeArea" type="Area2D" parent="."]

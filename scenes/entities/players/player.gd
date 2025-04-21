@@ -91,6 +91,10 @@ func set_flying(value: bool):
 		set_collision_mask(0b1010100001)
 
 
+func set_monitorable(value: bool):
+	set_collision_layer_value(2, value)
+
+
 func set_hurtbox_monitoring(value: bool, delay: float = 0):
 	if delay > 0:
 		await get_tree().create_timer(delay).timeout

@@ -2,6 +2,7 @@ extends TextureButton
 
 @export var location_name: String
 @export var scene_path: String
+@export var player_position: Vector2
 
 @onready var label = $Label
 
@@ -38,4 +39,4 @@ func on_pressed():
 	if scene_path == null:
 		return
 	
-	ScreenTransition.transition_to_path(scene_path)
+	ScreenTransition.transition_to_level(scene_path, player_position)

@@ -429,6 +429,7 @@ offset_bottom = 176.0
 focus_neighbor_bottom = NodePath("../Apartment")
 location_name = "Remembrancer camp"
 scene_path = "res://scenes/levels/dustership/shop/shop.tscn"
+player_position = Vector2(57, 131)
 
 [node name="Apartment" parent="CanvasLayer" instance=ExtResource("12_3byef")]
 offset_left = 352.0
@@ -438,3 +439,12 @@ offset_bottom = 304.0
 focus_neighbor_top = NodePath("../RemembrancerCamp")
 location_name = "Apartment"
 scene_path = "res://scenes/levels/dustership/aprils_apartment/aprils_apartment.tscn"
+player_position = Vector2(7, 107)
+
+[node name="Hangar" parent="CanvasLayer" instance=ExtResource("12_3byef")]
+offset_left = 133.0
+offset_top = 214.0
+offset_right = 149.0
+offset_bottom = 230.0
+focus_neighbor_top = NodePath("../RemembrancerCamp")
+location_name = "Hangar"

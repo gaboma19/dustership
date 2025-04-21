@@ -599,12 +599,16 @@ states/portal_open/position = Vector2(590, 140)
 transitions = ["portal_inactive", "portal_open", SubResource("AnimationNodeStateMachineTransition_qxw67"), "portal_open", "portal_active", SubResource("AnimationNodeStateMachineTransition_3h2mu"), "portal_active", "portal_close", SubResource("AnimationNodeStateMachineTransition_yl3p2"), "portal_close", "portal_inactive", SubResource("AnimationNodeStateMachineTransition_od6df"), "Start", "portal_inactive", SubResource("AnimationNodeStateMachineTransition_1lpcu"), "Start", "portal_active", SubResource("AnimationNodeStateMachineTransition_18gqi")]
 graph_offset = Vector2(71, 6)
 
-[node name="EchelonIngress" type="Node2D" node_paths=PackedStringArray("game_start")]
+[node name="EchelonIngress" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
 y_sort_enabled = true
 script = ExtResource("1_wu7c6")
 is_camera_static = true
 map_pin_cell = Vector2i(28, -19)
 game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoint")]
+
+[node name="EntrancePoint" type="Node2D" parent="."]
+position = Vector2(-113, 143)
 
 [node name="Events" type="Node" parent="." groups=["events"]]
 script = ExtResource("2_khyk3")

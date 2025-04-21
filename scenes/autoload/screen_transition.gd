@@ -38,6 +38,7 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	transition_in()
 
 
+# called from MainMenu
 func transition_to_level_with_active_member_name(scene_path: String, 
 		player_position: Vector2, active_member_name: Constants.CharacterNames):
 	PartyManager.clear_members()
@@ -96,6 +97,7 @@ func restart_game(scene_path: String):
 	transition_in()
 
 
+# used for UI scenes with no party
 func transition_to_path(scene_path: String):
 	transition_out()
 	await get_tree().create_timer(ANIMATION_LENGTH).timeout

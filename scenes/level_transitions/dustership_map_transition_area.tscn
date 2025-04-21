@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6j8e6lx7mptr"]
+
+[ext_resource type="Script" uid="uid://bdgekiai5amqc" path="res://scenes/level_transitions/dustership_map_transition_area.gd" id="1_noemi"]
+
+[node name="DustershipMapTransitionArea" type="Area2D" groups=["transition_area"]]
+z_index = 1
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_noemi")

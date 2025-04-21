@@ -26,6 +26,26 @@ func _process(_delta):
 			arrived.emit()
 
 
+# similar to accelerate_to_point(), but is called outside of process() 
+# functions to instead be processed here. will also emit `arrived` for cutscenes
+# and transitions.
+func process_accelerate_to_point(target_point: Vector2):
+	# target_point in global coordinates
+	is_moving_to_point = true
+	point = target_point
+
+
+func accelerate_to_point(target_point: Vector2):
+	is_decelerating = false
+	
+	var owner_node2d = owner as Node2D
+	if owner_node2d == null:
+		return
+	
+	var direction = owner_node2d.global_position.direction_to(target_point)
+	accelerate_in_direction(direction)
+
+
 func accelerate_to_player():
 	var owner_node2d = owner as Node2D
 	if owner_node2d == null:
@@ -39,17 +59,6 @@ func accelerate_to_player():
 	
 	var direction = owner_node2d.global_position.direction_to(
 		player.global_position)
-	accelerate_in_direction(direction)
-
-
-func accelerate_to_point(target_point: Vector2):
-	is_decelerating = false
-	
-	var owner_node2d = owner as Node2D
-	if owner_node2d == null:
-		return
-	
-	var direction = owner_node2d.global_position.direction_to(target_point)
 	accelerate_in_direction(direction)
 
 
@@ -96,12 +105,6 @@ func apply_ramp_bias():
 			velocity.y -= 5.0
 		if velocity.x < 0:
 			velocity.y += 5.0
-
-
-func process_accelerate_to_point(target_point: Vector2):
-	# target_point in global coordinates
-	is_moving_to_point = true
-	point = target_point
 
 
 func move(character_body: CharacterBody2D):
