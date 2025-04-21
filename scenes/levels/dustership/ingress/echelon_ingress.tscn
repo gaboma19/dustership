@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://cnv06yxc1j5b2" path="res://assets/backgrounds/ingress/crates.png" id="5_2hiyp"]
 [ext_resource type="PackedScene" uid="uid://dieedo4dqjmi5" path="res://scenes/entities/npcs/remembrancers/remembrancer_safiya.tscn" id="5_ba2dd"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="5_nnlbd"]
-[ext_resource type="PackedScene" uid="uid://dvlo5aq8n2xxg" path="res://scenes/level_transitions/overworld_transition_interaction.tscn" id="5_uamtp"]
 [ext_resource type="Shader" uid="uid://g0cvup54cq6q" path="res://resources/materials/fire_dissolve.gdshader" id="5_wbir0"]
 [ext_resource type="Shader" uid="uid://3p6fc82hpee7" path="res://scenes/levels/dustership/ingress/echelon_ingress.gdshader" id="7_2hiyp"]
 [ext_resource type="Texture2D" uid="uid://fyyabgvirfb1" path="res://assets/backgrounds/ingress/ingress.png" id="7_18gqi"]
@@ -17,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://djsenkeuqsdvi" path="res://assets/backgrounds/ingress/portal.png" id="8_4xklc"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="14_18gqi"]
 [ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
+[ext_resource type="Script" uid="uid://b3reaplpp0myj" path="res://scenes/levels/dustership/ingress/ingress_transition.gd" id="16_gwwc3"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_gwwc3"]
 fractal_type = 3
@@ -734,14 +734,15 @@ lines = Array[String](["Thanks for doing this, April.", "I can't enter the Echel
 
 [node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
 path = "res://scenes/levels/dustership/shop/shop.tscn"
-new_player_position = Vector2(41, 43)
+new_player_position = Vector2(25, 51)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
 polygon = PackedVector2Array(-113, 127, -81, 143, -105, 155, -137, 139)
 
-[node name="OverworldTransitionInteraction" parent="." instance=ExtResource("5_uamtp")]
+[node name="OverworldTransitionInteraction" type="Node2D" parent="."]
 z_index = 1
 position = Vector2(8, 88)
+script = ExtResource("16_gwwc3")
 action_name = "Enter"
 
 [node name="InteractionArea" parent="OverworldTransitionInteraction" instance=ExtResource("14_18gqi")]

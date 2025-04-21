@@ -105,4 +105,4 @@ func enter_dungeon():
 	
 	var active_member_name = Constants.CharacterNames.APRIL
 	ScreenTransition.transition_to_dungeon_level(
-		scene_path, player_position, active_member_name, room)
+		scene_path, player_position, active_member_name, room, false)

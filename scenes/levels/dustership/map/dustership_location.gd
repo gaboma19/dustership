@@ -36,7 +36,8 @@ func on_unfocused():
 
 
 func on_pressed():
-	if scene_path == null:
+	if scene_path.is_empty():
 		return
 	
-	ScreenTransition.transition_to_level(scene_path, player_position)
+	ScreenTransition.transition_to_level_with_active_member_name(
+		scene_path, player_position, PartyManager.active_member_name)

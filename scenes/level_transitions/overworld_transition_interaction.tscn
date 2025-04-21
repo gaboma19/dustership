@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dvlo5aq8n2xxg"]
 
-[ext_resource type="Script" uid="uid://b3reaplpp0myj" path="res://scenes/level_transitions/overworld_transition_interaction.gd" id="1_yb6o1"]
+[ext_resource type="Script" uid="uid://b1jqp1tkr52uk" path="res://scenes/level_transitions/overworld_transition_interaction.gd" id="1_yb6o1"]
 
 [node name="OverworldTransitionInteraction" type="Node2D"]
 script = ExtResource("1_yb6o1")

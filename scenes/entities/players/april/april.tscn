@@ -2598,10 +2598,6 @@ parameters/Idle/blend_position = Vector2(0, 1)
 parameters/Move/blend_position = Vector2(0, 1)
 script = ExtResource("9_wh658")
 
-[node name="Label" type="Label" parent="AnimationTree"]
-offset_right = 40.0
-offset_bottom = 16.0
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 unique_name_in_owner = true
 visible = false
@@ -2616,12 +2612,8 @@ one_shot = true
 
 [node name="AttackComboTimer" type="Timer" parent="."]
 unique_name_in_owner = true
+wait_time = 1.6
 one_shot = true
-
-[node name="Label" type="Label" parent="AttackComboTimer"]
-offset_top = 16.0
-offset_right = 40.0
-offset_bottom = 32.0
 
 [node name="SwordAudio" parent="." instance=ExtResource("6_pymer")]
 unique_name_in_owner = true

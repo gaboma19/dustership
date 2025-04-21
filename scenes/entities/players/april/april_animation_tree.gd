@@ -3,7 +3,6 @@ extends AnimationTree
 var number_attacks: int = 0 :
 	set(value): 
 		number_attacks = value % 3
-
 @onready var attack_combo_timer = %AttackComboTimer
 
 

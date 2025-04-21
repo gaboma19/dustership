@@ -38,9 +38,12 @@ func transition_to_level(scene_path: String, player_position: Vector2):
 	transition_in()
 
 
-# called from MainMenu
+# if the PartyManager is empty, provide active_member_name 
+# or use PartyManager.active_member_name to used the saved name
+# used in MainMenu, DustershipLocation, Overworld -> ingress
 func transition_to_level_with_active_member_name(scene_path: String, 
-		player_position: Vector2, active_member_name: Constants.CharacterNames):
+		player_position: Vector2, active_member_name: Constants.CharacterNames,
+		show_animation: bool = true):
 	PartyManager.clear_members()
 	
 	transition_out()
@@ -51,13 +54,17 @@ func transition_to_level_with_active_member_name(scene_path: String,
 	await get_tree().process_frame
 	
 	var level = get_tree().current_scene
-	level.set_player_position(player_position, active_member_name)
+	if show_animation:
+		level.set_player_position(player_position, active_member_name)
+	else:
+		level.set_player_position_without_entrance(player_position, active_member_name)
 	
 	transition_in()
 
 
 func transition_to_dungeon_level(scene_path: String, player_position: Vector2, 
-		active_member_name: Constants.CharacterNames, room: Room):
+		active_member_name: Constants.CharacterNames, room: Room,
+		show_animation: bool = true):
 	transition_out()
 	await get_tree().create_timer(ANIMATION_LENGTH).timeout
 	
@@ -69,7 +76,10 @@ func transition_to_dungeon_level(scene_path: String, player_position: Vector2,
 	
 	var level: DungeonLevel = get_tree().current_scene
 	
-	level.set_player_position(player_position, active_member_name)
+	if show_animation:
+		level.set_player_position(player_position, active_member_name)
+	else:
+		level.set_player_position_without_entrance(player_position, active_member_name)
 	
 	level.room = room
 	level.build()
@@ -117,10 +127,13 @@ func transition_to_overworld():
 func transition_to_ingress():
 	const INGRESS_PLAYER_POSITION = Vector2(7, 123)
 	
-	transition_to_level(ingress_path, INGRESS_PLAYER_POSITION)
+	transition_to_level_with_active_member_name(
+		ingress_path, INGRESS_PLAYER_POSITION, PartyManager.active_member_name, false)
 
 
 func transition_to_dustership_map():
+	PartyManager.clear_members()
+	
 	transition_to_path(dustership_map_path)
 
 

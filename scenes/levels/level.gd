@@ -53,6 +53,16 @@ func set_player_position(
 		game_camera.reset_smoothing()
 
 
+func set_player_position_without_entrance(
+	input_position: Vector2, active_member_name: Constants.CharacterNames):
+	
+	PartyManager.instantiate_party(input_position, active_member_name)
+	
+	if not is_camera_static:
+		game_camera.global_position = input_position
+		game_camera.reset_smoothing()
+
+
 func on_player_arrived():
 	set_level_transitions_monitoring(true)
 	player.state_machine.transition_to("Active")
@@ -70,13 +80,14 @@ func set_player_at_game_start(active_member_name: Constants.CharacterNames):
 
 
 func pick_entrance_point(final_position: Vector2) -> Node2D:
+	var closest_point: Node2D = entrance_points[0]
+	
 	if entrance_points.is_empty():
 		return null
 	if entrance_points.size() == 1:
-		return entrance_points[0]
+		return closest_point
 	
-	var closest_point: Node2D
-	var shortest_distance: float
+	var shortest_distance: float = closest_point.global_position.distance_to(final_position)
 	
 	for point in entrance_points:
 		var distance = point.global_position.distance_to(final_position)

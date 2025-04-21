@@ -7,6 +7,7 @@ var members: Array[Player] = []
 var member_scenes: Array[PackedScene] = []
 var active_member_index: int = -1
 var is_switch_character_disabled: bool = false
+var active_member_name: Constants.CharacterNames
 
 @onready var april_scene: PackedScene = preload("res://scenes/entities/players/april/april.tscn")
 @onready var cube_scene: PackedScene = preload("res://scenes/entities/players/cube/cube.tscn")
@@ -32,6 +33,7 @@ func add_member(node: Player):
 		active_member_index = 0
 		node.state_machine.transition_to("Active")
 		
+		active_member_name = node.character_name
 		character_activated.emit(node.character_name)
 	else:
 		node.state_machine.transition_to("Follow")
@@ -64,7 +66,7 @@ func remove_member_scene(node: Player):
 	member_scenes.erase(scene_dictionary[node.character_name])
 
 
-func has_member(member_name: Constants.CharacterNames) -> bool:
+func has_member_scene(member_name: Constants.CharacterNames) -> bool:
 	return member_scenes.has(scene_dictionary[member_name])
 
 
@@ -74,17 +76,21 @@ func get_active_member() -> Player:
 	return members[active_member_index]
 
 
-func instantiate_party(position: Vector2, active_member_name: Constants.CharacterNames):
+func instantiate_party(position: Vector2, member_name_to_activate: Constants.CharacterNames):
+	print("instantiate_party")
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for n in member_scenes.size():
+		if has_player(member_name_to_activate):
+			continue
+		
 		var party_member = member_scenes[n].instantiate()
 		entities_layer.add_child(party_member)
 		party_member.global_position = position
 		
-		if party_member.character_name == active_member_name:
+		if party_member.character_name == member_name_to_activate:
 			party_member.state_machine.transition_to("Active")
 			active_member_index = n
-			
+			active_member_name = member_name_to_activate
 			character_activated.emit(party_member.character_name)
 		else:
 			party_member.state_machine.transition_to("Follow")
@@ -109,6 +115,7 @@ func switch_character():
 		
 		members[i].state_machine.transition_to("Follow")
 	
+	active_member_name = next_active_member.character_name
 	character_switched.emit(next_active_member.character_name)
 
 
@@ -173,6 +180,14 @@ func get_telitz() -> Player:
 			return player
 	
 	return null
+
+
+func has_player(by_name: Constants.CharacterNames) -> bool:
+	for player in members:
+		if player.character_name == by_name:
+			return true
+	
+	return false
 
 
 func save_data() -> Dictionary:
