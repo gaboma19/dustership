@@ -27,7 +27,6 @@ func _ready():
 
 
 func initialize_april():
-	print("game start")
 	if PartyManager.has_member_scene(Constants.CharacterNames.APRIL):
 		return
 	

@@ -1,0 +1,62 @@
+[gd_scene load_steps=5 format=3 uid="uid://dda0ar46gdn03"]
+
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_kx4rs"]
+[ext_resource type="Texture2D" uid="uid://bo0qtcwxj3s7v" path="res://assets/backgrounds/hangar/hangar.png" id="3_ibpt4"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="3_m606j"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="15_oo21i"]
+
+[node name="Hangar" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
+y_sort_enabled = true
+script = ExtResource("1_kx4rs")
+is_camera_static = true
+map_pin_cell = Vector2i(28, -19)
+game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoint")]
+
+[node name="EntrancePoint" type="Node2D" parent="."]
+position = Vector2(-113, 143)
+
+[node name="GameStart" parent="." instance=ExtResource("3_m606j")]
+position = Vector2(-73, 123)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_ibpt4")
+offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/hangar",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/hangar/hangar.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+scale = Vector2(1.01958, 1.00803)
+build_mode = 1
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("15_oo21i")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]

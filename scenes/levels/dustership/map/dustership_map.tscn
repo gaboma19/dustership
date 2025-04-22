@@ -442,9 +442,10 @@ scene_path = "res://scenes/levels/dustership/aprils_apartment/aprils_apartment.t
 player_position = Vector2(7, 107)
 
 [node name="Hangar" parent="CanvasLayer" instance=ExtResource("12_3byef")]
-offset_left = 133.0
-offset_top = 214.0
-offset_right = 149.0
-offset_bottom = 230.0
+offset_left = 144.0
+offset_top = 208.0
+offset_right = 160.0
+offset_bottom = 224.0
 focus_neighbor_top = NodePath("../RemembrancerCamp")
 location_name = "Hangar"
+scene_path = "res://scenes/levels/dustership/hangar/hangar.tscn"
