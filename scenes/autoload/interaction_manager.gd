@@ -40,7 +40,6 @@ func open(area: InteractionArea):
 	interaction_detail.action_name = area.action_name
 	detail_container.add_child(interaction_detail)
 	
-	# TODO: if the text is the same it never resizes (?)
 	#await detail_container.resized
 	
 	canvas_pos.x -= detail_container.size.x / 2
