@@ -19,10 +19,20 @@ func _ready():
 	HUD.show()
 	DungeonManager.show()
 	
+	set_entrance_points()
+	
 	#_test_set_doorways()
 	#_test_spawn_chest(1.0)
 	#_test_spawn_enemies(4.0)
 	#_test_close_doors(1.0)
+
+
+func set_entrance_points():
+	var transition_areas = get_tree().get_nodes_in_group("transition_area")
+	for area in transition_areas:
+		var node = area.get_child(0)
+		var node2d = node as Node2D
+		entrance_points.append(node2d)
 
 
 func build():

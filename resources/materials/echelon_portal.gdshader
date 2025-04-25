@@ -38,7 +38,7 @@ void fragment() {
 	float ripple = sin(dist * -frequency * pi + rippleRate * TIME) * amplitude / (dist + 1.0);
 
 
-	vec4 color = vec4(0.773,0.8,0.722, 2.0 * ripple);
+	vec4 color = vec4(0,0,0, 2.0 * ripple);
 
 	float alphaScalar = (1.0 - min(dist, 1.0)) * ns.x * 2.5;
 

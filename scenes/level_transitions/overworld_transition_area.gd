@@ -1,7 +1,5 @@
 extends Area2D
 
-const OVERWORLD_PATH = "res://scenes/overworld/overworld.tscn"
-
 
 func _ready():
 	body_entered.connect(on_body_entered)

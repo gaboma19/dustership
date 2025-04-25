@@ -1,0 +1,141 @@
+[gd_scene load_steps=14 format=3 uid="uid://dx281bkxxn832"]
+
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_r7oeb"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_vas0s"]
+[ext_resource type="Texture2D" uid="uid://bx7wcy3gr0u6f" path="res://assets/backgrounds/shop/table.png" id="3_glks5"]
+[ext_resource type="Texture2D" uid="uid://cdm5sld46agn4" path="res://assets/backgrounds/shop/item.png" id="4_gdcob"]
+[ext_resource type="Texture2D" uid="uid://bk3iill63ciix" path="res://assets/backgrounds/shop/chair.png" id="5_0ovsf"]
+[ext_resource type="Texture2D" uid="uid://c31ou4okikwl0" path="res://assets/backgrounds/shop/wall.png" id="6_gwjo1"]
+[ext_resource type="Texture2D" uid="uid://00lo7uisutvk" path="res://assets/backgrounds/shop/front_wall.png" id="7_0m8dy"]
+[ext_resource type="Texture2D" uid="uid://ba7peavepha2p" path="res://assets/backgrounds/shop/shop.png" id="8_2jrs2"]
+[ext_resource type="PackedScene" uid="uid://urbu41hjhkye" path="res://scenes/entities/npcs/remembrancers/remembrancer_deon.tscn" id="9_gdcob"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="9_tlh0c"]
+[ext_resource type="PackedScene" uid="uid://bmefddd535dd2" path="res://scenes/entities/npcs/remembrancers/remembrancer_galann.tscn" id="10_0ovsf"]
+[ext_resource type="PackedScene" uid="uid://bhj2ajli52ntf" path="res://scenes/entities/npcs/dusteki/dusteki.tscn" id="11_gwjo1"]
+[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_map_transition_area.tscn" id="13_0ovsf"]
+
+[node name="Shop" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
+y_sort_enabled = true
+script = ExtResource("1_r7oeb")
+is_camera_static = true
+map_pin_cell = Vector2i(28, -19)
+game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoints/EntrancePoint"), NodePath("EntrancePoints/EntrancePoint2")]
+
+[node name="Events" type="Node" parent="." groups=["events"]]
+
+[node name="GameStart" parent="." instance=ExtResource("2_vas0s")]
+position = Vector2(57, 131)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+
+[node name="Table" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(22, 97)
+texture = ExtResource("3_glks5")
+offset = Vector2(33, 3.5)
+
+[node name="Item2" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(48, 99)
+texture = ExtResource("4_gdcob")
+offset = Vector2(-9, -11)
+
+[node name="Item3" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(68, 109)
+texture = ExtResource("4_gdcob")
+offset = Vector2(-9, -11)
+
+[node name="Item" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-47, 91)
+texture = ExtResource("4_gdcob")
+offset = Vector2(-9, -2)
+
+[node name="Chair" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(57, 75)
+texture = ExtResource("5_0ovsf")
+offset = Vector2(3, -9)
+
+[node name="Wall" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(41, 60)
+texture = ExtResource("6_gwjo1")
+offset = Vector2(24, -10.5)
+
+[node name="Wall2" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(-76, 113)
+texture = ExtResource("7_0m8dy")
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("8_2jrs2")
+offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/shop",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/shop/shop.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+z_index = 1
+build_mode = 1
+polygon = PackedVector2Array(91, 84, 62, 101, 33, 87, 18, 95, 121, 147, 89, 163, 41, 139, 20, 150, -27, 150, -27, 130, -70, 107, -39, 91, -62, 79, 73, 11, 103, 26, 41, 59, 57, 67, 48, 72, 58, 77, 67, 72)
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="RemembrancerDeon" parent="Entities" instance=ExtResource("9_gdcob")]
+position = Vector2(73, 83)
+lines = Array[String](["Hey, April.", "Do you miss Ammella yet?", "The dustership feels just like home... except here, the carved walls tell stories, and you can hear its pulse beneath them."])
+
+[node name="RemembrancerGalann" parent="Entities" instance=ExtResource("10_0ovsf")]
+position = Vector2(41, 67)
+lines = Array[String](["Hello, April.", "The data brokers have placed another order. Let's prioritize it to stay on track.", "They're waiting for you in the lab."])
+
+[node name="DustekiLang" parent="Entities" instance=ExtResource("11_gwjo1")]
+position = Vector2(-39, 83)
+lines = Array[String](["Haag wycandihm?", "Ohyndak Ammellan.", "The Hondonerance has treasures you won't find anywhere else, and our scavengers know it better than anyone."])
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("9_tlh0c")]
+path = "res://scenes/levels/dustership/ingress/echelon_ingress.tscn"
+new_player_position = Vector2(-73, 123)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+position = Vector2(185, -117)
+polygon = PackedVector2Array(-112, 128, -81, 143, -104, 155, -136, 140)
+
+[node name="DustershipTransitionArea" parent="." instance=ExtResource("13_0ovsf")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DustershipTransitionArea"]
+position = Vector2(68, 33)
+polygon = PackedVector2Array(-9, 115, 5, 122, 37, 106, 23, 99)
+
+[node name="EntrancePoints" type="Node2D" parent="."]
+
+[node name="EntrancePoint" type="Node2D" parent="EntrancePoints"]
+position = Vector2(79, 22)
+
+[node name="EntrancePoint2" type="Node2D" parent="EntrancePoints"]
+position = Vector2(89, 147)

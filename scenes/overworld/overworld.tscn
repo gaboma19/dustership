@@ -1,19 +1,70 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgn4nxnmrvhej"]
+[gd_scene load_steps=9 format=3 uid="uid://cgn4nxnmrvhej"]
 
 [ext_resource type="Script" uid="uid://by2hcm2g8oudq" path="res://scenes/overworld/overworld.gd" id="1_2uqf5"]
 [ext_resource type="PackedScene" uid="uid://mwquoqdnhkr2" path="res://scenes/overworld/overworld_player/overworld_player.tscn" id="2_0m0c2"]
 [ext_resource type="PackedScene" uid="uid://c1yjf3gg7ag8k" path="res://scenes/overworld/components/overworld_stack.tscn" id="2_v2oto"]
+[ext_resource type="Shader" uid="uid://bsu6prgp8worl" path="res://scenes/overworld/overworld_bg.gdshader" id="4_b1b42"]
+[ext_resource type="Texture2D" uid="uid://jmf7poske157" path="res://assets/overworld/bg.png" id="5_dhsp4"]
 [ext_resource type="PackedScene" uid="uid://6r544aatause" path="res://scenes/overworld/planes/overworld_plane_0.tscn" id="5_xm8jg"]
+[ext_resource type="Texture2D" uid="uid://b8s0lm7cmfo2x" path="res://assets/ui/pause_screen/tile_0043.png" id="7_0wbp6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0wbp6"]
+shader = ExtResource("4_b1b42")
+shader_parameter/frequency = 4.0
+shader_parameter/amplitude = 2.5
+shader_parameter/ripple_rate = 1.0
+shader_parameter/wave_amplitude = 0.1
+shader_parameter/wave_frequency = 4.0
 
 [node name="Overworld" type="Node2D"]
 y_sort_enabled = true
 script = ExtResource("1_2uqf5")
 overworld_player_scene = ExtResource("2_0m0c2")
 
+[node name="Background" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(16, 80)
+texture = ExtResource("5_dhsp4")
+
+[node name="OverworldStack" parent="Background" instance=ExtResource("2_v2oto")]
+position = Vector2(-16, -80)
+
+[node name="Ripples" type="ColorRect" parent="Background"]
+material = SubResource("ShaderMaterial_0wbp6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -352.0
+offset_top = -112.0
+offset_right = -352.0
+offset_bottom = -112.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(16, 80)
 zoom = Vector2(3, 3)
 
-[node name="OverworldStack" parent="." instance=ExtResource("2_v2oto")]
-
 [node name="OverworldPlane0" parent="." instance=ExtResource("5_xm8jg")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="ReturnToShipButton" type="Button" parent="CanvasLayer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Return to ship"
+icon = ExtResource("7_0wbp6")

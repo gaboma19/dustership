@@ -1,0 +1,107 @@
+[gd_scene load_steps=12 format=3 uid="uid://dda0ar46gdn03"]
+
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_kx4rs"]
+[ext_resource type="Texture2D" uid="uid://bo0qtcwxj3s7v" path="res://assets/backgrounds/hangar/hangar.png" id="3_ibpt4"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="3_m606j"]
+[ext_resource type="Texture2D" uid="uid://dlh3vht2pv2jb" path="res://assets/backgrounds/hangar/stairs.png" id="3_vayhj"]
+[ext_resource type="Texture2D" uid="uid://mvdnbtc7w65d" path="res://assets/backgrounds/hangar/wing.png" id="5_dtodf"]
+[ext_resource type="PackedScene" uid="uid://b6j8e6lx7mptr" path="res://scenes/level_transitions/dustership_map_transition_area.tscn" id="6_dtodf"]
+[ext_resource type="Texture2D" uid="uid://i0osogpnls8y" path="res://assets/backgrounds/hangar/door.png" id="6_nk1rl"]
+[ext_resource type="Texture2D" uid="uid://bo8r5u8uq170u" path="res://assets/backgrounds/hangar/railing.png" id="7_5tnfs"]
+[ext_resource type="Script" uid="uid://b65eooxvbo1h8" path="res://scenes/levels/dustership/hangar/ship_transition_interaction.gd" id="9_nwg0s"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_nwg0s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aplvn"]
+
+[node name="Hangar" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
+y_sort_enabled = true
+script = ExtResource("1_kx4rs")
+is_camera_static = true
+map_pin_cell = Vector2i(28, -19)
+game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoint")]
+
+[node name="EntrancePoint" type="Node2D" parent="."]
+position = Vector2(-240, 291)
+
+[node name="GameStart" parent="." instance=ExtResource("3_m606j")]
+position = Vector2(-168, 259)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 150)
+zoom = Vector2(2, 2)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("3_ibpt4")
+offset = Vector2(0, 150)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/hangar",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/hangar/hangar.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+metadata/_edit_lock_ = true
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+collision_layer = 32
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+scale = Vector2(1.01958, 1.00803)
+build_mode = 1
+polygon = PackedVector2Array(-245.199, 280.746, -245.199, 297.61, -210.871, 297.61, -164.774, 273.801, -117.696, 297.61, 73.5597, 297.61, 73.5597, 296.618, 51.9822, 285.706, 51.9822, 280.746, 54.9246, 275.785, 54.9246, 268.841, 36.2895, 259.913, 36.2895, 255.945, 40.2126, 249.001, 40.2126, 238.088, 32.3663, 234.12, 28.4431, 236.104, 24.5199, 236.104, 10.7888, 229.16, 4.90398, 230.152, -44.1358, 205.351, -75.5213, 221.224, -93.1756, 212.295, -93.1779, 207.677, -66.6941, 193.447, -127.503, 161.702, -145.158, 171.622, -145.158, 188.486, -142.215, 193.378, -142.215, 198.407, -179.486, 216.263, -185.37, 220.232, -227.545, 242.056, -199.102, 256.937)
+
+[node name="Stairs" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(-95, 210)
+texture = ExtResource("3_vayhj")
+offset = Vector2(29.5, -15.5)
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Wing" type="Sprite2D" parent="Foreground"]
+position = Vector2(-86, 125)
+texture = ExtResource("5_dtodf")
+offset = Vector2(0.5, 0.5)
+
+[node name="Door" type="Sprite2D" parent="Foreground"]
+position = Vector2(-29, 176)
+texture = ExtResource("6_nk1rl")
+offset = Vector2(0.5, -7.5)
+
+[node name="Railing" type="Sprite2D" parent="Foreground"]
+position = Vector2(-57, 189)
+texture = ExtResource("7_5tnfs")
+offset = Vector2(0.5, 0.5)
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="DustershipTransitionArea" parent="." instance=ExtResource("6_dtodf")]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="DustershipTransitionArea"]
+polygon = PackedVector2Array(-231, 273, -197, 291, -215, 300, -250, 300, -250, 283)
+
+[node name="ShipTransitionInteraction" type="Node2D" parent="."]
+visible = false
+position = Vector2(-88, 218)
+script = ExtResource("9_nwg0s")
+path = "res://scenes/levels/dustership/hangar/hangar.tscn"
+new_player_position = Vector2(-200, 275)
+
+[node name="InteractionArea" parent="ShipTransitionInteraction" instance=ExtResource("10_nwg0s")]
+action_name = "Enter ship"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShipTransitionInteraction/InteractionArea"]
+shape = SubResource("CircleShape2D_aplvn")

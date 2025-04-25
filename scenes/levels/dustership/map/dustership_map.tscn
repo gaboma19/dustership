@@ -1,0 +1,452 @@
+[gd_scene load_steps=19 format=3 uid="uid://cuw611pbb2u5i"]
+
+[ext_resource type="Script" uid="uid://dn4x7w2rjmxyu" path="res://scenes/levels/dustership/map/dustership_map.gd" id="1_0txec"]
+[ext_resource type="Texture2D" uid="uid://dyks4filn7u4j" path="res://assets/backgrounds/dustership_map/bg.png" id="2_ok77b"]
+[ext_resource type="Texture2D" uid="uid://dssbkxged3k8m" path="res://assets/backgrounds/dustership_map/eye.png" id="3_ph650"]
+[ext_resource type="Texture2D" uid="uid://b1q55wg5go3uc" path="res://assets/backgrounds/dustership_map/eyelid.png" id="4_7sp2v"]
+[ext_resource type="Texture2D" uid="uid://c7ib2sgllfe1c" path="res://assets/backgrounds/dustership_map/ship.png" id="5_4rp1l"]
+[ext_resource type="Texture2D" uid="uid://bo8u1wjsn1hjr" path="res://assets/backgrounds/dustership_map/lights.png" id="6_ph650"]
+[ext_resource type="Texture2D" uid="uid://bc8oa216nhup5" path="res://assets/backgrounds/dustership_map/lights2.png" id="7_df6vi"]
+[ext_resource type="Texture2D" uid="uid://bcx6prvhh4tvi" path="res://assets/backgrounds/dustership_map/lights3.png" id="8_hoqa8"]
+[ext_resource type="Texture2D" uid="uid://cq1vtrbednoj0" path="res://assets/backgrounds/dustership_map/lights4.png" id="9_3byef"]
+[ext_resource type="Texture2D" uid="uid://cshi5j4a3j4ik" path="res://assets/backgrounds/dustership_map/lights5.png" id="10_t6tcc"]
+[ext_resource type="Texture2D" uid="uid://diely617sbwa2" path="res://assets/backgrounds/dustership_map/red_lights.png" id="11_hoqa8"]
+[ext_resource type="PackedScene" uid="uid://cki42m1twprf7" path="res://scenes/levels/dustership/map/dustership_location.tscn" id="12_3byef"]
+
+[sub_resource type="Animation" id="Animation_df6vi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dustership/Eyelid:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dustership/Lights2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dustership/Lights3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dustership/Lights4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dustership/Lights5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dustership/Lights6:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0smq5"]
+resource_name = "eyelid"
+length = 4.0
+loop_mode = 2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Dustership/Eyelid:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0.933333), Color(1, 1, 1, 0.666667)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Dustership/Lights2:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Dustership/Lights3:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Dustership/Lights4:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Dustership/Lights5:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(2, 4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Dustership/Lights6:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hoqa8"]
+_data = {
+&"RESET": SubResource("Animation_df6vi"),
+&"default": SubResource("Animation_0smq5")
+}
+
+[sub_resource type="Animation" id="Animation_cv3f2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Dustership:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_a2kjd"]
+resource_name = "bob"
+length = 4.0
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Dustership:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 2), Vector2(0, 0), Vector2(0, -2), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gabw5"]
+_data = {
+&"RESET": SubResource("Animation_cv3f2"),
+&"bob": SubResource("Animation_a2kjd")
+}
+
+[node name="DustershipMap" type="Node2D"]
+script = ExtResource("1_0txec")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_hoqa8")
+}
+autoplay = "default"
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+root_node = NodePath("../AnimationPlayer")
+libraries = {
+&"": SubResource("AnimationLibrary_gabw5")
+}
+autoplay = "bob"
+speed_scale = 0.75
+
+[node name="GameCamera" type="Camera2D" parent="."]
+position = Vector2(500, 300)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("2_ok77b")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Dustership" type="Node2D" parent="."]
+
+[node name="Eye" type="Sprite2D" parent="Dustership"]
+position = Vector2(728, 226)
+scale = Vector2(4, 4)
+texture = ExtResource("3_ph650")
+
+[node name="Eyelid" type="Sprite2D" parent="Dustership"]
+position = Vector2(728, 226)
+scale = Vector2(4, 4)
+texture = ExtResource("4_7sp2v")
+
+[node name="Ship" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("5_4rp1l")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("6_ph650")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights2" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("7_df6vi")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights3" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("8_hoqa8")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights4" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("9_3byef")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights5" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("10_t6tcc")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="Lights6" type="Sprite2D" parent="Dustership"]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("11_hoqa8")
+offset = Vector2(125, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "res://assets/backgrounds/dustership_map",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/dustership_map/dustership_exterior.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="RemembrancerCamp" parent="CanvasLayer" instance=ExtResource("12_3byef")]
+offset_left = 584.0
+offset_top = 160.0
+offset_right = 600.0
+offset_bottom = 176.0
+focus_neighbor_bottom = NodePath("../Apartment")
+location_name = "Remembrancer camp"
+scene_path = "res://scenes/levels/dustership/shop/shop.tscn"
+player_position = Vector2(57, 131)
+
+[node name="Apartment" parent="CanvasLayer" instance=ExtResource("12_3byef")]
+offset_left = 352.0
+offset_top = 288.0
+offset_right = 368.0
+offset_bottom = 304.0
+focus_neighbor_top = NodePath("../RemembrancerCamp")
+location_name = "Apartment"
+scene_path = "res://scenes/levels/dustership/aprils_apartment/aprils_apartment.tscn"
+player_position = Vector2(7, 107)
+
+[node name="Hangar" parent="CanvasLayer" instance=ExtResource("12_3byef")]
+offset_left = 144.0
+offset_top = 208.0
+offset_right = 160.0
+offset_bottom = 224.0
+focus_neighbor_top = NodePath("../RemembrancerCamp")
+location_name = "Hangar"
+scene_path = "res://scenes/levels/dustership/hangar/hangar.tscn"
+player_position = Vector2(-200, 275)

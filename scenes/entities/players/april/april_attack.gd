@@ -23,7 +23,6 @@ func enter(_msg := {}) -> void:
 
 
 func nudge():
-	
 	%SwordAudio.play_random()
 	player.move_and_collide(nudge_direction * 5)
 

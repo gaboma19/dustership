@@ -9,9 +9,6 @@ var location_name: String
 
 
 func _ready():
-	#continue_button.grab_focus()
-	#continue_button.pressed.connect(on_continue_pressed)
-	
 	set_state()
 	open()
 
@@ -26,6 +23,5 @@ func cancel():
 
 
 func on_interact():
-	#continue_button.pressed.disconnect(on_continue_pressed)
 	continued.emit()
 	close()

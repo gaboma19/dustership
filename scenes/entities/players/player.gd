@@ -28,7 +28,9 @@ func _ready():
 
 
 func speak(lines: Array[String]):
-	DialogueManager.start_dialogue(global_position, lines, speech_sound)
+	var canvas_pos = get_global_transform_with_canvas().origin
+	
+	DialogueManager.start_dialogue(canvas_pos, lines, speech_sound)
 
 
 func damage_player(damage: int):
@@ -89,6 +91,10 @@ func set_flying(value: bool):
 		set_collision_mask(0b10000001)
 	else:
 		set_collision_mask(0b1010100001)
+
+
+func set_monitorable(value: bool):
+	set_collision_layer_value(2, value)
 
 
 func set_hurtbox_monitoring(value: bool, delay: float = 0):

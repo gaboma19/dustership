@@ -1,7 +1,9 @@
 # npcs/dusteki/scene.gd
 extends State
 
-@onready var dusteki = owner as Npc
+var speak_count: int = 0
+
+@onready var npc = owner as Npc
 
 
 func enter(_msg := {}) -> void:
@@ -9,8 +11,14 @@ func enter(_msg := {}) -> void:
 	if player == null:
 		return
 	
-	var direction = dusteki.global_position.direction_to(player.global_position)
-	dusteki.update_blend_position(direction)
+	var direction = npc.global_position.direction_to(player.global_position)
+	npc.update_blend_position(direction)
 	
-	dusteki.speak(["Thank you for playing the Dustership demo!
-Follow along with the game's development @gutugutugames on itch.io."])
+	if npc.lines.is_empty():
+		return
+	
+	var index = speak_count % npc.lines.size()
+	var current_line: Array[String] = [npc.lines[index] as String]
+	npc.speak(current_line)
+	
+	speak_count += 1

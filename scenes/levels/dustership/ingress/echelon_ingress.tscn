@@ -1,0 +1,753 @@
+[gd_scene load_steps=45 format=3 uid="uid://bilmntyxrqx21"]
+
+[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_wu7c6"]
+[ext_resource type="Script" uid="uid://b4ifsm0f71vqq" path="res://scenes/levels/dustership/ingress/events.gd" id="2_khyk3"]
+[ext_resource type="Texture2D" uid="uid://ddi1gkr4xs5e" path="res://assets/backgrounds/ingress/pod.png" id="3_k8der"]
+[ext_resource type="PackedScene" uid="uid://dmw5sf2ng05hy" path="res://scenes/entities/npcs/remembrancers/remembrancer_mona.tscn" id="4_ak51r"]
+[ext_resource type="Texture2D" uid="uid://bncyxapjsv6yg" path="res://assets/backgrounds/ingress/chair.png" id="4_vecaa"]
+[ext_resource type="Texture2D" uid="uid://cwp66ex1vtgcr" path="res://assets/backgrounds/ingress/open_pod.png" id="4_wbir0"]
+[ext_resource type="Texture2D" uid="uid://cnv06yxc1j5b2" path="res://assets/backgrounds/ingress/crates.png" id="5_2hiyp"]
+[ext_resource type="PackedScene" uid="uid://dieedo4dqjmi5" path="res://scenes/entities/npcs/remembrancers/remembrancer_safiya.tscn" id="5_ba2dd"]
+[ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="5_nnlbd"]
+[ext_resource type="Shader" uid="uid://g0cvup54cq6q" path="res://resources/materials/fire_dissolve.gdshader" id="5_wbir0"]
+[ext_resource type="Shader" uid="uid://3p6fc82hpee7" path="res://scenes/levels/dustership/ingress/echelon_ingress.gdshader" id="7_2hiyp"]
+[ext_resource type="Texture2D" uid="uid://fyyabgvirfb1" path="res://assets/backgrounds/ingress/ingress.png" id="7_18gqi"]
+[ext_resource type="Script" uid="uid://bnsyrptelxdxh" path="res://scenes/levels/dustership/ingress/pod.gd" id="7_gwwc3"]
+[ext_resource type="Texture2D" uid="uid://djsenkeuqsdvi" path="res://assets/backgrounds/ingress/portal.png" id="8_4xklc"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="14_18gqi"]
+[ext_resource type="PackedScene" uid="uid://bxorvbg3vlxdk" path="res://scenes/level_transitions/level_transition_area.tscn" id="14_vdkvp"]
+[ext_resource type="Script" uid="uid://b3reaplpp0myj" path="res://scenes/levels/dustership/ingress/ingress_transition.gd" id="16_gwwc3"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_gwwc3"]
+fractal_type = 3
+fractal_octaves = 1
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_2dems"]
+noise = SubResource("FastNoiseLite_gwwc3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2dems"]
+shader = ExtResource("5_wbir0")
+shader_parameter/dissolve_texture = SubResource("NoiseTexture2D_2dems")
+shader_parameter/dissolve_value = 1.0
+shader_parameter/ratio = 1.0
+
+[sub_resource type="Animation" id="Animation_gwwc3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_2dems"]
+resource_name = "close"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="Animation" id="Animation_wbir0"]
+resource_name = "open"
+length = 0.5
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/dissolve_value")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [1.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_uku4j"]
+_data = {
+&"RESET": SubResource("Animation_gwwc3"),
+&"close": SubResource("Animation_2dems"),
+&"open": SubResource("Animation_wbir0")
+}
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_2hiyp"]
+noise_type = 0
+frequency = 0.0001
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_ovvdm"]
+noise = SubResource("FastNoiseLite_2hiyp")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2hiyp"]
+shader = ExtResource("7_2hiyp")
+shader_parameter/rgb = Color(0.647059, 0.576471, 0.647059, 1)
+shader_parameter/amplitude = 0.5
+shader_parameter/frequency = 12.05
+shader_parameter/rippleRate = 4.0
+shader_parameter/waveAmplitude = 0.1
+shader_parameter/waveFrequency = 4.0
+shader_parameter/blendingAmount = 0.6
+shader_parameter/noise = SubResource("NoiseTexture2D_ovvdm")
+
+[sub_resource type="Animation" id="Animation_4xklc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:material:shader_parameter/noise:noise:frequency")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:material:shader_parameter/rippleRate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortalBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.388235, 0.360784, 0.415686, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Portal:material:shader_parameter/rgb")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.647059, 0.576471, 0.647059, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Portal:material:shader_parameter/amplitude")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.6, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DirectionalLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_ovvdm"]
+resource_name = "portal_2"
+length = 2.0
+loop_mode = 2
+step = 0.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:material:shader_parameter/noise:noise:frequency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:material:shader_parameter/rippleRate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [5.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortalBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0.258824, 0.756863, 0.92549, 1), Color(1, 1, 1, 1), Color(0.258824, 0.756863, 0.92549, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Portal:material:shader_parameter/rgb")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.764706, 0.533333, 0.564706, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Portal:material:shader_parameter/amplitude")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DirectionalLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.4, 0.8, 0.3, 0.8, 0.4]
+}
+
+[sub_resource type="Animation" id="Animation_2hiyp"]
+resource_name = "portal_close"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:material:shader_parameter/noise:noise:frequency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:material:shader_parameter/rippleRate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [5.0, 4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortalBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.258824, 0.756863, 0.92549, 1), Color(0.388235, 0.360784, 0.415686, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Portal:material:shader_parameter/rgb")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.764706, 0.533333, 0.564706, 1), Color(0.647059, 0.576471, 0.647059, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Portal:material:shader_parameter/amplitude")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [2.0, 0.5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.2, 2), Vector2(1.6, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DirectionalLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.4, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_c87os"]
+resource_name = "portal_inactive"
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:material:shader_parameter/noise:noise:frequency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0001]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:material:shader_parameter/rippleRate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [4.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortalBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.388235, 0.360784, 0.415686, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Portal:material:shader_parameter/rgb")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.647059, 0.576471, 0.647059, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Portal:material:shader_parameter/amplitude")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.5]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.6, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DirectionalLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7tcjs"]
+resource_name = "new_animation"
+length = 2.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Portal:material:shader_parameter/noise:noise:frequency")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0001, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Portal:material:shader_parameter/rippleRate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [4.0, 5.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PortalBackground:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.388235, 0.360784, 0.415686, 1), Color(0.258824, 0.756863, 0.92549, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Portal:material:shader_parameter/rgb")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0.647059, 0.576471, 0.647059, 1), Color(0.764706, 0.533333, 0.564706, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Portal:material:shader_parameter/amplitude")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.5, 2.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Portal:scale")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.6, 1), Vector2(3.2, 2)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("DirectionalLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.4]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c87os"]
+_data = {
+&"RESET": SubResource("Animation_4xklc"),
+&"portal_active": SubResource("Animation_ovvdm"),
+&"portal_close": SubResource("Animation_2hiyp"),
+&"portal_inactive": SubResource("Animation_c87os"),
+&"portal_open": SubResource("Animation_7tcjs")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_putaj"]
+animation = &"portal_active"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ojy5a"]
+animation = &"portal_close"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_g1kjr"]
+animation = &"portal_inactive"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_hmsvt"]
+animation = &"portal_open"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qxw67"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3h2mu"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yl3p2"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_od6df"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1lpcu"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_18gqi"]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_putaj"]
+states/Start/position = Vector2(472, 230)
+states/portal_active/node = SubResource("AnimationNodeAnimation_putaj")
+states/portal_active/position = Vector2(590, 306)
+states/portal_close/node = SubResource("AnimationNodeAnimation_ojy5a")
+states/portal_close/position = Vector2(349, 306)
+states/portal_inactive/node = SubResource("AnimationNodeAnimation_g1kjr")
+states/portal_inactive/position = Vector2(349, 140)
+states/portal_open/node = SubResource("AnimationNodeAnimation_hmsvt")
+states/portal_open/position = Vector2(590, 140)
+transitions = ["portal_inactive", "portal_open", SubResource("AnimationNodeStateMachineTransition_qxw67"), "portal_open", "portal_active", SubResource("AnimationNodeStateMachineTransition_3h2mu"), "portal_active", "portal_close", SubResource("AnimationNodeStateMachineTransition_yl3p2"), "portal_close", "portal_inactive", SubResource("AnimationNodeStateMachineTransition_od6df"), "Start", "portal_inactive", SubResource("AnimationNodeStateMachineTransition_1lpcu"), "Start", "portal_active", SubResource("AnimationNodeStateMachineTransition_18gqi")]
+graph_offset = Vector2(71, 6)
+
+[node name="EchelonIngress" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
+y_sort_enabled = true
+script = ExtResource("1_wu7c6")
+is_camera_static = true
+map_pin_cell = Vector2i(28, -19)
+game_start = NodePath("GameStart")
+entrance_points = [NodePath("EntrancePoint")]
+
+[node name="EntrancePoint" type="Node2D" parent="."]
+position = Vector2(-113, 143)
+
+[node name="Events" type="Node" parent="." groups=["events"]]
+script = ExtResource("2_khyk3")
+
+[node name="GameStart" parent="." instance=ExtResource("5_nnlbd")]
+position = Vector2(-73, 123)
+
+[node name="GameCamera" type="Camera2D" parent="."]
+offset = Vector2(0, 75)
+zoom = Vector2(4, 4)
+
+[node name="OpenPod" type="Sprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(35, 93.5)
+texture = ExtResource("4_wbir0")
+offset = Vector2(-38, -10)
+
+[node name="Pod" type="Sprite2D" parent="."]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_2dems")
+position = Vector2(35, 93.5)
+texture = ExtResource("3_k8der")
+offset = Vector2(-38, -10)
+script = ExtResource("7_gwwc3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Pod"]
+libraries = {
+&"": SubResource("AnimationLibrary_uku4j")
+}
+
+[node name="AnimationArea" type="Area2D" parent="Pod"]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Pod/AnimationArea"]
+position = Vector2(-26, -5.5)
+polygon = PackedVector2Array(-58, 7, 6, 39, 46, 19, 31, 11, -2, 27, -50, 3)
+
+[node name="Chair" type="Sprite2D" parent="."]
+position = Vector2(40, 74)
+texture = ExtResource("4_vecaa")
+offset = Vector2(0.5, -10.5)
+
+[node name="Crates" type="Sprite2D" parent="."]
+z_index = 1
+position = Vector2(100, 133)
+texture = ExtResource("5_2hiyp")
+offset = Vector2(0, 0.5)
+
+[node name="Background" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("7_18gqi")
+offset = Vector2(0, 75)
+metadata/_aseprite_wizard_config_ = {
+"i_mode": 1,
+"keep_anim_length": false,
+"layer": "",
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": true,
+"player": "",
+"slice": "",
+"source": "res://assets/backgrounds/ingress/ingress.aseprite"
+}
+metadata/_aseprite_wizard_interface_config_ = {
+"layer_section": true,
+"output_section": true
+}
+metadata/_edit_lock_ = true
+
+[node name="PortalBackground" type="Sprite2D" parent="Background"]
+modulate = Color(0.388235, 0.360784, 0.415686, 1)
+show_behind_parent = true
+position = Vector2(-48, 36)
+texture = ExtResource("8_4xklc")
+offset = Vector2(0, -0.5)
+
+[node name="Portal" type="Sprite2D" parent="Background"]
+show_behind_parent = true
+material = SubResource("ShaderMaterial_2hiyp")
+position = Vector2(-55, 42)
+rotation = 1.5708
+scale = Vector2(1.6, 1)
+skew = -0.471239
+texture = ExtResource("8_4xklc")
+offset = Vector2(0, -0.5)
+
+[node name="Walls" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Background/Walls"]
+scale = Vector2(1.01958, 1.00803)
+build_mode = 1
+polygon = PackedVector2Array(-49.0398, 95.2356, -32.3663, 95.2356, 6.86558, 114.084, 38.2511, 98.2117, -9, 75, 4.90398, 67.4586, 4.90398, 51.586, 22.5583, 42.6576, 38.2511, 50.5939, 30.4047, 54.5621, 30.4047, 62.4984, 38.2511, 66.4665, 30.4047, 70.4347, 40.2127, 75.3949, 48.059, 71.4267, 69.6366, 82.3391, 85.3293, 90.2754, 75.5214, 95.2356, 86.3101, 100.196, 95.1373, 95.2356, 101.022, 98.2117, 116.715, 90.2754, 122.6, 93.2515, 122.6, 121.029, 66.6942, 148.806, -19.6159, 148.806, -55.9054, 129.957, -102.984, 153.766, -134.369, 137.893)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Background"]
+libraries = {
+&"": SubResource("AnimationLibrary_c87os")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Background"]
+tree_root = SubResource("AnimationNodeStateMachine_putaj")
+anim_player = NodePath("../AnimationPlayer")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="Background"]
+color = Color(0.764706, 0.533333, 0.564706, 1)
+energy = 0.0
+
+[node name="Foreground" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Entities" type="Node2D" parent="." groups=["entities"]]
+y_sort_enabled = true
+
+[node name="RemembrancerMona" parent="Entities" instance=ExtResource("4_ak51r")]
+position = Vector2(-41, 99)
+lines = Array[String](["Use the ingress pod to enter the Echelon.", "Ethereal attunement should only take a few minutes.", "You may experience some memory loss. It should recover after neural lattice alignment is complete."])
+
+[node name="RemembrancerSaf" parent="Entities" instance=ExtResource("5_ba2dd")]
+position = Vector2(71, 91)
+lines = Array[String](["Thanks for doing this, April.", "I can't enter the Echelon because I'm not attuned like you, so I stay in the real world.", "I hate my job!"])
+
+[node name="LevelTransitionArea" parent="." instance=ExtResource("14_vdkvp")]
+path = "res://scenes/levels/dustership/shop/shop.tscn"
+new_player_position = Vector2(25, 51)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="LevelTransitionArea"]
+polygon = PackedVector2Array(-113, 127, -81, 143, -105, 155, -137, 139)
+
+[node name="OverworldTransitionInteraction" type="Node2D" parent="."]
+z_index = 1
+position = Vector2(8, 88)
+script = ExtResource("16_gwwc3")
+action_name = "Enter"
+
+[node name="InteractionArea" parent="OverworldTransitionInteraction" instance=ExtResource("14_18gqi")]
+visible = false
+action_name = "Enter"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="OverworldTransitionInteraction/InteractionArea"]
+polygon = PackedVector2Array(-57, 7, 7, 39, 46, 19, 31, 11, -1, 27, -49, 3)

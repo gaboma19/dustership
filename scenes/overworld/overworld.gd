@@ -4,15 +4,18 @@ extends Node2D
 
 var player: OverworldPlayer
 
-@onready var overworld_stack = $OverworldStack
+@onready var overworld_stack = $Background/OverworldStack
+@onready var return_to_ship_button = %ReturnToShipButton
+@onready var active_plane = get_tree().get_first_node_in_group("planes")
 
 
 func _ready():
-	var active_plane = get_tree().get_first_node_in_group("planes")
 	OverworldVariables.active_plane = active_plane
 	
 	initialize_player()
+	
 	active_plane.plane_changed.connect(on_plane_changed)
+	return_to_ship_button.pressed.connect(on_return_button_pressed)
 	
 	HUD.hide()
 	DungeonManager.hide()
@@ -28,7 +31,6 @@ func initialize_player():
 	player = overworld_player_scene.instantiate()
 	add_child(player)
 	
-	var active_plane = OverworldVariables.active_plane
 	var player_position = active_plane.map_to_global(
 		OverworldVariables.player_map_position)
 	player.global_position = player_position
@@ -58,3 +60,15 @@ func switch_planes(next_plane_scene: PackedScene):
 
 func on_plane_changed(next_plane_scene: PackedScene):
 	switch_planes(next_plane_scene)
+
+
+func on_return_button_pressed():
+	PopUp.open_decision_container("Exit the Echelon?")
+	PopUp.closed.connect(on_popup_closed)
+
+
+func on_popup_closed(msg):
+	PopUp.closed.disconnect(on_popup_closed)
+	
+	if msg == "Yes":
+		ScreenTransition.transition_to_ingress()

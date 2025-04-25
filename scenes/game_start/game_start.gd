@@ -21,13 +21,13 @@ func _ready():
 		initialize_april()
 		
 		if OS.has_feature("editor"):
-			#pass
+			pass
 			#initialize_telitz()
-			initialize_cube()
+			#initialize_cube()
 
 
 func initialize_april():
-	if PartyManager.has_member(Constants.CharacterNames.APRIL):
+	if PartyManager.has_member_scene(Constants.CharacterNames.APRIL):
 		return
 	
 	var april = APRIL_SCENE.instantiate()
@@ -37,7 +37,7 @@ func initialize_april():
 
 
 func initialize_cube():
-	if PartyManager.has_member(Constants.CharacterNames.CUBE):
+	if PartyManager.has_member_scene(Constants.CharacterNames.CUBE):
 		return
 	
 	var cube = CUBE_SCENE.instantiate()
@@ -47,7 +47,7 @@ func initialize_cube():
 
 
 func initialize_telitz():
-	if PartyManager.has_member(Constants.CharacterNames.TELITZ):
+	if PartyManager.has_member_scene(Constants.CharacterNames.TELITZ):
 		return
 	
 	var telitz = TELITZ_SCENE.instantiate()

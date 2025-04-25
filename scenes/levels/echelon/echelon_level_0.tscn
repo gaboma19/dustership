@@ -144,7 +144,7 @@ script = ExtResource("2_1racx")
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Cutscene"]
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_828qv")
+&"": SubResource("AnimationLibrary_828qv")
 }
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -200,7 +200,7 @@ texture = ExtResource("11_de83u")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Computer"]
 libraries = {
-"": SubResource("AnimationLibrary_dxokw")
+&"": SubResource("AnimationLibrary_dxokw")
 }
 
 [node name="Shower" type="Node2D" parent="."]

@@ -100,7 +100,7 @@ func open_party_instructions():
 	%Label.text = "Cube joins the party!"
 
 
-func open_decision_container(text: String):
+func open_decision_container(text: String, grab_focus_no: bool = false):
 	var label = %DecisionLabel
 	label.text = text
 	
@@ -108,7 +108,10 @@ func open_decision_container(text: String):
 	decision_container.show()
 	animate_open()
 	get_tree().paused = true
-	yes_button.grab_focus()
+	if grab_focus_no:
+		no_button.grab_focus()
+	else:
+		yes_button.grab_focus()
 
 
 func on_ok_button_pressed():

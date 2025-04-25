@@ -11,8 +11,8 @@ noise = SubResource("FastNoiseLite_axrs6")
 [resource]
 shader = ExtResource("1_e8qok")
 shader_parameter/amplitude = 2.0
-shader_parameter/frequency = 12.69
-shader_parameter/rippleRate = 9.2
+shader_parameter/frequency = 9.36
+shader_parameter/rippleRate = 0.5
 shader_parameter/waveAmplitude = 0.1
 shader_parameter/waveFrequency = 4.705
 shader_parameter/blendingAmount = 1.09

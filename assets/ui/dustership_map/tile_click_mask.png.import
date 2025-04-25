@@ -1,0 +1,16 @@
+[remap]
+
+importer="bitmap"
+type="BitMap"
+uid="uid://dbh1b0wv1gtpo"
+path="res://.godot/imported/tile_click_mask.png-1a89519d728f6e586e61b49ec0b8929d.res"
+
+[deps]
+
+source_file="res://assets/ui/dustership_map/tile_click_mask.png"
+dest_files=["res://.godot/imported/tile_click_mask.png-1a89519d728f6e586e61b49ec0b8929d.res"]
+
+[params]
+
+create_from=0
+threshold=0.5
