@@ -449,3 +449,4 @@ offset_bottom = 224.0
 focus_neighbor_top = NodePath("../RemembrancerCamp")
 location_name = "Hangar"
 scene_path = "res://scenes/levels/dustership/hangar/hangar.tscn"
+player_position = Vector2(-200, 275)

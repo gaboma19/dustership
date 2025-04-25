@@ -77,7 +77,6 @@ func get_active_member() -> Player:
 
 
 func instantiate_party(position: Vector2, member_name_to_activate: Constants.CharacterNames):
-	print("instantiate_party")
 	var entities_layer = get_tree().get_first_node_in_group("entities")
 	for n in member_scenes.size():
 		if has_player(member_name_to_activate):
