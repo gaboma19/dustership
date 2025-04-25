@@ -94,6 +94,7 @@ y_sort_enabled = true
 polygon = PackedVector2Array(-231, 273, -197, 291, -215, 300, -250, 300, -250, 283)
 
 [node name="ShipTransitionInteraction" type="Node2D" parent="."]
+visible = false
 position = Vector2(-88, 218)
 script = ExtResource("9_nwg0s")
 path = "res://scenes/levels/dustership/hangar/hangar.tscn"
