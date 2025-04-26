@@ -80,7 +80,7 @@ _data = {
 
 [node name="MainMenu" type="CanvasLayer"]
 script = ExtResource("1_enmqm")
-hub_path = "res://scenes/levels/dustership/echelon_ingress.tscn"
+first_path = "res://scenes/levels/dustership/aprils_apartment/aprils_apartment.tscn"
 
 [node name="Background" type="TextureRect" parent="."]
 anchors_preset = 15

@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export var hub_path: String
+@export var first_path: String
 
 @onready var play_button: Button = %PlayButton
 @onready var delete_button: Button = %DeleteButton
@@ -88,7 +88,7 @@ func on_delete_pop_up_closed(msg):
 func on_new_game_button_pressed():
 	MusicManager.fade_out(10)
 	
-	ScreenTransition.transition_to_path(hub_path)
+	ScreenTransition.transition_to_path(first_path)
 
 
 func on_continue_button_pressed():
@@ -103,7 +103,7 @@ func on_continue_button_pressed():
 		active_character_name = Constants.CharacterNames.TELITZ
 	
 	ScreenTransition.transition_to_level_with_active_member_name(
-		hub_path, Vector2(7, 136), active_character_name)
+		first_path, Vector2(7, 136), active_character_name)
 
 
 func on_credits_button_pressed():

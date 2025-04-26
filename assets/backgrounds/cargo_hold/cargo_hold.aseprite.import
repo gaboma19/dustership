@@ -1,0 +1,14 @@
+[remap]
+
+importer="aseprite_wizard.plugin.noop"
+type="PackedDataContainer"
+uid="uid://c0s4l5orgrqxg"
+path="res://.godot/imported/cargo_hold.aseprite-a86188d6aa53685e278c6608bf0b1e21.res"
+
+[deps]
+
+source_file="res://assets/backgrounds/cargo_hold/cargo_hold.aseprite"
+dest_files=["res://.godot/imported/cargo_hold.aseprite-a86188d6aa53685e278c6608bf0b1e21.res"]
+
+[params]
+
