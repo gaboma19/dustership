@@ -120,7 +120,7 @@ metadata/_aseprite_wizard_interface_config_ = {
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D/Sprite2D"]
 libraries = {
-"": SubResource("AnimationLibrary_bn6o5")
+&"": SubResource("AnimationLibrary_bn6o5")
 }
 
 [node name="EchelonDecorationTiles" parent="AnimatableBody2D/Sprite2D" instance=ExtResource("4_g1bjr")]
@@ -136,7 +136,7 @@ offset = Vector2(0, -48)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="AnimatableBody2D/Sprite2D/ChargeSprite"]
 libraries = {
-"": SubResource("AnimationLibrary_wvr5o")
+&"": SubResource("AnimationLibrary_wvr5o")
 }
 autoplay = "default"
 
