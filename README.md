@@ -9,5 +9,3 @@
 ***
 
 **[Dustership](https://gutugutugames.itch.io/dustership)** is a space western where you play as April Overkill, a bounty hunter in the Gaucho galaxy.
-
-***
