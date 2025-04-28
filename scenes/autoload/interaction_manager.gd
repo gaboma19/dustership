@@ -5,6 +5,7 @@ extends Node
 var active_areas = []
 var can_interact = true
 var interaction_detail: AnimatedPanel
+var parent: Node2D
 
 @onready var detail_container = %DetailContainer
 
@@ -20,6 +21,12 @@ func unregister_area(area: InteractionArea):
 
 
 func _process(_delta):
+	if interaction_detail != null and parent != null:
+		var canvas_pos = parent.get_global_transform_with_canvas().origin
+		canvas_pos.x -= interaction_detail.size.x / 2
+		canvas_pos.y -= 96
+		detail_container.position = canvas_pos
+	
 	if (
 		active_areas.size() > 0 
 		and can_interact 
@@ -28,12 +35,17 @@ func _process(_delta):
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		if interaction_detail == null:
 			open(active_areas[0])
+		#else:
+			#var canvas_pos = parent.get_global_transform_with_canvas().origin
+			#canvas_pos.x -= interaction_detail.size.x / 2
+			#canvas_pos.y -= 96
+			#detail_container.position = canvas_pos
 	else:
 		close()
 
 
 func open(area: InteractionArea):
-	var parent = area.get_parent()
+	parent = area.get_parent()
 	var canvas_pos = parent.get_global_transform_with_canvas().origin
 	
 	interaction_detail = interaction_detail_scene.instantiate()
@@ -41,9 +53,9 @@ func open(area: InteractionArea):
 	detail_container.add_child(interaction_detail)
 	
 	await interaction_detail.resized
-	canvas_pos.x -= interaction_detail.size.x / 2
-	canvas_pos.y -= 96
-	detail_container.position = canvas_pos
+	#canvas_pos.x -= interaction_detail.size.x / 2
+	#canvas_pos.y -= 96
+	#detail_container.position = canvas_pos
 	
 	interaction_detail.open()
 
@@ -51,6 +63,9 @@ func open(area: InteractionArea):
 func close():
 	if interaction_detail != null:
 		interaction_detail.close()
+		
+		await get_tree().create_timer(0.3).timeout
+		parent = null
 		interaction_detail = null
 
 
