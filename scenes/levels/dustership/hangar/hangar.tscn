@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://dda0ar46gdn03"]
 
-[ext_resource type="Script" uid="uid://dcm8feg6rlv27" path="res://scenes/levels/level.gd" id="1_kx4rs"]
+[ext_resource type="Script" uid="uid://4a3jnt688yc0" path="res://scenes/levels/dustership/hangar/hangar.gd" id="1_nwg0s"]
 [ext_resource type="Texture2D" uid="uid://bo0qtcwxj3s7v" path="res://assets/backgrounds/hangar/hangar.png" id="3_ibpt4"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="3_m606j"]
 [ext_resource type="Texture2D" uid="uid://dlh3vht2pv2jb" path="res://assets/backgrounds/hangar/stairs.png" id="3_vayhj"]
@@ -13,12 +13,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aplvn"]
 
-[node name="Hangar" type="Node2D" node_paths=PackedStringArray("game_start", "entrance_points")]
+[node name="Hangar" type="Node2D" node_paths=PackedStringArray("entrance_points")]
 y_sort_enabled = true
-script = ExtResource("1_kx4rs")
+script = ExtResource("1_nwg0s")
 is_camera_static = true
-map_pin_cell = Vector2i(28, -19)
-game_start = NodePath("GameStart")
 entrance_points = [NodePath("EntrancePoint")]
 
 [node name="EntrancePoint" type="Node2D" parent="."]

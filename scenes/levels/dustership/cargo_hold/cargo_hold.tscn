@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dtuu0ftonlu67"]
+[gd_scene load_steps=16 format=3 uid="uid://dtuu0ftonlu67"]
 
 [ext_resource type="Script" uid="uid://dl61uxx5x6gpo" path="res://scenes/levels/dustership/cargo_hold/cargo_hold.gd" id="1_ub0tr"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_to2ci"]
@@ -8,7 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://csmg2kpokcxq6" path="res://assets/backgrounds/cargo_hold/forcefield.png" id="6_5dnnf"]
 [ext_resource type="Texture2D" uid="uid://ccbjw1osa535" path="res://assets/backgrounds/cargo_hold/elevator.png" id="7_vdewj"]
 [ext_resource type="Texture2D" uid="uid://c2ypejxlxeoee" path="res://assets/backgrounds/cargo_hold/railing.png" id="8_r0cjo"]
-[ext_resource type="Script" uid="uid://8okv68pk5qqj" path="res://scenes/components/interaction_area/interaction_area.gd" id="9_m3hne"]
+[ext_resource type="Script" uid="uid://dwnyvxdt8sfeg" path="res://scenes/levels/dustership/cargo_hold/elevator_interaction.gd" id="9_2tbgm"]
+[ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="10_2tbgm"]
 
 [sub_resource type="Animation" id="Animation_ub0tr"]
 length = 0.001
@@ -71,6 +72,20 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(79, 102), Vector2(79, 53)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ElevatorInteraction")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"up_animation_callback"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_e2qdq"]
@@ -163,13 +178,13 @@ texture = ExtResource("8_r0cjo")
 offset = Vector2(5, -12.5)
 
 [node name="ElevatorInteraction" type="Node2D" parent="."]
+position = Vector2(80, 123)
+script = ExtResource("9_2tbgm")
+path = "res://scenes/levels/dustership/hangar/hangar.tscn"
 
-[node name="InteractionArea" type="Area2D" parent="ElevatorInteraction"]
-script = ExtResource("9_m3hne")
-metadata/_custom_type_script = "uid://8okv68pk5qqj"
+[node name="InteractionArea" parent="ElevatorInteraction" instance=ExtResource("10_2tbgm")]
+action_name = "Use elevator"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ElevatorInteraction/InteractionArea"]
-visible = false
 z_index = 1
-position = Vector2(79, 122)
 shape = SubResource("CircleShape2D_ts264")

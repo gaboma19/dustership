@@ -40,9 +40,8 @@ func open(area: InteractionArea):
 	interaction_detail.action_name = area.action_name
 	detail_container.add_child(interaction_detail)
 	
-	#await detail_container.resized
-	
-	canvas_pos.x -= detail_container.size.x / 2
+	await interaction_detail.resized
+	canvas_pos.x -= interaction_detail.size.x / 2
 	canvas_pos.y -= 96
 	detail_container.position = canvas_pos
 	

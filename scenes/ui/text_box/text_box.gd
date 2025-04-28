@@ -64,8 +64,8 @@ func display_text(text_to_display: String, speech_sfx: AudioStream):
 		.set_trans(Tween.TRANS_BACK)
 	
 	_display_letter()
-	
-	
+
+
 func _display_letter():
 	label.text += text[letter_index]
 	

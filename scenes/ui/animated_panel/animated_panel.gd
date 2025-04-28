@@ -4,8 +4,6 @@ class_name AnimatedPanel
 var is_opening: bool = false
 var is_closing: bool = false
 
-#@onready var animation_player = $AnimationPlayer
-
 
 func open():
 	is_opening = true
