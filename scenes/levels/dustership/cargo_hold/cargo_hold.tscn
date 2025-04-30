@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtuu0ftonlu67"]
+[gd_scene load_steps=17 format=3 uid="uid://dtuu0ftonlu67"]
 
 [ext_resource type="Script" uid="uid://dl61uxx5x6gpo" path="res://scenes/levels/dustership/cargo_hold/cargo_hold.gd" id="1_ub0tr"]
 [ext_resource type="PackedScene" uid="uid://ccjd8iuh12v15" path="res://scenes/game_start/game_start.tscn" id="2_to2ci"]
 [ext_resource type="Texture2D" uid="uid://8ejam2u5bwcm" path="res://assets/backgrounds/cargo_hold/cargo_hold.png" id="3_ub0tr"]
 [ext_resource type="Texture2D" uid="uid://jupxn0g6wcw6" path="res://assets/backgrounds/cargo_hold/shadow.png" id="4_2tbgm"]
+[ext_resource type="PackedScene" uid="uid://c2ta8tqh16ih2" path="res://scenes/entities/npcs/bao_mao_npc/bao_mao_npc.tscn" id="4_e2qdq"]
 [ext_resource type="Texture2D" uid="uid://b2sypdb2by0hh" path="res://assets/backgrounds/cargo_hold/shaft.png" id="5_e2qdq"]
 [ext_resource type="Texture2D" uid="uid://csmg2kpokcxq6" path="res://assets/backgrounds/cargo_hold/forcefield.png" id="6_5dnnf"]
 [ext_resource type="Texture2D" uid="uid://ccbjw1osa535" path="res://assets/backgrounds/cargo_hold/elevator.png" id="7_vdewj"]
@@ -113,6 +114,7 @@ position = Vector2(16, 115)
 position = Vector2(16, 115)
 
 [node name="Background" type="Sprite2D" parent="."]
+z_index = -1
 texture_filter = 1
 texture = ExtResource("3_ub0tr")
 offset = Vector2(0, 75)
@@ -142,6 +144,10 @@ zoom = Vector2(4, 4)
 [node name="Entities" type="Node2D" parent="." groups=["entities"]]
 y_sort_enabled = true
 
+[node name="BaoMaoNpc" parent="Entities" instance=ExtResource("4_e2qdq")]
+z_index = -1
+position = Vector2(-25, 90)
+
 [node name="Shaft" type="Sprite2D" parent="."]
 position = Vector2(84, 106)
 texture = ExtResource("5_e2qdq")
@@ -154,14 +160,14 @@ position = Vector2(8, 0)
 texture = ExtResource("4_2tbgm")
 offset = Vector2(0.5, 64.5)
 
-[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
-z_index = 1
-
 [node name="Forcefield" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0.580392)
-position = Vector2(-20, 80)
+position = Vector2(-3, 87)
 texture = ExtResource("6_5dnnf")
-offset = Vector2(0, 0.5)
+offset = Vector2(-17, -6.5)
+
+[node name="Foreground" type="Node2D" parent="." groups=["foreground"]]
+z_index = 1
 
 [node name="Elevator" type="Node2D" parent="."]
 position = Vector2(79, 53)

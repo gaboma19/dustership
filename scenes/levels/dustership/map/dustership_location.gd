@@ -39,5 +39,7 @@ func on_pressed():
 	if scene_path.is_empty():
 		return
 	
+	EntityVariables.last_dustership_location = name
+	
 	ScreenTransition.transition_to_level_with_active_member_name(
 		scene_path, player_position, PartyManager.active_member_name)

@@ -1,10 +1,16 @@
 extends Node2D
 
 var is_keyboard_mouse_controls: bool = false
+var focused_control: Control
+
+@onready var canvas_layer = $CanvasLayer
 
 
 func _ready():
-	$CanvasLayer/RemembrancerCamp.grab_focus()
+	focused_control = canvas_layer.get_node(
+		EntityVariables.last_dustership_location)
+	
+	focused_control.grab_focus()
 
 
 func _unhandled_input(event: InputEvent):
@@ -21,4 +27,4 @@ func _unhandled_input(event: InputEvent):
 
 
 func on_joypad_detected():
-	$CanvasLayer/RemembrancerCamp.grab_focus()
+	focused_control.grab_focus()

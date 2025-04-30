@@ -21,7 +21,10 @@ func unregister_area(area: InteractionArea):
 
 
 func _process(_delta):
-	if interaction_detail != null and parent != null:
+	if (
+		interaction_detail != null
+		and parent != null
+	):
 		var canvas_pos = parent.get_global_transform_with_canvas().origin
 		canvas_pos.x -= interaction_detail.size.x / 2
 		canvas_pos.y -= 96
@@ -35,27 +38,18 @@ func _process(_delta):
 		active_areas.sort_custom(_sort_by_distance_to_player)
 		if interaction_detail == null:
 			open(active_areas[0])
-		#else:
-			#var canvas_pos = parent.get_global_transform_with_canvas().origin
-			#canvas_pos.x -= interaction_detail.size.x / 2
-			#canvas_pos.y -= 96
-			#detail_container.position = canvas_pos
 	else:
 		close()
 
 
 func open(area: InteractionArea):
 	parent = area.get_parent()
-	var canvas_pos = parent.get_global_transform_with_canvas().origin
 	
 	interaction_detail = interaction_detail_scene.instantiate()
 	interaction_detail.action_name = area.action_name
 	detail_container.add_child(interaction_detail)
 	
 	await interaction_detail.resized
-	#canvas_pos.x -= interaction_detail.size.x / 2
-	#canvas_pos.y -= 96
-	#detail_container.position = canvas_pos
 	
 	interaction_detail.open()
 

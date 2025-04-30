@@ -1,5 +1,7 @@
 extends Node
 
+## EntityVariables are not saved by the SaveManager
+
 # "chest_id": {
 #	"opened": false,
 #	"spawned": false,
@@ -21,3 +23,5 @@ var doors: Dictionary = {}
 #	"on": false
 #}
 var batteries: Dictionary = {}
+
+var last_dustership_location: String = "Apartment"

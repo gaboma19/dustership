@@ -1,7 +1,9 @@
-[gd_scene load_steps=35 format=3 uid="uid://c2ta8tqh16ih2"]
+[gd_scene load_steps=37 format=3 uid="uid://c2ta8tqh16ih2"]
 
+[ext_resource type="Script" uid="uid://dw1hglv2knrm1" path="res://scenes/entities/npcs/bao_mao_npc/bao_mao_npc.gd" id="1_ejciy"]
 [ext_resource type="PackedScene" uid="uid://10e8rkfwvvlr" path="res://scenes/components/interaction_area/interaction_area.tscn" id="1_o03me"]
-[ext_resource type="Texture2D" uid="uid://csu8kk1rygu1e" path="res://assets/bao_mao/bao_mao.png" id="2_0smg8"]
+[ext_resource type="PackedScene" uid="uid://c7t8vbrvflhqd" path="res://scenes/components/velocity_component/velocity_component.tscn" id="2_cxmpv"]
+[ext_resource type="Texture2D" uid="uid://c4m8g2eywc6fr" path="res://assets/bao_mao/bao_mao_2.png" id="2_p7k2x"]
 [ext_resource type="Script" uid="uid://jna82vqqugri" path="res://scripts/state_machine/state_machine.gd" id="3_syi3a"]
 [ext_resource type="Script" uid="uid://bp8umm7d8fts1" path="res://scenes/entities/npcs/states/scene.gd" id="4_6qy0s"]
 [ext_resource type="Script" uid="uid://bf20n03pxdqg6" path="res://scenes/entities/npcs/states/idle.gd" id="5_dj2td"]
@@ -336,6 +338,9 @@ radius = 4.0
 height = 8.0
 
 [node name="BaoMaoNpc" type="CharacterBody2D"]
+script = ExtResource("1_ejciy")
+
+[node name="VelocityComponent" parent="." instance=ExtResource("2_cxmpv")]
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_7skge")
@@ -349,7 +354,7 @@ parameters/walk/TimeScale/scale = 1.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_j6uay")
+&"": SubResource("AnimationLibrary_j6uay")
 }
 
 [node name="InteractionArea" parent="." instance=ExtResource("1_o03me")]
@@ -361,7 +366,7 @@ shape = SubResource("CircleShape2D_tdriu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
-texture = ExtResource("2_0smg8")
+texture = ExtResource("2_p7k2x")
 offset = Vector2(0, -8)
 hframes = 5
 vframes = 5
@@ -375,7 +380,7 @@ metadata/_aseprite_wizard_config_ = {
 "only_visible": true,
 "player": "AnimationPlayer",
 "slice": "",
-"source": "res://assets/bao_mao/bao_mao.aseprite"
+"source": "res://assets/bao_mao/bao_mao_2.aseprite"
 }
 metadata/_aseprite_wizard_interface_config_ = {
 "layer_section": true,
@@ -395,6 +400,5 @@ initial_state = NodePath("Idle")
 [node name="Scene" type="Node" parent="StateMachine"]
 script = ExtResource("4_6qy0s")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_timer")]
+[node name="Idle" type="Node" parent="StateMachine"]
 script = ExtResource("5_dj2td")
-idle_timer = NodePath("")

@@ -8,16 +8,30 @@ extends State
 func enter(_msg := {}) -> void:
 	dusteki.velocity_component.stop()
 	
+	#play_idle_animation()
+
+
+#func exit() -> void:
+	#stop_idle_animation()
+
+
+func stop_idle_animation():
+	if idle_timer == null:
+		return
+	
+	idle_timer.stop()
+	idle_timer.timeout.disconnect(on_idle_timer_timeout)
+
+
+func play_idle_animation():
+	if idle_timer == null:
+		return
+	
 	var delay = randf_range(0.0, 0.4)
 	idle_timer.wait_time += delay
 	
-	#idle_timer.timeout.connect(on_idle_timer_timeout)
+	idle_timer.timeout.connect(on_idle_timer_timeout)
 	idle_timer.start()
-
-
-func exit() -> void:
-	idle_timer.stop()
-	#idle_timer.timeout.disconnect(on_idle_timer_timeout)
 
 
 func get_random_cardinal_vector2() -> Vector2:
