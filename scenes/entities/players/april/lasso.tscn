@@ -1,6 +1,67 @@
-[gd_scene format=3 uid="uid://dxefkn77cwgjo"]
+[gd_scene load_steps=3 format=3 uid="uid://dxefkn77cwgjo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uwmv8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f8x74"]
+height = 70.0
 
 [node name="Lasso" type="Line2D"]
-points = PackedVector2Array(8, -53, 0, -53, -32, -45, -40, -29, -32, -5, 0, 3, 16, 3, 24, 3, 32, -13, 24, -37, 16, -53)
 closed = true
 joint_mode = 2
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("CircleShape2D_uwmv8")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(0, 16)
+node_a = NodePath("../StaticBody2D")
+node_b = NodePath("../RigidBody2D")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(0, 56)
+collision_layer = 32768
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("CapsuleShape2D_f8x74")
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="."]
+position = Vector2(0, 96)
+node_a = NodePath("../RigidBody2D")
+node_b = NodePath("../RigidBody2D2")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(0, 136)
+collision_layer = 32768
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+shape = SubResource("CapsuleShape2D_f8x74")
+
+[node name="PinJoint2D3" type="PinJoint2D" parent="."]
+position = Vector2(0, 176)
+node_a = NodePath("../RigidBody2D2")
+node_b = NodePath("../RigidBody2D3")
+
+[node name="RigidBody2D3" type="RigidBody2D" parent="."]
+position = Vector2(0, 216)
+collision_layer = 32768
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D3"]
+shape = SubResource("CapsuleShape2D_f8x74")
+
+[node name="PinJoint2D4" type="PinJoint2D" parent="."]
+position = Vector2(0, 256)
+node_a = NodePath("../RigidBody2D3")
+node_b = NodePath("../RigidBody2D4")
+
+[node name="RigidBody2D4" type="RigidBody2D" parent="."]
+position = Vector2(0, 296)
+collision_layer = 32768
+collision_mask = 256
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D4"]
+shape = SubResource("CapsuleShape2D_f8x74")
