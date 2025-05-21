@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dxefkn77cwgjo"]
+[gd_scene load_steps=5 format=3 uid="uid://dxefkn77cwgjo"]
+
+[ext_resource type="Texture2D" uid="uid://6teqqehhdcuv" path="res://assets/rope/rope.png" id="1_eilt7"]
+[ext_resource type="Script" uid="uid://do074dmpuge22" path="res://scenes/entities/players/april/lasso.gd" id="1_f8x74"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_uwmv8"]
 
@@ -6,8 +9,15 @@
 height = 70.0
 
 [node name="Lasso" type="Line2D"]
+texture_repeat = 2
 closed = true
+texture = ExtResource("1_eilt7")
+texture_mode = 1
 joint_mode = 2
+script = ExtResource("1_f8x74")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(16, 168)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 

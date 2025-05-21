@@ -427,9 +427,6 @@ offset_top = 160.0
 offset_right = 600.0
 offset_bottom = 176.0
 focus_neighbor_left = NodePath("../Apartment")
-focus_neighbor_top = NodePath("../Hangar")
-focus_neighbor_right = NodePath("../Hangar")
-focus_neighbor_bottom = NodePath("../Apartment")
 focus_next = NodePath("../Hangar")
 focus_previous = NodePath(".")
 location_name = "Remembrancer camp"
@@ -442,9 +439,7 @@ offset_top = 288.0
 offset_right = 368.0
 offset_bottom = 304.0
 focus_neighbor_left = NodePath("../Hangar")
-focus_neighbor_top = NodePath("../Hangar")
 focus_neighbor_right = NodePath("../RemembrancerCamp")
-focus_neighbor_bottom = NodePath("../RemembrancerCamp")
 focus_next = NodePath("../RemembrancerCamp")
 focus_previous = NodePath("../Hangar")
 location_name = "Apartment"
@@ -456,12 +451,17 @@ offset_left = 144.0
 offset_top = 208.0
 offset_right = 160.0
 offset_bottom = 224.0
-focus_neighbor_left = NodePath("../RemembrancerCamp")
-focus_neighbor_top = NodePath("../RemembrancerCamp")
 focus_neighbor_right = NodePath("../Apartment")
-focus_neighbor_bottom = NodePath("../Apartment")
 focus_next = NodePath("../Apartment")
 focus_previous = NodePath("../RemembrancerCamp")
 location_name = "Hangar"
 scene_path = "res://scenes/levels/dustership/hangar/hangar.tscn"
 player_position = Vector2(-200, 275)
+
+[node name="Line2D" type="Line2D" parent="CanvasLayer"]
+points = PackedVector2Array(160, 216, 336, 280)
+width = 2.0
+
+[node name="Line2D2" type="Line2D" parent="CanvasLayer"]
+points = PackedVector2Array(568, 168, 368, 280)
+width = 2.0

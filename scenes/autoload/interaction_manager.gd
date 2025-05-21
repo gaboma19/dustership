@@ -29,7 +29,6 @@ func _process(_delta):
 		canvas_pos.x -= interaction_detail.size.x / 2
 		canvas_pos.y -= 96
 		detail_container.position = canvas_pos
-	
 	if (
 		active_areas.size() > 0 
 		and can_interact 
@@ -47,10 +46,10 @@ func open(area: InteractionArea):
 	
 	interaction_detail = interaction_detail_scene.instantiate()
 	interaction_detail.action_name = area.action_name
+	detail_container.size = Vector2.ZERO
 	detail_container.add_child(interaction_detail)
 	
 	await interaction_detail.resized
-	
 	interaction_detail.open()
 
 

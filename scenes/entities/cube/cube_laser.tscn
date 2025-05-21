@@ -25,15 +25,15 @@ texture_mode = 1
 [node name="CastParticles" type="GPUParticles2D" parent="."]
 z_index = 1
 emitting = false
-process_material = ExtResource("3_1lipb")
 lifetime = 0.3
+process_material = ExtResource("3_1lipb")
 
 [node name="CollisionParticles" type="GPUParticles2D" parent="."]
 z_index = 1
 emitting = false
-process_material = ExtResource("4_ifwif")
 texture = ExtResource("3_2khc0")
 lifetime = 0.3
+process_material = ExtResource("4_ifwif")
 
 [node name="BeamParticles" type="GPUParticles2D" parent="."]
 z_index = 1
